@@ -5,46 +5,72 @@
 	border: 0;
 }
 
-html, body, #main {
-	color: #555;
-	height: 100%;
+html,body{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  font-family: microsoft yahei,helvetica,simhei,simsun,sans-serif;
+}
+
+.footer{
+	height: 50px;
+	background-color: #3a9;
+}
+
+#content{
+	/* flex: 1; */
+	flex-grow:1;
+	flex-shrink:1;
+	flex-basis: 0;
+	overflow: scroll;
+	padding-left: 300px;
 }
 
 aside {
 	width: 300px;
-	height: 100%;
-	position: fixed;
+	position:absolute;
+	top: 50px;
+	bottom: 50px;
 	background: #262a30;
 }
 
-nav {
+#header {
+	width: 100%;
 	height: 50px;
-	/*background: #b9e1b1;*/
+	background: #1b926c;
 }
 
-#content {
-	height: 100%;
-	padding-left: 300px;
-	/*background: #f9f7ed;*/
-}
+
 /* #################### 全局 #################### */
 
 /* #################### 导航 #################### */
-nav #menu {
+#header{
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+}
+
+#title {
+	font-size: 20px;
+	text-decoration: none;
+	color: #fff;
+	padding: 10px 15px;
+}
+#menu {
 	float: right;
 	padding-right: 20px;
 }
-nav ul li {
-	float: left;
+#menu .menu-item {
+    display: inline-block;
 	padding: 10px;
 	list-style: none;
 }
-nav ul li a{
-	color: #555;
+#header .menu-item-link{
 	font-size: 12px;
+	color: #b0ddce;
 	text-decoration: none;
 }
-nav ul li a:hover {
+#header .menu-item-link:hover {
 	border-bottom: 1px solid;
 }
 /* #################### 导航 #################### */
@@ -327,17 +353,11 @@ aside #toc a:hover{
 
 /* #################### 主页 #################### */
 
-#articleList {
-	position: absolute;
-}
-
 #articleList .article-li {
+	height: 150px;
 	margin: 20px;
-	height: 200px;
-	border-radius: 5px;
-	box-shadow: 1px 1px 8px #999;
 	list-style: none;
-	border: 1px solid #999;
+	border-bottom: 1px solid #eee;
 }
 
 #articleList .article-digest * {
@@ -354,30 +374,6 @@ aside #toc a:hover{
 #articleList .article-digest{
 	padding: 30px;
     position: relative;
-    top: 35px;
-    width: 85%;
-}
-
-#articleList .article-date{
-	position: relative;
-	background: #e06c75;
-	color: #f9f7ed;
-	padding: 10px;
-	top: -5px;
-	border-radius: 2px;
-	margin-left: 30px;
-}
-
-#articleList .article-read {
-    position: absolute;
-    background: #e06c75;
-    color: #f9f7ed;
-    padding: 10px;
-    border-radius: 2px;
-    right: 15px;
-    margin-top: 140px;
-    text-decoration: none;
-    z-index: 1;
 }
 
 #articleList .article-title {
@@ -386,8 +382,13 @@ aside #toc a:hover{
 	text-decoration: none;
 	font-size: 24px;
 	font-weight: bold;
-    top: 50px;
-    right: 110px;
+}
+
+#articleList .post-date {
+	position: relative;
+	font-size: 9px;
+	color: #999;
+	float: right;
 }
 
 /* #################### 主页 #################### */

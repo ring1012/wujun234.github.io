@@ -118,7 +118,7 @@ function serachTree() {
 
 		// 没值就收起父目录，但是得把 active 的父目录都展开
 		if ( inputContent.length === 0 ) {
-			$(".fa-folder-open").removeClass("fa-folder-open").addClass("fa-folder");
+			$(".fa-minus-square-o").removeClass("fa-minus-square-o").addClass("fa-plus-square-o");
 			$("#tree ul").css("display", "none");
 			if ( $("#tree .active").length ) {
 				showActiveTree($("#tree .active"), true);
@@ -129,7 +129,7 @@ function serachTree() {
 		}
 		// 有值就搜索，并且展开父目录
 		else {
-			$(".fa-folder").removeClass("fa-folder").addClass("fa-folder-open");
+			$(".fa-plus-square-o").removeClass("fa-plus-square-o").addClass("fa-minus-square-o");
 			$("#tree ul").css("display", "none");
 			var searchResult = $("#tree li").find("a:contains('" + inputContent + "')");
 			if ( searchResult.length ) { 
@@ -153,21 +153,21 @@ function clickTreeDirectory() {
 		e.preventDefault();
 
 		var icon = $(this).children(".fa");
-		var iconIsOpen = icon.hasClass("fa-folder-open");
+		var iconIsOpen = icon.hasClass("fa-minus-square-o");
 		var subTree = $(this).siblings("ul");
 
-		icon.removeClass("fa-folder-open").removeClass("fa-folder");
+		icon.removeClass("fa-minus-square-o").removeClass("fa-plus-square-o");
 
         if (iconIsOpen) {
             if (typeof subTree != "undefined") {
                 subTree.slideUp({ duration: 100 });
             }
-            icon.addClass("fa-folder");
+            icon.addClass("fa-plus-square-o");
         } else {
             if (typeof subTree != "undefined") {
                 subTree.slideDown({ duration: 100 });
             }
-            icon.addClass("fa-folder-open");
+            icon.addClass("fa-minus-square-o");
         }
 	});
 }
@@ -184,7 +184,7 @@ function showActiveTree(jqNode, isSiblings) {
 		if ( isSiblings ) { 
 			jqNode.siblings().css("display", "block");
 			jqNode.siblings("a").css("display", "inline");
-			jqNode.siblings("a").find(".fa-folder").removeClass("fa-folder").addClass("fa-folder-open");
+			jqNode.siblings("a").find(".fa-plus-square-o").removeClass("fa-plus-square-o").addClass("fa-minus-square-o");
 		}
 	}
 	jqNode.each(function(){ showActiveTree($(this).parent(), isSiblings); });
