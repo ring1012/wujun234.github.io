@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		04 构筑测试体系 | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,36 +4395,42 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:39</span>
+	<span id="post-date">2019-12-18 01:00:44</span>
 </div>
 
 
 <div id="article">
 	<p>编写优良的测试程序，可以极大地提高变成速度，即使不进行重构也一样如此。</p>
-<h3 id="1-自测试代码的价值"><a href="#1-自测试代码的价值" class="headerlink" title="1 自测试代码的价值"></a>1 自测试代码的价值</h3><ul>
+<h3 id="1-自测试代码的价值"><a class="header-anchor" href="#1-自测试代码的价值">¶</a>1 自测试代码的价值</h3>
+<ul>
 <li>程序员时间消耗：编写代码占据很少一部分，大部分时间用来调试。</li>
 <li>确保所有测试都完全自动化，让它们检查自己的测试结果。</li>
 <li>撰写测试代码的最有用时机是在开始编程之前。当需要添加新特性得时候，先写测试代码。</li>
 </ul>
-<h3 id="2-Junit-测试框架"><a href="#2-Junit-测试框架" class="headerlink" title="2 Junit 测试框架"></a>2 Junit 测试框架</h3><ul>
+<h3 id="2-Junit-测试框架"><a class="header-anchor" href="#2-Junit-测试框架">¶</a>2 Junit 测试框架</h3>
+<ul>
 <li>准备好测试夹具，使用注解@Before 、@After、 @BeforeClass、 @AfterClass</li>
 <li>频繁地运行测试。每次编译请把测试也考虑进去——每天至少执行每个测试一次。</li>
 <li>编写测试代码时，往往一开始让它们失败，为了确保测试机制的确可行。</li>
 </ul>
-<h5 id="单元测试和功能测试"><a href="#单元测试和功能测试" class="headerlink" title="单元测试和功能测试"></a>单元测试和功能测试</h5><ul>
-<li>单元测试 <ul>
+<h5 id="单元测试和功能测试"><a class="header-anchor" href="#单元测试和功能测试">¶</a>单元测试和功能测试</h5>
+<ul>
+<li>单元测试
+<ul>
 <li>Junit 的用途是单元测试。</li>
 <li>编写单元测试得目的是为了提高程序员得生产率。</li>
 </ul>
 </li>
-<li>功能测试 <ul>
+<li>功能测试
+<ul>
 <li>功能测试用来保证软件能够正常运作。</li>
 <li>功能测试从客户的角度保证质量，并不关心程序员得生产力。</li>
 </ul>
 </li>
 <li>每当你收到bug报告，请先写一个单元测试来暴露bug</li>
 </ul>
-<h3 id="3-添加更多测试"><a href="#3-添加更多测试" class="headerlink" title="3 添加更多测试"></a>3 添加更多测试</h3><ul>
+<h3 id="3-添加更多测试"><a class="header-anchor" href="#3-添加更多测试">¶</a>3 添加更多测试</h3>
+<ul>
 <li>针对可能失败的情况进行测试</li>
 <li>测试你担心出错的部分</li>
 <li>集中测试边界条件</li>
@@ -4416,19 +4445,23 @@
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		01 Spring Cloud Zuul | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,195 +4395,318 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:23</span>
+	<span id="post-date">2019-12-18 01:00:43</span>
 </div>
 
 
 <div id="article">
 	<p>Spring Cloud Zuul是提供负载均衡、反向代理、权限认证的一个API gateway。</p>
-<h2 id="简单路由"><a href="#简单路由" class="headerlink" title="简单路由"></a>简单路由</h2><ol>
-<li>添加依赖<br>引入 spring-cloud-starter-zuul 包<pre><code>&lt;dependency&gt;
- &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
- &lt;artifactId&gt;spring-cloud-starter-zuul&lt;/artifactId&gt;
-&lt;/dependency&gt;</code></pre></li>
-<li>配置文件<pre><code>spring.application.name=gateway-service-zuul
-server.port=9000
-</code></pre></li>
+<h2 id="简单路由"><a class="header-anchor" href="#简单路由">¶</a>简单路由</h2>
+<ol>
+<li>添加依赖<br>
+引入 spring-cloud-starter-zuul 包</li>
 </ol>
-<p>#这里的配置表示，访问/yyy/** 直接重定向到<a href="http://www.xxx.com/" target="_blank" rel="noopener">http://www.xxx.com/</a>**<br>zuul.routes.api-name.path=/yyy/**<br>zuul.routes.api-name.url=<a href="http://www.xxx.com/" target="_blank" rel="noopener">http://www.xxx.com/</a></p>
-<pre><code>api-name为路由的名字，可自定，但是一组映射关系的path和url要相同
-3. 启动类  
-启动类添加 @EnableZuulProxy ，支持网关路由。
-
-启动后访问http://localhost:9000/yyy/zzz会跳转到http://www.xxx.com/zzz
-
-## 服务路由
-通过url映射转发有局限性，服务变化配置就得变。将Zuul服务化可以实现对serviceId的映射。
-1. 添加eureka依赖</code></pre><dependency>
-    <groupId>org.springframework.cloud</groupId>
-    <artifactId>spring-cloud-starter-eureka</artifactId>
-</dependency>
-```
-2. 配置文件  
-配置修改为：
-```
-spring.application.name=gateway-service-zuul
+<pre><code>&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-cloud-starter-zuul&lt;/artifactId&gt;
+&lt;/dependency&gt;
+</code></pre>
+<ol start="2">
+<li>配置文件</li>
+</ol>
+<pre><code>spring.application.name=gateway-service-zuul
 server.port=9000
 
-<p>zuul.routes.api-name.path=/producer/**<br>zuul.routes.api-name.serviceId=eureka-producer</p>
-<p>eureka.client.serviceUrl.defaultZone=<a href="http://localhost:8000/eureka/" target="_blank" rel="noopener">http://localhost:8000/eureka/</a></p>
-<pre><code>启动后访问http://localhost:9000/producer/xx会跳转到eureka上serviceId=eureka-producer的服务/xx
+#这里的配置表示，访问/yyy/** 直接重定向到http://www.xxx.com/**
+zuul.routes.api-name.path=/yyy/**
+zuul.routes.api-name.url=http://www.xxx.com/
+</code></pre>
+<p>api-name为路由的名字，可自定，但是一组映射关系的path和url要相同<br>
+3. 启动类<br>
+启动类添加 @EnableZuulProxy ，支持网关路由。</p>
+<p>启动后访问http://localhost:9000/yyy/zzz会跳转到http://www.xxx.com/zzz</p>
+<h2 id="服务路由"><a class="header-anchor" href="#服务路由">¶</a>服务路由</h2>
+<p>通过url映射转发有局限性，服务变化配置就得变。将Zuul服务化可以实现对serviceId的映射。</p>
+<ol>
+<li>添加eureka依赖</li>
+</ol>
+<pre><code>&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-cloud-starter-eureka&lt;/artifactId&gt;
+&lt;/dependency&gt;
+</code></pre>
+<ol start="2">
+<li>配置文件<br>
+配置修改为：</li>
+</ol>
+<pre><code>spring.application.name=gateway-service-zuul
+server.port=9000
 
-### 默认路由规则
-不用每个服务都配置，默认情况下，Zuul会代理所有注册到Eureka Server的微服务，并且Zuul的路由规则如下：   `http://ZUUL_HOST:ZUUL_PORT/serviceId/**` 会被转发到serviceId对应的微服务。
+zuul.routes.api-name.path=/producer/**
+zuul.routes.api-name.serviceId=eureka-producer
 
-## 服务过滤
-在Zuul中定义过滤器只需要继承ZuulFilter抽象类，实现其定义的四个抽象函数，就可对请求进行拦截与过滤，实现对外服务的安全控制。
-### 自定义Filter
-实现自定义Filter，需要继承ZuulFilter的类，并覆盖其中的4个方法：
-* filterType：返回一个字符串代表过滤器的类型。在zuul中定义了四种不同生命周期的过滤器类：
-    * pre：可以在请求被路由之前调用
-    * routing：在路由请求时候被调用
-    * post：在routing和error过滤器之后被调用
-    * error：处理请求时发生错误时被调用
-* filterOrder：通过int值来定义过滤器的执行顺序
-* shouldFilter：返回一个boolean类型来判断该过滤器是否要执行，实现过滤器的开关。
-* run：过滤器的具体逻辑。</code></pre><p>public class AccessFilter extends ZuulFilter  {</p>
-<pre><code>@Override
-public String filterType() {
-    return &quot;pre&quot;;
-}
+eureka.client.serviceUrl.defaultZone=http://localhost:8000/eureka/
+</code></pre>
+<p>启动后访问http://localhost:9000/producer/xx会跳转到eureka上serviceId=eureka-producer的服务/xx</p>
+<h3 id="默认路由规则"><a class="header-anchor" href="#默认路由规则">¶</a>默认路由规则</h3>
+<p>不用每个服务都配置，默认情况下，Zuul会代理所有注册到Eureka Server的微服务，并且Zuul的路由规则如下：   <code>http://ZUUL_HOST:ZUUL_PORT/serviceId/**</code> 会被转发到serviceId对应的微服务。</p>
+<h2 id="服务过滤"><a class="header-anchor" href="#服务过滤">¶</a>服务过滤</h2>
+<p>在Zuul中定义过滤器只需要继承ZuulFilter抽象类，实现其定义的四个抽象函数，就可对请求进行拦截与过滤，实现对外服务的安全控制。</p>
+<h3 id="自定义Filter"><a class="header-anchor" href="#自定义Filter">¶</a>自定义Filter</h3>
+<p>实现自定义Filter，需要继承ZuulFilter的类，并覆盖其中的4个方法：</p>
+<ul>
+<li>filterType：返回一个字符串代表过滤器的类型。在zuul中定义了四种不同生命周期的过滤器类：
+<ul>
+<li>pre：可以在请求被路由之前调用</li>
+<li>routing：在路由请求时候被调用</li>
+<li>post：在routing和error过滤器之后被调用</li>
+<li>error：处理请求时发生错误时被调用</li>
+</ul>
+</li>
+<li>filterOrder：通过int值来定义过滤器的执行顺序</li>
+<li>shouldFilter：返回一个boolean类型来判断该过滤器是否要执行，实现过滤器的开关。</li>
+<li>run：过滤器的具体逻辑。</li>
+</ul>
+<pre><code>public class AccessFilter extends ZuulFilter  {
 
-@Override
-public int filterOrder() {
-    return 0;
-}
+    @Override
+    public String filterType() {
+        return &quot;pre&quot;;
+    }
 
-@Override
-public boolean shouldFilter() {
-    return true;
-}
+    @Override
+    public int filterOrder() {
+        return 0;
+    }
 
-@Override
-public Object run() {
-    RequestContext ctx = RequestContext.getCurrentContext();
-    HttpServletRequest request = ctx.getRequest();
+    @Override
+    public boolean shouldFilter() {
+        return true;
+    }
 
-    Object accessToken = request.getParameter(&quot;accessToken&quot;);
-    if(accessToken == null) {
-        //令zuul过滤该请求，不对其进行路由
-        ctx.setSendZuulResponse(false);
-        //设置了其返回的错误码  
-        ctx.setResponseStatusCode(401);
-        //对返回body内容进行编辑
-        ctx.setResponseBody(&quot;&quot;);
+    @Override
+    public Object run() {
+        RequestContext ctx = RequestContext.getCurrentContext();
+        HttpServletRequest request = ctx.getRequest();
+
+        Object accessToken = request.getParameter(&quot;accessToken&quot;);
+        if(accessToken == null) {
+            //令zuul过滤该请求，不对其进行路由
+            ctx.setSendZuulResponse(false);
+            //设置了其返回的错误码  
+            ctx.setResponseStatusCode(401);
+            //对返回body内容进行编辑
+            ctx.setResponseBody(&quot;&quot;);
+            return null;
+        }
+        log.info(&quot;access token ok&quot;);
         return null;
     }
-    log.info(&quot;access token ok&quot;);
-    return null;
-}</code></pre><p>}</p>
-<pre><code>实现了自定义过滤器之后，还需要在主类实例化该过滤器才能生效：</code></pre><pre><code>@Bean
-public AccessFilter accessFilter() {
-    return new AccessFilter();
-}</code></pre><pre><code>### filterType生命周期
-![](/images/1545270181259.jpg)
 
-### 核心过滤器
-Spring Cloud Zuul默认地实现了一批核心过滤器，它们会在API网关服务启动的时候被自动地加载和启用。
-
-|类型 |    顺序 |    过滤器     |功能|
-|--- | --- | ---| ---| ---|
-|pre     |-3 |    ServletDetectionFilter |    标记处理Servlet的类型
-pre |    -2     |Servlet30WrapperFilter |    包装HttpServletRequest请求
-pre |    -1 |    FormBodyWrapperFilter |    包装请求体
-route |    1 |    DebugFilter     |标记调试标志
-route |    5 |    PreDecorationFilter |    处理请求上下文供后续使用
-route |    10     |RibbonRoutingFilter |    serviceId请求转发
-route |    100 |    SimpleHostRoutingFilter |    url请求转发
-route |    500 |    SendForwardFilter |    forward请求转发
-post |    0 |    SendErrorFilter |    处理有错误的请求响应
-post |    1000 |    SendResponseFilter |    处理正常的请求响应
-
-###### 禁用指定的Filter
-可以在application.yml中配置需要禁用的filter，格式：</code></pre><p>zuul:<br>    FormBodyWrapperFilter:<br>        pre:<br>            disable: true</p>
-<pre><code>### 全局异常处理
-添加一个类型为”error”的filter，将错误信息写入RequestContext，这样SendErrorFilter就可以获取错误信息了。</code></pre><p>class ErrorFilter extends ZuulFilter {<br>    @Override<br>    String filterType() {<br>        return FilterConstants.ERROR_TYPE;<br>    }</p>
-<pre><code>@Override
-int filterOrder() {
-    return 10;
 }
-
-@Override
-boolean shouldFilter() {
-    return true;
+</code></pre>
+<p>实现了自定义过滤器之后，还需要在主类实例化该过滤器才能生效：</p>
+<pre><code>	@Bean
+	public AccessFilter accessFilter() {
+		return new AccessFilter();
+	}
+</code></pre>
+<h3 id="filterType生命周期"><a class="header-anchor" href="#filterType生命周期">¶</a>filterType生命周期</h3>
+<p><img src="/images/1545270181259.jpg" alt=""></p>
+<h3 id="核心过滤器"><a class="header-anchor" href="#核心过滤器">¶</a>核心过滤器</h3>
+<p>Spring Cloud Zuul默认地实现了一批核心过滤器，它们会在API网关服务启动的时候被自动地加载和启用。</p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>顺序</th>
+<th>过滤器</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>pre</td>
+<td>-3</td>
+<td>ServletDetectionFilter</td>
+<td>标记处理Servlet的类型</td>
+</tr>
+<tr>
+<td>pre</td>
+<td>-2</td>
+<td>Servlet30WrapperFilter</td>
+<td>包装HttpServletRequest请求</td>
+</tr>
+<tr>
+<td>pre</td>
+<td>-1</td>
+<td>FormBodyWrapperFilter</td>
+<td>包装请求体</td>
+</tr>
+<tr>
+<td>route</td>
+<td>1</td>
+<td>DebugFilter</td>
+<td>标记调试标志</td>
+</tr>
+<tr>
+<td>route</td>
+<td>5</td>
+<td>PreDecorationFilter</td>
+<td>处理请求上下文供后续使用</td>
+</tr>
+<tr>
+<td>route</td>
+<td>10</td>
+<td>RibbonRoutingFilter</td>
+<td>serviceId请求转发</td>
+</tr>
+<tr>
+<td>route</td>
+<td>100</td>
+<td>SimpleHostRoutingFilter</td>
+<td>url请求转发</td>
+</tr>
+<tr>
+<td>route</td>
+<td>500</td>
+<td>SendForwardFilter</td>
+<td>forward请求转发</td>
+</tr>
+<tr>
+<td>post</td>
+<td>0</td>
+<td>SendErrorFilter</td>
+<td>处理有错误的请求响应</td>
+</tr>
+<tr>
+<td>post</td>
+<td>1000</td>
+<td>SendResponseFilter</td>
+<td>处理正常的请求响应</td>
+</tr>
+</tbody>
+</table>
+<h6 id="禁用指定的Filter"><a class="header-anchor" href="#禁用指定的Filter">¶</a>禁用指定的Filter</h6>
+<p>可以在application.yml中配置需要禁用的filter，格式：</p>
+<pre><code>zuul:
+    FormBodyWrapperFilter:
+        pre:
+            disable: true
+</code></pre>
+<h3 id="全局异常处理"><a class="header-anchor" href="#全局异常处理">¶</a>全局异常处理</h3>
+<p>添加一个类型为”error”的filter，将错误信息写入RequestContext，这样SendErrorFilter就可以获取错误信息了。</p>
+<pre><code>class ErrorFilter extends ZuulFilter {
+	@Override
+	String filterType() {
+		return FilterConstants.ERROR_TYPE;
+	}
+		
+	@Override
+	int filterOrder() {
+		return 10;
+	}
+		
+	@Override
+	boolean shouldFilter() {
+		return true;
+	}
+		
+	@Override
+	Object run() {
+		RequestContext context = getRequestContext();
+		Throwable throwable = context.getThrowable();
+		ctx.set(&quot;error.status_code&quot;, HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+		ctx.set(&quot;error.exception&quot;, throwable.getCause());
+		return null;
+	}
 }
+</code></pre>
+<p><img src="/images/1545270181502.jpg" alt="修改后处理逻辑"></p>
+<h2 id="路由熔断"><a class="header-anchor" href="#路由熔断">¶</a>路由熔断</h2>
+<p>Zuul提供熔断支持。当某个服务出现异常时，直接返回预设的信息。 目前只支持服务级别的熔断，不支持具体到某个URL进行熔断。</p>
+<h3 id="自定义fallback"><a class="header-anchor" href="#自定义fallback">¶</a>自定义fallback</h3>
+<p>通过继承FallbackProvider接口,自定义fallback，并指定给某个route，实现该route的熔断处理。</p>
+<pre><code>public interface FallbackProvider {
 
-@Override
-Object run() {
-    RequestContext context = getRequestContext();
-    Throwable throwable = context.getThrowable();
-    ctx.set(&quot;error.status_code&quot;, HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
-    ctx.set(&quot;error.exception&quot;, throwable.getCause());
-    return null;
-}</code></pre><p>}</p>
-<pre><code>
-![修改后处理逻辑](/images/1545270181502.jpg)
-## 路由熔断
-Zuul提供熔断支持。当某个服务出现异常时，直接返回预设的信息。 目前只支持服务级别的熔断，不支持具体到某个URL进行熔断。
-### 自定义fallback
-通过继承FallbackProvider接口,自定义fallback，并指定给某个route，实现该route的熔断处理。</code></pre><p>public interface FallbackProvider {</p>
-<pre><code>//指明拦截哪个服务
-public String getRoute();
+    //指明拦截哪个服务
+	public String getRoute();
 
-//定制返回内容
-public ClientHttpResponse fallbackResponse();
+    //定制返回内容
+	public ClientHttpResponse fallbackResponse();
 
-//异常信息
-public ClientHttpResponse fallbackResponse(Throwable cause);</code></pre><p>}</p>
-<pre><code>
-## 路由重试
-Zuul结合Spring Retry实现了路由重试。用了retry，断路器就只有在该服务的所有实例都无法运作的情况下才能起作用。不用retry，仅使用负载均衡和熔断，就必须考虑到是否能够接受单个服务实例关闭和eureka刷新服务列表之间带来的短时间的熔断。如果可以接受，就无需使用retry。
-1. 添加Spring Retry依赖</code></pre><dependency>
-    <groupId>org.springframework.retry</groupId>
-    <artifactId>spring-retry</artifactId>
-</dependency>
-```
-2. 配置文件中开启Zuul Retry
-```
-#是否开启重试功能
+    //异常信息
+    public ClientHttpResponse fallbackResponse(Throwable cause);
+}
+</code></pre>
+<h2 id="路由重试"><a class="header-anchor" href="#路由重试">¶</a>路由重试</h2>
+<p>Zuul结合Spring Retry实现了路由重试。用了retry，断路器就只有在该服务的所有实例都无法运作的情况下才能起作用。不用retry，仅使用负载均衡和熔断，就必须考虑到是否能够接受单个服务实例关闭和eureka刷新服务列表之间带来的短时间的熔断。如果可以接受，就无需使用retry。</p>
+<ol>
+<li>添加Spring Retry依赖</li>
+</ol>
+<pre><code>&lt;dependency&gt;
+	&lt;groupId&gt;org.springframework.retry&lt;/groupId&gt;
+	&lt;artifactId&gt;spring-retry&lt;/artifactId&gt;
+&lt;/dependency&gt;
+</code></pre>
+<ol start="2">
+<li>配置文件中开启Zuul Retry</li>
+</ol>
+<pre><code>#是否开启重试功能
 zuul.retryable=true
 #对当前服务的重试次数
 ribbon.MaxAutoRetries=2
 #切换相同Server的次数
 ribbon.MaxAutoRetriesNextServer=0
-```
-
-<h2 id="Cookie和头信息"><a href="#Cookie和头信息" class="headerlink" title="Cookie和头信息"></a>Cookie和头信息</h2><h3 id="Cookie"><a href="#Cookie" class="headerlink" title="Cookie"></a>Cookie</h3><p>配置文件中设置sensitiveHeaders，添加需要忽略的信息到请求上下文中，供后续ROUTE阶段的过滤器使用<br>默认情况下，Zuul在请求路由时，会过滤HTTP请求头信息中的一些敏感信息，默认的敏感头信息通过zuul.sensitiveHeaders定义，包括Cookie、Set-Cookie、Authorization。</p>
+</code></pre>
+<h2 id="Cookie和头信息"><a class="header-anchor" href="#Cookie和头信息">¶</a>Cookie和头信息</h2>
+<h3 id="Cookie"><a class="header-anchor" href="#Cookie">¶</a>Cookie</h3>
+<p>配置文件中设置sensitiveHeaders，添加需要忽略的信息到请求上下文中，供后续ROUTE阶段的过滤器使用<br>
+默认情况下，Zuul在请求路由时，会过滤HTTP请求头信息中的一些敏感信息，默认的敏感头信息通过zuul.sensitiveHeaders定义，包括Cookie、Set-Cookie、Authorization。</p>
 <ul>
-<li>设置全局参数覆盖默认值：<pre><code>zuul.sensitiveHeaders= # 使用空来覆盖默认值</code></pre></li>
-<li>指定路由的参数配置：<pre><code>zuul.routes.&lt;routeName&gt;.sensitive-headers= # 对指定路由的敏感头设置为空
-zuul.routes.&lt;routeName&gt;.custom-sensitive-headers=true # 对指定路由开启自定义敏感头</code></pre><h3 id="头信息"><a href="#头信息" class="headerlink" title="头信息"></a>头信息</h3>通过配置属性zuul.add-host-header=true正确处理头信息，比如重定向</li>
+<li>设置全局参数覆盖默认值：</li>
 </ul>
-<h2 id="性能优化参考"><a href="#性能优化参考" class="headerlink" title="性能优化参考"></a>性能优化参考</h2><ol>
-<li>在application.yml文件中配置线程数、缓冲大小<pre><code>server:
- tomcat:
-     max-threads: 128 # 最大worker线程
-     min-spare-threads: 64 # 最小worker线程
- undertow:
-     io-threads: 8 # IO线程数，默认为CPU核心数，最小为2
-     worker-threads: 40 # 阻塞任务线程池，值设置取决于系统的负载，默认为io-threads * 8
-     buffer-size: 512 # 每块buffer的空间大小
-     buffers-per-region: 10 # 每个区分配的buffer数量
-     direct-buffers: 512 # 是否分配的直接内存</code></pre></li>
-<li>在application.yml文件中配置zuul和ribbon<pre><code>zuul:
- host:
-     max-total-connections: 500 # 每个服务的http客户端连接池最大连接，默认值是200
-     max-per-route-connections: 50 # 每个route可用的最大连接数，默认值是20
- ribbon-isolation-strategy: THREAD # 可选：SEMAPHORE THREAD</code></pre></li>
-<li>在application.yml文件中配置hystrix<pre><code>hystrix.command.default.execution.isolation.thread.timeoutInMilliseconds 设置thread的默认超时时间，默认值是10000。
-</code></pre></li>
+<pre><code>zuul.sensitiveHeaders= # 使用空来覆盖默认值
+</code></pre>
+<ul>
+<li>指定路由的参数配置：</li>
+</ul>
+<pre><code>zuul.routes.&lt;routeName&gt;.sensitive-headers= # 对指定路由的敏感头设置为空
+zuul.routes.&lt;routeName&gt;.custom-sensitive-headers=true # 对指定路由开启自定义敏感头
+</code></pre>
+<h3 id="头信息"><a class="header-anchor" href="#头信息">¶</a>头信息</h3>
+<p>通过配置属性zuul.add-host-header=true正确处理头信息，比如重定向</p>
+<h2 id="性能优化参考"><a class="header-anchor" href="#性能优化参考">¶</a>性能优化参考</h2>
+<ol>
+<li>在application.yml文件中配置线程数、缓冲大小</li>
 </ol>
-<p>hystrix.command.[CommandKey].execution.isolation.thread.timeoutInMilliseconds 设置不同微服务的超时时间。<br>```</p>
+<pre><code>server:
+	tomcat:
+		max-threads: 128 # 最大worker线程
+		min-spare-threads: 64 # 最小worker线程
+	undertow:
+		io-threads: 8 # IO线程数，默认为CPU核心数，最小为2
+		worker-threads: 40 # 阻塞任务线程池，值设置取决于系统的负载，默认为io-threads * 8
+		buffer-size: 512 # 每块buffer的空间大小
+		buffers-per-region: 10 # 每个区分配的buffer数量
+		direct-buffers: 512 # 是否分配的直接内存
+</code></pre>
+<ol start="2">
+<li>在application.yml文件中配置zuul和ribbon</li>
+</ol>
+<pre><code>zuul:
+	host:
+		max-total-connections: 500 # 每个服务的http客户端连接池最大连接，默认值是200
+		max-per-route-connections: 50 # 每个route可用的最大连接数，默认值是20
+	ribbon-isolation-strategy: THREAD # 可选：SEMAPHORE THREAD
+</code></pre>
+<ol start="3">
+<li>在application.yml文件中配置hystrix</li>
+</ol>
+<pre><code>hystrix.command.default.execution.isolation.thread.timeoutInMilliseconds 设置thread的默认超时时间，默认值是10000。
+
+hystrix.command.[CommandKey].execution.isolation.thread.timeoutInMilliseconds 设置不同微服务的超时时间。
+</code></pre>
 
 </div>
 
@@ -4570,19 +4716,23 @@ zuul.routes.&lt;routeName&gt;.custom-sensitive-headers=true # 对指定路由开
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		2 Apache Commons BeanUtils | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,13 +4395,14 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:40</span>
+	<span id="post-date">2019-12-18 01:00:44</span>
 </div>
 
 
 <div id="article">
 	<p><a href="http://commons.apache.org/proper/commons-beanutils/" target="_blank" rel="noopener">Commons BeanUtils官网</a></p>
-<h2 id="包结构"><a href="#包结构" class="headerlink" title="包结构"></a>包结构</h2><hr>
+<h2 id="包结构"><a class="header-anchor" href="#包结构">¶</a>包结构</h2>
+<hr>
 <table>
 <thead>
 <tr>
@@ -4386,7 +4410,8 @@
 <th>Description</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>org.apache.commons.beanutils</td>
 <td>提供底层工具类，获取Bean属性值，动态定义和访问Bean属性。</td>
 </tr>
@@ -4398,124 +4423,131 @@
 <td>org.apache.commons.beanutils.expression</td>
 <td><code>Resolver</code> 接口和实现</td>
 </tr>
-<tr>
-<td>## 常用类</td>
-<td></td>
-</tr>
-<tr>
-<td>***</td>
-<td></td>
-</tr>
-<tr>
-<td>常用类都在顶层包中</td>
-<td></td>
-</tr>
-<tr>
-<td>### (1) BeanUtils</td>
-<td></td>
-</tr>
-<tr>
-<td>通过反射操纵Bean属性，以下静态方法都是使用默认实例，通过使用<code>BeanUtilsBean</code>可以提供更多复杂操作。</td>
-<td></td>
-</tr>
-<tr>
-<td>* <strong>克隆对象</strong></td>
-<td></td>
-</tr>
-<tr>
-<td><em>cloneBean(Object bean)</em></td>
-<td></td>
-</tr>
-<tr>
-<td>无需实现Cloneable，调用了copyProperties()</td>
-<td></td>
-</tr>
-<tr>
-<td>* <strong>属性拷贝</strong></td>
-<td></td>
-</tr>
-<tr>
-<td>*copyProperties(Object dest, Object orig)</td>
-<td></td>
-</tr>
-<tr>
-<td>copyProperty(Object bean, String name, Object value)*</td>
-<td></td>
-</tr>
-<tr>
-<td>只需字段名一样，自动类型转换。通过反射实现，性能换时间。</td>
-<td></td>
-</tr>
-<tr>
-<td>* <strong>操纵属性值</strong></td>
-<td></td>
-</tr>
-<tr>
-<td>getProperty(Object bean, String name) - 获得属性值。作为字符串返回。</td>
-<td></td>
-</tr>
-<tr>
-<td>setProperty(Object bean, String name, Object value) - 设置属性值。如果赋NULL值，会被设为默认值。</td>
-<td></td>
-</tr>
-<tr>
-<td><strong>populate</strong>(Object bean, Map&lt;String,? extends Object&gt; properties) - 将Map中的数据注入到Bean对象中</td>
-<td></td>
-</tr>
-</tbody></table>
-<h3 id="2-ConstructorUtils"><a href="#2-ConstructorUtils" class="headerlink" title="(2) ConstructorUtils"></a>(2) ConstructorUtils</h3><p>通过反射调用构造函数。</p>
+</tbody>
+</table>
+<h2 id="常用类"><a class="header-anchor" href="#常用类">¶</a>常用类</h2>
+<hr>
+<p>常用类都在顶层包中</p>
+<h3 id="1-BeanUtils"><a class="header-anchor" href="#1-BeanUtils">¶</a>(1) BeanUtils</h3>
+<p>通过反射操纵Bean属性，以下静态方法都是使用默认实例，通过使用<code>BeanUtilsBean </code>可以提供更多复杂操作。</p>
 <ul>
-<li><strong>得到构造方法</strong></li>
-<li>getAccessibleConstructor(Class<T> klass, Class<?> parameterType)
-getAccessibleConstructor(Class<T> klass, Class<?>[] parameterTypes)<br>getAccessibleConstructor(Constructor<T> ctor)*</li>
-<li><strong>创建对象</strong><br>执行构造方法，创建对象</li>
-<li>invokeConstructor(Class<T> klass, Object arg)<br>invokeConstructor(Class<T> klass, Object[] args)<br>invokeConstructor(Class<T> klass, Object[] args, Class&lt;?&gt;[] parameterTypes)*</li>
-<li><strong>严格创建对象</strong><br>对参数要求更加严格，传递进去的参数必须严格符合构造方法的参数列表。</li>
-<li>invokeExactConstructor(Class<T> klass, Object arg)<br>invokeExactConstructor(Class<T> klass, Object[] args)<br>invokeExactConstructor(Class<T> klass, Object[] args, Class&lt;?&gt;[] parameterTypes)*</li>
+<li><strong>克隆对象</strong><br>
+<em>cloneBean(Object bean)</em><br>
+无需实现Cloneable，调用了copyProperties()</li>
+<li><strong>属性拷贝</strong><br>
+<em>copyProperties(Object dest, Object orig)<br>
+copyProperty(Object bean, String name, Object value)</em><br>
+只需字段名一样，自动类型转换。通过反射实现，性能换时间。</li>
+<li><strong>操纵属性值</strong><br>
+getProperty(Object bean, String name) - 获得属性值。作为字符串返回。<br>
+setProperty(Object bean, String name, Object value) - 设置属性值。如果赋NULL值，会被设为默认值。<br>
+<strong>populate</strong>(Object bean, Map&lt;String,? extends Object&gt; properties) - 将Map中的数据注入到Bean对象中</li>
 </ul>
-<h3 id="3-ConvertUtils"><a href="#3-ConvertUtils" class="headerlink" title="(3) ConvertUtils"></a>(3) ConvertUtils</h3><p>可以自定义 <code>Converter</code> ，或使用<code>ConvertUtilsBean</code>中提供的多种实现，将其与一个类注册，然后调用<code>convert</code>方法进行转换类型</p>
+<h3 id="2-ConstructorUtils"><a class="header-anchor" href="#2-ConstructorUtils">¶</a>(2) ConstructorUtils</h3>
+<p>通过反射调用构造函数。</p>
 <ul>
-<li><strong>对象转换</strong><br>convert(Object value)  - 对象转换为字符串，类似toString<br>convert(Object value, Class<?> targetType) - 将对象转换为指定类型对象
-convert(String[] values, Class<?> clazz) - 将数组转换为指定类型对象<br>convert(String value, Class&lt;?&gt; clazz) - 将字符串转换为指定类型对象</li>
-<li><strong>管理转换器</strong><br>移除转换器 - deregister()/deregister(Class<?> clazz)
-查找转换器 - lookup(Class<?> clazz)<br>··············· - lookup(Class<?> sourceType, Class<?> targetType)<br>注册转换器 - <strong>register</strong>(Converter converter, Class&lt;?&gt; clazz)<h3 id="4-MethodUtils"><a href="#4-MethodUtils" class="headerlink" title="(4) MethodUtils"></a>(4) MethodUtils</h3>通过反射访问对象的方法并且执行方法</li>
-<li><strong>获取方法</strong><br>getAccessibleMethod - 获取方法<br>getMatchingAccessibleMethod - 查找匹配的方法</li>
-<li><strong>执行方法</strong><br>invokeMethod - 执行方法<br>invokeStaticMethod - 执行静态方法<br>invokeExactMethod - 严格执行方法<br>invokeExactStaticMethod - 严格执行静态方法</li>
+<li><strong>得到构造方法</strong><br>
+<em>getAccessibleConstructor(Class<T> klass, Class&lt;?&gt; parameterType)<br>
+getAccessibleConstructor(Class<T> klass, Class&lt;?&gt;[] parameterTypes)<br>
+getAccessibleConstructor(Constructor<T> ctor)</em></li>
+<li><strong>创建对象</strong><br>
+执行构造方法，创建对象<br>
+<em>invokeConstructor(Class<T> klass, Object arg)<br>
+invokeConstructor(Class<T> klass, Object[] args)<br>
+invokeConstructor(Class<T> klass, Object[] args, Class&lt;?&gt;[] parameterTypes)</em></li>
+<li><strong>严格创建对象</strong><br>
+对参数要求更加严格，传递进去的参数必须严格符合构造方法的参数列表。<br>
+<em>invokeExactConstructor(Class<T> klass, Object arg)<br>
+invokeExactConstructor(Class<T> klass, Object[] args)<br>
+invokeExactConstructor(Class<T> klass, Object[] args, Class&lt;?&gt;[] parameterTypes)</em></li>
 </ul>
-<h3 id="5-PropertyUtils"><a href="#5-PropertyUtils" class="headerlink" title="(5) PropertyUtils"></a>(5) PropertyUtils</h3><p>通过反射操纵对象getter、setter方法的工具，具体实现由<code>PropertyUtilsBean</code>提供。</p>
+<h3 id="3-ConvertUtils"><a class="header-anchor" href="#3-ConvertUtils">¶</a>(3) ConvertUtils</h3>
+<p>可以自定义 <code>Converter</code> ，或使用<code>ConvertUtilsBean</code>中提供的多种实现，将其与一个类注册，然后调用<code>convert</code>方法进行转换类型</p>
 <ul>
-<li><p><strong>简单的属性</strong><br>getSimpleProperty(Object bean, String name)<br>setSimpleProperty(Object bean, String name, Object value)</p>
-</li>
-<li><p><strong>索引化属性</strong><br>索引用方括号包起来<br>getIndexedProperty(Object bean, String name)<br>getIndexedProperty(Object bean, String name, int index)<br>setIndexedProperty(Object bean, String name, int index, Object value)<br>setIndexedProperty(Object bean, String name, Object value)</p>
-<pre><code>   Employee employee = ...;
-   int index = ...;
-   String name = &quot;subordinate[&quot; + index + &quot;]&quot;;
-   Employee subordinate = (Employee)
-     PropertyUtils.getIndexedProperty(employee, name);
+<li><strong>对象转换</strong><br>
+convert(Object value)  - 对象转换为字符串，类似toString<br>
+convert(Object value, Class&lt;?&gt; targetType) - 将对象转换为指定类型对象<br>
+convert(String[] values, Class&lt;?&gt; clazz) - 将数组转换为指定类型对象<br>
+convert(String value, Class&lt;?&gt; clazz) - 将字符串转换为指定类型对象</li>
+<li><strong>管理转换器</strong><br>
+移除转换器 - deregister()/deregister(Class&lt;?&gt; clazz)<br>
+查找转换器 - lookup(Class&lt;?&gt; clazz)<br>
+··············· - lookup(Class<?> sourceType, Class<?> targetType)<br>
+注册转换器 - <strong>register</strong>(Converter converter, Class&lt;?&gt; clazz)</li>
+</ul>
+<h3 id="4-MethodUtils"><a class="header-anchor" href="#4-MethodUtils">¶</a>(4) MethodUtils</h3>
+<p>通过反射访问对象的方法并且执行方法</p>
+<ul>
+<li><strong>获取方法</strong><br>
+getAccessibleMethod - 获取方法<br>
+getMatchingAccessibleMethod - 查找匹配的方法</li>
+<li><strong>执行方法</strong><br>
+invokeMethod - 执行方法<br>
+invokeStaticMethod - 执行静态方法<br>
+invokeExactMethod - 严格执行方法<br>
+invokeExactStaticMethod - 严格执行静态方法</li>
+</ul>
+<h3 id="5-PropertyUtils"><a class="header-anchor" href="#5-PropertyUtils">¶</a>(5) PropertyUtils</h3>
+<p>通过反射操纵对象getter、setter方法的工具，具体实现由<code>PropertyUtilsBean</code>提供。</p>
+<ul>
+<li><strong>简单的属性</strong><br>
+getSimpleProperty(Object bean, String name)<br>
+setSimpleProperty(Object bean, String name, Object value)</li>
+<li><strong>索引化属性</strong><br>
+索引用方括号包起来<br>
+getIndexedProperty(Object bean, String name)<br>
+getIndexedProperty(Object bean, String name, int index)<br>
+setIndexedProperty(Object bean, String name, int index, Object value)<br>
+setIndexedProperty(Object bean, String name, Object value)</li>
+</ul>
+<pre><code>     Employee employee = ...;
+     int index = ...;
+     String name = &quot;subordinate[&quot; + index + &quot;]&quot;;
+     Employee subordinate = (Employee)
+       PropertyUtils.getIndexedProperty(employee, name);
 
-   Employee employee = ...;
-   int index = ...;
-   Employee subordinate = (Employee)
-     PropertyUtils.getIndexedProperty(employee, &quot;subordinate&quot;, index);</code></pre></li>
-<li><p><strong>映射的属性</strong><br>键要用括号包起来<br>getMappedProperty(Object bean, String name)<br>getMappedProperty(Object bean, String name, String key)<br>setMappedProperty(Object bean, String name, Object value)<br>setMappedProperty(Object bean, String name, String key, Object value)</p>
-<pre><code>   Employee employee = ...;
-   Address address = ...;
-   PropertyUtils.setMappedProperty(employee, &quot;address(home)&quot;, address);
-
-   Employee employee = ...;
-   Address address = ...;
-   PropertyUtils.setMappedProperty(employee, &quot;address&quot;, &quot;home&quot;, address);</code></pre></li>
-<li><p><strong>嵌套的属性</strong><br>获取属性的属性<br>Java标准做法</p>
-<pre><code class="java">   String city = employee.getAddress(&quot;home&quot;).getCity();</code></pre>
-<p>PropertyUtils 提供<br>getNestedProperty(Object bean, String name)<br>setNestedProperty(Object bean, String name, Object value)</p>
-<pre><code class="java">   String city = (String)PropertyUtils.getNestedProperty(employee, &quot;address(home).city&quot;);</code></pre>
-</li>
-<li><p><strong>通用方法</strong><br>为了方便起见，PropertyUtils提供了方法重载，接受简单的，索引化的和映射的属性的任意组合，以及任意的嵌套层级：</p>
-</li>
+     Employee employee = ...;
+     int index = ...;
+     Employee subordinate = (Employee)
+       PropertyUtils.getIndexedProperty(employee, &quot;subordinate&quot;, index);
+</code></pre>
+<ul>
+<li><strong>映射的属性</strong><br>
+键要用括号包起来<br>
+getMappedProperty(Object bean, String name)<br>
+getMappedProperty(Object bean, String name, String key)<br>
+setMappedProperty(Object bean, String name, Object value)<br>
+setMappedProperty(Object bean, String name, String key, Object value)</li>
 </ul>
-<p>getProperty(Object bean, String name)<br>setProperty(Object bean, String name, Object value)</p>
-<pre><code class="JAVA">     Employee employee = ...;
-     String city = (String) PropertyUtils.getProperty(employee, &quot;subordinate[3].address(home).city&quot;);</code></pre>
+<pre><code>     Employee employee = ...;
+     Address address = ...;
+     PropertyUtils.setMappedProperty(employee, &quot;address(home)&quot;, address);
+
+     Employee employee = ...;
+     Address address = ...;
+     PropertyUtils.setMappedProperty(employee, &quot;address&quot;, &quot;home&quot;, address);
+</code></pre>
+<ul>
+<li><strong>嵌套的属性</strong><br>
+获取属性的属性<br>
+Java标准做法</li>
+</ul>
+<pre><code class="language-java">     String city = employee.getAddress(&quot;home&quot;).getCity();
+</code></pre>
+<p>PropertyUtils 提供<br>
+getNestedProperty(Object bean, String name)<br>
+setNestedProperty(Object bean, String name, Object value)</p>
+<pre><code class="language-java">     String city = (String)PropertyUtils.getNestedProperty(employee, &quot;address(home).city&quot;);
+</code></pre>
+<ul>
+<li><strong>通用方法</strong><br>
+为了方便起见，PropertyUtils提供了方法重载，接受简单的，索引化的和映射的属性的任意组合，以及任意的嵌套层级：</li>
+</ul>
+<p>getProperty(Object bean, String name)<br>
+setProperty(Object bean, String name, Object value)</p>
+<pre><code class="language-JAVA">     Employee employee = ...;
+     String city = (String) PropertyUtils.getProperty(employee, &quot;subordinate[3].address(home).city&quot;);
+</code></pre>
 
 </div>
 
@@ -4525,19 +4557,23 @@ convert(String[] values, Class<?> clazz) - 将数组转换为指定类型对象<
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

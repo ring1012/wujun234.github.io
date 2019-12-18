@@ -5,8 +5,15 @@ $(document).ready(function () {
 	pjaxLoad();
 	showArticleIndex();
 	switchTreeOrIndex();
+	scrollToTop();
 });
 
+// 点击搜索旁的按钮，切换目录与索引
+function scrollToTop(){
+	$("#to_top").on("click", function(e){
+		$("html").animate({scrollTop:0},1000);
+	});
+}
 // 点击搜索旁的按钮，切换目录与索引
 function switchTreeOrIndex(){
 	$("#search-icon").on("click", function(e){

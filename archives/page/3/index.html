@@ -1,10 +1,30 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +35,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4369,13 +4390,20 @@
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/04%20%E8%AE%BE%E8%AE%A1/3%20%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/1-%E5%88%9B%E5%BB%BA%E5%9E%8B%E6%A8%A1%E5%BC%8F/3.Prototype%EF%BC%88%E5%8E%9F%E5%9E%8B%EF%BC%89/">3.Prototype（原型）</a>
+					<a class="article-title" href="/2019/12/18/17%20%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/01%20%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/2%20%E6%A0%88%EF%BC%88stack%EF%BC%89%E4%B8%8E%E9%98%9F%E5%88%97%EF%BC%88queue%EF%BC%89/">2 栈（stack）与队列（queue）</a>
 				</h2>
 				<span class="post-date">2019-12-18</span>
 				<div class="article-digest">
-					当直接创建对象的代价比较大时，创建当前对象的克隆
-原型模式很少单独出现，一般是和工厂方法模式一起出现，通过 clone 的方法创建一个对象，然后由工厂方法提供给调用者。
-//原型角色：定义用于复制现有
+					¶一、栈
+¶1 基本概念
+
+栈：是限定仅在表尾进行插入和删除操作的线性表。后进先出LIFO
+
+栈顶(top)：允许插入和删除的一端
+核底(bottom)：另一端
+
+
+栈的引入简化了程序设计，使关注范围
 					...
 				</div>
 			</article>
@@ -4384,14 +4412,17 @@
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/04%20%E8%AE%BE%E8%AE%A1/3%20%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/1-%E5%88%9B%E5%BB%BA%E5%9E%8B%E6%A8%A1%E5%BC%8F/1.Factory%EF%BC%88%E5%B7%A5%E5%8E%82%EF%BC%89/">1.Factory（工厂）</a>
+					<a class="article-title" href="/2019/12/18/17%20%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/01%20%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/1%20%E7%BA%BF%E6%80%A7%E8%A1%A8%EF%BC%88List%EF%BC%89/">1 线性表（List）</a>
 				</h2>
 				<span class="post-date">2019-12-18</span>
 				<div class="article-digest">
-					1 简单工厂（Simple Factory）根据参数的不同返回不同类的实例。
+					¶一、线性表的定义和基本操作
+¶1）定义
+线性表：零个或多个数据元素的有序排列。
 
-模式应用java.text.DateFormat
-public final static DateFormat getD
+除第一个元素外，每个元素有且只有一个直接前驱元素；初最后一个元素外，每个元素有且只有一个直接后继元素。
+
+¶2）基本
 					...
 				</div>
 			</article>
@@ -4400,14 +4431,17 @@ public final static DateFormat getD
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/04%20%E8%AE%BE%E8%AE%A1/3%20%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/1-%E5%88%9B%E5%BB%BA%E5%9E%8B%E6%A8%A1%E5%BC%8F/2.Builder%EF%BC%88%E5%BB%BA%E9%80%A0%E8%80%85%EF%BC%89/">2.Builder（建造者）</a>
+					<a class="article-title" href="/2019/12/18/17%20%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/01%20%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/0%20%E6%A6%82%E8%BF%B0/">0 概述</a>
 				</h2>
 				<span class="post-date">2019-12-18</span>
 				<div class="article-digest">
-					使用多个简单的对象一步一步构建成一个复杂的对象。
-工厂模式关注的是创建单个产品，而建造者模式则关注创建符合对象，多个部分
+					程序设计 = 数据结构 + 算法
+¶1 数据结构
+数据结构：相互之间存在一种或多种特定关系的数据元素的集合。
+¶1.1 基本概念
 
-MealBuilder mealBuilder = new MealBuil
+数据：能别计算机识别、处理的符号集合
+数据对象：性质相同的数据元素的
 					...
 				</div>
 			</article>
@@ -4416,11 +4450,14 @@ MealBuilder mealBuilder = new MealBuil
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/04%20%E8%AE%BE%E8%AE%A1/3%20%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/1-%E5%88%9B%E5%BB%BA%E5%9E%8B%E6%A8%A1%E5%BC%8F/4.Singleton%EF%BC%88%E5%8D%95%E4%BE%8B%EF%BC%89/">4.Singleton（单例）</a>
+					<a class="article-title" href="/2019/12/18/17%20%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/Long.bitCount()%20%E8%A7%A3%E6%9E%90/">Long.bitCount() 解析</a>
 				</h2>
 				<span class="post-date">2019-12-18</span>
 				<div class="article-digest">
-					
+					¶一、算法原型
+Long.bitCount()的算法原型是以下的错位相加，分治统计。
+public static long countOne(long i) {
+    i = (i &amp; (0
 					...
 				</div>
 			</article>
@@ -4429,14 +4466,16 @@ MealBuilder mealBuilder = new MealBuil
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/04%20%E8%AE%BE%E8%AE%A1/3%20%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/2-%E7%BB%93%E6%9E%84%E5%9E%8B%E6%A8%A1%E5%BC%8F/1.Adapter%EF%BC%88%E9%80%82%E9%85%8D%E5%99%A8%EF%BC%89/">1.Adapter（适配器）</a>
+					<a class="article-title" href="/2019/12/18/17%20%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/2%20%E6%96%87%E4%BB%B6%E5%8F%8A%E6%9F%A5%E6%89%BE/">2 文件及查找</a>
 				</h2>
 				<span class="post-date">2019-12-18</span>
 				<div class="article-digest">
-					将一个接口转换成客户希望的另一个接口，适配器模式使接口不兼容的那些类可以一起工作，别名包装器(Wrapper)。
-如非必要，可以重构
-模式应用
-Enumeration 接口转化为 Iterator 接
+					¶1 文件的基本概念
+
+记录：是文件中存取的基本单位
+数据项：是文件可使用的最小单位，有时也称为字段、属性
+主关键字项：其值能唯一标识一个记录的数据项或数据项的组合
+次关键字项：其值不能唯一标识一个记
 					...
 				</div>
 			</article>
@@ -4445,14 +4484,15 @@ Enumeration 接口转化为 Iterator 接
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/04%20%E8%AE%BE%E8%AE%A1/3%20%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/2-%E7%BB%93%E6%9E%84%E5%9E%8B%E6%A8%A1%E5%BC%8F/2.Bridge%EF%BC%88%E6%A1%A5%E6%8E%A5%EF%BC%89/">2.Bridge（桥接）</a>
+					<a class="article-title" href="/2019/12/18/17%20%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/1%20%E5%8A%A8%E6%80%81%E5%AD%98%E5%82%A8%E7%AE%A1%E7%90%86/">1 动态存储管理</a>
 				</h2>
 				<span class="post-date">2019-12-18</span>
 				<div class="article-digest">
-					将类的功能层次结构和实现层次结构相分离，使二者能够独立地变化，并在两者之间搭建桥梁，实现桥接。
+					¶1 内存分配与回收策略
+对内存的管理或对内存的分配测量通常有两种方法：
 
-类的功能层次结构：父类具有基本功能，在子类中增加新的功能；
-类的实现层次结构：父类通过声明抽象方法来定
+系统从高地址的空闲块分配空间，直到分配无法进行，系统才会去回收之前的空闲块，重新组织继续分配；
+当用户运行一结束，系统马上将
 					...
 				</div>
 			</article>
@@ -4461,12 +4501,13 @@ Enumeration 接口转化为 Iterator 接
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/04%20%E8%AE%BE%E8%AE%A1/3%20%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/2-%E7%BB%93%E6%9E%84%E5%9E%8B%E6%A8%A1%E5%BC%8F/3.Composite%EF%BC%88%E7%BB%84%E5%90%88%EF%BC%89/">3.Composite（组合）</a>
+					<a class="article-title" href="/2019/12/18/13%20%E5%89%8D%E7%AB%AF/4%20FIS/1%20FIS%203%E6%8E%A5%E5%8F%A3%E9%80%9F%E6%9F%A5/">1 FIS 3接口速查</a>
 				</h2>
 				<span class="post-date">2019-12-18</span>
 				<div class="article-digest">
-					将对象组合成树形结构以表示“部分-整体”的层次结构。使得用户对单个对象和组合对象的使用具有一致性。
-将对象称为节点，即一个根节点包含许多子节点，这些子节点有的不再包含子节点，而有的仍然包含子节点，以此
+					FIS 构建工具 前端工具框架
+官方文档：http://fis.baidu.com/fis3/docs/beginning/intro.html
+默认配置文件为 fis-conf.js，有此文件的目录
 					...
 				</div>
 			</article>
@@ -4475,15 +4516,12 @@ Enumeration 接口转化为 Iterator 接
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/04%20%E8%AE%BE%E8%AE%A1/3%20%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/2-%E7%BB%93%E6%9E%84%E5%9E%8B%E6%A8%A1%E5%BC%8F/4.Decorator%EF%BC%88%E8%A3%85%E9%A5%B0%E5%99%A8%EF%BC%89/">4.Decorator（装饰器）</a>
+					<a class="article-title" href="/2019/12/18/12%20%E6%95%B0%E6%8D%AE%E6%A0%BC%E5%BC%8F/2%20MapStruct%E5%AE%9E%E4%BD%93%E9%97%B4%E8%BD%AC%E6%8D%A2/">2 MapStruct实体间转换</a>
 				</h2>
 				<span class="post-date">2019-12-18</span>
 				<div class="article-digest">
-					关联机制，向一个现有的对象添加新的功能，同时又不改变其结构。
-模式应用JAVA IO 中 FilterInputStream
-实现
-Component: 抽象构件
-ConcreteComponent:
+					¶1 简介
+MapStruct是一个代码生成器的工具类，简化了不同的Java Bean之间映射的处理，所以映射指的就是从一个实体变化成一个实体。在实际项目中，我们经常会将PO转DTO、DTO转PO等一
 					...
 				</div>
 			</article>
@@ -4492,12 +4530,15 @@ ConcreteComponent:
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/04%20%E8%AE%BE%E8%AE%A1/3%20%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/2-%E7%BB%93%E6%9E%84%E5%9E%8B%E6%A8%A1%E5%BC%8F/5.Facade%EF%BC%88%E5%A4%96%E8%A7%82%EF%BC%89/">5.Facade（外观）</a>
+					<a class="article-title" href="/2019/12/18/12%20%E6%95%B0%E6%8D%AE%E6%A0%BC%E5%BC%8F/1%20Lombok%E6%B6%88%E9%99%A4Java%E5%86%97%E9%95%BF/">1 Lombok消除Java冗长</a>
 				</h2>
 				<span class="post-date">2019-12-18</span>
 				<div class="article-digest">
-					为子系统中的一组接口提供一个一致的界面，定义了一个高层接口，这个接口使得这一子系统更加容易使用。又称为门面模式。
-
+					官方网址、
+github地址
+¶简介
+Lombok采取注解声明方法，注解后经编译，会自动生成注解声明的方法，减少很多重复代码的书写。比如说getter/setter/toString等方法。
+¶安装
 
 					...
 				</div>
@@ -4507,15 +4548,16 @@ ConcreteComponent:
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/04%20%E8%AE%BE%E8%AE%A1/3%20%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/2-%E7%BB%93%E6%9E%84%E5%9E%8B%E6%A8%A1%E5%BC%8F/7.Proxy%EF%BC%88%E4%BB%A3%E7%90%86%EF%BC%89/">7.Proxy（代理）</a>
+					<a class="article-title" href="/2019/12/18/11%20%E6%B6%88%E6%81%AF%E9%80%9A%E4%BF%A1/1%20Apache%20Thrift/3%20Apache%20Thrift%20%E5%88%9D%E8%AF%86%20(3)%20-%20%E5%AE%9E%E6%88%98Demo/">3 Apache Thrift 初识 (3) - 实战Demo</a>
 				</h2>
 				<span class="post-date">2019-12-18</span>
 				<div class="article-digest">
-					给某一个对象提供一个代理，并由代理对象控制对原对象的引用。
+					¶1 下载Thrift编译器
 
-模式应用
-远程代理：为一个位于不同的地址空间的对象提供一个本地的代理对象，这个不同的地址空间可以是在同一台主机中，也可是在另一台主机中。
+从官网中下载对应的 Window 平台编译器（以 thrift-0.9.2.exe 为例）
 
+¶2  创建.thrift脚本
+使用 IDL 描述语言建立 query_m
 					...
 				</div>
 			</article>
@@ -4531,19 +4573,23 @@ ConcreteComponent:
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

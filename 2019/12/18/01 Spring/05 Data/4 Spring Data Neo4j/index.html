@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		4 Spring Data Neo4j | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,12 +4395,13 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:17</span>
+	<span id="post-date">2019-12-18 01:00:43</span>
 </div>
 
 
 <div id="article">
-	<h3 id="1-配置Spring-Data-Neo4j"><a href="#1-配置Spring-Data-Neo4j" class="headerlink" title="1 配置Spring Data Neo4j"></a>1 配置Spring Data Neo4j</h3><p>启用@EnableNeo4jRepositories注解，扩展Neo4jConfiguration，声明GraphDatabaseService bean</p>
+	<h3 id="1-配置Spring-Data-Neo4j"><a class="header-anchor" href="#1-配置Spring-Data-Neo4j">¶</a>1 配置Spring Data Neo4j</h3>
+<p>启用@EnableNeo4jRepositories注解，扩展Neo4jConfiguration，声明GraphDatabaseService bean</p>
 <pre><code>@Configuration
 @EnableNeo4jRepositories(basePackages=&quot;orders.db&quot;)
 public class Neo4jConfig extends Neo4jConfiguration {
@@ -4389,20 +4413,26 @@ public class Neo4jConfig extends Neo4jConfiguration {
         return new GraphDatabaseFactory()
                     .newEmbeddedDatabase(&quot;/tmp/graphdb&quot;);
     }
-}</code></pre><p>依赖spring-data-neo4j-rest库配置GraphDatabaseService</p>
+}
+</code></pre>
+<p>依赖spring-data-neo4j-rest库配置GraphDatabaseService</p>
 <pre><code>@Bean(destroyMethod=&quot;shutdown&quot;)
 public GraphDatabaseService graphDatabaseService(Environment env) {
     return new SpringRestGraphDatabase(
         &quot;http://graphdbserver:7474/db/data/&quot;,
         env.getProperty(&quot;db.username&quot;), env.getProperty(&quot;db.password&quot;));
-}</code></pre><h3 id="2-注解图实体"><a href="#2-注解图实体" class="headerlink" title="2 注解图实体"></a>2 注解图实体</h3><table>
+}
+</code></pre>
+<h3 id="2-注解图实体"><a class="header-anchor" href="#2-注解图实体">¶</a>2 注解图实体</h3>
+<table>
 <thead>
 <tr>
 <th>注 解</th>
 <th>描 述</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>@NodeEntity</td>
 <td>将Java类型声明为节点实体</td>
 </tr>
@@ -4462,18 +4492,22 @@ public GraphDatabaseService graphDatabaseService(Environment env) {
 <td>@ResultColumn</td>
 <td>在带有@QueryResult注解的类型上，将某个属性声明为获取查询结果集中的某个特定列</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 <pre><code>@NodeEntity
 public class Order {
     @GraphId
     private Long id;
     private String customer;
     private String type;
-
+    
     @RelatedTo(type=&quot;HAS_ITEMS&quot;)
     private Set&lt;Item&gt; items = new LinkedHashSet&lt;Item&gt;();
     ...
-}</code></pre><h3 id="3-使用Neo4jTemplate"><a href="#3-使用Neo4jTemplate" class="headerlink" title="3 使用Neo4jTemplate"></a>3 使用Neo4jTemplate</h3><pre><code>@Autowired
+}
+</code></pre>
+<h3 id="3-使用Neo4jTemplate"><a class="header-anchor" href="#3-使用Neo4jTemplate">¶</a>3 使用Neo4jTemplate</h3>
+<pre><code>@Autowired
 private Neo4jOperations neo4j;
 
 Order order = ...;
@@ -4491,7 +4525,12 @@ Order order = ...;
 Product prod = ...;
 LineItem lineItem = neo4j.createRelationshipBetween(order, prod, LineItem.class, &quot;HAS_LINE_ITEM_FOR&quot;, false);
 lineItem.setQuantity(5);
-neo4j.save(lineItem);</code></pre><h3 id="4-创建自动化的Neo4j-Repository"><a href="#4-创建自动化的Neo4j-Repository" class="headerlink" title="4 创建自动化的Neo4j Repository"></a>4 创建自动化的Neo4j Repository</h3><pre><code>public interface OrderRepository extends GraphRepository&lt;Order&gt; {}</code></pre>
+neo4j.save(lineItem);
+</code></pre>
+<h3 id="4-创建自动化的Neo4j-Repository"><a class="header-anchor" href="#4-创建自动化的Neo4j-Repository">¶</a>4 创建自动化的Neo4j Repository</h3>
+<pre><code>public interface OrderRepository extends GraphRepository&lt;Order&gt; {}
+</code></pre>
+
 </div>
 
 	</div>
@@ -4500,19 +4539,23 @@ neo4j.save(lineItem);</code></pre><h3 id="4-创建自动化的Neo4j-Repository">
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

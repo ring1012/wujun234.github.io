@@ -1,10 +1,30 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +35,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4369,13 +4390,13 @@
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/17%20%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/01%20%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/6%20%E5%9B%BE%EF%BC%88Gnph%EF%BC%89/">6 图（Gnph）</a>
+					<a class="article-title" href="/2019/12/18/00%20Java/03%20Java%E5%B9%B6%E5%8F%91/1%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/2%20%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%85%B1%E4%BA%AB/">2 对象的共享</a>
 				</h2>
 				<span class="post-date">2019-12-18</span>
 				<div class="article-digest">
-					一、图的基本概念图：由顶点的有穷非空集合和顶点之间边的集合组成，通常表示为: G(V,E)，其中，G 表示一个图，V 是图 G 中顶点的集合。E 是图 G 中边的集合。
-1、各种图定义
-无向边：若顶点
+					一种常见的误解是, 认为关键字synchronized只能用于实现原子性或者确定临界区, 同步还有一个重要的方面: 内存可见性.
+¶1 可见性
+在没有同步的情况下, 编译器, 处理器, 运行时等可能对
 					...
 				</div>
 			</article>
@@ -4384,16 +4405,14 @@
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/17%20%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/01%20%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/8%20%E5%A0%86/">8 堆</a>
+					<a class="article-title" href="/2019/12/18/00%20Java/03%20Java%E5%B9%B6%E5%8F%91/1%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/1%20%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8%E6%80%A7/">1 线程安全性</a>
 				</h2>
 				<span class="post-date">2019-12-18</span>
 				<div class="article-digest">
-					堆（Heap）是一种特别的树状数据结构：“给定堆中任意节点 P 和 C，若 P 是 C 的母节点，那么 P 的值会小于等于（或大于等于）C 的值”。分为最小堆和最大堆。
-
-二叉堆
-左倾堆
-斜堆
-二项堆
+					¶1 什么是线程安全
+¶1.1 线程安全的类
+当多个线程访问某个类时，不管运行时环境采用何种调度方式或者这些线程将如何交替执行，并且在主调代码中不需要额外的同步，这个类都能表现正确的行为
+¶1.2 无
 					...
 				</div>
 			</article>
@@ -4402,11 +4421,13 @@
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/17%20%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/01%20%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/7%20%E7%BA%A2%E9%BB%91%E6%A0%91/">7 红黑树</a>
+					<a class="article-title" href="/2019/12/18/00%20Java/02%20Effective%20Java/9%20%E5%BC%82%E5%B8%B8%EF%BC%8869-77%EF%BC%89/">9 异常（69-77）</a>
 				</h2>
 				<span class="post-date">2019-12-18</span>
 				<div class="article-digest">
-					1、红黑树定义红黑树是一种近似平衡的二叉查找树，它能够确保任何一个节点的左右子树的高度差不会超过二者中较低那个的一陪。可以在 O(logn) 时间内做查找，插入和删除。红黑树相对于AVL树来说，牺牲了
+					¶第69条：只针对异常的情况才使用异常
+如果在try、catch、finally块中都抛出了异常，只是只有一个异常可被传播到外界。
+请不要在try块中发出对return、break或continue的
 					...
 				</div>
 			</article>
@@ -4415,12 +4436,16 @@
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/13%20%E5%89%8D%E7%AB%AF/4%20FIS/1%20FIS%203%E6%8E%A5%E5%8F%A3%E9%80%9F%E6%9F%A5/">1 FIS 3接口速查</a>
+					<a class="article-title" href="/2019/12/18/00%20Java/02%20Effective%20Java/8%20%E9%80%9A%E7%94%A8%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%EF%BC%8857-68%EF%BC%89/">8 通用程序设计（57-68）</a>
 				</h2>
 				<span class="post-date">2019-12-18</span>
 				<div class="article-digest">
-					FIS 构建工具 前端工具框架官方文档：http://fis.baidu.com/fis3/docs/beginning/intro.html
-默认配置文件为 fis-conf.js，有此文件的目录被
+					¶第57条：将局部变量的作用域最小化
+¶第58条：for-each循环优先于传统的for循环
+¶第59条：了解和使用标准类库
+¶第60条：如果需要精确的答案，请避免使用float和double
+
+fl
 					...
 				</div>
 			</article>
@@ -4429,13 +4454,14 @@
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/11%20%E6%B6%88%E6%81%AF%E9%80%9A%E4%BF%A1/1%20Apache%20Thrift/1%20Apache%20Thrift%20%E5%88%9D%E8%AF%86%20(1)%20-%20%E7%AE%80%E4%BB%8B/">1 Apache Thrift 初识 (1) - 简介</a>
+					<a class="article-title" href="/2019/12/18/00%20Java/02%20Effective%20Java/7%20%E6%96%B9%E6%B3%95%EF%BC%8849-56%EF%BC%89/">7 方法（49-56）</a>
 				</h2>
 				<span class="post-date">2019-12-18</span>
 				<div class="article-digest">
-					Thrift 是最初由 Facebook 开发的 RPC 框架，适用于程序对程序静态的数据交换，需要先确定好数据结构。
-1 特性
-静态化当数据结构发生变化时，必须重新编辑IDL文件、代码生成再编译载入
+					¶第49条：检查参数的有效性
+不仅需要检查参数的有效性，还需要在函数的文档中给予明确的说明，如在参数非法的情况下，会抛出哪些异常，或导致函数返回哪些错误值等
+¶第50条：必要时进行保护性拷贝
+如果不能
 					...
 				</div>
 			</article>
@@ -4444,12 +4470,13 @@
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/11%20%E6%B6%88%E6%81%AF%E9%80%9A%E4%BF%A1/1%20Apache%20Thrift/3%20Apache%20Thrift%20%E5%88%9D%E8%AF%86%20(3)%20-%20%E5%AE%9E%E6%88%98Demo/">3 Apache Thrift 初识 (3) - 实战Demo</a>
+					<a class="article-title" href="/2019/12/18/00%20Java/02%20Effective%20Java/6%20Lambdas%E4%B8%8EStreams%EF%BC%8842-48%EF%BC%89/">6 Lambdas与Streams（42-48）</a>
 				</h2>
 				<span class="post-date">2019-12-18</span>
 				<div class="article-digest">
-					1 下载Thrift编译器
-从官网中下载对应的 Window 平台编译器（以 thrift-0.9.2.exe 为例）2  创建.thrift脚本使用 IDL 描述语言建立 query_media_s
+					¶第42条：lambdas优于匿名类
+从Java 8开始，lambda是迄今为止表示小函数对象的最佳方式。 除非必须创建非函数式接口类型的实例，否则不要使用匿名类作为函数对象。
+lambda没有名称和
 					...
 				</div>
 			</article>
@@ -4458,12 +4485,14 @@
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/11%20%E6%B6%88%E6%81%AF%E9%80%9A%E4%BF%A1/1%20Apache%20Thrift/2%20Apache%20Thrift%20%E5%88%9D%E8%AF%86%20(2)%20-%20%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E4%B8%8E%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/">2 Apache Thrift 初识 (2) - 数据类型与基本语法</a>
+					<a class="article-title" href="/2019/12/18/00%20Java/02%20Effective%20Java/5%20%E6%9E%9A%E4%B8%BE%E5%92%8C%E6%B3%A8%E8%A7%A3%EF%BC%8834-41%EF%BC%89/">5 枚举和注解（34-41）</a>
 				</h2>
 				<span class="post-date">2019-12-18</span>
 				<div class="article-digest">
-					1 数据类型官方文档-数据类型
-基本类型（Base Types）、特殊类型（Special Types）、结构体（Structs）、容器（Containers）、异常（Exceptions）、服务（S
+					¶第34条：用enum代替int常量
+当需要一组固定常量的时候，应该使用enum代替int常量。
+¶第35条：用实例域代替序数
+应该给enum添加int域，而不是使用ordinal()方法来导出与枚举
 					...
 				</div>
 			</article>
@@ -4472,14 +4501,14 @@
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/10%20%E6%9C%8D%E5%8A%A1%E5%99%A8/4%20Nginx/1%20nginx%E7%AC%94%E8%AE%B0/">1 nginx笔记</a>
+					<a class="article-title" href="/2019/12/18/00%20Java/02%20Effective%20Java/4%20%E6%B3%9B%E5%9E%8B%EF%BC%8826-33%EF%BC%89/">4 泛型（26-33）</a>
 				</h2>
 				<span class="post-date">2019-12-18</span>
 				<div class="article-digest">
-					一、nginx架构
-1. 进程模型Nginx分一个master进程和多个worker进程。  
-
-master进程：读取和评估配置，并管理worker进程。接收来外界信号，向worker进程发送信号，
+					¶第26条：请不要在新代码中使用原生态类型
+原生态类型只为了与引入泛型之前的遗留代码进行兼容和互用而提供的。
+¶第27条：消除非受检警告
+如果无法消除警告，同时可以证明引起警告的代码是类型安全的，只有
 					...
 				</div>
 			</article>
@@ -4488,12 +4517,15 @@ master进程：读取和评估配置，并管理worker进程。接收来外界�
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/08%20DevOps/9%20Docker/1%20Docker%E7%AC%94%E8%AE%B0/">1 Docker笔记</a>
+					<a class="article-title" href="/2019/12/18/00%20Java/02%20Effective%20Java/3%20%E7%B1%BB%E5%92%8C%E6%8E%A5%E5%8F%A3%EF%BC%8815-25%EF%BC%89/">3 类和接口（15-25）</a>
 				</h2>
 				<span class="post-date">2019-12-18</span>
 				<div class="article-digest">
-					Docker简介Docker是一个虚拟环境容器，可以将开发环境、代码、配置文件等一并打包到这个容器中，并发布和应用到任意平台中。
-Docker架构架构Docker使用Go语言进行开发，使用的是客户端/
+					¶第15条：使类和成员的可访问性最小化
+公有静态final域暴露常量，要么包含基本类型值，要么包含指向不可变对象的引用
+¶第16条：在公有类中使用访问方法而非公有域
+
+公有类不应该暴露可变域，因为其客
 					...
 				</div>
 			</article>
@@ -4502,13 +4534,15 @@ Docker架构架构Docker使用Go语言进行开发，使用的是客户端/
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/08%20DevOps/8%20ELK/1%20ElasticStack/">1 ElasticStack</a>
+					<a class="article-title" href="/2019/12/18/00%20Java/02%20Effective%20Java/2%20%E5%AF%B9%E4%BA%8E%E6%89%80%E6%9C%89%E5%AF%B9%E8%B1%A1%E9%83%BD%E9%80%9A%E7%94%A8%E7%9A%84%E6%96%B9%E6%B3%95%EF%BC%8810-14%EF%BC%89/">2 对于所有对象都通用的方法（10-14）</a>
 				</h2>
 				<span class="post-date">2019-12-18</span>
 				<div class="article-digest">
-					ElasticStack 最初的核心是 ELK (Elasticsearch, Logstash, Kibana) ，后又新增了一个FileBeat。
-ELK架构
-Elasticsearch ：分布式
+					¶第10条：覆盖equals时请遵守通用约定
+
+自反性 - 对象必须等于其自身
+对称性 - 任何两个对象对于它们是否相等的问题都必须保持一致，Timestamp违反了，不值得效仿
+传递性 - 如果对象
 					...
 				</div>
 			</article>
@@ -4524,19 +4558,23 @@ Elasticsearch ：分布式
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

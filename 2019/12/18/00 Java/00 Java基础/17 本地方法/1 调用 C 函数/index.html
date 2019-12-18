@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		1 调用 C 函数 | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,7 +4395,7 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:50</span>
+	<span id="post-date">2019-12-18 01:00:42</span>
 </div>
 
 
@@ -4383,24 +4406,36 @@
 <li>已有了大量的测试过和调试过的另一种语言的代码，并知道如何将其导出到所有平台</li>
 <li>经过基准测试，发现java比其他语言的等价代码慢得多</li>
 </ul>
-<p>Java本地接口（JNI） </p>
-<h5 id="1-在Java声明本地方法"><a href="#1-在Java声明本地方法" class="headerlink" title="1 在Java声明本地方法"></a>1 在Java声明本地方法</h5><p>Java 使用<strong>native</strong>关键字表示本地方法，本地方法可以是静态的，也可以是非静态的。</p>
+<p>Java本地接口（JNI）</p>
+<h5 id="1-在Java声明本地方法"><a class="header-anchor" href="#1-在Java声明本地方法">¶</a>1 在Java声明本地方法</h5>
+<p>Java 使用<strong>native</strong>关键字表示本地方法，本地方法可以是静态的，也可以是非静态的。</p>
 <pre><code>class HelloNative{
     public static native void greeting();
-}</code></pre><h5 id="2-生成包含该方法的C声明头文件"><a href="#2-生成包含该方法的C声明头文件" class="headerlink" title="2 生成包含该方法的C声明头文件"></a>2 生成包含该方法的C声明头文件</h5><p>使用javah工具生成头文件</p>
-<pre><code>javah HelloNative</code></pre><h5 id="3-用c实现该本地方法"><a href="#3-用c实现该本地方法" class="headerlink" title="3 用c实现该本地方法"></a>3 用c实现该本地方法</h5><pre><code class="c">#include &quot;HelloNative.h&quot;
+}
+</code></pre>
+<h5 id="2-生成包含该方法的C声明头文件"><a class="header-anchor" href="#2-生成包含该方法的C声明头文件">¶</a>2 生成包含该方法的C声明头文件</h5>
+<p>使用javah工具生成头文件</p>
+<pre><code>javah HelloNative
+</code></pre>
+<h5 id="3-用c实现该本地方法"><a class="header-anchor" href="#3-用c实现该本地方法">¶</a>3 用c实现该本地方法</h5>
+<pre><code class="language-c">#include &quot;HelloNative.h&quot;
 #include &lt;stdio.h&gt;
 
 JNIEXPORT void JNICALL Java_HelloNative_greeting(JNIEnv* env, jclass cl)
 {
     printf(&quot;Hello Native World!\n&quot;);
-}</code></pre>
-<h5 id="4-将代码置于共享类库"><a href="#4-将代码置于共享类库" class="headerlink" title="4 将代码置于共享类库"></a>4 将代码置于共享类库</h5><pre><code>export JDK=/System/Library/Frameworks/JavaVM.framework/Versions/A
+}
+</code></pre>
+<h5 id="4-将代码置于共享类库"><a class="header-anchor" href="#4-将代码置于共享类库">¶</a>4 将代码置于共享类库</h5>
+<pre><code>export JDK=/System/Library/Frameworks/JavaVM.framework/Versions/A
 gcc -dynamiclib \
-    -I $JDK/Headers \
-    -shared \
-    -o libHelloNative.jnilib \
-    HelloNative.c</code></pre><h5 id="5-在Java程序中加载该类库"><a href="#5-在Java程序中加载该类库" class="headerlink" title="5 在Java程序中加载该类库"></a>5 在Java程序中加载该类库</h5><pre><code>class HelloNativeTest{
+	-I $JDK/Headers \
+	-shared \
+	-o libHelloNative.jnilib \
+	HelloNative.c
+</code></pre>
+<h5 id="5-在Java程序中加载该类库"><a class="header-anchor" href="#5-在Java程序中加载该类库">¶</a>5 在Java程序中加载该类库</h5>
+<pre><code>class HelloNativeTest{
     public static void main(String[] args){
         HelloNative.greeting();
     }
@@ -4408,9 +4443,14 @@ gcc -dynamiclib \
     static{
         System.loadLibrary(&quot;HelloNative&quot;);
     }
-}</code></pre><h5 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h5><pre><code>javac HelloNative.java
+}
+</code></pre>
+<h5 id="运行"><a class="header-anchor" href="#运行">¶</a>运行</h5>
+<pre><code>javac HelloNative.java
 javac HelloNativeTest.java
-java -Djava.library.path=. HelloNativeTest</code></pre>
+java -Djava.library.path=. HelloNativeTest
+</code></pre>
+
 </div>
 
 	</div>
@@ -4419,19 +4459,23 @@ java -Djava.library.path=. HelloNativeTest</code></pre>
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

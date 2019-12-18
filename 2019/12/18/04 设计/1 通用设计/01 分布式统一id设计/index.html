@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		01 分布式统一id设计 | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,14 +4395,18 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:38</span>
+	<span id="post-date">2019-12-18 01:00:43</span>
 </div>
 
 
 <div id="article">
-	<h3 id="一、业界现状"><a href="#一、业界现状" class="headerlink" title="一、业界现状"></a>一、业界现状</h3><h4 id="1-汽车之家"><a href="#1-汽车之家" class="headerlink" title="1 汽车之家"></a>1 汽车之家</h4><h5 id="1）id方案"><a href="#1）id方案" class="headerlink" title="1）id方案"></a>1）id方案</h5><p>自增id</p>
+	<h3 id="一、业界现状"><a class="header-anchor" href="#一、业界现状">¶</a>一、业界现状</h3>
+<h4 id="1-汽车之家"><a class="header-anchor" href="#1-汽车之家">¶</a>1 汽车之家</h4>
+<h5 id="1）id方案"><a class="header-anchor" href="#1）id方案">¶</a>1）id方案</h5>
+<p>自增id</p>
 <p>现有数据从4位到6位，目前最大320w+</p>
-<h5 id="2）实例"><a href="#2）实例" class="headerlink" title="2）实例"></a>2）实例</h5><table>
+<h5 id="2）实例"><a class="header-anchor" href="#2）实例">¶</a>2）实例</h5>
+<table>
 <thead>
 <tr>
 <th>作品id</th>
@@ -4387,7 +4414,8 @@
 <th>类型</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>3200292</td>
 <td><a href="https://chejiahao.autohome.com.cn/info/3200292" target="_blank" rel="noopener">https://chejiahao.autohome.com.cn/info/3200292</a></td>
 <td>轻文</td>
@@ -4412,15 +4440,87 @@
 <td><a href="https://chejiahao.autohome.com.cn/info/2037191" target="_blank" rel="noopener">https://chejiahao.autohome.com.cn/info/2037191</a></td>
 <td>音频</td>
 </tr>
-</tbody></table>
-<h5 id="3）推断"><a href="#3）推断" class="headerlink" title="3）推断"></a>3）推断</h5><p>汽车之家作品是同一张表，只是文章类型不同</p>
-<h4 id="2-今日头条"><a href="#2-今日头条" class="headerlink" title="2 今日头条"></a>2 今日头条</h4><h5 id="1）id方案-1"><a href="#1）id方案-1" class="headerlink" title="1）id方案"></a>1）id方案</h5><p>类snowflake方案：</p>
+</tbody>
+</table>
+<h5 id="3）推断"><a class="header-anchor" href="#3）推断">¶</a>3）推断</h5>
+<p>汽车之家作品是同一张表，只是文章类型不同</p>
+<h4 id="2-今日头条"><a class="header-anchor" href="#2-今日头条">¶</a>2 今日头条</h4>
+<h5 id="1）id方案-v2"><a class="header-anchor" href="#1）id方案-v2">¶</a>1）id方案</h5>
+<p>类snowflake方案：</p>
 <ul>
 <li>文章（图集）、视频使用19位id，微头条使用16位id。</li>
 <li>id二进制前31是秒级时间戳，其余含义不详。</li>
 </ul>
-<h5 id="2）实例-1"><a href="#2）实例-1" class="headerlink" title="2）实例"></a>2）实例</h5><h6 id="文章"><a href="#文章" class="headerlink" title="文章"></a>文章</h6><p>文章id长19位，换为2进制63位。<br>前31转为10进制，作为秒级时间戳换算出id时间，与页面上的发布时间基本相同。<br>后32位未知，10位+12位0+10位组成。<br>类型 | 头条文章id|id时间戳 | id时间| 发布时间|id二进制后32位<br>—|—|—|—|—|—<br>视频 | 6652080479031788035 | 1548808179     | 2019-01-30 08:29:39 | 2019-01-30 08:55 |10010010000000000000001000000011<br>视频 | 6651915175337132551 | 1548769691     | 2019-01-29 21:48:11 | 2019-01-29 21:48 |11001110000000000000001000000111<br>文章 | 6651399498713006604 | 1548649626     | 2019-01-28 12:27:06 | 2019-01-28 12:27:06 |01111100000000000000001000001100<br>文章 | 6651346820406444547 | 1548637361     | 2019-01-28 09:02:41 | 2019-01-28 12:07:26 |01011100010000000000001000000011<br>图集 | 6651206373847597572 | 1548604661     | 2019-01-27 23:57:41 | 2019-01-27 23:57:41 |00011001000000000000001000000100<br>图集 | 6651200467252544004 | 1548603285     | 2019-01-27 23:34:45 | 2019-01-27 23:34:45 |11011100100000000000001000000100 </p>
-<h6 id="微头条"><a href="#微头条" class="headerlink" title="微头条"></a>微头条</h6><p>微头条id长16位，换为2进制51位。<br>前31转为10进制，作为秒级时间戳换算出id时间，与页面上的发布时间基本相同。</p>
+<h5 id="2）实例-v2"><a class="header-anchor" href="#2）实例-v2">¶</a>2）实例</h5>
+<h6 id="文章"><a class="header-anchor" href="#文章">¶</a>文章</h6>
+<p>文章id长19位，换为2进制63位。<br>
+前31转为10进制，作为秒级时间戳换算出id时间，与页面上的发布时间基本相同。<br>
+后32位未知，10位+12位0+10位组成。</p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>头条文章id</th>
+<th>id时间戳</th>
+<th>id时间</th>
+<th>发布时间</th>
+<th>id二进制后32位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>视频</td>
+<td>6652080479031788035</td>
+<td>1548808179</td>
+<td>2019-01-30 08:29:39</td>
+<td>2019-01-30 08:55</td>
+<td>10010010000000000000001000000011</td>
+</tr>
+<tr>
+<td>视频</td>
+<td>6651915175337132551</td>
+<td>1548769691</td>
+<td>2019-01-29 21:48:11</td>
+<td>2019-01-29 21:48</td>
+<td>11001110000000000000001000000111</td>
+</tr>
+<tr>
+<td>文章</td>
+<td>6651399498713006604</td>
+<td>1548649626</td>
+<td>2019-01-28 12:27:06</td>
+<td>2019-01-28 12:27:06</td>
+<td>01111100000000000000001000001100</td>
+</tr>
+<tr>
+<td>文章</td>
+<td>6651346820406444547</td>
+<td>1548637361</td>
+<td>2019-01-28 09:02:41</td>
+<td>2019-01-28 12:07:26</td>
+<td>01011100010000000000001000000011</td>
+</tr>
+<tr>
+<td>图集</td>
+<td>6651206373847597572</td>
+<td>1548604661</td>
+<td>2019-01-27 23:57:41</td>
+<td>2019-01-27 23:57:41</td>
+<td>00011001000000000000001000000100</td>
+</tr>
+<tr>
+<td>图集</td>
+<td>6651200467252544004</td>
+<td>1548603285</td>
+<td>2019-01-27 23:34:45</td>
+<td>2019-01-27 23:34:45</td>
+<td>11011100100000000000001000000100</td>
+</tr>
+</tbody>
+</table>
+<h6 id="微头条"><a class="header-anchor" href="#微头条">¶</a>微头条</h6>
+<p>微头条id长16位，换为2进制51位。<br>
+前31转为10进制，作为秒级时间戳换算出id时间，与页面上的发布时间基本相同。</p>
 <table>
 <thead>
 <tr>
@@ -4431,7 +4531,8 @@
 <th>id二进制后20位</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>1623874174038023</td>
 <td>1548647092</td>
 <td>2019-01-28 11:44:52</td>
@@ -4459,42 +4560,100 @@
 <td>2018-12-21 16:48:56</td>
 <td>01101010000000000011</td>
 </tr>
-</tbody></table>
-<h5 id="3）推断-1"><a href="#3）推断-1" class="headerlink" title="3）推断"></a>3）推断</h5><ul>
+</tbody>
+</table>
+<h5 id="3）推断-v2"><a class="header-anchor" href="#3）推断-v2">¶</a>3）推断</h5>
+<ul>
 <li>头条的文章、视频，是一张表，类型字段不同；微头条是另一张表</li>
 <li>文章、视频、微头条的最终页前缀统一，因未发现标识位，可能是通过id长度区分</li>
 <li>id时间戳与发布时间存在差别，可能的原因：“保存后未立即发布”或“来自抓取”</li>
 </ul>
-<h4 id="3-美团"><a href="#3-美团" class="headerlink" title="3 美团"></a>3 美团</h4><p>由于美团有Leaf声称，在美团内部服务包含金融、支付交易、餐饮、外卖、酒店旅游、猫眼电影等众多业务线。查找了一下，但还未发现snowflake痕迹。</p>
-<h5 id="1）详情页"><a href="#1）详情页" class="headerlink" title="1）详情页"></a>1）详情页</h5><h6 id="猫眼电影——连续自增"><a href="#猫眼电影——连续自增" class="headerlink" title="猫眼电影——连续自增"></a>猫眼电影——连续自增</h6><ul>
+<h4 id="3-美团"><a class="header-anchor" href="#3-美团">¶</a>3 美团</h4>
+<p>由于美团有Leaf声称，在美团内部服务包含金融、支付交易、餐饮、外卖、酒店旅游、猫眼电影等众多业务线。查找了一下，但还未发现snowflake痕迹。</p>
+<h5 id="1）详情页"><a class="header-anchor" href="#1）详情页">¶</a>1）详情页</h5>
+<h6 id="猫眼电影——连续自增"><a class="header-anchor" href="#猫眼电影——连续自增">¶</a>猫眼电影——连续自增</h6>
+<ul>
 <li><a href="https://maoyan.com/films/1" target="_blank" rel="noopener">https://maoyan.com/films/1</a></li>
 <li><a href="https://maoyan.com/films/2" target="_blank" rel="noopener">https://maoyan.com/films/2</a></li>
 <li><a href="https://maoyan.com/films/428" target="_blank" rel="noopener">https://maoyan.com/films/428</a></li>
 <li><a href="https://maoyan.com/films/429" target="_blank" rel="noopener">https://maoyan.com/films/429</a></li>
 </ul>
-<h6 id="榛果民宿——不连续自增"><a href="#榛果民宿——不连续自增" class="headerlink" title="榛果民宿——不连续自增"></a>榛果民宿——不连续自增</h6><ul>
+<h6 id="榛果民宿——不连续自增"><a class="header-anchor" href="#榛果民宿——不连续自增">¶</a>榛果民宿——不连续自增</h6>
+<ul>
 <li><a href="https://phoenix.meituan.com/housing/2680748" target="_blank" rel="noopener">https://phoenix.meituan.com/housing/2680748</a></li>
 <li><a href="https://phoenix.meituan.com/housing/2680749" target="_blank" rel="noopener">https://phoenix.meituan.com/housing/2680749</a></li>
 <li><a href="https://phoenix.meituan.com/housing/5174178" target="_blank" rel="noopener">https://phoenix.meituan.com/housing/5174178</a></li>
 <li><a href="https://phoenix.meituan.com/housing/5174179" target="_blank" rel="noopener">https://phoenix.meituan.com/housing/5174179</a></li>
 </ul>
-<h6 id="美团美食——不明"><a href="#美团美食——不明" class="headerlink" title="美团美食——不明"></a>美团美食——不明</h6><ul>
+<h6 id="美团美食——不明"><a class="header-anchor" href="#美团美食——不明">¶</a>美团美食——不明</h6>
+<ul>
 <li><a href="https://www.meituan.com/meishi/110299905/" target="_blank" rel="noopener">https://www.meituan.com/meishi/110299905/</a></li>
 <li><a href="https://www.meituan.com/meishi/164715711/" target="_blank" rel="noopener">https://www.meituan.com/meishi/164715711/</a></li>
 <li><a href="https://www.meituan.com/meishi/2412338/" target="_blank" rel="noopener">https://www.meituan.com/meishi/2412338/</a></li>
 <li><a href="https://www.meituan.com/meishi/40269181/" target="_blank" rel="noopener">https://www.meituan.com/meishi/40269181/</a></li>
 </ul>
-<h5 id="2）订单号"><a href="#2）订单号" class="headerlink" title="2）订单号"></a>2）订单号</h5><p>外卖|    下单时间<br>|—|—<br>5026 0271 7642 2612 7|    2018-09-02 17:46:03<br>6233 7340 1594 0462  |    2018-07-17 18:34:11<br>3962 9431 3190 0632 1|    2018-07-15 11:52:55<br>2273 5322 6921 7033 5|    2017-06-30 11:39:01</p>
-<p>团购|    下单时间<br>|—|—<br>4401257372|    2018-05-21 14:33<br>3808118372|    2017-07-21 17:35<br>2330035104| 2016-02-11 10:59</p>
-<h3 id="二、snowflake算法"><a href="#二、snowflake算法" class="headerlink" title="二、snowflake算法"></a>二、snowflake算法</h3><h4 id="1-简介"><a href="#1-简介" class="headerlink" title="1 简介"></a>1 简介</h4><p>snowflake是twitter 开源的分布式ID生成算法，基于Thrift，发布于2010年。因与自身机器架构依赖过深，twitter已于2014年宣布弃用最初版本，下一版本还未开源。详见<a href="https://github.com/twitter-archive/snowflake" target="_blank" rel="noopener">github</a>。</p>
-<h4 id="2-核心思想"><a href="#2-核心思想" class="headerlink" title="2 核心思想"></a>2 核心思想</h4><p>一个long型的ID有64bit，划分不同含义：</p>
+<h5 id="2）订单号"><a class="header-anchor" href="#2）订单号">¶</a>2）订单号</h5>
+<table>
+<thead>
+<tr>
+<th>外卖</th>
+<th>下单时间</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>5026 0271 7642 2612 7</td>
+<td>2018-09-02 17:46:03</td>
+</tr>
+<tr>
+<td>6233 7340 1594 0462</td>
+<td>2018-07-17 18:34:11</td>
+</tr>
+<tr>
+<td>3962 9431 3190 0632 1</td>
+<td>2018-07-15 11:52:55</td>
+</tr>
+<tr>
+<td>2273 5322 6921 7033 5</td>
+<td>2017-06-30 11:39:01</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>团购</th>
+<th>下单时间</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>4401257372</td>
+<td>2018-05-21 14:33</td>
+</tr>
+<tr>
+<td>3808118372</td>
+<td>2017-07-21 17:35</td>
+</tr>
+<tr>
+<td>2330035104</td>
+<td>2016-02-11 10:59</td>
+</tr>
+</tbody>
+</table>
+<h3 id="二、snowflake算法"><a class="header-anchor" href="#二、snowflake算法">¶</a>二、snowflake算法</h3>
+<h4 id="1-简介"><a class="header-anchor" href="#1-简介">¶</a>1 简介</h4>
+<p>snowflake是twitter 开源的分布式ID生成算法，基于Thrift，发布于2010年。因与自身机器架构依赖过深，twitter已于2014年宣布弃用最初版本，下一版本还未开源。详见<a href="https://github.com/twitter-archive/snowflake" target="_blank" rel="noopener">github</a>。</p>
+<h4 id="2-核心思想"><a class="header-anchor" href="#2-核心思想">¶</a>2 核心思想</h4>
+<p>一个long型的ID有64bit，划分不同含义：</p>
 <ul>
 <li>1bit符号位，始终为0</li>
 <li>41bit毫秒时间差</li>
 <li>10bit机器编号</li>
 <li>12bit毫秒内序列号</li>
 </ul>
-<h4 id="3-类snowflake算法"><a href="#3-类snowflake算法" class="headerlink" title="3 类snowflake算法"></a>3 类snowflake算法</h4><p>采用snowflake算法思想，类snowflake算法根据各自业务需要，做出了不同改动。比如改变了位数占比，添加了业务线等其他信息</p>
+<h4 id="3-类snowflake算法"><a class="header-anchor" href="#3-类snowflake算法">¶</a>3 类snowflake算法</h4>
+<p>采用snowflake算法思想，类snowflake算法根据各自业务需要，做出了不同改动。比如改变了位数占比，添加了业务线等其他信息</p>
 <table>
 <thead>
 <tr>
@@ -4504,7 +4663,8 @@
 <th>说明</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td><a href="https://tech.meituan.com/2017/04/21/mt-leaf.html" target="_blank" rel="noopener">美团Leaf</a></td>
 <td>64位</td>
 <td>1+41+10+12</td>
@@ -4528,8 +4688,10 @@
 <td>1+31+20</td>
 <td>1符号位+31秒级时间戳+20位其他</td>
 </tr>
-</tbody></table>
-<h6 id="附：位数对应"><a href="#附：位数对应" class="headerlink" title="附：位数对应"></a>附：位数对应</h6><table>
+</tbody>
+</table>
+<h6 id="附：位数对应"><a class="header-anchor" href="#附：位数对应">¶</a>附：位数对应</h6>
+<table>
    <tr>
       <td><b>二进制</td>
       <td>45-47位</td>
@@ -4549,16 +4711,20 @@
       <td>19位</td>
    </tr>
 </table>
-
-<h3 id="三、id设计参考"><a href="#三、id设计参考" class="headerlink" title="三、id设计参考"></a>三、id设计参考</h3><h4 id="1-时间"><a href="#1-时间" class="headerlink" title="1 时间"></a>1 时间</h4><h5 id="1）时间类型"><a href="#1）时间类型" class="headerlink" title="1）时间类型"></a>1）时间类型</h5><ul>
-<li>时间戳：自1970.01.01起（今日头条）  </li>
-<li>时间差：自选起始时间（百度、美团）  </li>
+<h3 id="三、id设计参考"><a class="header-anchor" href="#三、id设计参考">¶</a>三、id设计参考</h3>
+<h4 id="1-时间"><a class="header-anchor" href="#1-时间">¶</a>1 时间</h4>
+<h5 id="1）时间类型"><a class="header-anchor" href="#1）时间类型">¶</a>1）时间类型</h5>
+<ul>
+<li>时间戳：自1970.01.01起（今日头条）</li>
+<li>时间差：自选起始时间（百度、美团）</li>
 </ul>
-<h5 id="2）时间精度"><a href="#2）时间精度" class="headerlink" title="2）时间精度"></a>2）时间精度</h5><ul>
+<h5 id="2）时间精度"><a class="header-anchor" href="#2）时间精度">¶</a>2）时间精度</h5>
+<ul>
 <li>秒级：支持峰值更高（今日头条、百度）</li>
 <li>毫秒级：记录时间粒度更细（美团）</li>
 </ul>
-<h5 id="3）支持时长"><a href="#3）支持时长" class="headerlink" title="3）支持时长"></a>3）支持时长</h5><table>
+<h5 id="3）支持时长"><a class="header-anchor" href="#3）支持时长">¶</a>3）支持时长</h5>
+<table>
 <thead>
 <tr>
 <th>类型</th>
@@ -4567,7 +4733,8 @@
 <th>支持时长</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>时间戳</td>
 <td>31位</td>
 <td>41位</td>
@@ -4591,32 +4758,69 @@
 <td>41位</td>
 <td>能支持68年</td>
 </tr>
-</tbody></table>
-<h4 id="2-序列号"><a href="#2-序列号" class="headerlink" title="2 序列号"></a>2 序列号</h4><p>单位时间(秒、毫秒)支持的并发量，秒级时间可以取大一点，毫秒取小一点</p>
-<p>位数 | 并发量/时间单位<br>—|—|—<br>14 | 1.6w<br>12 | 4k<br>10 | 1k</p>
-<h4 id="3-机器号"><a href="#3-机器号" class="headerlink" title="3 机器号"></a>3 机器号</h4><p>纯机器号，或，机房号+机器号</p>
-<h5 id="1）物理机"><a href="#1）物理机" class="headerlink" title="1）物理机"></a>1）物理机</h5><ul>
+</tbody>
+</table>
+<h4 id="2-序列号"><a class="header-anchor" href="#2-序列号">¶</a>2 序列号</h4>
+<p>单位时间(秒、毫秒)支持的并发量，秒级时间可以取大一点，毫秒取小一点</p>
+<table>
+<thead>
+<tr>
+<th>位数</th>
+<th>并发量/时间单位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>14</td>
+<td>1.6w</td>
+</tr>
+<tr>
+<td>12</td>
+<td>4k</td>
+</tr>
+<tr>
+<td>10</td>
+<td>1k</td>
+</tr>
+</tbody>
+</table>
+<h4 id="3-机器号"><a class="header-anchor" href="#3-机器号">¶</a>3 机器号</h4>
+<p>纯机器号，或，机房号+机器号</p>
+<h5 id="1）物理机"><a class="header-anchor" href="#1）物理机">¶</a>1）物理机</h5>
+<ul>
 <li>手动配置</li>
-<li>zookeeper（美团）<br>  在zookeeper如未注册则创建持久顺序节点，顺序号当机器号，并本地缓存</li>
+<li>zookeeper（美团）<br>
+在zookeeper如未注册则创建持久顺序节点，顺序号当机器号，并本地缓存</li>
 </ul>
-<h5 id="2）虚拟机"><a href="#2）虚拟机" class="headerlink" title="2）虚拟机"></a>2）虚拟机</h5><ul>
-<li>redis<br>  利用redis原子计数器，虚拟机启动后，请求计数器，按机器号位数取余</li>
-<li>zookeeper<br>  从0到机器号上限，在zookeeper尝试创建临时节点，成功则为当前机器号</li>
-<li>数据库（百度）<br>  利用系统变量的host和port为唯一索引，在数据库中存取，主键作为机器id</li>
+<h5 id="2）虚拟机"><a class="header-anchor" href="#2）虚拟机">¶</a>2）虚拟机</h5>
+<ul>
+<li>redis<br>
+利用redis原子计数器，虚拟机启动后，请求计数器，按机器号位数取余</li>
+<li>zookeeper<br>
+从0到机器号上限，在zookeeper尝试创建临时节点，成功则为当前机器号</li>
+<li>数据库（百度）<br>
+利用系统变量的host和port为唯一索引，在数据库中存取，主键作为机器id</li>
 </ul>
-<h4 id="4-其他含义位"><a href="#4-其他含义位" class="headerlink" title="4 其他含义位"></a>4 其他含义位</h4><p>业务线、备用拓展位……</p>
-<h4 id="5-id设计举例"><a href="#5-id设计举例" class="headerlink" title="5 id设计举例"></a>5 id设计举例</h4><p>1符号位 + 30位秒数时间差 + 7位序列号 + 16位机器号 = 54位</p>
+<h4 id="4-其他含义位"><a class="header-anchor" href="#4-其他含义位">¶</a>4 其他含义位</h4>
+<p>业务线、备用拓展位……</p>
+<h4 id="5-id设计举例"><a class="header-anchor" href="#5-id设计举例">¶</a>5 id设计举例</h4>
+<p>1符号位 + 30位秒数时间差 + 7位序列号 + 16位机器号 = 54位</p>
 <p>能用34年，单机每秒生成128的id，支持单机重启6.5w次，初始id长度为12，最终随时间增加，最长到16位</p>
-<h3 id="四、问题"><a href="#四、问题" class="headerlink" title="四、问题"></a>四、问题</h3><h4 id="1-时钟回拨问题"><a href="#1-时钟回拨问题" class="headerlink" title="1 时钟回拨问题"></a>1 时钟回拨问题</h4><p>若机器出现时钟回拨，会产生重复id</p>
-<h5 id="1）启动时回拨"><a href="#1）启动时回拨" class="headerlink" title="1）启动时回拨"></a>1）启动时回拨</h5><p>启动时获取其他机器的时间，计算出平均时间后，将本机时间与平均时间比较，若超过阈值则启动失败。</p>
-<h5 id="2）运行时回拨"><a href="#2）运行时回拨" class="headerlink" title="2）运行时回拨"></a>2）运行时回拨</h5><ol>
+<h3 id="四、问题"><a class="header-anchor" href="#四、问题">¶</a>四、问题</h3>
+<h4 id="1-时钟回拨问题"><a class="header-anchor" href="#1-时钟回拨问题">¶</a>1 时钟回拨问题</h4>
+<p>若机器出现时钟回拨，会产生重复id</p>
+<h5 id="1）启动时回拨"><a class="header-anchor" href="#1）启动时回拨">¶</a>1）启动时回拨</h5>
+<p>启动时获取其他机器的时间，计算出平均时间后，将本机时间与平均时间比较，若超过阈值则启动失败。</p>
+<h5 id="2）运行时回拨"><a class="header-anchor" href="#2）运行时回拨">¶</a>2）运行时回拨</h5>
+<ol>
 <li>直接拒绝，抛异常</li>
 <li>若回拨时间小于阈值，则睡眠，等时钟追上</li>
 <li>若回拨时间大于阈值，直接拒绝服务并报错</li>
 <li>或若回拨时间大于阈值，更换机器号</li>
 <li>或若回拨时间大于阈值，利用拓展位</li>
 </ol>
-<h4 id="2-id里是否需要业务线？"><a href="#2-id里是否需要业务线？" class="headerlink" title="2 id里是否需要业务线？"></a>2 id里是否需要业务线？</h4><ol>
+<h4 id="2-id里是否需要业务线？"><a class="header-anchor" href="#2-id里是否需要业务线？">¶</a>2 id里是否需要业务线？</h4>
+<ol>
 <li>美团Leaf声称在内部服务众多业务线，但id里没有业务线设计</li>
 <li>头条文章和微头条的最终页前缀相同，但id长度不同，可能是通过长度区分业务线的</li>
 </ol>
@@ -4629,19 +4833,23 @@
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

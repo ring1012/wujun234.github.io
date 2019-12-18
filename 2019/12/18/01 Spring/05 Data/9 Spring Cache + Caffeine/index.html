@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		9 Spring Cache + Caffeine | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,13 +4395,14 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:18</span>
+	<span id="post-date">2019-12-18 01:00:43</span>
 </div>
 
 
 <div id="article">
 	<p>Caffeine是使用Java8对Guava缓存的重写版本，在Spring Boot 2.0中将取代Guava。</p>
-<h3 id="引入依赖"><a href="#引入依赖" class="headerlink" title="引入依赖"></a>引入依赖</h3><pre><code>&lt;dependency&gt;
+<h3 id="引入依赖"><a class="header-anchor" href="#引入依赖">¶</a>引入依赖</h3>
+<pre><code>&lt;dependency&gt;
     &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
     &lt;artifactId&gt;spring-boot-starter-cache&lt;/artifactId&gt;
 &lt;/dependency&gt;
@@ -4386,7 +4410,13 @@
     &lt;groupId&gt;com.github.ben-manes.caffeine&lt;/groupId&gt;
     &lt;artifactId&gt;caffeine&lt;/artifactId&gt;
     &lt;version&gt;2.6.2&lt;/version&gt;
-&lt;/dependency&gt;</code></pre><h3 id="开启缓存"><a href="#开启缓存" class="headerlink" title="开启缓存"></a>开启缓存</h3><pre><code>@EnableCaching</code></pre><h3 id="配置参数"><a href="#配置参数" class="headerlink" title="配置参数"></a>配置参数</h3><ul>
+&lt;/dependency&gt;
+</code></pre>
+<h3 id="开启缓存"><a class="header-anchor" href="#开启缓存">¶</a>开启缓存</h3>
+<pre><code>@EnableCaching
+</code></pre>
+<h3 id="配置参数"><a class="header-anchor" href="#配置参数">¶</a>配置参数</h3>
+<ul>
 <li>initialCapacity=[integer]: 初始的缓存空间大小</li>
 <li>maximumSize=[long]: 缓存的最大条数</li>
 <li>maximumWeight=[long]: 缓存的最大权重</li>
@@ -4400,40 +4430,43 @@
 </ul>
 <p>注意：</p>
 <ul>
-<li><p>expireAfterWrite和expireAfterAccess同时存在时，以expireAfterWrite为准。</p>
-</li>
-<li><p>maximumSize和maximumWeight不可以同时使用</p>
-</li>
-<li><p>weakValues和softValues不可以同时使用</p>
+<li>expireAfterWrite和expireAfterAccess同时存在时，以expireAfterWrite为准。</li>
+<li>maximumSize和maximumWeight不可以同时使用</li>
+<li>weakValues和softValues不可以同时使用</li>
+</ul>
 <pre><code>spring:
-cache:
-  type: CAFFEINE
-  cache-names:
-    - CacheName
-  caffeine:
-    spec: initialCapacity=50,maximumSize=1000,expireAfterWrite=10s,refreshAfterWrite=14400s</code></pre><p>如果使用了refreshAfterWrite配置还必须指定一个CacheLoader</p>
+  cache:
+    type: CAFFEINE
+    cache-names:
+      - CacheName
+    caffeine:
+      spec: initialCapacity=50,maximumSize=1000,expireAfterWrite=10s,refreshAfterWrite=14400s
+</code></pre>
+<p>如果使用了refreshAfterWrite配置还必须指定一个CacheLoader</p>
 <pre><code>@Configuration
 public class CacheConfig {
-  @Bean
-  public CacheLoader&lt;Object, Object&gt; cacheLoader() {
+    @Bean
+    public CacheLoader&lt;Object, Object&gt; cacheLoader() {
 
-      CacheLoader&lt;Object, Object&gt; cacheLoader = new CacheLoader&lt;Object, Object&gt;() {
-          @Override
-          public Object load(Object key) throws Exception {
-              return null;
-          }
+        CacheLoader&lt;Object, Object&gt; cacheLoader = new CacheLoader&lt;Object, Object&gt;() {
+            @Override
+            public Object load(Object key) throws Exception {
+                return null;
+            }
 
-          // 重写这个方法将oldValue值返回回去，进而刷新缓存
-          @Override
-          public Object reload(Object key, Object oldValue) throws Exception {
-              return oldValue;
-          }
-      };
-      return cacheLoader;
-  }
-}</code></pre><p>使用</p>
-<pre><code>@Cacheable(value = &quot;CacheName&quot;)</code></pre></li>
-</ul>
+            // 重写这个方法将oldValue值返回回去，进而刷新缓存
+            @Override
+            public Object reload(Object key, Object oldValue) throws Exception {
+                return oldValue;
+            }
+        };
+        return cacheLoader;
+    }
+}
+</code></pre>
+<p>使用</p>
+<pre><code>@Cacheable(value = &quot;CacheName&quot;)
+</code></pre>
 
 </div>
 
@@ -4443,19 +4476,23 @@ public class CacheConfig {
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

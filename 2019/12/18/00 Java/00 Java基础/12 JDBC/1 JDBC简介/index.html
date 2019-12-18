@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		1 JDBC简介 | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,15 +4395,16 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:49</span>
+	<span id="post-date">2019-12-18 01:00:41</span>
 </div>
 
 
 <div id="article">
-	<h3 id="一、JDBC-简介"><a href="#一、JDBC-简介" class="headerlink" title="一、JDBC 简介"></a>一、JDBC 简介</h3><p>Java数据库连接（JDBC）API提供了来自Java的通用数据访问。   该API包含一个框架，可以动态安装不同的驱动程序来访问不同的数据源。JDBC API 允许用户访问任何形式的表格数据，尤其是存储在关系数据库中的数据。</p>
+	<h3 id="一、JDBC-简介"><a class="header-anchor" href="#一、JDBC-简介">¶</a>一、JDBC 简介</h3>
+<p>Java数据库连接（JDBC）API提供了来自Java的通用数据访问。   该API包含一个框架，可以动态安装不同的驱动程序来访问不同的数据源。JDBC API 允许用户访问任何形式的表格数据，尤其是存储在关系数据库中的数据。</p>
 <p><strong>JDBC API由两个包组成：</strong></p>
 <ul>
-<li><strong>java.sql</strong>：核心API </li>
+<li><strong>java.sql</strong>：核心API</li>
 <li><strong>javax.sql</strong>：可选 API，对java.sql的补充</li>
 </ul>
 <p><strong>JDBC帮助管理以下三步骤：</strong></p>
@@ -4405,18 +4429,30 @@
         String s = rs.getString(&quot;b&quot;);
         float f = rs.getFloat(&quot;c&quot;);
     }
-}</code></pre><h3 id="二、-JDBC驱动程序类型"><a href="#二、-JDBC驱动程序类型" class="headerlink" title="二、 JDBC驱动程序类型"></a>二、 JDBC驱动程序类型</h3><p>JDBC规范将驱动程序分为四类：</p>
+}
+</code></pre>
+<h3 id="二、-JDBC驱动程序类型"><a class="header-anchor" href="#二、-JDBC驱动程序类型">¶</a>二、 JDBC驱动程序类型</h3>
+<p>JDBC规范将驱动程序分为四类：</p>
 <ul>
-<li>第一类：将JDBC翻译为ODBC。<br>使用ODBC驱动与数据库通信。Java 8 已不再支持。</li>
-<li>第二类：部分Java程序和部分本地代码。<br>既需安装Java又需要安装第三方。</li>
-<li>第三类：纯Java客户端类库。<br>使用数据库无关协议，将数据库请求发送给服务器，服务器再翻译为数据库相关协议。简化部署，平台相关代码只在服务端。</li>
-<li>第四类：纯Java类库。<br>将JDBC请求直接翻译成数据库相关协议。</li>
+<li>第一类：将JDBC翻译为ODBC。<br>
+使用ODBC驱动与数据库通信。Java 8 已不再支持。</li>
+<li>第二类：部分Java程序和部分本地代码。<br>
+既需安装Java又需要安装第三方。</li>
+<li>第三类：纯Java客户端类库。<br>
+使用数据库无关协议，将数据库请求发送给服务器，服务器再翻译为数据库相关协议。简化部署，平台相关代码只在服务端。</li>
+<li>第四类：纯Java类库。<br>
+将JDBC请求直接翻译成数据库相关协议。</li>
 </ul>
 <p>大部分数据库供应商提供第三或第四类驱动。</p>
-<h3 id="三、-JDBC的典型用法"><a href="#三、-JDBC的典型用法" class="headerlink" title="三、 JDBC的典型用法"></a>三、 JDBC的典型用法</h3><p>JDBC API支持两层和三层处理模型进行数据库访问<br><strong>双层模型</strong><br><img src="/images/1545011846556.gif" alt="图1: 双层模型">  </p>
+<h3 id="三、-JDBC的典型用法"><a class="header-anchor" href="#三、-JDBC的典型用法">¶</a>三、 JDBC的典型用法</h3>
+<p>JDBC API支持两层和三层处理模型进行数据库访问<br>
+<strong>双层模型</strong><br>
+<img src="/images/1545011846556.gif" alt="图1: 双层模型"></p>
 <p>传统C/S模型中，服务器部署数据库，客户端安装GUI程序，JDBC驱动部署在客户端，直接与数据源通信。</p>
-<p><strong>三层模型</strong><br><img src="/images/1545011846625.gif" alt="图2: 三层模型"></p>
-<p>如今三层模型更常见。客户端不直接调用数据库，调用中间件层，由中间件层操作数据库。<br>可以增加企业数据的访问控制，以及多种类型的更新；另外，也可简化应用的部署，并在多数情况下有性能优势。</p>
+<p><strong>三层模型</strong><br>
+<img src="/images/1545011846625.gif" alt="图2: 三层模型"></p>
+<p>如今三层模型更常见。客户端不直接调用数据库，调用中间件层，由中间件层操作数据库。<br>
+可以增加企业数据的访问控制，以及多种类型的更新；另外，也可简化应用的部署，并在多数情况下有性能优势。</p>
 
 </div>
 
@@ -4426,19 +4462,23 @@
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

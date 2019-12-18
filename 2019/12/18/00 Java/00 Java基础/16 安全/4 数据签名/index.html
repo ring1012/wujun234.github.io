@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		4 数据签名 | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,7 +4395,7 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:50</span>
+	<span id="post-date">2019-12-18 01:00:42</span>
 </div>
 
 
@@ -4383,7 +4406,8 @@
 <li>这份代码是否被篡改过</li>
 </ol>
 <p>ava.security包提供了很多成熟算法。</p>
-<h3 id="1-消息摘要"><a href="#1-消息摘要" class="headerlink" title="1 消息摘要"></a>1 消息摘要</h3><p>消息摘要(Message Digest)是数据块的数据指纹。具有两个基本属性：</p>
+<h3 id="1-消息摘要"><a class="header-anchor" href="#1-消息摘要">¶</a>1 消息摘要</h3>
+<p>消息摘要(Message Digest)是数据块的数据指纹。具有两个基本属性：</p>
 <ol>
 <li>如果数据改变了，消息摘要也会改变</li>
 <li>拥有给定消息的伪造者不能创建与原消息具有相同摘要的假消息</li>
@@ -4391,23 +4415,45 @@
 <p>Java已实现MD5、SHA-1、SHA-256、SHA-384和SHA-512，推荐后三种。实现类，java.security.MessageDigest</p>
 <pre><code>MessageDigest alg = MessageDigest.getInstance(&quot;SHA-1&quot;);
 alg.update(bytes);
-byte[] hash = alg.digest();</code></pre><h3 id="2-消息签名"><a href="#2-消息签名" class="headerlink" title="2 消息签名"></a>2 消息签名</h3><p>私钥签名，公钥校验</p>
+byte[] hash = alg.digest();
+</code></pre>
+<h3 id="2-消息签名"><a class="header-anchor" href="#2-消息签名">¶</a>2 消息签名</h3>
+<p>私钥签名，公钥校验</p>
 <ul>
 <li>对称加密： DES、3DES、AES、</li>
 <li>不对称加密：RSA</li>
 </ul>
-<h3 id="3-签名校验"><a href="#3-签名校验" class="headerlink" title="3 签名校验"></a>3 签名校验</h3><h5 id="生成证书"><a href="#生成证书" class="headerlink" title="生成证书"></a>生成证书</h5><p>JDK的keytool程序，用于生成和管理证书。管理密钥库、证书数据库和私有/共有密钥对。</p>
+<h3 id="3-签名校验"><a class="header-anchor" href="#3-签名校验">¶</a>3 签名校验</h3>
+<h5 id="生成证书"><a class="header-anchor" href="#生成证书">¶</a>生成证书</h5>
+<p>JDK的keytool程序，用于生成和管理证书。管理密钥库、证书数据库和私有/共有密钥对。</p>
 <p>创建密钥库，生成密钥</p>
-<pre><code>keytool -genkeypair -keystore alice.certs -alias alice</code></pre><p>导出证书文件</p>
-<pre><code>keytool -exportcert -keystore alice.certs -alias alice -file alice,cer</code></pre><p>打印证书</p>
-<pre><code>keytool -printcert -file alice.cer</code></pre><p>导入密钥库</p>
-<pre><code>keytool -importcert -keystore bob.certs -alias alice -file alice.cer</code></pre><h5 id="签名和校验"><a href="#签名和校验" class="headerlink" title="签名和校验"></a>签名和校验</h5><p>jarsigner 工具负责对 JAR 文件签名和校验</p>
+<pre><code>keytool -genkeypair -keystore alice.certs -alias alice
+</code></pre>
+<p>导出证书文件</p>
+<pre><code>keytool -exportcert -keystore alice.certs -alias alice -file alice,cer
+</code></pre>
+<p>打印证书</p>
+<pre><code>keytool -printcert -file alice.cer
+</code></pre>
+<p>导入密钥库</p>
+<pre><code>keytool -importcert -keystore bob.certs -alias alice -file alice.cer
+</code></pre>
+<h5 id="签名和校验"><a class="header-anchor" href="#签名和校验">¶</a>签名和校验</h5>
+<p>jarsigner 工具负责对 JAR 文件签名和校验</p>
 <p>添加签名</p>
-<pre><code>jarsigner -keystore alice.certs document.jar alice</code></pre><p>校验签名</p>
-<pre><code>jarsigner -verify -keystore bob.certs document.jar</code></pre><h3 id="4-认证问题"><a href="#4-认证问题" class="headerlink" title="4 认证问题"></a>4 认证问题</h3><p>通过受信赖的第三方担保签名</p>
-<h3 id="5-证书签名"><a href="#5-证书签名" class="headerlink" title="5 证书签名"></a>5 证书签名</h3><p>证书授权（CA），密钥被密钥库种已有的受信任的根密钥签过名，则不必校验证书指纹。</p>
-<h3 id="6-证书请求"><a href="#6-证书请求" class="headerlink" title="6 证书请求"></a>6 证书请求</h3><p>将CA导入密钥库，生成证书请求，对目标密钥签名，导入密钥库</p>
-<h3 id="7-代码签名"><a href="#7-代码签名" class="headerlink" title="7 代码签名"></a>7 代码签名</h3><p>对jar签名，不再广泛使用了</p>
+<pre><code>jarsigner -keystore alice.certs document.jar alice
+</code></pre>
+<p>校验签名</p>
+<pre><code>jarsigner -verify -keystore bob.certs document.jar
+</code></pre>
+<h3 id="4-认证问题"><a class="header-anchor" href="#4-认证问题">¶</a>4 认证问题</h3>
+<p>通过受信赖的第三方担保签名</p>
+<h3 id="5-证书签名"><a class="header-anchor" href="#5-证书签名">¶</a>5 证书签名</h3>
+<p>证书授权（CA），密钥被密钥库种已有的受信任的根密钥签过名，则不必校验证书指纹。</p>
+<h3 id="6-证书请求"><a class="header-anchor" href="#6-证书请求">¶</a>6 证书请求</h3>
+<p>将CA导入密钥库，生成证书请求，对目标密钥签名，导入密钥库</p>
+<h3 id="7-代码签名"><a class="header-anchor" href="#7-代码签名">¶</a>7 代码签名</h3>
+<p>对jar签名，不再广泛使用了</p>
 
 </div>
 
@@ -4417,19 +4463,23 @@ byte[] hash = alg.digest();</code></pre><h3 id="2-消息签名"><a href="#2-消�
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

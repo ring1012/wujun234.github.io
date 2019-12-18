@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		7 IP多播 | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,13 +4395,14 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:45</span>
+	<span id="post-date">2019-12-18 01:00:41</span>
 </div>
 
 
 <div id="article">
 	<p><img src="/images/1569397271056.png" alt="image"></p>
-<h3 id="1-IP多播的基本概念"><a href="#1-IP多播的基本概念" class="headerlink" title="1 IP多播的基本概念"></a>1 IP多播的基本概念</h3><ul>
+<h3 id="1-IP多播的基本概念"><a class="header-anchor" href="#1-IP多播的基本概念">¶</a>1 IP多播的基本概念</h3>
+<ul>
 <li>在互联网上进行多播就叫做IP多播。</li>
 <li>IP多播所传送的分组需要使用多播IP地址。</li>
 <li>在多播数据报的目的地址写入的是多播组的标识符，然后设法让加入到这个多播组的主机的IP地址与多播组的标识符关联起来；</li>
@@ -4386,17 +4410,22 @@
 <li>多播地址只能用于目的地址，而不能用于源地址；</li>
 <li>224.0.1.0至238.255.255.255是全球范围都可使用的多播地址；</li>
 </ul>
-<h3 id="2-在局域网上进行硬件多播"><a href="#2-在局域网上进行硬件多播" class="headerlink" title="2 在局域网上进行硬件多播"></a>2 在局域网上进行硬件多播</h3><p>TCP/IP 协议使用的以太网多播地址块的范围是从 00-00-5E-00-00-00 到 00-00-5E-FF-FF-FF</p>
+<h3 id="2-在局域网上进行硬件多播"><a class="header-anchor" href="#2-在局域网上进行硬件多播">¶</a>2 在局域网上进行硬件多播</h3>
+<p>TCP/IP 协议使用的以太网多播地址块的范围是从 00-00-5E-00-00-00 到 00-00-5E-FF-FF-FF</p>
 <p>以太网硬件地址字段中的第1字节的最低位为1时即为多播地址，这种多播地址数占IANA分配到的地址数的一半。</p>
 <p>因此IANA拥有的以太网多播地址的范围是从 01-00-5E-00-00-00 到 01-00-5E-7F-FF-FF</p>
 <p><img src="/images/1569397274287.jpg" alt="image"></p>
-<h3 id="3-网际组管理协议IGMP和多播路由选择协议"><a href="#3-网际组管理协议IGMP和多播路由选择协议" class="headerlink" title="3 网际组管理协议IGMP和多播路由选择协议"></a>3 网际组管理协议IGMP和多播路由选择协议</h3><h4 id="1-IP多播需要两种协议"><a href="#1-IP多播需要两种协议" class="headerlink" title="1. IP多播需要两种协议"></a>1. IP多播需要两种协议</h4><h5 id="网际组管理协议-IGMP"><a href="#网际组管理协议-IGMP" class="headerlink" title="网际组管理协议 IGMP"></a>网际组管理协议 IGMP</h5><p>IGMP 让连接在本地局域网上的多播路由器知道本局域网上是否有主机（严格讲，是主机上的某个进程）参加或退出了某个多播组。</p>
+<h3 id="3-网际组管理协议IGMP和多播路由选择协议"><a class="header-anchor" href="#3-网际组管理协议IGMP和多播路由选择协议">¶</a>3 网际组管理协议IGMP和多播路由选择协议</h3>
+<h4 id="1-IP多播需要两种协议"><a class="header-anchor" href="#1-IP多播需要两种协议">¶</a>1. IP多播需要两种协议</h4>
+<h5 id="网际组管理协议-IGMP"><a class="header-anchor" href="#网际组管理协议-IGMP">¶</a>网际组管理协议 IGMP</h5>
+<p>IGMP 让连接在本地局域网上的多播路由器知道本局域网上是否有主机（严格讲，是主机上的某个进程）参加或退出了某个多播组。</p>
 <p>从概念上讲，IGMP的工作可分为两个阶段。</p>
 <ul>
 <li>第一阶段：当某台主机加入新的多播组时，该主机应向多播组的多播地址发送一个 IGMP报文，声明自己要成为该组的成员。</li>
 <li>第二阶段：组成员关系是动态的。本地多播路由器要周期性地探询本地局域网上的主机，以便知道这些主机是否还继续是组的成员。</li>
 </ul>
-<h5 id="多播路由选择协议"><a href="#多播路由选择协议" class="headerlink" title="多播路由选择协议"></a>多播路由选择协议</h5><p>多播路由选择实际上就是要找出以源主机为根节点的多播转发树。</p>
+<h5 id="多播路由选择协议"><a class="header-anchor" href="#多播路由选择协议">¶</a>多播路由选择协议</h5>
+<p>多播路由选择实际上就是要找出以源主机为根节点的多播转发树。</p>
 <p>在转发多播数据报时使用了以下的三种方法：</p>
 <p><strong>（1）洪泛与剪除</strong></p>
 <p>这种方法适合于较小的多播组，而所有的组成员接入的局域网也是相邻接的。</p>
@@ -4419,19 +4448,23 @@
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		2 GC算法 | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,7 +4395,7 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:51</span>
+	<span id="post-date">2019-12-18 01:00:42</span>
 </div>
 
 
@@ -4388,27 +4411,36 @@
 <li>新生代</li>
 <li>老年代</li>
 </ul>
-<h3 id="1-标记－清除"><a href="#1-标记－清除" class="headerlink" title="1 标记－清除"></a>1 标记－清除</h3><p>最基础的收集算法，其它算法都是对它不足的改进</p>
-<h5 id="1-1-两个阶段"><a href="#1-1-两个阶段" class="headerlink" title="1.1 两个阶段"></a>1.1 两个阶段</h5><ol>
+<h3 id="1-标记－清除"><a class="header-anchor" href="#1-标记－清除">¶</a>1 标记－清除</h3>
+<p>最基础的收集算法，其它算法都是对它不足的改进</p>
+<h5 id="1-1-两个阶段"><a class="header-anchor" href="#1-1-两个阶段">¶</a>1.1 两个阶段</h5>
+<ol>
 <li>标记（GC判定）</li>
 <li>清除</li>
 </ol>
-<h5 id="1-2-两点不足"><a href="#1-2-两点不足" class="headerlink" title="1.2 两点不足"></a>1.2 两点不足</h5><ul>
+<h5 id="1-2-两点不足"><a class="header-anchor" href="#1-2-两点不足">¶</a>1.2 两点不足</h5>
+<ul>
 <li>效率不高</li>
-<li>空间问题<br>产生大量不连续内存碎片，空间不够后会触发GC</li>
+<li>空间问题<br>
+产生大量不连续内存碎片，空间不够后会触发GC</li>
 </ul>
 <p><img src="/images/1545389996337.jpg" alt="image"></p>
-<h3 id="2-复制算法"><a href="#2-复制算法" class="headerlink" title="2 复制算法"></a>2 复制算法</h3><p>解决效率问题。</p>
-<h5 id="2-1-策略"><a href="#2-1-策略" class="headerlink" title="2.1 策略"></a>2.1 策略</h5><p>将内存分为两块，每次都使用其中一块，当一块用完了，就将存活的对象复制到另一块，然后把使用过的一次清理掉。  </p>
+<h3 id="2-复制算法"><a class="header-anchor" href="#2-复制算法">¶</a>2 复制算法</h3>
+<p>解决效率问题。</p>
+<h5 id="2-1-策略"><a class="header-anchor" href="#2-1-策略">¶</a>2.1 策略</h5>
+<p>将内存分为两块，每次都使用其中一块，当一块用完了，就将存活的对象复制到另一块，然后把使用过的一次清理掉。</p>
 <p>代价是内存缩小为原来一半。</p>
-<h5 id="2-2-实现"><a href="#2-2-实现" class="headerlink" title="2.2 实现"></a>2.2 实现</h5><p>用来回收<strong>新生代</strong>。新生代98%对象“朝生夕死”，所以不是1：1划分内存。</p>
+<h5 id="2-2-实现"><a class="header-anchor" href="#2-2-实现">¶</a>2.2 实现</h5>
+<p>用来回收<strong>新生代</strong>。新生代98%对象“朝生夕死”，所以不是1：1划分内存。</p>
 <p>将内存分为一块较大的 Eden 空间和两块较小的 Survivor 空间，每次使用 Eden 和其中一块 Survivor。回收时将存活的对象一次性复制到另一块 Survivor，清剩下的。</p>
 <p>Hotspot 默认 Eden:Survivor:Survivor = 8:1:1，若回收时 Survivor 空间不够，通过老年代进行分配<strong>担保</strong>。</p>
 <p><img src="/images/1545389996488.jpg" alt="image"></p>
-<h3 id="3-标记－整理"><a href="#3-标记－整理" class="headerlink" title="3 标记－整理"></a>3 标记－整理</h3><p>老年代，应对100%对象存活</p>
+<h3 id="3-标记－整理"><a class="header-anchor" href="#3-标记－整理">¶</a>3 标记－整理</h3>
+<p>老年代，应对100%对象存活</p>
 <p>先标记可以被回收的对象，然后，让存活的对象向一端移动，最后直接清理掉另一端的内存。</p>
 <p><img src="/images/1545389996623.jpg" alt="image"></p>
-<h3 id="4-分代收集算法"><a href="#4-分代收集算法" class="headerlink" title="4 分代收集算法"></a>4 分代收集算法</h3><p>将内存根据生命周期分为几种，一般为新生代和老年代，然后根据特性，选择不同的回收算法。</p>
+<h3 id="4-分代收集算法"><a class="header-anchor" href="#4-分代收集算法">¶</a>4 分代收集算法</h3>
+<p>将内存根据生命周期分为几种，一般为新生代和老年代，然后根据特性，选择不同的回收算法。</p>
 
 </div>
 
@@ -4418,19 +4450,23 @@
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

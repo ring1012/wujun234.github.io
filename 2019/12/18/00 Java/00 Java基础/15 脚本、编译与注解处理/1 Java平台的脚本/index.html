@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		1 Java平台的脚本 | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,7 +4395,7 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:50</span>
+	<span id="post-date">2019-12-18 01:00:41</span>
 </div>
 
 
@@ -4382,7 +4405,8 @@
 <li>编译器 API ：应用程序内编译Java代码</li>
 <li>注解处理器 ：操作注解</li>
 </ul>
-<h3 id="1-获取脚本引擎"><a href="#1-获取脚本引擎" class="headerlink" title="1 获取脚本引擎"></a>1 获取脚本引擎</h3><p>常用引擎</p>
+<h3 id="1-获取脚本引擎"><a class="header-anchor" href="#1-获取脚本引擎">¶</a>1 获取脚本引擎</h3>
+<p>常用引擎</p>
 <table>
 <thead>
 <tr>
@@ -4392,7 +4416,8 @@
 <th>文件扩展</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>Nashorn</td>
 <td>nashorn,Nashorn,js,JS,JavaScript,javascript,ECMAScript,ecmascript</td>
 <td>application/javascript,application/ecmascript,text/javascript,text/ecmascript,</td>
@@ -4416,33 +4441,57 @@
 <td>-</td>
 <td>scheme, sisc</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 <p>可通过名字，MIME类型或文件扩展来请求脚本引擎</p>
 <pre><code>ScriptEngineManager manager = new ScriptEngineManager();
-ScriptEngine engine = manager.getEngineByName(&quot;nashorn&quot;);</code></pre><p>还可引入jar包支持更多引擎</p>
-<h3 id="2-脚本赋值与绑定"><a href="#2-脚本赋值与绑定" class="headerlink" title="2 脚本赋值与绑定"></a>2 脚本赋值与绑定</h3><p>同一引擎上调用多个脚本，大多引擎都会保留之前定义的值</p>
+ScriptEngine engine = manager.getEngineByName(&quot;nashorn&quot;);
+</code></pre>
+<p>还可引入jar包支持更多引擎</p>
+<h3 id="2-脚本赋值与绑定"><a class="header-anchor" href="#2-脚本赋值与绑定">¶</a>2 脚本赋值与绑定</h3>
+<p>同一引擎上调用多个脚本，大多引擎都会保留之前定义的值</p>
 <pre><code>Object result = engine.eval(scriptString);
-Object result = engine.eval(reader);</code></pre><h5 id="变量绑定"><a href="#变量绑定" class="headerlink" title="变量绑定"></a>变量绑定</h5><p>赋值</p>
+Object result = engine.eval(reader);
+</code></pre>
+<h5 id="变量绑定"><a class="header-anchor" href="#变量绑定">¶</a>变量绑定</h5>
+<p>赋值</p>
 <pre><code>engine.put(&quot;k&quot;, 1728);
-Object result = engine.eval(&quot;k + 1&quot;);</code></pre><p>取值</p>
+Object result = engine.eval(&quot;k + 1&quot;);
+</code></pre>
+<p>取值</p>
 <pre><code>engine.eval(&quot;n = 1728&quot;);
-Object result = engine.get(&quot;n&quot;);</code></pre><p>作用域</p>
+Object result = engine.get(&quot;n&quot;);
+</code></pre>
+<p>作用域</p>
 <pre><code>Bindings scope = engine.createBindings();
 scope.put(&quot;b&quot;,new JButton());
-engine.eval(scriptString, scope);</code></pre><h3 id="3-重定向输入和输出"><a href="#3-重定向输入和输出" class="headerlink" title="3 重定向输入和输出"></a>3 重定向输入和输出</h3><p>可调用脚本上下文的set方法重定向脚本的标准输入输出</p>
+engine.eval(scriptString, scope);
+</code></pre>
+<h3 id="3-重定向输入和输出"><a class="header-anchor" href="#3-重定向输入和输出">¶</a>3 重定向输入和输出</h3>
+<p>可调用脚本上下文的set方法重定向脚本的标准输入输出</p>
 <pre><code>StringWriter writer = new StringWriter();
-engine.getContext().setWriter(new PrintWriter(write, true));</code></pre><p>Nashorn引擎没有输入源的概念</p>
-<h3 id="4-调用脚本的函数和方法"><a href="#4-调用脚本的函数和方法" class="headerlink" title="4 调用脚本的函数和方法"></a>4 调用脚本的函数和方法</h3><h5 id="面向过程"><a href="#面向过程" class="headerlink" title="面向过程"></a>面向过程</h5><p>invokeFunction</p>
+engine.getContext().setWriter(new PrintWriter(write, true));
+</code></pre>
+<p>Nashorn引擎没有输入源的概念</p>
+<h3 id="4-调用脚本的函数和方法"><a class="header-anchor" href="#4-调用脚本的函数和方法">¶</a>4 调用脚本的函数和方法</h3>
+<h5 id="面向过程"><a class="header-anchor" href="#面向过程">¶</a>面向过程</h5>
+<p>invokeFunction</p>
 <pre><code>//定义函数
-engine.eval(&quot;function greet(how, whom){return how + &#39;, &#39; + whom + &#39;!&#39;}&quot;);
+engine.eval(&quot;function greet(how, whom){return how + ', ' + whom + '!'}&quot;);
 //调用函数
-result = ((Invocable)engine).invokeFunction(&quot;greet&quot;, &quot;Hello&quot;, &quot;World&quot;);</code></pre><h5 id="面向对象"><a href="#面向对象" class="headerlink" title="面向对象"></a>面向对象</h5><p>invokeMethod</p>
+result = ((Invocable)engine).invokeFunction(&quot;greet&quot;, &quot;Hello&quot;, &quot;World&quot;);
+</code></pre>
+<h5 id="面向对象"><a class="header-anchor" href="#面向对象">¶</a>面向对象</h5>
+<p>invokeMethod</p>
 <pre><code>//定义对象
 engine.eval(&quot;function Greeter(how){this.how = how}&quot;);
-engine.eval(&quot;Greeter.prototype.welcome = function(whom){ return this.how + &#39;, &#39; + whom + &#39;!&#39;}&quot;);
+engine.eval(&quot;Greeter.prototype.welcome = function(whom){ return this.how + ', ' + whom + '!'}&quot;);
 //调用方法
-Object yo = engine.eval(&quot;new Greeter(&#39;Yo&#39;)&quot;);
-result = ((Invocable)engine).invokeMethod(yo, &quot;welcome&quot;, &quot;World&quot;);</code></pre><h3 id="5-编译脚本"><a href="#5-编译脚本" class="headerlink" title="5 编译脚本"></a>5 编译脚本</h3><p>需要重复执行的时候，希望编译脚本</p>
+Object yo = engine.eval(&quot;new Greeter('Yo')&quot;);
+result = ((Invocable)engine).invokeMethod(yo, &quot;welcome&quot;, &quot;World&quot;);
+</code></pre>
+<h3 id="5-编译脚本"><a class="header-anchor" href="#5-编译脚本">¶</a>5 编译脚本</h3>
+<p>需要重复执行的时候，希望编译脚本</p>
 <pre><code>Reader reader = new FileReader(&quot;script.js&quot;);
 CompiledScript script = null;
 if(engine implements Compilable){
@@ -4452,7 +4501,9 @@ if(script != null){
     script.eval();
 }sele{
     engine.eval(reader);
-}</code></pre>
+}
+</code></pre>
+
 </div>
 
 	</div>
@@ -4461,19 +4512,23 @@ if(script != null){
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

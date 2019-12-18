@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		4 Zabbix迁移 | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,23 +4395,33 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:41</span>
+	<span id="post-date">2019-12-18 01:00:44</span>
 </div>
 
 
 <div id="article">
-	<p>zabbix的前端所有的操作都存在zabbix数据库里。<br>如果迁移要求历史数据不丢失，对zabbix库中相应的表进行导出导入即可。<br>若是对历史数据不要求，那么只迁移配置信息即可。</p>
-<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><ul>
-<li>根据zabbix手册新安装zabbix服务端，如果需要保留历史数据，务必使用相同版本。  </li>
-<li>安装好后访问/setup.php初始化。  </li>
-<li>同步数据库。  </li>
-<li>若想升级，先按相同版本迁移，再执行升级流程，否则版本不同数据库差异很大，错误连连。  </li>
+	<p>zabbix的前端所有的操作都存在zabbix数据库里。<br>
+如果迁移要求历史数据不丢失，对zabbix库中相应的表进行导出导入即可。<br>
+若是对历史数据不要求，那么只迁移配置信息即可。</p>
+<h3 id="安装"><a class="header-anchor" href="#安装">¶</a>安装</h3>
+<ul>
+<li>根据zabbix手册新安装zabbix服务端，如果需要保留历史数据，务必使用相同版本。</li>
+<li>安装好后访问/setup.php初始化。</li>
+<li>同步数据库。</li>
+<li>若想升级，先按相同版本迁移，再执行升级流程，否则版本不同数据库差异很大，错误连连。</li>
 <li>配置邮件发送，使用smtp，不要自己配置sendmail等，坑多。</li>
 </ul>
-<h3 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h3><p>1.导出zabbix数据库</p>
-<pre><code>mysqldump -uroot -p --opt  zabbix &gt; zabbix.sql</code></pre><p>2.传送sql文件到新的服务器上（新服务器上基本环境应搭建好）</p>
-<pre><code>scp zabbix.sql root@x.x.x.x:/tmp</code></pre><p>3.在新服务器上导入sql文件</p>
-<pre><code>mysql -uroot -p zabbix &lt; zabbix.sql</code></pre><p>#zabbix库可以是一个新建的库，也可以是已经存在的库，因为sql文件再导入时，会先看表是否存在，假如表存在会先删除再导入</p>
+<h3 id="数据库"><a class="header-anchor" href="#数据库">¶</a>数据库</h3>
+<p>1.导出zabbix数据库</p>
+<pre><code>mysqldump -uroot -p --opt  zabbix &gt; zabbix.sql
+</code></pre>
+<p>2.传送sql文件到新的服务器上（新服务器上基本环境应搭建好）</p>
+<pre><code>scp zabbix.sql root@x.x.x.x:/tmp
+</code></pre>
+<p>3.在新服务器上导入sql文件</p>
+<pre><code>mysql -uroot -p zabbix &lt; zabbix.sql
+</code></pre>
+<p>#zabbix库可以是一个新建的库，也可以是已经存在的库，因为sql文件再导入时，会先看表是否存在，假如表存在会先删除再导入</p>
 
 </div>
 
@@ -4398,19 +4431,23 @@
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

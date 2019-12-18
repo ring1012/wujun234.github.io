@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		3 数组和广义表 | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,47 +4395,65 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:42</span>
+	<span id="post-date">2019-12-18 01:00:44</span>
 </div>
 
 
 <div id="article">
-	<h3 id="1-数组的概念、多维数组的实现"><a href="#1-数组的概念、多维数组的实现" class="headerlink" title="1 数组的概念、多维数组的实现"></a>1 数组的概念、多维数组的实现</h3><h4 id="1）数组的概念"><a href="#1）数组的概念" class="headerlink" title="1）数组的概念"></a>1）数组的概念</h4><ul>
+	<h3 id="1-数组的概念、多维数组的实现"><a class="header-anchor" href="#1-数组的概念、多维数组的实现">¶</a>1 数组的概念、多维数组的实现</h3>
+<h4 id="1）数组的概念"><a class="header-anchor" href="#1）数组的概念">¶</a>1）数组的概念</h4>
+<ul>
 <li>数组的特点：元素数目固定；下标有界。</li>
 <li>数组的操作：按照下标进行读写。</li>
 </ul>
-<h4 id="2）多维数组的实现"><a href="#2）多维数组的实现" class="headerlink" title="2）多维数组的实现"></a>2）多维数组的实现</h4><h5 id="行优先顺序"><a href="#行优先顺序" class="headerlink" title="行优先顺序"></a>行优先顺序</h5><p>存储时先按行从小到大的顺序存储，在每一行中按列号从小到大存储。</p>
-<h5 id="列优先顺序"><a href="#列优先顺序" class="headerlink" title="列优先顺序"></a>列优先顺序</h5><p>存储时先按列从小到大的顺序存储，在每一列中按行号从小到大存储。</p>
-<h3 id="2-矩阵的压缩存储"><a href="#2-矩阵的压缩存储" class="headerlink" title="2 矩阵的压缩存储"></a>2 矩阵的压缩存储</h3><p>矩阵的压缩存储就是存储数组时，尽量减少存储空间，但数组中每个元素必须存储。</p>
+<h4 id="2）多维数组的实现"><a class="header-anchor" href="#2）多维数组的实现">¶</a>2）多维数组的实现</h4>
+<h5 id="行优先顺序"><a class="header-anchor" href="#行优先顺序">¶</a>行优先顺序</h5>
+<p>存储时先按行从小到大的顺序存储，在每一行中按列号从小到大存储。</p>
+<h5 id="列优先顺序"><a class="header-anchor" href="#列优先顺序">¶</a>列优先顺序</h5>
+<p>存储时先按列从小到大的顺序存储，在每一列中按行号从小到大存储。</p>
+<h3 id="2-矩阵的压缩存储"><a class="header-anchor" href="#2-矩阵的压缩存储">¶</a>2 矩阵的压缩存储</h3>
+<p>矩阵的压缩存储就是存储数组时，尽量减少存储空间，但数组中每个元素必须存储。</p>
 <p>在矩阵中，如果有规律可寻，只要存储其中一部分，而另外一部分的存储地址可以通过相应的算法将它计算出来，从而占有较少的存储空间达到存储整个矩阵的目的。</p>
 <p>矩阵的压缩存储仅能针对特殊矩阵使用，对于没有规律可循的二维数组则不能使用。</p>
-<h4 id="1）对称矩阵"><a href="#1）对称矩阵" class="headerlink" title="1）对称矩阵"></a>1）对称矩阵</h4><p>只需对对称矩阵中n(n+1)/2个元素进行储存表示</p>
+<h4 id="1）对称矩阵"><a class="header-anchor" href="#1）对称矩阵">¶</a>1）对称矩阵</h4>
+<p>只需对对称矩阵中n(n+1)/2个元素进行储存表示</p>
 <p><img src="/images/1558581405726.png" alt=""></p>
-<h4 id="2）三角矩阵"><a href="#2）三角矩阵" class="headerlink" title="2）三角矩阵"></a>2）三角矩阵</h4><p>以主对角线划分，三角矩阵有上三角和下三角两种。上三角矩阵它的下三角中的元素均为常数。下三角矩阵正好相反，它的主对角线上方均为常数。 </p>
+<h4 id="2）三角矩阵"><a class="header-anchor" href="#2）三角矩阵">¶</a>2）三角矩阵</h4>
+<p>以主对角线划分，三角矩阵有上三角和下三角两种。上三角矩阵它的下三角中的元素均为常数。下三角矩阵正好相反，它的主对角线上方均为常数。</p>
 <p><img src="/images/1558581407509.png" alt=""></p>
-<h4 id="3）稀疏矩阵"><a href="#3）稀疏矩阵" class="headerlink" title="3）稀疏矩阵"></a>3）稀疏矩阵</h4><p>if 一个 m * n 的矩阵含有 t 个非零元素，且 t 远远小于 m * n，则称这个矩阵为稀疏矩阵</p>
+<h4 id="3）稀疏矩阵"><a class="header-anchor" href="#3）稀疏矩阵">¶</a>3）稀疏矩阵</h4>
+<p>if 一个 m * n 的矩阵含有 t 个非零元素，且 t 远远小于 m * n，则称这个矩阵为稀疏矩阵</p>
 <p><img src="/images/1558581407585.png" alt=""></p>
 <p>除了记录非零元素的值之外，还必须同时几下它所在的行和列的位置。稀疏矩阵的存储方法一般有三种：三元组法、行逻辑连接顺序表和十字链表法。</p>
-<h5 id="三元组法"><a href="#三元组法" class="headerlink" title="三元组法"></a>三元组法</h5><p>用三项内容表示稀疏矩阵中的每个非零元素，形式为：（i,j,value）。<br>其中，i 表示行序号，j 表示列序号，value 表示非零元素的值</p>
-<h3 id="3-广义表的基本概念"><a href="#3-广义表的基本概念" class="headerlink" title="3 广义表的基本概念"></a>3 广义表的基本概念</h3><h4 id="1）定义"><a href="#1）定义" class="headerlink" title="1）定义"></a>1）定义</h4><ul>
-<li>广义表：是线性表的扩展，具体定义为n（n≥0）个元素的有限集合。<br>  n的值是广义表的长度，如果n=0称广义表为空表。</li>
+<h5 id="三元组法"><a class="header-anchor" href="#三元组法">¶</a>三元组法</h5>
+<p>用三项内容表示稀疏矩阵中的每个非零元素，形式为：（i,j,value）。<br>
+其中，i 表示行序号，j 表示列序号，value 表示非零元素的值</p>
+<h3 id="3-广义表的基本概念"><a class="header-anchor" href="#3-广义表的基本概念">¶</a>3 广义表的基本概念</h3>
+<h4 id="1）定义"><a class="header-anchor" href="#1）定义">¶</a>1）定义</h4>
+<ul>
+<li>广义表：是线性表的扩展，具体定义为n（n≥0）个元素的有限集合。<br>
+n的值是广义表的长度，如果n=0称广义表为空表。</li>
 <li>长度：广义表中含有元素的个数称</li>
 <li>深度：广义表中含有的括号对数</li>
 </ul>
-<h5 id="数据元素"><a href="#数据元素" class="headerlink" title="数据元素"></a>数据元素</h5><p>广义表的数据元素有两种类型：一个是不可再分的元素（原子元素）；一个是可以再分的元素（子表）。</p>
+<h5 id="数据元素"><a class="header-anchor" href="#数据元素">¶</a>数据元素</h5>
+<p>广义表的数据元素有两种类型：一个是不可再分的元素（原子元素）；一个是可以再分的元素（子表）。</p>
 <ul>
 <li>如果所有的元素都是原子元素，则称为线性表。</li>
 <li>如果数据元素中含有子表元素，则称为广义表。</li>
 </ul>
-<h5 id="记法"><a href="#记法" class="headerlink" title="记法"></a>记法</h5><p>广义表一般记作：LS=(a1,a2,……,an)</p>
+<h5 id="记法"><a class="header-anchor" href="#记法">¶</a>记法</h5>
+<p>广义表一般记作：LS=(a1,a2,……,an)</p>
 <p>常见的广义表为：A=()、B=(())、C=(a,b)、D=(A,B,C)、E=(a,E)</p>
-<h5 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h5><p>广义表有三个重要的特点：</p>
+<h5 id="特点"><a class="header-anchor" href="#特点">¶</a>特点</h5>
+<p>广义表有三个重要的特点：</p>
 <ul>
 <li>第一：广义表的元素可以是子表，而子表的元素还可以是子表，广义表是一个多层次的结构。</li>
 <li>第二：广义表可以为其他广义表所共享。</li>
 <li>第三：广义表可以是一个递归表，即表也可以是其本身的一个子表。</li>
 </ul>
-<h4 id="2）存储方式"><a href="#2）存储方式" class="headerlink" title="2）存储方式"></a>2）存储方式</h4><p>广义表的存储方法有很多种，一般采用链表存储。</p>
+<h4 id="2）存储方式"><a class="header-anchor" href="#2）存储方式">¶</a>2）存储方式</h4>
+<p>广义表的存储方法有很多种，一般采用链表存储。</p>
 <p><img src="/images/1558581407623.jpg" alt=""></p>
 <p>flag表示标志位。当flag为0时，表示该结点为原子元素，info表示原子元素的值；当flag为1时表示该结点为子表，info表示指针，指向该子表的第一个结点。 link表示指针，指向广义表的下一个元素。</p>
 
@@ -4424,19 +4465,23 @@
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

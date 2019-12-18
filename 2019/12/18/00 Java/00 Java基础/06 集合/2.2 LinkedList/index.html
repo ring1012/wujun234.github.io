@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		2.2 LinkedList | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,17 +4395,19 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:47</span>
+	<span id="post-date">2019-12-18 01:00:41</span>
 </div>
 
 
 <div id="article">
-	<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>现在栈或者队列的首选是<code>ArrayDeque</code>。</p>
-<h3 id="总体介绍"><a href="#总体介绍" class="headerlink" title="总体介绍"></a>总体介绍</h3><hr>
-<p><code>LinkedList</code>同时实现了<code>List</code>接口和<code>Deque</code>接口，允许<code>null</code>元素。  </p>
+	<h3 id="前言"><a class="header-anchor" href="#前言">¶</a>前言</h3>
+<p>现在栈或者队列的首选是<code>ArrayDeque</code>。</p>
+<h3 id="总体介绍"><a class="header-anchor" href="#总体介绍">¶</a>总体介绍</h3>
+<hr>
+<p><code>LinkedList</code>同时实现了<code>List</code>接口和<code>Deque</code>接口，允许<code>null</code>元素。</p>
 <p><img src="/images/1545011835684.png" alt=""></p>
-<p><code>LinkedList</code>底层通过双向链表实现。节点用内部类<code>Node</code>表示,通过 <code>first</code> 和 <code>last</code> 引用分别指向链表的第一个和最后一个元素。链表为空时 <code>first</code> 和 <code>last</code> 指向 null 。  </p>
-<pre><code class="java">    //Node内部类
+<p><code>LinkedList</code>底层通过双向链表实现。节点用内部类<code>Node</code>表示,通过 <code>first</code> 和 <code>last</code> 引用分别指向链表的第一个和最后一个元素。链表为空时 <code>first</code> 和 <code>last</code> 指向 null 。</p>
+<pre><code class="language-java">    //Node内部类
     private static class Node&lt;E&gt; {
         E item;
         Node&lt;E&gt; next;
@@ -4393,12 +4418,16 @@
             this.next = next;
             this.prev = prev;
         }
-    }</code></pre>
+    }
+</code></pre>
 <p>LinkedList没有实现同步，如果需要多个线程并发访问，可采用 Collections.synchronizedList() 包装。</p>
-<h3 id="方法剖析"><a href="#方法剖析" class="headerlink" title="方法剖析"></a>方法剖析</h3><hr>
-<h4 id="add"><a href="#add" class="headerlink" title="add()"></a>add()</h4><p><img src="/images/1545011835969.png" alt="image"></p>
-<h5 id="add-E-e"><a href="#add-E-e" class="headerlink" title="add(E e)"></a>add(E e)</h5><p>在LinkedList的末尾插入元素</p>
-<pre><code class="java">    public boolean add(E e) {
+<h3 id="方法剖析"><a class="header-anchor" href="#方法剖析">¶</a>方法剖析</h3>
+<hr>
+<h4 id="add"><a class="header-anchor" href="#add">¶</a>add()</h4>
+<p><img src="/images/1545011835969.png" alt="image"></p>
+<h5 id="add-E-e"><a class="header-anchor" href="#add-E-e">¶</a>add(E e)</h5>
+<p>在LinkedList的末尾插入元素</p>
+<pre><code class="language-java">    public boolean add(E e) {
         linkLast(e);
         return true;
     }
@@ -4412,44 +4441,50 @@
             l.next = newNode;
         size++;
         modCount++;
-    }</code></pre>
-<h5 id="add-int-index-E-element"><a href="#add-int-index-E-element" class="headerlink" title="add(int index, E element)"></a>add(int index, E element)</h5><ol>
-<li><p>先根据index找到要插入的位置；</p>
-</li>
-<li><p>修改引用，完成插入操作。</p>
-<pre><code> public void add(int index, E element) {
-     checkPositionIndex(index);
-
-     if (index == size)
-         linkLast(element);
-     else
-         linkBefore(element, node(index));//node trick
- }
- void linkBefore(E e, Node&lt;E&gt; succ) {
-     // assert succ != null;
-     final Node&lt;E&gt; pred = succ.prev;
-     final Node&lt;E&gt; newNode = new Node&lt;&gt;(pred, e, succ);
-     succ.prev = newNode;
-     if (pred == null)
-         first = newNode;
-     else
-         pred.next = newNode;
-     size++;
-     modCount++;
- }</code></pre></li>
+    }
+</code></pre>
+<h5 id="add-int-index-E-element"><a class="header-anchor" href="#add-int-index-E-element">¶</a>add(int index, E element)</h5>
+<ol>
+<li>先根据index找到要插入的位置；</li>
+<li>修改引用，完成插入操作。</li>
 </ol>
-<h4 id="remove"><a href="#remove" class="headerlink" title="remove()"></a>remove()</h4><p><img src="/images/1545011836269.png" alt="image"></p>
-<h5 id="remove-Object-o"><a href="#remove-Object-o" class="headerlink" title="remove(Object o)"></a>remove(Object o)</h5><p>删除跟指定元素相等的第一个元素  </p>
+<pre><code>    public void add(int index, E element) {
+        checkPositionIndex(index);
+
+        if (index == size)
+            linkLast(element);
+        else
+            linkBefore(element, node(index));//node trick
+    }
+    void linkBefore(E e, Node&lt;E&gt; succ) {
+        // assert succ != null;
+        final Node&lt;E&gt; pred = succ.prev;
+        final Node&lt;E&gt; newNode = new Node&lt;&gt;(pred, e, succ);
+        succ.prev = newNode;
+        if (pred == null)
+            first = newNode;
+        else
+            pred.next = newNode;
+        size++;
+        modCount++;
+    }
+</code></pre>
+<h4 id="remove"><a class="header-anchor" href="#remove">¶</a>remove()</h4>
+<p><img src="/images/1545011836269.png" alt="image"></p>
+<h5 id="remove-Object-o"><a class="header-anchor" href="#remove-Object-o">¶</a>remove(Object o)</h5>
+<p>删除跟指定元素相等的第一个元素</p>
 <ol>
 <li>根据 equals 找到要删除元素的引用</li>
 <li>unlink(Node<E> x)，完成删除操作。</li>
 </ol>
-<h5 id="remove-int-index"><a href="#remove-int-index" class="headerlink" title="remove(int index)"></a>remove(int index)</h5><p>删除指定下标处的元素</p>
+<h5 id="remove-int-index"><a class="header-anchor" href="#remove-int-index">¶</a>remove(int index)</h5>
+<p>删除指定下标处的元素</p>
 <ol>
 <li>根据 index 找到要删除元素的引用</li>
 <li>unlink(Node<E> x)，完成删除操作。</li>
 </ol>
-<h5 id="unlink-Node-x"><a href="#unlink-Node-x" class="headerlink" title="unlink(Node x)"></a>unlink(Node<E> x)</h5><pre><code>    E unlink(Node&lt;E&gt; x) {
+<h5 id="unlink-Node-E-x"><a class="header-anchor" href="#unlink-Node-E-x">¶</a>unlink(Node<E> x)</h5>
+<pre><code>    E unlink(Node&lt;E&gt; x) {
         // assert x != null;
         final E element = x.item;
         final Node&lt;E&gt; next = x.next;
@@ -4473,18 +4508,28 @@
         size--;
         modCount++;
         return element;
-    }</code></pre><h4 id="get、set"><a href="#get、set" class="headerlink" title="get、set"></a>get、set</h4><h5 id="get-int-index"><a href="#get-int-index" class="headerlink" title="get(int index)"></a>get(int index)</h5><p>通过node(int index)得到</p>
+    }
+</code></pre>
+<h4 id="get、set"><a class="header-anchor" href="#get、set">¶</a>get、set</h4>
+<h5 id="get-int-index"><a class="header-anchor" href="#get-int-index">¶</a>get(int index)</h5>
+<p>通过node(int index)得到</p>
 <pre><code>    public E get(int index) {
         checkElementIndex(index);
         return node(index).item;
-    }</code></pre><h5 id="set-int-index-E-element"><a href="#set-int-index-E-element" class="headerlink" title="set(int index, E element)"></a>set(int index, E element)</h5><p>通过node(int index)找到，修改</p>
+    }
+</code></pre>
+<h5 id="set-int-index-E-element"><a class="header-anchor" href="#set-int-index-E-element">¶</a>set(int index, E element)</h5>
+<p>通过node(int index)找到，修改</p>
 <pre><code>    public E set(int index, E element) {
         checkElementIndex(index);
         Node&lt;E&gt; x = node(index);
         E oldVal = x.item;
         x.item = element;
         return oldVal;
-    }</code></pre><h5 id="node-int-index"><a href="#node-int-index" class="headerlink" title="node(int index)"></a>node(int index)</h5><pre><code class="java">    Node&lt;E&gt; node(int index) {
+    }
+</code></pre>
+<h5 id="node-int-index"><a class="header-anchor" href="#node-int-index">¶</a>node(int index)</h5>
+<pre><code class="language-java">    Node&lt;E&gt; node(int index) {
         // assert isElementIndex(index);
 
         if (index &lt; (size &gt;&gt; 1)) {
@@ -4498,7 +4543,8 @@
                 x = x.prev;
             return x;
         }
-    }</code></pre>
+    }
+</code></pre>
 <p>因为链表双向，node(int index) 中取决于条件 index &lt; (size &gt;&gt; 1)决定朝那个方向找。</p>
 <p>总结：</p>
 <ul>
@@ -4514,19 +4560,23 @@
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

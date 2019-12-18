@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		2 取消与关闭 | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,33 +4395,38 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:53</span>
+	<span id="post-date">2019-12-18 01:00:42</span>
 </div>
 
 
 <div id="article">
-	<h3 id="1-任务取消"><a href="#1-任务取消" class="headerlink" title="1 任务取消"></a>1 任务取消</h3><p>在Java中没有一种安全的抢占式方法来停止线程，因此也就没有一种安全的抢占式方法来停止任务，只有一些协作式的机制，使请求取消的任务和代码都遵循一种协商好的协议。</p>
+	<h3 id="1-任务取消"><a class="header-anchor" href="#1-任务取消">¶</a>1 任务取消</h3>
+<p>在Java中没有一种安全的抢占式方法来停止线程，因此也就没有一种安全的抢占式方法来停止任务，只有一些协作式的机制，使请求取消的任务和代码都遵循一种协商好的协议。</p>
 <ul>
 <li>方法1：volatile类型的“已请求取消”状态标识。</li>
 <li>方法2：中断。状态标识检查对于调用阻塞方法的任务是不合适的，所以需要通过中断来取消任务。</li>
 </ul>
-<h5 id="1-1-中断"><a href="#1-1-中断" class="headerlink" title="1.1 中断"></a>1.1 中断</h5><ul>
+<h5 id="1-1-中断"><a class="header-anchor" href="#1-1-中断">¶</a>1.1 中断</h5>
+<ul>
 <li>每个线程都有一个boolean类型的中断状态。当调用Thread.interrupt方法时，该值被设置为true，Thread.interruptted可以恢复中断。</li>
 <li>阻塞库方法，如Thread.sleep和Object.wait，join等，都会检查线程何时中断，并且发现中断时提前返回。它们在响应中断时执行的操作包括：清除中断状态，抛出InterruptedException，表示阻塞操作由于中断而提前结束。</li>
 <li>但是对于其他方法interrupt仅仅是传递了中断的请求消息，并不会使线程中断，需要由线程在下一个合适的时刻中断自己。</li>
 <li>通常，用中断是取消的最合理的实现方式。</li>
 </ul>
-<h5 id="1-2-中断策略"><a href="#1-2-中断策略" class="headerlink" title="1.2 中断策略"></a>1.2 中断策略</h5><ul>
+<h5 id="1-2-中断策略"><a class="header-anchor" href="#1-2-中断策略">¶</a>1.2 中断策略</h5>
+<ul>
 <li>中断策略：在发现中断请求时应该做哪些工作</li>
 <li>最合理的中断策略：尽快退出执行流程，并把中断信息传递给调用者，从而使调用栈的上层代码采取进一步的操作。</li>
 <li>当检查到中断请求时，任务不需要放弃所有的操作——它可以推迟处理中断请求，并且到某个更合适的时刻，抛出InterruptException或者表示已收到中断请求。</li>
 </ul>
-<h5 id="1-3-响应中断"><a href="#1-3-响应中断" class="headerlink" title="1.3 响应中断"></a>1.3 响应中断</h5><p>有两种实用策略可用于处理InterruptedException：</p>
+<h5 id="1-3-响应中断"><a class="header-anchor" href="#1-3-响应中断">¶</a>1.3 响应中断</h5>
+<p>有两种实用策略可用于处理InterruptedException：</p>
 <ul>
 <li>传递异常（可能在某个特定于任务额清除操作之后），从而使你的方法也称为可中断的阻塞方法。</li>
 <li>恢复中断状态，从而使调用栈上的上层代码能够对其进行处理。也就是catch InterruptedException</li>
 </ul>
-<h5 id="1-4-通过-Future-来实现取消"><a href="#1-4-通过-Future-来实现取消" class="headerlink" title="1.4 通过 Future 来实现取消"></a>1.4 通过 Future 来实现取消</h5><pre><code>public class TimedRun {
+<h5 id="1-4-通过-Future-来实现取消"><a class="header-anchor" href="#1-4-通过-Future-来实现取消">¶</a>1.4 通过 Future 来实现取消</h5>
+<pre><code>public class TimedRun {
     private static final ExecutorService taskExec = Executors.newCachedThreadPool();
 
     public static void timedRun(Runnable r, long timeout, TimeUnit unit) throws InterruptedException {
@@ -4415,24 +4443,32 @@
             task.cancel(true); // 如果任务正在进行，那么将被中断
         }
     }
-}</code></pre><h5 id="1-5-处理不可中断的阻塞"><a href="#1-5-处理不可中断的阻塞" class="headerlink" title="1.5 处理不可中断的阻塞"></a>1.5 处理不可中断的阻塞</h5><p>不是所有Java中的阻塞机制都会直接响应InterruptException，如一个线程由于执行同步的Socket I/O或者等待获得内置锁而阻塞。但他们也有类似InterruptException的机制。</p>
+}
+</code></pre>
+<h5 id="1-5-处理不可中断的阻塞"><a class="header-anchor" href="#1-5-处理不可中断的阻塞">¶</a>1.5 处理不可中断的阻塞</h5>
+<p>不是所有Java中的阻塞机制都会直接响应InterruptException，如一个线程由于执行同步的Socket I/O或者等待获得内置锁而阻塞。但他们也有类似InterruptException的机制。</p>
 <p>可以通过重写Thread.interrupt方法，将非标准的取消操作封装在Thread中（如加入close Socket的逻辑）。</p>
-<h5 id="1-6-采用-newTaskFor-来封装非标准的取消"><a href="#1-6-采用-newTaskFor-来封装非标准的取消" class="headerlink" title="1.6 采用 newTaskFor 来封装非标准的取消"></a>1.6 采用 newTaskFor 来封装非标准的取消</h5><p>newTaskFor：ThreadPoolExecutor中的一个工厂方法，它将创建Future来代表任务。newTaskFor还能返回一个RunnableFuture接口，该接口扩展了Future和Runnable（并由FutureTask实现）。</p>
+<h5 id="1-6-采用-newTaskFor-来封装非标准的取消"><a class="header-anchor" href="#1-6-采用-newTaskFor-来封装非标准的取消">¶</a>1.6 采用 newTaskFor 来封装非标准的取消</h5>
+<p>newTaskFor：ThreadPoolExecutor中的一个工厂方法，它将创建Future来代表任务。newTaskFor还能返回一个RunnableFuture接口，该接口扩展了Future和Runnable（并由FutureTask实现）。</p>
 <p>CancellableTask定义了一个CancellableTask接口，该接口扩展了Callable，并增加了一个cancel方法和newTask方法来构造RunnableFuture。</p>
 <pre><code>public interface CancellableTask&lt;T&gt; extends Callable&lt;T&gt; {
        void cancel();
        RunnableFuture&lt;T&gt; newTask();
-}</code></pre><p>CancellingExecutor继承了THReadPoolExecutor，并通过改写newTaskFor使得CancellableTask可以创建自己的Future</p>
+}
+</code></pre>
+<p>CancellingExecutor继承了THReadPoolExecutor，并通过改写newTaskFor使得CancellableTask可以创建自己的Future</p>
 <pre><code>@ThreadSafe
 class CancellingExecutor extends ThreadPoolExecutor {
-    ...
+	...
     protected &lt;T&gt; RunnableFuture&lt;T&gt; newTaskFor(Callable&lt;T&gt; callable) {
         if (callable instanceof CancellableTask)
             return ((CancellableTask&lt;T&gt;) callable).newTask();
         else
             return super.newTaskFor(callable);
     }
-}</code></pre><p>SocketUsingTask实现了CancellableTask</p>
+}
+</code></pre>
+<p>SocketUsingTask实现了CancellableTask</p>
 <pre><code>public abstract class SocketUsingTask &lt;T&gt; implements CancellableTask&lt;T&gt; {
      private Socket socket;
 
@@ -4460,16 +4496,22 @@ class CancellingExecutor extends ThreadPoolExecutor {
             }
         };
     }
-}</code></pre><h3 id="2-停止基于线程的服务"><a href="#2-停止基于线程的服务" class="headerlink" title="2 停止基于线程的服务"></a>2 停止基于线程的服务</h3><ul>
-<li>正确的封装原则：除非拥有某个线程，否则不能对该线程进行操作。 </li>
+}
+</code></pre>
+<h3 id="2-停止基于线程的服务"><a class="header-anchor" href="#2-停止基于线程的服务">¶</a>2 停止基于线程的服务</h3>
+<ul>
+<li>正确的封装原则：除非拥有某个线程，否则不能对该线程进行操作。</li>
 <li>线程的所有权：线程有一个相应的所有者，即创建该线程的类。</li>
 <li>线程的所有权是不可传递的，应用程序不能直接停止工作者线程，服务应该提供生命周期方法来关闭它自己以及它所拥有的线程。</li>
 <li>对于持有线程的服务，只要服务的存在时间大于创建线程的方法的存在时间，那么就应该提供生命周期方法。ExecutorService中提供了shutdown和shutdownNow等方法。</li>
 </ul>
-<h5 id="2-2-关闭ExecutorService"><a href="#2-2-关闭ExecutorService" class="headerlink" title="2.2 关闭ExecutorService"></a>2.2 关闭ExecutorService</h5><p>ExecutorService提供了两种关闭方法：1.shutdown正常关闭。2.shutdownNow强行关闭</p>
+<h5 id="2-2-关闭ExecutorService"><a class="header-anchor" href="#2-2-关闭ExecutorService">¶</a>2.2 关闭ExecutorService</h5>
+<p>ExecutorService提供了两种关闭方法：1.shutdown正常关闭。2.shutdownNow强行关闭</p>
 <p>将管理线程的工作委托给一个ExecutorService</p>
-<h5 id="2-3-“毒丸”对象"><a href="#2-3-“毒丸”对象" class="headerlink" title="2.3 “毒丸”对象"></a>2.3 “毒丸”对象</h5><p>“毒丸”：“当得到这个对象时，立即停止”。 在FIFO队列中使用</p>
-<h5 id="2-4-示例：只执行一次的服"><a href="#2-4-示例：只执行一次的服" class="headerlink" title="2.4 示例：只执行一次的服"></a>2.4 示例：只执行一次的服</h5><p>如果某个方法需要处理一批任务，并且当所有任务都处理完成后才返回，那么可以通过一个私有的Executor来简化服务的生命周期管理，其中该Executor的生命周期是由这个方法来控制的。（在这种情况下，invokeAll和invokeAny等方法通常会起较大的作用。）</p>
+<h5 id="2-3-“毒丸”对象"><a class="header-anchor" href="#2-3-“毒丸”对象">¶</a>2.3 “毒丸”对象</h5>
+<p>“毒丸”：“当得到这个对象时，立即停止”。 在FIFO队列中使用</p>
+<h5 id="2-4-示例：只执行一次的服"><a class="header-anchor" href="#2-4-示例：只执行一次的服">¶</a>2.4 示例：只执行一次的服</h5>
+<p>如果某个方法需要处理一批任务，并且当所有任务都处理完成后才返回，那么可以通过一个私有的Executor来简化服务的生命周期管理，其中该Executor的生命周期是由这个方法来控制的。（在这种情况下，invokeAll和invokeAny等方法通常会起较大的作用。）</p>
 <pre><code>public class CheckForMail {
       public boolean checkMail(Set&lt;String&gt; hosts,long timeout,TimeUnit unit)throws InterruptedException{
           ExecutorService exec=Executors.newCachedThreadPool();
@@ -4493,14 +4535,17 @@ class CancellingExecutor extends ThreadPoolExecutor {
           //检查邮件
           return false;
       }
-}</code></pre><h5 id="2-5-shutdownNow的局限性"><a href="#2-5-shutdownNow的局限性" class="headerlink" title="2.5 shutdownNow的局限性"></a>2.5 shutdownNow的局限性</h5><p>使用shutdownNow时，虽然他会返回已提交但尚未开始的任务，但我们无法在关闭中知道正在执行的任务的状态</p>
+}
+</code></pre>
+<h5 id="2-5-shutdownNow的局限性"><a class="header-anchor" href="#2-5-shutdownNow的局限性">¶</a>2.5 shutdownNow的局限性</h5>
+<p>使用shutdownNow时，虽然他会返回已提交但尚未开始的任务，但我们无法在关闭中知道正在执行的任务的状态</p>
 <p>记录哪些任务是在关闭后取消的：</p>
 <pre><code>public class TrackingExecutor extends AbstractExecutorService{
     private final ExecutorService exec;
     private final Set&lt;Runnable&gt; tasksCancelledAtShutdown=
             Collections.synchronizedSet(new HashSet&lt;Runnable&gt;());   //创建一个线程安全的Set来记录那些任务是关闭后取消的
 
-    public List&lt;Runnable&gt; getCancelledTasks(){    //客户端可以通过这个方法知道，哪些任务是在关闭后取消的
+    public List&lt;Runnable&gt; getCancelledTasks(){	//客户端可以通过这个方法知道，哪些任务是在关闭后取消的
         if(!exec.isShutdown())
             throw new IllegalStateException();
         return new ArrayList&lt;Runnable&gt;(tasksCancelledAtShutdown);
@@ -4519,8 +4564,12 @@ class CancellingExecutor extends ThreadPoolExecutor {
         });
     }
     // 将ExecutorService的其他方法委托给exec
-}</code></pre><h3 id="3-处理非正常的线程终止"><a href="#3-处理非正常的线程终止" class="headerlink" title="3 处理非正常的线程终止"></a>3 处理非正常的线程终止</h3><p>最主要原因就是RuntimeException。</p>
-<h5 id="主动处理"><a href="#主动处理" class="headerlink" title="主动处理"></a>主动处理</h5><p>下面代码中，如果任务抛出了一个运行时异常，那么它将使线程终结。ThreadPoolExecutor也使用了这种技术。</p>
+}
+</code></pre>
+<h3 id="3-处理非正常的线程终止"><a class="header-anchor" href="#3-处理非正常的线程终止">¶</a>3 处理非正常的线程终止</h3>
+<p>最主要原因就是RuntimeException。</p>
+<h5 id="主动处理"><a class="header-anchor" href="#主动处理">¶</a>主动处理</h5>
+<p>下面代码中，如果任务抛出了一个运行时异常，那么它将使线程终结。ThreadPoolExecutor也使用了这种技术。</p>
 <pre><code>public void run() {
     Throwable thrown = null;
     try {
@@ -4531,7 +4580,10 @@ class CancellingExecutor extends ThreadPoolExecutor {
     } finally {
        threadExited(this, thrown);
     }
-}</code></pre><h5 id="未捕获异常的处理"><a href="#未捕获异常的处理" class="headerlink" title="未捕获异常的处理"></a>未捕获异常的处理</h5><p>除了上一种主动方法来解决运行时异常，在Thread API 中同样提供了UncaughtExceptionHandler，它能检测出某个线程由于未捕获的异常而终结的情况。</p>
+}
+</code></pre>
+<h5 id="未捕获异常的处理"><a class="header-anchor" href="#未捕获异常的处理">¶</a>未捕获异常的处理</h5>
+<p>除了上一种主动方法来解决运行时异常，在Thread API 中同样提供了UncaughtExceptionHandler，它能检测出某个线程由于未捕获的异常而终结的情况。</p>
 <p>这两种方法是互补的，通过将两者结合在一起，就能有效地防止线程泄漏问题。</p>
 <p>当线程由于未捕获异常而退出时，JVM会吧这个事件报告给应用程序提的UncaughtExceptionHandler异常处理器。如果没有提供任何异常处理器，那么默认的行为是将栈追踪信息输出到System.err。</p>
 <p>或者像下面程序这样，写入日志。</p>
@@ -4540,13 +4592,17 @@ class CancellingExecutor extends ThreadPoolExecutor {
         Logger logger = Logger.getAnonymousLogger();  //创建一个匿名的日志
         logger.log(Level.SEVERE, &quot;Thread terminated with exception: &quot; + t.getName(), e);
     }
-}</code></pre><h3 id="4-JVM关闭"><a href="#4-JVM关闭" class="headerlink" title="4 JVM关闭"></a>4 JVM关闭</h3><p>JVM既可以正常关闭，也可以强行关闭。</p>
-<h5 id="4-1-关闭钩子"><a href="#4-1-关闭钩子" class="headerlink" title="4.1 关闭钩子"></a>4.1 关闭钩子</h5><p>在正常关闭中，JVM首先调用所有已注册的关闭钩子(Shutdown Hook)。关闭钩子是指通过 Runtime.addShutdownHook 注册的但尚未开始的线程。</p>
+}
+</code></pre>
+<h3 id="4-JVM关闭"><a class="header-anchor" href="#4-JVM关闭">¶</a>4 JVM关闭</h3>
+<p>JVM既可以正常关闭，也可以强行关闭。</p>
+<h5 id="4-1-关闭钩子"><a class="header-anchor" href="#4-1-关闭钩子">¶</a>4.1 关闭钩子</h5>
+<p>在正常关闭中，JVM首先调用所有已注册的关闭钩子(Shutdown Hook)。关闭钩子是指通过 Runtime.addShutdownHook 注册的但尚未开始的线程。</p>
 <ul>
 <li>JVM并不能保证关闭钩子的调用顺序。在关闭应用程序线程时，如果有线程仍然在运行，那么这些线程接下来将与关闭进程并发执行。</li>
 <li>当所有的关闭钩子都执行结束时，如果 runFinalizersOnExit 为true，那么 JVM将运行终结器，然后再停止。</li>
 <li>JVM并不会停止或中断任何在关闭时仍然运行的应用程序线程。当JVM最终结束时，这些线程将被强行结束。</li>
-<li>如果关闭钩子或终结器没有执行完成，那么正常关闭进程“挂起”并且JVM必须被强行关闭。当被强行关闭时，只是关闭JVM，而不会运行关闭钩子。</li>
+<li>如果关闭钩子或终结器没有执行完成，那么正常关闭进程“挂起&quot;并且JVM必须被强行关闭。当被强行关闭时，只是关闭JVM，而不会运行关闭钩子。</li>
 </ul>
 <p>关闭钩子应该是线程安全的，并且不应该对应用程序的状态或者JVM的关闭原因做出任何假设。关闭钩子必须尽快退出，因为它们会延迟JVM的结束时间，而用户可能希望JVM能尽快终止。</p>
 <p>关闭钩子可以用于实现服务或应用程序的清理工作，例如删除临时文件，或者清除无法由操作系统自动清除的资源。</p>
@@ -4557,14 +4613,19 @@ class CancellingExecutor extends ThreadPoolExecutor {
             catch (InterruptedException ignored) {}
         }
     });
-}</code></pre><h5 id="4-2-守护线程"><a href="#4-2-守护线程" class="headerlink" title="4.2 守护线程"></a>4.2 守护线程</h5><p>守护线程(Daemon Thread)可执行一些辅助工作，又不阻碍JVM的关闭。</p>
-<p>在JVM启动时创建的所有线程中，除了主线程以外，其他的线程都是守护线程。新线程继承创建它的线程的守护状态，默认情况下，主线程创建的所有线程都是普通线程。 </p>
+}
+</code></pre>
+<h5 id="4-2-守护线程"><a class="header-anchor" href="#4-2-守护线程">¶</a>4.2 守护线程</h5>
+<p>守护线程(Daemon Thread)可执行一些辅助工作，又不阻碍JVM的关闭。</p>
+<p>在JVM启动时创建的所有线程中，除了主线程以外，其他的线程都是守护线程。新线程继承创建它的线程的守护状态，默认情况下，主线程创建的所有线程都是普通线程。</p>
 <p>普通线程与守护线程之间的差异仅在于当线程退出时发生的操作。当一个线程退出时， JVM会检查其他正在运行的线程，如果这些线程都是守护线程，则JVM会正常退出。当JVM停止时，所有仍然存在的守护线程都将被抛弃——既不会执行finally代码块，也不会执行回卷栈，而JVM只是直接退出。</p>
-<p>应尽可能少地使用守护线程——很少有操作能够在不进行清理的情况下被安全地抛弃。守护线程最好用于执行“内部”任务，例如周期性地从内存的缓存中移除逾期的数据。</p>
+<p>应尽可能少地使用守护线程——很少有操作能够在不进行清理的情况下被安全地抛弃。守护线程最好用于执行“内部&quot;任务，例如周期性地从内存的缓存中移除逾期的数据。</p>
 <p>此外，守护线程通常不能用来替代应用程序管理程序中各个服务的生命周期</p>
-<h5 id="4-3-终结器"><a href="#4-3-终结器" class="headerlink" title="4.3 终结器"></a>4.3 终结器</h5><p>垃圾回收器对那些定义了 finalize 方法的对象会进行特殊处理：在回收器释放它们后，调用它们的finalize方法，从而保证一些持久化的资源被释放。  </p>
+<h5 id="4-3-终结器"><a class="header-anchor" href="#4-3-终结器">¶</a>4.3 终结器</h5>
+<p>垃圾回收器对那些定义了 finalize 方法的对象会进行特殊处理：在回收器释放它们后，调用它们的finalize方法，从而保证一些持久化的资源被释放。</p>
 <p>除了管理本地方法获取的对象，尽量避免编写或使用包含终结器的类。finalize方法性能开销大，编写困难。在大多数情况下，通过使用finally代码块和显式的close方法，能够比使用终结器更好地管理资源。</p>
-<h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><p>在任务、线程、服务以及应用程序等模块中的生命周期结束问题，可能会增加它们在设计和实现时的复杂性。Java并没有提供某种抢占式的机制来取消操作或者终结线程。相反，它提供了一种协作式的中断机制来实现取消操作，但这要依赖于如何构建取消操作的协议，以及能否始终遵循这些协议。通过使用 FutureTask 和 Executor 框架，可以帮助我们构建可取消的任务和服务。</p>
+<h3 id="小结"><a class="header-anchor" href="#小结">¶</a>小结</h3>
+<p>在任务、线程、服务以及应用程序等模块中的生命周期结束问题，可能会增加它们在设计和实现时的复杂性。Java并没有提供某种抢占式的机制来取消操作或者终结线程。相反，它提供了一种协作式的中断机制来实现取消操作，但这要依赖于如何构建取消操作的协议，以及能否始终遵循这些协议。通过使用 FutureTask 和 Executor 框架，可以帮助我们构建可取消的任务和服务。</p>
 
 </div>
 
@@ -4574,19 +4635,23 @@ class CancellingExecutor extends ThreadPoolExecutor {
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

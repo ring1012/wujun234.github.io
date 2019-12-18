@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		5 HBase | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,48 +4395,60 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:15</span>
+	<span id="post-date">2019-12-18 01:00:44</span>
 </div>
 
 
 <div id="article">
 	<p><a href="http://hbase.apache.org/" target="_blank" rel="noopener">HBASE官网</a></p>
-<p>参考：<br><a href="https://www.ibm.com/developerworks/cn/analytics/library/ba-cn-bigdata-hbase/index.html" target="_blank" rel="noopener">HBase 深入浅出</a></p>
-<h3 id="1-HBase-简介"><a href="#1-HBase-简介" class="headerlink" title="1 HBase 简介"></a>1 HBase 简介</h3><ul>
+<p>参考：<br>
+<a href="https://www.ibm.com/developerworks/cn/analytics/library/ba-cn-bigdata-hbase/index.html" target="_blank" rel="noopener">HBase 深入浅出</a></p>
+<h3 id="1-HBase-简介"><a class="header-anchor" href="#1-HBase-简介">¶</a>1 HBase 简介</h3>
+<ul>
 <li>HBase（Hadoop Database）是Bigtable的开源实现</li>
 <li>稀疏的，面向列</li>
 <li>基于HDFS，高可靠，可伸缩</li>
 <li>利用Zookeeper进行协同服务</li>
 <li>适合大数据随机和实时读写</li>
 </ul>
-<h3 id="2-HBASE架构"><a href="#2-HBASE架构" class="headerlink" title="2 HBASE架构"></a>2 HBASE架构</h3><p><img src="/images/1555664991874.png" alt=""></p>
-<h4 id="1）Client"><a href="#1）Client" class="headerlink" title="1）Client"></a>1）Client</h4><p>可以通过 HBase 提供的各式语言API 库访问集群。</p>
+<h3 id="2-HBASE架构"><a class="header-anchor" href="#2-HBASE架构">¶</a>2 HBASE架构</h3>
+<p><img src="/images/1555664991874.png" alt=""></p>
+<h4 id="1）Client"><a class="header-anchor" href="#1）Client">¶</a>1）Client</h4>
+<p>可以通过 HBase 提供的各式语言API 库访问集群。</p>
 <p>API 库也会维护一个本地缓存来加快对 HBase 对访问，比如缓存中记录着 Region 的位置信息。Client 可直接连接 RegionServer，并通信获取 HBase 中的数据。</p>
-<h4 id="2）Master"><a href="#2）Master" class="headerlink" title="2）Master"></a>2）Master</h4><p>主要为各个 RegionServer 分配 Region，负责 RegionServer 的负载均衡，管理用户对于 Table 对 CRUD 操作。</p>
+<h4 id="2）Master"><a class="header-anchor" href="#2）Master">¶</a>2）Master</h4>
+<p>主要为各个 RegionServer 分配 Region，负责 RegionServer 的负载均衡，管理用户对于 Table 对 CRUD 操作。</p>
 <p>依赖于Zookeeper，可允许多个Master节点共存。只有一个Master提供服务，其他Master节点备用。工作Master节点宕机时，备用Master接管集群</p>
-<h4 id="3）Region-Server"><a href="#3）Region-Server" class="headerlink" title="3）Region Server"></a>3）Region Server</h4><ul>
-<li>RegionServer：一个RegionServer包括多个Region。<ul>
+<h4 id="3）Region-Server"><a class="header-anchor" href="#3）Region-Server">¶</a>3）Region Server</h4>
+<ul>
+<li>RegionServer：一个RegionServer包括多个Region。
+<ul>
 <li>RegionServer 的作用只是管理表格，以及实现读写操作。</li>
 <li>维护 Region，处理对这些 Region 的IO 请求，负责切分在运行过程中变过大的 Region。</li>
 </ul>
 </li>
-<li>Region：Region是真实存放HBase数据的地方，是HBase可用性和分布式的基本单位。<ul>
+<li>Region：Region是真实存放HBase数据的地方，是HBase可用性和分布式的基本单位。
+<ul>
 <li>如果表格很大，表的数据将存放在多个Region之间，并且在每个Region中会关联多个存储的单元(Store)。</li>
 </ul>
 </li>
 </ul>
-<h4 id="4）Zookeeper"><a href="#4）Zookeeper" class="headerlink" title="4）Zookeeper"></a>4）Zookeeper</h4><ul>
+<h4 id="4）Zookeeper"><a class="header-anchor" href="#4）Zookeeper">¶</a>4）Zookeeper</h4>
+<ul>
 <li>Zookeeper中存储了Meta表的地址和Mater的地址，HRegionServer也会注册到Zookeeper</li>
 <li>Mater通过 Zookeeper随时可以感知到各个HRegionServer的机器情况</li>
 <li>Zookeeper可以避免Master的单点问题</li>
 </ul>
-<h3 id="3-HBASE基本概念"><a href="#3-HBASE基本概念" class="headerlink" title="3 HBASE基本概念"></a>3 HBASE基本概念</h3><ul>
-<li>Row Key：表中记录主键，字典序<ul>
+<h3 id="3-HBASE基本概念"><a class="header-anchor" href="#3-HBASE基本概念">¶</a>3 HBASE基本概念</h3>
+<ul>
+<li>Row Key：表中记录主键，字典序
+<ul>
 <li>将经常读取的行存储到一起，提高读取的效率</li>
 <li>好好设计行键，避免写热点</li>
 </ul>
 </li>
-<li>Column Family：列族，表schema一部分，列的前缀<ul>
+<li>Column Family：列族，表schema一部分，列的前缀
+<ul>
 <li>创建完之后修改成本很大</li>
 <li>一个列族包含的所有列在物理存储上都是在同一个底层的存储文件当中</li>
 <li>Key 和 Version number在每个列族中均有一份。</li>
@@ -4421,35 +4456,40 @@
 </li>
 <li>Column Qulifimer：在列族下辅助定位单元格</li>
 <li>Column：列，属于某个列族，可动态添加</li>
-<li>Version Number：默认是时间戳，降序排列<ul>
+<li>Version Number：默认是时间戳，降序排列
+<ul>
 <li>一个单元格里面是数据是按照版本号降序的。也就是说最后写入的值会被最先读取。</li>
 </ul>
 </li>
 <li>Value(Cell)：由（row key， column， Version）唯一确定，字节码</li>
 </ul>
 <p><img src="/images/1555664991919.png" alt=""></p>
-<h3 id="4-HBASE物理模型"><a href="#4-HBASE物理模型" class="headerlink" title="4 HBASE物理模型"></a>4 HBASE物理模型</h3><p>每个列族存储在HDFS上的一个单独文件中，空值不会被保存。</p>
+<h3 id="4-HBASE物理模型"><a class="header-anchor" href="#4-HBASE物理模型">¶</a>4 HBASE物理模型</h3>
+<p>每个列族存储在HDFS上的一个单独文件中，空值不会被保存。</p>
 <ul>
 <li>多级索引：HBase为每个值维护了多级索引，即：&lt;Row Key, Column Family, Column Qulifimer, timestamp&gt;。</li>
-<li>Region：表在行的方向上分割为多个Region<ul>
+<li>Region：表在行的方向上分割为多个Region
+<ul>
 <li>一个 Region 存一行的所有列，由一个或多个 Store 组成，每个 Store 只存储一个 Column Family 的数据</li>
 <li>Region 是 Hbase 中分布式存储和负载均衡的最小单元，不同 Region 分布到不同 RegionServer 上</li>
 <li>Region按大小分割，随着数据增多，会分成两个新的Region</li>
 </ul>
 </li>
 <li>HLog：预写日志，每个 Region Server 一个 HLog 实例</li>
-<li>Store：一个 Store 其实就是一个列族。<ul>
+<li>Store：一个 Store 其实就是一个列族。
+<ul>
 <li>每个 Store 是由一个 memStore 和 0 个或者多个 storeFile 组成</li>
 </ul>
 </li>
 <li>MemStore：存放在内存中</li>
 <li>StoreFile：存储在HDFS上，是对 HFile 的一层封装</li>
 </ul>
-<h3 id="5-工作原理"><a href="#5-工作原理" class="headerlink" title="5 工作原理"></a>5 工作原理</h3><ol>
+<h3 id="5-工作原理"><a class="header-anchor" href="#5-工作原理">¶</a>5 工作原理</h3>
+<ol>
 <li>Client 通过 Zookeeper 找到对应 Region Server</li>
 <li>更新操作先记录到 HLog</li>
 <li>然后写入 Store 的 MemStore</li>
-<li>MemStore 超过阈值后，持久化为 StoreFile </li>
+<li>MemStore 超过阈值后，持久化为 StoreFile</li>
 <li>StoreFile 写入 HDFS 的 HFile</li>
 </ol>
 
@@ -4461,19 +4501,23 @@
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

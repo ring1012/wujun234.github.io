@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		8 虚拟专用网VPN和网络地址转换NAT | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,12 +4395,13 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:44</span>
+	<span id="post-date">2019-12-18 01:00:41</span>
 </div>
 
 
 <div id="article">
-	<h3 id="1-虚拟专用网-VPN"><a href="#1-虚拟专用网-VPN" class="headerlink" title="1 虚拟专用网 VPN"></a>1 虚拟专用网 VPN</h3><p>互联网中的路由器，对目的地址是专用地址的数据报一律不进行转发。</p>
+	<h3 id="1-虚拟专用网-VPN"><a class="header-anchor" href="#1-虚拟专用网-VPN">¶</a>1 虚拟专用网 VPN</h3>
+<p>互联网中的路由器，对目的地址是专用地址的数据报一律不进行转发。</p>
 <p>有三个专用地址块：</p>
 <ul>
 <li>10.0.0.0 ~ 10.255.255.255</li>
@@ -4386,7 +4410,8 @@
 </ul>
 <p>如果专用网不同网点之间的通信必须经过公用的互联网，但又有保密的要求，那么所有通过互联网传送的数据都必须加密。</p>
 <p>VPN 使用公用的互联网作为本机构各专用网之间的通信载体。专用指机构内的主机只与本机构内的其它主机通信；虚拟指好像是，而实际上并不是，它有经过公用的互联网。</p>
-<h3 id="2-网络地址转换-NAT"><a href="#2-网络地址转换-NAT" class="headerlink" title="2 网络地址转换 NAT"></a>2 网络地址转换 NAT</h3><p>专用网内部的主机使用本地 IP 地址又想和互联网上的主机通信时（并不需要加密），可以使用 NAT 来将本地 IP 转换为全球 IP。</p>
+<h3 id="2-网络地址转换-NAT"><a class="header-anchor" href="#2-网络地址转换-NAT">¶</a>2 网络地址转换 NAT</h3>
+<p>专用网内部的主机使用本地 IP 地址又想和互联网上的主机通信时（并不需要加密），可以使用 NAT 来将本地 IP 转换为全球 IP。</p>
 <p>NAT：将本地 IP 和全球 IP 一一对应，这种方式下拥有 n 个全球 IP 地址的专用网内最多只可以同时有 n 台主机接入互联网。</p>
 <p>NAPT：为了更有效地利用全球 IP 地址，现在常用的 NAT 转换表把传输层的端口号也用上了，使得多个专用网内部的主机共用一个全球 IP 地址。</p>
 <p>显然，通过NAT路由器的通信必须由专用网内的主机发起。设想互联网上的主机要发起通信，当IP数据报到达NAT路由器时，NAT路由器就不知道应当把目的IP地址转换成专用网内的哪一个本地IP地址。</p>
@@ -4399,19 +4424,23 @@
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

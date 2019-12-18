@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		8 堆 | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,7 +4395,7 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:42</span>
+	<span id="post-date">2019-12-18 01:00:44</span>
 </div>
 
 
@@ -4387,15 +4410,17 @@
 <li>索引堆</li>
 <li>Treap树堆</li>
 </ol>
-<h2 id="1、二叉堆"><a href="#1、二叉堆" class="headerlink" title="1、二叉堆"></a>1、二叉堆</h2><p>二叉堆是完全二元树或者是近似完全二元树，按照数据的排列方式可以分为两种：最大堆和最小堆。</p>
-<p>二叉堆一般都通过”数组”来实现</p>
-<h2 id="2、左倾堆"><a href="#2、左倾堆" class="headerlink" title="2、左倾堆"></a>2、左倾堆</h2><p>左倾堆(leftist tree 或 leftist heap)，又被成为左偏树、左偏堆，最左堆等。</p>
-<p>它和二叉堆一样，都是优先队列实现方式。可以高效解决”对两个优先队列进行合并”的问题。</p>
+<h2 id="1、二叉堆"><a class="header-anchor" href="#1、二叉堆">¶</a>1、二叉堆</h2>
+<p>二叉堆是完全二元树或者是近似完全二元树，按照数据的排列方式可以分为两种：最大堆和最小堆。</p>
+<p>二叉堆一般都通过&quot;数组&quot;来实现</p>
+<h2 id="2、左倾堆"><a class="header-anchor" href="#2、左倾堆">¶</a>2、左倾堆</h2>
+<p>左倾堆(leftist tree 或 leftist heap)，又被成为左偏树、左偏堆，最左堆等。</p>
+<p>它和二叉堆一样，都是优先队列实现方式。可以高效解决&quot;对两个优先队列进行合并&quot;的问题。</p>
 <p><img src="/images/1559037013198.jpg" alt=""></p>
 <p>上图是一颗左倾树，它的节点除了和二叉树的节点一样具有左右子树指针外，还有两个属性：键值和零距离。</p>
 <ul>
 <li>键值：作用是来比较节点的大小，从而对节点进行排序。</li>
-<li>零距离：是从一个节点到一个”最近的不满节点”的路径长度。不满节点是指该该节点的左右孩子至少有有一个为NULL。叶节点的NPL为0，NULL节点的NPL为-1。</li>
+<li>零距离：是从一个节点到一个&quot;最近的不满节点&quot;的路径长度。不满节点是指该该节点的左右孩子至少有有一个为NULL。叶节点的NPL为0，NULL节点的NPL为-1。</li>
 </ul>
 <p>左倾堆有以下几个基本性质：</p>
 <ul>
@@ -4406,44 +4431,51 @@
 <p>合并两个左倾堆的基本思想如下：</p>
 <ol>
 <li>如果一个空左倾堆与一个非空左倾堆合并，返回非空左倾堆。</li>
-<li>如果两个左倾堆都非空，那么比较两个根节点，取较小堆的根节点为新的根节点。将”较小堆的根节点的右孩子”和”较大堆”进行合并。</li>
+<li>如果两个左倾堆都非空，那么比较两个根节点，取较小堆的根节点为新的根节点。将&quot;较小堆的根节点的右孩子&quot;和&quot;较大堆&quot;进行合并。</li>
 <li>如果新堆的右孩子的NPL &gt; 左孩子的NPL，则交换左右孩子。</li>
 <li>设置新堆的根节点的NPL = 右子堆NPL + 1</li>
 </ol>
-<h2 id="3、斜堆"><a href="#3、斜堆" class="headerlink" title="3、斜堆"></a>3、斜堆</h2><p>斜堆也叫自适应堆，它是左倾堆的一个变种。和左倾堆一样，它通常也用于实现优先队列；作为一种自适应的左倾堆，它的合并操作的时间复杂度也是O(log n)。</p>
+<h2 id="3、斜堆"><a class="header-anchor" href="#3、斜堆">¶</a>3、斜堆</h2>
+<p>斜堆也叫自适应堆，它是左倾堆的一个变种。和左倾堆一样，它通常也用于实现优先队列；作为一种自适应的左倾堆，它的合并操作的时间复杂度也是O(log n)。</p>
 <p>它与左倾堆的差别是：</p>
 <ol>
-<li>斜堆的节点没有”零距离”这个属性，而左倾堆则有。</li>
+<li>斜堆的节点没有&quot;零距离&quot;这个属性，而左倾堆则有。</li>
 <li>斜堆的合并操作和左倾堆的合并操作算法不同。</li>
 </ol>
 <p>斜堆的合并操作</p>
 <ol>
 <li>如果一个空斜堆与一个非空斜堆合并，返回非空斜堆。</li>
-<li>如果两个斜堆都非空，那么比较两个根节点，取较小堆的根节点为新的根节点。将”较小堆的根节点的右孩子”和”较大堆”进行合并。</li>
+<li>如果两个斜堆都非空，那么比较两个根节点，取较小堆的根节点为新的根节点。将&quot;较小堆的根节点的右孩子&quot;和&quot;较大堆&quot;进行合并。</li>
 <li>合并后，交换新堆根节点的左孩子和右孩子。</li>
 </ol>
 <p>第 3 步是斜堆和左倾堆的合并操作差别的关键所在，如果是左倾堆，则合并后要比较左右孩子的零距离大小，若右孩子的零距离 &gt; 左孩子的零距离，则交换左右孩子；最后，在设置根的零距离。</p>
-<h2 id="4、二项堆"><a href="#4、二项堆" class="headerlink" title="4、二项堆"></a>4、二项堆</h2><p>二项堆是二项树的集合。在了解二项堆之前，先对二项树进行介绍。</p>
-<h3 id="1）二项树"><a href="#1）二项树" class="headerlink" title="1）二项树"></a>1）二项树</h3><p>二项树是一种递归定义的有序树。它的递归定义如下：</p>
+<h2 id="4、二项堆"><a class="header-anchor" href="#4、二项堆">¶</a>4、二项堆</h2>
+<p>二项堆是二项树的集合。在了解二项堆之前，先对二项树进行介绍。</p>
+<h3 id="1）二项树"><a class="header-anchor" href="#1）二项树">¶</a>1）二项树</h3>
+<p>二项树是一种递归定义的有序树。它的递归定义如下：</p>
 <ol>
 <li>二项树B0只有一个结点；</li>
 <li>二项树Bk由两棵二项树B(k-1)组成的，其中一棵树是另一棵树根的最左孩子。</li>
 </ol>
 <p><img src="/images/1559037015017.jpg" alt=""></p>
-<h3 id="2）二项堆"><a href="#2）二项堆" class="headerlink" title="2）二项堆"></a>2）二项堆</h3><p>二项堆和之前所讲的堆(二叉堆、左倾堆、斜堆)一样，也是用于实现优先队列的。二项堆是指满足以下性质的二项树的集合：</p>
+<h3 id="2）二项堆"><a class="header-anchor" href="#2）二项堆">¶</a>2）二项堆</h3>
+<p>二项堆和之前所讲的堆(二叉堆、左倾堆、斜堆)一样，也是用于实现优先队列的。二项堆是指满足以下性质的二项树的集合：</p>
 <ol>
 <li>每棵二项树都满足最小堆性质。即，父节点的关键字 &lt;= 它的孩子的关键字。</li>
 <li>不能有两棵或以上的二项树具有相同的度数(包括度数为0)。换句话说，具有度数k的二项树有0个或1个。</li>
 </ol>
 <p><img src="/images/1559037015069.jpg" alt=""></p>
-<h2 id="5、斐波那契堆"><a href="#5、斐波那契堆" class="headerlink" title="5、斐波那契堆"></a>5、斐波那契堆</h2><p>斐波那契堆(Fibonacci heap)是一种可合并堆，可用于实现合并优先队列。它比二项堆具有更好的平摊分析性能，它的合并操作的时间复杂度是O(1)。</p>
+<h2 id="5、斐波那契堆"><a class="header-anchor" href="#5、斐波那契堆">¶</a>5、斐波那契堆</h2>
+<p>斐波那契堆(Fibonacci heap)是一种可合并堆，可用于实现合并优先队列。它比二项堆具有更好的平摊分析性能，它的合并操作的时间复杂度是O(1)。</p>
 <p>与二项堆一样，它也是由一组堆最小有序树组成，并且是一种可合并堆。</p>
 <p>与二项堆不同的是，斐波那契堆中的树不一定是二项树；而且二项堆中的树是有序排列的，但是斐波那契堆中的树都是有根而无序的。</p>
 <p><img src="/images/1559037015086.jpg" alt=""></p>
-<h2 id="6、索引堆"><a href="#6、索引堆" class="headerlink" title="6、索引堆"></a>6、索引堆</h2><p>索引堆是对堆进行了优化。</p>
+<h2 id="6、索引堆"><a class="header-anchor" href="#6、索引堆">¶</a>6、索引堆</h2>
+<p>索引堆是对堆进行了优化。</p>
 <p>索引堆使用了一个新的int类型的数组，用于存放索引信息。</p>
 <p>索引堆的交换操作交换的是元素的索引，而不是直接交换元素。</p>
-<h2 id="7、Treap树堆"><a href="#7、Treap树堆" class="headerlink" title="7、Treap树堆"></a>7、Treap树堆</h2><p>一棵treap是一棵修改了结点顺序的二叉查找树，如图，显示一个例子，通常树内的每个结点x都有一个关键字值key[x]，另外，还要为结点分配priority[x]，它是一个独立选取的随机数。</p>
+<h2 id="7、Treap树堆"><a class="header-anchor" href="#7、Treap树堆">¶</a>7、Treap树堆</h2>
+<p>一棵treap是一棵修改了结点顺序的二叉查找树，如图，显示一个例子，通常树内的每个结点x都有一个关键字值key[x]，另外，还要为结点分配priority[x]，它是一个独立选取的随机数。</p>
 <p><img src="/images/1559037015141.png" alt=""></p>
 <p>假设所有的优先级是不同的，所有的关键字也是不同的。treap的结点排列成让关键字遵循二叉查找树性质，并且优先级遵循最小堆顺序性质：</p>
 <ol>
@@ -4461,19 +4493,23 @@
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

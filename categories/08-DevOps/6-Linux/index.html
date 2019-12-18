@@ -1,10 +1,30 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +35,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4369,11 +4390,18 @@
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/08%20DevOps/6%20Linux/1%20Centos%207%E9%85%8D%E7%BD%AELAMP/">1 Centos 7配置LAMP</a>
+					<a class="article-title" href="/2019/12/18/08%20DevOps/6%20Linux/3%20Shell%20%E8%84%9A%E6%9C%AC/">3 Shell 脚本</a>
 				</h2>
 				<span class="post-date">2019-12-18</span>
 				<div class="article-digest">
-					LAMP是Linux、Apache HTTP，MySQL（或MariaDB）和PHP（或Perl、Python）的首字母缩写，下面讨论如何在RHEL/CentOS/Scientific Linux 7
+					¶开始
+约定文件第一行必须以 “#!”开始，指明脚本执行的解释器
+¶运行
+chmod +x filename
+¶变量
+变量无需声明
+赋值：变量名和等号之间不能有空格
+使用：前加$符号，可选加{}帮解释
 					...
 				</div>
 			</article>
@@ -4386,11 +4414,15 @@
 				</h2>
 				<span class="post-date">2019-12-18</span>
 				<div class="article-digest">
-					1、文件相关1.1文件跳转
+					¶1、文件相关
+¶1.1文件跳转
+
 pwd：打印当前目录名
 ls：列出目录内容
-
--a：列出所有文件，包括“.”开头的隐藏文件-d：通常，指定目录名-F：名字后面加指示符-h：以人们可读的格式而非字节数，显示
+-a：列出所有文件，包括“.”开头的隐藏文件
+-d：通常，指定目录名
+-F：名字后面加指示符
+-h：以人们可读的格式而非
 					...
 				</div>
 			</article>
@@ -4399,13 +4431,11 @@ ls：列出目录内容
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/08%20DevOps/6%20Linux/3%20Shell%20%E8%84%9A%E6%9C%AC/">3 Shell 脚本</a>
+					<a class="article-title" href="/2019/12/18/08%20DevOps/6%20Linux/1%20Centos%207%E9%85%8D%E7%BD%AELAMP/">1 Centos 7配置LAMP</a>
 				</h2>
 				<span class="post-date">2019-12-18</span>
 				<div class="article-digest">
-					开始约定文件第一行必须以 “#!”开始，指明脚本执行的解释器
-运行chmod +x filename
-变量变量无需声明赋值：变量名和等号之间不能有空格使用：前加$符号，可选加{}帮解释器识别变量的边界
+					LAMP是Linux、Apache HTTP，MySQL（或MariaDB）和PHP（或Perl、Python）的首字母缩写，下面讨论如何在RHEL/CentOS/Scientific Linux 7
 					...
 				</div>
 			</article>
@@ -4419,19 +4449,23 @@ ls：列出目录内容
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

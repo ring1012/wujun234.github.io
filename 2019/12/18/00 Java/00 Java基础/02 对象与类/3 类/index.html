@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		3 类 | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,43 +4395,70 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:45</span>
+	<span id="post-date">2019-12-18 01:00:41</span>
 </div>
 
 
 <div id="article">
-	<h4 id="1-类"><a href="#1-类" class="headerlink" title="1 类"></a>1 类</h4><p>类是构造对象的模板。<br>由类构造对象的过程称为创建类的实例。<br>一个源文件中，只能有一个公共类，类名必须与文件名相同。</p>
-<h5 id="1-1-类之间的关系"><a href="#1-1-类之间的关系" class="headerlink" title="1.1 类之间的关系"></a>1.1 类之间的关系</h5><p>最常见的关系有：  </p>
+	<h4 id="1-类"><a class="header-anchor" href="#1-类">¶</a>1 类</h4>
+<p>类是构造对象的模板。<br>
+由类构造对象的过程称为创建类的实例。<br>
+一个源文件中，只能有一个公共类，类名必须与文件名相同。</p>
+<h5 id="1-1-类之间的关系"><a class="header-anchor" href="#1-1-类之间的关系">¶</a>1.1 类之间的关系</h5>
+<p>最常见的关系有：</p>
 <ol>
-<li>==依赖==（”uses-a”）：一个类的方法需要操纵另一个类的对象  </li>
-<li>==聚合==（”has-a”）：类 A 的对象包含着类 B 的对象  </li>
-<li>==继承==（”is-a”）：继承是一种用于表示特殊与一般的关系，父类更一般<br>应该尽可能地将相互依赖的类减至最少。<h5 id="1-2-构造器"><a href="#1-2-构造器" class="headerlink" title="1.2 构造器"></a>1.2 构造器</h5></li>
-<li>构造器和类名同名，参数不限，没有返回值。   </li>
-<li>构造器中的局部变量会覆盖同名实例域。  </li>
+<li>==依赖==（”uses-a”）：一个类的方法需要操纵另一个类的对象</li>
+<li>==聚合==（”has-a”）：类 A 的对象包含着类 B 的对象</li>
+<li>==继承==（”is-a”）：继承是一种用于表示特殊与一般的关系，父类更一般<br>
+应该尽可能地将相互依赖的类减至最少。</li>
+</ol>
+<h5 id="1-2-构造器"><a class="header-anchor" href="#1-2-构造器">¶</a>1.2 构造器</h5>
+<ol>
+<li>构造器和类名同名，参数不限，没有返回值。</li>
+<li>构造器中的局部变量会覆盖同名实例域。</li>
 <li>若未手动编写构造器，会默认提供一个无参构造器，设默认值。手动提供构造器后，不会自动提供无参构造器。</li>
 <li>构造器不能被继承，因此不能被重写，但可以被重载。</li>
 <li>父类与子类的构造函数调用次序：若子类构造器没有显式调用父类构造器，不管子类构造器有无参数，都默认调用父类无参构造器。</li>
 </ol>
-<h5 id="1-3-finalize方法"><a href="#1-3-finalize方法" class="headerlink" title="1.3 finalize方法"></a>1.3 finalize方法</h5><p>可以为任何一个类添加finalize方法，将在垃圾回收器清除对象之前调用。不要依赖，不能保证被调用。</p>
-<h5 id="1-4-Object：所有类的超类"><a href="#1-4-Object：所有类的超类" class="headerlink" title="1.4 Object：所有类的超类"></a>1.4 Object：所有类的超类</h5><p>如果重新定义equals方法，就必须重新定义hashCode方法。eauals与hashCode的定义必须一致：如果x.eauals(y)返回true，那么x.hashCode()必须与y.hashCode()具有相同的值。</p>
-<h5 id="1-5-枚举类"><a href="#1-5-枚举类" class="headerlink" title="1.5 枚举类"></a>1.5 枚举类</h5><p>枚举类定义的是一个类，有着指定的几个实例。<br>比较两个枚举类型的值时，不需要调用equals方法，而直接使用”==”就可以了。</p>
-<h4 id="2-对象"><a href="#2-对象" class="headerlink" title="2 对象"></a>2 对象</h4><h5 id="2-1-创建对象"><a href="#2-1-创建对象" class="headerlink" title="2.1 创建对象"></a>2.1 创建对象</h5><ol>
-<li>用 new 语句创建对象  </li>
-<li>运用反射    </li>
-<li>调用对象的 clone() 方法  </li>
-<li>运用反序列化手段，调用 java.io.ObjectInputStream 对象的 readObject() 方法  </li>
+<h5 id="1-3-finalize方法"><a class="header-anchor" href="#1-3-finalize方法">¶</a>1.3 finalize方法</h5>
+<p>可以为任何一个类添加finalize方法，将在垃圾回收器清除对象之前调用。不要依赖，不能保证被调用。</p>
+<h5 id="1-4-Object：所有类的超类"><a class="header-anchor" href="#1-4-Object：所有类的超类">¶</a>1.4 Object：所有类的超类</h5>
+<p>如果重新定义equals方法，就必须重新定义hashCode方法。eauals与hashCode的定义必须一致：如果x.eauals(y)返回true，那么x.hashCode()必须与y.hashCode()具有相同的值。</p>
+<h5 id="1-5-枚举类"><a class="header-anchor" href="#1-5-枚举类">¶</a>1.5 枚举类</h5>
+<p>枚举类定义的是一个类，有着指定的几个实例。<br>
+比较两个枚举类型的值时，不需要调用equals方法，而直接使用&quot;==&quot;就可以了。</p>
+<h4 id="2-对象"><a class="header-anchor" href="#2-对象">¶</a>2 对象</h4>
+<h5 id="2-1-创建对象"><a class="header-anchor" href="#2-1-创建对象">¶</a>2.1 创建对象</h5>
+<ol>
+<li>用 new 语句创建对象</li>
+<li>运用反射</li>
+<li>调用对象的 clone() 方法</li>
+<li>运用反序列化手段，调用 java.io.ObjectInputStream 对象的 readObject() 方法</li>
 </ol>
 <p>(1)和(2)都会明确的显式的调用构造函数；(3)是在内存上对已有对象的影印，所以不会调用构造函数 (4)是从文件中还原类的对象，也不会调用构造函数。</p>
-<h5 id="2-2-对象克隆"><a href="#2-2-对象克隆" class="headerlink" title="2.2 对象克隆"></a>2.2 对象克隆</h5><p>有两种方式：<br>1). 实现Cloneable接口并重写Object类中的clone()方法；<br>2). 实现Serializable接口，通过对象的序列化和反序列化实现克隆，可以实现真正的深度克隆。</p>
-<h5 id="2-3-序列化"><a href="#2-3-序列化" class="headerlink" title="2.3 序列化"></a>2.3 序列化</h5><p>对象序列化(Serializable)是指将对象转换为字节序列的过程，而反序列化则是根据字节序列恢复对象的过程。只有实现了Serializable和Externalizable接口的类的对象才能被序列化。<br>java.io.ObjectOutputStream代表对象输出流，它的writeObject(Objectobj)方法可对参数指定的obj对象进行序列化，把得到的字节序列写到一个目标输出流中。<br>java.io.ObjectInputStream代表对象输入流，它的readObject()方法从一个源输入流中读取字节序列，再把它们反序列化为一个对象，并将其返回。</p>
-<h4 id="3-方法"><a href="#3-方法" class="headerlink" title="3 方法"></a>3 方法</h4><h5 id="3-1-方法签名"><a href="#3-1-方法签名" class="headerlink" title="3.1 方法签名"></a>3.1 方法签名</h5><p>方法签名只有<strong>方法名</strong>和<strong>参数</strong>，没有返回值。也就是说，不能有两个名字相同、参数也相同而返回值不同的方法。</p>
-<h5 id="3-2-隐式参数与显式参数"><a href="#3-2-隐式参数与显式参数" class="headerlink" title="3.2 隐式参数与显式参数"></a>3.2 隐式参数与显式参数</h5><p>隐式参数是出现在方法名前的类对象（this），显式参数位于方法名后面的括号中。<br>使用 this 可以区分开隐式参数的类对象的实例域和局部变量</p>
-<h5 id="3-3-方法参数"><a href="#3-3-方法参数" class="headerlink" title="3.3 方法参数"></a>3.3 方法参数</h5><p>java方法参数只是<strong>值传递</strong>，不是引用传递。<br>方法在执行时，先定义了局部变量，这些局部变量指向，传入参数的指向。对局部变量重新指向时，完全不影响原本传入参数的那些指向。 </p>
+<h5 id="2-2-对象克隆"><a class="header-anchor" href="#2-2-对象克隆">¶</a>2.2 对象克隆</h5>
+<p>有两种方式：<br>
+1). 实现Cloneable接口并重写Object类中的clone()方法；<br>
+2). 实现Serializable接口，通过对象的序列化和反序列化实现克隆，可以实现真正的深度克隆。</p>
+<h5 id="2-3-序列化"><a class="header-anchor" href="#2-3-序列化">¶</a>2.3 序列化</h5>
+<p>对象序列化(Serializable)是指将对象转换为字节序列的过程，而反序列化则是根据字节序列恢复对象的过程。只有实现了Serializable和Externalizable接口的类的对象才能被序列化。<br>
+java.io.ObjectOutputStream代表对象输出流，它的writeObject(Objectobj)方法可对参数指定的obj对象进行序列化，把得到的字节序列写到一个目标输出流中。<br>
+java.io.ObjectInputStream代表对象输入流，它的readObject()方法从一个源输入流中读取字节序列，再把它们反序列化为一个对象，并将其返回。</p>
+<h4 id="3-方法"><a class="header-anchor" href="#3-方法">¶</a>3 方法</h4>
+<h5 id="3-1-方法签名"><a class="header-anchor" href="#3-1-方法签名">¶</a>3.1 方法签名</h5>
+<p>方法签名只有<strong>方法名</strong>和<strong>参数</strong>，没有返回值。也就是说，不能有两个名字相同、参数也相同而返回值不同的方法。</p>
+<h5 id="3-2-隐式参数与显式参数"><a class="header-anchor" href="#3-2-隐式参数与显式参数">¶</a>3.2 隐式参数与显式参数</h5>
+<p>隐式参数是出现在方法名前的类对象（this），显式参数位于方法名后面的括号中。<br>
+使用 this 可以区分开隐式参数的类对象的实例域和局部变量</p>
+<h5 id="3-3-方法参数"><a class="header-anchor" href="#3-3-方法参数">¶</a>3.3 方法参数</h5>
+<p>java方法参数只是<strong>值传递</strong>，不是引用传递。<br>
+方法在执行时，先定义了局部变量，这些局部变量指向，传入参数的指向。对局部变量重新指向时，完全不影响原本传入参数的那些指向。</p>
 <ul>
 <li><strong>值传递</strong>:方法接收的是调用者提供的值。</li>
 <li><strong>引用传递</strong>:方法接受的是调用所对应的变量地址。</li>
 </ul>
-<h5 id="3-4-参数变量可变的方法"><a href="#3-4-参数变量可变的方法" class="headerlink" title="3.4 参数变量可变的方法"></a>3.4 参数变量可变的方法</h5><p>Object. . .参数类型与Object[]完全一样，省略号表明这个方法可以接收任意数量的的对象。</p>
+<h5 id="3-4-参数变量可变的方法"><a class="header-anchor" href="#3-4-参数变量可变的方法">¶</a>3.4 参数变量可变的方法</h5>
+<p>Object. . .参数类型与Object[]完全一样，省略号表明这个方法可以接收任意数量的的对象。</p>
 
 </div>
 
@@ -4418,19 +4468,23 @@
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

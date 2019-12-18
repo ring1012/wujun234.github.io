@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		3 线性索引查找 | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,7 +4395,7 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:42</span>
+	<span id="post-date">2019-12-18 01:00:44</span>
 </div>
 
 
@@ -4382,9 +4405,11 @@
 <li>索引按照结构可以分为线性索引、树形索引和多级索引。</li>
 <li>线性索引：就是将索引项集合组织为线性结构，也称为索引表。</li>
 </ul>
-<h3 id="1-稠密索引"><a href="#1-稠密索引" class="headerlink" title="1 稠密索引"></a>1 稠密索引</h3><p>稠密索引：在线性索引中，将数据集中的每个记录对应一个索引项，索引项按照关键码有序排列。</p>
+<h3 id="1-稠密索引"><a class="header-anchor" href="#1-稠密索引">¶</a>1 稠密索引</h3>
+<p>稠密索引：在线性索引中，将数据集中的每个记录对应一个索引项，索引项按照关键码有序排列。</p>
 <p>但数据量大时，可能由于内存有限，需要反复访问磁盘，降低性能。</p>
-<h3 id="2-分块索引（分块查找）"><a href="#2-分块索引（分块查找）" class="headerlink" title="2 分块索引（分块查找）"></a>2 分块索引（分块查找）</h3><p>分块索引：对数据集进行分块，使其块间有序，块内无序。对每一块建立一个索引项。</p>
+<h3 id="2-分块索引（分块查找）"><a class="header-anchor" href="#2-分块索引（分块查找）">¶</a>2 分块索引（分块查找）</h3>
+<p>分块索引：对数据集进行分块，使其块间有序，块内无序。对每一块建立一个索引项。</p>
 <p>分块索引的索引项结构分三个数据项:</p>
 <ul>
 <li>最大关键码：每一块中的最大关键字</li>
@@ -4397,7 +4422,8 @@
 <li>根据块首指针找到相应的块，并在块中顺序查找关键码。</li>
 </ol>
 <p>增加了整体查找的速度，普遍被用于数据库表查找等技术的应用当中。</p>
-<h3 id="3-倒排索引"><a href="#3-倒排索引" class="headerlink" title="3 倒排索引"></a>3 倒排索引</h3><p>倒排索引：不是由记录来确定属性值，而是由属性值来确定记录的位置。</p>
+<h3 id="3-倒排索引"><a class="header-anchor" href="#3-倒排索引">¶</a>3 倒排索引</h3>
+<p>倒排索引：不是由记录来确定属性值，而是由属性值来确定记录的位置。</p>
 <p>索引项包括一个属性值和具有该属性值的各记录的地址。</p>
 
 </div>
@@ -4408,19 +4434,23 @@
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

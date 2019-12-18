@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		3 字节码指令简介 | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,7 +4395,7 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:51</span>
+	<span id="post-date">2019-12-18 01:00:42</span>
 </div>
 
 
@@ -4381,14 +4404,16 @@
 <p>由于Java虚拟机采用面向操作数栈而不是寄存器的架构，所以大多数的指令都不包含操作数，只有一个操作码。</p>
 <p>在指令集中大多数的指令都包含了其操作所对应的数据类型信息</p>
 <ul>
-<li>加载和存储指令<ul>
+<li>加载和存储指令
+<ul>
 <li>iload/iload等（加载局部变量到操作栈）</li>
 <li>istore/istore等（从操作数栈存储到局部变量表）</li>
 <li>bipush/sipush/ldc/iconst_（加载常量到操作数栈）</li>
 <li>wide（扩充局部变量表访问索引）</li>
 </ul>
 </li>
-<li>运算指令<ul>
+<li>运算指令
+<ul>
 <li>没有直接支持byte、short、char和boolean类型的算术指令而采用int代替</li>
 <li>iadd/isub/imul/idiv加减乘除</li>
 <li>irem求余</li>
@@ -4401,11 +4426,13 @@
 <li>dcmpg/dcmpl比较</li>
 </ul>
 </li>
-<li>类型转换指令<ul>
+<li>类型转换指令
+<ul>
 <li>i2b/i2c/i2s/l2i/f2i/f2l/d2i/d2l/d2f；</li>
 </ul>
 </li>
-<li>对象创建与访问指令<ul>
+<li>对象创建与访问指令
+<ul>
 <li>new创建类实例</li>
 <li>newarray/anewarray/multianewarray创建数组</li>
 <li>getfield/putfield/getstatic/putstatic访问类字段或实例字段</li>
@@ -4414,28 +4441,33 @@
 <li>arraylength取数组长度、instanceof/checkcast检查类实例类型</li>
 </ul>
 </li>
-<li>操作数栈管理指令<ul>
+<li>操作数栈管理指令
+<ul>
 <li>pop/pop2一个或两个元素出栈</li>
 <li>dup/dup2复制栈顶一个或两个数组并将复制值或双份复制值重新压力栈顶</li>
 <li>swap交互栈顶两个数值；</li>
 </ul>
 </li>
-<li>控制转移指令<ul>
+<li>控制转移指令
+<ul>
 <li>ifeq/iflt/ifnull条件分支</li>
 <li>tableswitch/lookupswitch复合条件分支</li>
 <li>goto/jsr/ret无条件分支</li>
 </ul>
 </li>
-<li>方法调用和返回指令<ul>
+<li>方法调用和返回指令
+<ul>
 <li>invokevirtual/invokeinterface/invokespecial/invokestatic/invokedynamic方法调用</li>
 <li>ireturn/lreturn/areturn/return方法返回</li>
 </ul>
 </li>
-<li>异常处理指令<ul>
+<li>异常处理指令
+<ul>
 <li>athrow</li>
 </ul>
 </li>
-<li>同步指令<ul>
+<li>同步指令
+<ul>
 <li>monitorenter/monitorexit</li>
 </ul>
 </li>
@@ -4449,19 +4481,23 @@
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

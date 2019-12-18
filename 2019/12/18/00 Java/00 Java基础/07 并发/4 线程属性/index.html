@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		4 线程属性 | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,25 +4395,30 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:48</span>
+	<span id="post-date">2019-12-18 01:00:41</span>
 </div>
 
 
 <div id="article">
-	<h3 id="1-线程优先级"><a href="#1-线程优先级" class="headerlink" title="1 线程优先级"></a>1 线程优先级</h3><p>不要将程序构建为功能的正确性依赖于优先级。</p>
+	<h3 id="1-线程优先级"><a class="header-anchor" href="#1-线程优先级">¶</a>1 线程优先级</h3>
+<p>不要将程序构建为功能的正确性依赖于优先级。</p>
 <p>Linux上线程不具有优先级。</p>
 <ul>
 <li>void setPriority(fnt newPriority)：设置线程的优先级。</li>
 <li>static void yield()：让步，不休眠，只暂停。让步于其他优先级不小于次线程的的可运行线程。</li>
 </ul>
-<h3 id="2-守护线程"><a href="#2-守护线程" class="headerlink" title="2 守护线程"></a>2 守护线程</h3><p>守护线程的唯一用途是为其他线程提供服务。守护线程最典型的应用就是 GC (垃圾回收器)。<br>当只剩下守护线程时，虚拟机就退出了。<br>守护线程应该永远不去访问固有资源，如文件、数据库，因为它会在任何时候甚至在一个操作的中间发生中断。  </p>
+<h3 id="2-守护线程"><a class="header-anchor" href="#2-守护线程">¶</a>2 守护线程</h3>
+<p>守护线程的唯一用途是为其他线程提供服务。守护线程最典型的应用就是 GC (垃圾回收器)。<br>
+当只剩下守护线程时，虚拟机就退出了。<br>
+守护线程应该永远不去访问固有资源，如文件、数据库，因为它会在任何时候甚至在一个操作的中间发生中断。</p>
 <ul>
 <li>void setDaemon(boolean isDaemon)：标识该线程为守护线程或用户线程。这一方法必须在线程启动之前调用。</li>
 </ul>
-<h3 id="3-未捕获异常处理器"><a href="#3-未捕获异常处理器" class="headerlink" title="3 未捕获异常处理器"></a>3 未捕获异常处理器</h3><p>线程组中的某个线程由于抛出了未捕获的异常而退出时，会调用 ThreadGroup.uncaughtException() 方法。</p>
+<h3 id="3-未捕获异常处理器"><a class="header-anchor" href="#3-未捕获异常处理器">¶</a>3 未捕获异常处理器</h3>
+<p>线程组中的某个线程由于抛出了未捕获的异常而退出时，会调用 ThreadGroup.uncaughtException() 方法。</p>
 <p>使用Unchecked Exception处理器目的在于健壮线程异常退出的记录。可以用setUncaughtExceptionHandler方法为任何线程安装一个处理器。也可以用Thread类的静态方法setDefaultUncaughtExceptionHandler为所有线程安装一个默认的处理器。</p>
-<p>如果不安装默认的处理器，此时的处理器就是该线程的ThreadGroup对象。 </p>
-<p>注释：线程组是一个可以统一管理的线程集合。不要在自己的程序中使用线程组。 </p>
+<p>如果不安装默认的处理器，此时的处理器就是该线程的ThreadGroup对象。</p>
+<p>注释：线程组是一个可以统一管理的线程集合。不要在自己的程序中使用线程组。</p>
 <p>ThreadGroup类实现Thread.UncaughtExceptionHandler接口。它的uncaughtException方法做如下操作：</p>
 <ol>
 <li>如果该线程组有父线程组，那么父线程组的uncaughtException方法被调用。</li>
@@ -4407,19 +4435,23 @@
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

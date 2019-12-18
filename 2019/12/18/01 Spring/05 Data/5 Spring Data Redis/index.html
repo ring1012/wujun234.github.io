@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		5 Spring Data Redis | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,13 +4395,14 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:17</span>
+	<span id="post-date">2019-12-18 01:00:43</span>
 </div>
 
 
 <div id="article">
-	<p>Spring Data Redis包含了多个模板实现， 用来完成Redis数据库的数据存取功能。 </p>
-<h3 id="1-连接到Redis"><a href="#1-连接到Redis" class="headerlink" title="1 连接到Redis"></a>1 连接到Redis</h3><p>Spring Data Redis为四种Redis客户端实现提供了连接工厂：</p>
+	<p>Spring Data Redis包含了多个模板实现， 用来完成Redis数据库的数据存取功能。</p>
+<h3 id="1-连接到Redis"><a class="header-anchor" href="#1-连接到Redis">¶</a>1 连接到Redis</h3>
+<p>Spring Data Redis为四种Redis客户端实现提供了连接工厂：</p>
 <ul>
 <li>JedisConnectionFactory</li>
 <li>JredisConnectionFactory</li>
@@ -4393,7 +4417,10 @@ public RedisConnectionFactory redisCF() {
     cf.setPort(7379);
     cf.setPassword(&quot;foobared&quot;);
     return cf;
-}</code></pre><h3 id="2-使用RedisTemplate"><a href="#2-使用RedisTemplate" class="headerlink" title="2 使用RedisTemplate"></a>2 使用RedisTemplate</h3><p>Spring Data Redis提供了两个模板：</p>
+}
+</code></pre>
+<h3 id="2-使用RedisTemplate"><a class="header-anchor" href="#2-使用RedisTemplate">¶</a>2 使用RedisTemplate</h3>
+<p>Spring Data Redis提供了两个模板：</p>
 <ul>
 <li>RedisTemplate</li>
 <li>StringRedisTemplate</li>
@@ -4404,7 +4431,10 @@ public RedisTemplate&lt;String, Product&gt; redisTemplate(RedisConnectionFactory
     RedisTemplate&lt;String, Product&gt; redis = new RedisTemplate&lt;String, Product&gt;();
     redis.setConnectionFactory(cf);
     return redis;
-}</code></pre><h3 id="3-使用key和value的序列化器"><a href="#3-使用key和value的序列化器" class="headerlink" title="3 使用key和value的序列化器"></a>3 使用key和value的序列化器</h3><p>Spring Data Redis提供了多个这样的序列化器， 包括：</p>
+}
+</code></pre>
+<h3 id="3-使用key和value的序列化器"><a class="header-anchor" href="#3-使用key和value的序列化器">¶</a>3 使用key和value的序列化器</h3>
+<p>Spring Data Redis提供了多个这样的序列化器， 包括：</p>
 <ul>
 <li>GenericToStringSerializer： 使用Spring转换服务进行序列化；</li>
 <li>JacksonJsonRedisSerializer： 使用Jackson 1， 将对象序列化为JSON；</li>
@@ -4431,7 +4461,9 @@ public RedisTemplate&lt;Object, Object&gt; redisTemplate(RedisConnectionFactory 
     redisTemplate.setHashValueSerializer(jackson2JsonRedisSerializer);
     redisTemplate.afterPropertiesSet();
     return redisTemplate;
-}</code></pre>
+}
+</code></pre>
+
 </div>
 
 	</div>
@@ -4440,19 +4472,23 @@ public RedisTemplate&lt;Object, Object&gt; redisTemplate(RedisConnectionFactory 
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

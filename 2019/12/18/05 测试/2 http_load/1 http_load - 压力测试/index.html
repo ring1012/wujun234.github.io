@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		1 http_load - 压力测试 | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,14 +4395,15 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:38</span>
+	<span id="post-date">2019-12-18 01:00:43</span>
 </div>
 
 
 <div id="article">
-	<h3 id="1-http-load简介"><a href="#1-http-load简介" class="headerlink" title="1.http_load简介"></a>1.http_load简介</h3><p><a href="http://www.acme.com/software/http_load/" target="_blank" rel="noopener">http_load官网</a></p>
+	<h3 id="1-http-load简介"><a class="header-anchor" href="#1-http-load简介">¶</a>1.http_load简介</h3>
+<p><a href="http://www.acme.com/software/http_load/" target="_blank" rel="noopener">http_load官网</a></p>
 <p>http_load是一款基于Linux平台的web服务器性能测试工具，以并行复用的方式运行，用于测试web服务器的吞吐量与负载，web页面的性能。</p>
-<p>优点： </p>
+<p>优点：</p>
 <ol>
 <li>基于命令行，简单、易于上手。</li>
 <li>小巧轻便，解压缩后不到100k。</li>
@@ -4391,28 +4415,41 @@
 <li>测试结果分析有限</li>
 <li>平台依赖linux。</li>
 </ol>
-<h3 id="2-http-load安装"><a href="#2-http-load安装" class="headerlink" title="2.http_load安装"></a>2.http_load安装</h3><ol>
+<h3 id="2-http-load安装"><a class="header-anchor" href="#2-http-load安装">¶</a>2.http_load安装</h3>
+<ol>
 <li>下载地址</li>
 </ol>
-<pre><code>wget http://www.acme.com/software/http_load/http_load-09Mar2016.tar.gz</code></pre><ol start="2">
+<pre><code>wget http://www.acme.com/software/http_load/http_load-09Mar2016.tar.gz
+</code></pre>
+<ol start="2">
 <li>安装</li>
 </ol>
 <pre><code>tar zxf http_load-09Mar2016.tar.gz
 cd http_load-09Mar2016
-make &amp;&amp; make install</code></pre><p>如果遇到错误，可以执行安装：<code>yum -y install gcc gcc-c++</code></p>
-<h3 id="3-http-load使用"><a href="#3-http-load使用" class="headerlink" title="3.http_load使用"></a>3.http_load使用</h3><ol>
+make &amp;&amp; make install
+</code></pre>
+<p>如果遇到错误，可以执行安装：<code>yum -y install gcc gcc-c++</code></p>
+<h3 id="3-http-load使用"><a class="header-anchor" href="#3-http-load使用">¶</a>3.http_load使用</h3>
+<ol>
 <li>创建文件</li>
 </ol>
 <p>文件格式是每行一个URL，写入要测的服务器域名或IP地址</p>
-<pre><code>vi urls</code></pre><ol start="2">
+<pre><code>vi urls
+</code></pre>
+<ol start="2">
 <li>使用示例</li>
 </ol>
 <p>命令格式：<code>http_load  -p 并发访问进程数 -s 访问时间 需要访问的URL文件</code></p>
 <blockquote>
-<p>-parallel 简写-p ：含义是并发的用户进程数<br>-fetches 简写-f ：含义是总计的访问次数<br>-rate    简写-p ：含义是每秒的访问频率<br>-seconds简写-s ：含义是总计的访问时间  </p>
+<p>-parallel 简写-p ：含义是并发的用户进程数<br>
+-fetches 简写-f ：含义是总计的访问次数<br>
+-rate    简写-p ：含义是每秒的访问频率<br>
+-seconds简写-s ：含义是总计的访问时间</p>
 </blockquote>
 <p>示例</p>
-<pre><code>./http_load -rate 5 -seconds 10 urls</code></pre><ol start="3">
+<pre><code>./http_load -rate 5 -seconds 10 urls
+</code></pre>
+<ol start="3">
 <li>执行结果：</li>
 </ol>
 <p>说明执行了一个持续时间10秒的测试，每秒的频率为5。</p>
@@ -4427,8 +4464,11 @@ msecs/first-response: 63.5362 mean, 81.624 max, 57.803 min
 # 说明每连接的平均响应时间是28.8932 msecs，最大的响应时间44.243 msecs，最小的响应时间24.488 msecs
 HTTP response codes:
 code 200 -- 49
-# 说明打开响应页面的类型，如果403的类型过多，那可能要注意是否系统遇到了瓶颈。</code></pre><p>测试结果中，主要参考fetches/sec、msecs/connect数值，即服务器每秒能够响应的查询次数的数值来衡量性能，当然，单纯数值判断并不准确，还要参考CPU、内存的等消耗综合考虑。</p>
-<h3 id="4-常见错误"><a href="#4-常见错误" class="headerlink" title="4.常见错误"></a>4.常见错误</h3><ol>
+# 说明打开响应页面的类型，如果403的类型过多，那可能要注意是否系统遇到了瓶颈。
+</code></pre>
+<p>测试结果中，主要参考fetches/sec、msecs/connect数值，即服务器每秒能够响应的查询次数的数值来衡量性能，当然，单纯数值判断并不准确，还要参考CPU、内存的等消耗综合考虑。</p>
+<h3 id="4-常见错误"><a class="header-anchor" href="#4-常见错误">¶</a>4.常见错误</h3>
+<ol>
 <li>byte count wrong</li>
 </ol>
 <p>http_load在处理时会去关注每次访问同一个URL返回结果（即字节数）是否一致，若不一致就会抛出byte count wrong</p>
@@ -4443,13 +4483,18 @@ code 200 -- 49
 <ol start="4">
 <li>Cannot assign requested address</li>
 </ol>
-<p>客户端频繁的连服务器，由于每次连接都在很短的时间内结束，导致很多的TIME_WAIT，以至于用光了可用的端口号，所以新的连接没办法绑定端口，所以要改客户端机器的配置，<br>在sysctl.conf里加：</p>
+<p>客户端频繁的连服务器，由于每次连接都在很短的时间内结束，导致很多的TIME_WAIT，以至于用光了可用的端口号，所以新的连接没办法绑定端口，所以要改客户端机器的配置，<br>
+在sysctl.conf里加：</p>
 <pre><code>net.ipv4.tcp_tw_reuse = 1 表示开启重用。允许将TIME-WAIT sockets重新用于新的TCP连接，默认为0，表示关闭；
 net.ipv4.tcp_timestamps=1 开启对于TCP时间戳的支持,若该项设置为0，则下面一项设置不起作用
-net.ipv4.tcp_tw_recycle=1 表示开启TCP连接中TIME-WAIT sockets的快速回收</code></pre><ol start="5">
+net.ipv4.tcp_tw_recycle=1 表示开启TCP连接中TIME-WAIT sockets的快速回收
+</code></pre>
+<ol start="5">
 <li>./http_load: unknown protocol -</li>
 </ol>
-<p>两种原因：<br>不支持https，或，<br>说明txt文档中有多余的空行，要将其删除。</p>
+<p>两种原因：<br>
+不支持https，或，<br>
+说明txt文档中有多余的空行，要将其删除。</p>
 
 </div>
 
@@ -4459,19 +4504,23 @@ net.ipv4.tcp_tw_recycle=1 表示开启TCP连接中TIME-WAIT sockets的快速回�
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

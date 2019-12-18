@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		2.9 concurrenthashmap | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,88 +4395,104 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:46</span>
+	<span id="post-date">2019-12-18 01:00:41</span>
 </div>
 
 
 <div id="article">
 	<p>JDK1.5起，java.util.concurrent包</p>
-<h2 id="JDK1-7"><a href="#JDK1-7" class="headerlink" title="JDK1.7"></a>JDK1.7</h2><h3 id="总体介绍"><a href="#总体介绍" class="headerlink" title="总体介绍"></a>总体介绍</h3><p><code>ConcurrentHashMap</code>采用了分段锁技术，效率较<code>Hashtable</code>高，不允许空值<code>null</code>。</p>
+<h2 id="JDK1-7"><a class="header-anchor" href="#JDK1-7">¶</a>JDK1.7</h2>
+<h3 id="总体介绍"><a class="header-anchor" href="#总体介绍">¶</a>总体介绍</h3>
+<p><code>ConcurrentHashMap</code>采用了分段锁技术，效率较<code>Hashtable</code>高，不允许空值<code>null</code>。</p>
 <p><code>ConcurrentHashMap</code>是 <code>Segment</code> 数组。<code>Segment</code> 继承于<code>ReentrantLock</code>，可以充当锁。</p>
 <p><img src="/images/1545011842925.jpg" alt=""></p>
-<h3 id="方法剖析"><a href="#方法剖析" class="headerlink" title="方法剖析"></a>方法剖析</h3><h4 id="put"><a href="#put" class="headerlink" title="put"></a>put</h4><p>虽然<code>HashEntry</code>中的<code>value</code>是用<code>volatile</code>关键词修饰的，但是并不能保证并发的原子性，所以 put 操作时仍然需要加锁处理。</p>
+<h3 id="方法剖析"><a class="header-anchor" href="#方法剖析">¶</a>方法剖析</h3>
+<h4 id="put"><a class="header-anchor" href="#put">¶</a>put</h4>
+<p>虽然<code>HashEntry</code>中的<code>value</code>是用<code>volatile</code>关键词修饰的，但是并不能保证并发的原子性，所以 put 操作时仍然需要加锁处理。</p>
 <ol>
 <li>通过<code>key</code>定位到<code>Segment</code></li>
-<li>再调用<code>Segment</code>的<code>put</code>进行存储  <pre><code>public V put(K key, V value) {
- Segment&lt;K,V&gt; s;
- if (value == null)
-     throw new NullPointerException();
- int hash = hash(key);
- int j = (hash &gt;&gt;&gt; segmentShift) &amp; segmentMask;
- if ((s = (Segment&lt;K,V&gt;)UNSAFE.getObject          // nonvolatile; recheck
-      (segments, (j &lt;&lt; SSHIFT) + SBASE)) == null) //  in ensureSegment
-     s = ensureSegment(j);
- return s.put(key, hash, value, false);
-}</code></pre></li>
-<li>1 尝试获取锁，如果失败则利用 scanAndLockForPut() 自旋获取锁  </li>
-<li>2 如自旋重试次数达到上限，则改为阻塞获取锁，保证能获取成功  </li>
-<li>3 在<code>Segment</code>中存值<pre><code>final V put(K key, int hash, V value, boolean onlyIfAbsent) {
-  //加锁，锁定的是Segment
-  HashEntry&lt;K,V&gt; node = tryLock() ? null :
-      scanAndLockForPut(key, hash, value);
-  V oldValue;
-  try {
-      ...//类似hashmap存储
-  } finally {
-      unlock();
-  }
-  return oldValue;
-}</code></pre></li>
+<li>再调用<code>Segment</code>的<code>put</code>进行存储</li>
 </ol>
-<h4 id="get"><a href="#get" class="headerlink" title="get"></a>get</h4><p>由于<code>HashEntry</code>中的<code>value</code>属性是用<code>volatile</code>关键词修饰的，保证了内存可见性，所以每次获取时都是最新值。get 不需要加锁。 </p>
-<h2 id="JDK1-8"><a href="#JDK1-8" class="headerlink" title="JDK1.8"></a>JDK1.8</h2><h3 id="总体介绍-1"><a href="#总体介绍-1" class="headerlink" title="总体介绍"></a>总体介绍</h3><p>类似<code>HashMap</code>，遍历链表效率太低，1.8 加了<strong>红黑树</strong>。</p>
+<pre><code>public V put(K key, V value) {
+    Segment&lt;K,V&gt; s;
+    if (value == null)
+        throw new NullPointerException();
+    int hash = hash(key);
+    int j = (hash &gt;&gt;&gt; segmentShift) &amp; segmentMask;
+    if ((s = (Segment&lt;K,V&gt;)UNSAFE.getObject          // nonvolatile; recheck
+         (segments, (j &lt;&lt; SSHIFT) + SBASE)) == null) //  in ensureSegment
+        s = ensureSegment(j);
+    return s.put(key, hash, value, false);
+}
+</code></pre>
+<p>3.1 尝试获取锁，如果失败则利用 scanAndLockForPut() 自旋获取锁<br>
+3.2 如自旋重试次数达到上限，则改为阻塞获取锁，保证能获取成功<br>
+3.3 在<code>Segment</code>中存值</p>
+<pre><code>final V put(K key, int hash, V value, boolean onlyIfAbsent) {
+    //加锁，锁定的是Segment
+    HashEntry&lt;K,V&gt; node = tryLock() ? null :
+        scanAndLockForPut(key, hash, value);
+    V oldValue;
+    try {
+        ...//类似hashmap存储
+    } finally {
+        unlock();
+    }
+    return oldValue;
+}
+</code></pre>
+<h4 id="get"><a class="header-anchor" href="#get">¶</a>get</h4>
+<p>由于<code>HashEntry</code>中的<code>value</code>属性是用<code>volatile</code>关键词修饰的，保证了内存可见性，所以每次获取时都是最新值。get 不需要加锁。</p>
+<h2 id="JDK1-8"><a class="header-anchor" href="#JDK1-8">¶</a>JDK1.8</h2>
+<h3 id="总体介绍-v2"><a class="header-anchor" href="#总体介绍-v2">¶</a>总体介绍</h3>
+<p>类似<code>HashMap</code>，遍历链表效率太低，1.8 加了<strong>红黑树</strong>。</p>
 <p><code>Segment</code>抛弃了原有的基于<code>ReentrantLock</code>的分段锁，而采用了 CAS（空桶） + synchronized（非空） 来保证并发安全性。</p>
 <p><img src="/images/1545011842998.jpg" alt=""></p>
-<h3 id="方法剖析-1"><a href="#方法剖析-1" class="headerlink" title="方法剖析"></a>方法剖析</h3><h4 id="put-1"><a href="#put-1" class="headerlink" title="put"></a>put</h4><ol>
+<h3 id="方法剖析-v2"><a class="header-anchor" href="#方法剖析-v2">¶</a>方法剖析</h3>
+<h4 id="put-v2"><a class="header-anchor" href="#put-v2">¶</a>put</h4>
+<ol>
 <li>根据 key 计算出 hashcode</li>
 <li>判断初始化</li>
-<li>定位 Node f </li>
+<li>定位 Node f</li>
 <li>如果 f 为空，则利用 CAS 尝试写入，失败则自旋保证成功</li>
 <li>判断扩容</li>
 <li>如都不满足，则利用 synchronized 锁写入</li>
-<li>如链表大于阈值则要转换为红黑树<pre><code>final V putVal(K key, V value, boolean onlyIfAbsent) {
- if (key == null || value == null) throw new NullPointerException();
- int hash = spread(key.hashCode());//根据 key 计算出 hashcode
- int binCount = 0;
- for (Node&lt;K,V&gt;[] tab = table;;) {
-     Node&lt;K,V&gt; f; int n, i, fh;
-     if (tab == null || (n = tab.length) == 0)//判断初始化
-         tab = initTable();
-     else if ((f = tabAt(tab, i = (n - 1) &amp; hash)) == null) {//定位 Node f 
-         if (casTabAt(tab, i, null, new Node&lt;K,V&gt;(hash, key, value, null)))//利用 CAS 尝试写入，失败则自旋保证成功
-             break;                   // no lock when adding to empty bin
-     }
-     else if ((fh = f.hash) == MOVED)//判断扩容
-         tab = helpTransfer(tab, f);
-     else {//如果都不满足
-         V oldVal = null;
-         synchronized (f) {//则利用 synchronized 锁
-             ...//写入数据
-         }
-         if (binCount != 0) {
-             if (binCount &gt;= TREEIFY_THRESHOLD)//如链表大于阈值则要转换为红黑树
-                 treeifyBin(tab, i);
-             if (oldVal != null)
-                 return oldVal;
-             break;
-         }
-     }
- }
- addCount(1L, binCount);
- return null;
-}</code></pre></li>
+<li>如链表大于阈值则要转换为红黑树</li>
 </ol>
-<h4 id="get-1"><a href="#get-1" class="headerlink" title="get"></a>get</h4><ol>
+<pre><code>final V putVal(K key, V value, boolean onlyIfAbsent) {
+    if (key == null || value == null) throw new NullPointerException();
+    int hash = spread(key.hashCode());//根据 key 计算出 hashcode
+    int binCount = 0;
+    for (Node&lt;K,V&gt;[] tab = table;;) {
+        Node&lt;K,V&gt; f; int n, i, fh;
+        if (tab == null || (n = tab.length) == 0)//判断初始化
+            tab = initTable();
+        else if ((f = tabAt(tab, i = (n - 1) &amp; hash)) == null) {//定位 Node f 
+            if (casTabAt(tab, i, null, new Node&lt;K,V&gt;(hash, key, value, null)))//利用 CAS 尝试写入，失败则自旋保证成功
+                break;                   // no lock when adding to empty bin
+        }
+        else if ((fh = f.hash) == MOVED)//判断扩容
+            tab = helpTransfer(tab, f);
+        else {//如果都不满足
+            V oldVal = null;
+            synchronized (f) {//则利用 synchronized 锁
+                ...//写入数据
+            }
+            if (binCount != 0) {
+                if (binCount &gt;= TREEIFY_THRESHOLD)//如链表大于阈值则要转换为红黑树
+                    treeifyBin(tab, i);
+                if (oldVal != null)
+                    return oldVal;
+                break;
+            }
+        }
+    }
+    addCount(1L, binCount);
+    return null;
+}
+</code></pre>
+<h4 id="get-v2"><a class="header-anchor" href="#get-v2">¶</a>get</h4>
+<ol>
 <li>根据计算出来的 hashcode 寻址，如果就在桶上那么直接返回值。</li>
 <li>如果是红黑树那就按照树的方式获取值。</li>
 <li>就不满足那就按照链表的方式遍历获取值。</li>
@@ -4467,19 +4506,23 @@
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

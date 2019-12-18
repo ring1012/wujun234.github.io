@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		02 消息系统设计 | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,14 +4395,16 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:38</span>
+	<span id="post-date">2019-12-18 01:00:43</span>
 </div>
 
 
 <div id="article">
-	<h3 id="一、消息类型"><a href="#一、消息类型" class="headerlink" title="一、消息类型"></a>一、消息类型</h3><p><img src="/images/1556250859345.jpg" alt=""></p>
+	<h3 id="一、消息类型"><a class="header-anchor" href="#一、消息类型">¶</a>一、消息类型</h3>
+<p><img src="/images/1556250859345.jpg" alt=""></p>
 <p>分析需求，将消息分为三类</p>
-<h5 id="1-提醒-Remind"><a href="#1-提醒-Remind" class="headerlink" title="1.提醒(Remind)"></a>1.提醒(Remind)</h5><blockquote>
+<h5 id="1-提醒-Remind"><a class="header-anchor" href="#1-提醒-Remind">¶</a>1.提醒(Remind)</h5>
+<blockquote>
 <p>谁对一样属于谁的事物做了什么操作</p>
 </blockquote>
 <ul>
@@ -4389,7 +4414,8 @@
 <li>targetOwner：事物所有者（通过订阅维护）</li>
 </ul>
 <p>节省资源，适合Pull</p>
-<h5 id="2-私信-Message"><a href="#2-私信-Message" class="headerlink" title="2.私信(Message)"></a>2.私信(Message)</h5><blockquote>
+<h5 id="2-私信-Message"><a class="header-anchor" href="#2-私信-Message">¶</a>2.私信(Message)</h5>
+<blockquote>
 <p>谁对谁发送什么内容</p>
 </blockquote>
 <ul>
@@ -4398,7 +4424,8 @@
 <li>content：内容</li>
 </ul>
 <p>实时性要求，适合Push</p>
-<h5 id="3-公告-Announce"><a href="#3-公告-Announce" class="headerlink" title="3.公告(Announce)"></a>3.公告(Announce)</h5><blockquote>
+<h5 id="3-公告-Announce"><a class="header-anchor" href="#3-公告-Announce">¶</a>3.公告(Announce)</h5>
+<blockquote>
 <p>系统全体公告</p>
 </blockquote>
 <ul>
@@ -4406,11 +4433,17 @@
 <li>content：内容</li>
 </ul>
 <p>接收者太多，适合Pull</p>
-<h3 id="二、消息逻辑"><a href="#二、消息逻辑" class="headerlink" title="二、消息逻辑"></a>二、消息逻辑</h3><h5 id="1-生产端"><a href="#1-生产端" class="headerlink" title="1.生产端"></a>1.生产端</h5><p>不同触发条件创建三种<code>消息</code></p>
-<h5 id="2-中间连接"><a href="#2-中间连接" class="headerlink" title="2.中间连接"></a>2.中间连接</h5><p>“推”的方式，创建<code>消息</code>同时创建<code>用户消息</code>。</p>
+<h3 id="二、消息逻辑"><a class="header-anchor" href="#二、消息逻辑">¶</a>二、消息逻辑</h3>
+<h5 id="1-生产端"><a class="header-anchor" href="#1-生产端">¶</a>1.生产端</h5>
+<p>不同触发条件创建三种<code>消息</code></p>
+<h5 id="2-中间连接"><a class="header-anchor" href="#2-中间连接">¶</a>2.中间连接</h5>
+<p>“推”的方式，创建<code>消息</code>同时创建<code>用户消息</code>。</p>
 <p>“拉”的方式通过“订阅”延迟创建<code>用户消息</code>。</p>
-<h5 id="3-消费端"><a href="#3-消费端" class="headerlink" title="3.消费端"></a>3.消费端</h5><p>用户不时从<code>用户消息</code>获取三种<code>消息</code></p>
-<h3 id="三、消息实体"><a href="#三、消息实体" class="headerlink" title="三、消息实体"></a>三、消息实体</h3><h5 id="1-消息-Notice"><a href="#1-消息-Notice" class="headerlink" title="1.消息(Notice)"></a>1.消息(Notice)</h5><p>生产端，提醒、私信和公告三类合一，公告设计为带内容的提醒</p>
+<h5 id="3-消费端"><a class="header-anchor" href="#3-消费端">¶</a>3.消费端</h5>
+<p>用户不时从<code>用户消息</code>获取三种<code>消息</code></p>
+<h3 id="三、消息实体"><a class="header-anchor" href="#三、消息实体">¶</a>三、消息实体</h3>
+<h5 id="1-消息-Notice"><a class="header-anchor" href="#1-消息-Notice">¶</a>1.消息(Notice)</h5>
+<p>生产端，提醒、私信和公告三类合一，公告设计为带内容的提醒</p>
 <table>
 <thead>
 <tr>
@@ -4420,7 +4453,8 @@
 <th>备注</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>id</td>
 <td>Long</td>
 <td>消息id</td>
@@ -4468,8 +4502,10 @@
 <td>创建时间</td>
 <td></td>
 </tr>
-</tbody></table>
-<h5 id="2-用户消息-UserNotice"><a href="#2-用户消息-UserNotice" class="headerlink" title="2.用户消息(UserNotice)"></a>2.用户消息(UserNotice)</h5><p>消费端，绑定用户与消息</p>
+</tbody>
+</table>
+<h5 id="2-用户消息-UserNotice"><a class="header-anchor" href="#2-用户消息-UserNotice">¶</a>2.用户消息(UserNotice)</h5>
+<p>消费端，绑定用户与消息</p>
 <table>
 <thead>
 <tr>
@@ -4479,7 +4515,8 @@
 <th>备注</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>id</td>
 <td>Long</td>
 <td>用户消息id</td>
@@ -4509,8 +4546,10 @@
 <td>创建时间</td>
 <td></td>
 </tr>
-</tbody></table>
-<h5 id="3-订阅-Subscription"><a href="#3-订阅-Subscription" class="headerlink" title="3.订阅(Subscription)"></a>3.订阅(Subscription)</h5><p>中间连接，维护“拉”的消息列表</p>
+</tbody>
+</table>
+<h5 id="3-订阅-Subscription"><a class="header-anchor" href="#3-订阅-Subscription">¶</a>3.订阅(Subscription)</h5>
+<p>中间连接，维护“拉”的消息列表</p>
 <table>
 <thead>
 <tr>
@@ -4520,7 +4559,8 @@
 <th>备注</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>id</td>
 <td>Long</td>
 <td>订阅id</td>
@@ -4562,31 +4602,41 @@
 <td>创建时间</td>
 <td></td>
 </tr>
-</tbody></table>
-<h3 id="四、方法设计"><a href="#四、方法设计" class="headerlink" title="四、方法设计"></a>四、方法设计</h3><h5 id="1-订阅"><a href="#1-订阅" class="headerlink" title="1.订阅"></a>1.订阅</h5><ul>
-<li>subscribe(userId, targetId, targetType, …actions)<ul>
+</tbody>
+</table>
+<h3 id="四、方法设计"><a class="header-anchor" href="#四、方法设计">¶</a>四、方法设计</h3>
+<h5 id="1-订阅"><a class="header-anchor" href="#1-订阅">¶</a>1.订阅</h5>
+<ul>
+<li>subscribe(userId, targetId, targetType, …actions)
+<ul>
 <li>遍历actions，每个动作新插一条Subscription</li>
 </ul>
 </li>
-<li>unsubscribe(userId, targetId ,targetType)<ul>
+<li>unsubscribe(userId, targetId ,targetType)
+<ul>
 <li>删除对应Subscription</li>
 </ul>
 </li>
 </ul>
-<h5 id="2-创建Notice"><a href="#2-创建Notice" class="headerlink" title="2.创建Notice"></a>2.创建Notice</h5><ul>
-<li>createRemind(type，targetId, targetType, action, senderId, content)<ul>
+<h5 id="2-创建Notice"><a class="header-anchor" href="#2-创建Notice">¶</a>2.创建Notice</h5>
+<ul>
+<li>createRemind(type，targetId, targetType, action, senderId, content)
+<ul>
 <li>新插一条提醒Notice/公告Notice</li>
 </ul>
 </li>
-<li>createMessage(content, senderId, receiverId)<ul>
+<li>createMessage(content, senderId, receiverId)
+<ul>
 <li>新插一条私信Notice</li>
 <li>新插一条UserNotice，并关联新建的Notice</li>
 </ul>
 </li>
 </ul>
 <p><img src="/images/1556250861598.jpg" alt=""></p>
-<h5 id="3-拉取Notice-Notice数量"><a href="#3-拉取Notice-Notice数量" class="headerlink" title="3.拉取Notice/Notice数量"></a>3.拉取Notice/Notice数量</h5><ul>
-<li>pullNotice(userId)<ul>
+<h5 id="3-拉取Notice-Notice数量"><a class="header-anchor" href="#3-拉取Notice-Notice数量">¶</a>3.拉取Notice/Notice数量</h5>
+<ul>
+<li>pullNotice(userId)
+<ul>
 <li>根据Subscription查询更新提醒Notice/公告Notice</li>
 <li>（拉取Notice）新插一条UserNotice，并关联查询出来的提醒Notice</li>
 <li>（Notice数量）查询更新提醒Notice，返回数量，不新建UserNotice</li>
@@ -4594,31 +4644,46 @@
 </li>
 </ul>
 <p><img src="/images/1556250861971.jpg" alt=""></p>
-<h5 id="4-查询UserNotice"><a href="#4-查询UserNotice" class="headerlink" title="4.查询UserNotice"></a>4.查询UserNotice</h5><ul>
-<li>getUserNotice(userId)<ul>
+<h5 id="4-查询UserNotice"><a class="header-anchor" href="#4-查询UserNotice">¶</a>4.查询UserNotice</h5>
+<ul>
+<li>getUserNotice(userId)
+<ul>
 <li>查询UserNotice</li>
 </ul>
 </li>
 </ul>
-<h5 id="5-阅读UserNotice"><a href="#5-阅读UserNotice" class="headerlink" title="5.阅读UserNotice"></a>5.阅读UserNotice</h5><ul>
-<li>read(userNoticeIds)<ul>
+<h5 id="5-阅读UserNotice"><a class="header-anchor" href="#5-阅读UserNotice">¶</a>5.阅读UserNotice</h5>
+<ul>
+<li>read(userNoticeIds)
+<ul>
 <li>更新UserNotice，isRead设为true</li>
 </ul>
 </li>
 </ul>
-<h3 id="五、业务流程"><a href="#五、业务流程" class="headerlink" title="五、业务流程"></a>五、业务流程</h3><h5 id="1-提醒和公告"><a href="#1-提醒和公告" class="headerlink" title="1.提醒和公告"></a>1.提醒和公告</h5><h6 id="1-订阅消息"><a href="#1-订阅消息" class="headerlink" title="1)订阅消息"></a>1)订阅消息</h6><ul>
+<h3 id="五、业务流程"><a class="header-anchor" href="#五、业务流程">¶</a>五、业务流程</h3>
+<h5 id="1-提醒和公告"><a class="header-anchor" href="#1-提醒和公告">¶</a>1.提醒和公告</h5>
+<h6 id="1-订阅消息"><a class="header-anchor" href="#1-订阅消息">¶</a>1)订阅消息</h6>
+<ul>
 <li>默认订阅：“被关注”和“公告”等</li>
 <li>触发订阅：在发布评论等操作之后，订阅本次动作</li>
 </ul>
-<h6 id="2-创建提醒"><a href="#2-创建提醒" class="headerlink" title="2)创建提醒"></a>2)创建提醒</h6><ul>
+<h6 id="2-创建提醒"><a class="header-anchor" href="#2-创建提醒">¶</a>2)创建提醒</h6>
+<ul>
 <li>系统创建“公告”</li>
 <li>其他用户触发创建“提醒”</li>
 </ul>
-<h6 id="3-拉取消息"><a href="#3-拉取消息" class="headerlink" title="3)拉取消息"></a>3)拉取消息</h6><p>新登陆或其他策略，从消息表（消息队列）拉取属于用户的提醒，并创建用户提醒消息</p>
-<h6 id="4-查询消息"><a href="#4-查询消息" class="headerlink" title="4)查询消息"></a>4)查询消息</h6><p>查询用户消息队列，获取消息</p>
-<h5 id="2-私信"><a href="#2-私信" class="headerlink" title="2.私信"></a>2.私信</h5><h6 id="1-创建私信"><a href="#1-创建私信" class="headerlink" title="1)创建私信"></a>1)创建私信</h6><p>消息发送，创建私信消息，并直接创建接收方私信消息</p>
-<h6 id="2-查询消息"><a href="#2-查询消息" class="headerlink" title="2)查询消息"></a>2)查询消息</h6><p>查询用户消息队列</p>
-<h3 id="六、kafka"><a href="#六、kafka" class="headerlink" title="六、kafka"></a>六、kafka</h3><h5 id="1-创建订阅"><a href="#1-创建订阅" class="headerlink" title="1.创建订阅"></a>1.创建订阅</h5><table>
+<h6 id="3-拉取消息"><a class="header-anchor" href="#3-拉取消息">¶</a>3)拉取消息</h6>
+<p>新登陆或其他策略，从消息表（消息队列）拉取属于用户的提醒，并创建用户提醒消息</p>
+<h6 id="4-查询消息"><a class="header-anchor" href="#4-查询消息">¶</a>4)查询消息</h6>
+<p>查询用户消息队列，获取消息</p>
+<h5 id="2-私信"><a class="header-anchor" href="#2-私信">¶</a>2.私信</h5>
+<h6 id="1-创建私信"><a class="header-anchor" href="#1-创建私信">¶</a>1)创建私信</h6>
+<p>消息发送，创建私信消息，并直接创建接收方私信消息</p>
+<h6 id="2-查询消息"><a class="header-anchor" href="#2-查询消息">¶</a>2)查询消息</h6>
+<p>查询用户消息队列</p>
+<h3 id="六、kafka"><a class="header-anchor" href="#六、kafka">¶</a>六、kafka</h3>
+<h5 id="1-创建订阅"><a class="header-anchor" href="#1-创建订阅">¶</a>1.创建订阅</h5>
+<table>
 <thead>
 <tr>
 <th>字段名</th>
@@ -4627,7 +4692,8 @@
 <th>备注</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>content</td>
 <td>String</td>
 <td>消息内容</td>
@@ -4663,13 +4729,9 @@
 <td>发送者ID</td>
 <td>0为系统</td>
 </tr>
-<tr>
-<td>##### 2.创建消息</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody></table>
+</tbody>
+</table>
+<h5 id="2-创建消息"><a class="header-anchor" href="#2-创建消息">¶</a>2.创建消息</h5>
 <table>
 <thead>
 <tr>
@@ -4679,7 +4741,8 @@
 <th>备注</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>id</td>
 <td>Long</td>
 <td>订阅id</td>
@@ -4709,11 +4772,17 @@
 <td>操作类型</td>
 <td></td>
 </tr>
-</tbody></table>
-<h3 id="TODO"><a href="#TODO" class="headerlink" title="TODO"></a>TODO</h3><h5 id="分页加载"><a href="#分页加载" class="headerlink" title="分页加载"></a>分页加载</h5><p>若未读数量过多，只加载部分，剩下的再请求时再生成</p>
-<h5 id="缓生成"><a href="#缓生成" class="headerlink" title="缓生成"></a>缓生成</h5><p>从消息表拉取消息的时候，只统计数量，点击查询消息的时候再生成用户消息</p>
-<h5 id="订阅设置"><a href="#订阅设置" class="headerlink" title="订阅设置"></a>订阅设置</h5><p>订阅设置，通知策略</p>
-<h5 id="消息聚合"><a href="#消息聚合" class="headerlink" title="消息聚合"></a>消息聚合</h5><p>提醒时，多条相同target的通知和合并为一条，“sender1、sender2……action了你的target”</p>
+</tbody>
+</table>
+<h3 id="TODO"><a class="header-anchor" href="#TODO">¶</a>TODO</h3>
+<h5 id="分页加载"><a class="header-anchor" href="#分页加载">¶</a>分页加载</h5>
+<p>若未读数量过多，只加载部分，剩下的再请求时再生成</p>
+<h5 id="缓生成"><a class="header-anchor" href="#缓生成">¶</a>缓生成</h5>
+<p>从消息表拉取消息的时候，只统计数量，点击查询消息的时候再生成用户消息</p>
+<h5 id="订阅设置"><a class="header-anchor" href="#订阅设置">¶</a>订阅设置</h5>
+<p>订阅设置，通知策略</p>
+<h5 id="消息聚合"><a class="header-anchor" href="#消息聚合">¶</a>消息聚合</h5>
+<p>提醒时，多条相同target的通知和合并为一条，“sender1、sender2……action了你的target”</p>
 
 </div>
 
@@ -4723,19 +4792,23 @@
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

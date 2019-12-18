@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		9 执行器Executor | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,15 +4395,49 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:48</span>
+	<span id="post-date">2019-12-18 01:00:41</span>
 </div>
 
 
 <div id="article">
-	<p>执行器（Executor）类有许多静态工厂方法用来构建线程池。<br>| 方法 | 描述 |<br>|—|—|<br>| newCachedThreadPool | 必要时创建新线程；空闲线程会被保留 60 秒 |<br>| newFixedThreadPool | 线程包含固定数量的线程；空闲线程会一直被保留 |<br>| newSingleThreadExecutor | 只有一个线程的“池”，该线程顺序执行每一行提交的任务 |<br>| newScheduledThreadPool | 用于预定执行而构建的固定线程池，替代 java.util.Time |<br>| newSingleThreadScheduledExecutor | 用于预定执行而构建的单线程“池” |</p>
-<h3 id="1-线程池"><a href="#1-线程池" class="headerlink" title="1 线程池"></a>1 线程池</h3><h5 id="submit"><a href="#submit" class="headerlink" title="submit"></a>submit</h5><p>调用submit将一个 Runnable 对象或 Callable 对象提交给 ExecutorService，会得到一个Future对象，可用来査询该任务的状态。</p>
-<h5 id="shutdown"><a href="#shutdown" class="headerlink" title="shutdown"></a>shutdown</h5><p>当用完一个线程池的时候，调用shutdown。该方法启动该池的关闭序列。被关闭的执行器不再接受新的任务。当所有任务都完成以后，线程池中的线程死亡。</p>
-<h5 id="shutdownNow"><a href="#shutdownNow" class="headerlink" title="shutdownNow"></a>shutdownNow</h5><p>该池取消尚未开始的所有任务并试图中断正在运行的线程。</p>
+	<p>执行器（Executor）类有许多静态工厂方法用来构建线程池。</p>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>newCachedThreadPool</td>
+<td>必要时创建新线程；空闲线程会被保留 60 秒</td>
+</tr>
+<tr>
+<td>newFixedThreadPool</td>
+<td>线程包含固定数量的线程；空闲线程会一直被保留</td>
+</tr>
+<tr>
+<td>newSingleThreadExecutor</td>
+<td>只有一个线程的“池”，该线程顺序执行每一行提交的任务</td>
+</tr>
+<tr>
+<td>newScheduledThreadPool</td>
+<td>用于预定执行而构建的固定线程池，替代 java.util.Time</td>
+</tr>
+<tr>
+<td>newSingleThreadScheduledExecutor</td>
+<td>用于预定执行而构建的单线程“池”</td>
+</tr>
+</tbody>
+</table>
+<h3 id="1-线程池"><a class="header-anchor" href="#1-线程池">¶</a>1 线程池</h3>
+<h5 id="submit"><a class="header-anchor" href="#submit">¶</a>submit</h5>
+<p>调用submit将一个 Runnable 对象或 Callable 对象提交给 ExecutorService，会得到一个Future对象，可用来査询该任务的状态。</p>
+<h5 id="shutdown"><a class="header-anchor" href="#shutdown">¶</a>shutdown</h5>
+<p>当用完一个线程池的时候，调用shutdown。该方法启动该池的关闭序列。被关闭的执行器不再接受新的任务。当所有任务都完成以后，线程池中的线程死亡。</p>
+<h5 id="shutdownNow"><a class="header-anchor" href="#shutdownNow">¶</a>shutdownNow</h5>
+<p>该池取消尚未开始的所有任务并试图中断正在运行的线程。</p>
 <p>使用连接池时应该做的事：</p>
 <ol>
 <li>调用 Executor 类中静态的方法 newCachedThreadPool 或 newFixedThreadPool。</li>
@@ -4388,7 +4445,8 @@
 <li>如果想要取消一个任务，或如果提交 Callable 对象，那就要保存好返回的 Future 对象。</li>
 <li>当不再提交任何任务时，调用 shutdown。</li>
 </ol>
-<h5 id="线程池的简单实现"><a href="#线程池的简单实现" class="headerlink" title="线程池的简单实现"></a>线程池的简单实现</h5><p>一般一个简单线程池至少包含下列组成部分。</p>
+<h5 id="线程池的简单实现"><a class="header-anchor" href="#线程池的简单实现">¶</a>线程池的简单实现</h5>
+<p>一般一个简单线程池至少包含下列组成部分。</p>
 <ol>
 <li>线程池管理器（ThreadPoolManager）：用于创建并管理线程池</li>
 <li>工作线程（WorkThread）: 线程池中线程</li>
@@ -4403,27 +4461,40 @@ ExecutorService newFixedThreadPool(int threads)
 //返回一个线程池，该池中的线程数由参数指定。
 
 ExecutorService newSingleThreadExecutor()
-//返回一个执行器，它在一个单个的线程中依次执行各个任务。</code></pre><h3 id="2-预定执行"><a href="#2-预定执行" class="headerlink" title="2 预定执行"></a>2 预定执行</h3><p>ScheduledExecutorService 接口具有为预定执行（Scheduled Execution）或重复执行任务而设计的方法。它是一种允许使用线程池机制的 java.util.Timer 的泛化。</p>
+//返回一个执行器，它在一个单个的线程中依次执行各个任务。
+</code></pre>
+<h3 id="2-预定执行"><a class="header-anchor" href="#2-预定执行">¶</a>2 预定执行</h3>
+<p>ScheduledExecutorService 接口具有为预定执行（Scheduled Execution）或重复执行任务而设计的方法。它是一种允许使用线程池机制的 java.util.Timer 的泛化。</p>
 <p>可以预定 Runnable 或 Callable 在初始的延迟之后只运行依次。也可以预定一个 Runnable 对象周期性地运行。</p>
 <pre><code>ScheduledExecutorService newScheduledThreadPool(int threads)
 //返回一个线程池，它使用给定的线程数来调度任务。
 
 ScheduledExecutorService newSingleThreadScheduledExecutor()
-//返回一个执行器，它在一个单独线程中调度任务。</code></pre><h3 id="3-控制任务组"><a href="#3-控制任务组" class="headerlink" title="3 控制任务组"></a>3 控制任务组</h3><p>使用执行器有更有意义的原因，控制一组相关任务。</p>
+//返回一个执行器，它在一个单独线程中调度任务。
+</code></pre>
+<h3 id="3-控制任务组"><a class="header-anchor" href="#3-控制任务组">¶</a>3 控制任务组</h3>
+<p>使用执行器有更有意义的原因，控制一组相关任务。</p>
 <ul>
 <li>shutdownNow方法：取消所有的任务。</li>
 <li>invokeAny方法：提交所有对象到一个Callable对象的集合中，并返回某个已经完成了的任务的结果。</li>
-<li>invokeAll方法：提交所有对象到一个Callable对象的集合中并返回一个Future对象的列表，代表所有任务的解决方案。当计算结果可获得时，可以像下面这样对结果进行处理：<pre><code>List&lt;Callable&lt;T&gt;&gt; tasks = ...;
+<li>invokeAll方法：提交所有对象到一个Callable对象的集合中并返回一个Future对象的列表，代表所有任务的解决方案。当计算结果可获得时，可以像下面这样对结果进行处理：</li>
+</ul>
+<pre><code>List&lt;Callable&lt;T&gt;&gt; tasks = ...;
 List&lt;Future&lt;T&gt;&gt; results = executor.invokeAll(tasks);
 for(Future&lt;T&gt; result : results)
-  processFurther(result.get());</code></pre>可以用ExecutorCompletionService来进行排列。<pre><code>ExecutorCompletionService&lt;T&gt; service = new ExecutorCompletionService&lt;&gt;(executor);
+    processFurther(result.get());
+</code></pre>
+<p>可以用ExecutorCompletionService来进行排列。</p>
+<pre><code>ExecutorCompletionService&lt;T&gt; service = new ExecutorCompletionService&lt;&gt;(executor);
 for (Callalbe&lt;T&gt; task : tasks) {
-  service.submit(task);
+    service.submit(task);
 }
 for (int i = 0; i &lt; tasks.size(); i++) {
-  processFurther(service.take().get());
-}</code></pre><h3 id="4-Fork-Join框架"><a href="#4-Fork-Join框架" class="headerlink" title="4 Fork-Join框架"></a>4 Fork-Join框架</h3>有些应用使用了大量线程， 但其中大多数都是空闲的。另外一些应用可能对每个处理器内核分别使用一个线程，来完成计算密集型任务。</li>
-</ul>
+    processFurther(service.take().get());
+}
+</code></pre>
+<h3 id="4-Fork-Join框架"><a class="header-anchor" href="#4-Fork-Join框架">¶</a>4 Fork-Join框架</h3>
+<p>有些应用使用了大量线程， 但其中大多数都是空闲的。另外一些应用可能对每个处理器内核分别使用一个线程，来完成计算密集型任务。</p>
 <p>Java SE 7 中引入 fork-join 框架，专门用来支持后一类应用。</p>
 <p>Fork就是把一个大任务切分为若干子任务并行的执行，Join就是合并这些子任务的执行结果，最后得到这个大任务的结果。</p>
 <p>要完成这种递归计算，需要扩展 RecursiveTask<T> 的类或者提供一个扩展 RecursiveAction 的类，再覆盖 compute 方法来生成并调用子任务，然后合并其结果。</p>
@@ -4440,8 +4511,11 @@ for (int i = 0; i &lt; tasks.size(); i++) {
             return first.join() + second.join();
         }
     }
-}</code></pre><p>invokeAll 方法接收到很多任务并阻塞，直到所有这些任务都已经完成。join 方法将生成结果。对每个子任务应用了 join，并返回其总和。</p>
-<h5 id="工作窃取"><a href="#工作窃取" class="headerlink" title="工作窃取"></a>工作窃取</h5><p>工作窃取（work-stealing）算法是指某个线程从其他队列里窃取任务来执行。使用双端队列减少线程竞争，被窃取任务的线程从头部拿任务，窃取任务的线程从尾部拿。</p>
+}
+</code></pre>
+<p>invokeAll 方法接收到很多任务并阻塞，直到所有这些任务都已经完成。join 方法将生成结果。对每个子任务应用了 join，并返回其总和。</p>
+<h5 id="工作窃取"><a class="header-anchor" href="#工作窃取">¶</a>工作窃取</h5>
+<p>工作窃取（work-stealing）算法是指某个线程从其他队列里窃取任务来执行。使用双端队列减少线程竞争，被窃取任务的线程从头部拿任务，窃取任务的线程从尾部拿。</p>
 <p>一个工作线程空闲时，它会从一个双端队列的尾部“窃取”一个任务。</p>
 <pre><code>public static void main(String[] args) {
     // ...
@@ -4450,10 +4524,16 @@ for (int i = 0; i &lt; tasks.size(); i++) {
     pool.invoke(counter);
     long end = System.currentTimeMillis();
     System.out.printf(&quot;count: %d, time: %d\n&quot;, counter.join(), end - mid);
-}</code></pre><h3 id="5-可完成Future"><a href="#5-可完成Future" class="headerlink" title="5 可完成Future"></a>5 可完成Future</h3><p>Future调用get()获取值会阻塞住调用线程，为了解决这个问题，1.8加入了 CompletableFuture 类。与事件处理器不同，CompletableFuture 可以“组合”（composed）。</p>
+}
+</code></pre>
+<h3 id="5-可完成Future"><a class="header-anchor" href="#5-可完成Future">¶</a>5 可完成Future</h3>
+<p>Future调用get()获取值会阻塞住调用线程，为了解决这个问题，1.8加入了 CompletableFuture 类。与事件处理器不同，CompletableFuture 可以“组合”（composed）。</p>
 <pre><code>CompletableFuture&lt;String&gt; contents = readPage(url);
-CompletableFuture&lt;List&lt;URL&gt;&gt; links = contents.thenApply(Parse::getLinks);</code></pre><p>thenApply 方法不会阻塞。它会返回一个 future。第一个 future 完成时，其结果会提供给 getLinks 方法，这个方法的返回值是最终的结果。</p>
-<p>从概念上讲，CompletableFuture 是一个简单 API，不过有很多不同方法来组合可完成 future。下面先来看处理单个 future 的方法。<br>……</p>
+CompletableFuture&lt;List&lt;URL&gt;&gt; links = contents.thenApply(Parse::getLinks);
+</code></pre>
+<p>thenApply 方法不会阻塞。它会返回一个 future。第一个 future 完成时，其结果会提供给 getLinks 方法，这个方法的返回值是最终的结果。</p>
+<p>从概念上讲，CompletableFuture 是一个简单 API，不过有很多不同方法来组合可完成 future。下面先来看处理单个 future 的方法。<br>
+……</p>
 
 </div>
 
@@ -4463,19 +4543,23 @@ CompletableFuture&lt;List&lt;URL&gt;&gt; links = contents.thenApply(Parse::getLi
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

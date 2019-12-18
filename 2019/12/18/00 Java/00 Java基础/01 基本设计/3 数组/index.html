@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		3 数组 | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,38 +4395,70 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:45</span>
+	<span id="post-date">2019-12-18 01:00:41</span>
 </div>
 
 
 <div id="article">
-	<h3 id="1-一维数组"><a href="#1-一维数组" class="headerlink" title="1.一维数组"></a>1.一维数组</h3><h4 id="声明"><a href="#声明" class="headerlink" title="声明"></a>声明</h4><p>一旦创建了数组就不能改变它的大小。</p>
+	<h3 id="1-一维数组"><a class="header-anchor" href="#1-一维数组">¶</a>1.一维数组</h3>
+<h4 id="声明"><a class="header-anchor" href="#声明">¶</a>声明</h4>
+<p>一旦创建了数组就不能改变它的大小。</p>
 <pre><code>int[] a = new int[n];
-int a[] = new int[n];</code></pre><h4 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h4><p>数字数组初始化为0。boolean数组初始化false。对象数组初始化null。  </p>
+int a[] = new int[n];
+</code></pre>
+<h4 id="初始化"><a class="header-anchor" href="#初始化">¶</a>初始化</h4>
+<p>数字数组初始化为0。boolean数组初始化false。对象数组初始化null。</p>
 <pre><code>int[] a = {1,2,3} ;
-new int[]{1,2,3};</code></pre><h3 id="2-多维数组"><a href="#2-多维数组" class="headerlink" title="2.多维数组"></a>2.多维数组</h3><p>java 实际上没有多维数组，只有一维数组，多维数组被解释成“数组的数组”</p>
-<h4 id="声明-1"><a href="#声明-1" class="headerlink" title="声明"></a>声明</h4><pre><code>int[][] a = new int[n][]</code></pre><h4 id="初始化-1"><a href="#初始化-1" class="headerlink" title="初始化"></a>初始化</h4><pre><code>int[][] A = {
+new int[]{1,2,3};
+</code></pre>
+<h3 id="2-多维数组"><a class="header-anchor" href="#2-多维数组">¶</a>2.多维数组</h3>
+<p>java 实际上没有多维数组，只有一维数组，多维数组被解释成“数组的数组”</p>
+<h4 id="声明-v2"><a class="header-anchor" href="#声明-v2">¶</a>声明</h4>
+<pre><code>int[][] a = new int[n][]
+</code></pre>
+<h4 id="初始化-v2"><a class="header-anchor" href="#初始化-v2">¶</a>初始化</h4>
+<pre><code>int[][] A = {
     {},
     {}
     ...
-}</code></pre><h3 id="3-Arrays类"><a href="#3-Arrays类" class="headerlink" title="3.Arrays类"></a>3.Arrays类</h3><h4 id="填充"><a href="#填充" class="headerlink" title="填充"></a>填充</h4><pre><code class="java">Arrays.fill(type[] a,type v);</code></pre>
-<h4 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h4><p>优化的快排</p>
+}
+</code></pre>
+<h3 id="3-Arrays类"><a class="header-anchor" href="#3-Arrays类">¶</a>3.Arrays类</h3>
+<h4 id="填充"><a class="header-anchor" href="#填充">¶</a>填充</h4>
+<pre><code class="language-java">Arrays.fill(type[] a,type v);
+</code></pre>
+<h4 id="排序"><a class="header-anchor" href="#排序">¶</a>排序</h4>
+<p>优化的快排</p>
 <pre><code>//升序排序 
 Arrays.sort(type[] a);
 //给开始位到结束位排序
-Arrays.sort(type[] a,int start,int end);</code></pre><h4 id="比较"><a href="#比较" class="headerlink" title="比较"></a>比较</h4><p>比较元素是否相等</p>
-<pre><code>Arrays.equals(type[] a,type[] b);</code></pre><h4 id="查找"><a href="#查找" class="headerlink" title="查找"></a>查找</h4><p>二分查找，数组一定要是先排好序，返回最后一个找到的位置 </p>
+Arrays.sort(type[] a,int start,int end);
+</code></pre>
+<h4 id="比较"><a class="header-anchor" href="#比较">¶</a>比较</h4>
+<p>比较元素是否相等</p>
+<pre><code>Arrays.equals(type[] a,type[] b);
+</code></pre>
+<h4 id="查找"><a class="header-anchor" href="#查找">¶</a>查找</h4>
+<p>二分查找，数组一定要是先排好序，返回最后一个找到的位置</p>
 <pre><code>Arrays.binarySearch(type[] a,type v);
 //范围查找
-Arrays.binarySearch(type[] a,type v,int start,int end);</code></pre><h4 id="拷贝"><a href="#拷贝" class="headerlink" title="拷贝"></a>拷贝</h4><p>使用Arrays类的copyOf方法</p>
+Arrays.binarySearch(type[] a,type v,int start,int end);
+</code></pre>
+<h4 id="拷贝"><a class="header-anchor" href="#拷贝">¶</a>拷贝</h4>
+<p>使用Arrays类的copyOf方法</p>
 <pre><code>//深度拷贝
 int[] a = Arrays.copyOf(b,b.length);
 //扩展
 int[] a = Arrays.copyOf(b,b.length*2);
 //部分拷贝
-Arrays.copyOfRange(a,0,5)</code></pre><h4 id="打印"><a href="#打印" class="headerlink" title="打印"></a>打印</h4><pre><code>Arrays.toString(a)
+Arrays.copyOfRange(a,0,5)
+</code></pre>
+<h4 id="打印"><a class="header-anchor" href="#打印">¶</a>打印</h4>
+<pre><code>Arrays.toString(a)
 //打印多维数组
-Arrays.deepToString()</code></pre>
+Arrays.deepToString()
+</code></pre>
+
 </div>
 
 	</div>
@@ -4412,19 +4467,23 @@ Arrays.deepToString()</code></pre>
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

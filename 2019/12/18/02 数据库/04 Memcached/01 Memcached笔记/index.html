@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		01 Memcached笔记 | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,14 +4395,18 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:22</span>
+	<span id="post-date">2019-12-18 01:00:43</span>
 </div>
 
 
 <div id="article">
-	<p>Memcached是高性能，分布式内存对象key-value缓存系统。一般使用目的是，通过缓存数据库查询结果，减少数据库访问次数，以提高动态Web应用的速度、提高可扩展性。 </p>
-<h1 id="连接"><a href="#连接" class="headerlink" title="连接"></a>连接</h1><p>通过 telnet 命令并指定主机ip和端口来连接 Memcached 服务</p>
-<pre><code>telnet HOST PORT</code></pre><h1 id="存储命令"><a href="#存储命令" class="headerlink" title="存储命令"></a>存储命令</h1><ul>
+	<p>Memcached是高性能，分布式内存对象key-value缓存系统。一般使用目的是，通过缓存数据库查询结果，减少数据库访问次数，以提高动态Web应用的速度、提高可扩展性。</p>
+<h1>连接</h1>
+<p>通过 telnet 命令并指定主机ip和端口来连接 Memcached 服务</p>
+<pre><code>telnet HOST PORT
+</code></pre>
+<h1>存储命令</h1>
+<ul>
 <li>set：如key已存在，会更新</li>
 <li>add：如key已存在，不会更新（过期的会）</li>
 <li>replace：替换已存在 key的 value。如果 key 不存在，则替换失败</li>
@@ -4388,26 +4415,33 @@
 <li>CAS：仅当最后一次取值后，值没被其他客户端修改， 才能写入</li>
 </ul>
 <p>参数：</p>
-<pre><code>命令 key flags exptime bytes unique_cas_token [noreply] value</code></pre><ul>
+<pre><code>命令 key flags exptime bytes unique_cas_token [noreply] value
+</code></pre>
+<ul>
 <li>key：键值 key-value 结构中的 key，用于查找缓存值。</li>
 <li>flags：可以包括键值对的整型参数，客户机使用它存储关于键值对的额外信息 。</li>
 <li>exptime：在缓存中保存键值对的时间长度（以秒为单位，0 表示永远）</li>
 <li>bytes：在缓存中存储的字节数</li>
 <li>noreply（可选）： 该参数告知服务器不需要返回数据</li>
-<li>value：存储的值（始终位于第二行）（可直接理解为key-value结构中的value）<h1 id="查找命令"><a href="#查找命令" class="headerlink" title="查找命令"></a>查找命令</h1><ul>
+<li>value：存储的值（始终位于第二行）（可直接理解为key-value结构中的value）</li>
+</ul>
+<h1>查找命令</h1>
+<ul>
 <li>get：获取 value ，如果 key 不存在，则返回空</li>
 <li>gets：获取CAS  value，如果 key 不存在，则返回空</li>
 <li>delete：删除已存在的 key</li>
-<li>incr/decr：对已存在的 key的数字值自增或自减<h1 id="统计命令"><a href="#统计命令" class="headerlink" title="统计命令"></a>统计命令</h1></li>
+<li>incr/decr：对已存在的 key的数字值自增或自减</li>
+</ul>
+<h1>统计命令</h1>
+<ul>
 <li>stats：返回统计信息</li>
 <li>stats items：显示各个 slab 中 item 的数目和存储时长</li>
 <li>stats slabs：显示各个slab的信息</li>
 <li>stats sizes：显示所有item的大小和个数</li>
 <li>flush_all：清理缓存中所有键值对</li>
 </ul>
-</li>
-</ul>
-<h1 id="Java-使用"><a href="#Java-使用" class="headerlink" title="Java 使用"></a>Java 使用</h1><p>三种常用Java客户端</p>
+<h1>Java 使用</h1>
+<p>三种常用Java客户端</p>
 <ul>
 <li><a href="http://www.whalin.com/memcached" target="_blank" rel="noopener">memcached client for java</a>： 较早推出的memcached JAVA客户端API，应用广泛，运行比较稳定，使用阻塞IO，不支持CAS操作。</li>
 <li><a href="http://code.google.com/p/spymemcached/" target="_blank" rel="noopener">Spymemcached</a>：基于nio，存取速度高，稳定性不好，支持CAS操作。</li>
@@ -4422,19 +4456,23 @@
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

@@ -1,10 +1,30 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +35,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4369,16 +4390,15 @@
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/02%20%E6%95%B0%E6%8D%AE%E5%BA%93/01%20MySQL/02%20%E9%94%81/">02 锁</a>
+					<a class="article-title" href="/2019/12/18/02%20%E6%95%B0%E6%8D%AE%E5%BA%93/01%20MySQL/11%20%E5%A4%8D%E5%88%B6/">11 复制</a>
 				</h2>
 				<span class="post-date">2019-12-18</span>
 				<div class="article-digest">
-					1 锁粒度MySQL 中提供了两种锁粒度：行级锁以及表级锁。
-锁策略，就是在锁的开销和数据的安全性之间寻求平衡。  
+					¶一、主从复制
+在主库上记录二进制日志，在从库重放日志，实现异步的数据复制。非强一致性，由于时延、大语句执行等。
+主要涉及三个线程：BinLog 线程、I/O 线程和 SQL 线程。
 
-表锁（table lock）
-
-MySQL中最基本的开销最小的锁策略，写锁也比读
+BinLog 
 					...
 				</div>
 			</article>
@@ -4387,12 +4407,15 @@ MySQL中最基本的开销最小的锁策略，写锁也比读
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/02%20%E6%95%B0%E6%8D%AE%E5%BA%93/01%20MySQL/01%20%E5%85%B3%E7%B3%BB%E6%95%B0%E6%8D%AE%E5%BA%93/">01 关系数据库</a>
+					<a class="article-title" href="/2019/12/18/02%20%E6%95%B0%E6%8D%AE%E5%BA%93/01%20MySQL/10%20%E6%B0%B4%E5%B9%B3%E5%9E%82%E7%9B%B4%E6%8B%86%E5%88%86/">10 水平垂直拆分</a>
 				</h2>
 				<span class="post-date">2019-12-18</span>
 				<div class="article-digest">
-					1 函数依赖记 A-&gt;B 表示 A 函数决定 B，也可以说 B 函数依赖于 A。
-键码如果 {A1，A2，… ，An} 是关系的一个或多个属性的集合，该集合函数决定了关系的其它所有属性并且是最小
+					当数据库量非常大的时候，DB 已经成为系统瓶颈时就可以考虑进行水平垂直拆分了。
+¶水平拆分
+将一张表中的记录拆分到多个结构相同的表中。
+可以将数据分布到集群的不同节点上，从而减缓单个数据库的压力。
+¶
 					...
 				</div>
 			</article>
@@ -4401,13 +4424,15 @@ MySQL中最基本的开销最小的锁策略，写锁也比读
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/02%20%E6%95%B0%E6%8D%AE%E5%BA%93/01%20MySQL/03%20%E4%BA%8B%E5%8A%A1/">03 事务</a>
+					<a class="article-title" href="/2019/12/18/02%20%E6%95%B0%E6%8D%AE%E5%BA%93/01%20MySQL/09%20%E6%9F%A5%E8%AF%A2%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/">09 查询性能优化</a>
 				</h2>
 				<span class="post-date">2019-12-18</span>
 				<div class="article-digest">
-					事务指的是满足 ACID 特性的一组操作，用START TRANSACTION语句开始一个事务，通过 Commit 提交一个事务，使用 Rollback 进行回滚。
-ACID
-原子性（Atomicit
+					¶1 使用 Explain 进行分析
+Explain 用来分析 SELECT 查询语句，开发人员可以通过分析 Explain 结果来优化查询语句。
+比较重要的字段有：
+
+select_type : 查
 					...
 				</div>
 			</article>
@@ -4416,12 +4441,15 @@ ACID
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/02%20%E6%95%B0%E6%8D%AE%E5%BA%93/01%20MySQL/04%20%E5%A4%9A%E7%89%88%E6%9C%AC%E5%B9%B6%E5%8F%91%E6%8E%A7%E5%88%B6/">04 多版本并发控制</a>
+					<a class="article-title" href="/2019/12/18/02%20%E6%95%B0%E6%8D%AE%E5%BA%93/01%20MySQL/08%20%E7%B4%A2%E5%BC%95/">08 索引</a>
 				</h2>
 				<span class="post-date">2019-12-18</span>
 				<div class="article-digest">
-					多版本并发控制（Multi-Version Concurrency Control, MVCC）实现提交读和可重复读这两种隔离级别。未提交读无需使用 MVCC。可串行化单纯使用 MVCC 无法实现。
-
+					索引（Index）是帮助MySQL高效获取数据的数据结构。
+索引可包含多列，顺序相关，最左前缀列最高效。
+¶1 索引类型
+索引是在存储引擎中实现的，并不是所有的存储引擎都支持所有的索引类型。
+大部分数
 					...
 				</div>
 			</article>
@@ -4430,11 +4458,21 @@ ACID
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/02%20%E6%95%B0%E6%8D%AE%E5%BA%93/01%20MySQL/05%20%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E/">05 存储引擎</a>
+					<a class="article-title" href="/2019/12/18/02%20%E6%95%B0%E6%8D%AE%E5%BA%93/01%20MySQL/07%20SQL/">07 SQL</a>
 				</h2>
 				<span class="post-date">2019-12-18</span>
 				<div class="article-digest">
-					在文件系统中，MySQL将每个数据库保存为数据目录下的一个子目录。创建表时，MySQL会在数据库子目录下创建一个和表同名的.frm文件保存表的定义。不同的存储引擎保存数据和索引的方式是不同的，但表的定
+					¶1 数据库
+
+CREATE DATABASECREATE DATABASE 数据库名;
+USE 数据库名;
+
+
+
+¶2 表
+
+CREATE TABLECREATE TABLE 表名 (
+  列名 列
 					...
 				</div>
 			</article>
@@ -4463,13 +4501,11 @@ ACID
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/02%20%E6%95%B0%E6%8D%AE%E5%BA%93/01%20MySQL/08%20%E7%B4%A2%E5%BC%95/">08 索引</a>
+					<a class="article-title" href="/2019/12/18/02%20%E6%95%B0%E6%8D%AE%E5%BA%93/01%20MySQL/05%20%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E/">05 存储引擎</a>
 				</h2>
 				<span class="post-date">2019-12-18</span>
 				<div class="article-digest">
-					索引（Index）是帮助MySQL高效获取数据的数据结构。索引可包含多列，顺序相关，最左前缀列最高效。
-1 索引类型索引是在存储引擎中实现的，并不是所有的存储引擎都支持所有的索引类型。
-大部分数据库系
+					在文件系统中，MySQL将每个数据库保存为数据目录下的一个子目录。创建表时，MySQL会在数据库子目录下创建一个和表同名的.frm文件保存表的定义。不同的存储引擎保存数据和索引的方式是不同的，但表的定
 					...
 				</div>
 			</article>
@@ -4478,16 +4514,12 @@ ACID
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/02%20%E6%95%B0%E6%8D%AE%E5%BA%93/01%20MySQL/07%20SQL/">07 SQL</a>
+					<a class="article-title" href="/2019/12/18/02%20%E6%95%B0%E6%8D%AE%E5%BA%93/01%20MySQL/04%20%E5%A4%9A%E7%89%88%E6%9C%AC%E5%B9%B6%E5%8F%91%E6%8E%A7%E5%88%B6/">04 多版本并发控制</a>
 				</h2>
 				<span class="post-date">2019-12-18</span>
 				<div class="article-digest">
-					1 数据库
-CREATE DATABASE CREATE DATABASE 数据库名;
- USE 数据库名;
-2 表
-CREATE TABLE CREATE TABLE 表名 (
-   列名 列类型 
+					多版本并发控制（Multi-Version Concurrency Control, MVCC）实现提交读和可重复读这两种隔离级别。未提交读无需使用 MVCC。可串行化单纯使用 MVCC 无法实现。
+
 					...
 				</div>
 			</article>
@@ -4496,14 +4528,14 @@ CREATE TABLE CREATE TABLE 表名 (
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/02%20%E6%95%B0%E6%8D%AE%E5%BA%93/01%20MySQL/09%20%E6%9F%A5%E8%AF%A2%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/">09 查询性能优化</a>
+					<a class="article-title" href="/2019/12/18/02%20%E6%95%B0%E6%8D%AE%E5%BA%93/01%20MySQL/03%20%E4%BA%8B%E5%8A%A1/">03 事务</a>
 				</h2>
 				<span class="post-date">2019-12-18</span>
 				<div class="article-digest">
-					1 使用 Explain 进行分析Explain 用来分析 SELECT 查询语句，开发人员可以通过分析 Explain 结果来优化查询语句。
-比较重要的字段有：
+					事务指的是满足 ACID 特性的一组操作，用START TRANSACTION语句开始一个事务，通过 Commit 提交一个事务，使用 Rollback 进行回滚。
+¶ACID
 
-select_type : 查询类
+原子性（Atomic
 					...
 				</div>
 			</article>
@@ -4512,14 +4544,17 @@ select_type : 查询类
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/02%20%E6%95%B0%E6%8D%AE%E5%BA%93/01%20MySQL/11%20%E5%A4%8D%E5%88%B6/">11 复制</a>
+					<a class="article-title" href="/2019/12/18/02%20%E6%95%B0%E6%8D%AE%E5%BA%93/01%20MySQL/02%20%E9%94%81/">02 锁</a>
 				</h2>
 				<span class="post-date">2019-12-18</span>
 				<div class="article-digest">
-					一、主从复制在主库上记录二进制日志，在从库重放日志，实现异步的数据复制。非强一致性，由于时延、大语句执行等。
-主要涉及三个线程：BinLog 线程、I/O 线程和 SQL 线程。
+					¶1 锁粒度
+MySQL 中提供了两种锁粒度：行级锁以及表级锁。
+锁策略，就是在锁的开销和数据的安全性之间寻求平衡。
 
-BinLog 线程
+表锁（table lock）
+
+MySQL中最基本的开销最小的锁策略，写锁也比读
 					...
 				</div>
 			</article>
@@ -4535,19 +4570,23 @@ BinLog 线程
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

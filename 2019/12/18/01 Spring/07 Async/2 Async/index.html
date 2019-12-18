@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		2 Async | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,35 +4395,48 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:21</span>
+	<span id="post-date">2019-12-18 01:00:43</span>
 </div>
 
 
 <div id="article">
-	<h3 id="1-异步"><a href="#1-异步" class="headerlink" title="1 异步"></a>1 异步</h3><h4 id="异步调用"><a href="#异步调用" class="headerlink" title="异步调用"></a>异步调用</h4><p>@EnableAsync启用@Async注解</p>
+	<h3 id="1-异步"><a class="header-anchor" href="#1-异步">¶</a>1 异步</h3>
+<h4 id="异步调用"><a class="header-anchor" href="#异步调用">¶</a>异步调用</h4>
+<p>@EnableAsync启用@Async注解</p>
 <pre><code>@SpringBootApplication
 @EnableAsync
-public class Application {}</code></pre><p>使用@Async注解将同步函数变为异步函数</p>
+public class Application {}
+</code></pre>
+<p>使用@Async注解将同步函数变为异步函数</p>
 <pre><code>@Component
 public class Task {
     @Async
     public void doTaskOne() throws Exception {
         //...
     }
-}</code></pre><h4 id="异步回调"><a href="#异步回调" class="headerlink" title="异步回调"></a>异步回调</h4><p>使用Future<T>来返回异步调用的结果</p>
+}
+</code></pre>
+<h4 id="异步回调"><a class="header-anchor" href="#异步回调">¶</a>异步回调</h4>
+<p>使用Future<T>来返回异步调用的结果</p>
 <pre><code>@Async
 public Future&lt;String&gt; doTaskOne() throws Exception {
     Thread.sleep(random.nextInt(10000));
     return new AsyncResult&lt;&gt;(&quot;任务完成&quot;);
-}</code></pre><p>测试</p>
+}
+</code></pre>
+<p>测试</p>
 <pre><code>Future&lt;String&gt; task = task.doTaskOne();
 while(true) {
-    if(task.isDone()) {
-        break;
-    }
-    Thread.sleep(1000);
+	if(task.isDone()) {
+		break;
+	}
+	Thread.sleep(1000);
 }
-task.get();</code></pre><h3 id="2-线程池"><a href="#2-线程池" class="headerlink" title="2 线程池"></a>2 线程池</h3><h4 id="自定义线程池"><a href="#自定义线程池" class="headerlink" title="自定义线程池"></a>自定义线程池</h4><p>使用ThreadPoolTaskExecutor创建线程池</p>
+task.get();
+</code></pre>
+<h3 id="2-线程池"><a class="header-anchor" href="#2-线程池">¶</a>2 线程池</h3>
+<h4 id="自定义线程池"><a class="header-anchor" href="#自定义线程池">¶</a>自定义线程池</h4>
+<p>使用ThreadPoolTaskExecutor创建线程池</p>
 <pre><code>@EnableAsync
 @Configuration
 class TaskPoolConfig {
@@ -4416,23 +4452,31 @@ class TaskPoolConfig {
         executor.setRejectedExecutionHandler(new ThreadPoolExecutor.CallerRunsPolicy());
         return executor;
     }
-}</code></pre><h4 id="使用线程池"><a href="#使用线程池" class="headerlink" title="使用线程池"></a>使用线程池</h4><p>在@Async注解中指定线程池名</p>
+}
+</code></pre>
+<h4 id="使用线程池"><a class="header-anchor" href="#使用线程池">¶</a>使用线程池</h4>
+<p>在@Async注解中指定线程池名</p>
 <pre><code>@Async(&quot;taskExecutor&quot;)
 public void doTaskOne() throws Exception {
     Thread.sleep(random.nextInt(10000));
-}</code></pre><h4 id="线程池资源关闭"><a href="#线程池资源关闭" class="headerlink" title="线程池资源关闭"></a>线程池资源关闭</h4><p>主要针对ThreadPoolTaskScheduler线程池。</p>
+}
+</code></pre>
+<h4 id="线程池资源关闭"><a class="header-anchor" href="#线程池资源关闭">¶</a>线程池资源关闭</h4>
+<p>主要针对ThreadPoolTaskScheduler线程池。</p>
 <ul>
 <li>setWaitForTasksToCompleteOnShutdown（true），设置线程池关闭的时候等待所有任务都完成再继续销毁其他的Bean</li>
-<li>setAwaitTerminationSeconds(60)，设置线程池中任务的等待时间，超时强制销毁，避免阻塞。<pre><code>@Bean(&quot;taskExecutor&quot;)
-public Executor taskExecutor() {
-  ThreadPoolTaskScheduler executor = new ThreadPoolTaskScheduler();
-  executor.setPoolSize(20);
-  executor.setThreadNamePrefix(&quot;taskExecutor-&quot;);
-  executor.setWaitForTasksToCompleteOnShutdown(true);
-  executor.setAwaitTerminationSeconds(60);
-  return executor;
-}</code></pre></li>
+<li>setAwaitTerminationSeconds(60)，设置线程池中任务的等待时间，超时强制销毁，避免阻塞。</li>
 </ul>
+<pre><code>@Bean(&quot;taskExecutor&quot;)
+public Executor taskExecutor() {
+    ThreadPoolTaskScheduler executor = new ThreadPoolTaskScheduler();
+    executor.setPoolSize(20);
+    executor.setThreadNamePrefix(&quot;taskExecutor-&quot;);
+    executor.setWaitForTasksToCompleteOnShutdown(true);
+    executor.setAwaitTerminationSeconds(60);
+    return executor;
+}
+</code></pre>
 
 </div>
 
@@ -4442,19 +4486,23 @@ public Executor taskExecutor() {
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

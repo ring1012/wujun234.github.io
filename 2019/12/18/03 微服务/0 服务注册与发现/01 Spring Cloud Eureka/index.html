@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		01 Spring Cloud Eureka | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,106 +4395,151 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:24</span>
+	<span id="post-date">2019-12-18 01:00:43</span>
 </div>
 
 
 <div id="article">
-	<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>Spring Cloud针对服务注册与发现，进行了一层抽象，并提供了三种实现：Eureka、Consul、Zookeeper。目前支持得最好的就是Eureka，其次是Consul，最后是Zookeeper。Eureka 是封装了 Netflix 的 Eureka 模块，采用了 C-S 的设计架构。</p>
-<h1 id="基本架构"><a href="#基本架构" class="headerlink" title="基本架构"></a>基本架构</h1><p>Eureka由两个组件组成：Eureka服务器和Eureka客户端。Eureka服务器用作服务注册服务器。Eureka客户端是一个java客户端，用来简化与服务器的交互、作为轮询负载均衡器，并提供服务的故障切换支持。</p>
+	<h1>简介</h1>
+<p>Spring Cloud针对服务注册与发现，进行了一层抽象，并提供了三种实现：Eureka、Consul、Zookeeper。目前支持得最好的就是Eureka，其次是Consul，最后是Zookeeper。Eureka 是封装了 Netflix 的 Eureka 模块，采用了 C-S 的设计架构。</p>
+<h1>基本架构</h1>
+<p>Eureka由两个组件组成：Eureka服务器和Eureka客户端。Eureka服务器用作服务注册服务器。Eureka客户端是一个java客户端，用来简化与服务器的交互、作为轮询负载均衡器，并提供服务的故障切换支持。</p>
 <p><img src="/images/1545270179471.png" alt=""></p>
 <p>上图简要描述了Eureka的基本架构，由3个角色组成：</p>
 <ol>
-<li>服务注册中心<ul>
+<li>服务注册中心
+<ul>
 <li>提供服务注册和发现</li>
 </ul>
 </li>
-<li>服务提供者<ul>
+<li>服务提供者
+<ul>
 <li>服务提供方</li>
 <li>将自身服务注册到Eureka，从而使服务消费方能够找到</li>
 </ul>
 </li>
-<li>服务消费者<ul>
+<li>服务消费者
+<ul>
 <li>服务消费方</li>
 <li>从Eureka获取注册服务列表，从而能够消费服务</li>
 </ul>
 </li>
 </ol>
-<h1 id="服务注册中心"><a href="#服务注册中心" class="headerlink" title="服务注册中心"></a>服务注册中心</h1><p>Eureka Server作为一个独立的部署单元，以REST API的形式为服务实例提供了注册、管理和查询等操作。同时，Eureka Server也为我们提供了可视化的监控页面，可以直观地看到各个Eureka Server当前的运行状态和所有已注册服务的情况。</p>
-<h2 id="单点配置"><a href="#单点配置" class="headerlink" title="单点配置"></a>单点配置</h2><ol>
-<li><p>pom中添加依赖</p>
-<pre><code>     &lt;dependency&gt;
-         &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
-         &lt;artifactId&gt;spring-cloud-starter&lt;/artifactId&gt;
-     &lt;/dependency&gt;
-
-     &lt;dependency&gt;
-         &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
-         &lt;artifactId&gt;spring-cloud-starter-netflix-eureka-server&lt;/artifactId&gt;
-     &lt;/dependency&gt;</code></pre></li>
-<li><p>启动类添加@EnableEurekaServer注解启用服务注册中心</p>
-</li>
-<li><p>在 application.properties 添加以下配置，作为服务注册中心时禁止默认的自我注册：</p>
-<pre><code>spring.application.name=spring-cloud-eureka
-</code></pre></li>
+<h1>服务注册中心</h1>
+<p>Eureka Server作为一个独立的部署单元，以REST API的形式为服务实例提供了注册、管理和查询等操作。同时，Eureka Server也为我们提供了可视化的监控页面，可以直观地看到各个Eureka Server当前的运行状态和所有已注册服务的情况。</p>
+<h2 id="单点配置"><a class="header-anchor" href="#单点配置">¶</a>单点配置</h2>
+<ol>
+<li>pom中添加依赖</li>
 </ol>
-<p>server.port=8000<br>//表示是否将自己注册到Eureka Server，默认为true<br>eureka.client.register-with-eureka=false<br>//表示是否从Eureka Server获取注册信息，默认为true<br>eureka.client.fetch-registry=false</p>
-<p>//设置与Eureka Server交互的地址。默认<a href="http://localhost:8761/eureka；多个地址可使用" target="_blank" rel="noopener">http://localhost:8761/eureka；多个地址可使用</a> , 分隔。<br>eureka.client.serviceUrl.defaultZone=<a href="http://localhost:${server.port}/eureka/" target="_blank" rel="noopener">http://localhost:${server.port}/eureka/</a></p>
-<pre><code>启动工程后，访问：http://localhost:8000/ 可以看到 eureka 可视化监控页面
-##集群
-Eureka Server可以运行多个实例来构建集群，通过P2P互相注册，将Eureke Server配置其他可用的serviceUrl就能实现高可用部署。去中心化，每个节点都可被视为其他节点的副本。
+<pre><code>		&lt;dependency&gt;
+			&lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
+			&lt;artifactId&gt;spring-cloud-starter&lt;/artifactId&gt;
+		&lt;/dependency&gt;
+		
+		&lt;dependency&gt;
+			&lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
+			&lt;artifactId&gt;spring-cloud-starter-netflix-eureka-server&lt;/artifactId&gt;
+		&lt;/dependency&gt;
+</code></pre>
+<ol start="2">
+<li>启动类添加@EnableEurekaServer注解启用服务注册中心</li>
+<li>在 application.properties 添加以下配置，作为服务注册中心时禁止默认的自我注册：</li>
+</ol>
+<pre><code>spring.application.name=spring-cloud-eureka
 
+server.port=8000
+//表示是否将自己注册到Eureka Server，默认为true
+eureka.client.register-with-eureka=false
+//表示是否从Eureka Server获取注册信息，默认为true
+eureka.client.fetch-registry=false
 
+//设置与Eureka Server交互的地址。默认http://localhost:8761/eureka；多个地址可使用 , 分隔。
+eureka.client.serviceUrl.defaultZone=http://localhost:${server.port}/eureka/
+</code></pre>
+<p>启动工程后，访问：<a href="http://localhost:8000/" target="_blank" rel="noopener">http://localhost:8000/</a> 可以看到 eureka 可视化监控页面<br>
+##集群<br>
+Eureka Server可以运行多个实例来构建集群，通过P2P互相注册，将Eureke Server配置其他可用的serviceUrl就能实现高可用部署。去中心化，每个节点都可被视为其他节点的副本。</p>
+<h4 id="Region、Zone"><a class="header-anchor" href="#Region、Zone">¶</a>Region、Zone</h4>
+<p>Region、Zone、Eureka集群三者的关系，如下图所示：</p>
+<p><img src="/images/1545270180732.png" alt=""></p>
+<p>region和zone均是AWS的概念。在非AWS环境下，可先简单地将region理解为Eureka集群，zone理解成机房。上图就可以理解为一个Eureka集群被部署在了zone1机房和zone2机房中。</p>
+<h1>服务提供方</h1>
+<p>Service Provider本质上是一个Eureka Client。它启动时，会调用服务注册方法，向Eureka Server注册自己的信息。如果服务提供方有多个，服务中心会自动提供负载均衡功能。</p>
+<ol>
+<li>pom中添加依赖</li>
+</ol>
+<pre><code>		&lt;dependency&gt;
+			&lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
+			&lt;artifactId&gt;spring-cloud-starter-eureka&lt;/artifactId&gt;
+		&lt;/dependency&gt;
+</code></pre>
+<ol start="2">
+<li>启动类加上@EnableDiscoveryClient注解启用服务注册与发现</li>
+<li>配置文件</li>
+</ol>
+<pre><code>//指定微服务的名称，后续调用使用
+spring.application.name=eureka-provider
+//指定服务注册中心的位置
+eureka.client.serviceUrl.defaultZone=http://localhost:8000/eureka/
+</code></pre>
+<h1>服务消费者</h1>
+<p>Service Consumer本质上也是一个Eureka Client。它启动后，会从Eureka Server上获取所有实例的注册信息，包括IP地址、端口等，并缓存到本地。<br>
+以下展示通过LoadBalancerClient接口手动调用服务，Spring Cloud中提供了Ribbon、Feign等服务调用工具，来简化服务调用：</p>
+<ol>
+<li>pom中添加依赖</li>
+</ol>
+<pre><code>	&lt;dependency&gt;
+		&lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
+		&lt;artifactId&gt;spring-cloud-starter-netflix-eureka-client&lt;/artifactId&gt;
+	&lt;/dependency&gt;
+	&lt;dependency&gt;  
+	   &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;  
+	   &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;  
+	&lt;/dependency&gt;  
+</code></pre>
+<ol start="2">
+<li>配置application.properties，指定eureka注册中心的地址：</li>
+</ol>
+<pre><code>spring.application.name=eureka-consumer
 
- #### Region、Zone
+eureka.client.serviceUrl.defaultZone=http://localhost:8000/eureka/
+</code></pre>
+<ol start="3">
+<li>创建应用主类。初始化RestTemplate，用来真正发起REST请求。@EnableDiscoveryClient注解用来将当前应用加入到服务治理体系中。</li>
+</ol>
+<pre><code>@EnableDiscoveryClient
+@SpringBootApplication
+public class Application {
 
-Region、Zone、Eureka集群三者的关系，如下图所示：
+    @Bean
+    public RestTemplate restTemplate() {
+        return new RestTemplate();
+    }
 
-![](/images/1545270180732.png)
-
-region和zone均是AWS的概念。在非AWS环境下，可先简单地将region理解为Eureka集群，zone理解成机房。上图就可以理解为一个Eureka集群被部署在了zone1机房和zone2机房中。
-
-# 服务提供方
-Service Provider本质上是一个Eureka Client。它启动时，会调用服务注册方法，向Eureka Server注册自己的信息。如果服务提供方有多个，服务中心会自动提供负载均衡功能。
-1. pom中添加依赖</code></pre><pre><code>    &lt;dependency&gt;
-        &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
-        &lt;artifactId&gt;spring-cloud-starter-eureka&lt;/artifactId&gt;
-    &lt;/dependency&gt;</code></pre><pre><code>2. 启动类加上@EnableDiscoveryClient注解启用服务注册与发现
-3. 配置文件</code></pre><p>//指定微服务的名称，后续调用使用<br>spring.application.name=eureka-provider<br>//指定服务注册中心的位置<br>eureka.client.serviceUrl.defaultZone=<a href="http://localhost:8000/eureka/" target="_blank" rel="noopener">http://localhost:8000/eureka/</a></p>
-<pre><code>
-# 服务消费者
-Service Consumer本质上也是一个Eureka Client。它启动后，会从Eureka Server上获取所有实例的注册信息，包括IP地址、端口等，并缓存到本地。
-以下展示通过LoadBalancerClient接口手动调用服务，Spring Cloud中提供了Ribbon、Feign等服务调用工具，来简化服务调用：
-1. pom中添加依赖</code></pre><pre><code>&lt;dependency&gt;
-    &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
-    &lt;artifactId&gt;spring-cloud-starter-netflix-eureka-client&lt;/artifactId&gt;
-&lt;/dependency&gt;
-&lt;dependency&gt;  
-   &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;  
-   &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;  
-&lt;/dependency&gt;  </code></pre><pre><code>2. 配置application.properties，指定eureka注册中心的地址：</code></pre><p>spring.application.name=eureka-consumer</p>
-<p>eureka.client.serviceUrl.defaultZone=<a href="http://localhost:8000/eureka/" target="_blank" rel="noopener">http://localhost:8000/eureka/</a></p>
-<pre><code>3. 创建应用主类。初始化RestTemplate，用来真正发起REST请求。@EnableDiscoveryClient注解用来将当前应用加入到服务治理体系中。</code></pre><p>@EnableDiscoveryClient<br>@SpringBootApplication<br>public class Application {</p>
-<pre><code>@Bean
-public RestTemplate restTemplate() {
-    return new RestTemplate();
+    public static void main(String[] args) {
+        new SpringApplicationBuilder(Application.class).web(true).run(args);
+    }
 }
+</code></pre>
+<ol start="4">
+<li>创建一个接口用来消费eureka-client提供的接口：</li>
+</ol>
+<pre><code>@RestController
+public class DcController {
 
-public static void main(String[] args) {
-    new SpringApplicationBuilder(Application.class).web(true).run(args);
-}</code></pre><p>}</p>
-<pre><code>4. 创建一个接口用来消费eureka-client提供的接口：</code></pre><p>@RestController<br>public class DcController {</p>
-<pre><code>@Autowired
-LoadBalancerClient loadBalancerClient;
-@Autowired
-RestTemplate restTemplate;
+    @Autowired
+    LoadBalancerClient loadBalancerClient;
+    @Autowired
+    RestTemplate restTemplate;
 
-@GetMapping(&quot;/consumer&quot;)
-public String dc() {
-    ServiceInstance serviceInstance = loadBalancerClient.choose(&quot;eureka-provider&quot;);
-    String url = &quot;http://&quot; + serviceInstance.getHost() + &quot;:&quot; + serviceInstance.getPort() + &quot;/dc&quot;;
-    return restTemplate.getForObject(url, String.class);
-}</code></pre><p>}<br>```</p>
+    @GetMapping(&quot;/consumer&quot;)
+    public String dc() {
+        ServiceInstance serviceInstance = loadBalancerClient.choose(&quot;eureka-provider&quot;);
+        String url = &quot;http://&quot; + serviceInstance.getHost() + &quot;:&quot; + serviceInstance.getPort() + &quot;/dc&quot;;
+        return restTemplate.getForObject(url, String.class);
+    }
+}
+</code></pre>
 
 </div>
 
@@ -4481,19 +4549,23 @@ public String dc() {
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		2 Spring Data JPA | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,7 +4395,7 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:18</span>
+	<span id="post-date">2019-12-18 01:00:42</span>
 </div>
 
 
@@ -4380,14 +4403,19 @@
 	<p>Java持久化API（Java Persistence API， JPA）基于POJO的持久化机制，制定了规范，具体由厂商实现。</p>
 <p>只需按照约定好的【方法命名规则】编写Repository接口，不需要实现类，就可实现对数据库的访问和操作。</p>
 <p>hibernate实现了JPA规范，Spring Data JPA 进一步封装了 Hibernate。</p>
-<h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><p>maven</p>
+<h3 id="配置"><a class="header-anchor" href="#配置">¶</a>配置</h3>
+<p>maven</p>
 <pre><code>&lt;dependency&gt;
     &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
     &lt;artifactId&gt;spring-boot-starter-data-jpa&lt;/artifactId&gt;
-&lt;/dependency&gt;</code></pre><p>application.properties</p>
+&lt;/dependency&gt;
+</code></pre>
+<p>application.properties</p>
 <pre><code>spring.jpa.properties.hibernate.hbm2ddl.auto = update
 spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.MySQL5InnoDBDialect
-spring.jpa.show-sql = true</code></pre><p>spring.jpa.properties.hibernate.hbm2ddl.auto有几种配置：</p>
+spring.jpa.show-sql = true
+</code></pre>
+<p>spring.jpa.properties.hibernate.hbm2ddl.auto有几种配置：</p>
 <ul>
 <li>create：每次加载生成新表。</li>
 <li>create-drop：每次加载生成新表，但当SessionFactory关闭时，所生成的表将自动删除。</li>
@@ -4395,7 +4423,9 @@ spring.jpa.show-sql = true</code></pre><p>spring.jpa.properties.hibernate.hbm2dd
 <li>validate：每次加载验证数据表结构，只会和已经存在的数据表进行比较，根据model修改表结构，但不会创建新表。</li>
 </ul>
 <p>不配置此项，表示禁用自动建表功能</p>
-<h3 id="简单使用"><a href="#简单使用" class="headerlink" title="简单使用"></a>简单使用</h3><h5 id="建立-entity"><a href="#建立-entity" class="headerlink" title="建立 entity"></a>建立 entity</h5><pre><code>@Entity
+<h3 id="简单使用"><a class="header-anchor" href="#简单使用">¶</a>简单使用</h3>
+<h5 id="建立-entity"><a class="header-anchor" href="#建立-entity">¶</a>建立 entity</h5>
+<pre><code>@Entity
 @Data
 public class User {
     @Id
@@ -4405,27 +4435,45 @@ public class User {
     private String userName;
     @Column(nullable = false)
     private int age;
-}</code></pre><h5 id="扩展Repository接口"><a href="#扩展Repository接口" class="headerlink" title="扩展Repository接口"></a>扩展Repository接口</h5><p>扩展Repository接口或其子接口JpaRepository、 PagingAndSortingRepository和CrudRepository</p>
+}
+</code></pre>
+<h5 id="扩展Repository接口"><a class="header-anchor" href="#扩展Repository接口">¶</a>扩展Repository接口</h5>
+<p>扩展Repository接口或其子接口JpaRepository、 PagingAndSortingRepository和CrudRepository</p>
 <p>应用启动后自动生成接口的实现，提供默认通用方法。</p>
 <pre><code>public interface UserRepository extends JpaRepository&lt;User, Long&gt; {
-}</code></pre><h5 id="启用Spring-Data-JPA"><a href="#启用Spring-Data-JPA" class="headerlink" title="启用Spring Data JPA"></a>启用Spring Data JPA</h5><p>@EnableJpaRepositories注解，扫描查找扩展自Spring Data JPA Repository接口的所有接口。</p>
+}
+</code></pre>
+<h5 id="启用Spring-Data-JPA"><a class="header-anchor" href="#启用Spring-Data-JPA">¶</a>启用Spring Data JPA</h5>
+<p>@EnableJpaRepositories注解，扫描查找扩展自Spring Data JPA Repository接口的所有接口。</p>
 <pre><code>@Configuration
 @EnableJpaRepositories{basePackages=&quot;com.xxx.xxx&quot;}
 public class JpaConfiguration{
     ...
-}</code></pre><h3 id="1-定义查询方法"><a href="#1-定义查询方法" class="headerlink" title="1 定义查询方法"></a>1 定义查询方法</h3><p>只需使用属性名和关键字构建Repository方法签名， 就能让Spring Data JPA生成方法实现</p>
+}
+</code></pre>
+<h3 id="1-定义查询方法"><a class="header-anchor" href="#1-定义查询方法">¶</a>1 定义查询方法</h3>
+<p>只需使用属性名和关键字构建Repository方法签名， 就能让Spring Data JPA生成方法实现</p>
 <p>当创建Repository实现的时候， Spring Data会检查Repository接口的所有方法， 解析方法的名称， 并基于被持久化的对象来试图推测方法的目的。</p>
-<h5 id="方法组成"><a href="#方法组成" class="headerlink" title="方法组成"></a>方法组成</h5><p>Repository方法是由一个动词、 一个可选的主题、 关键词By以及一个断言所组成。 </p>
-<pre><code>User findByUsername(String userName);</code></pre><p>findByUsername()这个样例中， 动词是find， 断言是Username， 主题并没有指<br>定， 暗含的主题是User。</p>
-<h5 id="比较操作"><a href="#比较操作" class="headerlink" title="比较操作"></a>比较操作</h5><p>断言中的多个限制条件可以进行比较操作</p>
+<h5 id="方法组成"><a class="header-anchor" href="#方法组成">¶</a>方法组成</h5>
+<p>Repository方法是由一个动词、 一个可选的主题、 关键词By以及一个断言所组成。</p>
+<pre><code>User findByUsername(String userName);
+</code></pre>
+<p>findByUsername()这个样例中， 动词是find， 断言是Username， 主题并没有指<br>
+定， 暗含的主题是User。</p>
+<h5 id="比较操作"><a class="header-anchor" href="#比较操作">¶</a>比较操作</h5>
+<p>断言中的多个限制条件可以进行比较操作</p>
 <ul>
 <li>IsAfter、 After、 IsGreaterThan、 GreaterThan</li>
 <li>IsGreaterThanEqual、 GreaterThanEqual</li>
 <li>…</li>
 </ul>
-<h3 id="2-声明自定义查询"><a href="#2-声明自定义查询" class="headerlink" title="2 声明自定义查询"></a>2 声明自定义查询</h3><p>如果Spring Data的这个小型的DSL无法满足需求，还可以通过@Query注解来解决问题。</p>
-<pre><code>Query(&quot;select * from User where username like &#39;%abc&#39;&quot;)
-List&lt;User&gt; findByAllAbcUser();</code></pre><h3 id="3-混合自定义的功能"><a href="#3-混合自定义的功能" class="headerlink" title="3 混合自定义的功能"></a>3 混合自定义的功能</h3><p>当Spring Data JPA为Repository接口生成实现的时候， 它还会查找名字与接口相同， 并且添加了Impl后缀的一个类。 如果这个类存在的话， Spring Data JPA将会把它的方法与Spring DataJPA所生成的方法合并在一起。 </p>
+<h3 id="2-声明自定义查询"><a class="header-anchor" href="#2-声明自定义查询">¶</a>2 声明自定义查询</h3>
+<p>如果Spring Data的这个小型的DSL无法满足需求，还可以通过@Query注解来解决问题。</p>
+<pre><code>Query(&quot;select * from User where username like '%abc'&quot;)
+List&lt;User&gt; findByAllAbcUser();
+</code></pre>
+<h3 id="3-混合自定义的功能"><a class="header-anchor" href="#3-混合自定义的功能">¶</a>3 混合自定义的功能</h3>
+<p>当Spring Data JPA为Repository接口生成实现的时候， 它还会查找名字与接口相同， 并且添加了Impl后缀的一个类。 如果这个类存在的话， Spring Data JPA将会把它的方法与Spring DataJPA所生成的方法合并在一起。</p>
 
 </div>
 
@@ -4435,19 +4483,23 @@ List&lt;User&gt; findByAllAbcUser();</code></pre><h3 id="3-混合自定义的功
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

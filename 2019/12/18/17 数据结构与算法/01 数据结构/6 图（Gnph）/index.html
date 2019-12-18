@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		6 图（Gnph） | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,102 +4395,142 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:42</span>
+	<span id="post-date">2019-12-18 01:00:44</span>
 </div>
 
 
 <div id="article">
-	<h2 id="一、图的基本概念"><a href="#一、图的基本概念" class="headerlink" title="一、图的基本概念"></a>一、图的基本概念</h2><p>图：由顶点的有穷非空集合和顶点之间边的集合组成，通常表示为: G(V,E)，其中，G 表示一个图，V 是图 G 中顶点的集合。E 是图 G 中边的集合。</p>
-<h3 id="1、各种图定义"><a href="#1、各种图定义" class="headerlink" title="1、各种图定义"></a>1、各种图定义</h3><ul>
-<li><strong>无向边</strong>：若顶点 <code>$V_i$</code> 到 <code>$V_j$</code>，之间的边没有方向，则称这条边为无向边(Edge)。<ul>
+	<h2 id="一、图的基本概念"><a class="header-anchor" href="#一、图的基本概念">¶</a>一、图的基本概念</h2>
+<p>图：由顶点的有穷非空集合和顶点之间边的集合组成，通常表示为: G(V,E)，其中，G 表示一个图，V 是图 G 中顶点的集合。E 是图 G 中边的集合。</p>
+<h3 id="1、各种图定义"><a class="header-anchor" href="#1、各种图定义">¶</a>1、各种图定义</h3>
+<ul>
+<li>
+<p><strong>无向边</strong>：若顶点 <code>$V_i$</code> 到 <code>$V_j$</code>，之间的边没有方向，则称这条边为无向边(Edge)。</p>
+<ul>
 <li>用无序偶对 (<code>$V_i$</code>，<code>$V_j$</code>) 来表示。</li>
 </ul>
 </li>
-<li><strong>有向边</strong>：若从顶点 <code>$V_i$</code> 到 <code>$V_j$</code>的边有方向，则称这条边为有向边，也称为弧（Arc）。<ul>
-<li>用有序偶&lt;<code>$V_i$</code>，<code>$V_j$</code>&gt;来表示 . <code>$V_i$</code>称为弧尾，<code>$V_j$</code>称为弧头。 </li>
+<li>
+<p><strong>有向边</strong>：若从顶点 <code>$V_i$</code> 到 <code>$V_j$</code>的边有方向，则称这条边为有向边，也称为弧（Arc）。</p>
+<ul>
+<li>用有序偶&lt;<code>$V_i$</code>，<code>$V_j$</code>&gt;来表示 . <code>$V_i$</code>称为弧尾，<code>$V_j$</code>称为弧头。</li>
 </ul>
 </li>
-</ul>
+<li>
+<p><strong>无向图</strong>：如果图中任意两个顶点之间的边都是无向边，则称该图为无向图(Undirected graphs)。</p>
+</li>
+<li>
+<p><strong>有向图</strong>：如果图中任意两个顶点之间的边都是有向边，则称该图为有向图(Directed graphs)。</p>
+</li>
+<li>
+<p><strong>无向完全图</strong>：在无向图中，如果任意两个顶点之间都存在边，则称该因为无向完全图。</p>
 <ul>
-<li><strong>无向图</strong>：如果图中任意两个顶点之间的边都是无向边，则称该图为无向图(Undirected graphs)。</li>
-<li><strong>有向图</strong>：如果图中任意两个顶点之间的边都是有向边，则称该图为有向图(Directed graphs)。</li>
-</ul>
-<ul>
-<li><strong>无向完全图</strong>：在无向图中，如果任意两个顶点之间都存在边，则称该因为无向完全图。<ul>
 <li>含有 n 个顶点的无向完全图有 <code>$\frac{n*(n-1)}{2}$</code> 条边。</li>
 </ul>
 </li>
-<li><strong>有向完全图</strong>：在有向图中，如果任意两个顶点之间都存在方向互为相反的两条弧，则称该图为有向完全图。<ul>
+<li>
+<p><strong>有向完全图</strong>：在有向图中，如果任意两个顶点之间都存在方向互为相反的两条弧，则称该图为有向完全图。</p>
+<ul>
 <li>含有 n 个顶点的有向完全图有 <code>$n*(n-1)$</code> 条边</li>
 </ul>
 </li>
+<li>
+<p><strong>权</strong>：与图的边或弧相关的数叫做权(Weight)</p>
+</li>
+<li>
+<p><strong>网</strong>：带权的图通常称为网 (Network) 。</p>
+</li>
+<li>
+<p><strong>简单图</strong>：在图中，若不存在顶点到其自身的边，且同一条边不重复出现，则称这样的图为简单图。</p>
+</li>
+<li>
+<p>有很少条边或弧的图称为<strong>稀疏图</strong>，反之称为<strong>稠密图</strong>。稀疏、稠密是相对的。</p>
+</li>
+<li>
+<p><strong>子图</strong>：假设有两个图 G= (V,{E}) 和 G’= (V’,{E’}) ，如果 <code>$V'\subset V$</code> 且 <code>$E'\subset E$</code>，则称 G’ 为 G 的子图。</p>
+</li>
 </ul>
+<h3 id="2、图的顶点与边间关系"><a class="header-anchor" href="#2、图的顶点与边间关系">¶</a>2、图的顶点与边间关系</h3>
 <ul>
-<li><strong>权</strong>：与图的边或弧相关的数叫做权(Weight)</li>
-<li><strong>网</strong>：带权的图通常称为网 (Network) 。</li>
-</ul>
+<li>
+<p><strong>邻接点</strong>：无向图中，顶点之间如有边相连，则互为邻接点</p>
+</li>
+<li>
+<p><strong>顶点的度</strong>：记为TD(v)</p>
 <ul>
-<li><strong>简单图</strong>：在图中，若不存在顶点到其自身的边，且同一条边不重复出现，则称这样的图为简单图。</li>
-<li>有很少条边或弧的图称为<strong>稀疏图</strong>，反之称为<strong>稠密图</strong>。稀疏、稠密是相对的。</li>
-<li><strong>子图</strong>：假设有两个图 G= (V,{E}) 和 G’= (V’,{E’}) ，如果 <code>$V&#39;\subset V$</code> 且 <code>$E&#39;\subset E$</code>，则称 G’ 为 G 的子图。</li>
-</ul>
-<h3 id="2、图的顶点与边间关系"><a href="#2、图的顶点与边间关系" class="headerlink" title="2、图的顶点与边间关系"></a>2、图的顶点与边间关系</h3><ul>
-<li><strong>邻接点</strong>：无向图中，顶点之间如有边相连，则互为邻接点</li>
-<li><strong>顶点的度</strong>：记为TD(v)<ul>
 <li>无向图中，和顶点相关联的边的数目，就是顶点的度</li>
-<li>有向图中，TD(v) = ID(v) + OD(v)<ul>
+<li>有向图中，TD(v) = ID(v) + OD(v)
+<ul>
 <li><strong>入度</strong>：有向图中，以顶点为头的弧的数目，记为ID(v)</li>
 <li><strong>出度</strong>：有向图中，以顶点为尾的弧的数目，记为OD(v)</li>
 </ul>
 </li>
 </ul>
 </li>
-</ul>
+<li>
+<p><strong>路径</strong>：</p>
 <ul>
-<li><strong>路径</strong>：<ul>
 <li>无向图中，顶点到顶点的路径是一个顶点序列</li>
 <li>有向图中，路径也是有向的</li>
 <li><strong>路径的长度</strong>：是路径上的边或弧的数目。</li>
 </ul>
 </li>
-<li><strong>回路或环</strong>：第一个顶点到最后一个顶点相同的路径称为回路或环</li>
+<li>
+<p><strong>回路或环</strong>：第一个顶点到最后一个顶点相同的路径称为回路或环</p>
+</li>
+<li>
+<p><strong>简单路径</strong>：序列中顶点不重复出现的路径称为简单路径</p>
+</li>
+<li>
+<p><strong>简单回路</strong>：除了第一个顶点和最后一个顶点之外，其余顶点不重复出现的回路，称为简单回路或简单环。</p>
+</li>
 </ul>
+<h3 id="3、连通图相关术语"><a class="header-anchor" href="#3、连通图相关术语">¶</a>3、连通图相关术语</h3>
 <ul>
-<li><strong>简单路径</strong>：序列中顶点不重复出现的路径称为简单路径</li>
-<li><strong>简单回路</strong>：除了第一个顶点和最后一个顶点之外，其余顶点不重复出现的回路，称为简单回路或简单环。</li>
+<li>
+<p><strong>连通</strong>：无向图中，如果顶点间有路径，则称为连通的</p>
+</li>
+<li>
+<p><strong>连通图</strong>：无向图中，如果图中任意两个顶点都是连通的，则为连通图</p>
+</li>
+<li>
+<p><strong>强连通图</strong>：有向图中，每一对顶点之间都<em>相互</em>存在路径，则为强连通图</p>
+</li>
+<li>
+<p><strong>连通分量</strong>：无向图中的<em>极大</em>连通子图称为连通分量</p>
+</li>
+<li>
+<p><strong>强连通分量</strong>：有向图中的<em>极大</em>强连通子图称做有向图的强连通分量。</p>
+</li>
+<li>
+<p><strong>生成树</strong>：无向图中连通且有 n 个顶点 n-l 条边。</p>
+</li>
+<li>
+<p><strong>有向树</strong>：有向图恰有一个顶点的入度为 0 ，其余顶点的入度均为 1。</p>
+</li>
+<li>
+<p><strong>生成森林</strong>：一个有向图的生成森林由若干棵有向树组成 ， 含有图中全部顶点，但只有足以构成若干棵不相交的有向树的弧。</p>
+</li>
 </ul>
-<h3 id="3、连通图相关术语"><a href="#3、连通图相关术语" class="headerlink" title="3、连通图相关术语"></a>3、连通图相关术语</h3><ul>
-<li><strong>连通</strong>：无向图中，如果顶点间有路径，则称为连通的</li>
-<li><strong>连通图</strong>：无向图中，如果图中任意两个顶点都是连通的，则为连通图</li>
-<li><strong>强连通图</strong>：有向图中，每一对顶点之间都<em>相互</em>存在路径，则为强连通图</li>
-</ul>
-<ul>
-<li><strong>连通分量</strong>：无向图中的<em>极大</em>连通子图称为连通分量</li>
-<li><strong>强连通分量</strong>：有向图中的<em>极大</em>强连通子图称做有向图的强连通分量。</li>
-</ul>
-<ul>
-<li><strong>生成树</strong>：无向图中连通且有 n 个顶点 n-l 条边。</li>
-<li><strong>有向树</strong>：有向图恰有一个顶点的入度为 0 ，其余顶点的入度均为 1。</li>
-<li><strong>生成森林</strong>：一个有向图的生成森林由若干棵有向树组成 ， 含有图中全部顶点，但只有足以构成若干棵不相交的有向树的弧。 </li>
-</ul>
-<h2 id="二、图的存储及基本操作"><a href="#二、图的存储及基本操作" class="headerlink" title="二、图的存储及基本操作"></a>二、图的存储及基本操作</h2><h3 id="1、邻接矩阵：适合稠密图"><a href="#1、邻接矩阵：适合稠密图" class="headerlink" title="1、邻接矩阵：适合稠密图"></a>1、邻接矩阵：适合稠密图</h3><p>邻接矩阵 (Adjacency Matrix)用两个数组来表示图：</p>
+<h2 id="二、图的存储及基本操作"><a class="header-anchor" href="#二、图的存储及基本操作">¶</a>二、图的存储及基本操作</h2>
+<h3 id="1、邻接矩阵：适合稠密图"><a class="header-anchor" href="#1、邻接矩阵：适合稠密图">¶</a>1、邻接矩阵：适合稠密图</h3>
+<p>邻接矩阵 (Adjacency Matrix)用两个数组来表示图：</p>
 <ul>
 <li>一维数组：存储图中顶点信息</li>
 <li>二维数组：存储图中的边或弧的信息。</li>
 </ul>
 <p>设图 G 有 n 个顶点，则邻接矩阵是一个 n * n 的方阵，定义为 :</p>
-<p><code>$arc[i][j] = \begin{cases}
-1&amp; \text{若}(v_i,v_j)\in E \text{或} &lt;v_i,v_j&gt;\in E\\
-0&amp; \text{反之}
-\end{cases}$</code></p>
-<h4 id="1）无向图"><a href="#1）无向图" class="headerlink" title="1）无向图"></a>1）无向图</h4><p><img src="/images/1558581409525.jpg" alt=""></p>
+<p><code>$arc[i][j] = \begin{cases} 1&amp; \text{若}(v_i,v_j)\in E \text{或} &lt;v_i,v_j&gt;\in E\\ 0&amp; \text{反之} \end{cases}$</code></p>
+<h4 id="1）无向图"><a class="header-anchor" href="#1）无向图">¶</a>1）无向图</h4>
+<p><img src="/images/1558581409525.jpg" alt=""></p>
 <ul>
 <li>无向图的边数组是一个对称矩阵</li>
 <li>有无边：arc[i][j] 是否为 1</li>
 <li>顶点的度：顶点<code>$v_i$</code>在邻接矩阵中第 i 行(或第 i列)的元素之和</li>
 <li>邻接点：邻接矩阵中第 i 行元素值为 1 就是顶点<code>$v_i$</code>的邻接点。</li>
 </ul>
-<h4 id="2）有向图"><a href="#2）有向图" class="headerlink" title="2）有向图"></a>2）有向图</h4><p><img src="/images/1558581410106.jpg" alt=""></p>
+<h4 id="2）有向图"><a class="header-anchor" href="#2）有向图">¶</a>2）有向图</h4>
+<p><img src="/images/1558581410106.jpg" alt=""></p>
 <ul>
 <li>有向图的矩阵不对称。</li>
 <li>有无弧：arc[i][j] 是否为 1</li>
@@ -4475,39 +4538,43 @@
 <li>出度：第 i 列元素之和</li>
 <li>邻接点：第 i 行元素值为 1 的</li>
 </ul>
-<h4 id="3）网"><a href="#3）网" class="headerlink" title="3）网"></a>3）网</h4><p>网的对应边或弧存权值</p>
-<p><code>$arc[i][j] = \begin{cases}
-W_ij&amp; \text{若}(v_i,v_j)\in E \text{或} &lt;v_i,v_j&gt;\in E\\
-0&amp; \text{若}i = j\\
-\infty&amp; \text{反之}
-\end{cases}$</code></p>
+<h4 id="3）网"><a class="header-anchor" href="#3）网">¶</a>3）网</h4>
+<p>网的对应边或弧存权值</p>
+<p><code>$arc[i][j] = \begin{cases} W_ij&amp; \text{若}(v_i,v_j)\in E \text{或} &lt;v_i,v_j&gt;\in E\\ 0&amp; \text{若}i = j\\ \infty&amp; \text{反之} \end{cases}$</code></p>
 <p><img src="/images/1558581410379.jpg" alt=""></p>
-<h3 id="2、邻接表：适合稀疏图"><a href="#2、邻接表：适合稀疏图" class="headerlink" title="2、邻接表：适合稀疏图"></a>2、邻接表：适合稀疏图</h3><p>邻接表(Adjacency List) 使用数组与链表相结合存储图</p>
+<h3 id="2、邻接表：适合稀疏图"><a class="header-anchor" href="#2、邻接表：适合稀疏图">¶</a>2、邻接表：适合稀疏图</h3>
+<p>邻接表(Adjacency List) 使用数组与链表相结合存储图</p>
 <ul>
 <li>一维数组：存顶点，和指向第一个邻接点的指针</li>
 <li>单链表：存每个顶点的所有邻接点。邻接点在顶点表中的下标，</li>
 </ul>
-<h4 id="1）无向图-1"><a href="#1）无向图-1" class="headerlink" title="1）无向图"></a>1）无向图</h4><p><img src="/images/1558581410630.jpg" alt=""></p>
+<h4 id="1）无向图-v2"><a class="header-anchor" href="#1）无向图-v2">¶</a>1）无向图</h4>
+<p><img src="/images/1558581410630.jpg" alt=""></p>
 <ul>
 <li>度：顶点的边表中结点的个数</li>
 <li>是否存在边：测试定点边表中是否存在结点下标</li>
 <li>邻接点：顶点的边表</li>
 </ul>
-<h4 id="2）有向图-1"><a href="#2）有向图-1" class="headerlink" title="2）有向图"></a>2）有向图</h4><p>以顶点为弧尾来存储边表</p>
+<h4 id="2）有向图-v2"><a class="header-anchor" href="#2）有向图-v2">¶</a>2）有向图</h4>
+<p>以顶点为弧尾来存储边表</p>
 <p>有向图的逆邻接表：以顶点为弧头的边表</p>
 <p><img src="/images/1558581410991.jpg" alt=""></p>
-<h4 id="3）网-1"><a href="#3）网-1" class="headerlink" title="3）网"></a>3）网</h4><p>在边表结点定义中再增加一个 weight 的数据域，存储权值信息</p>
+<h4 id="3）网-v2"><a class="header-anchor" href="#3）网-v2">¶</a>3）网</h4>
+<p>在边表结点定义中再增加一个 weight 的数据域，存储权值信息</p>
 <p><img src="/images/1558581411480.jpg" alt=""></p>
-<h3 id="3、十字链表：适合有向图"><a href="#3、十字链表：适合有向图" class="headerlink" title="3、十字链表：适合有向图"></a>3、十字链表：适合有向图</h3><p>对于有向图来说，邻接表是有缺陷的。出度入度只能关心一个。</p>
+<h3 id="3、十字链表：适合有向图"><a class="header-anchor" href="#3、十字链表：适合有向图">¶</a>3、十字链表：适合有向图</h3>
+<p>对于有向图来说，邻接表是有缺陷的。出度入度只能关心一个。</p>
 <p>十字链表把邻接表与逆邻接表结合起来。</p>
 <ul>
-<li>一维数组：顶点表结点<ul>
+<li>一维数组：顶点表结点
+<ul>
 <li>data</li>
 <li>firstin：入边表头指针</li>
 <li>firstout：出边表头指针</li>
 </ul>
 </li>
-<li>边表结点：<ul>
+<li>边表结点：
+<ul>
 <li>tailvex：弧起点在顶点表的下标</li>
 <li>headvex：弧终点在顶点表中的下标</li>
 <li>headlink：入边表指针域</li>
@@ -4518,13 +4585,17 @@ W_ij&amp; \text{若}(v_i,v_j)\in E \text{或} &lt;v_i,v_j&gt;\in E\\
 </ul>
 <p>实线箭头指针的图示与邻接表相同。虚线箭头是逆邻接表的表示。</p>
 <p><img src="/images/1558581412001.jpg" alt=""></p>
-<h3 id="4、邻接多重表：适合处理无向图的边"><a href="#4、邻接多重表：适合处理无向图的边" class="headerlink" title="4、邻接多重表：适合处理无向图的边"></a>4、邻接多重表：适合处理无向图的边</h3><p>ivex 和 jvex 是与某条边依附的两个顶点在顶点表中下标。ilink 指向依附顶点 ivex 的下一条边， jlink 指向依附顶点 jvex 的下一条边。这就是邻接多重表结构。</p>
+<h3 id="4、邻接多重表：适合处理无向图的边"><a class="header-anchor" href="#4、邻接多重表：适合处理无向图的边">¶</a>4、邻接多重表：适合处理无向图的边</h3>
+<p>ivex 和 jvex 是与某条边依附的两个顶点在顶点表中下标。ilink 指向依附顶点 ivex 的下一条边， jlink 指向依附顶点 jvex 的下一条边。这就是邻接多重表结构。</p>
 <p>邻接多重表与邻接表的差别，仅仅是在于同一条边在邻接表中用两个结点表示，而在邻接多重表中只有一个结点。</p>
 <p><img src="/images/1558581412860.jpg" alt=""></p>
-<h3 id="5、边集数组：适合对边依次处理"><a href="#5、边集数组：适合对边依次处理" class="headerlink" title="5、边集数组：适合对边依次处理"></a>5、边集数组：适合对边依次处理</h3><p>边集数组是由两个一维数组构成。一个是存储顶点的信息;另一个是存储边的信息，这个边数组每个数据元素由一条边的起点下标 (begin) 、终点下标 (end) 和权(weigbt) 组成</p>
+<h3 id="5、边集数组：适合对边依次处理"><a class="header-anchor" href="#5、边集数组：适合对边依次处理">¶</a>5、边集数组：适合对边依次处理</h3>
+<p>边集数组是由两个一维数组构成。一个是存储顶点的信息;另一个是存储边的信息，这个边数组每个数据元素由一条边的起点下标 (begin) 、终点下标 (end) 和权(weigbt) 组成</p>
 <p><img src="/images/1558581413156.jpg" alt=""></p>
-<h2 id="三、图的遍历"><a href="#三、图的遍历" class="headerlink" title="三、图的遍历"></a>三、图的遍历</h2><p>图的遍历(Traversing Grapb)：从图中某一顶点出发访遍图中其余顶点，且使每一个顶点仅被访问一次</p>
-<h3 id="1、深度优先搜索"><a href="#1、深度优先搜索" class="headerlink" title="1、深度优先搜索"></a>1、深度优先搜索</h3><p>深度优先遍历(Depth_First_Search)，也有称为深度优先搜索，简称为 DFS。 </p>
+<h2 id="三、图的遍历"><a class="header-anchor" href="#三、图的遍历">¶</a>三、图的遍历</h2>
+<p>图的遍历(Traversing Grapb)：从图中某一顶点出发访遍图中其余顶点，且使每一个顶点仅被访问一次</p>
+<h3 id="1、深度优先搜索"><a class="header-anchor" href="#1、深度优先搜索">¶</a>1、深度优先搜索</h3>
+<p>深度优先遍历(Depth_First_Search)，也有称为深度优先搜索，简称为 DFS。</p>
 <p>类似于树的前序遍历，用数组记录访问：</p>
 <ol>
 <li>访问初始结点v，并标记结点v为已访问。</li>
@@ -4533,7 +4604,8 @@ W_ij&amp; \text{若}(v_i,v_j)\in E \text{或} &lt;v_i,v_j&gt;\in E\\
 <li>若w未被访问，对w进行深度优先遍历递归（即把w当做另一个v，然后进行步骤123）。</li>
 <li>查找结点v的w邻接结点的下一个邻接结点，转到步骤3。</li>
 </ol>
-<h3 id="2、广度优先搜索"><a href="#2、广度优先搜索" class="headerlink" title="2、广度优先搜索"></a>2、广度优先搜索</h3><p>广度优先遍历 (Breadth.First.Search) ，又称为广度优先搜索，简称 BFS。</p>
+<h3 id="2、广度优先搜索"><a class="header-anchor" href="#2、广度优先搜索">¶</a>2、广度优先搜索</h3>
+<p>广度优先遍历 (Breadth.First.Search) ，又称为广度优先搜索，简称 BFS。</p>
 <p>类似于树的分层遍历，用队列保持访问过的结点的顺序：</p>
 <ol>
 <li>访问初始结点v并标记结点v为已访问。</li>
@@ -4541,53 +4613,66 @@ W_ij&amp; \text{若}(v_i,v_j)\in E \text{或} &lt;v_i,v_j&gt;\in E\\
 <li>当队列非空时，继续执行，否则算法结束。</li>
 <li>出队列，取得队头结点u。</li>
 <li>查找结点u的第一个邻接结点w。</li>
-<li>若结点u的邻接结点w不存在，则转到步骤3；否则循环执行以下三个步骤：<ol>
+<li>若结点u的邻接结点w不存在，则转到步骤3；否则循环执行以下三个步骤：
+<ol>
 <li>若结点w尚未被访问，则访问结点w并标记为已访问。</li>
 <li>结点w入队列</li>
 <li>查找结点u的继w邻接结点后的下一个邻接结点w，转到步骤6。</li>
 </ol>
 </li>
 </ol>
-<h2 id="四、图的基本应用"><a href="#四、图的基本应用" class="headerlink" title="四、图的基本应用"></a>四、图的基本应用</h2><h3 id="1、最小（代价）生成树"><a href="#1、最小（代价）生成树" class="headerlink" title="1、最小（代价）生成树"></a>1、最小（代价）生成树</h3><p>最小生成树： 一个具有n个顶点的加权的无向连通图，用n-1条边连接这n个顶点，并且使得连接之后的所有边的权值之和最小的树。</p>
-<h4 id="1）普里姆-Prim-算法"><a href="#1）普里姆-Prim-算法" class="headerlink" title="1）普里姆 ( Prim )算法"></a>1）普里姆 ( Prim )算法</h4><ol>
+<h2 id="四、图的基本应用"><a class="header-anchor" href="#四、图的基本应用">¶</a>四、图的基本应用</h2>
+<h3 id="1、最小（代价）生成树"><a class="header-anchor" href="#1、最小（代价）生成树">¶</a>1、最小（代价）生成树</h3>
+<p>最小生成树： 一个具有n个顶点的加权的无向连通图，用n-1条边连接这n个顶点，并且使得连接之后的所有边的权值之和最小的树。</p>
+<h4 id="1）普里姆-Prim-算法"><a class="header-anchor" href="#1）普里姆-Prim-算法">¶</a>1）普里姆 ( Prim )算法</h4>
+<ol>
 <li>将点分为两拨，已经加入最小生成树的，未加入的</li>
 <li>找到未加入中距离集合最近的点，添加该点，修改其它点到集合的距离</li>
 <li>直到所有结点都加入到最小生成树</li>
 </ol>
-<h4 id="2）克鲁斯卡尔-Kruskal-算法"><a href="#2）克鲁斯卡尔-Kruskal-算法" class="headerlink" title="2）克鲁斯卡尔( Kruskal )算法"></a>2）克鲁斯卡尔( Kruskal )算法</h4><ol>
+<h4 id="2）克鲁斯卡尔-Kruskal-算法"><a class="header-anchor" href="#2）克鲁斯卡尔-Kruskal-算法">¶</a>2）克鲁斯卡尔( Kruskal )算法</h4>
+<ol>
 <li>现将所有边进行权值的从小到大排序</li>
 <li>定义一个一维数组代表连接过的边，数组的下标为边的起点，值为边的终点</li>
 <li>按照排好序的集合用边对顶点进行依次连接，连接的边则存放到一维数组中</li>
 <li>用一维数组判断是否对已经连接的边能构成回路，有回路则无效，没回路则是一条有效边</li>
 <li>重复3，4直至遍历完所有的边为止，即找到最小生成树</li>
 </ol>
-<h3 id="2、最短路径"><a href="#2、最短路径" class="headerlink" title="2、最短路径"></a>2、最短路径</h3><p>对于网图来说，最短路径，是指两顶点之间经过的边上权值之和最少的路径，并且我们称路径上的第一个顶点是源点，最后一个顶点是终点。</p>
-<h4 id="1）迪杰斯特拉-Dijkstra-算法"><a href="#1）迪杰斯特拉-Dijkstra-算法" class="headerlink" title="1）迪杰斯特拉( Dijkstra ) 算法"></a>1）迪杰斯特拉( Dijkstra ) 算法</h4><p>适用于求一个节点到其他节点的最短路径，通过广度搜索来遍历其他所有需要求距离的点。</p>
+<h3 id="2、最短路径"><a class="header-anchor" href="#2、最短路径">¶</a>2、最短路径</h3>
+<p>对于网图来说，最短路径，是指两顶点之间经过的边上权值之和最少的路径，并且我们称路径上的第一个顶点是源点，最后一个顶点是终点。</p>
+<h4 id="1）迪杰斯特拉-Dijkstra-算法"><a class="header-anchor" href="#1）迪杰斯特拉-Dijkstra-算法">¶</a>1）迪杰斯特拉( Dijkstra ) 算法</h4>
+<p>适用于求一个节点到其他节点的最短路径，通过广度搜索来遍历其他所有需要求距离的点。</p>
 <ol>
 <li>选取初始节点作为一个集合，D(v)表示初始节点到V节点的最短路径</li>
 <li>所有能直接到达V的节点路径记为 D(v)=距离，不能直接到达的节点路径记为 D(v)=无穷</li>
 <li>选取 D(v) 最小的节点加入初始节点集合，最短路径记为<code>D(w)=min(D(w),D(v)+j(v,w))</code>（j(v,w)为节点V到W的距离）</li>
 <li>重复步骤3，直到所有节点都加入初始节点集合</li>
 </ol>
-<h4 id="2）弗洛伊德-Floyd-算法"><a href="#2）弗洛伊德-Floyd-算法" class="headerlink" title="2）弗洛伊德( Floyd )算法"></a>2）弗洛伊德( Floyd )算法</h4><p>适用于求所有顶点至所有顶点的最短路径问题。</p>
+<h4 id="2）弗洛伊德-Floyd-算法"><a class="header-anchor" href="#2）弗洛伊德-Floyd-算法">¶</a>2）弗洛伊德( Floyd )算法</h4>
+<p>适用于求所有顶点至所有顶点的最短路径问题。</p>
 <p><img src="/images/1558581413437.jpg" alt=""></p>
 <ol>
 <li>确定一个中间点</li>
-<li>定义两个二维数组 D[][] 和 P[][]<ul>
+<li>定义两个二维数组 D[][] 和 P[][]
+<ul>
 <li>D 代表顶点到顶点的最短路径权值和的矩阵，即点的邻接矩阵</li>
 <li>P 代表对应顶点的最小路径的前驱矩阵</li>
 </ul>
 </li>
-<li>对于每一对顶点 v 和 w，看看是否存在一个顶点 u 使得从 v 到 u 再到 w 比己知的路径更短。如果是更新它<br> <code>$D^0[v][w] = min\{ D^{-1}[v][w], D^{-1}[v][0]+D^{-1}[0][w]\}$</code></li>
+<li>对于每一对顶点 v 和 w，看看是否存在一个顶点 u 使得从 v 到 u 再到 w 比己知的路径更短。如果是更新它<br>
+<code>$D^0[v][w] = min\{ D^{-1}[v][w], D^{-1}[v][0]+D^{-1}[0][w]\}$</code></li>
 </ol>
-<h3 id="3、拓扑排序"><a href="#3、拓扑排序" class="headerlink" title="3、拓扑排序"></a>3、拓扑排序</h3><ul>
+<h3 id="3、拓扑排序"><a class="header-anchor" href="#3、拓扑排序">¶</a>3、拓扑排序</h3>
+<ul>
 <li>AOV：有向无环图</li>
-<li>拓扑序列：是一个有向无环图的所有顶点的线性序列。<ul>
+<li>拓扑序列：是一个有向无环图的所有顶点的线性序列。
+<ul>
 <li>每个顶点出现且只出现一次。</li>
 <li>若存在一条从顶点 A 到顶点 B 的路径，那么在序列中顶点 A 出现在顶点 B 的前面。</li>
 </ul>
 </li>
-<li>拓扑排序：对一个有向图构造拓扑序列的过程<ul>
+<li>拓扑排序：对一个有向图构造拓扑序列的过程
+<ul>
 <li>从 AOV 中选择一个入度为0的顶点并输出。</li>
 <li>从图中删除该顶点，井删除以此顶点为尾的弧</li>
 <li>重复此步骤，直到输出全部顶点，或不存在入度为0的顶点为止。</li>
@@ -4595,19 +4680,22 @@ W_ij&amp; \text{若}(v_i,v_j)\in E \text{或} &lt;v_i,v_j&gt;\in E\\
 </li>
 </ul>
 <p>建立一个邻接表，在顶点表结点结构中，增加一个人度域 in</p>
-<h3 id="4、关键路径"><a href="#4、关键路径" class="headerlink" title="4、关键路径"></a>4、关键路径</h3><ul>
+<h3 id="4、关键路径"><a class="header-anchor" href="#4、关键路径">¶</a>4、关键路径</h3>
+<ul>
 <li>AOE：有向无环网</li>
 <li>路径长度：路径上各个活动所持续的时间之和</li>
 <li>关键路径：从源点到汇点具有最大长度的路径</li>
 <li>关键活动：在关键路径上的活动</li>
 </ul>
-<h5 id="关键路径算法"><a href="#关键路径算法" class="headerlink" title="关键路径算法"></a>关键路径算法</h5><ol>
+<h5 id="关键路径算法"><a class="header-anchor" href="#关键路径算法">¶</a>关键路径算法</h5>
+<ol>
 <li>事件最早开始时间（etv）：顶点<code>$v_k$</code>最早发生的时间。</li>
 <li>事件最晚开始时间（ltv）：顶点<code>$v_k$</code>最晚发生的时间，超出则会延误整个工期。</li>
 <li>活动的最早开始时间（ete）：弧<code>$a_k$</code>最早发生时间。</li>
 <li>活动的最晚开始时间（lte）：弧<code>$a_k$</code>最晚发生时间。不推迟工期的最晚开工时间。</li>
 </ol>
-<p>由 1 和 2 可以求得 3 和 4 ，然后再根据 ete[k] 是否与 lte[k] 相等来判断<code>$a_k$</code>是<br>否是关键活动。</p>
+<p>由 1 和 2 可以求得 3 和 4 ，然后再根据 ete[k] 是否与 lte[k] 相等来判断<code>$a_k$</code>是<br>
+否是关键活动。</p>
 <p>建立一个邻接表，弧链表增加了 weight 域，用来存储弧的权值。</p>
 <ul>
 <li>先要调用一次拓扑序列算法的代码来计算etv和拓扑序列表。</li>
@@ -4625,19 +4713,23 @@ W_ij&amp; \text{若}(v_i,v_j)\in E \text{或} &lt;v_i,v_j&gt;\in E\\
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

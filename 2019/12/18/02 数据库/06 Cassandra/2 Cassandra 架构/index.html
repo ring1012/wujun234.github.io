@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		2 Cassandra 架构 | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,22 +4395,32 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:23</span>
+	<span id="post-date">2019-12-18 01:00:43</span>
 </div>
 
 
 <div id="article">
-	<h3 id="1-核心架构"><a href="#1-核心架构" class="headerlink" title="1 核心架构"></a>1 核心架构</h3><h5 id="1）Node"><a href="#1）Node" class="headerlink" title="1）Node"></a>1）Node</h5><p>节点，存放数据的地方，Cassandra的基础设施。</p>
-<h5 id="2）datacenter"><a href="#2）datacenter" class="headerlink" title="2）datacenter"></a>2）datacenter</h5><ul>
+	<h3 id="1-核心架构"><a class="header-anchor" href="#1-核心架构">¶</a>1 核心架构</h3>
+<h5 id="1）Node"><a class="header-anchor" href="#1）Node">¶</a>1）Node</h5>
+<p>节点，存放数据的地方，Cassandra的基础设施。</p>
+<h5 id="2）datacenter"><a class="header-anchor" href="#2）datacenter">¶</a>2）datacenter</h5>
+<ul>
 <li>数据中心，关联节点的集合。可以是物理或虚拟的。</li>
 <li>复制策略由datacenter设置。数据通过复制因子决定，可写入到多个datacenter</li>
 </ul>
-<h5 id="3）Cluster"><a href="#3）Cluster" class="headerlink" title="3）Cluster"></a>3）Cluster</h5><p>集群，包含一个或多个数据中心。可跨越物理位置。</p>
-<h5 id="4）Commit-log"><a href="#4）Commit-log" class="headerlink" title="4）Commit log"></a>4）Commit log</h5><p>所有数据首先写入 Commit log 以确保持久性。将所有数据刷新到 SSTable 后，可以对其进行存档，删除或回收。</p>
-<h5 id="5）SSTable"><a href="#5）SSTable" class="headerlink" title="5）SSTable"></a>5）SSTable</h5><p>SSTable（sorted string table）是Cassandra定期写入 memtable 的不可变数据文件。 SSTable 仅能附加数据，并按顺序存储在磁盘上，为每个Cassandra表维护。</p>
-<h5 id="6）CQL-Table"><a href="#6）CQL-Table" class="headerlink" title="6）CQL Table"></a>6）CQL Table</h5><p>由表行提取的有序列的集合。此表由列组成，并具有主键。</p>
-<h3 id="2-关键组件"><a href="#2-关键组件" class="headerlink" title="2 关键组件"></a>2 关键组件</h3><h5 id="1）Gossip"><a href="#1）Gossip" class="headerlink" title="1）Gossip"></a>1）Gossip</h5><p>一种点对点通信协议，用于发现和共享有关 Cassandra 集群中其他节点的位置和状态信息。 每个节点在本地持久保存 Gossip 信息，以便在节点重新启动时能立即使用。</p>
-<h5 id="2）Partitioner"><a href="#2）Partitioner" class="headerlink" title="2）Partitioner"></a>2）Partitioner</h5><p>Partitioner 确定数据的副本在节点之间的分发。</p>
+<h5 id="3）Cluster"><a class="header-anchor" href="#3）Cluster">¶</a>3）Cluster</h5>
+<p>集群，包含一个或多个数据中心。可跨越物理位置。</p>
+<h5 id="4）Commit-log"><a class="header-anchor" href="#4）Commit-log">¶</a>4）Commit log</h5>
+<p>所有数据首先写入 Commit log 以确保持久性。将所有数据刷新到 SSTable 后，可以对其进行存档，删除或回收。</p>
+<h5 id="5）SSTable"><a class="header-anchor" href="#5）SSTable">¶</a>5）SSTable</h5>
+<p>SSTable（sorted string table）是Cassandra定期写入 memtable 的不可变数据文件。 SSTable 仅能附加数据，并按顺序存储在磁盘上，为每个Cassandra表维护。</p>
+<h5 id="6）CQL-Table"><a class="header-anchor" href="#6）CQL-Table">¶</a>6）CQL Table</h5>
+<p>由表行提取的有序列的集合。此表由列组成，并具有主键。</p>
+<h3 id="2-关键组件"><a class="header-anchor" href="#2-关键组件">¶</a>2 关键组件</h3>
+<h5 id="1）Gossip"><a class="header-anchor" href="#1）Gossip">¶</a>1）Gossip</h5>
+<p>一种点对点通信协议，用于发现和共享有关 Cassandra 集群中其他节点的位置和状态信息。 每个节点在本地持久保存 Gossip 信息，以便在节点重新启动时能立即使用。</p>
+<h5 id="2）Partitioner"><a class="header-anchor" href="#2）Partitioner">¶</a>2）Partitioner</h5>
+<p>Partitioner 确定数据的副本在节点之间的分发。</p>
 <p>每个节点都有一个唯一的 Token，表明该节点分配的数据范围。Partitioner 是hash 函数，用于计算每个分区键的 token。</p>
 <p>分区策略：</p>
 <ul>
@@ -4396,14 +4429,17 @@
 <li>ByteOrderedPartitioner：按照 Row Key 的字节数据来排序，支持 Row Key 的范围查询。</li>
 <li>OrderPreservingPartioner：采用 Row Key 的 UTF-8 编码排序，支持 Row Key 范围查询。</li>
 </ul>
-<h5 id="3）Replication-factor"><a href="#3）Replication-factor" class="headerlink" title="3）Replication factor"></a>3）Replication factor</h5><p>复制因子：集群中的副本数量，每个副本不在同一个节点。</p>
-<h5 id="4）Replica-placement-strategy"><a href="#4）Replica-placement-strategy" class="headerlink" title="4）Replica placement strategy"></a>4）Replica placement strategy</h5><p>Cassandra在多个节点上存储数据的副本，以确保可靠性和容错能力。  </p>
+<h5 id="3）Replication-factor"><a class="header-anchor" href="#3）Replication-factor">¶</a>3）Replication factor</h5>
+<p>复制因子：集群中的副本数量，每个副本不在同一个节点。</p>
+<h5 id="4）Replica-placement-strategy"><a class="header-anchor" href="#4）Replica-placement-strategy">¶</a>4）Replica placement strategy</h5>
+<p>Cassandra在多个节点上存储数据的副本，以确保可靠性和容错能力。</p>
 <p>复制策略确定放置副本的节点：</p>
 <ul>
 <li>SimpleStrategy：复制数据副本到协调者节点的 N-1 个后继节点上</li>
 <li>NetworkTopologyStrategy：用于多数据中心部署。可以指定每个数据中心的副本数。</li>
 </ul>
-<h5 id="5）Snitch"><a href="#5）Snitch" class="headerlink" title="5）Snitch"></a>5）Snitch</h5><p>Snitch 决定复制策略使用哪个数据中心和服务器的节点来放置副本。</p>
+<h5 id="5）Snitch"><a class="header-anchor" href="#5）Snitch">¶</a>5）Snitch</h5>
+<p>Snitch 决定复制策略使用哪个数据中心和服务器的节点来放置副本。</p>
 <p>Snitches 按实现分为三种：</p>
 <ul>
 <li>SimpleSnitch：默认。这种策略不能识别数据中心和机架信息，适合在单数据中心使用；</li>
@@ -4419,19 +4455,23 @@
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

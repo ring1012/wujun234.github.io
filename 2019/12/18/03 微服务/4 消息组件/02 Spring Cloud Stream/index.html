@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		02 Spring Cloud Stream | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,33 +4395,46 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:23</span>
+	<span id="post-date">2019-12-18 01:00:43</span>
 </div>
 
 
 <div id="article">
 	<p>Spring Cloud Stream整合了Spring Boot和Spring Integration，实现了一套轻量级的消息驱动的微服务框架。目前为止只支持RabbitMQ和Kafka的自动化配置。</p>
-<h2 id="快速入门"><a href="#快速入门" class="headerlink" title="快速入门"></a>快速入门</h2><p>以RabbitMQ为例</p>
+<h2 id="快速入门"><a class="header-anchor" href="#快速入门">¶</a>快速入门</h2>
+<p>以RabbitMQ为例</p>
 <ol>
-<li><p>引入依赖  </p>
-<pre><code> &lt;dependency&gt;
-     &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
-     &lt;artifactId&gt;spring-cloud-stream&lt;/artifactId&gt;
- &lt;/dependency&gt;</code></pre><p>RabbitMQ</p>
-<pre><code> &lt;dependency&gt;
-     &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
-     &lt;artifactId&gt;spring-cloud-starter-stream-rabbit&lt;/artifactId&gt;     
- &lt;/dependency&gt;</code></pre><p>Kafka</p>
-<pre><code> &lt;dependency&gt;
-     &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
-     &lt;artifactId&gt;spring-cloud-starter-stream-kafka&lt;/artifactId&gt;
- &lt;/dependency&gt;</code></pre></li>
-<li><p>配置属性<br>配置目的地，类比于Kafka的Topic和RabbitMQ的队列的概念。配置格式<br><code>spring.cloud.stream.bindings.&lt;channelName&gt;.&lt;key&gt;=value</code></p>
+<li>引入依赖</li>
+</ol>
+<pre><code>    &lt;dependency&gt;
+        &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
+        &lt;artifactId&gt;spring-cloud-stream&lt;/artifactId&gt;
+    &lt;/dependency&gt;
+</code></pre>
+<p>RabbitMQ</p>
+<pre><code>    &lt;dependency&gt;
+        &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
+        &lt;artifactId&gt;spring-cloud-starter-stream-rabbit&lt;/artifactId&gt;     
+    &lt;/dependency&gt;
+</code></pre>
+<p>Kafka</p>
+<pre><code>	&lt;dependency&gt;
+		&lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
+		&lt;artifactId&gt;spring-cloud-starter-stream-kafka&lt;/artifactId&gt;
+	&lt;/dependency&gt;
+</code></pre>
+<ol start="2">
+<li>配置属性<br>
+配置目的地，类比于Kafka的Topic和RabbitMQ的队列的概念。配置格式<br>
+<code>spring.cloud.stream.bindings.&lt;channelName&gt;.&lt;key&gt;=value</code></li>
+</ol>
 <pre><code>spring.cloud.stream.bindings.input.destination=test
-spring.cloud.stream.bindings.output.destination=test</code></pre></li>
-<li><p>监听消息 </p>
+spring.cloud.stream.bindings.output.destination=test
+</code></pre>
+<ol start="3">
+<li>监听消息
 <ul>
-<li><p>@EnableBinding：指定一个或多个定义了@Input或@Output注解的接口，以绑定消息通道（Channel）。</p>
+<li>@EnableBinding：指定一个或多个定义了@Input或@Output注解的接口，以绑定消息通道（Channel）。
 <ul>
 <li>单个接口：@EnableBinding(Sink.class)</li>
 <li>多个接口：@EnableBinding(value = {Sink.class, Source.class})</li>
@@ -4406,74 +4442,127 @@ spring.cloud.stream.bindings.output.destination=test</code></pre></li>
 <li>Source：默认实现的接口，绑定了output通道。</li>
 </ul>
 </li>
-<li><p>@StreamListener：注册方法为消息中间件的事件监听器，注解中属性值对应了监听的消息通道名。</p>
-<pre><code>@EnableBinding(Sink.class)
-public class SinkReceiver {
-
-@StreamListener(Sink.INPUT)
-public void receive(Object payload) {
-  ……
-}
-</code></pre></li>
+<li>@StreamListener：注册方法为消息中间件的事件监听器，注解中属性值对应了监听的消息通道名。</li>
 </ul>
 </li>
 </ol>
-<p>}</p>
-<pre><code>4. 发送消息  
-通过@Output(SinkSender.OUTPUT)定义了一个输出通道
-</code></pre><p>public interface SinkSender {</p>
-<pre><code>String OUTPUT = &quot;input&quot;;
+<pre><code>@EnableBinding(Sink.class)
+public class SinkReceiver {
 
-@Output(SinkSender.OUTPUT)
-MessageChannel output();</code></pre><p>}</p>
-<p>@EnableBinding(SinkSender.class)<br>public class SinkApplicationTests {</p>
-<pre><code>@Autowired
-private SinkSender sinkSender;
+    @StreamListener(Sink.INPUT)
+    public void receive(Object payload) {
+        ……
+    }
+    
+}
+</code></pre>
+<ol start="4">
+<li>发送消息<br>
+通过@Output(SinkSender.OUTPUT)定义了一个输出通道</li>
+</ol>
+<pre><code>public interface SinkSender {
 
-public void sinkSenderTester() {
-    sinkSender.output().send(MessageBuilder.withPayload(&quot;produce a message&quot;).build());
-}</code></pre><p>}</p>
-<pre><code>## 应用模型
+    String OUTPUT = &quot;input&quot;;
 
-![](/images/1545270601786.png)
+    @Output(SinkSender.OUTPUT)
+    MessageChannel output();
 
-### 绑定器
-绑定器作为中间层，实现了应用程序与消息中间件细节之间的隔离。通过向应用程序暴露统一的Channel通道，使得应用程序不需要再考虑各种不同的消息中间件实现。  
-Stream为RabbitMQ和Kafka提供了默认的Binder实现，其他消息中间件可使用`TestSupportBinder`测试。  
-依赖的starter提供了默认的自动化配置，也可以修改配置文件</code></pre><p>spring.cloud.stream.bindings.input.destination=raw-sensor-data</p>
-<p>spring.rabbitmq.host=localhost<br>spring.rabbitmq.port=5672<br>spring.rabbitmq.username=springcloud<br>spring.rabbitmq.password=123456</p>
-<pre><code>## 核心概念
-### 发布-订阅
-Spring Cloud Stream中的消息通信方式遵循了发布-订阅模式，当一条消息被投递到消息中间件之后，它会通过共享的Topic主题进行广播，消息消费者在订阅的主题中收到它并触发自身的业务逻辑处理。  
-Topic对应了RabbitMQ的Exchange、Kafka的Topic。
-### 消费组
-微服务应用一般都会部署多个实例。在希望消息对某个具体微服务，只被消费一次时，Stream中提供了消费组的概念。  
-通过`spring.cloud.stream.bindings.input.group`属性指定一个组名，每个发送到消费组的数据，仅由消费组中的一个消费者处理。没有指定消费组的时候，各自都属于一个独立的匿名消费组。
-### 消息分区
-消息分区是将消息增加一个固有的特征ID。当生产者将消息数据发送给多个消费者实例时，保证拥有共同特征的消息数据始终是由同一个消费者实例接收和处理。  
-消费者配置参数</code></pre><p>spring.cloud.stream.bindings.input.group=Service-A</p>
-<p>spring.cloud.stream.bindings.input.destination=greetings<br>//开启消费者分区功能<br>spring.cloud.stream.bindings.input.consumer.partitioned=true<br>//指定了当前消费者的总实例数量<br>spring.cloud.stream.instanceCount=2<br>//设置当前实例的索引号<br>spring.cloud.stream.instanceIndex=0</p>
-<pre><code>生产者配置参数</code></pre><p>spring.cloud.stream.bindings.output.destination=greetings<br>//指定了分区键的表达式规则<br>spring.cloud.stream.bindings.output.producer.partitionKeyExpression=payload<br>//指定了消息分区的数量<br>spring.cloud.stream.bindings.output.producer.partitionCount=2</p>
-<pre><code>
-## 聚合
-Spring Cloud Stream 支持聚合多个应用的功能。这个功能可以直接连接多个应用的输入，输出通道，避免通过代理（指Kafka，RabbitMQ这些Middleware）交换消息时带来的额外耗费。</code></pre><p>//Source<br>@SpringBootApplication<br>@EnableBinding(Source.class)<br>public class SourceApplication {</p>
-<pre><code>@InboundChannelAdapter(value = Source.OUTPUT)
-public String timerMessageSource() {
-    return new SimpleDateFormat().format(new Date());
-}</code></pre><p>}<br>//Processor<br>@SpringBootApplication<br>@EnableBinding(Processor.class)<br>public class ProcessorApplication {</p>
-<pre><code>@Transformer(inputChannel=Sink.INPUT,outputChannel=Source.OUTPUT)
-public String loggerSink(String payload) {
-    return payload.toUpperCase();
-}</code></pre><p>}<br>//Sink<br>@SpringBootApplication<br>@EnableBinding(Sink.class)<br>public class SinkApplication {</p>
-<pre><code>@StreamListener(Sink.INPUT)
-public void loggerSink(Object payload) {
-    System.out.println(&quot;Received: &quot; + payload);
-}</code></pre><p>}</p>
-<pre><code>上面是三个应用，下面是将三个应用连接起来的代码。</code></pre><p>@SpringBootApplication<br>public class App {</p>
-<pre><code>public static void main(String[] args) {
-    new AggregateApplicationBuilder().from(SourceApplication.class).args(&quot;--fixedDelay=5000&quot;)
-            .via(ProcessorApplication.class).to(SinkApplication.class).args(&quot;--debug=true&quot;).run(args);
-}</code></pre><p>}<br>```</p>
+}
+    
+@EnableBinding(SinkSender.class)
+public class SinkApplicationTests {
+
+    @Autowired
+    private SinkSender sinkSender;
+
+    public void sinkSenderTester() {
+        sinkSender.output().send(MessageBuilder.withPayload(&quot;produce a message&quot;).build());
+    }
+}
+</code></pre>
+<h2 id="应用模型"><a class="header-anchor" href="#应用模型">¶</a>应用模型</h2>
+<p><img src="/images/1545270601786.png" alt=""></p>
+<h3 id="绑定器"><a class="header-anchor" href="#绑定器">¶</a>绑定器</h3>
+<p>绑定器作为中间层，实现了应用程序与消息中间件细节之间的隔离。通过向应用程序暴露统一的Channel通道，使得应用程序不需要再考虑各种不同的消息中间件实现。<br>
+Stream为RabbitMQ和Kafka提供了默认的Binder实现，其他消息中间件可使用<code>TestSupportBinder</code>测试。<br>
+依赖的starter提供了默认的自动化配置，也可以修改配置文件</p>
+<pre><code>spring.cloud.stream.bindings.input.destination=raw-sensor-data
+
+spring.rabbitmq.host=localhost
+spring.rabbitmq.port=5672
+spring.rabbitmq.username=springcloud
+spring.rabbitmq.password=123456
+</code></pre>
+<h2 id="核心概念"><a class="header-anchor" href="#核心概念">¶</a>核心概念</h2>
+<h3 id="发布-订阅"><a class="header-anchor" href="#发布-订阅">¶</a>发布-订阅</h3>
+<p>Spring Cloud Stream中的消息通信方式遵循了发布-订阅模式，当一条消息被投递到消息中间件之后，它会通过共享的Topic主题进行广播，消息消费者在订阅的主题中收到它并触发自身的业务逻辑处理。<br>
+Topic对应了RabbitMQ的Exchange、Kafka的Topic。</p>
+<h3 id="消费组"><a class="header-anchor" href="#消费组">¶</a>消费组</h3>
+<p>微服务应用一般都会部署多个实例。在希望消息对某个具体微服务，只被消费一次时，Stream中提供了消费组的概念。<br>
+通过<code>spring.cloud.stream.bindings.input.group</code>属性指定一个组名，每个发送到消费组的数据，仅由消费组中的一个消费者处理。没有指定消费组的时候，各自都属于一个独立的匿名消费组。</p>
+<h3 id="消息分区"><a class="header-anchor" href="#消息分区">¶</a>消息分区</h3>
+<p>消息分区是将消息增加一个固有的特征ID。当生产者将消息数据发送给多个消费者实例时，保证拥有共同特征的消息数据始终是由同一个消费者实例接收和处理。<br>
+消费者配置参数</p>
+<pre><code>spring.cloud.stream.bindings.input.group=Service-A
+
+spring.cloud.stream.bindings.input.destination=greetings
+//开启消费者分区功能
+spring.cloud.stream.bindings.input.consumer.partitioned=true
+//指定了当前消费者的总实例数量
+spring.cloud.stream.instanceCount=2
+//设置当前实例的索引号
+spring.cloud.stream.instanceIndex=0
+</code></pre>
+<p>生产者配置参数</p>
+<pre><code>spring.cloud.stream.bindings.output.destination=greetings
+//指定了分区键的表达式规则
+spring.cloud.stream.bindings.output.producer.partitionKeyExpression=payload
+//指定了消息分区的数量
+spring.cloud.stream.bindings.output.producer.partitionCount=2
+</code></pre>
+<h2 id="聚合"><a class="header-anchor" href="#聚合">¶</a>聚合</h2>
+<p>Spring Cloud Stream 支持聚合多个应用的功能。这个功能可以直接连接多个应用的输入，输出通道，避免通过代理（指Kafka，RabbitMQ这些Middleware）交换消息时带来的额外耗费。</p>
+<pre><code>//Source
+@SpringBootApplication
+@EnableBinding(Source.class)
+public class SourceApplication {
+	
+	@InboundChannelAdapter(value = Source.OUTPUT)
+	public String timerMessageSource() {
+		return new SimpleDateFormat().format(new Date());
+	}
+}
+//Processor
+@SpringBootApplication
+@EnableBinding(Processor.class)
+public class ProcessorApplication {
+	
+	@Transformer(inputChannel=Sink.INPUT,outputChannel=Source.OUTPUT)
+	public String loggerSink(String payload) {
+		return payload.toUpperCase();
+	}
+}
+//Sink
+@SpringBootApplication
+@EnableBinding(Sink.class)
+public class SinkApplication {
+
+	@StreamListener(Sink.INPUT)
+	public void loggerSink(Object payload) {
+		System.out.println(&quot;Received: &quot; + payload);
+	}
+}
+</code></pre>
+<p>上面是三个应用，下面是将三个应用连接起来的代码。</p>
+<pre><code>@SpringBootApplication
+public class App {
+
+	public static void main(String[] args) {
+		new AggregateApplicationBuilder().from(SourceApplication.class).args(&quot;--fixedDelay=5000&quot;)
+				.via(ProcessorApplication.class).to(SinkApplication.class).args(&quot;--debug=true&quot;).run(args);
+	}
+}
+</code></pre>
 
 </div>
 
@@ -4483,19 +4572,23 @@ public void loggerSink(Object payload) {
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

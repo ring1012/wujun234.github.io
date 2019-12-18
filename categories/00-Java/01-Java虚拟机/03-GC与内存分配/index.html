@@ -1,10 +1,30 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +35,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4369,11 +4390,33 @@
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/00%20Java/01%20Java%E8%99%9A%E6%8B%9F%E6%9C%BA/03%20GC%E4%B8%8E%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D/1%20GC%E5%88%A4%E5%AE%9A/">1 GC判定</a>
+					<a class="article-title" href="/2019/12/18/00%20Java/01%20Java%E8%99%9A%E6%8B%9F%E6%9C%BA/03%20GC%E4%B8%8E%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D/5%20%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D%E4%B8%8E%E5%9B%9E%E6%94%B6%E7%AD%96%E7%95%A5/">5 内存分配与回收策略</a>
 				</h2>
 				<span class="post-date">2019-12-18</span>
 				<div class="article-digest">
-					1 引用计数法对象内部维护有一个被其他对象引用的引用计数，当这个引用计数为0的时候，表示对象可以被回收。引用计数法存在一个问题——循环引用，加入a引用b，b同时也引用a，那么就存在ab的引用计数都不为
+					内存管理两个问题：分配内存、回收内存
+分配就是在堆上分配，主要在新生代的Eden区上，少数情况也会直接分配在老年代中。
+¶1 对象优先在Eden分配
+Eden没有足够空间时会发起一次Minor GC
+
+					...
+				</div>
+			</article>
+			
+		
+
+			<article class="article-li">
+				<h2>
+					<a class="article-title" href="/2019/12/18/00%20Java/01%20Java%E8%99%9A%E6%8B%9F%E6%9C%BA/03%20GC%E4%B8%8E%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D/4%20%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8/">4 垃圾收集器</a>
+				</h2>
+				<span class="post-date">2019-12-18</span>
+				<div class="article-digest">
+					¶1 新生代
+¶1) 串行（Serial）
+单线程，复制算法。Java 9以前默认收集器。
+¶2) 并行（ParNew）
+Serial的多线程版本。
+¶3) 吞吐量优先（Parallel Scaven
 					...
 				</div>
 			</article>
@@ -4387,8 +4430,9 @@
 				<span class="post-date">2019-12-18</span>
 				<div class="article-digest">
 					HotSpot的算法实现
-1 枚举根节点GC Roots 的节点主要是在全局性的引用（常量、类静态属性）与执行上下文（栈帧中的本地变量表）中，若逐个检查很耗时。
-GC 进行时必须停顿所有Java执行线
+¶1 枚举根节点
+GC Roots 的节点主要是在全局性的引用（常量、类静态属性）与执行上下文（栈帧中的本地变量表）中，若逐个检查很耗时。
+GC 进行时必须停顿所有Java执
 					...
 				</div>
 			</article>
@@ -4412,8 +4456,9 @@ GC 进行时必须停顿所有Java执行线
 新生代
 老年代
 
-1 标记－清除最基础的收集算法，其它算法都是对它不足的改进
-1.
+¶1 标记－清除
+最基础的收集算法，其它算法都是对它不足的改进
+
 					...
 				</div>
 			</article>
@@ -4422,29 +4467,13 @@ GC 进行时必须停顿所有Java执行线
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/00%20Java/01%20Java%E8%99%9A%E6%8B%9F%E6%9C%BA/03%20GC%E4%B8%8E%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D/4%20%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8/">4 垃圾收集器</a>
+					<a class="article-title" href="/2019/12/18/00%20Java/01%20Java%E8%99%9A%E6%8B%9F%E6%9C%BA/03%20GC%E4%B8%8E%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D/1%20GC%E5%88%A4%E5%AE%9A/">1 GC判定</a>
 				</h2>
 				<span class="post-date">2019-12-18</span>
 				<div class="article-digest">
-					1 新生代1) 串行（Serial）单线程，复制算法。Java 9以前默认收集器。
-2) 并行（ParNew）Serial的多线程版本。
-3) 吞吐量优先（Parallel Scavenge）多线程，
-					...
-				</div>
-			</article>
-			
-		
-
-			<article class="article-li">
-				<h2>
-					<a class="article-title" href="/2019/12/18/00%20Java/01%20Java%E8%99%9A%E6%8B%9F%E6%9C%BA/03%20GC%E4%B8%8E%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D/5%20%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D%E4%B8%8E%E5%9B%9E%E6%94%B6%E7%AD%96%E7%95%A5/">5 内存分配与回收策略</a>
-				</h2>
-				<span class="post-date">2019-12-18</span>
-				<div class="article-digest">
-					内存管理两个问题：分配内存、回收内存
-分配就是在堆上分配，主要在新生代的Eden区上，少数情况也会直接分配在老年代中。
-1 对象优先在Eden分配Eden没有足够空间时会发起一次Minor GC
-2 
+					¶1 引用计数法
+对象内部维护有一个被其他对象引用的引用计数，当这个引用计数为0的时候，表示对象可以被回收。
+引用计数法存在一个问题——循环引用，加入a引用b，b同时也引用a，那么就存在ab的引用计数
 					...
 				</div>
 			</article>
@@ -4458,19 +4487,23 @@ GC 进行时必须停顿所有Java执行线
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

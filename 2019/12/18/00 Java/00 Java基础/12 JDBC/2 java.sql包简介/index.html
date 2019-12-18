@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		2 java.sql包简介 | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,26 +4395,45 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:49</span>
+	<span id="post-date">2019-12-18 01:00:41</span>
 </div>
 
 
 <div id="article">
-	<h3 id="常用接口与类"><a href="#常用接口与类" class="headerlink" title="常用接口与类"></a>常用接口与类</h3><p>常用接口与类主要有DriverManager、Connection、Statement和ResultSet。  </p>
-<h4 id="DriverManager"><a href="#DriverManager" class="headerlink" title="DriverManager"></a>DriverManager</h4><p>　　注册数据库驱动，创建数据库连接。Driver由数据库厂家提供。</p>
+	<h3 id="常用接口与类"><a class="header-anchor" href="#常用接口与类">¶</a>常用接口与类</h3>
+<p>常用接口与类主要有DriverManager、Connection、Statement和ResultSet。</p>
+<h4 id="DriverManager"><a class="header-anchor" href="#DriverManager">¶</a>DriverManager</h4>
+<p>注册数据库驱动，创建数据库连接。Driver由数据库厂家提供。</p>
 <p><strong>注册驱动</strong>：</p>
 <ul>
-<li>通过API注册驱动,但Driver会new两次<pre><code>DriverManager.registerDriver(new Driver());</code></pre></li>
-<li>推荐写法:<pre><code>Class.forName(&quot;com.mysql.jdbc.Driver&quot;);</code></pre>Class.forName()要求JVM查找并加载指定的类，会执行该类的静态代码段。JDBC规范要求数据库厂家的Driver实现都必须向DriverManager注册自己。如com.mysql.jdbc.Driver类中，有以下静态块：<pre><code>　　static {
+<li>通过API注册驱动,但Driver会new两次</li>
+</ul>
+<pre><code>DriverManager.registerDriver(new Driver());
+</code></pre>
+<ul>
+<li>推荐写法:</li>
+</ul>
+<pre><code>Class.forName(&quot;com.mysql.jdbc.Driver&quot;);
+</code></pre>
+<p>Class.forName()要求JVM查找并加载指定的类，会执行该类的静态代码段。JDBC规范要求数据库厂家的Driver实现都必须向DriverManager注册自己。如com.mysql.jdbc.Driver类中，有以下静态块：</p>
+<pre><code>　　static {
 　　　　try {
 　　　　　　java.sql.DriverManager.registerDriver(new Driver());
 　　　　} catch (SQLException E) {
-　　　　　　throw new RuntimeException(&quot;Can&#39;t register driver!&quot;);
+　　　　　　throw new RuntimeException(&quot;Can't register driver!&quot;);
 　　　　}
-　　}</code></pre></li>
-<li><em>连接数据库*</em>：</li>
-<li>DriverManager.getConnection(String url, String user, String password) <pre><code>Connection conn = DriverManager.getConnection(url, user, password) ;</code></pre><h4 id="Connection"><a href="#Connection" class="headerlink" title="Connection"></a>Connection</h4>　　所有与数据库交互都是基于连接对象的，在连接上下文中执行sql语句并返回结果。</li>
-<li><em>创建statement对象*</em>:</li>
+　　}
+</code></pre>
+<p><strong>连接数据库</strong>：</p>
+<ul>
+<li>DriverManager.getConnection(String url, String user, String password)</li>
+</ul>
+<pre><code>Connection conn = DriverManager.getConnection(url, user, password) ;
+</code></pre>
+<h4 id="Connection"><a class="header-anchor" href="#Connection">¶</a>Connection</h4>
+<p>所有与数据库交互都是基于连接对象的，在连接上下文中执行sql语句并返回结果。<br>
+<strong>创建statement对象</strong>:</p>
+<ul>
 <li>createStatement()：创建向数据库发送sql的statement对象。</li>
 <li>prepareStatement(sql) ：创建向数据库发送预编译sql的PrepareSatement对象。</li>
 <li>prepareCall(sql)：创建执行存储过程的callableStatement对象。</li>
@@ -4408,105 +4450,117 @@
 <li>getMetaData():获取一个DatabaseMetaData对象，该对象包含了有关数据库的基本信息</li>
 <li>close():关闭数据库连接</li>
 </ul>
-<h4 id="Statement"><a href="#Statement" class="headerlink" title="Statement"></a>Statement</h4><p>用于执行静态SQL语句并返回它所生成结果的对象。<br><strong>三种Statement类</strong>：</p>
+<h4 id="Statement"><a class="header-anchor" href="#Statement">¶</a>Statement</h4>
+<p>用于执行静态SQL语句并返回它所生成结果的对象。<br>
+<strong>三种Statement类</strong>：</p>
 <ul>
 <li>Statement：由createStatement创建，用于发送简单的SQL语句（不带参数）。</li>
-<li>PreparedStatement：继承自Statement接口，由preparedStatement创建，用于发送含有一个或多个参数的SQL语句。PreparedStatement对象比Statement对象的效率更高，并且可以防止SQL注入，一般都使用PreparedStatement。<br>如果sql语句有参数通过?来占位。过setxxx(int i,Obj obj)方法来指定参数<pre><code class="java">String sql = &quot;select *from user where username =? and password =?&quot;;
+<li>PreparedStatement：继承自Statement接口，由preparedStatement创建，用于发送含有一个或多个参数的SQL语句。PreparedStatement对象比Statement对象的效率更高，并且可以防止SQL注入，一般都使用PreparedStatement。<br>
+如果sql语句有参数通过?来占位。过setxxx(int i,Obj obj)方法来指定参数</li>
+</ul>
+<pre><code class="language-java">String sql = &quot;select *from user where username =? and password =?&quot;;
 //创建prepareStatement
 statement = connection.prepareStatement(sql);
 //设置参数
 statement.setString(1, username);
 statement.setString(2, password);
+
+resultSet = statement.executeQuery();
 </code></pre>
-</li>
+<ul>
+<li>CallableStatement：继承自PreparedStatement接口，由方法prepareCall创建，用于调用存储过程。</li>
 </ul>
-<p>resultSet = statement.executeQuery();</p>
-<pre><code>* CallableStatement：继承自PreparedStatement接口，由方法prepareCall创建，用于调用存储过程。
+<p><strong>执行sql</strong>：</p>
+<ul>
+<li>execute(String sql):执行任意sql语句，返回boolean值，表示是否返回的是ResultSet结果集。只有不确定是什么语句的时候才应使用execute()方法</li>
+<li>executeQuery(String sql)：只能运行select语句，返回ResultSet结果集。</li>
+<li>executeUpdate(String sql)：运行insert/update/delete操作，返回更新的行数。</li>
+</ul>
+<p><strong>批处理</strong>：</p>
+<ul>
+<li>addBatch(String sql) ：把多条sql语句放到一个批处理中。</li>
+<li>executeBatch()：向数据库发送一批sql语句执行。</li>
+</ul>
+<h5 id="ResultSet"><a class="header-anchor" href="#ResultSet">¶</a>ResultSet</h5>
+<p>查询数据结果集，可以作为迭代器通过移动获取数据。维护了一个游标，默认游指向结果集第一行之前。不可修改，Connection关闭后，就不再可用。<br>
+检索不同类型字段的方法：</p>
+<ul>
+<li>getString(int index)、getString(String columnName)：获得在数据库里是varchar、char等类型的数据对象。</li>
+<li>getFloat(int index)、getFloat(String columnName)：获得在数据库里是Float类型的数据对象。</li>
+<li>getDate(int index)、getDate(String columnName)：获得在数据库里是Date类型的数据。</li>
+<li>getBoolean(int index)、getBoolean(String columnName)：获得在数据库里是Boolean类型的数据。</li>
+<li>getObject(int index)、getObject(String columnName)：获取在数据库里任意类型的数据。</li>
+</ul>
+<p>对结果集进行滚动的方法：</p>
+<ul>
+<li>next()：移动到下一行</li>
+<li>Previous()：移动到前一行</li>
+<li>absolute(int row)：移动到指定行</li>
+<li>beforeFirst()：移动resultSet的最前面。</li>
+<li>afterLast() ：移动到resultSet的最后面。</li>
+</ul>
+<p>判断：</p>
+<ul>
+<li>isAfterLast(): 是否到了结尾</li>
+<li>isBeforeFirst(): 是否到了开头</li>
+<li>isFirst():是否第一条记录</li>
+<li>isLast(): 是否最后一条记录</li>
+<li>wasNull():检查列值是否为NULL值，如果列的类型为基本类型，且数据库中的值为0，那么<br>
+这项检查就很重要。由于数据库NULL也返回0，所以0值和数据库的NULL不能区分。如果列的类型为对象，可以简单地将返回值与null比较</li>
+<li>void close()关闭ResultSet 对象</li>
+</ul>
+<p>使用后依次关闭对象及连接：ResultSet → Statement → Connection</p>
+<h3 id="java-sql操作数据库完整步骤示例"><a class="header-anchor" href="#java-sql操作数据库完整步骤示例">¶</a>java.sql操作数据库完整步骤示例</h3>
+<pre><code>    void jdbcTemple() {
 
-**执行sql**：
-* execute(String sql):执行任意sql语句，返回boolean值，表示是否返回的是ResultSet结果集。只有不确定是什么语句的时候才应使用execute()方法
-* executeQuery(String sql)：只能运行select语句，返回ResultSet结果集。
-* executeUpdate(String sql)：运行insert/update/delete操作，返回更新的行数。
+        Connection connection = null;
+        Statement statement = null;
+        ResultSet resultSet = null;
 
-**批处理**：
-* addBatch(String sql) ：把多条sql语句放到一个批处理中。
-* executeBatch()：向数据库发送一批sql语句执行。
-
-##### ResultSet
-　查询数据结果集，可以作为迭代器通过移动获取数据。维护了一个游标，默认游指向结果集第一行之前。不可修改，Connection关闭后，就不再可用。
-检索不同类型字段的方法：
-* getString(int index)、getString(String columnName)：获得在数据库里是varchar、char等类型的数据对象。
-* getFloat(int index)、getFloat(String columnName)：获得在数据库里是Float类型的数据对象。
-* getDate(int index)、getDate(String columnName)：获得在数据库里是Date类型的数据。
-* getBoolean(int index)、getBoolean(String columnName)：获得在数据库里是Boolean类型的数据。
-* getObject(int index)、getObject(String columnName)：获取在数据库里任意类型的数据。
-
-对结果集进行滚动的方法：
-* next()：移动到下一行
-* Previous()：移动到前一行
-* absolute(int row)：移动到指定行
-* beforeFirst()：移动resultSet的最前面。
-* afterLast() ：移动到resultSet的最后面。
-
-判断：
-* isAfterLast(): 是否到了结尾
-* isBeforeFirst(): 是否到了开头
-* isFirst():是否第一条记录   
-* isLast(): 是否最后一条记录
-* wasNull():检查列值是否为NULL值，如果列的类型为基本类型，且数据库中的值为0，那么
-这项检查就很重要。由于数据库NULL也返回0，所以0值和数据库的NULL不能区分。如果列的类型为对象，可以简单地将返回值与null比较
-* void close()关闭ResultSet 对象
-
-使用后依次关闭对象及连接：ResultSet → Statement → Connection
-### java.sql操作数据库完整步骤示例</code></pre><pre><code>void jdbcTemple() {
-
-    Connection connection = null;
-    Statement statement = null;
-    ResultSet resultSet = null;
-
-    try {
-        //1.注册驱动
-        Class.forName(driverClass);
-        //2.建立连接
-        connection = DriverManager.getConnection(url, user, password);
-        //3.创建Statement
-        statement = connection.createStatement();
-        //4.执行sql语句
-        resultSet = statement.executeQuery(&quot;SELECT * FROM users&quot;);
-        //5.处理结果
-        while (resultSet.next()) {
-            resultSet.getString(columnIndex);
-            resultSet.getString(columnLabel);
-        }
-    } catch (SQLException | ClassNotFoundException e) {
-        e.printStackTrace();
-    } finally {
-        //6.关闭连接
         try {
-            if (resultSet != null) {
-                resultSet.close();
+            //1.注册驱动
+            Class.forName(driverClass);
+            //2.建立连接
+            connection = DriverManager.getConnection(url, user, password);
+            //3.创建Statement
+            statement = connection.createStatement();
+            //4.执行sql语句
+            resultSet = statement.executeQuery(&quot;SELECT * FROM users&quot;);
+            //5.处理结果
+            while (resultSet.next()) {
+                resultSet.getString(columnIndex);
+                resultSet.getString(columnLabel);
             }
-        } catch (SQLException e) {
+        } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         } finally {
+            //6.关闭连接
             try {
-                if (statement != null) {
-                    statement.close();
+                if (resultSet != null) {
+                    resultSet.close();
                 }
             } catch (SQLException e) {
                 e.printStackTrace();
             } finally {
                 try {
-                    if (connection != null) {
-                        connection.close();
+                    if (statement != null) {
+                        statement.close();
                     }
                 } catch (SQLException e) {
                     e.printStackTrace();
+                } finally {
+                    try {
+                        if (connection != null) {
+                            connection.close();
+                        }
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    }
                 }
             }
         }
     }
-}</code></pre><p>```</p>
+</code></pre>
 
 </div>
 
@@ -4516,19 +4570,23 @@ statement.setString(2, password);
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

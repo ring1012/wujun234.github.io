@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		3 算法实现 | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,19 +4395,22 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:51</span>
+	<span id="post-date">2019-12-18 01:00:42</span>
 </div>
 
 
 <div id="article">
 	<p>HotSpot的算法实现</p>
-<h3 id="1-枚举根节点"><a href="#1-枚举根节点" class="headerlink" title="1 枚举根节点"></a>1 枚举根节点</h3><p>GC Roots 的节点主要是在全局性的引用（常量、类静态属性）与执行上下文（栈帧中的本地变量表）中，若逐个检查很耗时。</p>
+<h3 id="1-枚举根节点"><a class="header-anchor" href="#1-枚举根节点">¶</a>1 枚举根节点</h3>
+<p>GC Roots 的节点主要是在全局性的引用（常量、类静态属性）与执行上下文（栈帧中的本地变量表）中，若逐个检查很耗时。</p>
 <p>GC 进行时必须停顿所有Java执行线程（Stop The World）。</p>
 <p>并不需要一个不漏地检查完所有引用位置，HotSpot 用 <strong>OopMap</strong> 来记录，GC 扫描时就直接知道了。</p>
-<h3 id="2-安全点"><a href="#2-安全点" class="headerlink" title="2 安全点"></a>2 安全点</h3><p>并非在所有地方都能停顿下来GC，因为为每条指令都生成OopMap太浪费，只在特定安全点执行。</p>
+<h3 id="2-安全点"><a class="header-anchor" href="#2-安全点">¶</a>2 安全点</h3>
+<p>并非在所有地方都能停顿下来GC，因为为每条指令都生成OopMap太浪费，只在特定安全点执行。</p>
 <p>只有到达安全点才能暂停，GC。</p>
 <p>有抢先式中断和主动式中断两种。通常用主动式中断</p>
-<h3 id="3-安全区域"><a href="#3-安全区域" class="headerlink" title="3 安全区域"></a>3 安全区域</h3><p>被扩展的安全点，主要处理“不执行”的线程，Sleep 或 Blocked</p>
+<h3 id="3-安全区域"><a class="header-anchor" href="#3-安全区域">¶</a>3 安全区域</h3>
+<p>被扩展的安全点，主要处理“不执行”的线程，Sleep 或 Blocked</p>
 
 </div>
 
@@ -4394,19 +4420,23 @@
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		04 多版本并发控制 | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,47 +4395,61 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:22</span>
+	<span id="post-date">2019-12-18 01:00:43</span>
 </div>
 
 
 <div id="article">
 	<p>多版本并发控制（Multi-Version Concurrency Control, MVCC）实现<strong>提交读</strong>和<strong>可重复读</strong>这两种隔离级别。未提交读无需使用 MVCC。可串行化单纯使用 MVCC 无法实现。</p>
-<h3 id="1-原理"><a href="#1-原理" class="headerlink" title="1 原理"></a>1 原理</h3><p>MVCC是行级锁的一个变种，尽可能避免加锁，非阻塞读操作，写操作只锁定必要的行。</p>
+<h3 id="1-原理"><a class="header-anchor" href="#1-原理">¶</a>1 原理</h3>
+<p>MVCC是行级锁的一个变种，尽可能避免加锁，非阻塞读操作，写操作只锁定必要的行。</p>
 <p>MVCC是通过保存数据在某个时间点的<strong>快照</strong>来实现的。任意时间每个事务看到的数据一致。不同事务同一时刻看到的数据可能不同。</p>
-<h5 id="隐藏列"><a href="#隐藏列" class="headerlink" title="隐藏列"></a>隐藏列</h5><p>MVCC 在每行记录后面都保存着两个隐藏的列，用来存储两个版本号：</p>
+<h5 id="隐藏列"><a class="header-anchor" href="#隐藏列">¶</a>隐藏列</h5>
+<p>MVCC 在每行记录后面都保存着两个隐藏的列，用来存储两个版本号：</p>
 <ul>
 <li>行版本号：该快照创建时间的系统版本号；</li>
 <li>行删除标识：如删除版本号大于当前事务版本号表示该快照有效，否则表示该快照已被删除。</li>
 </ul>
-<h5 id="版本号"><a href="#版本号" class="headerlink" title="版本号"></a>版本号</h5><ul>
+<h5 id="版本号"><a class="header-anchor" href="#版本号">¶</a>版本号</h5>
+<ul>
 <li>系统版本号：递增的数字，每个新事务自动递增。</li>
 <li>事务版本号：事务开始时的系统版本号。</li>
 </ul>
-<h5 id="Undo-日志"><a href="#Undo-日志" class="headerlink" title="Undo 日志"></a>Undo 日志</h5><p>快照存储在 Undo 日志中，该日志通过回滚指针把一个数据行的所有快照连接起来。</p>
-<h3 id="2-实现过程"><a href="#2-实现过程" class="headerlink" title="2 实现过程"></a>2 实现过程</h3><ol>
+<h5 id="Undo-日志"><a class="header-anchor" href="#Undo-日志">¶</a>Undo 日志</h5>
+<p>快照存储在 Undo 日志中，该日志通过回滚指针把一个数据行的所有快照连接起来。</p>
+<h3 id="2-实现过程"><a class="header-anchor" href="#2-实现过程">¶</a>2 实现过程</h3>
+<ol>
 <li>每行数据都存在一个版本，每次数据更新时都更新该版本。</li>
 <li>修改时Copy出当前版本随意修改，各个事务之间无干扰。</li>
 <li>保存时比较版本号，如果成功（commit），则覆盖原记录；失败则放弃copy（rollback）</li>
 </ol>
 <ul>
-<li>SELECT<ul>
+<li>SELECT
+<ul>
 <li>InnoDB只查找版本早于当前事务版本的数据行</li>
 <li>行的删除版本要么未定义，要么大于当前事务版本号。</li>
 </ul>
 </li>
-<li>INSERT<br>InnoDB为新插入的每一行保存当前系统版本号作为行版本号。</li>
-<li>DELETE<br>InnoDB为删除的每一行保存当前系统版本号作为行删除标识。</li>
-<li>UPDATE<br>将当前系统版本号作为更新前的数据行快照的删除版本号，并将当前系统版本号作为更新后的数据行快照的创建版本号。可以理解为先执行 DELETE 后执行 INSERT。</li>
+<li>INSERT<br>
+InnoDB为新插入的每一行保存当前系统版本号作为行版本号。</li>
+<li>DELETE<br>
+InnoDB为删除的每一行保存当前系统版本号作为行删除标识。</li>
+<li>UPDATE<br>
+将当前系统版本号作为更新前的数据行快照的删除版本号，并将当前系统版本号作为更新后的数据行快照的创建版本号。可以理解为先执行 DELETE 后执行 INSERT。</li>
 </ul>
-<h3 id="3-快照读与当前读"><a href="#3-快照读与当前读" class="headerlink" title="3 快照读与当前读"></a>3 快照读与当前读</h3><h5 id="快照读"><a href="#快照读" class="headerlink" title="快照读"></a>快照读</h5><p>使用 MVCC 读取的是快照中的数据，这样可以减少加锁所带来的开销。</p>
-<pre><code class="sql">select * from table ...;</code></pre>
-<h5 id="当前读"><a href="#当前读" class="headerlink" title="当前读"></a>当前读</h5><p>读取的是最新的数据，需要加锁。以下第一个语句需要加 S 锁，其它都需要加 X 锁。</p>
-<pre><code class="sql">select * from table where ? lock in share mode;
+<h3 id="3-快照读与当前读"><a class="header-anchor" href="#3-快照读与当前读">¶</a>3 快照读与当前读</h3>
+<h5 id="快照读"><a class="header-anchor" href="#快照读">¶</a>快照读</h5>
+<p>使用 MVCC 读取的是快照中的数据，这样可以减少加锁所带来的开销。</p>
+<pre><code class="language-sql">select * from table ...;
+</code></pre>
+<h5 id="当前读"><a class="header-anchor" href="#当前读">¶</a>当前读</h5>
+<p>读取的是最新的数据，需要加锁。以下第一个语句需要加 S 锁，其它都需要加 X 锁。</p>
+<pre><code class="language-sql">select * from table where ? lock in share mode;
 select * from table where ? for update;
 insert;
 update;
-delete;</code></pre>
+delete;
+</code></pre>
 
 </div>
 
@@ -4422,19 +4459,23 @@ delete;</code></pre>
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

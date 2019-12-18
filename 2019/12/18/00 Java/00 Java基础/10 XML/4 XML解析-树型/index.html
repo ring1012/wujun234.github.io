@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		4 XML解析-树型 | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,17 +4395,22 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:48</span>
+	<span id="post-date">2019-12-18 01:00:41</span>
 </div>
 
 
 <div id="article">
 	<p>xml文件除了给开发者看，更多的情况使用程序读取xml文件的内容。读取xml文档的过程就是xml解析</p>
-<h3 id="1-XML解析方式"><a href="#1-XML解析方式" class="headerlink" title="1 XML解析方式"></a>1 XML解析方式</h3><p>Java库提供了两种XML解析器：</p>
-<h5 id="树型解析器：DOM解析"><a href="#树型解析器：DOM解析" class="headerlink" title="树型解析器：DOM解析"></a>树型解析器：DOM解析</h5><p>DOM解析器一次性把整个xml文档加载进内存，然后在内存中构建一个Document的对象树，通过Document对象，得到树上的节点对象，通过节点对象访问（操作）到xml文档的内容</p>
-<h5 id="流机制解析器：SAX解析"><a href="#流机制解析器：SAX解析" class="headerlink" title="流机制解析器：SAX解析"></a>流机制解析器：SAX解析</h5><p>DOM解析对内存要求较高，处理大容量的xml文件容易溢出</p>
+<h3 id="1-XML解析方式"><a class="header-anchor" href="#1-XML解析方式">¶</a>1 XML解析方式</h3>
+<p>Java库提供了两种XML解析器：</p>
+<h5 id="树型解析器：DOM解析"><a class="header-anchor" href="#树型解析器：DOM解析">¶</a>树型解析器：DOM解析</h5>
+<p>DOM解析器一次性把整个xml文档加载进内存，然后在内存中构建一个Document的对象树，通过Document对象，得到树上的节点对象，通过节点对象访问（操作）到xml文档的内容</p>
+<h5 id="流机制解析器：SAX解析"><a class="header-anchor" href="#流机制解析器：SAX解析">¶</a>流机制解析器：SAX解析</h5>
+<p>DOM解析对内存要求较高，处理大容量的xml文件容易溢出</p>
 <p>SAX解析原理是加载一点，读取一点，处理一点。对内存的要求较低。</p>
-<h3 id="2-DOM解析"><a href="#2-DOM解析" class="headerlink" title="2 DOM解析"></a>2 DOM解析</h3><h5 id="Document"><a href="#Document" class="headerlink" title="Document"></a>Document</h5><p>Document对象是XML文档的树型结构在内存中的表示方式，它由实现了Node接口及其各种子接口的类的对象构成。</p>
+<h3 id="2-DOM解析"><a class="header-anchor" href="#2-DOM解析">¶</a>2 DOM解析</h3>
+<h5 id="Document"><a class="header-anchor" href="#Document">¶</a>Document</h5>
+<p>Document对象是XML文档的树型结构在内存中的表示方式，它由实现了Node接口及其各种子接口的类的对象构成。</p>
 <p>Document树只有一个根标签，树上的分支叫做节点（Node）</p>
 <ul>
 <li>节点信息：节点名称，节点类型—&gt;封装为Node</li>
@@ -4390,33 +4418,60 @@
 <li>属性节点：属性名称，属性值—&gt;封装为Attribute</li>
 <li>文本节点：文本内容—&gt;封装为Text</li>
 </ul>
-<h4 id="2-1-DocumentBuilder"><a href="#2-1-DocumentBuilder" class="headerlink" title="2.1 DocumentBuilder"></a>2.1 DocumentBuilder</h4><p>要读入一个XML文档，首先需要一个DocumentBuilder对象，可以从DocumentBuilderFactory获取</p>
+<h4 id="2-1-DocumentBuilder"><a class="header-anchor" href="#2-1-DocumentBuilder">¶</a>2.1 DocumentBuilder</h4>
+<p>要读入一个XML文档，首先需要一个DocumentBuilder对象，可以从DocumentBuilderFactory获取</p>
 <pre><code>DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-DocumentBuilder builder = factory.newDocumentBuilder();</code></pre><h4 id="2-2-读取文档"><a href="#2-2-读取文档" class="headerlink" title="2.2 读取文档"></a>2.2 读取文档</h4><p>从文件</p>
+DocumentBuilder builder = factory.newDocumentBuilder();
+</code></pre>
+<h4 id="2-2-读取文档"><a class="header-anchor" href="#2-2-读取文档">¶</a>2.2 读取文档</h4>
+<p>从文件</p>
 <pre><code>File f = ...;
-Doucument doc = builder.parse(f);</code></pre><p>从URL</p>
+Doucument doc = builder.parse(f);
+</code></pre>
+<p>从URL</p>
 <pre><code>URL u = ...;
-Document doc = builder.parse(u);</code></pre><p>从任意输入流</p>
+Document doc = builder.parse(u);
+</code></pre>
+<p>从任意输入流</p>
 <pre><code>InputStream in = ...;
-Document doc = builder.parse(in);</code></pre><h4 id="2-3-分析文档"><a href="#2-3-分析文档" class="headerlink" title="2.3 分析文档"></a>2.3 分析文档</h4><h4 id="获取元素"><a href="#获取元素" class="headerlink" title="获取元素"></a>获取元素</h4><h5 id="根元素"><a href="#根元素" class="headerlink" title="根元素"></a>根元素</h5><pre><code>Element root = doc.getDocumentElement();</code></pre><h5 id="子元素"><a href="#子元素" class="headerlink" title="子元素"></a>子元素</h5><p>返回子元素集合，包含元素间空白</p>
-<pre><code>NodeList children = root.getChildNodes();</code></pre><p>忽略空白字符</p>
-<pre><code class="java">for(int i = 0; i &lt; children.getLengrh(); i++){
+Document doc = builder.parse(in);
+</code></pre>
+<h4 id="2-3-分析文档"><a class="header-anchor" href="#2-3-分析文档">¶</a>2.3 分析文档</h4>
+<h4 id="获取元素"><a class="header-anchor" href="#获取元素">¶</a>获取元素</h4>
+<h5 id="根元素"><a class="header-anchor" href="#根元素">¶</a>根元素</h5>
+<pre><code>Element root = doc.getDocumentElement();
+</code></pre>
+<h5 id="子元素"><a class="header-anchor" href="#子元素">¶</a>子元素</h5>
+<p>返回子元素集合，包含元素间空白</p>
+<pre><code>NodeList children = root.getChildNodes();
+</code></pre>
+<p>忽略空白字符</p>
+<pre><code class="language-java">for(int i = 0; i &lt; children.getLengrh(); i++){
     Node child = children.item(i);
     if(child instanceif Element){
         Element childElement = (Element)child;
         ...
     }
-}</code></pre>
+}
+</code></pre>
 <p>getFirstChild\getLastChild</p>
-<h5 id="兄弟元素"><a href="#兄弟元素" class="headerlink" title="兄弟元素"></a>兄弟元素</h5><p>getNextSibling</p>
-<h4 id="取值"><a href="#取值" class="headerlink" title="取值"></a>取值</h4><h5 id="标签名"><a href="#标签名" class="headerlink" title="标签名"></a>标签名</h5><pre><code>String tagName = root.getTagName();</code></pre><h5 id="文本值"><a href="#文本值" class="headerlink" title="文本值"></a>文本值</h5><p>getData获取存储在Text节点中的字符串</p>
-<h5 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h5><p>getAttributes返回包含了描述属性的NamedNodeMap。</p>
-<pre><code class="java">NamedNodeMap attributes = element.getAttributes();
+<h5 id="兄弟元素"><a class="header-anchor" href="#兄弟元素">¶</a>兄弟元素</h5>
+<p>getNextSibling</p>
+<h4 id="取值"><a class="header-anchor" href="#取值">¶</a>取值</h4>
+<h5 id="标签名"><a class="header-anchor" href="#标签名">¶</a>标签名</h5>
+<pre><code>String tagName = root.getTagName();
+</code></pre>
+<h5 id="文本值"><a class="header-anchor" href="#文本值">¶</a>文本值</h5>
+<p>getData获取存储在Text节点中的字符串</p>
+<h5 id="属性"><a class="header-anchor" href="#属性">¶</a>属性</h5>
+<p>getAttributes返回包含了描述属性的NamedNodeMap。</p>
+<pre><code class="language-java">NamedNodeMap attributes = element.getAttributes();
 for(int i = 0; i &lt; attributes.getLengrh(); i++){
     Node attribute = attributes.item(i);
     String name = attribute.getNodeName();
     String value = attribute.getNodeValue();
-}</code></pre>
+}
+</code></pre>
 <p>getAttribute(name)</p>
 
 </div>
@@ -4427,19 +4482,23 @@ for(int i = 0; i &lt; attributes.getLengrh(); i++){
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

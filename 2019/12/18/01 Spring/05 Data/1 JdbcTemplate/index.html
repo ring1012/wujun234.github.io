@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		1 JdbcTemplate | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,16 +4395,18 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:18</span>
+	<span id="post-date">2019-12-18 01:00:42</span>
 </div>
 
 
 <div id="article">
 	<p>为了避免业务层模块强依赖于某种类型的数据库，Spring数据库访问层以接口形式对外提供服务。</p>
 <p>使用Spring JDBC的异常体系，描述能力强，且平台无关。</p>
-<h3 id="1-数据访问模板化"><a href="#1-数据访问模板化" class="headerlink" title="1 数据访问模板化"></a>1 数据访问模板化</h3><p>数据访问过程中的固定步骤和变量分为两类：</p>
+<h3 id="1-数据访问模板化"><a class="header-anchor" href="#1-数据访问模板化">¶</a>1 数据访问模板化</h3>
+<p>数据访问过程中的固定步骤和变量分为两类：</p>
 <ul>
-<li>模板（templates）：处理数据访问的固定部分——事务控制、 管理资源以及处理异<br>常。 </li>
+<li>模板（templates）：处理数据访问的固定部分——事务控制、 管理资源以及处理异<br>
+常。</li>
 <li>回调（callbacks）：处理应用程序相关的数据访问——语句、 绑定参数以及整理结果集</li>
 </ul>
 <p><img src="/images/1545011852055.png" alt="Spring数据访问架构"></p>
@@ -4393,7 +4418,8 @@
 <th>模板类（org.springframework.*）</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>JDBC</td>
 <td>jdbc.core.JdbcTemplate</td>
 </tr>
@@ -4417,22 +4443,28 @@
 <td>JPA</td>
 <td>orm.jpa.JpaTemplate</td>
 </tr>
-</tbody></table>
-<h3 id="2-配置DataSource"><a href="#2-配置DataSource" class="headerlink" title="2 配置DataSource"></a>2 配置DataSource</h3><p>使用JdbcTemplate需设置DataSource，提供了多种配置方式：</p>
+</tbody>
+</table>
+<h3 id="2-配置DataSource"><a class="header-anchor" href="#2-配置DataSource">¶</a>2 配置DataSource</h3>
+<p>使用JdbcTemplate需设置DataSource，提供了多种配置方式：</p>
 <ol>
 <li>JDBC驱动；</li>
 <li>JNDI查询；</li>
 <li>数据库连接池；</li>
 </ol>
 <p>生产环境建议使用从连接池获取连接的数据源；如果有可能，倾向于通过应用服务器的JNDI来获取数据源。</p>
-<h5 id="1、JNDI数据源"><a href="#1、JNDI数据源" class="headerlink" title="1、JNDI数据源"></a>1、JNDI数据源</h5><p>在Spring应用部署的服务器中配置数据源，通过JNDI获取。数据源配置在应用外部，允许在访问数据库的时再查找数据源，且支持热切换。</p>
+<h5 id="1、JNDI数据源"><a class="header-anchor" href="#1、JNDI数据源">¶</a>1、JNDI数据源</h5>
+<p>在Spring应用部署的服务器中配置数据源，通过JNDI获取。数据源配置在应用外部，允许在访问数据库的时再查找数据源，且支持热切换。</p>
 <pre><code>public JndiObjectFactoryBean dataSource() {
     JndiObjectFactoryBean jndiObjectFB = new JndiObjectFactoryBean();
     jndiObjectFB.setJndiName(&quot;/jdbc/xxxx&quot;);
     jndiObjectFB.setResourceRef(true);
     jndiObjectFB.setProxyInterface(javax.sql.DataSource.class);
     return jndiObjectFB;
-}</code></pre><h5 id="2、数据库连接池"><a href="#2、数据库连接池" class="headerlink" title="2、数据库连接池"></a>2、数据库连接池</h5><p>有多项开源数据源连接池实现：Apache Commons DBCP、c3p0、BoneCP</p>
+}
+</code></pre>
+<h5 id="2、数据库连接池"><a class="header-anchor" href="#2、数据库连接池">¶</a>2、数据库连接池</h5>
+<p>有多项开源数据源连接池实现：Apache Commons DBCP、c3p0、BoneCP</p>
 <p>以 <a href="http://commons.apache.org/proper/commons-dbcp/" target="_blank" rel="noopener">DBCP</a> 为例，BasicDataSource配置连接池</p>
 <pre><code>public BasicDataSource dataSource() {
   BasicDataSource ds = new BasicDataSource();
@@ -4442,7 +4474,10 @@
   ds.setPassword(&quot;&quot;);
   ds.setInitialSize(5);
   return ds;
-}</code></pre><h5 id="3、JDBC驱动"><a href="#3、JDBC驱动" class="headerlink" title="3、JDBC驱动"></a>3、JDBC驱动</h5><p>通过JDBC驱动定义数据源是最简单的配置方式。 org.springframework.jdbc.datasource包中提供了三个数据源类：</p>
+}
+</code></pre>
+<h5 id="3、JDBC驱动"><a class="header-anchor" href="#3、JDBC驱动">¶</a>3、JDBC驱动</h5>
+<p>通过JDBC驱动定义数据源是最简单的配置方式。 org.springframework.jdbc.datasource包中提供了三个数据源类：</p>
 <ol>
 <li>DriverManagerDataSource：每次请求连接时都返回新的连接，用过的连接会马上关闭并释放资源；</li>
 <li>SimpleDriverDataSource：与DriverManagerDataSource类似，但直接使用JDBC驱动，免去了类在特定环境（如OSGi容器）中可能遇到的类加载问题。</li>
@@ -4457,8 +4492,11 @@ public DataSource dataSource() {
   ds.setUsername(&quot;sa&quot;);
   ds.setPassword(&quot;&quot;);
    return ds;
-}</code></pre><p>已上三数据源对多线程支持都不好，强烈建议使用数据库连接池。</p>
-<h5 id="4、选择数据源"><a href="#4、选择数据源" class="headerlink" title="4、选择数据源"></a>4、选择数据源</h5><p>借助Spring的bean-profiles特性，在不同的环境中配置不同的数据源。利用@Profile注解，在运行时根据激活的profile选择指定的数据源。</p>
+}
+</code></pre>
+<p>已上三数据源对多线程支持都不好，强烈建议使用数据库连接池。</p>
+<h5 id="4、选择数据源"><a class="header-anchor" href="#4、选择数据源">¶</a>4、选择数据源</h5>
+<p>借助Spring的bean-profiles特性，在不同的环境中配置不同的数据源。利用@Profile注解，在运行时根据激活的profile选择指定的数据源。</p>
 <pre><code>@Configuration
 public class DataSourceConfiguration {
     @Profile(&quot;development&quot;)
@@ -4483,25 +4521,46 @@ public class DataSourceConfiguration {
         ...
         return (DataSource)jndiObjectFactoryBean.getObject();
     }
-}</code></pre><h3 id="3-使用JdbcTemplate"><a href="#3-使用JdbcTemplate" class="headerlink" title="3 使用JdbcTemplate"></a>3 使用JdbcTemplate</h3><p><a href="https://www.jianshu.com/p/aec25eea5c71" target="_blank" rel="noopener">JDBC </a> 直接操作数据库， 处理与数据库访问相关的所有事情， 样板代码繁琐，但很重要。Spring的JDBC框架承担了资源管理和异常处理的样板代码，开发者只需编写读写数据的必需代码。</p>
+}
+</code></pre>
+<h3 id="3-使用JdbcTemplate"><a class="header-anchor" href="#3-使用JdbcTemplate">¶</a>3 使用JdbcTemplate</h3>
+<p><a href="https://www.jianshu.com/p/aec25eea5c71" target="_blank" rel="noopener">JDBC </a> 直接操作数据库， 处理与数据库访问相关的所有事情， 样板代码繁琐，但很重要。Spring的JDBC框架承担了资源管理和异常处理的样板代码，开发者只需编写读写数据的必需代码。</p>
 <p><strong>JdbcTemplate</strong>是最主要的JDBC模板，支持简单的JDBC数据库访问功能以及基于索引参数的查询；还提供了NameParameterJdbcTemplate支持命名参数。</p>
-<h5 id="1、CRUD"><a href="#1、CRUD" class="headerlink" title="1、CRUD"></a>1、CRUD</h5><p>使用JdbcTemplate前需设置DataSource</p>
-<pre><code>  JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);</code></pre><ul>
-<li><p>增删改</p>
+<h5 id="1、CRUD"><a class="header-anchor" href="#1、CRUD">¶</a>1、CRUD</h5>
+<p>使用JdbcTemplate前需设置DataSource</p>
+<pre><code>  JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
+</code></pre>
 <ul>
-<li>update(final String sql)<pre><code>String sql = &quot;insert into user (username, password) values (?, ?)&quot;;
-jdbcTemplate.update(sql, username, password);</code></pre>当调用update()方法时，JdbcTemplate调用jdbc获取一个连接、创建一个statement，并执行插入语句。内部捕获了可能抛出的SQLException异常，然后转为更具体的数据库访问异常，并重新抛出。</li>
-</ul>
-</li>
-<li><p>查</p>
+<li>增删改
 <ul>
-<li>queryForObject(String sql, RowMapper<T> rowMapper, Object… args)<pre><code>User user = jdbcOperations.queryForObject(sql,new UserMapper (),param);
-</code></pre></li>
+<li>update(final String sql)</li>
 </ul>
 </li>
 </ul>
-<p>public class UserMapper implements RowMapper<User>{<br>    @Override<br>    public User mapRow(ResultSet resultSet, int rows) throws SQLException {<br>        User user = new User();<br>        user.setUsername(resultSet.getString(1));<br>        user.setPassword(resultSet.getString(2));<br>        return user;<br>    }<br>}</p>
-<p>```<br>需要实现一个RowMapper对象，JdbcTemplate会调用mapRow()方法，从结果集中取出对应属性的值，并构造对象。</p>
+<pre><code>String sql = &quot;insert into user (username, password) values (?, ?)&quot;;
+jdbcTemplate.update(sql, username, password);
+</code></pre>
+<p>当调用update()方法时，JdbcTemplate调用jdbc获取一个连接、创建一个statement，并执行插入语句。内部捕获了可能抛出的SQLException异常，然后转为更具体的数据库访问异常，并重新抛出。</p>
+<ul>
+<li>查
+<ul>
+<li>queryForObject(String sql, RowMapper<T> rowMapper, Object… args)</li>
+</ul>
+</li>
+</ul>
+<pre><code>User user = jdbcOperations.queryForObject(sql,new UserMapper (),param);
+
+public class UserMapper implements RowMapper&lt;User&gt;{
+    @Override
+    public User mapRow(ResultSet resultSet, int rows) throws SQLException {
+        User user = new User();
+        user.setUsername(resultSet.getString(1));
+        user.setPassword(resultSet.getString(2));
+        return user;
+    }
+}
+</code></pre>
+<p>需要实现一个RowMapper对象，JdbcTemplate会调用mapRow()方法，从结果集中取出对应属性的值，并构造对象。</p>
 
 </div>
 
@@ -4511,19 +4570,23 @@ jdbcTemplate.update(sql, username, password);</code></pre>当调用update()方�
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

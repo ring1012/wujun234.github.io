@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		2 高级装配 | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,25 +4395,46 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:17</span>
+	<span id="post-date">2019-12-18 01:00:42</span>
 </div>
 
 
 <div id="article">
-	<h3 id="3-1-环境与profile"><a href="#3-1-环境与profile" class="headerlink" title="3.1 环境与profile"></a>3.1 环境与profile</h3><h5 id="配置profile"><a href="#配置profile" class="headerlink" title="配置profile"></a>配置profile</h5><ul>
-<li>@Profile注解<br>指定某个bean属于哪一个profile，运行时做出环境决策。<br>没有指定profile的bean始终都会被创建， 与激活哪个profile没有关系。<pre><code>@Profile(&quot;dev&quot;)
-@Profile(&quot;prod&quot;)</code></pre><h5 id="激活profiles"><a href="#激活profiles" class="headerlink" title="激活profiles"></a>激活profiles</h5>Spring提供了两个配置项定义激活哪个profile：<br><strong>spring.profiles.active</strong>：优先<br><strong>spring.profiles.default</strong>：没有active则找default<br>如都没有设置，则只会创建没有被profile修饰的bean。  <h3 id="3-2-条件化的bean"><a href="#3-2-条件化的bean" class="headerlink" title="3.2 条件化的bean"></a>3.2 条件化的bean</h3><ul>
-<li><strong>@Conditional</strong><br>作用于@Bean注解修饰的方法上，通过判断指定的条件是否满足来决定是否创建该bean。<br>传入注解的类一定要实现Condition接口，提供matchs()方法——如果matches()方法返回true，则被@Conditional注解修饰的bean就会创建，否则对应的bean不会创建。<pre><code>@Bean
+	<h3 id="3-1-环境与profile"><a class="header-anchor" href="#3-1-环境与profile">¶</a>3.1 环境与profile</h3>
+<h5 id="配置profile"><a class="header-anchor" href="#配置profile">¶</a>配置profile</h5>
+<ul>
+<li>@Profile注解<br>
+指定某个bean属于哪一个profile，运行时做出环境决策。<br>
+没有指定profile的bean始终都会被创建， 与激活哪个profile没有关系。</li>
+</ul>
+<pre><code>@Profile(&quot;dev&quot;)
+@Profile(&quot;prod&quot;)
+</code></pre>
+<h5 id="激活profiles"><a class="header-anchor" href="#激活profiles">¶</a>激活profiles</h5>
+<p>Spring提供了两个配置项定义激活哪个profile：<br>
+<strong>spring.profiles.active</strong>：优先<br>
+<strong>spring.profiles.default</strong>：没有active则找default<br>
+如都没有设置，则只会创建没有被profile修饰的bean。</p>
+<h3 id="3-2-条件化的bean"><a class="header-anchor" href="#3-2-条件化的bean">¶</a>3.2 条件化的bean</h3>
+<ul>
+<li><strong>@Conditional</strong><br>
+作用于@Bean注解修饰的方法上，通过判断指定的条件是否满足来决定是否创建该bean。<br>
+传入注解的类一定要实现Condition接口，提供matchs()方法——如果matches()方法返回true，则被@Conditional注解修饰的bean就会创建，否则对应的bean不会创建。</li>
+</ul>
+<pre><code>@Bean
 @Conditional(MagicExistsCondition.class)
 public MagicBean magicBean() {
-return new MagicBean();
-}</code></pre><h3 id="3-3-处理自动装配的歧义"><a href="#3-3-处理自动装配的歧义" class="headerlink" title="3.3 处理自动装配的歧义"></a>3.3 处理自动装配的歧义</h3></li>
+    return new MagicBean();
+}
+</code></pre>
+<h3 id="3-3-处理自动装配的歧义"><a class="header-anchor" href="#3-3-处理自动装配的歧义">¶</a>3.3 处理自动装配的歧义</h3>
+<ul>
 <li>@Primary：指定优先bean</li>
-<li>@Qualifier：指定bean的ID<br>也可在bean和注入的地方注解相同@Qualifier，或定义自定义QUALIFIER</li>
+<li>@Qualifier：指定bean的ID<br>
+也可在bean和注入的地方注解相同@Qualifier，或定义自定义QUALIFIER</li>
 </ul>
-</li>
-</ul>
-<h3 id="3-4-bean的作用域"><a href="#3-4-bean的作用域" class="headerlink" title="3.4 bean的作用域"></a>3.4 bean的作用域</h3><p>Spring定义了几种bean的作用域：</p>
+<h3 id="3-4-bean的作用域"><a class="header-anchor" href="#3-4-bean的作用域">¶</a>3.4 bean的作用域</h3>
+<p>Spring定义了几种bean的作用域：</p>
 <ul>
 <li>Singleton：单例；</li>
 <li>Prototype：原型，每次被装配时，都会创建一个新的实例；</li>
@@ -4398,16 +4442,24 @@ return new MagicBean();
 <li>Request：在web应用中，在每次http请求中创建一个bean的实例。</li>
 </ul>
 <p>Spring中的bean默认都是单例，这对可变类型是非线程安全的。如果选择其他的作用域， 要使用 <strong>@Scope</strong> 注解。</p>
-<pre><code>@Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)</code></pre><p><strong>scoped代理</strong><br>单例bean在加载时就会被创建，会话/请求bean要创建request/session时才会被创建。把会话bean装配到单例bean时，应给单例bean装配一个会话bean的代理。<br>代理类对外暴露的接口和会话bean中的一样，当单例bean调用对应的接口时，代理采取懒解析策略，并把调用委派给实际的session-scoped 话bean。设置proxyMode属性。</p>
+<pre><code>@Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)
+</code></pre>
+<p><strong>scoped代理</strong><br>
+单例bean在加载时就会被创建，会话/请求bean要创建request/session时才会被创建。把会话bean装配到单例bean时，应给单例bean装配一个会话bean的代理。<br>
+代理类对外暴露的接口和会话bean中的一样，当单例bean调用对应的接口时，代理采取懒解析策略，并把调用委派给实际的session-scoped 话bean。设置proxyMode属性。</p>
 <pre><code>@Bean
 @Scope(value=WebApplicationContext.SCOPE_SESSION,
 proxyMode=ScopedProxyMode.INTERFACES)
-public ShoppingCart cart() { ... }</code></pre><h3 id="3-5-运行时值注入"><a href="#3-5-运行时值注入" class="headerlink" title="3.5 运行时值注入"></a>3.5 运行时值注入</h3><p>Spring提供以下两种方式实现运行时注入：</p>
+public ShoppingCart cart() { ... }
+</code></pre>
+<h3 id="3-5-运行时值注入"><a class="header-anchor" href="#3-5-运行时值注入">¶</a>3.5 运行时值注入</h3>
+<p>Spring提供以下两种方式实现运行时注入：</p>
 <ul>
 <li>属性占位符（ Property placeholder） 。</li>
 <li>Spring表达式语言（ SpEL） 。</li>
 </ul>
-<h4 id="Environment"><a href="#Environment" class="headerlink" title="Environment"></a>Environment</h4><p>在Spring中解析外部值的最好方法是定义一个配置文件，然后通过Spring的Environment实例获取配置文件中的配置项的值。属性文件被加载到Spring的Environment实例中，然后通过getProperty()方法解析对应配置项的值。</p>
+<h4 id="Environment"><a class="header-anchor" href="#Environment">¶</a>Environment</h4>
+<p>在Spring中解析外部值的最好方法是定义一个配置文件，然后通过Spring的Environment实例获取配置文件中的配置项的值。属性文件被加载到Spring的Environment实例中，然后通过getProperty()方法解析对应配置项的值。</p>
 <pre><code>@Configuration
 @PropertySource(&quot;classpath:/app.properties&quot;)
 public class ExpressiveConfig {
@@ -4418,17 +4470,26 @@ public class ExpressiveConfig {
     public CompactDisc disc() {
         return new BlankDisc(env.getProperty(&quot;disc.title&quot;),env.getProperty(&quot;disc.artist&quot;));
     }
-}</code></pre><h4 id="属性占位符"><a href="#属性占位符" class="headerlink" title="属性占位符"></a>属性占位符</h4><p>将属性定义到外部的属性的文件中， 并使用占位符“${ … }”将其插入到Spring bean中。</p>
+}
+</code></pre>
+<h4 id="属性占位符"><a class="header-anchor" href="#属性占位符">¶</a>属性占位符</h4>
+<p>将属性定义到外部的属性的文件中， 并使用占位符“${ … }”将其插入到Spring bean中。</p>
 <pre><code>public BlankDisc(
         @Value(&quot;${disc.title}&quot;) String title,
         @Value(&quot;${disc.artist}&quot;) String artist) {
     this.title = title;
     this.artist = artist;
-}</code></pre><p>为了使用占位符的值，需要配置PropertySourcesPlaceholderConfigurer</p>
+}
+</code></pre>
+<p>为了使用占位符的值，需要配置PropertySourcesPlaceholderConfigurer</p>
 <pre><code>@Bean
 public static PropertySourcesPlaceholderConfigurer placeholderConfigurer() {
     return new PropertySourcesPlaceholderConfigurer();
-}</code></pre><h4 id="SpEL表达式"><a href="#SpEL表达式" class="headerlink" title="SpEL表达式"></a>SpEL表达式</h4><p>运行时给bean的属性或者构造函数参数注入值<br>SpEL表达式被#{ … }包围：</p>
+}
+</code></pre>
+<h4 id="SpEL表达式"><a class="header-anchor" href="#SpEL表达式">¶</a>SpEL表达式</h4>
+<p>运行时给bean的属性或者构造函数参数注入值<br>
+SpEL表达式被#{ … }包围：</p>
 <ul>
 <li>可以通过bean的ID引用bean；</li>
 <li>可以调用某个对象的方法或者访问它的属性；</li>
@@ -4445,19 +4506,23 @@ public static PropertySourcesPlaceholderConfigurer placeholderConfigurer() {
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		6.Flyweight（享元） | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,20 +4395,23 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:54</span>
+	<span id="post-date">2019-12-18 01:00:43</span>
 </div>
 
 
 <div id="article">
 	<p>运用共享技术有效地支持大量细粒度的对象。</p>
-<h5 id="工厂类、享元池"><a href="#工厂类、享元池" class="headerlink" title="工厂类、享元池"></a>工厂类、享元池</h5><p>享元模式的核心在于享元工厂类，享元工厂类的作用在于提供一个用于存储享元对象的享元池，用户需要对象时，首先从享元池中获取，如果享元池中不存在，则创建一个新的享元对象返回给用户，并在享元池中保存该新增对象。</p>
-<h5 id="区分内部状态和外部状态"><a href="#区分内部状态和外部状态" class="headerlink" title="区分内部状态和外部状态"></a>区分内部状态和外部状态</h5><ul>
+<h5 id="工厂类、享元池"><a class="header-anchor" href="#工厂类、享元池">¶</a>工厂类、享元池</h5>
+<p>享元模式的核心在于享元工厂类，享元工厂类的作用在于提供一个用于存储享元对象的享元池，用户需要对象时，首先从享元池中获取，如果享元池中不存在，则创建一个新的享元对象返回给用户，并在享元池中保存该新增对象。</p>
+<h5 id="区分内部状态和外部状态"><a class="header-anchor" href="#区分内部状态和外部状态">¶</a>区分内部状态和外部状态</h5>
+<ul>
 <li>内部状态：存储在享元对象内部并且不会随环境改变而改变的状态，可以共享；</li>
 <li>外部状态：随环境改变而改变的、不可以共享的状态。</li>
 </ul>
-<h5 id="模式应用"><a href="#模式应用" class="headerlink" title="模式应用"></a>模式应用</h5><ul>
-<li>JAVA 中的 String，如果有则返回，如果没有则创建一个字符串保存在字符串缓存池里面。 </li>
-<li>数据库的数据池。 </li>
+<h5 id="模式应用"><a class="header-anchor" href="#模式应用">¶</a>模式应用</h5>
+<ul>
+<li>JAVA 中的 String，如果有则返回，如果没有则创建一个字符串保存在字符串缓存池里面。</li>
+<li>数据库的数据池。</li>
 </ul>
 
 </div>
@@ -4396,19 +4422,23 @@
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

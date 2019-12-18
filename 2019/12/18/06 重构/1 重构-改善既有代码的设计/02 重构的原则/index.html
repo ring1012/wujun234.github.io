@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		02 重构的原则 | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,34 +4395,44 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:39</span>
+	<span id="post-date">2019-12-18 01:00:44</span>
 </div>
 
 
 <div id="article">
-	<h3 id="1-何为重构"><a href="#1-何为重构" class="headerlink" title="1 何为重构"></a>1 何为重构</h3><p>重构: 在不改变软件可观察行为的前提下改善其内部结构</p>
-<h3 id="2-为何重构"><a href="#2-为何重构" class="headerlink" title="2 为何重构"></a>2 为何重构</h3><p>重构可以提高代码质量</p>
-<h3 id="3-何时重构"><a href="#3-何时重构" class="headerlink" title="3 何时重构"></a>3 何时重构</h3><p>事不过三，三则重构。</p>
+	<h3 id="1-何为重构"><a class="header-anchor" href="#1-何为重构">¶</a>1 何为重构</h3>
+<p>重构: 在不改变软件可观察行为的前提下改善其内部结构</p>
+<h3 id="2-为何重构"><a class="header-anchor" href="#2-为何重构">¶</a>2 为何重构</h3>
+<p>重构可以提高代码质量</p>
+<h3 id="3-何时重构"><a class="header-anchor" href="#3-何时重构">¶</a>3 何时重构</h3>
+<p>事不过三，三则重构。</p>
 <p>重构应该是在开发过程中实时的、渐进的演化过程：</p>
 <ul>
 <li>添加新功能时重构</li>
 <li>修补错误时重构</li>
 <li>复审代码时重构</li>
 </ul>
-<h3 id="4-怎么对经理说"><a href="#4-怎么对经理说" class="headerlink" title="4 怎么对经理说"></a>4 怎么对经理说</h3><p>为了质量 or 不要告诉</p>
-<h3 id="5-重构的难题"><a href="#5-重构的难题" class="headerlink" title="5 重构的难题"></a>5 重构的难题</h3><h5 id="5-1-数据库"><a href="#5-1-数据库" class="headerlink" title="5.1 数据库"></a>5.1 数据库</h5><p>数据迁移：非对象数据库，在对象模型和数据库模型之间插入一个分割层。</p>
+<h3 id="4-怎么对经理说"><a class="header-anchor" href="#4-怎么对经理说">¶</a>4 怎么对经理说</h3>
+<p>为了质量 or 不要告诉</p>
+<h3 id="5-重构的难题"><a class="header-anchor" href="#5-重构的难题">¶</a>5 重构的难题</h3>
+<h5 id="5-1-数据库"><a class="header-anchor" href="#5-1-数据库">¶</a>5.1 数据库</h5>
+<p>数据迁移：非对象数据库，在对象模型和数据库模型之间插入一个分割层。</p>
 <p>数据访问：迁移之前先运用访问函数造成“数据已迁移”的家乡，迁移之后修改访问函数。</p>
-<h5 id="5-2-修改接口"><a href="#5-2-修改接口" class="headerlink" title="5.2 修改接口"></a>5.2 修改接口</h5><p>对已发布的公开接口，保留旧接口，旧接口调用新接口，旧接口标记为deprecated。</p>
+<h5 id="5-2-修改接口"><a class="header-anchor" href="#5-2-修改接口">¶</a>5.2 修改接口</h5>
+<p>对已发布的公开接口，保留旧接口，旧接口调用新接口，旧接口标记为deprecated。</p>
 <p>如非必要，不要过早发布接口。</p>
 <p>public函数只throws异常基类。</p>
-<h5 id="5-3-何时不该重构"><a href="#5-3-何时不该重构" class="headerlink" title="5.3 何时不该重构"></a>5.3 何时不该重构</h5><ul>
+<h5 id="5-3-何时不该重构"><a class="header-anchor" href="#5-3-何时不该重构">¶</a>5.3 何时不该重构</h5>
+<ul>
 <li>项目不能工作</li>
 <li>项目生命周期即将结束</li>
 <li>项目期限受限</li>
 <li>重构代价过于沉重</li>
 </ul>
-<h3 id="6-重构与设计"><a href="#6-重构与设计" class="headerlink" title="6 重构与设计"></a>6 重构与设计</h3><p>重构是与设计互补的。重构无法取代设计，但可以减少预先设计的压力。</p>
-<h3 id="7-重构与性能"><a href="#7-重构与性能" class="headerlink" title="7 重构与性能"></a>7 重构与性能</h3><p>先实现，再优化。</p>
+<h3 id="6-重构与设计"><a class="header-anchor" href="#6-重构与设计">¶</a>6 重构与设计</h3>
+<p>重构是与设计互补的。重构无法取代设计，但可以减少预先设计的压力。</p>
+<h3 id="7-重构与性能"><a class="header-anchor" href="#7-重构与性能">¶</a>7 重构与性能</h3>
+<p>先实现，再优化。</p>
 <p>发现热点、去除热点。</p>
 
 </div>
@@ -4410,19 +4443,23 @@
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

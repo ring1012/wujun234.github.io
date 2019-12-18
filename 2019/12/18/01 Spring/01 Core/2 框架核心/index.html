@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		2 框架核心 | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,23 +4395,34 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:16</span>
+	<span id="post-date">2019-12-18 01:00:42</span>
 </div>
 
 
 <div id="article">
-	<h4 id="1-容器"><a href="#1-容器" class="headerlink" title="1 容器"></a>1 容器</h4><p>容器（container）是Spring框架的核心，它管理着Spring应用中bean的创建、 配置和管理，负责对象的整个生命周期。  </p>
-<p><strong>IoC</strong>（Inversion of Control，控制反转 ）：因为具有依赖注入（DI）功能，控制权由应用代码中转到了外部容器，控制权的转移，所谓控制反转。 </p>
-<h5 id="1-1-容器实现"><a href="#1-1-容器实现" class="headerlink" title="1.1 容器实现"></a>1.1 容器实现</h5><p>Spring自带两种不同类型容器实现，主要使用ApplicationContext：</p>
+	<h4 id="1-容器"><a class="header-anchor" href="#1-容器">¶</a>1 容器</h4>
+<p>容器（container）是Spring框架的核心，它管理着Spring应用中bean的创建、 配置和管理，负责对象的整个生命周期。</p>
+<p><strong>IoC</strong>（Inversion of Control，控制反转 ）：因为具有依赖注入（DI）功能，控制权由应用代码中转到了外部容器，控制权的转移，所谓控制反转。</p>
+<h5 id="1-1-容器实现"><a class="header-anchor" href="#1-1-容器实现">¶</a>1.1 容器实现</h5>
+<p>Spring自带两种不同类型容器实现，主要使用ApplicationContext：</p>
 <ul>
-<li><strong>BeanFactory</strong><br>最简单的容器，提供基本的DI支持。<br>第一次访问某一Bean时才实例化它。</li>
-<li><strong>ApplicationContext</strong><br>基于BeanFactory构建， 并提供应用框架级别的服务。<br>初始化容器时就实例化所有单例的Bean。<br>有多种ApplicationContext的实现， 每一种都提供了配置Spring的不同方式。</li>
+<li><strong>BeanFactory</strong><br>
+最简单的容器，提供基本的DI支持。<br>
+第一次访问某一Bean时才实例化它。</li>
+<li><strong>ApplicationContext</strong><br>
+基于BeanFactory构建， 并提供应用框架级别的服务。<br>
+初始化容器时就实例化所有单例的Bean。<br>
+有多种ApplicationContext的实现， 每一种都提供了配置Spring的不同方式。</li>
 </ul>
-<h5 id="1-2-getBean"><a href="#1-2-getBean" class="headerlink" title="1.2 getBean()"></a>1.2 getBean()</h5><p>通过容器getBean()方法从容器获取指定bean。</p>
+<h5 id="1-2-getBean"><a class="header-anchor" href="#1-2-getBean">¶</a>1.2 getBean()</h5>
+<p>通过容器getBean()方法从容器获取指定bean。</p>
 <pre><code>@Autowired
 ApplicationContext applicationContext;
 
-healthAPI =applicationContext.getBean(AdminServiceAPI.HealthAPI.class);</code></pre><h4 id="2-Bean的生命周期"><a href="#2-Bean的生命周期" class="headerlink" title="2 Bean的生命周期"></a>2 Bean的生命周期</h4><p>Bean生命周期的控制很精细，Spring提供了很多节点供开发人员定制某个bean的创建过程。</p>
+healthAPI =applicationContext.getBean(AdminServiceAPI.HealthAPI.class);
+</code></pre>
+<h4 id="2-Bean的生命周期"><a class="header-anchor" href="#2-Bean的生命周期">¶</a>2 Bean的生命周期</h4>
+<p>Bean生命周期的控制很精细，Spring提供了很多节点供开发人员定制某个bean的创建过程。</p>
 <p><img src="/images/1545011848523.png" alt="bean的生命周期"></p>
 <p>BeanFactory负责bean创建的最初四步，然后移交给ApplicationContext做后续创建过程</p>
 
@@ -4400,19 +4434,23 @@ healthAPI =applicationContext.getBean(AdminServiceAPI.HealthAPI.class);</code></
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

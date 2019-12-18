@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		01 Spring Cloud Sleuth | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,19 +4395,26 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:24</span>
+	<span id="post-date">2019-12-18 01:00:43</span>
 </div>
 
 
 <div id="article">
 	<p>Spring Cloud Sleuth分布式服务跟踪</p>
-<h2 id="快速入门"><a href="#快速入门" class="headerlink" title="快速入门"></a>快速入门</h2><ol>
-<li>pom依赖<pre><code>&lt;dependency&gt;
- &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
- &lt;artifactId&gt;spring-cloud-starter-sleuth&lt;/artifactId&gt;
-&lt;/dependency&gt;</code></pre></li>
-<li>运行，控制台会输出请求链路  <pre><code>INFO [trace-1,f410ab57afd5c145,a9f2118fa2019684,false]</code></pre></li>
+<h2 id="快速入门"><a class="header-anchor" href="#快速入门">¶</a>快速入门</h2>
+<ol>
+<li>pom依赖</li>
 </ol>
+<pre><code>&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-cloud-starter-sleuth&lt;/artifactId&gt;
+&lt;/dependency&gt;
+</code></pre>
+<ol start="2">
+<li>运行，控制台会输出请求链路</li>
+</ol>
+<pre><code>INFO [trace-1,f410ab57afd5c145,a9f2118fa2019684,false]
+</code></pre>
 <ul>
 <li>第一个值：应用名称</li>
 <li>第二个值：Trace ID，Sleuth生成，标识请求链路。</li>
@@ -4392,152 +4422,203 @@
 <li>第四个值：是否抽象收集</li>
 </ul>
 <ol start="3">
-<li>收集和展示<br>链路日志都离散在各服务上，分析很麻烦，需要工具来集中的收集、存储和搜索这些跟踪信息。常用的有ELK的Logstash，还有Zipkin。</li>
+<li>收集和展示<br>
+链路日志都离散在各服务上，分析很麻烦，需要工具来集中的收集、存储和搜索这些跟踪信息。常用的有ELK的Logstash，还有Zipkin。</li>
 </ol>
-<h2 id="原理分析"><a href="#原理分析" class="headerlink" title="原理分析"></a>原理分析</h2><h3 id="跟踪原理"><a href="#跟踪原理" class="headerlink" title="跟踪原理"></a>跟踪原理</h3><p>原理关键点：</p>
+<h2 id="原理分析"><a class="header-anchor" href="#原理分析">¶</a>原理分析</h2>
+<h3 id="跟踪原理"><a class="header-anchor" href="#跟踪原理">¶</a>跟踪原理</h3>
+<p>原理关键点：</p>
 <ul>
-<li>Trace ID<br>请求发送时，跟踪框架为该请求创建唯一跟踪标识，Trace ID ，同时在分布式系统内部流转保持唯一不变，直到收到返回。Trace ID将所有请求过程日志关联起来。</li>
-<li>Span ID<br>通过服务唯一标识Span ID，记录Span开始、具体过程以及结束，就能统计出该Span的时间延迟，统计各处理单元的时间延迟。</li>
+<li>Trace ID<br>
+请求发送时，跟踪框架为该请求创建唯一跟踪标识，Trace ID ，同时在分布式系统内部流转保持唯一不变，直到收到返回。Trace ID将所有请求过程日志关联起来。</li>
+<li>Span ID<br>
+通过服务唯一标识Span ID，记录Span开始、具体过程以及结束，就能统计出该Span的时间延迟，统计各处理单元的时间延迟。</li>
 </ul>
 <p>Spring Boot应用中，依赖<code>spring-cloud-starter-sleuth</code>之后，会自动为当前应用构建各通信通道的跟踪机制。比如：通过Stream消息中间件、Zuul代理传递、RestTemplate发起的请求。</p>
-<h3 id="收集原理"><a href="#收集原理" class="headerlink" title="收集原理"></a>收集原理</h3><p>术语:</p>
+<h3 id="收集原理"><a class="header-anchor" href="#收集原理">¶</a>收集原理</h3>
+<p>术语:</p>
 <ul>
-<li>Span<br>基础工作单元，一个64位的唯一ID，一个64位trace码，描述信息，时间戳事件，key-value 注解(tags)，span处理者的ID（通常为IP）。</li>
-<li>Trace<br>包含一系列相同Trace ID的span，组成了一个树型结构</li>
-<li>Annotation<br>用于及时记录存在的事件，包含有时间戳的事件标签。四个核心Annotation：<ul>
+<li>Span<br>
+基础工作单元，一个64位的唯一ID，一个64位trace码，描述信息，时间戳事件，key-value 注解(tags)，span处理者的ID（通常为IP）。</li>
+<li>Trace<br>
+包含一系列相同Trace ID的span，组成了一个树型结构</li>
+<li>Annotation<br>
+用于及时记录存在的事件，包含有时间戳的事件标签。四个核心Annotation：
+<ul>
 <li>cs - Client Sent：客户端发送一个请求，表示span的开始</li>
 <li>sr - Server Received：服务端接收请求并开始处理它。(sr-cs)等于网络的延迟</li>
 <li>ss - Server Sent：服务端处理请求完成，开始返回结束给服务端。(ss-sr)表示服务端处理请求的时间</li>
 <li>cr - Client Received：客户端完成接受返回结果，span结束。(cr-sr)表示客户端接收服务端数据的时间</li>
 </ul>
 </li>
-<li>BinaryAnnotation<br>额外的补充说明，一般以键值对方式出现。</li>
+<li>BinaryAnnotation<br>
+额外的补充说明，一般以键值对方式出现。</li>
 </ul>
 <p>收集机制：</p>
 <p><img src="/images/1545270432062.png" alt=""></p>
-<h3 id="抽样收集"><a href="#抽样收集" class="headerlink" title="抽样收集"></a>抽样收集</h3><p>高并发的分布式系统运行时跟踪日志信息是海量的，如果收集过多，影响性能，浪费存储。Sleuth采用了抽象收集，为跟踪信息打上收集标记，代表是否被后续的跟踪信息收集器获取和存储。<br>Sleuth中的抽样收集策略是通过实现Sampler接口的isSampled方法，决定是否要被收集的标志。即使不收集，仍会跟踪。<br>抽样策略默认使用PercentageBasedSampler实现，以请求百分比的方式配置和收集跟踪信息。配置信息<code>spring.sleuth.sampler.percentage=0.1</code>。</p>
-<h2 id="整合Logstash"><a href="#整合Logstash" class="headerlink" title="整合Logstash"></a>整合Logstash</h2><p>Logstash是ELK中的L，可以对日志进行收集、过滤，并将其存储供以后使用。<br>Spring Boot默认使用logback记录日志，Logstash自身有支持logback的工具，只需在logback的配置中增加对logstash的appender，就能将日志转换成Logstash需要的json的格式存储和输出。</p>
+<h3 id="抽样收集"><a class="header-anchor" href="#抽样收集">¶</a>抽样收集</h3>
+<p>高并发的分布式系统运行时跟踪日志信息是海量的，如果收集过多，影响性能，浪费存储。Sleuth采用了抽象收集，为跟踪信息打上收集标记，代表是否被后续的跟踪信息收集器获取和存储。<br>
+Sleuth中的抽样收集策略是通过实现Sampler接口的isSampled方法，决定是否要被收集的标志。即使不收集，仍会跟踪。<br>
+抽样策略默认使用PercentageBasedSampler实现，以请求百分比的方式配置和收集跟踪信息。配置信息<code>spring.sleuth.sampler.percentage=0.1</code>。</p>
+<h2 id="整合Logstash"><a class="header-anchor" href="#整合Logstash">¶</a>整合Logstash</h2>
+<p>Logstash是ELK中的L，可以对日志进行收集、过滤，并将其存储供以后使用。<br>
+Spring Boot默认使用logback记录日志，Logstash自身有支持logback的工具，只需在logback的配置中增加对logstash的appender，就能将日志转换成Logstash需要的json的格式存储和输出。</p>
 <ol>
-<li><p>pom依赖</p>
+<li>pom依赖</li>
+</ol>
 <pre><code>&lt;dependency&gt;
-&lt;groupId&gt;net.logstash.logback&lt;/groupId&gt;
-&lt;artifactId&gt;logstash-logback-encoder&lt;/artifactId&gt;
-&lt;version&gt;4.6&lt;/version&gt;
-&lt;/dependency&gt;</code></pre></li>
-<li><p>创建bootstrap配置文件，将<code>spring.application.name=trace-1</code>配置移动到bootstrap，以期加载在logback-spring.xml之前。</p>
-</li>
-<li><p>创建logback配置文件<code>logback-spring.xml</code></p>
+  &lt;groupId&gt;net.logstash.logback&lt;/groupId&gt;
+  &lt;artifactId&gt;logstash-logback-encoder&lt;/artifactId&gt;
+  &lt;version&gt;4.6&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre>
+<ol start="2">
+<li>创建bootstrap配置文件，将<code>spring.application.name=trace-1</code>配置移动到bootstrap，以期加载在logback-spring.xml之前。</li>
+<li>创建logback配置文件<code>logback-spring.xml</code></li>
+</ol>
 <pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
 &lt;configuration&gt;
- &lt;include resource=&quot;org/springframework/boot/logging/logback/defaults.xml&quot;/&gt;
+    &lt;include resource=&quot;org/springframework/boot/logging/logback/defaults.xml&quot;/&gt;
+      
+    &lt;springProperty scope=&quot;context&quot; name=&quot;springAppName&quot; source=&quot;spring.application.name&quot;/&gt;
+    &lt;!-- 日志在工程中的输出位置 --&gt;
+    &lt;property name=&quot;LOG_FILE&quot; value=&quot;${BUILD_FOLDER:-build}/${springAppName}&quot;/&gt;
+    &lt;!-- 控制台的日志输出样式 --&gt;
+    &lt;property name=&quot;CONSOLE_LOG_PATTERN&quot;
+              value=&quot;%clr(%d{yyyy-MM-dd HH:mm:ss.SSS}){faint} %clr(${LOG_LEVEL_PATTERN:-%5p}) %clr([${springAppName:-},%X{X-B3-TraceId:-},%X{X-B3-SpanId:-},%X{X-Span-Export:-}]){yellow} %clr(${PID:- }){magenta} %clr(---){faint} %clr([%15.15t]){faint} %clr(%-40.40logger{39}){cyan} %clr(:){faint} %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}&quot;/&gt;
 
- &lt;springProperty scope=&quot;context&quot; name=&quot;springAppName&quot; source=&quot;spring.application.name&quot;/&gt;
- &lt;!-- 日志在工程中的输出位置 --&gt;
- &lt;property name=&quot;LOG_FILE&quot; value=&quot;${BUILD_FOLDER:-build}/${springAppName}&quot;/&gt;
- &lt;!-- 控制台的日志输出样式 --&gt;
- &lt;property name=&quot;CONSOLE_LOG_PATTERN&quot;
-           value=&quot;%clr(%d{yyyy-MM-dd HH:mm:ss.SSS}){faint} %clr(${LOG_LEVEL_PATTERN:-%5p}) %clr([${springAppName:-},%X{X-B3-TraceId:-},%X{X-B3-SpanId:-},%X{X-Span-Export:-}]){yellow} %clr(${PID:- }){magenta} %clr(---){faint} %clr([%15.15t]){faint} %clr(%-40.40logger{39}){cyan} %clr(:){faint} %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}&quot;/&gt;
+    &lt;!-- 控制台Appender --&gt;
+    &lt;appender name=&quot;console&quot; class=&quot;ch.qos.logback.core.ConsoleAppender&quot;&gt;
+        &lt;filter class=&quot;ch.qos.logback.classic.filter.ThresholdFilter&quot;&gt;           
+            &lt;level&gt;INFO&lt;/level&gt;
+        &lt;/filter&gt;
+         &lt;encoder&gt;
+            &lt;pattern&gt;${CONSOLE_LOG_PATTERN}&lt;/pattern&gt;
+            &lt;charset&gt;utf8&lt;/charset&gt;
+       &lt;/encoder&gt;
+    &lt;/appender&gt;
 
- &lt;!-- 控制台Appender --&gt;
- &lt;appender name=&quot;console&quot; class=&quot;ch.qos.logback.core.ConsoleAppender&quot;&gt;
-     &lt;filter class=&quot;ch.qos.logback.classic.filter.ThresholdFilter&quot;&gt;           
-         &lt;level&gt;INFO&lt;/level&gt;
-     &lt;/filter&gt;
-      &lt;encoder&gt;
-         &lt;pattern&gt;${CONSOLE_LOG_PATTERN}&lt;/pattern&gt;
-         &lt;charset&gt;utf8&lt;/charset&gt;
-    &lt;/encoder&gt;
- &lt;/appender&gt;
-
- &lt;!-- 为logstash输出的json格式的Appender --&gt;
- &lt;appender name=&quot;logstash&quot; class=&quot;ch.qos.logback.core.rolling.RollingFileAppender&quot;&gt;
-     &lt;file&gt;${LOG_FILE}.json&lt;/file&gt;
-     &lt;rollingPolicy class=&quot;ch.qos.logback.core.rolling.TimeBasedRollingPolicy&quot;&gt;
-         &lt;fileNamePattern&gt;${LOG_FILE}.json.%d{yyyy-MM-dd}.gz&lt;/fileNamePattern&gt;
-         &lt;maxHistory&gt;7&lt;/maxHistory&gt;
-     &lt;/rollingPolicy&gt;
-     &lt;encoder class=&quot;net.logstash.logback.encoder.LoggingEventCompositeJsonEncoder&quot;&gt;
-         &lt;providers&gt;
-             &lt;timestamp&gt;
-                 &lt;timeZone&gt;UTC&lt;/timeZone&gt;
-             &lt;/timestamp&gt;
-             &lt;pattern&gt;
-                 &lt;pattern&gt;
-                     {
-                       &quot;severity&quot;: &quot;%level&quot;,
-                       &quot;service&quot;: &quot;${springAppName:-}&quot;,
-                       &quot;trace&quot;: &quot;%X{X-B3-TraceId:-}&quot;,
-                       &quot;span&quot;: &quot;%X{X-B3-SpanId:-}&quot;,
-                       &quot;exportable&quot;: &quot;%X{X-Span-Export:-}&quot;,
-                       &quot;pid&quot;: &quot;${PID:-}&quot;,
-                       &quot;thread&quot;: &quot;%thread&quot;,
-                       &quot;class&quot;: &quot;%logger{40}&quot;,
-                       &quot;rest&quot;: &quot;%message&quot;
-                     }
-                 &lt;/pattern&gt;
-             &lt;/pattern&gt;
-         &lt;/providers&gt;
-     &lt;/encoder&gt;
- &lt;/appender&gt;
-
- &lt;root level=&quot;INFO&quot;&gt;
-     &lt;appender-ref ref=&quot;console&quot;/&gt;
-     &lt;appender-ref ref=&quot;logstash&quot;/&gt;
- &lt;/root&gt;
-&lt;/configuration&gt;</code></pre><p>对logstash支持通过名为logstash的appender实现，主要是对日志信息的格式化处理。除了可以通过上面的方式生成json文件之外，也可以使用<code>LogstashTcpSocketAppender</code>将日志内容直接通过Tcp Socket输出到logstash服务端：</p>
+    &lt;!-- 为logstash输出的json格式的Appender --&gt;
+    &lt;appender name=&quot;logstash&quot; class=&quot;ch.qos.logback.core.rolling.RollingFileAppender&quot;&gt;
+        &lt;file&gt;${LOG_FILE}.json&lt;/file&gt;
+        &lt;rollingPolicy class=&quot;ch.qos.logback.core.rolling.TimeBasedRollingPolicy&quot;&gt;
+            &lt;fileNamePattern&gt;${LOG_FILE}.json.%d{yyyy-MM-dd}.gz&lt;/fileNamePattern&gt;
+            &lt;maxHistory&gt;7&lt;/maxHistory&gt;
+        &lt;/rollingPolicy&gt;
+        &lt;encoder class=&quot;net.logstash.logback.encoder.LoggingEventCompositeJsonEncoder&quot;&gt;
+            &lt;providers&gt;
+                &lt;timestamp&gt;
+                    &lt;timeZone&gt;UTC&lt;/timeZone&gt;
+                &lt;/timestamp&gt;
+                &lt;pattern&gt;
+                    &lt;pattern&gt;
+                        {
+                          &quot;severity&quot;: &quot;%level&quot;,
+                          &quot;service&quot;: &quot;${springAppName:-}&quot;,
+                          &quot;trace&quot;: &quot;%X{X-B3-TraceId:-}&quot;,
+                          &quot;span&quot;: &quot;%X{X-B3-SpanId:-}&quot;,
+                          &quot;exportable&quot;: &quot;%X{X-Span-Export:-}&quot;,
+                          &quot;pid&quot;: &quot;${PID:-}&quot;,
+                          &quot;thread&quot;: &quot;%thread&quot;,
+                          &quot;class&quot;: &quot;%logger{40}&quot;,
+                          &quot;rest&quot;: &quot;%message&quot;
+                        }
+                    &lt;/pattern&gt;
+                &lt;/pattern&gt;
+            &lt;/providers&gt;
+        &lt;/encoder&gt;
+    &lt;/appender&gt;
+      
+    &lt;root level=&quot;INFO&quot;&gt;
+        &lt;appender-ref ref=&quot;console&quot;/&gt;
+        &lt;appender-ref ref=&quot;logstash&quot;/&gt;
+    &lt;/root&gt;
+&lt;/configuration&gt;
+</code></pre>
+<p>对logstash支持通过名为logstash的appender实现，主要是对日志信息的格式化处理。除了可以通过上面的方式生成json文件之外，也可以使用<code>LogstashTcpSocketAppender</code>将日志内容直接通过Tcp Socket输出到logstash服务端：</p>
 <pre><code>&lt;appender name=&quot;logstash&quot; class=&quot;net.logstash.logback.appender.LogstashTcpSocketAppender&quot;&gt;
-&lt;destination&gt;127.0.0.1:9250&lt;/destination&gt;
-...
-&lt;/appender&gt;</code></pre><h2 id="整合Zipkin"><a href="#整合Zipkin" class="headerlink" title="整合Zipkin"></a>整合Zipkin</h2><p>ELK的数据分析维度缺少对请求链路中各阶段时间延迟的关注，对于这样的问题，引入Zipkin可以轻松解决。<br>Zipkin源于Twitter，基于Google Dapper实现。Zipkin可以收集各个服务器上请求链路的跟踪数据，提供了REST API接口来查询跟踪数据，也提供了图形化界面。可通过http和消息中间件收集。</p>
-</li>
-</ol>
+  &lt;destination&gt;127.0.0.1:9250&lt;/destination&gt;
+  ...
+&lt;/appender&gt;
+</code></pre>
+<h2 id="整合Zipkin"><a class="header-anchor" href="#整合Zipkin">¶</a>整合Zipkin</h2>
+<p>ELK的数据分析维度缺少对请求链路中各阶段时间延迟的关注，对于这样的问题，引入Zipkin可以轻松解决。<br>
+Zipkin源于Twitter，基于Google Dapper实现。Zipkin可以收集各个服务器上请求链路的跟踪数据，提供了REST API接口来查询跟踪数据，也提供了图形化界面。可通过http和消息中间件收集。</p>
 <p><img src="/images/1545270432406.png" alt=""></p>
-<h3 id="HTTP收集"><a href="#HTTP收集" class="headerlink" title="HTTP收集"></a>HTTP收集</h3><h4 id="搭建Zipkin-Server"><a href="#搭建Zipkin-Server" class="headerlink" title="搭建Zipkin Server"></a>搭建Zipkin Server</h4><ol>
-<li>pom依赖<pre><code>&lt;dependency&gt;
-&lt;groupId&gt;io.zipkin.java&lt;/groupId&gt;
-&lt;artifactId&gt;zipkin-server&lt;/artifactId&gt;
+<h3 id="HTTP收集"><a class="header-anchor" href="#HTTP收集">¶</a>HTTP收集</h3>
+<h4 id="搭建Zipkin-Server"><a class="header-anchor" href="#搭建Zipkin-Server">¶</a>搭建Zipkin Server</h4>
+<ol>
+<li>pom依赖</li>
+</ol>
+<pre><code>&lt;dependency&gt;
+  &lt;groupId&gt;io.zipkin.java&lt;/groupId&gt;
+  &lt;artifactId&gt;zipkin-server&lt;/artifactId&gt;
 &lt;/dependency&gt;
 &lt;dependency&gt;
-&lt;groupId&gt;io.zipkin.java&lt;/groupId&gt;
-&lt;artifactId&gt;zipkin-autoconfigure-ui&lt;/artifactId&gt;
-&lt;/dependency&gt;</code></pre></li>
+  &lt;groupId&gt;io.zipkin.java&lt;/groupId&gt;
+  &lt;artifactId&gt;zipkin-autoconfigure-ui&lt;/artifactId&gt;
+&lt;/dependency&gt;
+</code></pre>
+<ol start="2">
 <li>@EnableZipkinServer注解启动类</li>
-<li>application配置<pre><code>pring.application.name=zipkin-server
-server.port=9411</code></pre>启动访问<code>localhost:9411</code>可见Zipkin管理页面</li>
+<li>application配置</li>
 </ol>
-<h4 id="应用配置Zipkin"><a href="#应用配置Zipkin" class="headerlink" title="应用配置Zipkin"></a>应用配置Zipkin</h4><p>对应用做一些配置，以实现将跟踪信息输出到Zipkin Server。</p>
+<pre><code>pring.application.name=zipkin-server
+server.port=9411
+</code></pre>
+<p>启动访问<code>localhost:9411</code>可见Zipkin管理页面</p>
+<h4 id="应用配置Zipkin"><a class="header-anchor" href="#应用配置Zipkin">¶</a>应用配置Zipkin</h4>
+<p>对应用做一些配置，以实现将跟踪信息输出到Zipkin Server。</p>
 <ol>
-<li>pom依赖<pre><code>&lt;dependency&gt;
-&lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
-&lt;artifactId&gt;spring-cloud-sleuth-zipkin&lt;/artifactId&gt;
-&lt;/dependency&gt;</code></pre></li>
-<li>application配置  <pre><code>spring.zipkin.base-url=http://localhost:9411</code></pre><h3 id="消息中间件收集"><a href="#消息中间件收集" class="headerlink" title="消息中间件收集"></a>消息中间件收集</h3>对http收集稍作修改可使用中间件收集<h4 id="修改客户端"><a href="#修改客户端" class="headerlink" title="修改客户端"></a>修改客户端</h4></li>
-<li>pom依赖<br>除了需要之前引入的spring-cloud-starter-sleuth依赖之外，还需要引入zipkin对Spring Cloud Stream的扩展依赖spring-cloud-sleuth-stream以及基于Spring Cloud Stream实现的消息中间件绑定器依赖，以使用RabbitMQ为例<pre><code>&lt;dependency&gt;
- &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
- &lt;artifactId&gt;spring-cloud-sleuth-stream&lt;/artifactId&gt;
-&lt;/dependency&gt;
-</code></pre></li>
+<li>pom依赖</li>
 </ol>
-<dependency>
-    <groupId>org.springframework.cloud</groupId>
-    <artifactId>spring-cloud-starter-stream-rabbit</artifactId>
-</dependency>
-```
-2. application配置  
-去掉HTTP方式实现时使用的`spring.zipkin.base-url`参数，并根据实际部署情况，增加消息中间件的相关配置
+<pre><code>&lt;dependency&gt;
+  &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
+  &lt;artifactId&gt;spring-cloud-sleuth-zipkin&lt;/artifactId&gt;
+&lt;/dependency&gt;
+</code></pre>
+<ol start="2">
+<li>application配置</li>
+</ol>
+<pre><code>spring.zipkin.base-url=http://localhost:9411
+</code></pre>
+<h3 id="消息中间件收集"><a class="header-anchor" href="#消息中间件收集">¶</a>消息中间件收集</h3>
+<p>对http收集稍作修改可使用中间件收集</p>
+<h4 id="修改客户端"><a class="header-anchor" href="#修改客户端">¶</a>修改客户端</h4>
+<ol>
+<li>pom依赖<br>
+除了需要之前引入的spring-cloud-starter-sleuth依赖之外，还需要引入zipkin对Spring Cloud Stream的扩展依赖spring-cloud-sleuth-stream以及基于Spring Cloud Stream实现的消息中间件绑定器依赖，以使用RabbitMQ为例</li>
+</ol>
+<pre><code>&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-cloud-sleuth-stream&lt;/artifactId&gt;
+&lt;/dependency&gt;
 
-<h4 id="修改服务端"><a href="#修改服务端" class="headerlink" title="修改服务端"></a>修改服务端</h4><ol>
-<li>pom依赖<br>再引入针对消息中间件收集封装的服务端依赖spring-cloud-sleuth-zipkin-stream，针对消息中间件的绑定器实现，以使用RabbitMQ为例<pre><code>&lt;dependency&gt;
- &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
- &lt;artifactId&gt;spring-cloud-sleuth-zipkin-stream&lt;/artifactId&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-cloud-starter-stream-rabbit&lt;/artifactId&gt;
 &lt;/dependency&gt;
-</code></pre></li>
+</code></pre>
+<ol start="2">
+<li>application配置<br>
+去掉HTTP方式实现时使用的<code>spring.zipkin.base-url</code>参数，并根据实际部署情况，增加消息中间件的相关配置</li>
 </ol>
-<dependency>
-    <groupId>org.springframework.cloud</groupId>
-    <artifactId>spring-cloud-starter-stream-rabbit</artifactId>
-</dependency>
-```
+<h4 id="修改服务端"><a class="header-anchor" href="#修改服务端">¶</a>修改服务端</h4>
+<ol>
+<li>pom依赖<br>
+再引入针对消息中间件收集封装的服务端依赖spring-cloud-sleuth-zipkin-stream，针对消息中间件的绑定器实现，以使用RabbitMQ为例</li>
+</ol>
+<pre><code>&lt;dependency&gt;
+	&lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
+	&lt;artifactId&gt;spring-cloud-sleuth-zipkin-stream&lt;/artifactId&gt;
+&lt;/dependency&gt;
+
+&lt;dependency&gt;
+	&lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
+	&lt;artifactId&gt;spring-cloud-starter-stream-rabbit&lt;/artifactId&gt;
+&lt;/dependency&gt;
+</code></pre>
+
 </div>
 
 	</div>
@@ -4546,19 +4627,23 @@ server.port=9411</code></pre>启动访问<code>localhost:9411</code>可见Zipkin
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

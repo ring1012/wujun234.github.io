@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		7 红黑树 | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,12 +4395,13 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:42</span>
+	<span id="post-date">2019-12-18 01:00:44</span>
 </div>
 
 
 <div id="article">
-	<h3 id="1、红黑树定义"><a href="#1、红黑树定义" class="headerlink" title="1、红黑树定义"></a>1、红黑树定义</h3><p><strong>红黑树是一种近似平衡的二叉查找树，它能够确保任何一个节点的左右子树的高度差不会超过二者中较低那个的一陪</strong>。可以在 O(logn) 时间内做查找，插入和删除。红黑树相对于AVL树来说，牺牲了部分平衡性以换取插入/删除操作时少量的旋转操作，整体来说性能要优于AVL树。</p>
+	<h3 id="1、红黑树定义"><a class="header-anchor" href="#1、红黑树定义">¶</a>1、红黑树定义</h3>
+<p><strong>红黑树是一种近似平衡的二叉查找树，它能够确保任何一个节点的左右子树的高度差不会超过二者中较低那个的一陪</strong>。可以在 O(logn) 时间内做查找，插入和删除。红黑树相对于AVL树来说，牺牲了部分平衡性以换取插入/删除操作时少量的旋转操作，整体来说性能要优于AVL树。</p>
 <p>满足如下条件：</p>
 <ol>
 <li>每个节点要么是红色，要么是黑色。</li>
@@ -4386,7 +4410,8 @@
 <li>红色节点不能连续（红色节点的孩子和父亲都不能是红色）。</li>
 <li>从任意一个节点到叶子节点，经过的黑色节点是一样的。</li>
 </ol>
-<h3 id="1、红黑树与2-3树的等价性"><a href="#1、红黑树与2-3树的等价性" class="headerlink" title="1、红黑树与2-3树的等价性"></a>1、红黑树与2-3树的等价性</h3><p>参考下图，再红黑树中使用两个节点来模拟 2-3 树中的 3-节点，使用红色来表示 b 与 c 是并列的关系，如果来表示这条红色的边呢，其实就是让 b 这个节点变为红色，而 b 只有一个父节点，所以其与父节点的连线也就是红色，本质上就是把并列关系存储在子节点中。</p>
+<h3 id="1、红黑树与2-3树的等价性"><a class="header-anchor" href="#1、红黑树与2-3树的等价性">¶</a>1、红黑树与2-3树的等价性</h3>
+<p>参考下图，再红黑树中使用两个节点来模拟 2-3 树中的 3-节点，使用红色来表示 b 与 c 是并列的关系，如果来表示这条红色的边呢，其实就是让 b 这个节点变为红色，而 b 只有一个父节点，所以其与父节点的连线也就是红色，本质上就是把并列关系存储在子节点中。</p>
 <p><img src="/images/1558610875365.png" alt=""></p>
 <ul>
 <li>黑色节点，对应 2-3树中的 2-节点。</li>
@@ -4408,7 +4433,8 @@
 <li>查找来讲：虽然 AVL 和红黑树都是 O(logn)级别的，但是 AVL 要快。</li>
 <li>添加和删除来讲，红黑树要比 AVL 快。</li>
 </ul>
-<h3 id="2、红黑树实现"><a href="#2、红黑树实现" class="headerlink" title="2、红黑树实现"></a>2、红黑树实现</h3><p>在树的结构发生改变时（插入或者删除操作），往往会破坏上述条件3或条件4，需要通过调整使得查找树重新满足红黑树的约束条件。</p>
+<h3 id="2、红黑树实现"><a class="header-anchor" href="#2、红黑树实现">¶</a>2、红黑树实现</h3>
+<p>在树的结构发生改变时（插入或者删除操作），往往会破坏上述条件3或条件4，需要通过调整使得查找树重新满足红黑树的约束条件。</p>
 <pre><code>private static final boolean RED = true;
 private static final boolean BLACK = false;
 
@@ -4428,17 +4454,23 @@ private static final boolean BLACK = false;
             color = RED;
         }
 
-    }</code></pre><p>调整可以分为两类：</p>
+    }
+</code></pre>
+<p>调整可以分为两类：</p>
 <ul>
 <li><strong>颜色调整</strong>：改变某个节点的颜色</li>
-<li><strong>结构调整</strong>：改变检索树的结构关系<br>结构调整过程包含两个基本操作：左旋，右旋。</li>
+<li><strong>结构调整</strong>：改变检索树的结构关系<br>
+结构调整过程包含两个基本操作：左旋，右旋。</li>
 </ul>
 <p>每次添加一个节点，都要保证根节点为黑色：</p>
 <pre><code>public void add(Key key, Value value) {
     root = addImproved(root, key, value);
     root.color = BLACK;//保持根节点为黑色
-}</code></pre><h4 id="插入新节点过程："><a href="#插入新节点过程：" class="headerlink" title="插入新节点过程："></a>插入新节点过程：</h4><ul>
-<li>情况1：当插入第一个节点时，设置其颜色为黑色。 </li>
+}
+</code></pre>
+<h4 id="插入新节点过程："><a class="header-anchor" href="#插入新节点过程：">¶</a>插入新节点过程：</h4>
+<ul>
+<li>情况1：当插入第一个节点时，设置其颜色为黑色。</li>
 </ul>
 <p><img src="/images/1558610879302.png" alt=""></p>
 <ul>
@@ -4446,23 +4478,28 @@ private static final boolean BLACK = false;
 </ul>
 <p><img src="/images/1558610879505.png" alt=""></p>
 <ul>
-<li>情况3：当根节点是 37，需要插入第二个节点 42 时，需要插入到根节点的右侧，红色节点就出现在黑节点的右侧了，需要进行 左旋转 以维护红黑树的性质，除此之外，我们还需要对节点的颜色进行维护： </li>
+<li>情况3：当根节点是 37，需要插入第二个节点 42 时，需要插入到根节点的右侧，红色节点就出现在黑节点的右侧了，需要进行 左旋转 以维护红黑树的性质，除此之外，我们还需要对节点的颜色进行维护：</li>
 </ul>
 <p><img src="/images/1558610879706.png" alt=""></p>
 <p>颜色维护过程：</p>
 <pre><code>node.right = x.left;
 x.left = node;
 x.color = node.color;//旋转之前，node是根节点，旋转之后，x是根节点，所以x的颜色应该与node相同，保持根节点颜色一致。
-node.color = RED;//旋转之后，node 和 x 组成 3-节点，所以 node 在左侧，需要改为红色。</code></pre><p>最后，上面情况，node 是黑色的，如果当前树的没有这么简单，则在插入前 node 也可能是红色，情况就变成了在一个红色节点的右侧插入节点，则 x.color 也是红色了，左旋转导致了两个连续的红色节点，但在这种情况下，此时左旋转是一个子过程，会继续把 x 递归回去进行旋转。最终还是能满足红黑树的性质。</p>
+node.color = RED;//旋转之后，node 和 x 组成 3-节点，所以 node 在左侧，需要改为红色。
+</code></pre>
+<p>最后，上面情况，node 是黑色的，如果当前树的没有这么简单，则在插入前 node 也可能是红色，情况就变成了在一个红色节点的右侧插入节点，则 x.color 也是红色了，左旋转导致了两个连续的红色节点，但在这种情况下，此时左旋转是一个子过程，会继续把 x 递归回去进行旋转。最终还是能满足红黑树的性质。</p>
 <p>情况 2 和 3 就类似在2-3树中，向2-节点插入一个新的元素，形3-节点。</p>
-<h4 id="颜色翻转和右旋转"><a href="#颜色翻转和右旋转" class="headerlink" title="颜色翻转和右旋转"></a>颜色翻转和右旋转</h4><p>向红黑树中的 3-节点 中添加节点：</p>
+<h4 id="颜色翻转和右旋转"><a class="header-anchor" href="#颜色翻转和右旋转">¶</a>颜色翻转和右旋转</h4>
+<p>向红黑树中的 3-节点 中添加节点：</p>
 <ul>
-<li>情况1：在黑色节点的右侧插入节点，相当于在 2-3树中的 3-节点的右侧插入节点，会形成临时的 4-节点，之后需要节点进行拆分，拆分成两个独立的 2-节点，这相当于要把红黑树中两个红色节点改为黑色，最后，拆分形成的根节点需要继续向上与它的父亲节点融合，红黑树中只有红色节点才表示它要与它的父节点进行融合，这意味着新形成的根节点需要变为红色。这个过程看似三个节点的颜色都变了，称为<strong>颜色翻转</strong>。 </li>
+<li>情况1：在黑色节点的右侧插入节点，相当于在 2-3树中的 3-节点的右侧插入节点，会形成临时的 4-节点，之后需要节点进行拆分，拆分成两个独立的 2-节点，这相当于要把红黑树中两个红色节点改为黑色，最后，拆分形成的根节点需要继续向上与它的父亲节点融合，红黑树中只有红色节点才表示它要与它的父节点进行融合，这意味着新形成的根节点需要变为红色。这个过程看似三个节点的颜色都变了，称为<strong>颜色翻转</strong>。</li>
 </ul>
 <p><img src="/images/1558610880693.png" alt=""></p>
 <pre><code>node.color = RED;
 node.left.color = BLACK;
-node.right.color = BLACK;</code></pre><ul>
+node.right.color = BLACK;
+</code></pre>
+<ul>
 <li>情况2：在一个红色节点和黑色节点组成的 3-节点 的左侧插入元素，这就形成了黑节点的左孩子和其左孩子的左孩子都是红色的，可以看成是临时的4-节点，此时需要对其进行右旋转，之后在对其进行颜色翻转，以维持红黑树的性质，具体过程如下：</li>
 </ul>
 <p><img src="/images/1558610881090.png" alt=""></p>
@@ -4471,13 +4508,16 @@ node.left = x.right;
 x.right = node;
 //颜色维护
 x.color = node.color;//旋转后新形成的根节点与原来的根节点颜色保持一致
-node.color = RED;//本质上还是 12 42 37 三个节点组成的临时的 4-节点。所以 node 要变为红色。</code></pre><ul>
+node.color = RED;//本质上还是 12 42 37 三个节点组成的临时的 4-节点。所以 node 要变为红色。
+</code></pre>
+<ul>
 <li>情况3：在一个红色节点和黑色节点组成的 3-节点 的中间插入元素，即在黑色节点的左侧孩子的右侧插入节点，这个过程的需要进行的变换过程是：先基于 37 几点进行左旋转：</li>
 </ul>
 <p><img src="/images/1558610881686.png" alt=""></p>
-<p>变成情况2，再按情况2 的方式处理。即再右旋转+颜色翻转，整个过程如下： </p>
+<p>变成情况2，再按情况2 的方式处理。即再右旋转+颜色翻转，整个过程如下：</p>
 <p><img src="/images/1558610881904.png" alt=""></p>
-<h4 id="维护红黑树的时机"><a href="#维护红黑树的时机" class="headerlink" title="维护红黑树的时机"></a>维护红黑树的时机</h4><p>先把节点按照 BST 的逻辑添加到树种，再回溯向上维护，与 AVL 一致。插入节点后，红黑树的性质维护是一个叠加的过程，而且有些情况属于另一些情况的子过程，参考下面箭头方向：</p>
+<h4 id="维护红黑树的时机"><a class="header-anchor" href="#维护红黑树的时机">¶</a>维护红黑树的时机</h4>
+<p>先把节点按照 BST 的逻辑添加到树种，再回溯向上维护，与 AVL 一致。插入节点后，红黑树的性质维护是一个叠加的过程，而且有些情况属于另一些情况的子过程，参考下面箭头方向：</p>
 <p><img src="/images/1558610882217.png" alt=""></p>
 <ul>
 <li>最复杂的是在红色节点的右侧插入红色节点，需要进行三次变换。</li>
@@ -4507,7 +4547,9 @@ if (isRed(node.left) &amp;&amp; isRed(node.left.left)) {
 /*node 对应上图第四个情况，顶部黑色节点*/
 if(isRed(node.right) &amp;&amp; isRed(node.left)){
     flipColor(node);
-}</code></pre>
+}
+</code></pre>
+
 </div>
 
 	</div>
@@ -4516,19 +4558,23 @@ if(isRed(node.right) &amp;&amp; isRed(node.left)){
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

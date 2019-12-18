@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		6 遗留的集合 | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,37 +4395,59 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:46</span>
+	<span id="post-date">2019-12-18 01:00:41</span>
 </div>
 
 
 <div id="article">
-	<h4 id="1-Hashtable"><a href="#1-Hashtable" class="headerlink" title="1 Hashtable"></a>1 Hashtable</h4><p>与HashMap的作用是一样的，但是Hashtable是线程同步的。<br>如果同步性没有要求，应该尽量使用HashMap。</p>
-<h4 id="2-枚举"><a href="#2-枚举" class="headerlink" title="2 枚举"></a>2 枚举</h4><p>遗留集合使用Enumeration接口对元素序列进行遍历。 Enumeration接口有两个方法，即hasMoreElements和nextElement。这两个方法与Iterator接口的hasNext方法和next方法十分类似。</p>
-<h4 id="3-属性映射表"><a href="#3-属性映射表" class="headerlink" title="3 属性映射表"></a>3 属性映射表</h4><p>属性映射表（property map）是一种存储键/值对的数据结构。经常被用来存放配置信息。有三个特性：  </p>
+	<h4 id="1-Hashtable"><a class="header-anchor" href="#1-Hashtable">¶</a>1 Hashtable</h4>
+<p>与HashMap的作用是一样的，但是Hashtable是线程同步的。<br>
+如果同步性没有要求，应该尽量使用HashMap。</p>
+<h4 id="2-枚举"><a class="header-anchor" href="#2-枚举">¶</a>2 枚举</h4>
+<p>遗留集合使用Enumeration接口对元素序列进行遍历。 Enumeration接口有两个方法，即hasMoreElements和nextElement。这两个方法与Iterator接口的hasNext方法和next方法十分类似。</p>
+<h4 id="3-属性映射表"><a class="header-anchor" href="#3-属性映射表">¶</a>3 属性映射表</h4>
+<p>属性映射表（property map）是一种存储键/值对的数据结构。经常被用来存放配置信息。有三个特性：</p>
 <ul>
 <li>键与值都是字符串。</li>
 <li>键/值对可以很容易地写入文件或从文件读出。</li>
 <li>用二级表存放默认值。</li>
 </ul>
-<p>实现属性映射的Java类被称为Properties类。  </p>
+<p>实现属性映射的Java类被称为Properties类。</p>
 <pre><code>Properties settings = new Properties();
-settings.put(&quot;width&quot;,&quot;200&quot;);</code></pre><h5 id="store方法"><a href="#store方法" class="headerlink" title="store方法"></a>store方法</h5><p>将这个属性映射列表保存到文件中</p>
+settings.put(&quot;width&quot;,&quot;200&quot;);
+</code></pre>
+<h5 id="store方法"><a class="header-anchor" href="#store方法">¶</a>store方法</h5>
+<p>将这个属性映射列表保存到文件中</p>
 <pre><code>FileOutputStream out = new FileOutputStream(&quot;program.properties&quot;);
-settings.store(out,&quot;注释&quot;);</code></pre><h5 id="load方法"><a href="#load方法" class="headerlink" title="load方法"></a>load方法</h5><p>要想从文件中加载</p>
+settings.store(out,&quot;注释&quot;);
+</code></pre>
+<h5 id="load方法"><a class="header-anchor" href="#load方法">¶</a>load方法</h5>
+<p>要想从文件中加载</p>
 <pre><code>FileInputStream in = new FileInputStream(&quot;program.properties&quot;);
-settings.load(in);</code></pre><h5 id="默认值"><a href="#默认值" class="headerlink" title="默认值"></a>默认值</h5><p>getProperty</p>
+settings.load(in);
+</code></pre>
+<h5 id="默认值"><a class="header-anchor" href="#默认值">¶</a>默认值</h5>
+<p>getProperty</p>
 <pre><code>String userDir = System.getProperty(&quot;user.home&quot;);
-settings.getProperty(&quot;width&quot;,&quot;默认值&quot;);</code></pre><p>构造器</p>
+settings.getProperty(&quot;width&quot;,&quot;默认值&quot;);
+</code></pre>
+<p>构造器</p>
 <pre><code>Properties defaultSettings = new Properties();
 defaultSettings.put(&quot;width&quot;,&quot;默认值&quot;);
-Properties settings = new Properties(defaultSettings);</code></pre><h4 id="4-栈"><a href="#4-栈" class="headerlink" title="4 栈"></a>4 栈</h4><p>Stack类，push、pop、peek<br>Stack类扩展为Vector类,可以让栈使用不属于栈操作的insert和remove方法</p>
-<h4 id="5-位集"><a href="#5-位集" class="headerlink" title="5 位集"></a>5 位集</h4><p>BitSet类用于存放一个位序列（它不是数学上的集，称为位向量或位数组更为合适）。</p>
+Properties settings = new Properties(defaultSettings);
+</code></pre>
+<h4 id="4-栈"><a class="header-anchor" href="#4-栈">¶</a>4 栈</h4>
+<p>Stack类，push、pop、peek<br>
+Stack类扩展为Vector类,可以让栈使用不属于栈操作的insert和remove方法</p>
+<h4 id="5-位集"><a class="header-anchor" href="#5-位集">¶</a>5 位集</h4>
+<p>BitSet类用于存放一个位序列（它不是数学上的集，称为位向量或位数组更为合适）。</p>
 <p>如果需要高效地存储位序列（例如，标志）就可以使用位集。由于位集将位包装在字节里，所以，使用位集要比使用Boolean对象的ArrayList更加高效。</p>
 <p>例如，对于一个名为bucketOfBits的BitSet</p>
 <pre><code>bucket0fBits.get(i)//如果第i位处于“开”状态，就返回true；否则返回false。
 bucket0fBits.set(i)//将第i位置为“开”状态。
-bucket0fBits.clear(i)//将第i位置为“关”状态。</code></pre>
+bucket0fBits.clear(i)//将第i位置为“关”状态。
+</code></pre>
+
 </div>
 
 	</div>
@@ -4411,19 +4456,23 @@ bucket0fBits.clear(i)//将第i位置为“关”状态。</code></pre>
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

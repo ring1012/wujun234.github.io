@@ -1,10 +1,30 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +35,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4369,11 +4390,17 @@
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/01%20Spring/06%20Security/1%20Spring%20Security/">1 Spring Security</a>
+					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/06%20%E9%9B%86%E5%90%88/2.2%20LinkedList/">2.2 LinkedList</a>
 				</h2>
 				<span class="post-date">2019-12-18</span>
 				<div class="article-digest">
-					1 保护Web配置Spring Security，在扩展WebSecurityConfigurerAdapter的bean上，添加@EnableWebSecurity注解，启用Web安全功能，并在类中
+					¶前言
+现在栈或者队列的首选是ArrayDeque。
+¶总体介绍
+
+LinkedList同时实现了List接口和Deque接口，允许null元素。
+
+LinkedList底层通过双向链表实现。节点用内
 					...
 				</div>
 			</article>
@@ -4382,13 +4409,16 @@
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/01%20Spring/05%20Data/1%20JdbcTemplate/">1 JdbcTemplate</a>
+					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/06%20%E9%9B%86%E5%90%88/2.1%20ArrayList%E3%80%81Vector/">2.1 ArrayList、Vector</a>
 				</h2>
 				<span class="post-date">2019-12-18</span>
 				<div class="article-digest">
-					为了避免业务层模块强依赖于某种类型的数据库，Spring数据库访问层以接口形式对外提供服务。
-使用Spring JDBC的异常体系，描述能力强，且平台无关。
-1 数据访问模板化数据访问过程中的固定步骤
+					¶前言
+ArrayList除未实现同步外，跟Vector大致相同。同步效率低，在不需要同步的时候使用ArrayList。
+¶ArrayList
+
+¶总体介绍
+ArrayList 实现了 List、Ra
 					...
 				</div>
 			</article>
@@ -4397,127 +4427,167 @@
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/01%20Spring/05%20Data/2%20Spring%20Data%20JPA/">2 Spring Data JPA</a>
+					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/06%20%E9%9B%86%E5%90%88/2.0%20%E5%85%B7%E4%BD%93%E7%9A%84%E9%9B%86%E5%90%88/">2.0 具体的集合</a>
 				</h2>
 				<span class="post-date">2019-12-18</span>
 				<div class="article-digest">
-					Java持久化API（Java Persistence API， JPA）基于POJO的持久化机制，制定了规范，具体由厂商实现。
-只需按照约定好的【方法命名规则】编写Repository接口，不需要实
-					...
-				</div>
-			</article>
-			
-		
-
-			<article class="article-li">
-				<h2>
-					<a class="article-title" href="/2019/12/18/01%20Spring/05%20Data/9%20Spring%20Cache%20+%20Caffeine/">9 Spring Cache + Caffeine</a>
-				</h2>
-				<span class="post-date">2019-12-18</span>
-				<div class="article-digest">
-					Caffeine是使用Java8对Guava缓存的重写版本，在Spring Boot 2.0中将取代Guava。
-引入依赖&lt;dependency&gt;
-    &lt;groupId&gt;o
-					...
-				</div>
-			</article>
-			
-		
-
-			<article class="article-li">
-				<h2>
-					<a class="article-title" href="/2019/12/18/01%20Spring/05%20Data/3%20Spring%20Data%20MongoDB/">3 Spring Data MongoDB</a>
-				</h2>
-				<span class="post-date">2019-12-18</span>
-				<div class="article-digest">
-					文档数据库适合处理没什么关联关系的独立实体
-Spring Data MongoDB提供了三种方式在Spring应用中使用MongoDB：
-
-通过注解实现对象-文档映射；
-使用MongoTemplate
-					...
-				</div>
-			</article>
-			
-		
-
-			<article class="article-li">
-				<h2>
-					<a class="article-title" href="/2019/12/18/01%20Spring/05%20Data/4%20Spring%20Data%20Neo4j/">4 Spring Data Neo4j</a>
-				</h2>
-				<span class="post-date">2019-12-18</span>
-				<div class="article-digest">
-					1 配置Spring Data Neo4j启用@EnableNeo4jRepositories注解，扩展Neo4jConfiguration，声明GraphDatabaseService bean
-@
-					...
-				</div>
-			</article>
-			
-		
-
-			<article class="article-li">
-				<h2>
-					<a class="article-title" href="/2019/12/18/01%20Spring/05%20Data/5%20Spring%20Data%20Redis/">5 Spring Data Redis</a>
-				</h2>
-				<span class="post-date">2019-12-18</span>
-				<div class="article-digest">
-					Spring Data Redis包含了多个模板实现， 用来完成Redis数据库的数据存取功能。 
-1 连接到RedisSpring Data Redis为四种Redis客户端实现提供了连接工厂：
+					¶Java库中的具体集合
 
 
-					...
-				</div>
-			</article>
-			
-		
 
-			<article class="article-li">
-				<h2>
-					<a class="article-title" href="/2019/12/18/01%20Spring/05%20Data/6%20Spring%20Cache/">6 Spring Cache</a>
-				</h2>
-				<span class="post-date">2019-12-18</span>
-				<div class="article-digest">
-					Spring自身并没有实现缓存解决方案， 但是它对缓存功能提供了声明式的支持， 能够与多种流行的缓存实现进行集成。
-Spring的缓存抽象在很大程度上是围绕切面构建的。 在Spring中启用缓存时，会
-					...
-				</div>
-			</article>
-			
-		
-
-			<article class="article-li">
-				<h2>
-					<a class="article-title" href="/2019/12/18/01%20Spring/05%20Data/7%20Dynamic%20DataSource/">7 Dynamic DataSource</a>
-				</h2>
-				<span class="post-date">2019-12-18</span>
-				<div class="article-digest">
-					AOP实现多数据源，可读写分离
-配置文件dynamic-db.master.driver-class-name = com.mysql.jdbc.Driver
-dynamic-db.master.jd
-					...
-				</div>
-			</article>
-			
-		
-
-			<article class="article-li">
-				<h2>
-					<a class="article-title" href="/2019/12/18/01%20Spring/05%20Data/8%20Transaction/">8 Transaction</a>
-				</h2>
-				<span class="post-date">2019-12-18</span>
-				<div class="article-digest">
-					Spring事务的本质是数据库对事务的支持。
-@EnableTransactionManagement 开启对事务注解的解析
-声明式事务@Transactional注解
-
-
-属性
-类型
+集合类型
+同步
+可null
+有序
 描述
 
 
 
-v
+
+ArrayList
+否
+是
+是
+动态增缩的索引序列
+
+
+Vector
+是
+是
+是
+过时，同步的ArrayList
+
+
+L
+					...
+				</div>
+			</article>
+			
+		
+
+			<article class="article-li">
+				<h2>
+					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/06%20%E9%9B%86%E5%90%88/1%20%E9%9B%86%E5%90%88%E6%8E%A5%E5%8F%A3/">1 集合接口</a>
+				</h2>
+				<span class="post-date">2019-12-18</span>
+				<div class="article-digest">
+					框架，是一个类的集。
+容器，是可以容纳其他Java对象的对象。
+JDK 1.2开始，Java集合框架(JCF)提供了通用的容器。
+JDK 1.5开始，集合类是带有类型参数的泛型类。
+Java容器里只能
+					...
+				</div>
+			</article>
+			
+		
+
+			<article class="article-li">
+				<h2>
+					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/05%20%E6%B3%9B%E5%9E%8B%E3%80%81%E4%BA%8B%E4%BB%B6%E5%A4%84%E7%90%86/2%20%E4%BA%8B%E4%BB%B6%E5%A4%84%E7%90%86/">2 事件处理</a>
+				</h2>
+				<span class="post-date">2019-12-18</span>
+				<div class="article-digest">
+					¶一 主要角色
+
+事件源（Source）
+触发事件的对象，不需要实现或继承任何接口或类。
+因为事件源需要注册事件监听器，所以事件源内需要有相应的盛放事件监听器的容器。
+事件（EventObject）
+
+					...
+				</div>
+			</article>
+			
+		
+
+			<article class="article-li">
+				<h2>
+					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/05%20%E6%B3%9B%E5%9E%8B%E3%80%81%E4%BA%8B%E4%BB%B6%E5%A4%84%E7%90%86/1%20%E6%B3%9B%E5%9E%8B/">1 泛型</a>
+				</h2>
+				<span class="post-date">2019-12-18</span>
+				<div class="article-digest">
+					¶1 泛型类
+泛型类可以有多个类型变量，用尖括号（&lt; &gt;）括起来，并放在类名的后面。
+通常用E表示集合的元素类型， K和V分别表示表的关键字与值的类型。 T、U、S等表示“任意类型”。
+泛
+					...
+				</div>
+			</article>
+			
+		
+
+			<article class="article-li">
+				<h2>
+					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/04%20%E5%BC%82%E5%B8%B8%E3%80%81%E6%96%AD%E8%A8%80%E5%92%8C%E6%97%A5%E5%BF%97/4%20%E8%AE%B0%E5%BD%95%E6%97%A5%E5%BF%97/">4 记录日志</a>
+				</h2>
+				<span class="post-date">2019-12-18</span>
+				<div class="article-digest">
+					java.util.logging.Logger
+¶1 日志记录器
+
+全局日志记录器：Logger.getGlobal()
+
+Logger.getGlobal().info(&quot;&quot;)
+					...
+				</div>
+			</article>
+			
+		
+
+			<article class="article-li">
+				<h2>
+					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/04%20%E5%BC%82%E5%B8%B8%E3%80%81%E6%96%AD%E8%A8%80%E5%92%8C%E6%97%A5%E5%BF%97/3%20%E6%96%AD%E8%A8%80/">3 断言</a>
+				</h2>
+				<span class="post-date">2019-12-18</span>
+				<div class="article-digest">
+					断言用在开发、测试期间。
+当代码发布时，这些插入的检测语句将会被自动地移走。
+¶1 表达形式
+
+assert 条件；
+
+assert x &gt;= 0;
+
+
+assert 条件：表达式;
+
+asse
+					...
+				</div>
+			</article>
+			
+		
+
+			<article class="article-li">
+				<h2>
+					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/04%20%E5%BC%82%E5%B8%B8%E3%80%81%E6%96%AD%E8%A8%80%E5%92%8C%E6%97%A5%E5%BF%97/2%20%E6%8D%95%E8%8E%B7%E5%BC%82%E5%B8%B8/">2 捕获异常</a>
+				</h2>
+				<span class="post-date">2019-12-18</span>
+				<div class="article-digest">
+					
+如果异常没有被捕获，程序将会停止运行
+try/catch 捕获异常
+如不捕获异常，可 throws 声明异常，将异常传递给调用者
+子类覆盖超类的方法中，只能 throws 超类方法的异常，其他只能自
+					...
+				</div>
+			</article>
+			
+		
+
+			<article class="article-li">
+				<h2>
+					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/04%20%E5%BC%82%E5%B8%B8%E3%80%81%E6%96%AD%E8%A8%80%E5%92%8C%E6%97%A5%E5%BF%97/1%20%E5%A4%84%E7%90%86%E5%BC%82%E5%B8%B8/">1 处理异常</a>
+				</h2>
+				<span class="post-date">2019-12-18</span>
+				<div class="article-digest">
+					¶1 异常分类
+graph LR
+Throwable--&gt;Error
+Throwable--&gt;Exception
+Exception--&gt;RuntimeException
+Excep
 					...
 				</div>
 			</article>
@@ -4533,19 +4603,23 @@ v
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

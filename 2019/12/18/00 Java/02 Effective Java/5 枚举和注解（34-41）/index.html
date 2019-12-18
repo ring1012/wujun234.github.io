@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		5 枚举和注解（34-41） | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,14 +4395,17 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:16</span>
+	<span id="post-date">2019-12-18 01:00:42</span>
 </div>
 
 
 <div id="article">
-	<h3 id="第34条：用enum代替int常量"><a href="#第34条：用enum代替int常量" class="headerlink" title="第34条：用enum代替int常量"></a>第34条：用enum代替int常量</h3><p>当需要一组固定常量的时候，应该使用enum代替int常量。</p>
-<h3 id="第35条：用实例域代替序数"><a href="#第35条：用实例域代替序数" class="headerlink" title="第35条：用实例域代替序数"></a>第35条：用实例域代替序数</h3><p>应该给enum添加int域，而不是使用ordinal()方法来导出与枚举关联的序数值。(几乎不应使用ordinal()方法，除非在编写像EnumMap这样的基于枚举的通用数据结构)</p>
-<h3 id="第36条：用EnumSet代替位域"><a href="#第36条：用EnumSet代替位域" class="headerlink" title="第36条：用EnumSet代替位域"></a>第36条：用EnumSet代替位域</h3><ul>
+	<h3 id="第34条：用enum代替int常量"><a class="header-anchor" href="#第34条：用enum代替int常量">¶</a>第34条：用enum代替int常量</h3>
+<p>当需要一组固定常量的时候，应该使用enum代替int常量。</p>
+<h3 id="第35条：用实例域代替序数"><a class="header-anchor" href="#第35条：用实例域代替序数">¶</a>第35条：用实例域代替序数</h3>
+<p>应该给enum添加int域，而不是使用ordinal()方法来导出与枚举关联的序数值。(几乎不应使用ordinal()方法，除非在编写像EnumMap这样的基于枚举的通用数据结构)</p>
+<h3 id="第36条：用EnumSet代替位域"><a class="header-anchor" href="#第36条：用EnumSet代替位域">¶</a>第36条：用EnumSet代替位域</h3>
+<ul>
 <li>EnumSet 实现了 Set 接口</li>
 <li>若枚举类型个数小于64个，则整个EnumSet就用单个long来表示，性能上比得上位运算</li>
 <li>总而言之因为枚举类型要用在集合(Set)中,所以没有理由用位域来表示.</li>
@@ -4389,7 +4415,7 @@ public class Text{
     private static final int STYLE_BOLD = 1 &lt;&lt; 0;
     private static final int STYLE_ITALIC = 1 &lt;&lt; 1;
     private static final int STYLE_UNDERLINE = 1 &lt;&lt; 2;
-
+    
     public void applyStyles(int styles) {...}
 }
 //use
@@ -4398,11 +4424,14 @@ text.applyStyles(STYLE_BOLD | STYLE_ITALIC);
 //RIGHT
 public class Text{
     public enum Style{STYLE_BOLD, STYLE_ITALIC, STYLE_UNDERLINE}
-
+    
     public void applyStyles(Set&lt;Style&gt; styles) {...} 
 }
 //use
-text.applyStyles(EnumSet.of(STYLE_BOLD, STYLE_ITALIC));</code></pre><h3 id="第37条：用EnumMap代替序数索引"><a href="#第37条：用EnumMap代替序数索引" class="headerlink" title="第37条：用EnumMap代替序数索引"></a>第37条：用EnumMap代替序数索引</h3><p>序数索引是指依赖于枚举成员在枚举中的序数来进行数组索引</p>
+text.applyStyles(EnumSet.of(STYLE_BOLD, STYLE_ITALIC));
+</code></pre>
+<h3 id="第37条：用EnumMap代替序数索引"><a class="header-anchor" href="#第37条：用EnumMap代替序数索引">¶</a>第37条：用EnumMap代替序数索引</h3>
+<p>序数索引是指依赖于枚举成员在枚举中的序数来进行数组索引</p>
 <p>应该使用EnumMap来实现，EnumMap内部是采用数组实现的，具有Map的丰富功能和类型安全以及数组的效率</p>
 <pre><code>Map&lt;Plant.Type, Set&lt;Plant&gt;&gt; plants = new EnumMap&lt;Plant.Type, Set&lt;Plant&gt;&gt;(Plant.Type.class); 
 
@@ -4412,14 +4441,20 @@ for(Plant.Type type : Plant.Type.valuse()){
 
 for(Plant p : garden){
     plants.get(p.type).add(p);
-}</code></pre><h3 id="第38条：用接口模拟可以伸缩的枚举"><a href="#第38条：用接口模拟可以伸缩的枚举" class="headerlink" title="第38条：用接口模拟可以伸缩的枚举"></a>第38条：用接口模拟可以伸缩的枚举</h3><p>由于在java中enum不是可扩展的，在某些情况下，可能需要对枚举进行扩展，比如操作类型(+-*/等)，就可以考虑：</p>
+}
+</code></pre>
+<h3 id="第38条：用接口模拟可以伸缩的枚举"><a class="header-anchor" href="#第38条：用接口模拟可以伸缩的枚举">¶</a>第38条：用接口模拟可以伸缩的枚举</h3>
+<p>由于在java中enum不是可扩展的，在某些情况下，可能需要对枚举进行扩展，比如操作类型(±*/等)，就可以考虑：</p>
 <ol>
 <li>定义一个接口，比如<code>public interface Operation{…};</code></li>
 <li>使枚举继承接口：比如<code>public enum BasicOperation implements Operation{…}</code></li>
 <li>使用时的API写成接口(比如，<code>T extends Enum &amp; Operation)</code>，而不是实现（比如<code>BasicOperation</code>）</li>
 <li>当需要扩展<code>BasicOperation</code>枚举时，就可以另写一个枚举，且implements接口<code>Operation</code></li>
 </ol>
-<h3 id="第39条：注解优先于命名模式"><a href="#第39条：注解优先于命名模式" class="headerlink" title="第39条：注解优先于命名模式"></a>第39条：注解优先于命名模式</h3><h3 id="第40条：坚持使用Override注解"><a href="#第40条：坚持使用Override注解" class="headerlink" title="第40条：坚持使用Override注解"></a>第40条：坚持使用Override注解</h3><h3 id="第41条：用标记接口实现类型"><a href="#第41条：用标记接口实现类型" class="headerlink" title="第41条：用标记接口实现类型"></a>第41条：用标记接口实现类型</h3><p>标记接口可以在编译时就检查到相应的类型问题，而标记注解则要到运行时。</p>
+<h3 id="第39条：注解优先于命名模式"><a class="header-anchor" href="#第39条：注解优先于命名模式">¶</a>第39条：注解优先于命名模式</h3>
+<h3 id="第40条：坚持使用Override注解"><a class="header-anchor" href="#第40条：坚持使用Override注解">¶</a>第40条：坚持使用Override注解</h3>
+<h3 id="第41条：用标记接口实现类型"><a class="header-anchor" href="#第41条：用标记接口实现类型">¶</a>第41条：用标记接口实现类型</h3>
+<p>标记接口可以在编译时就检查到相应的类型问题，而标记注解则要到运行时。</p>
 <ul>
 <li>如果标记是应用到任何程序元素而不是类或者接口,就必须使用注解. 因为只有 类和接口可以用来实现或者扩展接口</li>
 <li>如果标记只应用给类和接口,就应该 优先使用标记接口而非注解</li>
@@ -4433,19 +4468,23 @@ for(Plant p : garden){
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		5 操作文件 | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,108 +4395,225 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:47</span>
+	<span id="post-date">2019-12-18 01:00:41</span>
 </div>
 
 
 <div id="article">
 	<p>Path接口和Files类封装了在用户机器上处理文件系统所需的所有功能，他们是在JavaSE7中新添加进来的，比自JDK1.0以来一直使用的File类方便很多。</p>
-<h3 id="1-Path"><a href="#1-Path" class="headerlink" title="1 Path"></a>1 Path</h3><p>Path表示的是一个目录名序列，其后还可以跟着一个文件名。<br>路径中的第一个部件可以是根部件，例如 <code>/</code>或 <code>C:\</code>。以根部件开始的路径是绝对路径；否则，就是相对路径。</p>
+<h3 id="1-Path"><a class="header-anchor" href="#1-Path">¶</a>1 Path</h3>
+<p>Path表示的是一个目录名序列，其后还可以跟着一个文件名。<br>
+路径中的第一个部件可以是根部件，例如 <code>/</code>或 <code>C:\</code>。以根部件开始的路径是绝对路径；否则，就是相对路径。</p>
 <pre><code>Path absolute = Paths.get(&quot;/home&quot;,&quot;harry&quot;);
-Path relative = Paths.get(&quot;myprog&quot;,&quot;conf&quot;,&quot;user.properties&quot;);</code></pre><p>静态的Paths.get方法接受一个或多个字符串，并将它们用默认文件系统的路径分隔符（<code>/</code>,<code>\</code>）连接起来。</p>
-<h5 id="resolve"><a href="#resolve" class="headerlink" title="resolve"></a>resolve</h5><p>组合或解析路径,调用p.resolve(q)将按照下列规则返回一个路径：</p>
+Path relative = Paths.get(&quot;myprog&quot;,&quot;conf&quot;,&quot;user.properties&quot;);
+</code></pre>
+<p>静态的Paths.get方法接受一个或多个字符串，并将它们用默认文件系统的路径分隔符（<code>/</code>,<code>\</code>）连接起来。</p>
+<h5 id="resolve"><a class="header-anchor" href="#resolve">¶</a>resolve</h5>
+<p>组合或解析路径,调用p.resolve(q)将按照下列规则返回一个路径：</p>
 <ul>
 <li>如果q是绝对路径，结果就是q</li>
-<li>否则，根据文件系统规则，将“p后跟q”作为结果</li>
+<li>否则，根据文件系统规则，将“p后跟q&quot;作为结果</li>
 </ul>
-<h5 id="resolveSibling"><a href="#resolveSibling" class="headerlink" title="resolveSibling"></a>resolveSibling</h5><p>解析指定路径的父路径产生其兄弟路径</p>
+<h5 id="resolveSibling"><a class="header-anchor" href="#resolveSibling">¶</a>resolveSibling</h5>
+<p>解析指定路径的父路径产生其兄弟路径</p>
 <pre><code>Path workPath = Paths.get(&quot;/opt/myapp/work&quot;);
 Path tempPath = workPath.resolveSibling(&quot;temp&quot;);
-//tempPath == /opt/myapp/temp.</code></pre><h5 id="relativize"><a href="#relativize" class="headerlink" title="relativize"></a>relativize</h5><p>resolve的对立面，即调用p.relativize(r)将产生路径q,而对q进行的解析的结果正是r 。</p>
-<p>例如，以”/home/cay”为目标对”/home/fred/myprog”进行相对化操作，会产生“../fred/yprog”,其中假设..表示的是文件系统的父目录。</p>
-<h5 id="normalize"><a href="#normalize" class="headerlink" title="normalize"></a>normalize</h5><p>移除所有冗余的.和..部件（或者文件系统认为冗余的所有部件）。</p>
-<p>例如，规范化/home/cay/../fred/./myprog将产生/home/fred/myprog。</p>
-<h5 id="toAbsolutePath"><a href="#toAbsolutePath" class="headerlink" title="toAbsolutePath"></a>toAbsolutePath</h5><p>产生给定路径的绝对路径，该绝对路径从根部件开始。</p>
+//tempPath == /opt/myapp/temp.
+</code></pre>
+<h5 id="relativize"><a class="header-anchor" href="#relativize">¶</a>relativize</h5>
+<p>resolve的对立面，即调用p.relativize®将产生路径q,而对q进行的解析的结果正是r 。</p>
+<p>例如，以”/home/cay&quot;为目标对&quot;/home/fred/myprog&quot;进行相对化操作，会产生“…/fred/yprog&quot;,其中假设…表示的是文件系统的父目录。</p>
+<h5 id="normalize"><a class="header-anchor" href="#normalize">¶</a>normalize</h5>
+<p>移除所有冗余的.和…部件（或者文件系统认为冗余的所有部件）。</p>
+<p>例如，规范化/home/cay/…/fred/./myprog将产生/home/fred/myprog。</p>
+<h5 id="toAbsolutePath"><a class="header-anchor" href="#toAbsolutePath">¶</a>toAbsolutePath</h5>
+<p>产生给定路径的绝对路径，该绝对路径从根部件开始。</p>
 <p>例如/home/fred/input.txt或c:\Usersfredinput.txt。</p>
-<h5 id="断开路径"><a href="#断开路径" class="headerlink" title="断开路径"></a>断开路径</h5><p>Path类有许多有用的方法用来将路径断开。</p>
+<h5 id="断开路径"><a class="header-anchor" href="#断开路径">¶</a>断开路径</h5>
+<p>Path类有许多有用的方法用来将路径断开。</p>
 <pre><code>Path p = Paths.get(&quot;/home&quot;,&quot;fred&quot;,&quot;myproperties&quot;);
 Path parent = p.getParent();
 Path file = p.getFileName();
-Path root = p.getRoot();</code></pre><h5 id="Scanner"><a href="#Scanner" class="headerlink" title="Scanner"></a>Scanner</h5><p>还可以从Path对象中构建Scanner对象：</p>
-<pre><code>Scanner in = new Scanner(Paths.get(&quot;/home/fred/input.txt&quot;));</code></pre><h5 id="遗留系统"><a href="#遗留系统" class="headerlink" title="遗留系统"></a>遗留系统</h5><p>需要与遗留系统交互时，可以使用Path的toFile方法，或者File类的toPath方法</p>
-<h3 id="2-读写文件"><a href="#2-读写文件" class="headerlink" title="2 读写文件"></a>2 读写文件</h3><p>Files类可以使得普通文件操作变得快捷。</p>
-<h4 id="读"><a href="#读" class="headerlink" title="读"></a>读</h4><ul>
-<li>读为byte<pre><code>byte[] bytes = Files.readAllBytes(path);</code></pre></li>
-<li>读为字符串<pre><code>String content = new String(bytes,charset);</code></pre></li>
-<li>读为行<pre><code>List&lt;String&gt; lines = Files.readAllLines(path,charset);</code></pre><h4 id="写"><a href="#写" class="headerlink" title="写"></a>写</h4></li>
-<li>写出字符串<pre><code>Files.write(path,content.getBytes(charset));</code></pre></li>
-<li>追加内容<pre><code>Files.write(path,content,getBytes(charset),StandardOpenOption.APPEND);</code></pre></li>
-<li>写出行集合<pre><code>Files.write(path,lines);</code></pre>这些简便方法适用于处理中等长度的文本文件，如果要处理的文本长度较大，或者是二进制文件，还是应该使用所熟知的输入输出流或者读入器/写出器。</li>
+Path root = p.getRoot();
+</code></pre>
+<h5 id="Scanner"><a class="header-anchor" href="#Scanner">¶</a>Scanner</h5>
+<p>还可以从Path对象中构建Scanner对象：</p>
+<pre><code>Scanner in = new Scanner(Paths.get(&quot;/home/fred/input.txt&quot;));
+</code></pre>
+<h5 id="遗留系统"><a class="header-anchor" href="#遗留系统">¶</a>遗留系统</h5>
+<p>需要与遗留系统交互时，可以使用Path的toFile方法，或者File类的toPath方法</p>
+<h3 id="2-读写文件"><a class="header-anchor" href="#2-读写文件">¶</a>2 读写文件</h3>
+<p>Files类可以使得普通文件操作变得快捷。</p>
+<h4 id="读"><a class="header-anchor" href="#读">¶</a>读</h4>
+<ul>
+<li>读为byte</li>
 </ul>
+<pre><code>byte[] bytes = Files.readAllBytes(path);
+</code></pre>
+<ul>
+<li>读为字符串</li>
+</ul>
+<pre><code>String content = new String(bytes,charset);
+</code></pre>
+<ul>
+<li>读为行</li>
+</ul>
+<pre><code>List&lt;String&gt; lines = Files.readAllLines(path,charset);
+</code></pre>
+<h4 id="写"><a class="header-anchor" href="#写">¶</a>写</h4>
+<ul>
+<li>写出字符串</li>
+</ul>
+<pre><code>Files.write(path,content.getBytes(charset));
+</code></pre>
+<ul>
+<li>追加内容</li>
+</ul>
+<pre><code>Files.write(path,content,getBytes(charset),StandardOpenOption.APPEND);
+</code></pre>
+<ul>
+<li>写出行集合</li>
+</ul>
+<pre><code>Files.write(path,lines);
+</code></pre>
+<p>这些简便方法适用于处理中等长度的文本文件，如果要处理的文本长度较大，或者是二进制文件，还是应该使用所熟知的输入输出流或者读入器/写出器。</p>
 <pre><code>InputStream in = Files.newInputStream(path);
 OutputStream out = Files.newOutputStream(path);
 Reader in = Files.newBufferedReader(path, charset);
-Writer out = Files.newBufferedWriter(path, charset);</code></pre><h3 id="3-创建文件和目录"><a href="#3-创建文件和目录" class="headerlink" title="3 创建文件和目录"></a>3 创建文件和目录</h3><h4 id="创建新目录"><a href="#创建新目录" class="headerlink" title="创建新目录"></a>创建新目录</h4><p>中间目录必须是已存在</p>
-<pre><code>Files.createDirectory(path);</code></pre><p>同时创建中间目录</p>
-<pre><code>Files.createDirectories(path);</code></pre><h4 id="创建空文件"><a href="#创建空文件" class="headerlink" title="创建空文件"></a>创建空文件</h4><p>如果文件已存在，会抛异常。</p>
-<pre><code>Files.createFile(path);</code></pre><p>检查文件是否存在和创建文件是原子性的，如果文件不存在，该文件就会被创建，并且其他程序在此过程中是无法执行文件创建操作的。</p>
-<h4 id="创建临时文件和临时目录"><a href="#创建临时文件和临时目录" class="headerlink" title="创建临时文件和临时目录"></a>创建临时文件和临时目录</h4><pre><code>Path newPath = Files.createTempFile(dir,prefix,suffix);
+Writer out = Files.newBufferedWriter(path, charset);
+</code></pre>
+<h3 id="3-创建文件和目录"><a class="header-anchor" href="#3-创建文件和目录">¶</a>3 创建文件和目录</h3>
+<h4 id="创建新目录"><a class="header-anchor" href="#创建新目录">¶</a>创建新目录</h4>
+<p>中间目录必须是已存在</p>
+<pre><code>Files.createDirectory(path);
+</code></pre>
+<p>同时创建中间目录</p>
+<pre><code>Files.createDirectories(path);
+</code></pre>
+<h4 id="创建空文件"><a class="header-anchor" href="#创建空文件">¶</a>创建空文件</h4>
+<p>如果文件已存在，会抛异常。</p>
+<pre><code>Files.createFile(path);
+</code></pre>
+<p>检查文件是否存在和创建文件是原子性的，如果文件不存在，该文件就会被创建，并且其他程序在此过程中是无法执行文件创建操作的。</p>
+<h4 id="创建临时文件和临时目录"><a class="header-anchor" href="#创建临时文件和临时目录">¶</a>创建临时文件和临时目录</h4>
+<pre><code>Path newPath = Files.createTempFile(dir,prefix,suffix);
 Pah newPath = Files.createTempFile(prefix,suffix);
 Pah newPath = Files.createTempDirectory(dir,prefix);
-Pah newPath = Files.createTempDirectory(prefix);</code></pre><p>其中，dir是一个Path对象，prefix和suffix是可以为null的字符串。例如，调用Files.createTempFile(null, “.txt”)可能会返回一个像/tmp/1234405522364837194.txt这样的路径。</p>
+Pah newPath = Files.createTempDirectory(prefix);
+</code></pre>
+<p>其中，dir是一个Path对象，prefix和suffix是可以为null的字符串。例如，调用Files.createTempFile(null, “.txt”)可能会返回一个像/tmp/1234405522364837194.txt这样的路径。</p>
 <p>创建文件或目录，可以制定属性，例如文件的拥有者和权限。</p>
-<h3 id="4-复制、移动和删除文件"><a href="#4-复制、移动和删除文件" class="headerlink" title="4 复制、移动和删除文件"></a>4 复制、移动和删除文件</h3><h4 id="复制、移动"><a href="#复制、移动" class="headerlink" title="复制、移动"></a>复制、移动</h4><p>如果目标路径已经存在，那么复制或移动将失败。</p>
+<h3 id="4-复制、移动和删除文件"><a class="header-anchor" href="#4-复制、移动和删除文件">¶</a>4 复制、移动和删除文件</h3>
+<h4 id="复制、移动"><a class="header-anchor" href="#复制、移动">¶</a>复制、移动</h4>
+<p>如果目标路径已经存在，那么复制或移动将失败。</p>
 <ul>
-<li><p>复制文件</p>
-<pre><code>Files.copy(fromPath,toPath);</code></pre></li>
-<li><p>移动文件</p>
-<pre><code>Files.move(fromPath,toPath);</code></pre><p>StandardCopyOption：</p>
-<p>  REPLACE_EXISTING：覆盖已有的目标路径<br>  COPY_ATTRIBUTES：复制所有的文件属性<br>  ATOMIC_MOVE：将移动操作定义为原子性的</p>
-</li>
-<li><p>Path<br>可将输入流复制到Path中，这表示你想要将该输入流存储到硬盘上。<br>可将Path复制到输出流中。</p>
-<pre><code>Files.copy(inputStream,toPath);
-Files.copy(fromPath,outputStream);</code></pre><h4 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h4></li>
-<li><p>删除文件</p>
-<pre><code>Files.delete(path);</code></pre><p>如果要删除的文件不存在，会抛异常。</p>
-</li>
-<li><p>删除存在文件</p>
-<pre><code>boolean deleted = Files.deleteIfExits(path);</code></pre><h3 id="5-获取文件信息"><a href="#5-获取文件信息" class="headerlink" title="5 获取文件信息"></a>5 获取文件信息</h3></li>
+<li>复制文件</li>
 </ul>
-<h5 id="路径属性"><a href="#路径属性" class="headerlink" title="路径属性"></a>路径属性</h5><ul>
+<pre><code>Files.copy(fromPath,toPath);
+</code></pre>
+<ul>
+<li>移动文件</li>
+</ul>
+<pre><code>Files.move(fromPath,toPath);
+</code></pre>
+<p>StandardCopyOption：</p>
+<pre><code>REPLACE_EXISTING：覆盖已有的目标路径
+COPY_ATTRIBUTES：复制所有的文件属性
+ATOMIC_MOVE：将移动操作定义为原子性的
+</code></pre>
+<ul>
+<li>Path<br>
+可将输入流复制到Path中，这表示你想要将该输入流存储到硬盘上。<br>
+可将Path复制到输出流中。</li>
+</ul>
+<pre><code>Files.copy(inputStream,toPath);
+Files.copy(fromPath,outputStream);
+</code></pre>
+<h4 id="删除"><a class="header-anchor" href="#删除">¶</a>删除</h4>
+<ul>
+<li>删除文件</li>
+</ul>
+<pre><code>Files.delete(path);
+</code></pre>
+<p>如果要删除的文件不存在，会抛异常。</p>
+<ul>
+<li>删除存在文件</li>
+</ul>
+<pre><code>boolean deleted = Files.deleteIfExits(path);
+</code></pre>
+<h3 id="5-获取文件信息"><a class="header-anchor" href="#5-获取文件信息">¶</a>5 获取文件信息</h3>
+<h5 id="路径属性"><a class="header-anchor" href="#路径属性">¶</a>路径属性</h5>
+<ul>
 <li>exists</li>
 <li>isHidden</li>
 <li>isReadadble,isWritable,isExecuutable</li>
 <li>isRegularFile, isDirectory, isSymbolicLink</li>
 </ul>
-<h5 id="文件字节数"><a href="#文件字节数" class="headerlink" title="文件字节数"></a>文件字节数</h5><p>size方法</p>
-<pre><code>long filesize = Files.size(path);</code></pre><h5 id="文件拥有者"><a href="#文件拥有者" class="headerlink" title="文件拥有者"></a>文件拥有者</h5><p>getOwner方法将文件的拥有者作为java.nio.file.attribute.UserPrincipal的一个实例返回。</p>
-<h5 id="基本属性集"><a href="#基本属性集" class="headerlink" title="基本属性集"></a>基本属性集</h5><p>获取基本属性集</p>
+<h5 id="文件字节数"><a class="header-anchor" href="#文件字节数">¶</a>文件字节数</h5>
+<p>size方法</p>
+<pre><code>long filesize = Files.size(path);
+</code></pre>
+<h5 id="文件拥有者"><a class="header-anchor" href="#文件拥有者">¶</a>文件拥有者</h5>
+<p>getOwner方法将文件的拥有者作为java.nio.file.attribute.UserPrincipal的一个实例返回。</p>
+<h5 id="基本属性集"><a class="header-anchor" href="#基本属性集">¶</a>基本属性集</h5>
+<p>获取基本属性集</p>
 <ul>
 <li>创建文件、最后一次访问、最后一次修改的时间，这些时间都表示成java.nio.file.attribute.FileTime</li>
 <li>文件是常规文件、目录还是符号链接，或者都不是</li>
 <li>文件尺寸</li>
-<li>文件主键，这是某种类的对象，具体所属类与文件系统相关，有可能是文件的唯一标识符，也可能不是<pre><code>BasicFileAttributes attributes = Files .readAttributes(path,BasicFileAttributes.class);</code></pre>如果文件系统兼容POSIX，可获取PosixFileAttributes实例：<pre><code>PosixFileAttributes attributes = Files .readAttributes(path,PosixFilesAttributes.class);</code></pre>然后从中找到拥有者，以及文件的拥有者、组或访问权限。</li>
+<li>文件主键，这是某种类的对象，具体所属类与文件系统相关，有可能是文件的唯一标识符，也可能不是</li>
 </ul>
-<h3 id="6-访问目录中的项"><a href="#6-访问目录中的项" class="headerlink" title="6 访问目录中的项"></a>6 访问目录中的项</h3><h4 id="list"><a href="#list" class="headerlink" title="list"></a>list</h4><p>Files.list方法会返回一个可以读取目录中各个项的Stream<Path>对象。惰性读取，更高效。<br>list 方法不会进入子目录。</p>
-<pre><code>try( Stream&lt;Path&gt; entries = Files.list(pathToDirectory){...}</code></pre><h4 id="walk"><a href="#walk" class="headerlink" title="walk"></a>walk</h4><p>Files.walk方法会产生一个可以遍历目录中所有子目录的Stream<Path>对象。</p>
-<pre><code>try( Stream&lt;Path&gt; entries = Files.walk方法(pathToRoot){...}</code></pre><p>限制想要访问的树的深度。</p>
-<pre><code>File.walk(pathToRoot, depth)</code></pre><h3 id="7-使用目录流"><a href="#7-使用目录流" class="headerlink" title="7 使用目录流"></a>7 使用目录流</h3><p>要对遍历过程进行更加细粒度的控制，应该使用File.newDirectoryStream对象，它会产生一个DirectoryStream。</p>
+<pre><code>BasicFileAttributes attributes = Files .readAttributes(path,BasicFileAttributes.class);
+</code></pre>
+<p>如果文件系统兼容POSIX，可获取PosixFileAttributes实例：</p>
+<pre><code>PosixFileAttributes attributes = Files .readAttributes(path,PosixFilesAttributes.class);
+</code></pre>
+<p>然后从中找到拥有者，以及文件的拥有者、组或访问权限。</p>
+<h3 id="6-访问目录中的项"><a class="header-anchor" href="#6-访问目录中的项">¶</a>6 访问目录中的项</h3>
+<h4 id="list"><a class="header-anchor" href="#list">¶</a>list</h4>
+<p>Files.list方法会返回一个可以读取目录中各个项的Stream<Path>对象。惰性读取，更高效。<br>
+list 方法不会进入子目录。</p>
+<pre><code>try( Stream&lt;Path&gt; entries = Files.list(pathToDirectory){...}
+</code></pre>
+<h4 id="walk"><a class="header-anchor" href="#walk">¶</a>walk</h4>
+<p>Files.walk方法会产生一个可以遍历目录中所有子目录的Stream<Path>对象。</p>
+<pre><code>try( Stream&lt;Path&gt; entries = Files.walk方法(pathToRoot){...}
+</code></pre>
+<p>限制想要访问的树的深度。</p>
+<pre><code>File.walk(pathToRoot, depth)
+</code></pre>
+<h3 id="7-使用目录流"><a class="header-anchor" href="#7-使用目录流">¶</a>7 使用目录流</h3>
+<p>要对遍历过程进行更加细粒度的控制，应该使用File.newDirectoryStream对象，它会产生一个DirectoryStream。</p>
 <p>DirectoryStream不是java.util.stream.Stream的子接口，而是专门用于目录遍历的接口。它是Iterable的子接口，可以在增强的for循环中使用目录流。</p>
 <pre><code>try (DirectoryStream&lt;Path&gt; entries = Files.newDirectoryStream(dir)){
     for (Path entry: entries){
         Process entries
     }
-}</code></pre><p>访问目录中的 项并没有具体的顺序。</p>
+}
+</code></pre>
+<p>访问目录中的 项并没有具体的顺序。</p>
 <p>可以用glob模式来过滤文件：</p>
-<pre><code>try (DirectoryStream&lt;Path&gt; entries = Files.newDirectoryStream(dir,&quot;*.java&quot;))</code></pre><p><img src="/images/1545011845105.png" alt=""></p>
-<h3 id="8-ZIP文件系统"><a href="#8-ZIP文件系统" class="headerlink" title="8 ZIP文件系统"></a>8 ZIP文件系统</h3><h4 id="建立文件系统"><a href="#建立文件系统" class="headerlink" title="建立文件系统"></a>建立文件系统</h4><pre><code>FileSystem fs = FileSystem.newFileSystem(Path.get(zipname),null);</code></pre><h4 id="复制文件"><a href="#复制文件" class="headerlink" title="复制文件"></a>复制文件</h4><pre><code>Files.copy(fs.getPath(soureceName),targetPath);</code></pre><p>fs.getPath与Paths.get类似</p>
-<h4 id="遍历文件树"><a href="#遍历文件树" class="headerlink" title="遍历文件树"></a>遍历文件树</h4><pre><code>FileSystem fs = FileSystem.newFileSystem(Path.get(zipname),null);
+<pre><code>try (DirectoryStream&lt;Path&gt; entries = Files.newDirectoryStream(dir,&quot;*.java&quot;))
+</code></pre>
+<p><img src="/images/1545011845105.png" alt=""></p>
+<h3 id="8-ZIP文件系统"><a class="header-anchor" href="#8-ZIP文件系统">¶</a>8 ZIP文件系统</h3>
+<h4 id="建立文件系统"><a class="header-anchor" href="#建立文件系统">¶</a>建立文件系统</h4>
+<pre><code>FileSystem fs = FileSystem.newFileSystem(Path.get(zipname),null);
+</code></pre>
+<h4 id="复制文件"><a class="header-anchor" href="#复制文件">¶</a>复制文件</h4>
+<pre><code>Files.copy(fs.getPath(soureceName),targetPath);
+</code></pre>
+<p>fs.getPath与Paths.get类似</p>
+<h4 id="遍历文件树"><a class="header-anchor" href="#遍历文件树">¶</a>遍历文件树</h4>
+<pre><code>FileSystem fs = FileSystem.newFileSystem(Path.get(zipname),null);
 Files.walkFileTreee(fs.getPath(&quot;/&quot;),new SimpleFileVisitor&lt;Path&gt;(){
     public FileVisitResult visitFile(Path file,BasicFileAttributes attrs) throws IOException{
         System.out.pintln(file);
         return FileVisitResult.CONTINUE;
     }
-});</code></pre>
+});
+</code></pre>
+
 </div>
 
 	</div>
@@ -4482,19 +4622,23 @@ Files.walkFileTreee(fs.getPath(&quot;/&quot;),new SimpleFileVisitor&lt;Path&gt;(
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

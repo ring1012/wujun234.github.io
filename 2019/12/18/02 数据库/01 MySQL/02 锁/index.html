@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		02 锁 | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,13 +4395,14 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:22</span>
+	<span id="post-date">2019-12-18 01:00:43</span>
 </div>
 
 
 <div id="article">
-	<h3 id="1-锁粒度"><a href="#1-锁粒度" class="headerlink" title="1 锁粒度"></a>1 锁粒度</h3><p>MySQL 中提供了两种锁粒度：行级锁以及表级锁。</p>
-<p>锁策略，就是在锁的开销和数据的安全性之间寻求平衡。  </p>
+	<h3 id="1-锁粒度"><a class="header-anchor" href="#1-锁粒度">¶</a>1 锁粒度</h3>
+<p>MySQL 中提供了两种锁粒度：行级锁以及表级锁。</p>
+<p>锁策略，就是在锁的开销和数据的安全性之间寻求平衡。</p>
 <ul>
 <li>表锁（table lock）</li>
 </ul>
@@ -4388,28 +4412,45 @@
 </ul>
 <p>行级锁可以最大程度地支持并发处理（同时也带来了最大的锁开销）。</p>
 <p>行级锁只在存储引擎层实现，而MySQL服务器层没有实现。</p>
-<h3 id="2-锁类型"><a href="#2-锁类型" class="headerlink" title="2 锁类型"></a>2 锁类型</h3><h4 id="2-1-读写锁"><a href="#2-1-读写锁" class="headerlink" title="2.1 读写锁"></a>2.1 读写锁</h4><ul>
-<li><strong>读锁</strong>（共享锁，简写 S 锁）<br>读锁不阻塞，读锁上还可再加读锁</li>
-<li><strong>写锁</strong>（排它锁，简写 X 锁）<br>写锁阻塞，不能再加锁</li>
+<h3 id="2-锁类型"><a class="header-anchor" href="#2-锁类型">¶</a>2 锁类型</h3>
+<h4 id="2-1-读写锁"><a class="header-anchor" href="#2-1-读写锁">¶</a>2.1 读写锁</h4>
+<ul>
+<li><strong>读锁</strong>（共享锁，简写 S 锁）<br>
+读锁不阻塞，读锁上还可再加读锁</li>
+<li><strong>写锁</strong>（排它锁，简写 X 锁）<br>
+写锁阻塞，不能再加锁</li>
 </ul>
-<h4 id="2-2-意向锁"><a href="#2-2-意向锁" class="headerlink" title="2.2 意向锁"></a>2.2 意向锁</h4><p>意向锁（IX/IS）都是表锁，用来表示一个事务想要在表中的某个数据行上加 X 锁或 S 锁。</p>
+<h4 id="2-2-意向锁"><a class="header-anchor" href="#2-2-意向锁">¶</a>2.2 意向锁</h4>
+<p>意向锁（IX/IS）都是表锁，用来表示一个事务想要在表中的某个数据行上加 X 锁或 S 锁。</p>
 <p>通过引入意向锁，事务 T 想要对表 A 加 X 锁，只需要先检测是否有其它事务对表 A 加了 X/IX/S/IS 锁，如果加了就表示有其它事务正在使用这个表或者表中某一行的锁，因此事务 T 加 X 锁失败。</p>
 <ul>
 <li>任意 IS/IX 锁之间都是兼容的，因为它们只是表示想要对表加锁，而不是真正加锁；</li>
 <li>S 锁只与 S 锁和 IS 锁兼容，也就是说事务 T 想要对数据行加 S 锁，其它事务可以已经获得对表或者表中的行的 S 锁。</li>
 </ul>
-<h4 id="3-锁协议"><a href="#3-锁协议" class="headerlink" title="3 锁协议"></a>3 锁协议</h4><h4 id="3-1-三级封锁协议"><a href="#3-1-三级封锁协议" class="headerlink" title="3.1 三级封锁协议"></a>3.1 三级封锁协议</h4><ul>
-<li>一级封锁协议<br>事务 T 要修改数据 A 时必须加 X 锁，直到 T 结束才释放锁。<br>解决丢失修改</li>
-<li>二级封锁协议<br>在一级的基础上，要求读取数据 A 时必须加 S 锁，读取完马上释放 S 锁。<br>解决读脏</li>
-<li>三级封锁协议<br>在二级的基础上，要求读取数据 A 时必须加 S 锁，直到事务结束了才能释放 S 锁。<br>解决不可重复读</li>
+<h4 id="3-锁协议"><a class="header-anchor" href="#3-锁协议">¶</a>3 锁协议</h4>
+<h4 id="3-1-三级封锁协议"><a class="header-anchor" href="#3-1-三级封锁协议">¶</a>3.1 三级封锁协议</h4>
+<ul>
+<li>一级封锁协议<br>
+事务 T 要修改数据 A 时必须加 X 锁，直到 T 结束才释放锁。<br>
+解决丢失修改</li>
+<li>二级封锁协议<br>
+在一级的基础上，要求读取数据 A 时必须加 S 锁，读取完马上释放 S 锁。<br>
+解决读脏</li>
+<li>三级封锁协议<br>
+在二级的基础上，要求读取数据 A 时必须加 S 锁，直到事务结束了才能释放 S 锁。<br>
+解决不可重复读</li>
 </ul>
-<h4 id="3-2-两段锁协议"><a href="#3-2-两段锁协议" class="headerlink" title="3.2 两段锁协议"></a>3.2 两段锁协议</h4><p>加锁和解锁分为两个阶段进行。</p>
+<h4 id="3-2-两段锁协议"><a class="header-anchor" href="#3-2-两段锁协议">¶</a>3.2 两段锁协议</h4>
+<p>加锁和解锁分为两个阶段进行。</p>
 <p>可串行化调度是指，通过并发控制，使得并发执行的事务结果与某个串行执行的事务结果相同。</p>
 <p>事务遵循两段锁协议是保证可串行化调度的充分条件。例如以下操作满足两段锁协议，它是可串行化调度。</p>
-<pre><code class="html">lock-x(A)...lock-s(B)...lock-s(C)...unlock(A)...unlock(C)...unlock(B)</code></pre>
+<pre><code class="language-html">lock-x(A)...lock-s(B)...lock-s(C)...unlock(A)...unlock(C)...unlock(B)
+</code></pre>
 <p>但不是必要条件，例如以下操作不满足两段锁协议，但是它还是可串行化调度。</p>
-<pre><code class="html">lock-x(A)...unlock(A)...lock-s(B)...unlock(B)...lock-s(C)...unlock(C)</code></pre>
-<h4 id="3-3-隐式和显式锁定"><a href="#3-3-隐式和显式锁定" class="headerlink" title="3.3 隐式和显式锁定"></a>3.3 隐式和显式锁定</h4><ul>
+<pre><code class="language-html">lock-x(A)...unlock(A)...lock-s(B)...unlock(B)...lock-s(C)...unlock(C)
+</code></pre>
+<h4 id="3-3-隐式和显式锁定"><a class="header-anchor" href="#3-3-隐式和显式锁定">¶</a>3.3 隐式和显式锁定</h4>
+<ul>
 <li>隐式锁定</li>
 </ul>
 <p>InnoDB采用的是两阶段锁定协议。会根据隔离级别在需要的时候自动加锁，锁只有在执行COMMIT或者ROLLBACK的时候才会释放，并且所有的锁是在同一时刻被释放。</p>
@@ -4418,8 +4459,11 @@
 </ul>
 <p>InnoDB也支持通过特定的语句进行显式锁定</p>
 <pre><code>SELECT ... LOCK IN SHARE MODE
-SELECT ... FOR UPDATE</code></pre><p>除了事务中禁了AUTOCOMMIT,可以使用LOCK TABLES之外，其他任何时候都不要显式地执行LOCK TABLES，不管使用的是什么存储引擎。</p>
-<h3 id="4-死锁"><a href="#4-死锁" class="headerlink" title="4 死锁"></a>4 死锁</h3><p>死锁发生以后，只有部分或者完全回滚其中一个事务，才能打破死锁。大多数情况下只需要重新执行因死锁回滚的事务即可。</p>
+SELECT ... FOR UPDATE
+</code></pre>
+<p>除了事务中禁了AUTOCOMMIT,可以使用LOCK TABLES之外，其他任何时候都不要显式地执行LOCK TABLES，不管使用的是什么存储引擎。</p>
+<h3 id="4-死锁"><a class="header-anchor" href="#4-死锁">¶</a>4 死锁</h3>
+<p>死锁发生以后，只有部分或者完全回滚其中一个事务，才能打破死锁。大多数情况下只需要重新执行因死锁回滚的事务即可。</p>
 <ul>
 <li>死锁检测</li>
 </ul>
@@ -4432,7 +4476,8 @@ SELECT ... FOR UPDATE</code></pre><p>除了事务中禁了AUTOCOMMIT,可以使�
 <li>InnoDB</li>
 </ul>
 <p>InnoDB目前处理死锁的方法是，将持有最少行级排他锁的事务进行回滚(这是相对比较简单的死锁回滚算法)。</p>
-<h3 id="5-间隙锁"><a href="#5-间隙锁" class="headerlink" title="5 间隙锁"></a>5 间隙锁</h3><p>间隙锁（Next-Key Locks） 是 MySQL 的 InnoDB 存储引擎的一种锁实现。</p>
+<h3 id="5-间隙锁"><a class="header-anchor" href="#5-间隙锁">¶</a>5 间隙锁</h3>
+<p>间隙锁（Next-Key Locks） 是 MySQL 的 InnoDB 存储引擎的一种锁实现。</p>
 <p>在可重复读隔离级别下，使用 MVCC + Next-Key Locks 可以解决幻读问题。</p>
 <ul>
 <li>Record Locks</li>
@@ -4455,19 +4500,23 @@ SELECT ... FOR UPDATE</code></pre><p>除了事务中禁了AUTOCOMMIT,可以使�
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

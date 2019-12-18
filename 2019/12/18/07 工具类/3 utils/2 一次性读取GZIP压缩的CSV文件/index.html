@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		2 一次性读取GZIP压缩的CSV文件 | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,30 +4395,51 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:39</span>
+	<span id="post-date">2019-12-18 01:00:44</span>
 </div>
 
 
 <div id="article">
-	<h3 id="读取文件"><a href="#读取文件" class="headerlink" title="读取文件"></a>读取文件</h3><p>先获取文件InputStream，以url为例</p>
+	<h3 id="读取文件"><a class="header-anchor" href="#读取文件">¶</a>读取文件</h3>
+<p>先获取文件InputStream，以url为例</p>
 <pre><code>URL url = new URL(destUrl);
 HttpURLConnection httpUrl = (HttpURLConnection) url.openConnection();
 httpUrl.connect();
-InputStream inputStream = httpUrl.getInputStream();</code></pre><h3 id="解压GZIP文件"><a href="#解压GZIP文件" class="headerlink" title="解压GZIP文件"></a>解压GZIP文件</h3><p>使用java.util.zip包的GZIPInputStream可以解压GZIP文件。只需先获取待解压的InputStream，然后再new一个GZIPInputStream对象，就可以获得解压后的InputStream</p>
-<pre><code>GZIPInputStream bis = new GZIPInputStream(inputStream);</code></pre><h3 id="InputStream转Reader"><a href="#InputStream转Reader" class="headerlink" title="InputStream转Reader"></a>InputStream转Reader</h3><p>获取InputStream后，如果还要对他进行下一步操作，可以直接对其读取，不用先存成文件再从文件读。</p>
-<pre><code>InputStreamReader isr = new InputStreamReader(bis);</code></pre><h3 id="读取csv"><a href="#读取csv" class="headerlink" title="读取csv"></a>读取csv</h3><p>使用org.apache.commons.csv解析csv文件<br>pom依赖</p>
+InputStream inputStream = httpUrl.getInputStream();
+</code></pre>
+<h3 id="解压GZIP文件"><a class="header-anchor" href="#解压GZIP文件">¶</a>解压GZIP文件</h3>
+<p>使用java.util.zip包的GZIPInputStream可以解压GZIP文件。只需先获取待解压的InputStream，然后再new一个GZIPInputStream对象，就可以获得解压后的InputStream</p>
+<pre><code>GZIPInputStream bis = new GZIPInputStream(inputStream);
+</code></pre>
+<h3 id="InputStream转Reader"><a class="header-anchor" href="#InputStream转Reader">¶</a>InputStream转Reader</h3>
+<p>获取InputStream后，如果还要对他进行下一步操作，可以直接对其读取，不用先存成文件再从文件读。</p>
+<pre><code>InputStreamReader isr = new InputStreamReader(bis);
+</code></pre>
+<h3 id="读取csv"><a class="header-anchor" href="#读取csv">¶</a>读取csv</h3>
+<p>使用org.apache.commons.csv解析csv文件<br>
+pom依赖</p>
 <pre><code>        &lt;dependency&gt;
             &lt;groupId&gt;org.apache.commons&lt;/groupId&gt;
             &lt;artifactId&gt;commons-csv&lt;/artifactId&gt;
             &lt;version&gt;1.5&lt;/version&gt;
-        &lt;/dependency&gt;</code></pre><p>先定义表头数组，方便之后按表头取值</p>
-<pre><code>static final String[] FILE_HEADER = new String[]{&quot;date&quot;, &quot;file_id&quot;, ……};</code></pre><p>新建CSVFormat，加上withSkipHeaderRecord()以免将第一行表头也当作数据读取了</p>
-<pre><code>CSVFormat format = CSVFormat.DEFAULT.withHeader(FILE_HEADER).withSkipHeaderRecord();</code></pre><p>format.parse将Reader里的数据转换为CSVRecord</p>
-<pre><code>Iterable&lt;CSVRecord&gt; records = format.parse(isr);</code></pre><p>迭代CSVRecord通过get表头取值</p>
+        &lt;/dependency&gt;
+</code></pre>
+<p>先定义表头数组，方便之后按表头取值</p>
+<pre><code>static final String[] FILE_HEADER = new String[]{&quot;date&quot;, &quot;file_id&quot;, ……};
+</code></pre>
+<p>新建CSVFormat，加上withSkipHeaderRecord()以免将第一行表头也当作数据读取了</p>
+<pre><code>CSVFormat format = CSVFormat.DEFAULT.withHeader(FILE_HEADER).withSkipHeaderRecord();
+</code></pre>
+<p>format.parse将Reader里的数据转换为CSVRecord</p>
+<pre><code>Iterable&lt;CSVRecord&gt; records = format.parse(isr);
+</code></pre>
+<p>迭代CSVRecord通过get表头取值</p>
 <pre><code>for (CSVRecord record : records) {
     String fileId =  record.get(&quot;file_id&quot;);
     ……
-}</code></pre>
+}
+</code></pre>
+
 </div>
 
 	</div>
@@ -4404,19 +4448,23 @@ InputStream inputStream = httpUrl.getInputStream();</code></pre><h3 id="解压GZ
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

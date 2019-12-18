@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		4 消息格式化 | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,38 +4395,54 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:49</span>
+	<span id="post-date">2019-12-18 01:00:41</span>
 </div>
 
 
 <div id="article">
 	<p><strong>MessageFormat</strong>格式化类似printf，支持Locale，可格式化数字和日期</p>
-<h4 id="1-格式化数字和日期"><a href="#1-格式化数字和日期" class="headerlink" title="1 格式化数字和日期"></a>1 格式化数字和日期</h4><h5 id="模式化字符串与占位符"><a href="#模式化字符串与占位符" class="headerlink" title="模式化字符串与占位符"></a>模式化字符串与占位符</h5><p>占位符索引后面可跟一个类型和一个风格</p>
+<h4 id="1-格式化数字和日期"><a class="header-anchor" href="#1-格式化数字和日期">¶</a>1 格式化数字和日期</h4>
+<h5 id="模式化字符串与占位符"><a class="header-anchor" href="#模式化字符串与占位符">¶</a>模式化字符串与占位符</h5>
+<p>占位符索引后面可跟一个类型和一个风格</p>
 <p><strong>类型</strong></p>
 <ul>
-<li>number<br>  风格<ul>
+<li>number<br>
+风格
+<ul>
 <li>intger</li>
 <li>currency</li>
 <li>percent</li>
 <li>数字格式模式</li>
 </ul>
 </li>
-<li>time<br>  风格<ul>
+<li>time<br>
+风格
+<ul>
 <li>short</li>
 <li>…</li>
 </ul>
 </li>
-<li>date<br>  风格<ul>
+<li>date<br>
+风格
+<ul>
 <li>yyyy-MM-dd</li>
 <li>…</li>
 </ul>
 </li>
-<li>choice<pre><code>{0,date,long},{1,number,currency}</code></pre></li>
+<li>choice</li>
 </ul>
-<h5 id="格式化模式字符串"><a href="#格式化模式字符串" class="headerlink" title="格式化模式字符串"></a>格式化模式字符串</h5><pre><code>String msg = MessageFormat.format(&quot;{0,date,long},{1,number,currency}&quot;, new GregorianCalendar().getTime(), 10.0E8);
-//2018年11月30日,￥1,000,000,000.00</code></pre><h4 id="2-选择格式"><a href="#2-选择格式" class="headerlink" title="2 选择格式"></a>2 选择格式</h4><p>choice格式化选项使消息随占位符的值变化</p>
+<pre><code>{0,date,long},{1,number,currency}
+</code></pre>
+<h5 id="格式化模式字符串"><a class="header-anchor" href="#格式化模式字符串">¶</a>格式化模式字符串</h5>
+<pre><code>String msg = MessageFormat.format(&quot;{0,date,long},{1,number,currency}&quot;, new GregorianCalendar().getTime(), 10.0E8);
+//2018年11月30日,￥1,000,000,000.00
+</code></pre>
+<h4 id="2-选择格式"><a class="header-anchor" href="#2-选择格式">¶</a>2 选择格式</h4>
+<p>choice格式化选项使消息随占位符的值变化</p>
 <p>选择格式由序列对构成。每个序列对用#分开下限与格式字符串，对与对之间用|分隔。也可用&lt;、≤替换#表示区间。</p>
-<pre><code>{1,choice,0#no houses|1#one house,2&lt;{1} houses}</code></pre>
+<pre><code>{1,choice,0#no houses|1#one house,2&lt;{1} houses}
+</code></pre>
+
 </div>
 
 	</div>
@@ -4412,19 +4451,23 @@
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

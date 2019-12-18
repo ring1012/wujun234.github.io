@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		2 MapStruct实体间转换 | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,14 +4395,17 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:15</span>
+	<span id="post-date">2019-12-18 01:00:44</span>
 </div>
 
 
 <div id="article">
-	<h3 id="1-简介"><a href="#1-简介" class="headerlink" title="1 简介"></a>1 简介</h3><p>MapStruct是一个代码生成器的工具类，简化了不同的Java Bean之间映射的处理，所以映射指的就是从一个实体变化成一个实体。在实际项目中，我们经常会将PO转DTO、DTO转PO等一些实体间的转换。在转换时大部分属性都是相同的，只有少部分的不同，这时我们可以通过mapStruct的一些注解来匹配不同属性，可以让不同实体之间的转换变的简单。  </p>
+	<h3 id="1-简介"><a class="header-anchor" href="#1-简介">¶</a>1 简介</h3>
+<p>MapStruct是一个代码生成器的工具类，简化了不同的Java Bean之间映射的处理，所以映射指的就是从一个实体变化成一个实体。在实际项目中，我们经常会将PO转DTO、DTO转PO等一些实体间的转换。在转换时大部分属性都是相同的，只有少部分的不同，这时我们可以通过mapStruct的一些注解来匹配不同属性，可以让不同实体之间的转换变的简单。</p>
 <p>MapStruct官网地址： <a href="http://mapstruct.org/" target="_blank" rel="noopener">http://mapstruct.org/</a></p>
-<h3 id="2-配置"><a href="#2-配置" class="headerlink" title="2 配置"></a>2 配置</h3><h5 id="Maven配置"><a href="#Maven配置" class="headerlink" title="Maven配置"></a>Maven配置</h5><pre><code>    ...
+<h3 id="2-配置"><a class="header-anchor" href="#2-配置">¶</a>2 配置</h3>
+<h5 id="Maven配置"><a class="header-anchor" href="#Maven配置">¶</a>Maven配置</h5>
+<pre><code>    ...
     &lt;properties&gt;
         &lt;org.mapstruct.version&gt;1.3.0.Final&lt;/org.mapstruct.version&gt;
     &lt;/properties&gt;
@@ -4411,43 +4437,60 @@
                 &lt;/configuration&gt;
             &lt;/plugin&gt;
         &lt;/plugins&gt;
-    &lt;/build&gt;</code></pre><h5 id="Gradle配置"><a href="#Gradle配置" class="headerlink" title="Gradle配置"></a>Gradle配置</h5><pre><code>    plugins {
+    &lt;/build&gt;
+</code></pre>
+<h5 id="Gradle配置"><a class="header-anchor" href="#Gradle配置">¶</a>Gradle配置</h5>
+<pre><code>    plugins {
         ...
-        id &#39;net.ltgt.apt&#39; version &#39;0.8&#39;
+        id 'net.ltgt.apt' version '0.8'
     }
     dependencies {
         ...
-        compile &#39;org.mapstruct:mapstruct:1.3.0.Final&#39;
-
+        compile 'org.mapstruct:mapstruct:1.3.0.Final'
+     
         // OR use this with Java 8 and beyond
-        compile &#39;org.mapstruct:mapstruct-jdk8:1.3.0.Final&#39;
-
-        apt &#39;org.mapstruct:mapstruct-processor:1.3.0.Final&#39;
-    }</code></pre><h3 id="3-实体"><a href="#3-实体" class="headerlink" title="3 实体"></a>3 实体</h3><p>下面我们就来看看如何使用MapStruct实现实体之间的映射转换。下面两个类非常相似，有一个号码属性名不一样及在PeopleDTO中有个User对象，而在People中则是两个字符串属性。</p>
-<h5 id="PeopleEntity-java"><a href="#PeopleEntity-java" class="headerlink" title="PeopleEntity.java"></a>PeopleEntity.java</h5><pre><code>public class PeopleEntity {
+        compile 'org.mapstruct:mapstruct-jdk8:1.3.0.Final'
+     
+        apt 'org.mapstruct:mapstruct-processor:1.3.0.Final'
+    }
+</code></pre>
+<h3 id="3-实体"><a class="header-anchor" href="#3-实体">¶</a>3 实体</h3>
+<p>下面我们就来看看如何使用MapStruct实现实体之间的映射转换。下面两个类非常相似，有一个号码属性名不一样及在PeopleDTO中有个User对象，而在People中则是两个字符串属性。</p>
+<h5 id="PeopleEntity-java"><a class="header-anchor" href="#PeopleEntity-java">¶</a>PeopleEntity.java</h5>
+<pre><code>public class PeopleEntity {
     private Integer age;
     private String name;
     private String callNumber;
     private String address;
     private String emile;
     //constructor, getters, setters etc.
-}   </code></pre><h5 id="PeopleDTO-java"><a href="#PeopleDTO-java" class="headerlink" title="PeopleDTO.java"></a>PeopleDTO.java</h5><pre><code>public class PeopleDTO {
+}   
+</code></pre>
+<h5 id="PeopleDTO-java"><a class="header-anchor" href="#PeopleDTO-java">¶</a>PeopleDTO.java</h5>
+<pre><code>public class PeopleDTO {
     private String phoneNumber;
     private String address;
     private String emile;
     private User  user;
     //constructor, getters, setters etc.
-}</code></pre><h5 id="User-java"><a href="#User-java" class="headerlink" title="User.java"></a>User.java</h5><pre><code>public class User {
+}
+</code></pre>
+<h5 id="User-java"><a class="header-anchor" href="#User-java">¶</a>User.java</h5>
+<pre><code>public class User {
     private Integer age;
     private String name;
     //constructor, getters, setters etc.
-}</code></pre><h3 id="4-Mapper接口"><a href="#4-Mapper接口" class="headerlink" title="4 Mapper接口"></a>4 Mapper接口</h3><p>要生成一个PeopleDTO与PeopleEntity对象相互转换的映射器，我们需要定义一个mapper接口。像这两个实体类有些属性不一样时，我们可以通过@Mapping注解来进行转换.</p>
+}
+</code></pre>
+<h3 id="4-Mapper接口"><a class="header-anchor" href="#4-Mapper接口">¶</a>4 Mapper接口</h3>
+<p>要生成一个PeopleDTO与PeopleEntity对象相互转换的映射器，我们需要定义一个mapper接口。像这两个实体类有些属性不一样时，我们可以通过@Mapping注解来进行转换.</p>
 <ol>
 <li><code>@Mapper</code>注解标记这个接口作为一个映射接口，并且是编译时MapStruct处理器的入口。</li>
 <li><code>@Mapping</code>解决源对象和目标对象中，属性名字不同的情况。</li>
 <li><code>Mappers.getMapper</code>自动生成的接口的实现可以通过Mapper的class对象获取,从而让客户端可以访问Mapper接口的实现。</li>
 </ol>
-<h5 id="PeopleMapper-java"><a href="#PeopleMapper-java" class="headerlink" title="PeopleMapper.java"></a>PeopleMapper.java</h5><pre><code>@Mapper
+<h5 id="PeopleMapper-java"><a class="header-anchor" href="#PeopleMapper-java">¶</a>PeopleMapper.java</h5>
+<pre><code>@Mapper
 public interface PeopleMapper {
     PeopleMapper INSTANCE = Mappers.getMapper(PeopleMapper.class);
 
@@ -4473,12 +4516,19 @@ public interface PeopleMapper {
     @Mapping(target = &quot;age&quot;, source = &quot;user.age&quot;)
     void updateEntityFromDto(PeopleDTO peopleDTO, @MappingTarget PeopleEntity entity);
 
-}</code></pre><h3 id="5-Mapper使用"><a href="#5-Mapper使用" class="headerlink" title="5 Mapper使用"></a>5 Mapper使用</h3><h5 id="默认配置"><a href="#默认配置" class="headerlink" title="默认配置"></a>默认配置</h5><p>默认配置，我们不需要做过多的配置内容，获取Mapper的方式就是采用Mappers通过动态工厂内部反射机制完成Mapper实现类的获取。</p>
+}
+</code></pre>
+<h3 id="5-Mapper使用"><a class="header-anchor" href="#5-Mapper使用">¶</a>5 Mapper使用</h3>
+<h5 id="默认配置"><a class="header-anchor" href="#默认配置">¶</a>默认配置</h5>
+<p>默认配置，我们不需要做过多的配置内容，获取Mapper的方式就是采用Mappers通过动态工厂内部反射机制完成Mapper实现类的获取。</p>
 <pre><code>//Mapper接口内部定义
 public static GoodInfoMapper MAPPER = Mappers.getMapper(GoodInfoMapper.class);
 
 //外部调用
-GoodInfoMapper.MAPPER.from(goodBean,goodTypeBean);</code></pre><h5 id="Spring方式配置"><a href="#Spring方式配置" class="headerlink" title="Spring方式配置"></a>Spring方式配置</h5><p>Spring方式我们需要在@Mapper注解内添加componentModel属性值，配置后在外部可以采用@Autowired方式注入Mapper实现类完成映射方法调用。</p>
+GoodInfoMapper.MAPPER.from(goodBean,goodTypeBean);
+</code></pre>
+<h5 id="Spring方式配置"><a class="header-anchor" href="#Spring方式配置">¶</a>Spring方式配置</h5>
+<p>Spring方式我们需要在@Mapper注解内添加componentModel属性值，配置后在外部可以采用@Autowired方式注入Mapper实现类完成映射方法调用。</p>
 <pre><code>//注解配置
 @Mapper(componentModel = &quot;spring&quot;)
 
@@ -4487,7 +4537,9 @@ GoodInfoMapper.MAPPER.from(goodBean,goodTypeBean);</code></pre><h5 id="Spring方
 private GoodInfoMapper goodInfoMapper;
 
 //调用
-goodInfoMapper.from(goodBean,goodTypeBean);</code></pre>
+goodInfoMapper.from(goodBean,goodTypeBean);
+</code></pre>
+
 </div>
 
 	</div>
@@ -4496,19 +4548,23 @@ goodInfoMapper.from(goodBean,goodTypeBean);</code></pre>
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		5 Apache Commons Lang | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,14 +4395,16 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:39</span>
+	<span id="post-date">2019-12-18 01:00:44</span>
 </div>
 
 
 <div id="article">
 	<p><a href="http://commons.apache.org/proper/commons-lang/" target="_blank" rel="noopener"> Lang 项目官网</a></p>
-<h2 id="概览"><a href="#概览" class="headerlink" title="概览"></a>概览</h2><hr>
-<p>Lang 为 java.lang API 提供了大量辅助工具类，尤其是字符串操作方法，基本数值方法，对象反射，并发性，创建和序列化以及系统属性。 此外，它还包含对java.util.Date的基本增强功能以及一系列专用于帮助构建方法的工具集。<br>顶层包包含各种Utils类，同时还有各种子包，除了CharSet基本都是线程安全的：</p>
+<h2 id="概览"><a class="header-anchor" href="#概览">¶</a>概览</h2>
+<hr>
+<p>Lang 为 java.lang API 提供了大量辅助工具类，尤其是字符串操作方法，基本数值方法，对象反射，并发性，创建和序列化以及系统属性。 此外，它还包含对java.util.Date的基本增强功能以及一系列专用于帮助构建方法的工具集。<br>
+顶层包包含各种Utils类，同时还有各种子包，除了CharSet基本都是线程安全的：</p>
 <ul>
 <li><strong>字符串操作</strong>–StringUtils，StringEscapeUtils，RandomStringUtils</li>
 <li><strong>字符处理</strong> - CharSetUtils，CharSet，CharRange，CharUtils</li>
@@ -4388,7 +4413,8 @@
 <li><strong>分类函数</strong> - ObjectUtils，ClassUtils，ArrayUtils，BooleanUtils</li>
 <li><strong>其它</strong> - BitField, Validate</li>
 </ul>
-<h2 id="包"><a href="#包" class="headerlink" title="包"></a>包</h2><hr>
+<h2 id="包"><a class="header-anchor" href="#包">¶</a>包</h2>
+<hr>
 <table>
 <thead>
 <tr>
@@ -4396,7 +4422,8 @@
 <th>介绍</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>org.apache.commons.lang3</td>
 <td>提供高复用的静态工具方法，主要涉及为 <code>java.lang</code> 类添加值。</td>
 </tr>
@@ -4444,8 +4471,10 @@
 <td>org.apache.commons.lang3.tuple</td>
 <td>元组类，Pair、Triple。</td>
 </tr>
-</tbody></table>
-<h2 id="一-org-apache-commons-lang3-顶层包"><a href="#一-org-apache-commons-lang3-顶层包" class="headerlink" title="一. org.apache.commons.lang3 顶层包"></a>一. org.apache.commons.lang3 顶层包</h2><hr>
+</tbody>
+</table>
+<h2 id="一-org-apache-commons-lang3-顶层包"><a class="header-anchor" href="#一-org-apache-commons-lang3-顶层包">¶</a>一. org.apache.commons.lang3 顶层包</h2>
+<hr>
 <table>
 <thead>
 <tr>
@@ -4453,7 +4482,8 @@
 <th>介绍</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>AnnotationUtils</td>
 <td>注解工具，为注解实例提供equals/hashCode/toString等方法</td>
 </tr>
@@ -4549,8 +4579,10 @@
 <td><strong>Validate</strong></td>
 <td>验证工具：开闭区间判断、值判断、继承链判断等，各种校验方法，可以自定义提示语</td>
 </tr>
-</tbody></table>
-<h5 id="（1）ArrayUtils"><a href="#（1）ArrayUtils" class="headerlink" title="（1）ArrayUtils"></a>（1）ArrayUtils</h5><p>操作数组，基本类型数组和对象数组。</p>
+</tbody>
+</table>
+<h5 id="（1）ArrayUtils"><a class="header-anchor" href="#（1）ArrayUtils">¶</a>（1）ArrayUtils</h5>
+<p>操作数组，基本类型数组和对象数组。</p>
 <ul>
 <li><strong>add/addAll</strong> - 添加</li>
 <li><strong>clone</strong> - 浅层克隆</li>
@@ -4563,9 +4595,10 @@
 <li><strong>toMap</strong> - 转换为 HashMap，数组类型必须为 Map.Entry 或 Array，其中 Array 长度不小于2</li>
 <li><strong>toObject/toPrimitive</strong> - 装箱/拆箱</li>
 </ul>
-<h4 id="（2）StringUtils"><a href="#（2）StringUtils" class="headerlink" title="（2）StringUtils"></a>（2）StringUtils</h4><p>null safe，线程安全</p>
+<h4 id="（2）StringUtils"><a class="header-anchor" href="#（2）StringUtils">¶</a>（2）StringUtils</h4>
+<p>null safe，线程安全</p>
 <ul>
-<li><strong>IsEmpty/IsBlank</strong> - 判空。isEmpty只判断 empty (“”) or null，IsBlank还包括whitespace（” “）</li>
+<li><strong>IsEmpty/IsBlank</strong> - 判空。isEmpty只判断 empty (&quot;&quot;) or null，IsBlank还包括whitespace（&quot; &quot;）</li>
 <li><strong>Trim/Strip</strong> - 去头尾空。trim null处理为 null，strip null处理为 “”</li>
 <li><strong>Equals/Compare</strong> - 比较。</li>
 <li><strong>IndexOf/LastIndexOf/Contains</strong> - 查询。</li>
@@ -4580,13 +4613,15 @@
 <li><strong>IsAlpha/IsNumeric/IsWhitespace/IsAsciiPrintable</strong> - 判断</li>
 <li><strong>Reverse/ReverseDelimited</strong> - 反转</li>
 <li><strong>Abbreviate</strong> - 缩略。“XXXX……”</li>
-<li><strong>center</strong>(String str, int size, char padChar)<br>StringUtils.center(“中间”,20,”=”)//========中间========<h2 id="二-org-apache-commons-lang3-concurrent-包常用类"><a href="#二-org-apache-commons-lang3-concurrent-包常用类" class="headerlink" title="二. org.apache.commons.lang3.concurrent 包常用类"></a>二. org.apache.commons.lang3.concurrent 包常用类</h2></li>
+<li><strong>center</strong>(String str, int size, char padChar)<br>
+StringUtils.center(“中间”,20,&quot;=&quot;)//========中间========</li>
 </ul>
+<h2 id="二-org-apache-commons-lang3-concurrent-包常用类"><a class="header-anchor" href="#二-org-apache-commons-lang3-concurrent-包常用类">¶</a>二. org.apache.commons.lang3.concurrent 包常用类</h2>
 <hr>
 <p>java.util.concurrent的扩展，多线程编程支持类。 线程安全。</p>
 <p>多线程对象创建和初始化器：</p>
 <ul>
-<li><strong>ConcurrentInitializer<T></strong>  - ConcurrentInitializer 接口，<strong>get()</strong>方法返回创建好并初始化的对象</li>
+<li><strong>ConcurrentInitializer<T></strong>  - ConcurrentInitializer 接口，**get()**方法返回创建好并初始化的对象</li>
 <li><strong>ConstantInitializer<T></strong> - ConcurrentInitializer 接口的简单实现</li>
 <li><strong>LazyInitializer<T></strong> - ConcurrentInitializer 接口的懒初始化实现</li>
 <li><strong>AtomicInitializer<T>/AtomicSafeInitializer<T></strong> - 与LazyInitializer相似，内部使用原子变量，无需同步</li>
@@ -4597,24 +4632,43 @@
 <li><strong>ConcurrentUtils</strong> - extractCause/handleCause/extractCauseUnchecked方法处理异常</li>
 <li><strong>TimedSemaphore</strong> - 时钟信号，可限制资源访问时限</li>
 </ul>
-<h2 id="三-org-apache-commons-lang3-math-包常用类"><a href="#三-org-apache-commons-lang3-math-包常用类" class="headerlink" title="三. org.apache.commons.lang3.math 包常用类"></a>三. org.apache.commons.lang3.math 包常用类</h2><hr>
-<p>此包扩展了 java.math，侧重于业务，Apache Commons中还有另一个Commons Math包，侧重于科学计算。<br>这些类是不可变的，因此是线程安全的。</p>
-<h4 id="（1）Fraction"><a href="#（1）Fraction" class="headerlink" title="（1）Fraction"></a>（1）Fraction</h4><p>处理分数。</p>
+<h2 id="三-org-apache-commons-lang3-math-包常用类"><a class="header-anchor" href="#三-org-apache-commons-lang3-math-包常用类">¶</a>三. org.apache.commons.lang3.math 包常用类</h2>
+<hr>
+<p>此包扩展了 java.math，侧重于业务，Apache Commons中还有另一个Commons Math包，侧重于科学计算。<br>
+这些类是不可变的，因此是线程安全的。</p>
+<h4 id="（1）Fraction"><a class="header-anchor" href="#（1）Fraction">¶</a>（1）Fraction</h4>
+<p>处理分数。</p>
 <ul>
-<li><h6 id="创建分数"><a href="#创建分数" class="headerlink" title="创建分数"></a>创建分数</h6><pre><code>static Fraction     getFraction(double value)//由double创建分数
-static Fraction     getFraction(int numerator, int denominator)//创建Y/Z分数
-static Fraction     getFraction(int whole, int numerator, int denominator)//创建X Y/Z分数
-static Fraction     getFraction(String str)//由String创建分数
-static Fraction     getReducedFraction(int numerator, int denominator)//创建约简分数</code></pre></li>
-<li><h6 id="处理分数"><a href="#处理分数" class="headerlink" title="处理分数"></a>处理分数</h6></li>
+<li>
+<h6 id="创建分数"><a class="header-anchor" href="#创建分数">¶</a>创建分数</h6>
+</li>
+</ul>
+<pre><code>static Fraction 	getFraction(double value)//由double创建分数
+static Fraction 	getFraction(int numerator, int denominator)//创建Y/Z分数
+static Fraction 	getFraction(int whole, int numerator, int denominator)//创建X Y/Z分数
+static Fraction 	getFraction(String str)//由String创建分数
+static Fraction 	getReducedFraction(int numerator, int denominator)//创建约简分数
+</code></pre>
+<ul>
+<li>
+<h6 id="处理分数"><a class="header-anchor" href="#处理分数">¶</a>处理分数</h6>
+</li>
 <li><strong>doubleValue/floatValue/intValue/longValue</strong> - 取值</li>
 <li><strong>getNumerator/getDenominator</strong> - 取分子/分母</li>
 <li><strong>add/subtract/multiplyBy/divideBy/pow</strong> - 加/减/乘/除/积</li>
 <li><strong>compareTo/equals</strong> - 比较</li>
 <li><strong>abs</strong> - 取绝对值</li>
-<li><strong>invert</strong> - 取倒数<h4 id="（2）IEEE754rUtils"><a href="#（2）IEEE754rUtils" class="headerlink" title="（2）IEEE754rUtils"></a>（2）IEEE754rUtils</h4>IEEE浮点数算术标准的各种max、min方法<pre><code>static double     max(double... array)
-static double     max(double a, double b, double c)
-……</code></pre><h4 id="（3）NumberUtils"><a href="#（3）NumberUtils" class="headerlink" title="（3）NumberUtils"></a>（3）NumberUtils</h4>NumberUtils.createNumber（String）会最大限度地将String转换为Number对象，使用时应调用xxxValue方法返回具体类型。   还有一个相关的NumberUtils.isCreatable（String）方法。</li>
+<li><strong>invert</strong> - 取倒数</li>
+</ul>
+<h4 id="（2）IEEE754rUtils"><a class="header-anchor" href="#（2）IEEE754rUtils">¶</a>（2）IEEE754rUtils</h4>
+<p>IEEE浮点数算术标准的各种max、min方法</p>
+<pre><code>static double 	max(double... array)
+static double 	max(double a, double b, double c)
+……
+</code></pre>
+<h4 id="（3）NumberUtils"><a class="header-anchor" href="#（3）NumberUtils">¶</a>（3）NumberUtils</h4>
+<p>NumberUtils.createNumber（String）会最大限度地将String转换为Number对象，使用时应调用xxxValue方法返回具体类型。   还有一个相关的NumberUtils.isCreatable（String）方法。</p>
+<ul>
 <li><strong>createBigDecimal/createBigInteger/createDouble/createFloat/createInteger/createLong</strong> - createNumber</li>
 <li><strong>createNumber/isCreatable/isParsable</strong> - 创建数字/是否可建/是否可解析</li>
 <li><strong>isDigits</strong> - 是否只含数字</li>
@@ -4622,7 +4676,8 @@ static double     max(double a, double b, double c)
 <li><strong>toByte/toDouble/toFloat/toInt/toLong/toShort</strong> - 转换格式</li>
 <li><strong>compareTo</strong> - 比较</li>
 </ul>
-<h2 id="四-org-apache-commons-lang3-reflect-包常用类"><a href="#四-org-apache-commons-lang3-reflect-包常用类" class="headerlink" title="四. org.apache.commons.lang3.reflect 包常用类"></a>四. org.apache.commons.lang3.reflect 包常用类</h2><hr>
+<h2 id="四-org-apache-commons-lang3-reflect-包常用类"><a class="header-anchor" href="#四-org-apache-commons-lang3-reflect-包常用类">¶</a>四. org.apache.commons.lang3.reflect 包常用类</h2>
+<hr>
 <ul>
 <li><strong>ConstructorUtils</strong> - 构造器反射：获取、调用构造器</li>
 <li><strong>FieldUtils</strong> - 字段反射：读写字段、去除字段</li>
@@ -4630,7 +4685,8 @@ static double     max(double a, double b, double c)
 <li><strong>MethodUtils</strong> - 方法反射，源于Commons BeanUtils：获取指定方法、方法列表，调用方法、静态方法</li>
 <li><strong>TypeUtils</strong> - 类型反射：类型检查，转换与封装</li>
 </ul>
-<h2 id="五-org-apache-commons-lang3-time-包常用类"><a href="#五-org-apache-commons-lang3-time-包常用类" class="headerlink" title="五. org.apache.commons.lang3.time 包常用类"></a>五. org.apache.commons.lang3.time 包常用类</h2><hr>
+<h2 id="五-org-apache-commons-lang3-time-包常用类"><a class="header-anchor" href="#五-org-apache-commons-lang3-time-包常用类">¶</a>五. org.apache.commons.lang3.time 包常用类</h2>
+<hr>
 <ul>
 <li><strong>DateFormatUtils</strong> - 日期格式化与常量</li>
 <li><strong>DateUtils</strong> - 日历、日期计算</li>
@@ -4649,19 +4705,23 @@ static double     max(double a, double b, double c)
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

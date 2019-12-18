@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		7 方法（49-56） | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,31 +4395,41 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:16</span>
+	<span id="post-date">2019-12-18 01:00:42</span>
 </div>
 
 
 <div id="article">
-	<h3 id="第49条：检查参数的有效性"><a href="#第49条：检查参数的有效性" class="headerlink" title="第49条：检查参数的有效性"></a>第49条：检查参数的有效性</h3><p>不仅需要检查参数的有效性，还需要在函数的文档中给予明确的说明，如在参数非法的情况下，会抛出哪些异常，或导致函数返回哪些错误值等</p>
-<h3 id="第50条：必要时进行保护性拷贝"><a href="#第50条：必要时进行保护性拷贝" class="headerlink" title="第50条：必要时进行保护性拷贝"></a>第50条：必要时进行保护性拷贝</h3><p>如果不能够容忍对象进入数据结构之后发生变，就必须对该对象进行保护性拷贝，并且让拷贝之后的对象而不是原始对象进入到数据结构中。</p>
-<h3 id="第51条：谨慎设计方法签名"><a href="#第51条：谨慎设计方法签名" class="headerlink" title="第51条：谨慎设计方法签名"></a>第51条：谨慎设计方法签名</h3><ul>
+	<h3 id="第49条：检查参数的有效性"><a class="header-anchor" href="#第49条：检查参数的有效性">¶</a>第49条：检查参数的有效性</h3>
+<p>不仅需要检查参数的有效性，还需要在函数的文档中给予明确的说明，如在参数非法的情况下，会抛出哪些异常，或导致函数返回哪些错误值等</p>
+<h3 id="第50条：必要时进行保护性拷贝"><a class="header-anchor" href="#第50条：必要时进行保护性拷贝">¶</a>第50条：必要时进行保护性拷贝</h3>
+<p>如果不能够容忍对象进入数据结构之后发生变，就必须对该对象进行保护性拷贝，并且让拷贝之后的对象而不是原始对象进入到数据结构中。</p>
+<h3 id="第51条：谨慎设计方法签名"><a class="header-anchor" href="#第51条：谨慎设计方法签名">¶</a>第51条：谨慎设计方法签名</h3>
+<ul>
 <li>谨慎地选择方法的名称</li>
 <li>避免过长的参数列表，如果多于四个了就该考虑重构这个方法了</li>
 <li>对于参数类型、要优先使用接口而不是类。</li>
 <li>对于boolean参数，优先使用两个元素的枚举类型。</li>
 </ul>
-<h3 id="第52条：慎用重载"><a href="#第52条：慎用重载" class="headerlink" title="第52条：慎用重载"></a>第52条：慎用重载</h3><p>对于重载方法的选择是静态的，而对于被覆盖的方法的选择则是动态的。</p>
+<h3 id="第52条：慎用重载"><a class="header-anchor" href="#第52条：慎用重载">¶</a>第52条：慎用重载</h3>
+<p>对于重载方法的选择是静态的，而对于被覆盖的方法的选择则是动态的。</p>
 <ol>
 <li>安全而保守的策略是，永远不要导出两个具有相同参数数目的重载方法。</li>
 <li>如果方法使用可变参数，保守的策略是根本不要重载它。</li>
 <li>在Java 1.5 之后，需要对自动装箱机制保持警惕。</li>
 </ol>
 <p>对于多个具有相同参数数目的方法来说，应该尽量避免重载方法。我们应当保证：当传递同样的参数时，所有重载方法的行为必须一致。</p>
-<h3 id="第53条：慎用可变参数"><a href="#第53条：慎用可变参数" class="headerlink" title="第53条：慎用可变参数"></a>第53条：慎用可变参数</h3><p>有的时候在重视性能的情况下，使用可变参数机制要特别小心。可变参数方法的每次调用都会导致进行一次数组分配和初始化。</p>
-<h3 id="第54条：返回零长度的数组或者集合，而不是null"><a href="#第54条：返回零长度的数组或者集合，而不是null" class="headerlink" title="第54条：返回零长度的数组或者集合，而不是null"></a>第54条：返回零长度的数组或者集合，而不是null</h3><pre><code>private static final Cheese[] EMPTY_CHEESE_ARRAY= new Cheese[0];
+<h3 id="第53条：慎用可变参数"><a class="header-anchor" href="#第53条：慎用可变参数">¶</a>第53条：慎用可变参数</h3>
+<p>有的时候在重视性能的情况下，使用可变参数机制要特别小心。可变参数方法的每次调用都会导致进行一次数组分配和初始化。</p>
+<h3 id="第54条：返回零长度的数组或者集合，而不是null"><a class="header-anchor" href="#第54条：返回零长度的数组或者集合，而不是null">¶</a>第54条：返回零长度的数组或者集合，而不是null</h3>
+<pre><code>private static final Cheese[] EMPTY_CHEESE_ARRAY= new Cheese[0];
 Collections.emptyList();
 Collections.emptySet();
-Collections.emptyMap();</code></pre><h3 id="第55条-返回-Optional-类型"><a href="#第55条-返回-Optional-类型" class="headerlink" title="第55条: 返回 Optional 类型"></a>第55条: 返回 Optional 类型</h3><h3 id="第56条：为所有导出的API元素编写文档注释"><a href="#第56条：为所有导出的API元素编写文档注释" class="headerlink" title="第56条：为所有导出的API元素编写文档注释"></a>第56条：为所有导出的API元素编写文档注释</h3>
+Collections.emptyMap();
+</code></pre>
+<h3 id="第55条-返回-Optional-类型"><a class="header-anchor" href="#第55条-返回-Optional-类型">¶</a>第55条: 返回 Optional 类型</h3>
+<h3 id="第56条：为所有导出的API元素编写文档注释"><a class="header-anchor" href="#第56条：为所有导出的API元素编写文档注释">¶</a>第56条：为所有导出的API元素编写文档注释</h3>
+
 </div>
 
 	</div>
@@ -4405,19 +4438,23 @@ Collections.emptyMap();</code></pre><h3 id="第55条-返回-Optional-类型"><a 
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

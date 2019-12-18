@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		4 网际控制报文协议 ICMP | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,34 +4395,43 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:45</span>
+	<span id="post-date">2019-12-18 01:00:41</span>
 </div>
 
 
 <div id="article">
 	<p>为了更有效地转发 IP 数据报和提高交付成功的机会，在网际层使用了 ICMP 。ICMP 允许主机或路由器i报告差错情况和提供有关异常情况的报告。封装在 IP 数据报中，但是不属于高层协议。</p>
-<h3 id="1-ICMP-报文的种类"><a href="#1-ICMP-报文的种类" class="headerlink" title="1 ICMP 报文的种类"></a>1 ICMP 报文的种类</h3><p>ICMP 报文分为<strong>差错报告报文</strong>和<strong>询问报文</strong>。</p>
-<h4 id="1）差错报告报文"><a href="#1）差错报告报文" class="headerlink" title="1）差错报告报文"></a>1）差错报告报文</h4><h5 id="（1）报文类别"><a href="#（1）报文类别" class="headerlink" title="（1）报文类别"></a>（1）报文类别</h5><ul>
-<li><strong>终点不可达</strong>：当路由器或者主机不能交付数据报时，就向源点发送终点不可达报文。 </li>
-<li><strong>时间超过</strong>：当路由器收到生存时间为零的数据报时，除丢弃该数据报时，还要向源点发送时间超过报文。当终点在预先规定的时间内不能收到数据报全部数据报片时，就将已收到的数据报片丢弃，并向源点发送时间超过报文。 </li>
+<h3 id="1-ICMP-报文的种类"><a class="header-anchor" href="#1-ICMP-报文的种类">¶</a>1 ICMP 报文的种类</h3>
+<p>ICMP 报文分为<strong>差错报告报文</strong>和<strong>询问报文</strong>。</p>
+<h4 id="1）差错报告报文"><a class="header-anchor" href="#1）差错报告报文">¶</a>1）差错报告报文</h4>
+<h5 id="（1）报文类别"><a class="header-anchor" href="#（1）报文类别">¶</a>（1）报文类别</h5>
+<ul>
+<li><strong>终点不可达</strong>：当路由器或者主机不能交付数据报时，就向源点发送终点不可达报文。</li>
+<li><strong>时间超过</strong>：当路由器收到生存时间为零的数据报时，除丢弃该数据报时，还要向源点发送时间超过报文。当终点在预先规定的时间内不能收到数据报全部数据报片时，就将已收到的数据报片丢弃，并向源点发送时间超过报文。</li>
 <li><strong>参数问题</strong>：当路由器或者目的主机收到的数据报首部有字段值不正确时，丢弃该数据报，并向源点发送参数问题报文。</li>
 <li><strong>改变路由</strong>（重定向）：路由器把改变路由报文发送给主机，通知主机下次将数据报发送给别的路由器。</li>
 </ul>
-<h5 id="（2）报文的形成方法"><a href="#（2）报文的形成方法" class="headerlink" title="（2）报文的形成方法"></a>（2）报文的形成方法</h5><p>所有ICMP首部包括类型、代码与检验和三部分共4个字节的信息字段。ICMP差错报文的数据字段格式相同，由收到的需要差错报告的 IP 数据报首部及其数据部分前8个字节组成。</p>
+<h5 id="（2）报文的形成方法"><a class="header-anchor" href="#（2）报文的形成方法">¶</a>（2）报文的形成方法</h5>
+<p>所有ICMP首部包括类型、代码与检验和三部分共4个字节的信息字段。ICMP差错报文的数据字段格式相同，由收到的需要差错报告的 IP 数据报首部及其数据部分前8个字节组成。</p>
 <p><img src="/images/1568971333537.jpg" alt="image"></p>
-<h5 id="（3）不应发送的几种情况"><a href="#（3）不应发送的几种情况" class="headerlink" title="（3）不应发送的几种情况"></a>（3）不应发送的几种情况</h5><ul>
-<li>对ICMP差错报告报文不再发送ICMP差错报告报文； </li>
-<li>对第一分片以后的所有数据报分片不发送ICMP差错报告报文； </li>
-<li>对多播地址的数据报都不发送ICMP差错报告报文； </li>
+<h5 id="（3）不应发送的几种情况"><a class="header-anchor" href="#（3）不应发送的几种情况">¶</a>（3）不应发送的几种情况</h5>
+<ul>
+<li>对ICMP差错报告报文不再发送ICMP差错报告报文；</li>
+<li>对第一分片以后的所有数据报分片不发送ICMP差错报告报文；</li>
+<li>对多播地址的数据报都不发送ICMP差错报告报文；</li>
 <li>对具有特殊地址（如127.0.0.0或0.0.0.0）的数据报不发送ICMP差错报文；</li>
 </ul>
-<h4 id="2）询问报文"><a href="#2）询问报文" class="headerlink" title="2）询问报文"></a>2）询问报文</h4><ul>
-<li><strong>回送请求和回答</strong>：ICMP回送请求报文是主机或者路由器向一个特定的目的主机发出的询问。收到此报文的主机必须给源主机或者路由器发送ICMP回答报文。目的是测试目的站是否可达以及了解其有关状态。 </li>
+<h4 id="2）询问报文"><a class="header-anchor" href="#2）询问报文">¶</a>2）询问报文</h4>
+<ul>
+<li><strong>回送请求和回答</strong>：ICMP回送请求报文是主机或者路由器向一个特定的目的主机发出的询问。收到此报文的主机必须给源主机或者路由器发送ICMP回答报文。目的是测试目的站是否可达以及了解其有关状态。</li>
 <li><strong>时间戳请求与回答</strong>：ICMP时间戳请求报文是请某个主机或者路由器回答当前日期和时间，目的是进行时钟同步和测量时间</li>
 </ul>
-<h3 id="2-ICMP应用举例"><a href="#2-ICMP应用举例" class="headerlink" title="2 ICMP应用举例"></a>2 ICMP应用举例</h3><h4 id="1）Ping"><a href="#1）Ping" class="headerlink" title="1）Ping"></a>1）Ping</h4><p>Ping 是 ICMP 的一个重要应用，主要用来测试两台主机之间的连通性。</p>
+<h3 id="2-ICMP应用举例"><a class="header-anchor" href="#2-ICMP应用举例">¶</a>2 ICMP应用举例</h3>
+<h4 id="1）Ping"><a class="header-anchor" href="#1）Ping">¶</a>1）Ping</h4>
+<p>Ping 是 ICMP 的一个重要应用，主要用来测试两台主机之间的连通性。</p>
 <p>Ping 的原理是通过向目的主机发送 ICMP Echo 请求报文，目的主机收到之后会发送 Echo 回答报文。Ping 会根据时间和成功响应的次数估算出数据包往返时间以及丢包率。</p>
-<h4 id="2）Traceroute"><a href="#2）Traceroute" class="headerlink" title="2）Traceroute"></a>2）Traceroute</h4><p>Traceroute（windows系统中叫做tracert） 是 ICMP 的另一个应用，用来跟踪一个分组从源点到终点的路径。</p>
+<h4 id="2）Traceroute"><a class="header-anchor" href="#2）Traceroute">¶</a>2）Traceroute</h4>
+<p>Traceroute（windows系统中叫做tracert） 是 ICMP 的另一个应用，用来跟踪一个分组从源点到终点的路径。</p>
 <p>Traceroute 发送的 IP 数据报封装的是无法交付的 UDP 用户数据报，并由目的主机发送终点不可达差错报告报文。</p>
 <ul>
 <li>源主机向目的主机发送一连串的 IP 数据报。第一个数据报 P1 的生存时间 TTL 设置为 1，当 P1 到达路径上的第一个路由器 R1 时，R1 收下它并把 TTL 减 1，此时 TTL 等于 0，R1 就把 P1 丢弃，并向源主机发送一个 ICMP 时间超过差错报告报文；</li>
@@ -4416,19 +4448,23 @@
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

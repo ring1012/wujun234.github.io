@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		1 JMeter - 性能测试 | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,28 +4395,37 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:38</span>
+	<span id="post-date">2019-12-18 01:00:43</span>
 </div>
 
 
 <div id="article">
 	<p>JMeter是开源软件Apache基金会下的一个性能测试工具，用来测试部署在服务器端的应用程序的性能。</p>
 <p><a href="http://jmeter.apache.org/download_jmeter.cgi" target="_blank" rel="noopener">官网下载</a>，下载解压后，运行 %JMETER_HOME%\bin\ApacheJMeter.jar 即可。</p>
-<h3 id="1-添加虚拟用户组"><a href="#1-添加虚拟用户组" class="headerlink" title="1 添加虚拟用户组"></a>1 添加虚拟用户组</h3><p>JMeter使用一个Java线程来模拟一个用户，线程组就是一组虚拟用户，用来模拟访问被测系统。</p>
-<h5 id="添加"><a href="#添加" class="headerlink" title="添加"></a>添加</h5><p>右击“测试计划”&gt;添加&gt;线程（用户）&gt;线程组。</p>
+<h3 id="1-添加虚拟用户组"><a class="header-anchor" href="#1-添加虚拟用户组">¶</a>1 添加虚拟用户组</h3>
+<p>JMeter使用一个Java线程来模拟一个用户，线程组就是一组虚拟用户，用来模拟访问被测系统。</p>
+<h5 id="添加"><a class="header-anchor" href="#添加">¶</a>添加</h5>
+<p>右击“测试计划”&gt;添加&gt;线程（用户）&gt;线程组。</p>
 <p><img src="/images/1552983707758.jpg" alt=""></p>
-<h5 id="设置"><a href="#设置" class="headerlink" title="设置"></a>设置</h5><ul>
+<h5 id="设置"><a class="header-anchor" href="#设置">¶</a>设置</h5>
+<ul>
 <li>线程数：虚拟用户数。</li>
 <li>Ramp-Up 时间 (秒): 多少秒内增长到指定线程数，</li>
 <li>循环次数：设置一个虚拟用户做多少次的测试。</li>
 </ul>
 <p><img src="/images/1552983709180.jpg" alt=""></p>
-<h3 id="2-添加被测页面"><a href="#2-添加被测页面" class="headerlink" title="2 添加被测页面"></a>2 添加被测页面</h3><h5 id="添加-1"><a href="#添加-1" class="headerlink" title="添加"></a>添加</h5><p>右击“线程组” &gt; 添加 &gt; 取样器 &gt; HTTP请求。</p>
+<h3 id="2-添加被测页面"><a class="header-anchor" href="#2-添加被测页面">¶</a>2 添加被测页面</h3>
+<h5 id="添加-v2"><a class="header-anchor" href="#添加-v2">¶</a>添加</h5>
+<p>右击“线程组” &gt; 添加 &gt; 取样器 &gt; HTTP请求。</p>
 <p><img src="/images/1552983709581.jpg" alt=""></p>
-<h5 id="设置-1"><a href="#设置-1" class="headerlink" title="设置"></a>设置</h5><p><img src="/images/1552983709641.jpg" alt=""></p>
-<h3 id="3添加结果监听器"><a href="#3添加结果监听器" class="headerlink" title="3添加结果监听器"></a>3添加结果监听器</h3><h5 id="添加-2"><a href="#添加-2" class="headerlink" title="添加"></a>添加</h5><p>右击“线程组” &gt; 监听器 &gt; 察看结果树</p>
+<h5 id="设置-v2"><a class="header-anchor" href="#设置-v2">¶</a>设置</h5>
+<p><img src="/images/1552983709641.jpg" alt=""></p>
+<h3 id="3添加结果监听器"><a class="header-anchor" href="#3添加结果监听器">¶</a>3添加结果监听器</h3>
+<h5 id="添加-v3"><a class="header-anchor" href="#添加-v3">¶</a>添加</h5>
+<p>右击“线程组” &gt; 监听器 &gt; 察看结果树</p>
 <p><img src="/images/1552983709813.jpg" alt=""></p>
-<h5 id="查看"><a href="#查看" class="headerlink" title="查看"></a>查看</h5><p>运行，查看结果</p>
+<h5 id="查看"><a class="header-anchor" href="#查看">¶</a>查看</h5>
+<p>运行，查看结果</p>
 <p><img src="/images/1552983710311.jpg" alt=""></p>
 
 </div>
@@ -4404,19 +4436,23 @@
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

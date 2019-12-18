@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		3 基于栈的字节码解释执行引擎 | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,26 +4395,31 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:52</span>
+	<span id="post-date">2019-12-18 01:00:42</span>
 </div>
 
 
 <div id="article">
-	<h3 id="1-解释执行"><a href="#1-解释执行" class="headerlink" title="1 解释执行"></a>1 解释执行</h3><ul>
+	<h3 id="1-解释执行"><a class="header-anchor" href="#1-解释执行">¶</a>1 解释执行</h3>
+<ul>
 <li>只有确定了谈论对象是某种具体的Java实现版本和执行引擎运行模式时，谈解释执行还是编译执行才比较确切；</li>
 <li>Java语言中，javac编译器完成了程序代码经过词法分析、语法分析到抽象语法树，再遍历语法树生成线性的字节码指令流的过程；因为这一部分动作是在Java虚拟机之外进行的，而解释器在虚拟机的内部，所以Java程序的编译就是半独立的实现；</li>
 </ul>
-<h3 id="2-基于栈的指令集与基于寄存器的指令集"><a href="#2-基于栈的指令集与基于寄存器的指令集" class="headerlink" title="2 基于栈的指令集与基于寄存器的指令集"></a>2 基于栈的指令集与基于寄存器的指令集</h3><ul>
+<h3 id="2-基于栈的指令集与基于寄存器的指令集"><a class="header-anchor" href="#2-基于栈的指令集与基于寄存器的指令集">¶</a>2 基于栈的指令集与基于寄存器的指令集</h3>
+<ul>
 <li>Java编译器输出的指令集，基本上是一种基于栈的指令集架构，指令流中的指令大部分是零地址指令，它们依赖操作数栈进行工作；</li>
 <li>基于栈的指令集主要的优点是可移植性，寄存器由硬件直接提供，程序直接依赖这些硬件寄存器则不可避免地要受到硬件的约束；主要缺点是执行速度相对来说会稍慢一点；</li>
 </ul>
-<h3 id="3-基于栈的解释器执行过程"><a href="#3-基于栈的解释器执行过程" class="headerlink" title="3 基于栈的解释器执行过程"></a>3 基于栈的解释器执行过程</h3><p>一段简单的算法代码</p>
+<h3 id="3-基于栈的解释器执行过程"><a class="header-anchor" href="#3-基于栈的解释器执行过程">¶</a>3 基于栈的解释器执行过程</h3>
+<p>一段简单的算法代码</p>
 <pre><code>public int calc(){
     int a = 100;
     int b = 200;
     int c = 300;
     return (a + b) * c;
-}</code></pre><p>上述代码的字节码表示</p>
+}
+</code></pre>
+<p>上述代码的字节码表示</p>
 <pre><code>public int calc();
     Code:
         Stack=2, Locals=4, Args_size=1
@@ -4407,8 +4435,23 @@
         14:iload_3
         15:imul
         16:ireturn
-}</code></pre><p>javap提示这段代码需要深度为2的操作数栈和4个Slot的局部变量空间，作者根据这些信息画了示意图来说明执行过程中的变化情况：</p>
-<p>执行偏移地址为0的指令<br><img src="/images/1545637959160.jpg" alt="image"><br>执行偏移地址为2的指令<br><img src="/images/1545637959321.jpg" alt="image"><br>执行偏移地址为11的指令<br><img src="/images/1545637959538.jpg" alt="image"><br>执行偏移地址为12的指令<br><img src="/images/1545637959642.jpg" alt="image"><br>执行偏移地址为13的指令<br><img src="/images/1545637959800.jpg" alt="image"><br>执行偏移地址为14的指令<br><img src="/images/1545637959936.jpg" alt="image"><br>执行偏移地址为16的指令<br><img src="/images/1545637960048.jpg" alt="image"></p>
+}
+</code></pre>
+<p>javap提示这段代码需要深度为2的操作数栈和4个Slot的局部变量空间，作者根据这些信息画了示意图来说明执行过程中的变化情况：</p>
+<p>执行偏移地址为0的指令<br>
+<img src="/images/1545637959160.jpg" alt="image"><br>
+执行偏移地址为2的指令<br>
+<img src="/images/1545637959321.jpg" alt="image"><br>
+执行偏移地址为11的指令<br>
+<img src="/images/1545637959538.jpg" alt="image"><br>
+执行偏移地址为12的指令<br>
+<img src="/images/1545637959642.jpg" alt="image"><br>
+执行偏移地址为13的指令<br>
+<img src="/images/1545637959800.jpg" alt="image"><br>
+执行偏移地址为14的指令<br>
+<img src="/images/1545637959936.jpg" alt="image"><br>
+执行偏移地址为16的指令<br>
+<img src="/images/1545637960048.jpg" alt="image"></p>
 <p>注：上面的执行过程仅仅是一种概念模型，虚拟机中解析器和即时编译器会对输入的字节码进行优化。</p>
 
 </div>
@@ -4419,19 +4462,23 @@
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		5 Gossip 协议 | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,39 +4395,47 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:22</span>
+	<span id="post-date">2019-12-18 01:00:43</span>
 </div>
 
 
 <div id="article">
 	<p>Gossip的原始论文：《<a href="https://www.cs.cornell.edu/home/rvr/papers/flowgossip.pdf" target="_blank" rel="noopener">Efficient Reconciliation and Flow Control for Anti-Entropy Protocols</a>》</p>
 <p><img src="/images/1555470706948.gif" alt="image"></p>
-<h3 id="1-概述"><a href="#1-概述" class="headerlink" title="1 概述"></a>1 概述</h3><h5 id="1）特点"><a href="#1）特点" class="headerlink" title="1）特点"></a>1）特点</h5><ul>
+<h3 id="1-概述"><a class="header-anchor" href="#1-概述">¶</a>1 概述</h3>
+<h5 id="1）特点"><a class="header-anchor" href="#1）特点">¶</a>1）特点</h5>
+<ul>
 <li>最终一致性：在一个有界网络中，每个节点都随机地与其他节点通信，经过一番杂乱无章的通信，最终所有节点的状态都会达成一致。</li>
 <li>分布式容错：节点重启或新加入，状态最终会与其他节点达成一致，不影响消息传播</li>
 <li>去中心化：不要求节点知道所有其他节点，节点之间完全对等，不需要任何的中心节点</li>
 <li>一致性收敛：消息以指数级速度传播，系统状态可在很快的时间内收敛到一致。</li>
 </ul>
-<h5 id="2）缺点"><a href="#2）缺点" class="headerlink" title="2）缺点"></a>2）缺点</h5><ul>
+<h5 id="2）缺点"><a class="header-anchor" href="#2）缺点">¶</a>2）缺点</h5>
+<ul>
 <li>消息延迟：节点只会随机向少数几个节点发送消息，消息最终是通过多个轮次的散播而到达全网的</li>
 <li>消息冗余：冗余通信会对网路带宽、CUP资源造成很大的负载，而这些负载又受限于通信频率，该频率又影响着算法收敛的速度</li>
 </ul>
-<h5 id="3）适用场景"><a href="#3）适用场景" class="headerlink" title="3）适用场景"></a>3）适用场景</h5><p>Gossip 比较适合在没有很高一致性要求的场景中用于信息的同步。信息达到同步的时间大概是 log(N)。</p>
-<h3 id="2-通信方式"><a href="#2-通信方式" class="headerlink" title="2 通信方式"></a>2 通信方式</h3><p>两个节点（A、B）之间存在三种通信方式:</p>
+<h5 id="3）适用场景"><a class="header-anchor" href="#3）适用场景">¶</a>3）适用场景</h5>
+<p>Gossip 比较适合在没有很高一致性要求的场景中用于信息的同步。信息达到同步的时间大概是 log(N)。</p>
+<h3 id="2-通信方式"><a class="header-anchor" href="#2-通信方式">¶</a>2 通信方式</h3>
+<p>两个节点（A、B）之间存在三种通信方式:</p>
 <ul>
 <li>push：A节点将数据（key,value,version）推送给B节点，B节点更新A中比自己新的数据</li>
 <li>pull：A仅将数据key,version推送给B，B将本地比A新的数据（Key,value,version）推送给A，A更新本地</li>
 <li>push/pull：与pull类似，只是多了一步，A再将本地比B新的数据推送给B，B更新本地</li>
 </ul>
 <p>在一个节点同步周期内，push需通信1次，pull需2次，push/pull需3次。从效果上来讲，push/pull最好，理论上一个周期内可以使两个节点完全一致。直观上也感觉，push/pull的收敛速度是最快的。</p>
-<h3 id="3-工作方式"><a href="#3-工作方式" class="headerlink" title="3 工作方式"></a>3 工作方式</h3><p>Gossip节点的工作方式分两种：</p>
+<h3 id="3-工作方式"><a class="header-anchor" href="#3-工作方式">¶</a>3 工作方式</h3>
+<p>Gossip节点的工作方式分两种：</p>
 <ul>
-<li>Anti-Entropy（反熵）：以固定的概率传播所有的数据。<ul>
+<li>Anti-Entropy（反熵）：以固定的概率传播所有的数据。
+<ul>
 <li>有完全的容错性</li>
 <li>有较大的网络、CPU负载。</li>
 </ul>
 </li>
-<li>Rumor-Mongering（谣言传播）：仅传播新到达的数据<ul>
+<li>Rumor-Mongering（谣言传播）：仅传播新到达的数据
+<ul>
 <li>有较小的网络、CPU负载</li>
 <li>难以定义“最新”的边界，难以保证完全容错</li>
 <li>对失败重启且超过“最新”期限的节点，无法保证最终一致性</li>
@@ -4412,41 +4443,50 @@
 </li>
 </ul>
 <p>一般采用Anti-Entropy模式，并由协调机制进行优化</p>
-<h4 id="协调机制"><a href="#协调机制" class="headerlink" title="协调机制"></a>协调机制</h4><p>协调是在通信方式下的数据交换机制，主要讨论节点通信时，如何在有限的网络空间下，有效率地交换所有消息，达到最快的一致性。</p>
-<h5 id="1）精确协调（Precise-Reconciliation）"><a href="#1）精确协调（Precise-Reconciliation）" class="headerlink" title="1）精确协调（Precise Reconciliation）"></a>1）精确协调（Precise Reconciliation）</h5><ul>
+<h4 id="协调机制"><a class="header-anchor" href="#协调机制">¶</a>协调机制</h4>
+<p>协调是在通信方式下的数据交换机制，主要讨论节点通信时，如何在有限的网络空间下，有效率地交换所有消息，达到最快的一致性。</p>
+<h5 id="1）精确协调（Precise-Reconciliation）"><a class="header-anchor" href="#1）精确协调（Precise-Reconciliation）">¶</a>1）精确协调（Precise Reconciliation）</h5>
+<ul>
 <li>精确协调希望在每次通信周期内都非常准确地消除双方的不一致性，具体表现为相互发送对方需要更新的数据。</li>
 <li>因为每个节点都在并发与多个节点通信，理论上精确协调很难做到。</li>
 <li>需要给每个数据项独立地维护自己的version</li>
-<li>因为消息存在大小限制，每次选择发送一部分数据<ul>
+<li>因为消息存在大小限制，每次选择发送一部分数据
+<ul>
 <li>可以随机选择一部分数据</li>
 <li>也可确定性的选择数据（有最老优先和最新优先两种）</li>
 </ul>
 </li>
 </ul>
-<h5 id="2）整体协调（Scuttlebutt-Reconciliation）"><a href="#2）整体协调（Scuttlebutt-Reconciliation）" class="headerlink" title="2）整体协调（Scuttlebutt Reconciliation）"></a>2）整体协调（Scuttlebutt Reconciliation）</h5><ul>
+<h5 id="2）整体协调（Scuttlebutt-Reconciliation）"><a class="header-anchor" href="#2）整体协调（Scuttlebutt-Reconciliation）">¶</a>2）整体协调（Scuttlebutt Reconciliation）</h5>
+<ul>
 <li>整体协调是为每个节点上的宿主数据维护统一的version。</li>
 <li>当与其他节点进行比较时，对比最高version，如相同说明这部分数据全部一致，否则再进行精确协调</li>
-<li>整体协调对数据的选择也有两种方法<ul>
+<li>整体协调对数据的选择也有两种方法
+<ul>
 <li>广度优先：根据整体version大小排序，也称为公平选择</li>
 <li>深度优先：根据包含数据多少的排序，也称为非公平选择。实用推荐。</li>
 </ul>
 </li>
 </ul>
-<h3 id="4-Cassandra中的实现"><a href="#4-Cassandra中的实现" class="headerlink" title="4 Cassandra中的实现"></a>4 Cassandra中的实现</h3><p>Cassandra实现了基于整体协调的push/push模式。</p>
-<h4 id="Gossip作用"><a href="#Gossip作用" class="headerlink" title="Gossip作用"></a>Gossip作用</h4><p>Cassandra主要是使用Gossip完成三方面的功能：</p>
+<h3 id="4-Cassandra中的实现"><a class="header-anchor" href="#4-Cassandra中的实现">¶</a>4 Cassandra中的实现</h3>
+<p>Cassandra实现了基于整体协调的push/push模式。</p>
+<h4 id="Gossip作用"><a class="header-anchor" href="#Gossip作用">¶</a>Gossip作用</h4>
+<p>Cassandra主要是使用Gossip完成三方面的功能：</p>
 <ul>
 <li>失败检测</li>
 <li>动态负载均衡</li>
 <li>去中心化的弹性扩展</li>
 </ul>
-<h4 id="启动流程"><a href="#启动流程" class="headerlink" title="启动流程"></a>启动流程</h4><p>在 Cassandra 启动时，会启动 Gossip 服务，Gossip 服务启动后会启动一个任务 GossipTask，每秒钟运行一次，这个任务会周期性与其他节点进行通信。</p>
+<h4 id="启动流程"><a class="header-anchor" href="#启动流程">¶</a>启动流程</h4>
+<p>在 Cassandra 启动时，会启动 Gossip 服务，Gossip 服务启动后会启动一个任务 GossipTask，每秒钟运行一次，这个任务会周期性与其他节点进行通信。</p>
 <ol>
 <li>GossipTask 在 Gossip 启动后阻塞在 listenGate 变量上，当 Gossip 服务调用 listen 时才开始运行；</li>
 <li>首先更新本节点的心跳版本号，然后构造需要发送给其他节点的消息 gDigests；</li>
 <li>从存活节点中随机选择一个节点发送、从失效节点中随机选取一个发送。如果当前存活节点数小于种子数，向其中一个种子节点发送消息；</li>
 <li>检查节点状态。</li>
 </ol>
-<h4 id="工作流程"><a href="#工作流程" class="headerlink" title="工作流程"></a>工作流程</h4><p>每一秒钟，Gossiper 会随机选择集群内的一个节点，初始化和它之间的 Gossip 会话。每一轮 Gossip 需要三组数据；</p>
+<h4 id="工作流程"><a class="header-anchor" href="#工作流程">¶</a>工作流程</h4>
+<p>每一秒钟，Gossiper 会随机选择集群内的一个节点，初始化和它之间的 Gossip 会话。每一轮 Gossip 需要三组数据；</p>
 <ol>
 <li>Gossip 初始化器选择一个节点发送一个 GossipDigestSynMessage；</li>
 <li>当节点收到这个信息，它返回一个 GossipDigestAackMessage；</li>
@@ -4461,19 +4501,23 @@
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

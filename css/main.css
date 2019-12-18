@@ -39,9 +39,8 @@ html,body{
 	/* flex: 1; */
 	max-width: 830px;
 	top: 50px;
-	height: 100%;
-	flex-grow:1;
-	flex-shrink:1;
+	flex-grow: 1;
+	flex-shrink: 1;
 	flex-basis: 0;
 	/* overflow: scroll; */
 	margin: 50px 0px 30px 300px;
@@ -451,6 +450,29 @@ canvas#live2dcanvas {
 /* #################### 自适应 #################### */
 
 
+/* #################### rocket #################### */
 
+#to_top{
+    position: fixed;
+    bottom: 80px;
+    right: 50px;
+	width: 40px;
+	height: 40px;
+	border-radius:50%;
+	background:#f4f4f4;
+    z-index: 9;
+    text-align: center;
+    transform: scale(1.2);
+}
 
+#totop{
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  cursor: pointer;
+  line-height: 40px;
+	width: 40px;
+	height: 40px;
+}
 
+/* #################### rocket #################### */

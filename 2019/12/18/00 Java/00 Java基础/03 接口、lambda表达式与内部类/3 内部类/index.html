@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		3 内部类 | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,28 +4395,51 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:46</span>
+	<span id="post-date">2019-12-18 01:00:41</span>
 </div>
 
 
 <div id="article">
-	<p>内部类（ inner class）是定义在另一个类中的类。<br>为什么需要使用内部类：</p>
+	<p>内部类（ inner class）是定义在另一个类中的类。<br>
+为什么需要使用内部类：</p>
 <ol>
 <li>内部类方法可以访问该类定义所在的作用域中的数据，包括私有数据</li>
 <li>内部类可以对同一个包中的其他类隐藏起来</li>
 <li>当想要定义一个回调函数而不想写大量代码时，使用匿名内部类比较便捷</li>
 </ol>
-<h4 id="1-访问状态"><a href="#1-访问状态" class="headerlink" title="1 访问状态"></a>1 访问状态</h4><p>内部类的构造器具有外部类的隐式引用outer。<br>只有内部类可以是私有类。  </p>
-<h4 id="2-使用方法"><a href="#2-使用方法" class="headerlink" title="2 使用方法"></a>2 使用方法</h4><p>引用外围类</p>
-<pre><code>OuterClass.this</code></pre><p>编写内部类构造器</p>
-<pre><code>outerObject.new InnerClass(contruction parameters)</code></pre><p>在外围类的作用域之外引用内部类</p>
-<pre><code>OuterClass.InnerClass</code></pre><h4 id="3-局部内部类"><a href="#3-局部内部类" class="headerlink" title="3 局部内部类"></a>3 局部内部类</h4><p>可以在一个方法中定义局部类，作用域被限定在声明这个局部类的块中。<br>对外部世界完全隐藏，除了定义它的方法外，没有任何方法知道它的存在。<br>可以访问包含它们的外部类，和final局部变量</p>
-<h4 id="4-匿名内部类"><a href="#4-匿名内部类" class="headerlink" title="4 匿名内部类"></a>4 匿名内部类</h4><p>假如只创建一个这个类的对象，就不必命名了，这种类被称为匿名内部类<br>匿名类不能有构造器，需要将参数传递给超类构造器；内部类实现接口时不能有任何构造参数。<br>SuperType可以是接口，内部类就要实现这个接口；也可以是一个类，内部类就要扩展它。</p>
+<h4 id="1-访问状态"><a class="header-anchor" href="#1-访问状态">¶</a>1 访问状态</h4>
+<p>内部类的构造器具有外部类的隐式引用outer。<br>
+只有内部类可以是私有类。</p>
+<h4 id="2-使用方法"><a class="header-anchor" href="#2-使用方法">¶</a>2 使用方法</h4>
+<p>引用外围类</p>
+<pre><code>OuterClass.this
+</code></pre>
+<p>编写内部类构造器</p>
+<pre><code>outerObject.new InnerClass(contruction parameters)
+</code></pre>
+<p>在外围类的作用域之外引用内部类</p>
+<pre><code>OuterClass.InnerClass
+</code></pre>
+<h4 id="3-局部内部类"><a class="header-anchor" href="#3-局部内部类">¶</a>3 局部内部类</h4>
+<p>可以在一个方法中定义局部类，作用域被限定在声明这个局部类的块中。<br>
+对外部世界完全隐藏，除了定义它的方法外，没有任何方法知道它的存在。<br>
+可以访问包含它们的外部类，和final局部变量</p>
+<h4 id="4-匿名内部类"><a class="header-anchor" href="#4-匿名内部类">¶</a>4 匿名内部类</h4>
+<p>假如只创建一个这个类的对象，就不必命名了，这种类被称为匿名内部类<br>
+匿名类不能有构造器，需要将参数传递给超类构造器；内部类实现接口时不能有任何构造参数。<br>
+SuperType可以是接口，内部类就要实现这个接口；也可以是一个类，内部类就要扩展它。</p>
 <pre><code>new SuperType(construction parameters){
     inner class methods and data
-}</code></pre><p>主要用在回调，如今推荐用lambda</p>
-<h4 id="5-静态内部类"><a href="#5-静态内部类" class="headerlink" title="5  静态内部类"></a>5  静态内部类</h4><p>有时候使用内部类仅为了把一个类隐藏在另一个类的内部，并不需要内部类引用外围类对象。为此可以将内部类声明为static，以便取消产生的引用。<br>只有内部类可以声明为static。静态内部类的对象除了没有对生成它的外围类对象的引用特权外，与其他所有内部类完全一样。<br>静态内部类的对象可以直接生成：</p>
-<pre><code>Outer.Inner in=new Outer.Inner()；</code></pre>
+}
+</code></pre>
+<p>主要用在回调，如今推荐用lambda</p>
+<h4 id="5-静态内部类"><a class="header-anchor" href="#5-静态内部类">¶</a>5  静态内部类</h4>
+<p>有时候使用内部类仅为了把一个类隐藏在另一个类的内部，并不需要内部类引用外围类对象。为此可以将内部类声明为static，以便取消产生的引用。<br>
+只有内部类可以声明为static。静态内部类的对象除了没有对生成它的外围类对象的引用特权外，与其他所有内部类完全一样。<br>
+静态内部类的对象可以直接生成：</p>
+<pre><code>Outer.Inner in=new Outer.Inner()；
+</code></pre>
+
 </div>
 
 	</div>
@@ -4402,19 +4448,23 @@
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

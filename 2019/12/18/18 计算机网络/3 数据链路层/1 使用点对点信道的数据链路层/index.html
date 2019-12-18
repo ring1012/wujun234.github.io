@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		1 使用点对点信道的数据链路层 | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,36 +4395,45 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:44</span>
+	<span id="post-date">2019-12-18 01:00:41</span>
 </div>
 
 
 <div id="article">
-	<h2 id="1-数据链路和帧"><a href="#1-数据链路和帧" class="headerlink" title="1. 数据链路和帧"></a>1. 数据链路和帧</h2><h4 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h4><ul>
+	<h2 id="1-数据链路和帧"><a class="header-anchor" href="#1-数据链路和帧">¶</a>1. 数据链路和帧</h2>
+<h4 id="基本概念"><a class="header-anchor" href="#基本概念">¶</a>基本概念</h4>
+<ul>
 <li><strong>链路</strong>(link)：指从一个结点到相邻结点的一段物理线路，中间没有任何其他的交换结点</li>
 <li><strong>数据链路</strong>(data link)：在一条线路上传送数据时，需要必要的通信协议来控制数据的传输，把实现协议的硬件和软件加到链路上，构成了数据链路</li>
 <li><strong>帧</strong>(frame)：点对点信道的数据链路层的协议数据单元</li>
 </ul>
-<h4 id="主要步骤"><a href="#主要步骤" class="headerlink" title="主要步骤"></a>主要步骤</h4><p>数据链路层把网络层交下来的数据构成帧发送到链路上，以及把接收到的帧中的数据取出并上交给网络层</p>
+<h4 id="主要步骤"><a class="header-anchor" href="#主要步骤">¶</a>主要步骤</h4>
+<p>数据链路层把网络层交下来的数据构成帧发送到链路上，以及把接收到的帧中的数据取出并上交给网络层</p>
 <ol>
 <li>结点A的数据链路层把网络层交下来的IP数据报添加首部和尾部封装成帧</li>
 <li>结点A把封装好的帧发送给结点B的数据链路层</li>
 <li>若结点B的数据链路层收到的帧无差错，则从收到的帧中提取出IP数据报上交给上面的网络层，否则丢弃这个帧</li>
 </ol>
-<h2 id="2-三个基本问题"><a href="#2-三个基本问题" class="headerlink" title="2. 三个基本问题"></a>2. 三个基本问题</h2><h4 id="1）封装成帧"><a href="#1）封装成帧" class="headerlink" title="1）封装成帧"></a>1）封装成帧</h4><ul>
+<h2 id="2-三个基本问题"><a class="header-anchor" href="#2-三个基本问题">¶</a>2. 三个基本问题</h2>
+<h4 id="1）封装成帧"><a class="header-anchor" href="#1）封装成帧">¶</a>1）封装成帧</h4>
+<ul>
 <li>网络层的IP数据报传送到数据链路层，就成为帧的数据部分，在前后分别添加首部和尾部，构成一个帧</li>
 <li>首部和尾部的作用是帧定界（确定帧的界限），并包含必要的控制信息</li>
 <li>每种链路层协议都规定了帧的数据部分的长度上限，即最大传送单元 MTU</li>
 </ul>
 <p><img src="/images/1568971323876.jpg" alt="image"></p>
-<h4 id="2）透明传输"><a href="#2）透明传输" class="headerlink" title="2）透明传输"></a>2）透明传输</h4><p>帧的数据部分不允许出现“帧定界控制字符”，若待传输数据中包含了“帧定界控制字符”，需要在发送端的数据链路层插入转移字符，接收端的数据链路层送往网络层之前删除转移字符</p>
-<h4 id="3）差错检测"><a href="#3）差错检测" class="headerlink" title="3）差错检测"></a>3）差错检测</h4><ul>
+<h4 id="2）透明传输"><a class="header-anchor" href="#2）透明传输">¶</a>2）透明传输</h4>
+<p>帧的数据部分不允许出现“帧定界控制字符”，若待传输数据中包含了“帧定界控制字符”，需要在发送端的数据链路层插入转移字符，接收端的数据链路层送往网络层之前删除转移字符</p>
+<h4 id="3）差错检测"><a class="header-anchor" href="#3）差错检测">¶</a>3）差错检测</h4>
+<ul>
 <li><strong>比特差错</strong>：在传输过程中产生差错，即0变成1，1变成0</li>
-<li><strong>误码率</strong>：传输错误的比特占所传输比特总数的比率称为误码率(bit error rate,BER)<ul>
+<li><strong>误码率</strong>：传输错误的比特占所传输比特总数的比率称为误码率(bit error rate,BER)
+<ul>
 <li>通过提高信噪比，可以降低误码率，但不能达到理想情况</li>
 </ul>
 </li>
-<li><strong>循环冗余检验</strong>：为了保证数据传输的可靠性，采用循环冗余检验(cyclic redundancy check,CRC)：<ul>
+<li><strong>循环冗余检验</strong>：为了保证数据传输的可靠性，采用循环冗余检验(cyclic redundancy check,CRC)：
+<ul>
 <li>在数据部分的后面添加冗余码，称为帧检验序列(frame check sequence,FCS)</li>
 <li>CRC检验只能做到对帧的无差错接收，无法解决传输差错，如帧丢失、帧重复和帧失序</li>
 </ul>
@@ -4416,19 +4448,23 @@
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

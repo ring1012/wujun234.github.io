@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		1 FIS 3接口速查 | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,27 +4395,39 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:42</span>
+	<span id="post-date">2019-12-18 01:00:44</span>
 </div>
 
 
 <div id="article">
-	<p>FIS 构建工具 前端工具框架<br>官方文档：<a href="http://fis.baidu.com/fis3/docs/beginning/intro.html" target="_blank" rel="noopener">http://fis.baidu.com/fis3/docs/beginning/intro.html</a></p>
+	<p>FIS 构建工具 前端工具框架<br>
+官方文档：<a href="http://fis.baidu.com/fis3/docs/beginning/intro.html" target="_blank" rel="noopener">http://fis.baidu.com/fis3/docs/beginning/intro.html</a></p>
 <p>默认配置文件为 fis-conf.js，有此文件的目录被看做是项目根目</p>
-<h4 id="配置接口"><a href="#配置接口" class="headerlink" title="配置接口"></a>配置接口</h4><ul>
-<li>fis.set(key, value)：设置一些配置，如系统内置属性。 </li>
+<h4 id="配置接口"><a class="header-anchor" href="#配置接口">¶</a>配置接口</h4>
+<ul>
+<li>fis.set(key, value)：设置一些配置，如系统内置属性。</li>
 <li>fis.get(key)：获取已经配置的属性，和 fis.set() 成对使用</li>
-<li><strong>fis.match</strong>(selector, props[, important])：给匹配到的文件分配文件属性。后面分配到的规则会覆盖前面的，若设置了important为 true，即无法被覆盖；<pre><code>fis.match(&#39;::package&#39;, { });//packager阶段所有的文件
-fis.match(&#39;::image&#39;, { });// 所有被标注为图片的文件
-fis.match(&#39;::text&#39;, { });//所有被标注为文本的文件
-fis.match(&#39;::js&#39;, { });//匹配模板中的内联 js
-fis.match(&#39;::css&#39;, { });//匹配模板中内联 css</code></pre></li>
-<li><strong>fis.media</strong>(mode)：模仿自 css 的 @media，表示不同的状态。意味着有多份配置，每一份配置都可以让 fis3 进行不同的编译<pre><code>fis.media(&#39;dev&#39;).match()
+<li><strong>fis.match</strong>(selector, props[, important])：给匹配到的文件分配文件属性。后面分配到的规则会覆盖前面的，若设置了important为 true，即无法被覆盖；</li>
+</ul>
+<pre><code>fis.match('::package', { });//packager阶段所有的文件
+fis.match('::image', { });// 所有被标注为图片的文件
+fis.match('::text', { });//所有被标注为文本的文件
+fis.match('::js', { });//匹配模板中的内联 js
+fis.match('::css', { });//匹配模板中内联 css
+</code></pre>
+<ul>
+<li><strong>fis.media</strong>(mode)：模仿自 css 的 @media，表示不同的状态。意味着有多份配置，每一份配置都可以让 fis3 进行不同的编译</li>
+</ul>
+<pre><code>fis.media('dev').match()
 //编译发布的时候使用 media
-fis3 release &lt;media&gt;</code></pre></li>
+fis3 release &lt;media&gt;
+</code></pre>
+<ul>
 <li>fis.plugin(name [, props [, position]])：插件调用接口。插件名，插件属性，插件位置</li>
 </ul>
-<h4 id="配置属性"><a href="#配置属性" class="headerlink" title="配置属性"></a>配置属性</h4><h5 id="全局属性"><a href="#全局属性" class="headerlink" title="全局属性"></a>全局属性</h5><p>全局属性通过 fis.set 设置，通过 fis.get 获取</p>
+<h4 id="配置属性"><a class="header-anchor" href="#配置属性">¶</a>配置属性</h4>
+<h5 id="全局属性"><a class="header-anchor" href="#全局属性">¶</a>全局属性</h5>
+<p>全局属性通过 fis.set 设置，通过 fis.get 获取</p>
 <ul>
 <li>project.charset：指定项目编译后产出文件的编码。使用 charset 编码需要使用encoding插件发布编译结果。</li>
 <li>project.md5Length：文件MD5戳长度。</li>
@@ -4402,7 +4437,9 @@ fis3 release &lt;media&gt;</code></pre></li>
 <li>project.fileType.text：追加文本文件后缀列表。fis系统在编译时会对文本文件和图片类二进制文件做不同的处理，文件分类依据是后缀名。</li>
 <li>project.fileType.image：追加图片类二进制文件后缀列表。</li>
 </ul>
-<h5 id="文件属性"><a href="#文件属性" class="headerlink" title="文件属性"></a>文件属性</h5><p>fis3 以文件属性控制文件的编译合并以及各种操作；文件属性包括基本属性和插件属性，插件属性是为了方便在不同的插件扩展点设置插件；<br>######基本属性</p>
+<h5 id="文件属性"><a class="header-anchor" href="#文件属性">¶</a>文件属性</h5>
+<p>fis3 以文件属性控制文件的编译合并以及各种操作；文件属性包括基本属性和插件属性，插件属性是为了方便在不同的插件扩展点设置插件；<br>
+######基本属性</p>
 <ul>
 <li><strong>release</strong>：设置文件的产出路径。默认是文件相对项目根目录的路径，以 / 开头。该值可以设置为 false ，表示为不产出（unreleasable）文件。</li>
 <li>packTo：分配到这个属性的文件将会合并到这个属性配置的文件中。packTo 设置的是源码路径，也会受到已经设置的 fis.match 规则的影响</li>
@@ -4426,58 +4463,93 @@ fis3 release &lt;media&gt;</code></pre></li>
 <li>useCache： 文件是否使用编译缓存。当设置使用编译缓存，每个文件的编译结果均会在磁盘中保存以供下次编译使用。设置为 false 后，则该文件每次均会被编译。</li>
 <li>useCompile： FIS是否对文件进行编译。设置为 false 后文件会通过FIS发布，但是FIS不对文件做任何修改</li>
 </ul>
-<h6 id="插件属性"><a href="#插件属性" class="headerlink" title="插件属性"></a>插件属性</h6><p>插件属性决定了匹配的文件进行哪些插件的处理<br><a href="http://fis.baidu.com/fis3/docs/api/config-props.html" target="_blank" rel="noopener">查详表吧</a></p>
-<h4 id="命令行"><a href="#命令行" class="headerlink" title="命令行"></a>命令行</h4><p>FIS3 默认内置了命令 release、install、init、server、inspect等命令，都是 FIS fis-command-* 插件提供，调用方法：</p>
-<pre><code>fis3 &lt;command&gt;</code></pre><ul>
-<li>release<br>编译发布一个 FIS3 项目。</li>
-</ul>
-<p>-h, –help 打印帮助信息<br>-d, –dest <path> 编译产出到一个特定的目录<br>-l, –lint 启用文件格式检测<br>-w, –watch 启动文件监听<br>-L, –live 启动 livereload 功能<br>-c, –clean 清除编译缓存<br>-u, –unique 启用独立缓存  </p>
+<h6 id="插件属性"><a class="header-anchor" href="#插件属性">¶</a>插件属性</h6>
+<p>插件属性决定了匹配的文件进行哪些插件的处理<br>
+<a href="http://fis.baidu.com/fis3/docs/api/config-props.html" target="_blank" rel="noopener">查详表吧</a></p>
+<h4 id="命令行"><a class="header-anchor" href="#命令行">¶</a>命令行</h4>
+<p>FIS3 默认内置了命令 release、install、init、server、inspect等命令，都是 FIS fis-command-* 插件提供，调用方法：</p>
+<pre><code>fis3 &lt;command&gt;
+</code></pre>
 <ul>
-<li>install<br>用来从组件平台中下载组件到当前项目中，并自动下载其依赖。  </li>
+<li>release<br>
+编译发布一个 FIS3 项目。<br>
+-h, --help 打印帮助信息<br>
+-d, --dest <path> 编译产出到一个特定的目录<br>
+-l, --lint 启用文件格式检测<br>
+-w, --watch 启动文件监听<br>
+-L, --live 启动 livereload 功能<br>
+-c, --clean 清除编译缓存<br>
+-u, --unique 启用独立缓存</li>
+<li>install<br>
+用来从组件平台中下载组件到当前项目中，并自动下载其依赖。<br>
+–save save 除了安装组件外，将依赖信息保存在当前项目根目录下 component.json 文件中<br>
+-r, --root <path> 设置项目根目录</li>
+<li>init<br>
+fis3 脚手架工具，用来快速初始化项目。<em>fis3 init ${模板名称}</em></li>
+<li>server<br>
+fis3 内置了一个小型 web server, 可以通过 fis3 server start 快速开启。如果一切正常，开启后它将自动弹出浏览器打开 <a href="http://127.0.0.1:8080/%E3%80%82" target="_blank" rel="noopener">http://127.0.0.1:8080/。</a><br>
+需要说明的是，fis3 自带的 server 默认是通过 java 内嵌 jetty 然后桥接 php-cgi 的方式运行的。所以，要求用户机器上必须安装有 jre 和 php-cgi 程序。<br>
+另外, fis server 是后台进行运行的，不会随着进程的结束而停止。如果想停止该服务器，请使用 fis3 server stop 进行关闭。</li>
+<li>inspect<br>
+用来查看文件 match 结果。</li>
 </ul>
-<p>–save save 除了安装组件外，将依赖信息保存在当前项目根目录下 component.json 文件中<br>-r, –root <path> 设置项目根目录  </p>
+<h4 id="制定目录规范"><a class="header-anchor" href="#制定目录规范">¶</a>制定目录规范</h4>
+<h5 id="源码目录规范"><a class="header-anchor" href="#源码目录规范">¶</a>源码目录规范</h5>
 <ul>
-<li>init<br>fis3 脚手架工具，用来快速初始化项目。<em>fis3 init ${模板名称}</em></li>
-<li>server<br>fis3 内置了一个小型 web server, 可以通过 fis3 server start 快速开启。如果一切正常，开启后它将自动弹出浏览器打开 <a href="http://127.0.0.1:8080/。" target="_blank" rel="noopener">http://127.0.0.1:8080/。</a><br>需要说明的是，fis3 自带的 server 默认是通过 java 内嵌 jetty 然后桥接 php-cgi 的方式运行的。所以，要求用户机器上必须安装有 jre 和 php-cgi 程序。<br>另外, fis server 是后台进行运行的，不会随着进程的结束而停止。如果想停止该服务器，请使用 fis3 server stop 进行关闭。  </li>
-<li>inspect<br>用来查看文件 match 结果。</li>
-</ul>
-<h4 id="制定目录规范"><a href="#制定目录规范" class="headerlink" title="制定目录规范"></a>制定目录规范</h4><h5 id="源码目录规范"><a href="#源码目录规范" class="headerlink" title="源码目录规范"></a>源码目录规范</h5><ul>
 <li>page 放置页面模板</li>
 <li>widget 一切组件，包括模板、css、js、图片以及其他前端资源</li>
 <li>test 一些测试数据、用例</li>
 <li>static 放一些组件公用的静态资源</li>
-<li>static/lib 放置一些公共库，例如 jquery, zepto, lazyload 等<h5 id="结果目录规范"><a href="#结果目录规范" class="headerlink" title="结果目录规范"></a>结果目录规范</h5></li>
+<li>static/lib 放置一些公共库，例如 jquery, zepto, lazyload 等</li>
+</ul>
+<h5 id="结果目录规范"><a class="header-anchor" href="#结果目录规范">¶</a>结果目录规范</h5>
+<ul>
 <li>static 所有的静态资源都放到这个目录下</li>
 <li>template 所有的模板都放到这个目录下</li>
-<li>test 还是一些测试数据、用例<pre><code>// 所有的文件产出到 static/ 目录下
-fis.match(&#39;*&#39;, {
-  release: &#39;/static/$0&#39;
-});
-</code></pre></li>
+<li>test 还是一些测试数据、用例</li>
 </ul>
-<p>// 所有模板放到 tempalte 目录下<br>fis.match(‘*.html’, {<br>    release: ‘/template/$0’<br>});</p>
-<p>// widget源码目录下的资源被标注为组件<br>fis.match(‘/widget/<em>*/</em>‘, {<br>    isMod: true<br>});</p>
-<p>// widget下的 js 调用 jswrapper 进行自动化组件化封装<br>fis.match(‘/widget/<em>*/</em>.js’, {<br>    postprocessor: fis.plugin(‘jswrapper’, {<br>        type: ‘commonjs’<br>    })<br>});</p>
-<p>// test 目录下的原封不动产出到 test 目录下<br>fis.match(‘/test/<em>*/</em>‘, {<br>    release: ‘$0’<br>});</p>
-<pre><code>
-### glob
+<pre><code>// 所有的文件产出到 static/ 目录下
+fis.match('*', {
+    release: '/static/$0'
+});
 
-#### 简要说明
-node-glob 中的使用方式有很多，如果要了解全部，请前往 http://fis.baidu.com/fis3/docs/api/config-glob.html
+// 所有模板放到 tempalte 目录下
+fis.match('*.html', {
+    release: '/template/$0'
+});
 
-这里把常用的一些用法做说明。
+// widget源码目录下的资源被标注为组件
+fis.match('/widget/**/*', {
+    isMod: true
+});
 
-* *匹配0或多个除了 / 以外的字符
-*  ? 匹配单个除了 / 以外的字符
-* ** 匹配多个字符包括 /
-* {} 可以让多个规则用 , 逗号分隔，起到或者的作用
-* ! 出现在规则的开头，表示取反。即匹配不命中后面规则的文件
+// widget下的 js 调用 jswrapper 进行自动化组件化封装
+fis.match('/widget/**/*.js', {
+    postprocessor: fis.plugin('jswrapper', {
+        type: 'commonjs'
+    })
+});
 
-需要注意的是，fis 中的文件路径都是以 / 开头的，所以编写规则时，请尽量严格的以 / 开头。
+// test 目录下的原封不动产出到 test 目录下
+fis.match('/test/**/*', {
+    release: '$0'
+});
+</code></pre>
+<h3 id="glob"><a class="header-anchor" href="#glob">¶</a>glob</h3>
+<h4 id="简要说明"><a class="header-anchor" href="#简要说明">¶</a>简要说明</h4>
+<p>node-glob 中的使用方式有很多，如果要了解全部，请前往 <a href="http://fis.baidu.com/fis3/docs/api/config-glob.html" target="_blank" rel="noopener">http://fis.baidu.com/fis3/docs/api/config-glob.html</a></p>
+<p>这里把常用的一些用法做说明。</p>
+<ul>
+<li>*匹配0或多个除了 / 以外的字符</li>
+<li>? 匹配单个除了 / 以外的字符</li>
+<li>** 匹配多个字符包括 /</li>
+<li>{} 可以让多个规则用 , 逗号分隔，起到或者的作用</li>
+<li>! 出现在规则的开头，表示取反。即匹配不命中后面规则的文件</li>
+</ul>
+<p>需要注意的是，fis 中的文件路径都是以 / 开头的，所以编写规则时，请尽量严格的以 / 开头。</p>
+<p>当设置规则时，没有严格的以 / 开头，比如 a.js, 它匹配的是所有目录下面的 a.js, 包括：/a.js、/a/a.js、/a/b/a.js。 如果要严格只命中根目录下面的 /a.js, 请使用 fis.match(’/a.js’)。</p>
+<p>另外 /foo/<em>.js， 只会命中 /foo 目录下面的所有 js 文件，不包含子目录。 而 /foo/**/</em>.js 是命中所有子目录以及其子目录下面的所有 js 文件，不包含当前目录下面的 js 文件。 如果需要命中 foo 目录下面以及所有其子目录下面的 js 文件，请使用 /foo/**.js。</p>
 
-当设置规则时，没有严格的以 / 开头，比如 a.js, 它匹配的是所有目录下面的 a.js, 包括：/a.js、/a/a.js、/a/b/a.js。 如果要严格只命中根目录下面的 /a.js, 请使用 fis.match(&#39;/a.js&#39;)。
-
-另外 /foo/*.js， 只会命中 /foo 目录下面的所有 js 文件，不包含子目录。 而 /foo/\*\*/*.js 是命中所有子目录以及其子目录下面的所有 js 文件，不包含当前目录下面的 js 文件。 如果需要命中 foo 目录下面以及所有其子目录下面的 js 文件，请使用 /foo/**.js。</code></pre>
 </div>
 
 	</div>
@@ -4486,19 +4558,23 @@ node-glob 中的使用方式有很多，如果要了解全部，请前往 http:/
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

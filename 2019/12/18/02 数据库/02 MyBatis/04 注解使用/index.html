@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		04 注解使用 | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,38 +4395,53 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:22</span>
+	<span id="post-date">2019-12-18 01:00:43</span>
 </div>
 
 
 <div id="article">
-	<h3 id="1-Provider"><a href="#1-Provider" class="headerlink" title="1 Provider"></a>1 Provider</h3><h5 id="Mapper-接口"><a href="#Mapper-接口" class="headerlink" title="Mapper 接口"></a>Mapper 接口</h5><p>@InsertProvider、@DeleteProvider、@SelectProvider</p>
+	<h3 id="1-Provider"><a class="header-anchor" href="#1-Provider">¶</a>1 Provider</h3>
+<h5 id="Mapper-接口"><a class="header-anchor" href="#Mapper-接口">¶</a>Mapper 接口</h5>
+<p>@InsertProvider、@DeleteProvider、@SelectProvider</p>
 <p>Provider 注解，属性 type = Provider类和 method = Provider类中的方法</p>
 <pre><code>@Repository
 public interface InterMsgMapper {
     @DeleteProvider(type = InterMsgProvider.class, method = &quot;delete&quot;)
     int delete(Integer actionType, Integer targetType, Long actionId);
-}</code></pre><h5 id="Provider-类实现"><a href="#Provider-类实现" class="headerlink" title="Provider 类实现"></a>Provider 类实现</h5><pre><code>public class InterMsgProvider {
+}
+</code></pre>
+<h5 id="Provider-类实现"><a class="header-anchor" href="#Provider-类实现">¶</a>Provider 类实现</h5>
+<pre><code>public class InterMsgProvider {
     public String delete(Integer actionType, Integer targetType, Long actionId) {
         return &quot;delete from inter_msg where id &lt;&gt; 0 and action_type= &quot; + actionType
                 + &quot; and target_type = &quot; + targetType
                 + &quot; and action_id = &quot; + actionId;
     }
-}</code></pre><h3 id="2-循环"><a href="#2-循环" class="headerlink" title="2 循环"></a>2 循环</h3><pre><code>@Update({&quot;&lt;script&gt;&quot;,
+}
+</code></pre>
+<h3 id="2-循环"><a class="header-anchor" href="#2-循环">¶</a>2 循环</h3>
+<pre><code>@Update({&quot;&lt;script&gt;&quot;,
             &quot;update goods set status = #{status,jdbcType=TINYINT} where id in &quot;,
-            &quot;&lt;foreach item=&#39;goodsId&#39; index=&#39;index&#39; collection=&#39;goodsIds&#39; open=&#39;(&#39; separator=&#39;,&#39; close=&#39;)&#39;&gt;&quot;,
+            &quot;&lt;foreach item='goodsId' index='index' collection='goodsIds' open='(' separator=',' close=')'&gt;&quot;,
             &quot;#{goodsId,jdbcType=BIGINT}&quot;,
             &quot;&lt;/foreach&gt;&quot;,
             &quot;&lt;/script&gt;&quot;})
 int updateGoodsStatus(@Param(&quot;goodsIds&quot;) List&lt;Long&gt; goodsIds, @Param(&quot;status&quot;) Byte status);
-</code></pre><h3 id="3-Options注解"><a href="#3-Options注解" class="headerlink" title="3 @Options注解"></a>3 @Options注解</h3><h5 id="获取主键"><a href="#获取主键" class="headerlink" title="获取主键"></a>获取主键</h5><p>@Options注解中默认主键字段名为id，可用keyProperty和keyColumn自定义，把数据从keyColumn字段放到传入对象的keyProperty成员变量里面。</p>
+
+</code></pre>
+<h3 id="3-Options注解"><a class="header-anchor" href="#3-Options注解">¶</a>3 @Options注解</h3>
+<h5 id="获取主键"><a class="header-anchor" href="#获取主键">¶</a>获取主键</h5>
+<p>@Options注解中默认主键字段名为id，可用keyProperty和keyColumn自定义，把数据从keyColumn字段放到传入对象的keyProperty成员变量里面。</p>
 <pre><code>@Insert(&quot;insert into instance (infos)&quot;
                     + &quot; (&quot;
                     + &quot; @{infos},&quot;
                     + &quot; NOW()&quot;
                     + &quot;)&quot;)
 @Options(useGeneratedKeys = true, keyProperty = &quot;instanceId&quot;, keyColumn = &quot;instance_id&quot;)
-int addInstance(Instance instance);</code></pre><h5 id="设置缓存"><a href="#设置缓存" class="headerlink" title="设置缓存"></a>设置缓存</h5><p>@Option注解还有一下选项：</p>
+int addInstance(Instance instance);
+</code></pre>
+<h5 id="设置缓存"><a class="header-anchor" href="#设置缓存">¶</a>设置缓存</h5>
+<p>@Option注解还有一下选项：</p>
 <ul>
 <li>useCache = true，表示本次查询结果被缓存以提高下次查询速度</li>
 <li>flushCache = false，表示下次查询时不刷新缓存</li>
@@ -4418,19 +4456,23 @@ int addInstance(Instance instance);</code></pre><h5 id="设置缓存"><a href="#
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

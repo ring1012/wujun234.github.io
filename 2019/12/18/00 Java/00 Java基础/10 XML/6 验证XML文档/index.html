@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		6 验证XML文档 | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,14 +4395,19 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:48</span>
+	<span id="post-date">2019-12-18 01:00:41</span>
 </div>
 
 
 <div id="article">
 	<p>如果要指定文档结构，可以提供一个文档类型定义（DTD）或一个XML Schema定义。</p>
-<h3 id="1-DTD"><a href="#1-DTD" class="headerlink" title="1 DTD"></a>1 DTD</h3><p>文档类型定义（DTD）可定义合法的XML文档构建模块。它使用一系列合法的元素来定义文档的结构。</p>
-<h4 id="内部的-DOCTYPE-声明"><a href="#内部的-DOCTYPE-声明" class="headerlink" title="内部的 DOCTYPE 声明"></a>内部的 DOCTYPE 声明</h4><pre><code>&lt;!DOCTYPE 根元素 [元素声明]&gt;</code></pre><h5 id="引用内部DTD"><a href="#引用内部DTD" class="headerlink" title="引用内部DTD"></a>引用内部DTD</h5><pre><code>&lt;?xml version=&quot;1.0&quot;?&gt;
+<h3 id="1-DTD"><a class="header-anchor" href="#1-DTD">¶</a>1 DTD</h3>
+<p>文档类型定义（DTD）可定义合法的XML文档构建模块。它使用一系列合法的元素来定义文档的结构。</p>
+<h4 id="内部的-DOCTYPE-声明"><a class="header-anchor" href="#内部的-DOCTYPE-声明">¶</a>内部的 DOCTYPE 声明</h4>
+<pre><code>&lt;!DOCTYPE 根元素 [元素声明]&gt;
+</code></pre>
+<h5 id="引用内部DTD"><a class="header-anchor" href="#引用内部DTD">¶</a>引用内部DTD</h5>
+<pre><code>&lt;?xml version=&quot;1.0&quot;?&gt;
 &lt;!DOCTYPE note [
   &lt;!ELEMENT note (to,from,heading,body)&gt;
   &lt;!ELEMENT to      (#PCDATA)&gt;
@@ -4391,21 +4419,35 @@
   &lt;to&gt;George&lt;/to&gt;
   &lt;from&gt;John&lt;/from&gt;
   &lt;heading&gt;Reminder&lt;/heading&gt;
-  &lt;body&gt;Don&#39;t forget the meeting!&lt;/body&gt;
-&lt;/note&gt;</code></pre><h4 id="外部文档声明"><a href="#外部文档声明" class="headerlink" title="外部文档声明"></a>外部文档声明</h4><pre><code>&lt;!DOCTYPE 根元素 SYSTEM &quot;文件名&quot;&gt;</code></pre><h5 id="引用外部DTD"><a href="#引用外部DTD" class="headerlink" title="引用外部DTD"></a>引用外部DTD</h5><pre><code>&lt;?xml version=&quot;1.0&quot;?&gt;
+  &lt;body&gt;Don't forget the meeting!&lt;/body&gt;
+&lt;/note&gt;
+</code></pre>
+<h4 id="外部文档声明"><a class="header-anchor" href="#外部文档声明">¶</a>外部文档声明</h4>
+<pre><code>&lt;!DOCTYPE 根元素 SYSTEM &quot;文件名&quot;&gt;
+</code></pre>
+<h5 id="引用外部DTD"><a class="header-anchor" href="#引用外部DTD">¶</a>引用外部DTD</h5>
+<pre><code>&lt;?xml version=&quot;1.0&quot;?&gt;
 &lt;!DOCTYPE note SYSTEM &quot;note.dtd&quot;&gt;
 &lt;note&gt;
 &lt;to&gt;George&lt;/to&gt;
 &lt;from&gt;John&lt;/from&gt;
 &lt;heading&gt;Reminder&lt;/heading&gt;
-&lt;body&gt;Don&#39;t forget the meeting!&lt;/body&gt;
-&lt;/note&gt; </code></pre><p>“note.dtd” 文件</p>
+&lt;body&gt;Don't forget the meeting!&lt;/body&gt;
+&lt;/note&gt; 
+</code></pre>
+<p>“note.dtd” 文件</p>
 <pre><code>&lt;!ELEMENT note (to,from,heading,body)&gt;
 &lt;!ELEMENT to (#PCDATA)&gt;
 &lt;!ELEMENT from (#PCDATA)&gt;
 &lt;!ELEMENT heading (#PCDATA)&gt;
-&lt;!ELEMENT body (#PCDATA)&gt;</code></pre><h3 id="2-XML-Schema"><a href="#2-XML-Schema" class="headerlink" title="2 XML Schema"></a>2 XML Schema</h3><p>XML Schema 是基于 XML 的 DTD 替代者。<br>XML Schema 描述 XML 文档的结构。<br>XML Schema 语言也可作为 XSD（XML Schema Definition）来引用。</p>
-<h5 id="引用XML-Schema"><a href="#引用XML-Schema" class="headerlink" title="引用XML Schema"></a>引用XML Schema</h5><pre><code class="xml">&lt;?xml version=&quot;1.0&quot;?&gt;
+&lt;!ELEMENT body (#PCDATA)&gt;
+</code></pre>
+<h3 id="2-XML-Schema"><a class="header-anchor" href="#2-XML-Schema">¶</a>2 XML Schema</h3>
+<p>XML Schema 是基于 XML 的 DTD 替代者。<br>
+XML Schema 描述 XML 文档的结构。<br>
+XML Schema 语言也可作为 XSD（XML Schema Definition）来引用。</p>
+<h5 id="引用XML-Schema"><a class="header-anchor" href="#引用XML-Schema">¶</a>引用XML Schema</h5>
+<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot;?&gt;
 &lt;note
 xmlns=&quot;http://www.w3school.com.cn&quot;
 xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
@@ -4414,10 +4456,11 @@ xsi:schemaLocation=&quot;http://www.w3school.com.cn note.xsd&quot;&gt;
 &lt;to&gt;George&lt;/to&gt;
 &lt;from&gt;John&lt;/from&gt;
 &lt;heading&gt;Reminder&lt;/heading&gt;
-&lt;body&gt;Don&#39;t forget the meeting!&lt;/body&gt;
-&lt;/note&gt;</code></pre>
-<p>“note.xsd”文件</p>
-<pre><code class="xml">&lt;?xml version=&quot;1.0&quot;?&gt;
+&lt;body&gt;Don't forget the meeting!&lt;/body&gt;
+&lt;/note&gt;
+</code></pre>
+<p>&quot;note.xsd&quot;文件</p>
+<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot;?&gt;
 &lt;xs:schema xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot;
 targetNamespace=&quot;http://www.w3school.com.cn&quot;
 xmlns=&quot;http://www.w3school.com.cn&quot;
@@ -4426,15 +4469,16 @@ elementFormDefault=&quot;qualified&quot;&gt;
 &lt;xs:element name=&quot;note&quot;&gt;
     &lt;xs:complexType&gt;
       &lt;xs:sequence&gt;
-    &lt;xs:element name=&quot;to&quot; type=&quot;xs:string&quot;/&gt;
-    &lt;xs:element name=&quot;from&quot; type=&quot;xs:string&quot;/&gt;
-    &lt;xs:element name=&quot;heading&quot; type=&quot;xs:string&quot;/&gt;
-    &lt;xs:element name=&quot;body&quot; type=&quot;xs:string&quot;/&gt;
+	&lt;xs:element name=&quot;to&quot; type=&quot;xs:string&quot;/&gt;
+	&lt;xs:element name=&quot;from&quot; type=&quot;xs:string&quot;/&gt;
+	&lt;xs:element name=&quot;heading&quot; type=&quot;xs:string&quot;/&gt;
+	&lt;xs:element name=&quot;body&quot; type=&quot;xs:string&quot;/&gt;
       &lt;/xs:sequence&gt;
     &lt;/xs:complexType&gt;
 &lt;/xs:element&gt;
 
-&lt;/xs:schema&gt;</code></pre>
+&lt;/xs:schema&gt;
+</code></pre>
 
 </div>
 
@@ -4444,19 +4488,23 @@ elementFormDefault=&quot;qualified&quot;&gt;
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

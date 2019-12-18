@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		4 跳跃表（Skip List) | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,15 +4395,17 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:42</span>
+	<span id="post-date">2019-12-18 01:00:44</span>
 </div>
 
 
 <div id="article">
-	<h3 id="一、二分查找和AVL树查找"><a href="#一、二分查找和AVL树查找" class="headerlink" title="一、二分查找和AVL树查找"></a>一、二分查找和AVL树查找</h3><p>二分查找要求元素可以随机访问，所以决定了需要把元素存储在连续内存。这样查找确实很快，但是插入和删除元素的时候，为了保证元素的有序性，就需要大量的移动元素了。</p>
+	<h3 id="一、二分查找和AVL树查找"><a class="header-anchor" href="#一、二分查找和AVL树查找">¶</a>一、二分查找和AVL树查找</h3>
+<p>二分查找要求元素可以随机访问，所以决定了需要把元素存储在连续内存。这样查找确实很快，但是插入和删除元素的时候，为了保证元素的有序性，就需要大量的移动元素了。</p>
 <p>如果需要的是一个能够进行二分查找，又能快速添加和删除元素的数据结构，首先就是二叉查找树，二叉查找树在最坏情况下可能变成一个链表，于是就出现了平衡二叉树，根据平衡的算法不同有AVL树，B-Tree，B+Tree，红黑树等。</p>
 <p>但是AVL树实现起来比较复杂，平衡操作较难理解，这时候就可以用SkipList跳跃表结构。</p>
-<h3 id="二、什么是跳跃表"><a href="#二、什么是跳跃表" class="headerlink" title="二、什么是跳跃表"></a>二、什么是跳跃表</h3><p>Skip list 是一种可以代替平衡树的数据结构，默认是按照 Key 值升序的。Skip list 让已排序的数据分布在多层链表中，以 0-1 随机数决定一个数据的向上攀升与否，通过“空间来换取时间”的一个算法，在每个节点中增加了向前的指针，在插入、删除、查找时可以忽略一些不可能涉及到的结点，从而提高了效率。</p>
+<h3 id="二、什么是跳跃表"><a class="header-anchor" href="#二、什么是跳跃表">¶</a>二、什么是跳跃表</h3>
+<p>Skip list 是一种可以代替平衡树的数据结构，默认是按照 Key 值升序的。Skip list 让已排序的数据分布在多层链表中，以 0-1 随机数决定一个数据的向上攀升与否，通过“空间来换取时间”的一个算法，在每个节点中增加了向前的指针，在插入、删除、查找时可以忽略一些不可能涉及到的结点，从而提高了效率。</p>
 <p>在Java的API中已经有了实现：</p>
 <ul>
 <li>ConcurrentSkipListMap：在功能上对应 HashTable、HashMap、TreeMap</li>
@@ -4395,7 +4420,8 @@
 <li>层：保存着指向其他元素的指针。高层的指针越过的元素数量大于等于低层的指针，为了提高查找的效率，程序总是从高层先开始访问，然后随着元素值范围的缩小，慢慢降低层次。</li>
 <li>表尾：全部由 NULL 组成，表示跳跃表的末尾。</li>
 </ul>
-<h3 id="三、跳跃表的构造"><a href="#三、跳跃表的构造" class="headerlink" title="三、跳跃表的构造"></a>三、跳跃表的构造</h3><p>一个跳表，应该具有以下特征：</p>
+<h3 id="三、跳跃表的构造"><a class="header-anchor" href="#三、跳跃表的构造">¶</a>三、跳跃表的构造</h3>
+<p>一个跳表，应该具有以下特征：</p>
 <ul>
 <li>一个跳表应该有几个层（level）组成；</li>
 <li>跳表的第一层包含所有的元素；</li>
@@ -4405,24 +4431,39 @@
 <li>在每一层中，-1和1两个元素都出现(分别表示INT_MIN和INT_MAX)；</li>
 <li>Top指针指向最高层的第一个元素。</li>
 </ul>
-<h4 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h4><p><img src="/images/1564025552840.png" alt="image"></p>
+<h4 id="实例"><a class="header-anchor" href="#实例">¶</a>实例</h4>
+<p><img src="/images/1564025552840.png" alt="image"></p>
 <p>构造一个3层的跳跃表</p>
 <p><img src="/images/1564025552890.png" alt="image"></p>
-<h4 id="Skip-List构造步骤："><a href="#Skip-List构造步骤：" class="headerlink" title="Skip List构造步骤："></a>Skip List构造步骤：</h4><ol>
+<h4 id="Skip-List构造步骤："><a class="header-anchor" href="#Skip-List构造步骤：">¶</a>Skip List构造步骤：</h4>
+<ol>
 <li>给定一个有序的链表。</li>
 <li>选择连表中最大和最小的元素，然后从其他元素中按照一定算法（随机）随即选出一些元素，将这些元素组成有序链表。这个新的链表称为一层，原链表称为其下一层。</li>
 <li>为刚选出的每个元素添加一个指针域，这个指针指向下一层中值同自己相等的元素。Top指针指向该层首元素</li>
-<li>重复2、3步，直到不再能选择出除最大最小元素以外的元素。 </li>
+<li>重复2、3步，直到不再能选择出除最大最小元素以外的元素。</li>
 </ol>
-<h3 id="四、操作"><a href="#四、操作" class="headerlink" title="四、操作"></a>四、操作</h3><h4 id="1）查找"><a href="#1）查找" class="headerlink" title="1）查找"></a>1）查找</h4><p>查找19是否存在。从头结点开始，首先和9进行判断，此时大于9，然后和21进行判断，小于21，此时这个值肯定在9结点和21结点之间，此时，和17进行判断，大于17，然后和21进行判断，小于21，此时肯定在17结点和21结点之间，此时和19进行判断，找到了：</p>
+<h3 id="四、操作"><a class="header-anchor" href="#四、操作">¶</a>四、操作</h3>
+<h4 id="1）查找"><a class="header-anchor" href="#1）查找">¶</a>1）查找</h4>
+<p>查找19是否存在。从头结点开始，首先和9进行判断，此时大于9，然后和21进行判断，小于21，此时这个值肯定在9结点和21结点之间，此时，和17进行判断，大于17，然后和21进行判断，小于21，此时肯定在17结点和21结点之间，此时和19进行判断，找到了：</p>
 <p><img src="/images/1564025552950.jpg" alt="image"></p>
-<h4 id="2）插入"><a href="#2）插入" class="headerlink" title="2）插入"></a>2）插入</h4><p>插入包含如下几个操作：<br>1、查找到需要插入的位置<br>2、申请新的结点<br>3、调整指针。</p>
+<h4 id="2）插入"><a class="header-anchor" href="#2）插入">¶</a>2）插入</h4>
+<p>插入包含如下几个操作：<br>
+1、查找到需要插入的位置<br>
+2、申请新的结点<br>
+3、调整指针。</p>
 <p>查找如下图的灰色的线所示  申请新的结点如17结点所示， 调整指向新结点17的指针以及17结点指向后续结点的指针。这里有一个小技巧，就是使用update数组保存大于17结点的位置，这样如果插入17结点的话，就指针调整update数组和17结点的指针、17结点和update数组指向的结点的指针。update数组的内容如红线所示，这些位置才是有可能更新指针的位置。</p>
 <p><img src="/images/1564025553042.jpg" alt="image"></p>
-<h4 id="3）删除"><a href="#3）删除" class="headerlink" title="3）删除"></a>3）删除</h4><p>删除操作类似于插入操作，包含如下3步：<br>1、查找到需要删除的结点<br>2、删除结点<br>3、调整指针</p>
+<h4 id="3）删除"><a class="header-anchor" href="#3）删除">¶</a>3）删除</h4>
+<p>删除操作类似于插入操作，包含如下3步：<br>
+1、查找到需要删除的结点<br>
+2、删除结点<br>
+3、调整指针</p>
 <p><img src="/images/1564025553066.jpg" alt="image"></p>
-<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><p>浅析SkipList跳跃表原理及代码实现<br><a href="https://blog.csdn.net/ict2014/article/details/17394259" target="_blank" rel="noopener">https://blog.csdn.net/ict2014/article/details/17394259</a></p>
-<p>跳跃表Skip List的原理和实现<br><a href="https://yq.aliyun.com/articles/38381" target="_blank" rel="noopener">https://yq.aliyun.com/articles/38381</a></p>
+<h3 id="参考"><a class="header-anchor" href="#参考">¶</a>参考</h3>
+<p>浅析SkipList跳跃表原理及代码实现<br>
+<a href="https://blog.csdn.net/ict2014/article/details/17394259" target="_blank" rel="noopener">https://blog.csdn.net/ict2014/article/details/17394259</a></p>
+<p>跳跃表Skip List的原理和实现<br>
+<a href="https://yq.aliyun.com/articles/38381" target="_blank" rel="noopener">https://yq.aliyun.com/articles/38381</a></p>
 
 </div>
 
@@ -4432,19 +4473,23 @@
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

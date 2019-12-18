@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		1 计算机网络概述 | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,42 +4395,52 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:44</span>
+	<span id="post-date">2019-12-18 01:00:41</span>
 </div>
 
 
 <div id="article">
-	<h2 id="一、计算机网络的概念、组成与功能"><a href="#一、计算机网络的概念、组成与功能" class="headerlink" title="一、计算机网络的概念、组成与功能"></a>一、计算机网络的概念、组成与功能</h2><h3 id="1、概念"><a href="#1、概念" class="headerlink" title="1、概念"></a>1、概念</h3><p>互联网基本特点：连通性和共享</p>
-<h4 id="1）网络、互连网和主机"><a href="#1）网络、互连网和主机" class="headerlink" title="1）网络、互连网和主机"></a>1）网络、互连网和主机</h4><ul>
+	<h2 id="一、计算机网络的概念、组成与功能"><a class="header-anchor" href="#一、计算机网络的概念、组成与功能">¶</a>一、计算机网络的概念、组成与功能</h2>
+<h3 id="1、概念"><a class="header-anchor" href="#1、概念">¶</a>1、概念</h3>
+<p>互联网基本特点：连通性和共享</p>
+<h4 id="1）网络、互连网和主机"><a class="header-anchor" href="#1）网络、互连网和主机">¶</a>1）网络、互连网和主机</h4>
+<ul>
 <li>网路：由若干个结点和链接这些结点的链路组成</li>
 <li>互连网：网络的网络</li>
 <li>主机：与网络相连的计算机</li>
 </ul>
-<h4 id="2）互联网基础结构发展的三个阶段"><a href="#2）互联网基础结构发展的三个阶段" class="headerlink" title="2）互联网基础结构发展的三个阶段"></a>2）互联网基础结构发展的三个阶段</h4><ul>
+<h4 id="2）互联网基础结构发展的三个阶段"><a class="header-anchor" href="#2）互联网基础结构发展的三个阶段">¶</a>2）互联网基础结构发展的三个阶段</h4>
+<ul>
 <li>第一阶段：从单个网络 ARPANET 向互连网发展的过程</li>
 <li>第二阶段：建成了三级结构的互联网，分为：主干网，地区网，校园网（或企业网）</li>
 <li>第三阶段：逐渐形成了多层次 ISP（Internet Service Provider 互联网服务提供商）结构的互联网</li>
 </ul>
-<h4 id="3）互联网-Internet-与互连网-internet-区别"><a href="#3）互联网-Internet-与互连网-internet-区别" class="headerlink" title="3）互联网(Internet)与互连网(internet)区别"></a>3）互联网(Internet)与互连网(internet)区别</h4><ul>
+<h4 id="3）互联网-Internet-与互连网-internet-区别"><a class="header-anchor" href="#3）互联网-Internet-与互连网-internet-区别">¶</a>3）互联网(Internet)与互连网(internet)区别</h4>
+<ul>
 <li>internet（互连网）是一个通用名词，它泛指有多个计算机网络互连而成的计算机网络</li>
 <li>Internet（互联网，因特网）是一个专有名词，它指的是当前全球最大的、开放的、由众多网络相互连接而成的特定互连网，它采用 TCP/IP 协议族作为通信的规则，其前身是美国的 ARPANET</li>
 </ul>
-<h3 id="2、组成"><a href="#2、组成" class="headerlink" title="2、组成"></a>2、组成</h3><p>从工作方式上看，可以划分为两大块：</p>
+<h3 id="2、组成"><a class="header-anchor" href="#2、组成">¶</a>2、组成</h3>
+<p>从工作方式上看，可以划分为两大块：</p>
 <ul>
 <li>边缘部分：由所有连接在互联网上的主机组成。是用户直接使用的</li>
 <li>核心部分：由大量网络和连接这些网络的路由器组成。是为边缘部分提供服务的</li>
 </ul>
-<h4 id="1）互联网的边缘部分"><a href="#1）互联网的边缘部分" class="headerlink" title="1）互联网的边缘部分"></a>1）互联网的边缘部分</h4><p>计算机之间的通信：进程与进程间的通信</p>
+<h4 id="1）互联网的边缘部分"><a class="header-anchor" href="#1）互联网的边缘部分">¶</a>1）互联网的边缘部分</h4>
+<p>计算机之间的通信：进程与进程间的通信</p>
 <p>计算机的通信方式：</p>
 <ul>
 <li>客户-服务器(Client/Server)：客户是服务的请求方，服务器是服务提供方</li>
 <li>对等连接（Peer-to-Peer）：不区分客户和服务器</li>
 </ul>
-<h4 id="2）互联网的核心部分"><a href="#2）互联网的核心部分" class="headerlink" title="2）互联网的核心部分"></a>2）互联网的核心部分</h4><p>核心部分提供连通性，最重要的功能：分组交换（packet switching），由路由器实现</p>
+<h4 id="2）互联网的核心部分"><a class="header-anchor" href="#2）互联网的核心部分">¶</a>2）互联网的核心部分</h4>
+<p>核心部分提供连通性，最重要的功能：分组交换（packet switching），由路由器实现</p>
 <p>主机是为用户进行信息处理的，并且可以和其他主机通过网络交换信息。路由器则是用来转发分组的，即进行分组交换的</p>
-<h5 id="（1）电路交换"><a href="#（1）电路交换" class="headerlink" title="（1）电路交换"></a>（1）电路交换</h5><ul>
+<h5 id="（1）电路交换"><a class="header-anchor" href="#（1）电路交换">¶</a>（1）电路交换</h5>
+<ul>
 <li>电路交换必定是面向连接的</li>
-<li>电路交换的三个阶段<ul>
+<li>电路交换的三个阶段
+<ul>
 <li>建立连接（占用信道资源）</li>
 <li>通话（一直占用通信资源）</li>
 <li>释放连接（归还通信资源）</li>
@@ -4416,37 +4449,47 @@
 <li>在通话时，两用户间占用端到端的资源</li>
 <li>传输效率低，浪费信道资源</li>
 </ul>
-<h5 id="（2）报文交换"><a href="#（2）报文交换" class="headerlink" title="（2）报文交换"></a>（2）报文交换</h5><p>报文交换不要求在两个通信结点之间建立专用通路。结点把要发送的信息组织成一个数据包——报文，该报文中含有目标结点的地址，完整的报文在网络中一站一站地向前传送。</p>
-<h5 id="（3）分组交换"><a href="#（3）分组交换" class="headerlink" title="（3）分组交换"></a>（3）分组交换</h5><ul>
+<h5 id="（2）报文交换"><a class="header-anchor" href="#（2）报文交换">¶</a>（2）报文交换</h5>
+<p>报文交换不要求在两个通信结点之间建立专用通路。结点把要发送的信息组织成一个数据包——报文，该报文中含有目标结点的地址，完整的报文在网络中一站一站地向前传送。</p>
+<h5 id="（3）分组交换"><a class="header-anchor" href="#（3）分组交换">¶</a>（3）分组交换</h5>
+<ul>
 <li>分组交换采用存储转发技术：收到分组-&gt;存储分组-&gt;查找路由表（路由选择协议）-&gt;转发分组</li>
 <li>在发送端，先把较长的报文划分成较短的、固定长度的数据段</li>
 <li>每一个数据段前加上首部（包头）构成分组（包）</li>
 <li>分组交换网以“分组”作为数据传输单元，依次把各分组发送到接收端</li>
 </ul>
-<h5 id="（4）电路交换、报文交换和分组交换的比较"><a href="#（4）电路交换、报文交换和分组交换的比较" class="headerlink" title="（4）电路交换、报文交换和分组交换的比较"></a>（4）电路交换、报文交换和分组交换的比较</h5><ul>
+<h5 id="（4）电路交换、报文交换和分组交换的比较"><a class="header-anchor" href="#（4）电路交换、报文交换和分组交换的比较">¶</a>（4）电路交换、报文交换和分组交换的比较</h5>
+<ul>
 <li>电路交换：整个报文的比特流连续地从源点直达终点，好像在一个管道中传送</li>
 <li>报文交换：整个报文先传送到相邻节点，全部存储下来后查找转发表，转发到下一个节点</li>
-<li>分组交换：单个分组（整个报文的一部分），传送到相邻节点，存储下来在查表转发至下一节点 </li>
+<li>分组交换：单个分组（整个报文的一部分），传送到相邻节点，存储下来在查表转发至下一节点</li>
 </ul>
 <p><img src="/images/1564648925571.jpg" alt="image"></p>
-<h4 id="3）功能"><a href="#3）功能" class="headerlink" title="3）功能"></a>3）功能</h4><h2 id="二、计算机网络的分类"><a href="#二、计算机网络的分类" class="headerlink" title="二、计算机网络的分类"></a>二、计算机网络的分类</h2><h5 id="按照网络的作用范围划分"><a href="#按照网络的作用范围划分" class="headerlink" title="按照网络的作用范围划分"></a>按照网络的作用范围划分</h5><ul>
+<h4 id="3）功能"><a class="header-anchor" href="#3）功能">¶</a>3）功能</h4>
+<h2 id="二、计算机网络的分类"><a class="header-anchor" href="#二、计算机网络的分类">¶</a>二、计算机网络的分类</h2>
+<h5 id="按照网络的作用范围划分"><a class="header-anchor" href="#按照网络的作用范围划分">¶</a>按照网络的作用范围划分</h5>
+<ul>
 <li>广域网 WAN（Wide Area Network）：互联网的核心部分</li>
 <li>城域网 MAN（Metropolitan Area Network）：目前很多城域网采用的是以太网技术</li>
 <li>局域网 LAN（Local Area Network）</li>
 <li>个人区域网 PAN（Personal Area Network）</li>
 </ul>
-<h5 id="按照网络的使用者划分"><a href="#按照网络的使用者划分" class="headerlink" title="按照网络的使用者划分"></a>按照网络的使用者划分</h5><ul>
+<h5 id="按照网络的使用者划分"><a class="header-anchor" href="#按照网络的使用者划分">¶</a>按照网络的使用者划分</h5>
+<ul>
 <li>公用网 （public network）</li>
 <li>专用网 （private network）</li>
 </ul>
-<h2 id="三、计算机网络的标准化工作及相关组织"><a href="#三、计算机网络的标准化工作及相关组织" class="headerlink" title="三、计算机网络的标准化工作及相关组织"></a>三、计算机网络的标准化工作及相关组织</h2><p>万维网WWW（World Wide Web）由欧洲原子核研究组织CERN开发，被广泛使用在互联网上</p>
-<h5 id="标准化工作"><a href="#标准化工作" class="headerlink" title="标准化工作"></a>标准化工作</h5><p>制定互联网的正式标准要经过三个阶段：</p>
+<h2 id="三、计算机网络的标准化工作及相关组织"><a class="header-anchor" href="#三、计算机网络的标准化工作及相关组织">¶</a>三、计算机网络的标准化工作及相关组织</h2>
+<p>万维网WWW（World Wide Web）由欧洲原子核研究组织CERN开发，被广泛使用在互联网上</p>
+<h5 id="标准化工作"><a class="header-anchor" href="#标准化工作">¶</a>标准化工作</h5>
+<p>制定互联网的正式标准要经过三个阶段：</p>
 <ol>
 <li>互联网草案（还不能算是RFC文档），</li>
 <li>建议标准（成为RFC文档），</li>
-<li>互联网标准（达到正式标准） </li>
+<li>互联网标准（达到正式标准）</li>
 </ol>
-<h5 id="相关组织"><a href="#相关组织" class="headerlink" title="相关组织"></a>相关组织</h5><p>互联网协会 ISOC，下属技术组织“互联网体系结构委员会 IAB”，下属工程部：</p>
+<h5 id="相关组织"><a class="header-anchor" href="#相关组织">¶</a>相关组织</h5>
+<p>互联网协会 ISOC，下属技术组织“互联网体系结构委员会 IAB”，下属工程部：</p>
 <ol>
 <li>互联网工程部 IETF：由互联网工程指导小组 IESG 管理，研究短期和中期工程问题。</li>
 <li>互联网研究部 IRTF：由互联网研究指导小组 IRSG 管理，研究长期问题，协议、应用、体系结构等。</li>
@@ -4460,19 +4503,23 @@
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

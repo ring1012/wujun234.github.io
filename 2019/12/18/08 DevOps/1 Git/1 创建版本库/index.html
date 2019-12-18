@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		1 创建版本库 | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,21 +4395,49 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:40</span>
+	<span id="post-date">2019-12-18 01:00:44</span>
 </div>
 
 
 <div id="article">
-	<h3 id="Git全局设置"><a href="#Git全局设置" class="headerlink" title="Git全局设置"></a>Git全局设置</h3><pre><code>git config --global user.name &quot;wujun234&quot;
-git config --global user.email &quot;wujun234@gmail.com&quot;</code></pre><h3 id="一、创建本地版本库"><a href="#一、创建本地版本库" class="headerlink" title="一、创建本地版本库"></a>一、创建本地版本库</h3><h5 id="1-进入项目文件夹"><a href="#1-进入项目文件夹" class="headerlink" title="1 进入项目文件夹"></a>1 进入项目文件夹</h5><pre><code>cd existing_folder</code></pre><h5 id="2-初始化Git仓库"><a href="#2-初始化Git仓库" class="headerlink" title="2 初始化Git仓库"></a>2 初始化Git仓库</h5><pre><code>git init</code></pre><h5 id="3-添加到暂存区"><a href="#3-添加到暂存区" class="headerlink" title="3 添加到暂存区"></a>3 添加到暂存区</h5><pre><code>git add &lt;file&gt;
-git add .</code></pre><h5 id="4-提交到仓库"><a href="#4-提交到仓库" class="headerlink" title="4 提交到仓库"></a>4 提交到仓库</h5><p>-m后面是本次提交说明</p>
-<pre><code>git commit -m &quot;xxx&quot;</code></pre><h5 id="5-关联远程库"><a href="#5-关联远程库" class="headerlink" title="5 关联远程库"></a>5 关联远程库</h5><pre><code>git remote add origin &lt;url&gt;</code></pre><h5 id="6-获取远程库与本地同步合并"><a href="#6-获取远程库与本地同步合并" class="headerlink" title="6 获取远程库与本地同步合并"></a>6 获取远程库与本地同步合并</h5><p>如果远程库不为空必须做这一步，否则后面的提交会失败</p>
-<pre><code>git pull --rebase origin master</code></pre><h5 id="7-推送到远程"><a href="#7-推送到远程" class="headerlink" title="7 推送到远程"></a>7 推送到远程</h5><pre><code>git push -u origin master</code></pre><h3 id="二、克隆远程版本库"><a href="#二、克隆远程版本库" class="headerlink" title="二、克隆远程版本库"></a>二、克隆远程版本库</h3><pre><code>git clone &lt;url&gt;
+	<h3 id="Git全局设置"><a class="header-anchor" href="#Git全局设置">¶</a>Git全局设置</h3>
+<pre><code>git config --global user.name &quot;wujun234&quot;
+git config --global user.email &quot;wujun234@gmail.com&quot;
+</code></pre>
+<h3 id="一、创建本地版本库"><a class="header-anchor" href="#一、创建本地版本库">¶</a>一、创建本地版本库</h3>
+<h5 id="1-进入项目文件夹"><a class="header-anchor" href="#1-进入项目文件夹">¶</a>1 进入项目文件夹</h5>
+<pre><code>cd existing_folder
+</code></pre>
+<h5 id="2-初始化Git仓库"><a class="header-anchor" href="#2-初始化Git仓库">¶</a>2 初始化Git仓库</h5>
+<pre><code>git init
+</code></pre>
+<h5 id="3-添加到暂存区"><a class="header-anchor" href="#3-添加到暂存区">¶</a>3 添加到暂存区</h5>
+<pre><code>git add &lt;file&gt;
+git add .
+</code></pre>
+<h5 id="4-提交到仓库"><a class="header-anchor" href="#4-提交到仓库">¶</a>4 提交到仓库</h5>
+<p>-m后面是本次提交说明</p>
+<pre><code>git commit -m &quot;xxx&quot;
+</code></pre>
+<h5 id="5-关联远程库"><a class="header-anchor" href="#5-关联远程库">¶</a>5 关联远程库</h5>
+<pre><code>git remote add origin &lt;url&gt;
+</code></pre>
+<h5 id="6-获取远程库与本地同步合并"><a class="header-anchor" href="#6-获取远程库与本地同步合并">¶</a>6 获取远程库与本地同步合并</h5>
+<p>如果远程库不为空必须做这一步，否则后面的提交会失败</p>
+<pre><code>git pull --rebase origin master
+</code></pre>
+<h5 id="7-推送到远程"><a class="header-anchor" href="#7-推送到远程">¶</a>7 推送到远程</h5>
+<pre><code>git push -u origin master
+</code></pre>
+<h3 id="二、克隆远程版本库"><a class="header-anchor" href="#二、克隆远程版本库">¶</a>二、克隆远程版本库</h3>
+<pre><code>git clone &lt;url&gt;
 cd folder
 touch README.md
 git add README.md
 git commit -m &quot;add README&quot;
-git push -u origin master</code></pre>
+git push -u origin master
+</code></pre>
+
 </div>
 
 	</div>
@@ -4395,19 +4446,23 @@ git push -u origin master</code></pre>
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

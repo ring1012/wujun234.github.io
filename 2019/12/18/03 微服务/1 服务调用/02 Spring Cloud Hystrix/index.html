@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		02 Spring Cloud Hystrix | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,115 +4395,210 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:23</span>
+	<span id="post-date">2019-12-18 01:00:43</span>
 </div>
 
 
 <div id="article">
 	<p>Hystrix提供了熔断、隔离、Fallback、cache、监控等功能，能够在一个、或多个依赖同时出现问题时保证系统依然可用。</p>
-<h2 id="一-熔断"><a href="#一-熔断" class="headerlink" title="一 熔断"></a>一 熔断</h2><h3 id="断路器"><a href="#断路器" class="headerlink" title="断路器"></a>断路器</h3><p>失败次数达到阈值后， 断路器会切换到开路状态。 所有请求快速失败返回备选响应。 熔断时间窗后， 自动切换到半开路状态。判断下次请求，如果请求成功, 断路器关闭，否则重新开路。<br><img src="/images/1545270180799.png" alt="熔断器开关转换逻辑"></p>
-<h3 id="容错计数"><a href="#容错计数" class="headerlink" title="容错计数"></a>容错计数</h3><ol>
+<h2 id="一-熔断"><a class="header-anchor" href="#一-熔断">¶</a>一 熔断</h2>
+<h3 id="断路器"><a class="header-anchor" href="#断路器">¶</a>断路器</h3>
+<p>失败次数达到阈值后， 断路器会切换到开路状态。 所有请求快速失败返回备选响应。 熔断时间窗后， 自动切换到半开路状态。判断下次请求，如果请求成功, 断路器关闭，否则重新开路。<br>
+<img src="/images/1545270180799.png" alt="熔断器开关转换逻辑"></p>
+<h3 id="容错计数"><a class="header-anchor" href="#容错计数">¶</a>容错计数</h3>
+<ol>
 <li>Hystrix的Metrics中保存了当前服务的健康状况, 包括服务调用总次数和服务调用失败次数等</li>
 <li>根据Metrics的计数, 熔断器从而能计算出当前服务的调用失败率, 用来和设定的阈值比较从而决定熔断器的状态切换逻辑</li>
 </ol>
-<h3 id="Fallback"><a href="#Fallback" class="headerlink" title="Fallback"></a>Fallback</h3><p>Fallback相当于是降级操作。服务不可用时，可返回一个缺省值或缓存的值。</p>
-<h3 id="设置熔断"><a href="#设置熔断" class="headerlink" title="设置熔断"></a>设置熔断</h3><p>spring-cloud.version：Finchley</p>
-<h4 id="RestTemplate调用"><a href="#RestTemplate调用" class="headerlink" title="RestTemplate调用"></a>RestTemplate调用</h4><ol>
-<li>pom<pre><code>&lt;!--hystrix--&gt;
+<h3 id="Fallback"><a class="header-anchor" href="#Fallback">¶</a>Fallback</h3>
+<p>Fallback相当于是降级操作。服务不可用时，可返回一个缺省值或缓存的值。</p>
+<h3 id="设置熔断"><a class="header-anchor" href="#设置熔断">¶</a>设置熔断</h3>
+<p>spring-cloud.version：Finchley</p>
+<h4 id="RestTemplate调用"><a class="header-anchor" href="#RestTemplate调用">¶</a>RestTemplate调用</h4>
+<ol>
+<li>pom</li>
+</ol>
+<pre><code>&lt;!--hystrix--&gt;
 &lt;dependency&gt;
- &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
- &lt;artifactId&gt;spring-cloud-starter-netflix-hystrix&lt;/artifactId&gt;
+	&lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
+	&lt;artifactId&gt;spring-cloud-starter-netflix-hystrix&lt;/artifactId&gt;
 &lt;/dependency&gt;
 &lt;!--配合dashboard--&gt;
 &lt;dependency&gt;
- &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
- &lt;artifactId&gt;spring-cloud-starter-netflix-hystrix-dashboard&lt;/artifactId&gt;
+	&lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
+	&lt;artifactId&gt;spring-cloud-starter-netflix-hystrix-dashboard&lt;/artifactId&gt;
 &lt;/dependency&gt;
 &lt;dependency&gt;
- &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
- &lt;artifactId&gt;spring-boot-starter-actuator&lt;/artifactId&gt;
-&lt;/dependency&gt;</code></pre></li>
-<li>启动类注解<pre><code>@EnableCircuitBreaker //或@EnableHystrix
-@SpringBootApplication</code></pre></li>
-<li>调用Fallback<br>在方法上加上@HystrixCommand，并指定fallbackMethod方法。<br>@HystrixCommand注解的ignoreException参数可以设置忽略的异常<pre><code>@Autowired
-RestTemplate restTemplate;
-</code></pre></li>
+	&lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+	&lt;artifactId&gt;spring-boot-starter-actuator&lt;/artifactId&gt;
+&lt;/dependency&gt;
+</code></pre>
+<ol start="2">
+<li>启动类注解</li>
 </ol>
-<p>@Bean<br>public RestTemplate restTemplate() {<br>    return new RestTemplate();<br>}</p>
-<p>@HystrixCommand(fallbackMethod = “fallback”)<br>public String consumer() {<br>    return restTemplate.getForObject(“<a href="http://localhost:8888/consumer&quot;" target="_blank" rel="noopener">http://localhost:8888/consumer&quot;</a>, String.class);<br>}</p>
-<p>public String fallback() {<br>    return “fallback”;<br>}</p>
-<pre><code>4. 配置url    
-如果是springboot 2.x则需要配置ServletRegistrationBean， 因为springboot的默认路径不是 &quot;/hystrix.stream&quot;</code></pre><p>@Configuration<br>public class ServletRegistrationConfig {<br>    @Bean<br>    public ServletRegistrationBean registerTurbineBean(){<br>        return  new ServletRegistrationBean(new HystrixMetricsStreamServlet(), “/hystrix.stream”);<br>    }<br>}   </p>
-<pre><code>#### Feign调用
-基于Feign：注解中加上fallback的指定类
-1. pom</code></pre><!--feign包含hystrix-->
-<dependency>
-    <groupId>org.springframework.cloud</groupId>
-    <artifactId>spring-cloud-starter-openfeign</artifactId>
-</dependency>
-<!--支持之后的dashboard-->
-<dependency>
-    <groupId>org.springframework.cloud</groupId>
-    <artifactId>spring-cloud-starter-netflix-hystrix-dashboard</artifactId>
-</dependency>
-<dependency>
-    <groupId>org.springframework.boot</groupId>
-    <artifactId>spring-boot-starter-actuator</artifactId>
-</dependency>
-
-<pre><code>2. 启动类注解</code></pre><p>@EnableFeignClients<br>@SpringBootApplication</p>
-<pre><code>3. 配置项
-开启hystrix，默认关闭</code></pre><p>feign.hystrix.enabled=true</p>
-<pre><code>4. Feign接口fallback</code></pre><p>@Component<br>@FeignClient(name= “spring-cloud-provider”,fallback = ConsumerFallback.class,url = “<a href="http://localhost:8761/&quot;" target="_blank" rel="noopener">http://localhost:8761/&quot;</a>)<br>public interface ConsumerClient {<br>    @RequestMapping(value = “/consumer”, method = RequestMethod.GET)<br>    String consumer();<br>}</p>
-<pre><code>5. fallback类</code></pre><p>@Component<br>public class ConsumerFallback implements ConsumerClient{<br>    @Override<br>    public String consumer() {<br>        return “Feign客户端访问失败”;<br>    }<br>}</p>
-<pre><code>6. 使用Feign服务</code></pre><p>@RestController<br>public class DcController {<br>    @Autowired<br>    ConsumerClient consumerClient;</p>
-<pre><code>@GetMapping(&quot;/consumer&quot;)
-public String index() {
-    return consumerClient.consumer();
-}</code></pre><p>}</p>
-<pre><code>如是springboot 2.x也需配置&quot;/hystrix.stream&quot;
-## 二 监控
-spring-cloud.version：Finchley  
-a.调用hystrix：http://localhost:8002/consumer  
-b.查看hystrix详情：http://localhost:8002/hystrix.stream  
-c.查看turbine详情：http://localhost:8001/turbine.stream  
-### 单点监控-Dashboard
-使用Hystrix Dashboard, 监控单个应用内的服务信息
-1. pom</code></pre><dependency>
-    <groupId>org.springframework.cloud</groupId>
-    <artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
-</dependency>
-<dependency>
-    <groupId>org.springframework.cloud</groupId>
-    <artifactId>spring-cloud-starter-netflix-hystrix-dashboard</artifactId>
-</dependency>
-<dependency>
-    <groupId>org.springframework.boot</groupId>
-    <artifactId>spring-boot-starter-actuator</artifactId>
-</dependency>
-```
-2. 启动类
-启动类添加启用Hystrix Dashboard
-```
+<pre><code>@EnableCircuitBreaker //或@EnableHystrix
 @SpringBootApplication
-@EnableHystrixDashboard
-```
-访问http://localhost:8080/hystrix监控首页  
-通过URLhttp://hystrix-app:port/hystrix.stream开启，实现对具体某个服务实例的监控。  
+</code></pre>
+<ol start="3">
+<li>调用Fallback<br>
+在方法上加上@HystrixCommand，并指定fallbackMethod方法。<br>
+@HystrixCommand注解的ignoreException参数可以设置忽略的异常</li>
+</ol>
+<pre><code>@Autowired
+RestTemplate restTemplate;
 
-<h3 id="多点监控-Turbine"><a href="#多点监控-Turbine" class="headerlink" title="多点监控-Turbine"></a>多点监控-Turbine</h3><p>把多个hystrix.stream的内容聚合为一个数据源供Dashboard展示</p>
-<h4 id="Spring-Cloud-Turbine"><a href="#Spring-Cloud-Turbine" class="headerlink" title="Spring Cloud Turbine"></a>Spring Cloud Turbine</h4><ol>
-<li>添加依赖<pre><code>&lt;dependency&gt;
- &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
- &lt;artifactId&gt;spring-cloud-starter-netflix-turbine&lt;/artifactId&gt;
+@Bean
+public RestTemplate restTemplate() {
+    return new RestTemplate();
+}
+
+@HystrixCommand(fallbackMethod = &quot;fallback&quot;)
+public String consumer() {
+    return restTemplate.getForObject(&quot;http://localhost:8888/consumer&quot;, String.class);
+}
+
+public String fallback() {
+    return &quot;fallback&quot;;
+}
+</code></pre>
+<ol start="4">
+<li>配置url<br>
+如果是springboot 2.x则需要配置ServletRegistrationBean， 因为springboot的默认路径不是 “/hystrix.stream”</li>
+</ol>
+<pre><code>@Configuration
+public class ServletRegistrationConfig {
+    @Bean
+    public ServletRegistrationBean registerTurbineBean(){
+        return  new ServletRegistrationBean(new HystrixMetricsStreamServlet(), &quot;/hystrix.stream&quot;);
+    }
+}   
+</code></pre>
+<h4 id="Feign调用"><a class="header-anchor" href="#Feign调用">¶</a>Feign调用</h4>
+<p>基于Feign：注解中加上fallback的指定类</p>
+<ol>
+<li>pom</li>
+</ol>
+<pre><code>&lt;!--feign包含hystrix--&gt;
+&lt;dependency&gt;
+	&lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
+	&lt;artifactId&gt;spring-cloud-starter-openfeign&lt;/artifactId&gt;
+&lt;/dependency&gt;
+&lt;!--支持之后的dashboard--&gt;
+&lt;dependency&gt;
+	&lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
+	&lt;artifactId&gt;spring-cloud-starter-netflix-hystrix-dashboard&lt;/artifactId&gt;
 &lt;/dependency&gt;
 &lt;dependency&gt;
- &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
- &lt;artifactId&gt;spring-boot-starter-actuator&lt;/artifactId&gt;
-&lt;/dependency&gt;</code></pre></li>
-<li>启动类<pre><code>@EnableTurbine
-@SpringBootApplication</code></pre></li>
-<li>application.properties<pre><code>spring.application.name=hystrix-dashboard-turbine
+	&lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+	&lt;artifactId&gt;spring-boot-starter-actuator&lt;/artifactId&gt;
+&lt;/dependency&gt;
+
+</code></pre>
+<ol start="2">
+<li>启动类注解</li>
+</ol>
+<pre><code>@EnableFeignClients
+@SpringBootApplication
+</code></pre>
+<ol start="3">
+<li>配置项<br>
+开启hystrix，默认关闭</li>
+</ol>
+<pre><code>feign.hystrix.enabled=true
+</code></pre>
+<ol start="4">
+<li>Feign接口fallback</li>
+</ol>
+<pre><code>@Component
+@FeignClient(name= &quot;spring-cloud-provider&quot;,fallback = ConsumerFallback.class,url = &quot;http://localhost:8761/&quot;)
+public interface ConsumerClient {
+    @RequestMapping(value = &quot;/consumer&quot;, method = RequestMethod.GET)
+    String consumer();
+}
+</code></pre>
+<ol start="5">
+<li>fallback类</li>
+</ol>
+<pre><code>@Component
+public class ConsumerFallback implements ConsumerClient{
+    @Override
+    public String consumer() {
+        return &quot;Feign客户端访问失败&quot;;
+    }
+}
+</code></pre>
+<ol start="6">
+<li>使用Feign服务</li>
+</ol>
+<pre><code>@RestController
+public class DcController {
+    @Autowired
+    ConsumerClient consumerClient;
+
+    @GetMapping(&quot;/consumer&quot;)
+    public String index() {
+        return consumerClient.consumer();
+    }
+}
+</code></pre>
+<p>如是springboot 2.x也需配置&quot;/hystrix.stream&quot;</p>
+<h2 id="二-监控"><a class="header-anchor" href="#二-监控">¶</a>二 监控</h2>
+<p>spring-cloud.version：Finchley<br>
+a.调用hystrix：<a href="http://localhost:8002/consumer" target="_blank" rel="noopener">http://localhost:8002/consumer</a><br>
+b.查看hystrix详情：<a href="http://localhost:8002/hystrix.stream" target="_blank" rel="noopener">http://localhost:8002/hystrix.stream</a><br>
+c.查看turbine详情：<a href="http://localhost:8001/turbine.stream" target="_blank" rel="noopener">http://localhost:8001/turbine.stream</a></p>
+<h3 id="单点监控-Dashboard"><a class="header-anchor" href="#单点监控-Dashboard">¶</a>单点监控-Dashboard</h3>
+<p>使用Hystrix Dashboard, 监控单个应用内的服务信息</p>
+<ol>
+<li>pom</li>
+</ol>
+<pre><code>&lt;dependency&gt;
+	&lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
+	&lt;artifactId&gt;spring-cloud-starter-netflix-hystrix&lt;/artifactId&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+	&lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
+	&lt;artifactId&gt;spring-cloud-starter-netflix-hystrix-dashboard&lt;/artifactId&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+	&lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+	&lt;artifactId&gt;spring-boot-starter-actuator&lt;/artifactId&gt;
+&lt;/dependency&gt;
+</code></pre>
+<ol start="2">
+<li>启动类<br>
+启动类添加启用Hystrix Dashboard</li>
+</ol>
+<pre><code>@SpringBootApplication
+@EnableHystrixDashboard
+</code></pre>
+<p>访问http://localhost:8080/hystrix监控首页<br>
+通过URLhttp://hystrix-app:port/hystrix.stream开启，实现对具体某个服务实例的监控。</p>
+<h3 id="多点监控-Turbine"><a class="header-anchor" href="#多点监控-Turbine">¶</a>多点监控-Turbine</h3>
+<p>把多个hystrix.stream的内容聚合为一个数据源供Dashboard展示</p>
+<h4 id="Spring-Cloud-Turbine"><a class="header-anchor" href="#Spring-Cloud-Turbine">¶</a>Spring Cloud Turbine</h4>
+<ol>
+<li>添加依赖</li>
+</ol>
+<pre><code>&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-cloud-starter-netflix-turbine&lt;/artifactId&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-boot-starter-actuator&lt;/artifactId&gt;
+&lt;/dependency&gt;
+</code></pre>
+<ol start="2">
+<li>启动类</li>
+</ol>
+<pre><code>@EnableTurbine
+@SpringBootApplication
+</code></pre>
+<ol start="3">
+<li>application.properties</li>
+</ol>
+<pre><code>spring.application.name=hystrix-dashboard-turbine
 server.port=8001
 //配置Eureka中的serviceId列表，表明监控哪些服务
 turbine.appConfig=node01,node02
@@ -4488,59 +4606,81 @@ turbine.appConfig=node01,node02
 turbine.aggregator.clusterConfig= default
 //指定集群名称
 turbine.clusterNameExpression= new String(&quot;default&quot;)
-</code></pre></li>
+
+eureka.client.serviceUrl.defaultZone=http://localhost:8000/eureka/
+</code></pre>
+<p>在dashboard中查看turbine详情：<a href="http://localhost:8001/turbine.stream" target="_blank" rel="noopener">http://localhost:8001/turbine.stream</a></p>
+<h4 id="Netflix-Turbine"><a class="header-anchor" href="#Netflix-Turbine">¶</a>Netflix Turbine</h4>
+<p>使用原生turbine-core可不用eureka</p>
+<ol>
+<li>pom</li>
 </ol>
-<p>eureka.client.serviceUrl.defaultZone=<a href="http://localhost:8000/eureka/" target="_blank" rel="noopener">http://localhost:8000/eureka/</a></p>
-<pre><code>在dashboard中查看turbine详情：http://localhost:8001/turbine.stream
-#### Netflix Turbine
-使用原生turbine-core可不用eureka
-1. pom</code></pre><dependency>
-    <groupId>com.netflix.turbine</groupId>
-    <artifactId>turbine-core</artifactId>
-    <version>1.0.0</version>
-</dependency>
-```
-2. **config.properties**
-详细见[官方文档](https://github.com/Netflix/Turbine/wiki/Getting-Started-(1.x))
-```
-#集群名
+<pre><code>&lt;dependency&gt;
+	&lt;groupId&gt;com.netflix.turbine&lt;/groupId&gt;
+	&lt;artifactId&gt;turbine-core&lt;/artifactId&gt;
+	&lt;version&gt;1.0.0&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre>
+<ol start="2">
+<li><strong>config.properties</strong><br>
+详细见<a href="https://github.com/Netflix/Turbine/wiki/Getting-Started-(1.x)" target="_blank" rel="noopener">官方文档</a></li>
+</ol>
+<pre><code>#集群名
 turbine.aggregator.clusterConfig=${clusterName}
 #集群名匹配
-turbine.clusterNameExpression= new String("${clusterName}")
+turbine.clusterNameExpression= new String(&quot;${clusterName}&quot;)
 #集群url后缀
 turbine.instanceUrlSuffix.${clusterName}= /hystrix.stream
 #集群实例
 turbine.ConfigPropertyBasedDiscovery.${clusterName}.instances= 10.0.64.166:9001,10.0.64.166:9002
-```
-3. 配置url
-```
-@Configuration
+</code></pre>
+<ol start="3">
+<li>配置url</li>
+</ol>
+<pre><code>@Configuration
 public class ServletRegistrationConfig {
     @Bean
     public ServletRegistrationBean registerTurbineBean(){
-        return  new ServletRegistrationBean(new TurbineStreamServlet(), "/turbine.stream");
+        return  new ServletRegistrationBean(new TurbineStreamServlet(), &quot;/turbine.stream&quot;);
     }
 }
-```
-4. 启动类
-```
-TurbineInit.init();
-```
-在Dashboard中查看，Dashboard和Turbine可以建在同一项目
-
-<h2 id="三-其他"><a href="#三-其他" class="headerlink" title="三 其他"></a>三 其他</h2><h3 id="资源隔离"><a href="#资源隔离" class="headerlink" title="资源隔离"></a>资源隔离</h3><p>采用线程/信号的方式，通过隔离限制依赖的并发量和阻塞扩散。</p>
+</code></pre>
+<ol start="4">
+<li>启动类</li>
+</ol>
+<pre><code>TurbineInit.init();
+</code></pre>
+<p>在Dashboard中查看，Dashboard和Turbine可以建在同一项目</p>
+<h2 id="三-其他"><a class="header-anchor" href="#三-其他">¶</a>三 其他</h2>
+<h3 id="资源隔离"><a class="header-anchor" href="#资源隔离">¶</a>资源隔离</h3>
+<p>采用线程/信号的方式，通过隔离限制依赖的并发量和阻塞扩散。</p>
 <ul>
-<li>线程隔离<br>即将每个依赖服务分配独立的线程池进行资源隔离，从而避免服务雪崩。</li>
-<li>信号隔离<br>用于限制并发访问，防止阻塞扩散,执行依赖代码的线程依然是请求线程（需通过信号申请）。如果客户端是可信的且可以快速返回，可以使用信号隔离替换线程隔离，降低开销<h3 id="请求缓存"><a href="#请求缓存" class="headerlink" title="请求缓存"></a>请求缓存</h3>通过注解开启缓存，和缓存相关的注解一共有三个</li>
+<li>线程隔离<br>
+即将每个依赖服务分配独立的线程池进行资源隔离，从而避免服务雪崩。</li>
+<li>信号隔离<br>
+用于限制并发访问，防止阻塞扩散,执行依赖代码的线程依然是请求线程（需通过信号申请）。如果客户端是可信的且可以快速返回，可以使用信号隔离替换线程隔离，降低开销</li>
+</ul>
+<h3 id="请求缓存"><a class="header-anchor" href="#请求缓存">¶</a>请求缓存</h3>
+<p>通过注解开启缓存，和缓存相关的注解一共有三个</p>
+<ul>
 <li>@CacheResult：给该方法开启缓存，默认情况下方法的所有参数都将作为缓存的key</li>
 <li>@CacheKey：指定缓存的key</li>
-<li>@CacheRemove：指定缓存失效commandKey<h3 id="请求合并"><a href="#请求合并" class="headerlink" title="请求合并"></a>请求合并</h3>在test10方法上添加@HystrixCollapser注解实现请求合并，用batchMethod属性指明请求合并后的处理方法，collapserProperties属性指定其他属性。 <pre><code>@HystrixCollapser(batchMethod = &quot;test11&quot;,collapserProperties = {@HystrixProperty(name =&quot;timerDelayInMilliseconds&quot;,value = &quot;100&quot;)})
-public Future&lt;Book&gt; test10(Long id) {
-  return null;
-}
-</code></pre></li>
+<li>@CacheRemove：指定缓存失效commandKey</li>
 </ul>
-<p>@HystrixCommand<br>public List<Book> test11(List<Long> ids) {<br>    System.out.println(“test9———“+ids+”Thread.currentThread().getName():” + Thread.currentThread().getName());<br>    Book[] books = restTemplate.getForObject(“<a href="http://HELLO-SERVICE/getbook6?ids={1}&quot;" target="_blank" rel="noopener">http://HELLO-SERVICE/getbook6?ids={1}&quot;</a>, Book[].class, StringUtils.join(ids, “,”));<br>    return Arrays.asList(books);<br>}<br>```</p>
+<h3 id="请求合并"><a class="header-anchor" href="#请求合并">¶</a>请求合并</h3>
+<p>在test10方法上添加@HystrixCollapser注解实现请求合并，用batchMethod属性指明请求合并后的处理方法，collapserProperties属性指定其他属性。</p>
+<pre><code>@HystrixCollapser(batchMethod = &quot;test11&quot;,collapserProperties = {@HystrixProperty(name =&quot;timerDelayInMilliseconds&quot;,value = &quot;100&quot;)})
+public Future&lt;Book&gt; test10(Long id) {
+    return null;
+}
+
+@HystrixCommand
+public List&lt;Book&gt; test11(List&lt;Long&gt; ids) {
+    System.out.println(&quot;test9---------&quot;+ids+&quot;Thread.currentThread().getName():&quot; + Thread.currentThread().getName());
+    Book[] books = restTemplate.getForObject(&quot;http://HELLO-SERVICE/getbook6?ids={1}&quot;, Book[].class, StringUtils.join(ids, &quot;,&quot;));
+    return Arrays.asList(books);
+}
+</code></pre>
 
 </div>
 
@@ -4550,19 +4690,23 @@ public Future&lt;Book&gt; test10(Long id) {
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

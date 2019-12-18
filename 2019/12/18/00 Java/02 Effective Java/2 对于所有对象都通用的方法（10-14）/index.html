@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		2 对于所有对象都通用的方法（10-14） | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,34 +4395,39 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:16</span>
+	<span id="post-date">2019-12-18 01:00:42</span>
 </div>
 
 
 <div id="article">
-	<h3 id="第10条：覆盖equals时请遵守通用约定"><a href="#第10条：覆盖equals时请遵守通用约定" class="headerlink" title="第10条：覆盖equals时请遵守通用约定"></a>第10条：覆盖equals时请遵守通用约定</h3><ul>
+	<h3 id="第10条：覆盖equals时请遵守通用约定"><a class="header-anchor" href="#第10条：覆盖equals时请遵守通用约定">¶</a>第10条：覆盖equals时请遵守通用约定</h3>
+<ul>
 <li>自反性 - 对象必须等于其自身</li>
 <li>对称性 - 任何两个对象对于它们是否相等的问题都必须保持一致，Timestamp违反了，不值得效仿</li>
 <li>传递性 - 如果对象A等于B，B等于C，那么A一定等于C</li>
 <li>一致性 - 相等的对象永远相等，不相等的对象永远不相等</li>
 <li>非空性 - 所有的对象都必须不等于null</li>
 </ul>
-<h3 id="第11条：覆盖equals时总要覆盖hashCode"><a href="#第11条：覆盖equals时总要覆盖hashCode" class="headerlink" title="第11条：覆盖equals时总要覆盖hashCode"></a>第11条：覆盖equals时总要覆盖hashCode</h3><ul>
+<h3 id="第11条：覆盖equals时总要覆盖hashCode"><a class="header-anchor" href="#第11条：覆盖equals时总要覆盖hashCode">¶</a>第11条：覆盖equals时总要覆盖hashCode</h3>
+<ul>
 <li>程序一次执行期间，只要对象的equals比较用到的信息没有被修改，则对该对象调用多次hashCode都必须返回同一值</li>
 <li>程序多次执行过程，每次执行返回的hashCode可以不一致</li>
 <li>相等的对象必须有相等的散列码</li>
 <li>不相等的对象不一定要产生不同的散列码，但是通常倾向于为不相等对象产生不相等的散列码</li>
 </ul>
 <p>注意，如果一个类是不可变的，同时计算散列码开销也大，则可把散列码缓存在对象内部！不要试图从散列码计算中排除掉一个对象的关键部分来提高性能！</p>
-<h3 id="第12条：始终要覆盖toString"><a href="#第12条：始终要覆盖toString" class="headerlink" title="第12条：始终要覆盖toString"></a>第12条：始终要覆盖toString</h3><p>java.lang.Object提供了toString方法的一个实现：类名 + ‘@’ + 散列码无符号16进制表示！</p>
+<h3 id="第12条：始终要覆盖toString"><a class="header-anchor" href="#第12条：始终要覆盖toString">¶</a>第12条：始终要覆盖toString</h3>
+<p>java.lang.Object提供了toString方法的一个实现：类名 + ‘@’ + 散列码无符号16进制表示！</p>
 <p>无论是否指定格式，都为toString返回值中包含的所有信息提供一种编程式的访问途径！如果没有，则会迫使程序员编写额外代码解析字符串，既降低性能，又容易解析出错导致系统不稳定！</p>
-<h3 id="第13条：谨慎地覆盖clone"><a href="#第13条：谨慎地覆盖clone" class="headerlink" title="第13条：谨慎地覆盖clone"></a>第13条：谨慎地覆盖clone</h3><p>Object的clone方法是受保护的！Cloneable接口没有包含任何方法！Cloneable改变了超类中受保护的方法的行为！对于实现了Cloneable的类，我们总是希望它提供一个功能适当的公有的clone方法！此方法首先调用super.clone，然后修正任何需要修正的域！</p>
+<h3 id="第13条：谨慎地覆盖clone"><a class="header-anchor" href="#第13条：谨慎地覆盖clone">¶</a>第13条：谨慎地覆盖clone</h3>
+<p>Object的clone方法是受保护的！Cloneable接口没有包含任何方法！Cloneable改变了超类中受保护的方法的行为！对于实现了Cloneable的类，我们总是希望它提供一个功能适当的公有的clone方法！此方法首先调用super.clone，然后修正任何需要修正的域！</p>
 <p>实现对象拷贝更好的办法</p>
 <ul>
 <li>拷贝构造器 - 唯一参数类型是包含该构造器的类，<code>public Yum(Yum yum);</code></li>
 <li>拷贝工厂 - <code>public static Yum newInstance(Yum yum);</code></li>
 </ul>
-<h3 id="第14条：考虑实现Comparable接口"><a href="#第14条：考虑实现Comparable接口" class="headerlink" title="第14条：考虑实现Comparable接口"></a>第14条：考虑实现Comparable接口</h3><p>包含compareTo方法的对象与指定对象比较，当该对象小于、等于或者大于指定对象时，分别返回一个负整数、零或者正整数！compareTo要满足自反性、对称性和传递性！</p>
+<h3 id="第14条：考虑实现Comparable接口"><a class="header-anchor" href="#第14条：考虑实现Comparable接口">¶</a>第14条：考虑实现Comparable接口</h3>
+<p>包含compareTo方法的对象与指定对象比较，当该对象小于、等于或者大于指定对象时，分别返回一个负整数、零或者正整数！compareTo要满足自反性、对称性和传递性！</p>
 <p>注意，比较整数基本类型域可使用关系操作符&lt;和&gt;，浮点域可使用Double.compare或者Float.compare！</p>
 <p>通常在compareTo中为了简化代码，会以两数作差表示比较大小的结果，这种方法有风险！记住！一个有符号的32位的整数还没有大到足以表达任意两个32位整数的差！如一个很大的正整数减去一个很大负整数将会溢出，并返回一个负值，导致错误结果！</p>
 
@@ -4411,19 +4439,23 @@
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

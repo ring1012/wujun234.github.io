@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		1 Maven笔记 | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,46 +4395,56 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:40</span>
+	<span id="post-date">2019-12-18 01:00:44</span>
 </div>
 
 
 <div id="article">
-	<h1 id="一、安装和配置"><a href="#一、安装和配置" class="headerlink" title="一、安装和配置"></a>一、安装和配置</h1><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><ol>
+	<h1>一、安装和配置</h1>
+<h3 id="安装"><a class="header-anchor" href="#安装">¶</a>安装</h3>
+<ol>
 <li>准备JDK环境</li>
 <li><a href="http://maven.apache.org/download.cgi" target="_blank" rel="noopener">下载Maven </a>，解压</li>
-<li>配置环境变量  </li>
-<li>1 添加 M2_HOME 和 MAVEN_HOME 到环境变量，指向 Maven 文件夹  </li>
-<li>2 添加 Maven bin 文件夹到 PATH 变量  </li>
-<li>3 需要时设置MAVEN_OPTS环境变量，-Xms128m -Xmx512m，改内存  </li>
-<li>复制{M2_HOME}/conf/settings.xml到.m2目录  <h3 id="代理"><a href="#代理" class="headerlink" title="代理"></a>代理</h3>如公司要求通过代理才能访问外网，则需在配置文件settings.xml中为maven设置代理服务器，以访问外部仓库。<br>取消“<proxies>”注释，并配置代理服务器信息。<br>###IDE插件</li>
+<li>配置环境变量<br>
+3.1 添加 M2_HOME 和 MAVEN_HOME 到环境变量，指向 Maven 文件夹<br>
+3.2 添加 Maven bin 文件夹到 PATH 变量<br>
+3.3 需要时设置MAVEN_OPTS环境变量，-Xms128m -Xmx512m，改内存</li>
+<li>复制{M2_HOME}/conf/settings.xml到.m2目录</li>
 </ol>
+<h3 id="代理"><a class="header-anchor" href="#代理">¶</a>代理</h3>
+<p>如公司要求通过代理才能访问外网，则需在配置文件settings.xml中为maven设置代理服务器，以访问外部仓库。<br>
+取消“<proxies>”注释，并配置代理服务器信息。<br>
+###IDE插件</p>
 <ul>
 <li>Eclipse：使用<a href="http://www.eclipse.org/m2e/" target="_blank" rel="noopener">m2eclipse</a></li>
 <li>NetBeans：已集成</li>
 </ul>
 <p>不要使用IDE内嵌的Maven</p>
 <p><img src="/images/1545712504863.png" alt="约定的工程目录"></p>
-<h1 id="二、POM文件"><a href="#二、POM文件" class="headerlink" title="二、POM文件"></a>二、POM文件</h1><p>POM（Project Object Model，项目对象模型）是Maven项目的核心，根元素是 project。</p>
-<h3 id="坐标"><a href="#坐标" class="headerlink" title="坐标"></a>坐标</h3><p>通过坐标在仓库中定位项目</p>
+<h1>二、POM文件</h1>
+<p>POM（Project Object Model，项目对象模型）是Maven项目的核心，根元素是 project。</p>
+<h3 id="坐标"><a class="header-anchor" href="#坐标">¶</a>坐标</h3>
+<p>通过坐标在仓库中定位项目</p>
 <ul>
 <li>基本坐标：项目组(groupId)，模块名字(artifactId)，版本(version)；</li>
 <li>项目符号：groupId:artifactId:version</li>
 <li>还可使用packaging定义打包方式（默认jar）、name定义友好名字、description描述、url项目网址</li>
 </ul>
-<h3 id="依赖"><a href="#依赖" class="headerlink" title="依赖"></a>依赖</h3><p>根元素 project 下的 <dependencies> 可包含一个或多个<dependency>元素，声明依赖</p>
+<h3 id="依赖"><a class="header-anchor" href="#依赖">¶</a>依赖</h3>
+<p>根元素 project 下的 <dependencies> 可包含一个或多个<dependency>元素，声明依赖</p>
 <ul>
 <li>groupId、artifactId、version：坐标</li>
 <li>type：依赖类型。对应packaging，默认jar</li>
-<li>scope：<strong>依赖范围</strong>。编译、测试、运行时的classPath<ul>
+<li>scope：<strong>依赖范围</strong>。编译、测试、运行时的classPath
+<ul>
 <li>compile：默认范围，都有效。</li>
 <li>test：测试时有效</li>
 <li>provided：编译和测试时有效</li>
 <li>runtime：测试和运行时有效</li>
 <li>system：编译和测试时有效，与本机系统关联，可移植性差</li>
-<li>import：导入的范围，只在使用dependencyManagement中，表示从其他pom中导入dependecy的配置。  </li>
-<li><em>依赖传递*</em>：二级依赖范围为compile时可传递一级依赖；runtime传递时一级依赖的compile变为runtime；provided只传递provided；其他不传递  </li>
-<li><em>依赖调解*</em>：路径最短者优先 、路径相同时先声明者优先   </li>
+<li>import：导入的范围，只在使用dependencyManagement中，表示从其他pom中导入dependecy的配置。<br>
+<strong>依赖传递</strong>：二级依赖范围为compile时可传递一级依赖；runtime传递时一级依赖的compile变为runtime；provided只传递provided；其他不传递<br>
+<strong>依赖调解</strong>：路径最短者优先 、路径相同时先声明者优先</li>
 </ul>
 </li>
 <li>optional：依赖是否可选。如是可选的，则不会传递依赖</li>
@@ -4419,45 +4452,66 @@
 <li><strong>归类依赖</strong>：在属性<properties>中统一声明版本号，${}引用</li>
 <li><strong>归类管理</strong>：在父POM中使用<dependencyManagement>同一版本，子模块可以继承，如果子模块不声明，就不会起作用</li>
 </ul>
-<h3 id="仓库"><a href="#仓库" class="headerlink" title="仓库"></a>仓库</h3><p>先从本地仓库找，没有再尝试远程仓库</p>
+<h3 id="仓库"><a class="header-anchor" href="#仓库">¶</a>仓库</h3>
+<p>先从本地仓库找，没有再尝试远程仓库</p>
 <ul>
-<li><strong>本地仓库</strong>：默认路径”~/.m2/repository”，可在”~/.m2/settings.xml”通过”localRepository”配置</li>
-<li><strong>远程仓库</strong> ：可配置多个<ul>
+<li><strong>本地仓库</strong>：默认路径&quot;~/.m2/repository&quot;，可在&quot;~/.m2/settings.xml&quot;通过&quot;localRepository&quot;配置</li>
+<li><strong>远程仓库</strong> ：可配置多个
+<ul>
 <li>中央仓库：Maven核心自带仓库</li>
 <li>私服：局域网内部架设，代理远程仓库、部署内部项目</li>
 <li>镜像：为中央仓库分流、加速</li>
 </ul>
 </li>
-<li><strong>仓库配置</strong><br>POM中<repositories>元素、<repository>子元素配置仓库<ul>
+<li><strong>仓库配置</strong><br>
+POM中<repositories>元素、<repository>子元素配置仓库
+<ul>
 <li>id（id唯一，相同会覆盖）、name（仓库名称）、url（仓库地址）</li>
 <li><strong>releases</strong>：发布版本，enabled是否支持下载，updatePolicy更新频率，checksumPolicy检查校验策略</li>
 <li><strong>snapshots</strong>：快照版本，enabled是否支持下载，checksumPolicy检查校验策略</li>
 </ul>
 </li>
-<li><strong>仓库认证</strong><br>仓库需要账号密码时，通过<strong>settings.xml</strong>中<servers>、<strong><server></strong>元素认证：id（仓库id）、username、password</li>
-<li><strong>仓库部署</strong><br>部署到仓库，需要配置POM中<strong><distributionManagement></strong>元素，其包含<repository>和<snapshotRepository>子元素，都有id（仓库唯一标识）、name（方便阅读）、url（仓库地址）配置项。一般部署都需要settings.xml中配置仓库认证，然后运行命令“mvn clean deploy”构建部署。</li>
-<li><strong>镜像配置</strong> </li>
-<li><em>settings.xml*</em>中<mirrors>、<strong><mirror></strong>元素配置id、name、url、mirrorOf（填写镜像id，“*”匹配所有，“！”表示排除，多个用“,”分割，“external:”排除本机）</li>
+<li><strong>仓库认证</strong><br>
+仓库需要账号密码时，通过<strong>settings.xml</strong>中<servers>、**<server>**元素认证：id（仓库id）、username、password</li>
+<li><strong>仓库部署</strong><br>
+部署到仓库，需要配置POM中**<distributionManagement>**元素，其包含<repository>和<snapshotRepository>子元素，都有id（仓库唯一标识）、name（方便阅读）、url（仓库地址）配置项。一般部署都需要settings.xml中配置仓库认证，然后运行命令“mvn clean deploy”构建部署。</li>
+<li><strong>镜像配置</strong><br>
+<strong>settings.xml</strong>中<mirrors>、**<mirror>**元素配置id、name、url、mirrorOf（填写镜像id，“*”匹配所有，“！”表示排除，多个用“,”分割，“external:”排除本机）</li>
 </ul>
-<h1 id="三、生命周期和插件"><a href="#三、生命周期和插件" class="headerlink" title="三、生命周期和插件"></a>三、生命周期和插件</h1><h3 id="生命周期"><a href="#生命周期" class="headerlink" title="生命周期"></a>生命周期</h3><p>Maven 有三套相互独立的生命周期，每套周期包含若干阶段。周期相互独立，阶段相互依赖。maven命令基于这些阶段，调用任一阶段，它前面的所有阶段都会顺序执行。</p>
+<h1>三、生命周期和插件</h1>
+<h3 id="生命周期"><a class="header-anchor" href="#生命周期">¶</a>生命周期</h3>
+<p>Maven 有三套相互独立的生命周期，每套周期包含若干阶段。周期相互独立，阶段相互依赖。maven命令基于这些阶段，调用任一阶段，它前面的所有阶段都会顺序执行。</p>
 <ul>
-<li><strong>Clean</strong>：清理项目<br>pre-clean、clean、post-clean </li>
-<li><strong>Default</strong>：构建的核心部分，编译，测试，打包，安装，部署等<br>validate、initialize、generate-sources、process-sources、generate-resources、process-resources、compile、process-classes、generate-test-sources、process-test-sources、test-compile、process-test-classes、test、prepare-package、package、pre-integration-test、integration-test、pre-integration-test、verify、install、deploy</li>
-<li><strong>Site</strong>：生成项目报告，站点，发布站点<br>pre-site、site、post-site、site-deploy </li>
+<li><strong>Clean</strong>：清理项目<br>
+pre-clean、clean、post-clean</li>
+<li><strong>Default</strong>：构建的核心部分，编译，测试，打包，安装，部署等<br>
+validate、initialize、generate-sources、process-sources、generate-resources、process-resources、compile、process-classes、generate-test-sources、process-test-sources、test-compile、process-test-classes、test、prepare-package、package、pre-integration-test、integration-test、pre-integration-test、verify、install、deploy</li>
+<li><strong>Site</strong>：生成项目报告，站点，发布站点<br>
+pre-site、site、post-site、site-deploy</li>
 </ul>
-<h3 id="插件"><a href="#插件" class="headerlink" title="插件"></a>插件</h3><p>Maven抽象出构建过程的生命周期，具体由插件实现。</p>
+<h3 id="插件"><a class="header-anchor" href="#插件">¶</a>插件</h3>
+<p>Maven抽象出构建过程的生命周期，具体由插件实现。</p>
 <ul>
-<li><strong>插件目标</strong>：一个插件能实现多个功能，每个功能就是一个插件目标<br>插件前缀：插件目标，如dependency:list</li>
-<li><strong>插件绑定</strong>：插件和生命周期互相绑定。<ul>
+<li><strong>插件目标</strong>：一个插件能实现多个功能，每个功能就是一个插件目标<br>
+插件前缀：插件目标，如dependency:list</li>
+<li><strong>插件绑定</strong>：插件和生命周期互相绑定。
+<ul>
 <li>内置绑定：生命周期每阶段都有默认绑定插件</li>
 <li>自定义绑定：在POM中<build>元素下的<plugins>声明使用插件，<executions>是插件执行配置，<parse>绑定生命周期阶段（如不指定则绑定到插件的默认阶段），<goals>制定插件目标</li>
 </ul>
 </li>
-<li><strong>插件配置</strong>：<br>命令行中：-D参数；<br>POM中：<build>中<plugins>元素下，<configuration>元素全局配置，<executions>元素下<configuration>特定任务配置</li>
+<li><strong>插件配置</strong>：<br>
+命令行中：-D参数；<br>
+POM中：<build>中<plugins>元素下，<configuration>元素全局配置，<executions>元素下<configuration>特定任务配置</li>
 <li><strong>插件仓库</strong>：<pluginRepositories>和<pluginRepository>配置插件仓库</li>
 </ul>
-<h1 id="四、聚合与继承"><a href="#四、聚合与继承" class="headerlink" title="四、聚合与继承"></a>四、聚合与继承</h1><h3 id="聚合"><a href="#聚合" class="headerlink" title="聚合"></a>聚合</h3><p>目的：一条命令一次性构建多个项目。<br>方法：增加一个聚合模块，pom.xml中的<packaging>设置为pom，<modules>元素中设置要聚合的子模块的相对路径  </p>
-<h3 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h3><p>目的：解决多模块maven项目的配置重复问题。<br>方法：增加一个父模块，在父pom中声明一些配置供子pom继承。<packaging>设置为pom。子模块的POM通过<parent>指定父模块。  </p>
+<h1>四、聚合与继承</h1>
+<h3 id="聚合"><a class="header-anchor" href="#聚合">¶</a>聚合</h3>
+<p>目的：一条命令一次性构建多个项目。<br>
+方法：增加一个聚合模块，pom.xml中的<packaging>设置为pom，<modules>元素中设置要聚合的子模块的相对路径</p>
+<h3 id="继承"><a class="header-anchor" href="#继承">¶</a>继承</h3>
+<p>目的：解决多模块maven项目的配置重复问题。<br>
+方法：增加一个父模块，在父pom中声明一些配置供子pom继承。<packaging>设置为pom。子模块的POM通过<parent>指定父模块。</p>
 
 </div>
 
@@ -4467,19 +4521,23 @@
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

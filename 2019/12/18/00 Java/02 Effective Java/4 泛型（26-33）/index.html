@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		4 泛型（26-33） | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,14 +4395,22 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:16</span>
+	<span id="post-date">2019-12-18 01:00:42</span>
 </div>
 
 
 <div id="article">
-	<h3 id="第26条：请不要在新代码中使用原生态类型"><a href="#第26条：请不要在新代码中使用原生态类型" class="headerlink" title="第26条：请不要在新代码中使用原生态类型"></a>第26条：请不要在新代码中使用原生态类型</h3><p>原生态类型只为了与引入泛型之前的遗留代码进行兼容和互用而提供的。</p>
-<h3 id="第27条：消除非受检警告"><a href="#第27条：消除非受检警告" class="headerlink" title="第27条：消除非受检警告"></a>第27条：消除非受检警告</h3><p>如果无法消除警告，同时可以证明引起警告的代码是类型安全的，只有在这种情况下才可以用一个@SuppressWarnings(“unchecked”)注解来禁止这条警告。</p>
-<h3 id="第28条：列表优先于数组"><a href="#第28条：列表优先于数组" class="headerlink" title="第28条：列表优先于数组"></a>第28条：列表优先于数组</h3><h3 id="第29条：优先考虑泛型"><a href="#第29条：优先考虑泛型" class="headerlink" title="第29条：优先考虑泛型"></a>第29条：优先考虑泛型</h3><h3 id="第30条：优先考虑泛型方法"><a href="#第30条：优先考虑泛型方法" class="headerlink" title="第30条：优先考虑泛型方法"></a>第30条：优先考虑泛型方法</h3><h3 id="第31条：利用有限制通配符来提升API的灵活性"><a href="#第31条：利用有限制通配符来提升API的灵活性" class="headerlink" title="第31条：利用有限制通配符来提升API的灵活性"></a>第31条：利用有限制通配符来提升API的灵活性</h3><h3 id="第32条-明智地结合泛型和可变参数"><a href="#第32条-明智地结合泛型和可变参数" class="headerlink" title="第32条: 明智地结合泛型和可变参数"></a>第32条: 明智地结合泛型和可变参数</h3><h3 id="第33条：优先考虑类型安全的异构容器"><a href="#第33条：优先考虑类型安全的异构容器" class="headerlink" title="第33条：优先考虑类型安全的异构容器"></a>第33条：优先考虑类型安全的异构容器</h3>
+	<h3 id="第26条：请不要在新代码中使用原生态类型"><a class="header-anchor" href="#第26条：请不要在新代码中使用原生态类型">¶</a>第26条：请不要在新代码中使用原生态类型</h3>
+<p>原生态类型只为了与引入泛型之前的遗留代码进行兼容和互用而提供的。</p>
+<h3 id="第27条：消除非受检警告"><a class="header-anchor" href="#第27条：消除非受检警告">¶</a>第27条：消除非受检警告</h3>
+<p>如果无法消除警告，同时可以证明引起警告的代码是类型安全的，只有在这种情况下才可以用一个@SuppressWarnings(“unchecked”)注解来禁止这条警告。</p>
+<h3 id="第28条：列表优先于数组"><a class="header-anchor" href="#第28条：列表优先于数组">¶</a>第28条：列表优先于数组</h3>
+<h3 id="第29条：优先考虑泛型"><a class="header-anchor" href="#第29条：优先考虑泛型">¶</a>第29条：优先考虑泛型</h3>
+<h3 id="第30条：优先考虑泛型方法"><a class="header-anchor" href="#第30条：优先考虑泛型方法">¶</a>第30条：优先考虑泛型方法</h3>
+<h3 id="第31条：利用有限制通配符来提升API的灵活性"><a class="header-anchor" href="#第31条：利用有限制通配符来提升API的灵活性">¶</a>第31条：利用有限制通配符来提升API的灵活性</h3>
+<h3 id="第32条-明智地结合泛型和可变参数"><a class="header-anchor" href="#第32条-明智地结合泛型和可变参数">¶</a>第32条: 明智地结合泛型和可变参数</h3>
+<h3 id="第33条：优先考虑类型安全的异构容器"><a class="header-anchor" href="#第33条：优先考虑类型安全的异构容器">¶</a>第33条：优先考虑类型安全的异构容器</h3>
+
 </div>
 
 	</div>
@@ -4388,19 +4419,23 @@
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		9.Strategy（策略） | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,13 +4395,14 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:54</span>
+	<span id="post-date">2019-12-18 01:00:43</span>
 </div>
 
 
 <div id="article">
 	<p>定义一系列算法，将每一个算法封装起来，并让它们可以相互替换。</p>
-<h5 id="角色"><a href="#角色" class="headerlink" title="角色"></a>角色</h5><ul>
+<h5 id="角色"><a class="header-anchor" href="#角色">¶</a>角色</h5>
+<ul>
 <li>Context: 环境类</li>
 <li>Strategy: 抽象策略类</li>
 <li>ConcreteStrategy: 具体策略类</li>
@@ -4388,14 +4412,17 @@
    public static void main(String[] args) {
       Context context = new Context(new OperationAdd());    
       System.out.println(&quot;10 + 5 = &quot; + context.executeStrategy(10, 5));
-
+ 
       context = new Context(new OperationSubstract());      
       System.out.println(&quot;10 - 5 = &quot; + context.executeStrategy(10, 5));
-
+ 
       context = new Context(new OperationMultiply());    
       System.out.println(&quot;10 * 5 = &quot; + context.executeStrategy(10, 5));
    }
-}</code></pre><h5 id="策略模式与状态模式"><a href="#策略模式与状态模式" class="headerlink" title="策略模式与状态模式"></a>策略模式与状态模式</h5><ul>
+}
+</code></pre>
+<h5 id="策略模式与状态模式"><a class="header-anchor" href="#策略模式与状态模式">¶</a>策略模式与状态模式</h5>
+<ul>
 <li>可以通过环境类状态的个数来决定是使用策略模式还是状态模式。</li>
 <li>策略模式的环境类自己选择一个具体策略类，具体策略类无须关心环境类；而状态模式的环境类由于外在因素需要放进一个具体状态中，以便通过其方法实现状态的切换，因此环境类和状态类之间存在一种双向的关联关系。</li>
 <li>使用策略模式时，客户端需要知道所选的具体策略是哪一个，而使用状态模式时，客户端无须关心具体状态，环境类的状态会根据用户的操作自动转换。</li>
@@ -4410,19 +4437,23 @@
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

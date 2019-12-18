@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		2 命名空间 | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,47 +4395,59 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:49</span>
+	<span id="post-date">2019-12-18 01:00:41</span>
 </div>
 
 
 <div id="article">
-	<h4 id="使用前缀"><a href="#使用前缀" class="headerlink" title="使用前缀"></a>使用前缀</h4><p>来避免命名冲突</p>
-<pre><code class="xml">&lt;h:table&gt;
+	<h4 id="使用前缀"><a class="header-anchor" href="#使用前缀">¶</a>使用前缀</h4>
+<p>来避免命名冲突</p>
+<pre><code class="language-xml">&lt;h:table&gt;
    &lt;h:tr&gt;
        &lt;h:td&gt;Apples&lt;/h:td&gt;
        &lt;h:td&gt;Bananas&lt;/h:td&gt;
    &lt;/h:tr&gt;
-&lt;/h:table&gt;</code></pre>
-<pre><code class="xml">&lt;f:table&gt;
+&lt;/h:table&gt;
+</code></pre>
+<pre><code class="language-xml">&lt;f:table&gt;
    &lt;f:name&gt;African Coffee Table&lt;/f:name&gt;
    &lt;f:width&gt;80&lt;/f:width&gt;
    &lt;f:length&gt;120&lt;/f:length&gt;
-&lt;/f:table&gt;</code></pre>
-<h4 id="使用命名空间"><a href="#使用命名空间" class="headerlink" title="使用命名空间"></a>使用命名空间</h4><p>为标签添加 XML Namespace (xmlns) 属性，XML 命名空间属性被放置于元素的开始标签之中</p>
-<pre><code class="xml">xmlns:namespace-prefix=&quot;namespaceURI&quot;</code></pre>
+&lt;/f:table&gt;
+</code></pre>
+<h4 id="使用命名空间"><a class="header-anchor" href="#使用命名空间">¶</a>使用命名空间</h4>
+<p>为标签添加 XML Namespace (xmlns) 属性，XML 命名空间属性被放置于元素的开始标签之中</p>
+<pre><code class="language-xml">xmlns:namespace-prefix=&quot;namespaceURI&quot;
+</code></pre>
 <p>当命名空间被定义在元素的开始标签中时，所有带有相同前缀的子元素都会与同一个命名空间相关联。</p>
 <blockquote>
 <p>用于标示命名空间的地址不会被解析器用于查找信息。其惟一的作用是赋予命名空间一个惟一的名称。</p>
 </blockquote>
-<pre><code class="xml">&lt;h:table xmlns:h=&quot;http://www.w3.org/TR/html4/&quot;&gt;
+<pre><code class="language-xml">&lt;h:table xmlns:h=&quot;http://www.w3.org/TR/html4/&quot;&gt;
    &lt;h:tr&gt;
        &lt;h:td&gt;Apples&lt;/h:td&gt;
        &lt;h:td&gt;Bananas&lt;/h:td&gt;
    &lt;/h:tr&gt;
-&lt;/h:table&gt;</code></pre>
-<pre><code class="xml">&lt;f:table xmlns:f=&quot;http://www.w3school.com.cn/furniture&quot;&gt;
+&lt;/h:table&gt;
+</code></pre>
+<pre><code class="language-xml">&lt;f:table xmlns:f=&quot;http://www.w3school.com.cn/furniture&quot;&gt;
    &lt;f:name&gt;African Coffee Table&lt;/f:name&gt;
    &lt;f:width&gt;80&lt;/f:width&gt;
    &lt;f:length&gt;120&lt;/f:length&gt;
-&lt;/f:table&gt;</code></pre>
-<h5 id="XML-Namespace-xmlns-属性"><a href="#XML-Namespace-xmlns-属性" class="headerlink" title="XML Namespace (xmlns) 属性"></a>XML Namespace (xmlns) 属性</h5><h5 id="默认的命名空间"><a href="#默认的命名空间" class="headerlink" title="默认的命名空间"></a>默认的命名空间</h5><pre><code>xmlns=&quot;namespaceURI&quot;</code></pre><p>为元素定义默认的命名空间可以让我们省去在所有的子元素中使用前缀的工作。</p>
-<pre><code class="xml">&lt;table xmlns=&quot;http://www.w3.org/TR/html4/&quot;&gt;
+&lt;/f:table&gt;
+</code></pre>
+<h5 id="XML-Namespace-xmlns-属性"><a class="header-anchor" href="#XML-Namespace-xmlns-属性">¶</a>XML Namespace (xmlns) 属性</h5>
+<h5 id="默认的命名空间"><a class="header-anchor" href="#默认的命名空间">¶</a>默认的命名空间</h5>
+<pre><code>xmlns=&quot;namespaceURI&quot;
+</code></pre>
+<p>为元素定义默认的命名空间可以让我们省去在所有的子元素中使用前缀的工作。</p>
+<pre><code class="language-xml">&lt;table xmlns=&quot;http://www.w3.org/TR/html4/&quot;&gt;
    &lt;tr&gt;
        &lt;td&gt;Apples&lt;/td&gt;
        &lt;td&gt;Bananas&lt;/td&gt;
    &lt;/tr&gt;
-&lt;/table&gt;</code></pre>
+&lt;/table&gt;
+</code></pre>
 
 </div>
 
@@ -4422,19 +4457,23 @@
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

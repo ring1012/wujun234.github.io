@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		2 分布式锁 | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,18 +4395,21 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:22</span>
+	<span id="post-date">2019-12-18 01:00:43</span>
 </div>
 
 
 <div id="article">
-	<h3 id="1-Redisson"><a href="#1-Redisson" class="headerlink" title="1 Redisson"></a>1 Redisson</h3><p>直接上官方推荐Redisson</p>
+	<h3 id="1-Redisson"><a class="header-anchor" href="#1-Redisson">¶</a>1 Redisson</h3>
+<p>直接上官方推荐Redisson</p>
 <pre><code>&lt;!-- https://mvnrepository.com/artifact/org.redisson/redisson --&gt;
 &lt;dependency&gt;
     &lt;groupId&gt;org.redisson&lt;/groupId&gt;
     &lt;artifactId&gt;redisson&lt;/artifactId&gt;
     &lt;version&gt;3.9.0&lt;/version&gt;
-&lt;/dependency&gt;</code></pre><p>配置</p>
+&lt;/dependency&gt;
+</code></pre>
+<p>配置</p>
 <pre><code>@Value(&quot;${spring.redis.host}&quot;)
 private String host;
 @Value(&quot;${spring.redis.port}&quot;)
@@ -4398,7 +4424,9 @@ public RedissonClient redissonClient() {
             .setAddress(&quot;redis://&quot; + host + &quot;:&quot; + port)
             .setPassword(password);
     return Redisson.create(config);
-}</code></pre><p>使用</p>
+}
+</code></pre>
+<p>使用</p>
 <pre><code>@Autowired
 private RedissonClient redissonClient;
 
@@ -4406,7 +4434,10 @@ public Boolean lock(Long userId) throws InterruptedException {
     String lockKey = generateLockKey(userId);
     RLock lock = redissonClient.getLock(lockKey);
     return lock.tryLock(TIME_OUT_2_SECONDS, EXPIRE_20_SECONDS, TimeUnit.SECONDS);
-}</code></pre><h3 id="2-自己实现"><a href="#2-自己实现" class="headerlink" title="2 自己实现"></a>2 自己实现</h3><pre><code>/**
+}
+</code></pre>
+<h3 id="2-自己实现"><a class="header-anchor" href="#2-自己实现">¶</a>2 自己实现</h3>
+<pre><code>/**
  * @author wujun
  * @date 2018-10-31 15:37
  */
@@ -4536,7 +4567,9 @@ public class UserAssetLock {
     private String generateLockKey(Long userId) {
         return String.format(LOCK_KEY, userId);
     }
-}</code></pre>
+}
+</code></pre>
+
 </div>
 
 	</div>
@@ -4545,19 +4578,23 @@ public class UserAssetLock {
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

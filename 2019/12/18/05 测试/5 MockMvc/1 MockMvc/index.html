@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		1 MockMvc | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,13 +4395,14 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:38</span>
+	<span id="post-date">2019-12-18 01:00:44</span>
 </div>
 
 
 <div id="article">
 	<p>测试controller</p>
-<h3 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h3><p>SpringBoot 中很方便</p>
+<h3 id="初始化"><a class="header-anchor" href="#初始化">¶</a>初始化</h3>
+<p>SpringBoot 中很方便</p>
 <pre><code>@RunWith(SpringRunner.class)
 @SpringBootTest
 @AutoConfigureMockMvc
@@ -4386,7 +4410,10 @@ public class HelloWorldControlerTests {
 
     @Autowired
     private MockMvc mockMvc;
-}</code></pre><h3 id="声明请求"><a href="#声明请求" class="headerlink" title="声明请求"></a>声明请求</h3><ul>
+}
+</code></pre>
+<h3 id="声明请求"><a class="header-anchor" href="#声明请求">¶</a>声明请求</h3>
+<ul>
 <li>get：声明发送一个get请求的方法，生成MockHttpServletRequestBuilder。</li>
 <li>还有其他的请求的方法：post、put、delete等。</li>
 </ul>
@@ -4401,43 +4428,69 @@ public class HelloWorldControlerTests {
 </ul>
 <p>get</p>
 <pre><code>MockHttpServletRequestBuilder builder = get(&quot;/test&quot;)
-                    .param(&quot;size&quot;, &quot;5&quot;);</code></pre><p>post</p>
+                    .param(&quot;size&quot;, &quot;5&quot;);
+</code></pre>
+<p>post</p>
 <pre><code>MockHttpServletRequestBuilder builder = post(&quot;/test&quot;)
                 .header(&quot;X-Operator&quot;, OPERATOR)
                 .accept(APPLICATION_JSON)
                 .contentType(APPLICATION_JSON)
-                .content(&quot;{ \&quot;blockIp\&quot;: false, \&quot;idList\&quot;: [] }&quot;);    </code></pre><h3 id="执行请求"><a href="#执行请求" class="headerlink" title="执行请求"></a>执行请求</h3><ul>
+                .content(&quot;{ \&quot;blockIp\&quot;: false, \&quot;idList\&quot;: [] }&quot;);    
+</code></pre>
+<h3 id="执行请求"><a class="header-anchor" href="#执行请求">¶</a>执行请求</h3>
+<ul>
 <li>perform：执行一个RequestBuilder请求，将得到ResultActions；</li>
 </ul>
 <p>ResultActions完成如下三件事：</p>
 <ul>
-<li>andExpect：添加ResultMatcher验证规则，验证控制器执行完成后结果是否正确；<ul>
+<li>andExpect：添加ResultMatcher验证规则，验证控制器执行完成后结果是否正确；
+<ul>
 <li>MockMvcResultMatchers 返回 ResultMatcher实例。API如下：</li>
 <li>status：得到响应状态验证器StatusResultMatchers</li>
 <li>header：得到响应Header验证器HeaderResultMatchers</li>
 <li>等等</li>
 </ul>
 </li>
-<li>andDo：添加ResultHandler结果处理器，比如调试时打印结果到控制台；<ul>
+<li>andDo：添加ResultHandler结果处理器，比如调试时打印结果到控制台；
+<ul>
 <li>MockMvcResultHandlers提供静态工厂方法print()，返回一个ResultHandler</li>
 </ul>
 </li>
-<li>andReturn：最后返回相应的MvcResult；然后进行自定义验证/进行下一步的异步处理；<ul>
+<li>andReturn：最后返回相应的MvcResult；然后进行自定义验证/进行下一步的异步处理；
+<ul>
 <li>getRequest：得到执行的请求</li>
 <li>getResponse：得到执行后的响应</li>
 <li>getAsyncResult：得到异步执行的结果</li>
-<li>等等<pre><code>ResultActions actions = mvc.perform(builder);
-</code></pre></li>
+<li>等等</li>
 </ul>
 </li>
 </ul>
-<p>MvcResult mvcResult = actions<br>                .andExpect(MockMvcResultMatchers.status().is(status.value()))<br>                .andDo(MockMvcResultHandlers.print())<br>                .andReturn();</p>
-<p>MockHttpServletResponse response = mvcResult.getResponse();</p>
-<pre><code>
-### 测试示例
-测试普通控制器 </code></pre><p> mockMvc.perform(get(“/user/{id}”, 1)) //执行请求<br>        .andExpect(model().attributeExists(“user”)) //验证存储模型数据<br>        .andExpect(view().name(“user/view”)) //验证viewName<br>        .andExpect(forwardedUrl(“/WEB-INF/jsp/user/view.jsp”))//验证视图渲染时forward到的jsp<br>        .andExpect(status().isOk())//验证状态码<br>        .andDo(print()); //输出MvcResult到控制台  </p>
-<pre><code>全局配置 </code></pre><p> mockMvc = webAppContextSetup(wac)<br>        .defaultRequest(get(“/user/1”).requestAttr(“default”, true)) //默认请求 如果其是Mergeable类型的，会自动合并的哦mockMvc.perform中的RequestBuilder<br>        .alwaysDo(print())  //默认每次执行请求后都做的动作<br>        .alwaysExpect(request().attribute(“default”, true)) //默认每次执行后进行验证的断言<br>        .build();  </p>
-<pre><code></code></pre>
+<pre><code>ResultActions actions = mvc.perform(builder);
+
+MvcResult mvcResult = actions
+                .andExpect(MockMvcResultMatchers.status().is(status.value()))
+                .andDo(MockMvcResultHandlers.print())
+                .andReturn();
+                
+MockHttpServletResponse response = mvcResult.getResponse();
+</code></pre>
+<h3 id="测试示例"><a class="header-anchor" href="#测试示例">¶</a>测试示例</h3>
+<p>测试普通控制器</p>
+<pre><code> mockMvc.perform(get(&quot;/user/{id}&quot;, 1)) //执行请求  
+        .andExpect(model().attributeExists(&quot;user&quot;)) //验证存储模型数据  
+        .andExpect(view().name(&quot;user/view&quot;)) //验证viewName  
+        .andExpect(forwardedUrl(&quot;/WEB-INF/jsp/user/view.jsp&quot;))//验证视图渲染时forward到的jsp  
+        .andExpect(status().isOk())//验证状态码  
+        .andDo(print()); //输出MvcResult到控制台  
+</code></pre>
+<p>全局配置</p>
+<pre><code> mockMvc = webAppContextSetup(wac)  
+        .defaultRequest(get(&quot;/user/1&quot;).requestAttr(&quot;default&quot;, true)) //默认请求 如果其是Mergeable类型的，会自动合并的哦mockMvc.perform中的RequestBuilder  
+        .alwaysDo(print())  //默认每次执行请求后都做的动作  
+        .alwaysExpect(request().attribute(&quot;default&quot;, true)) //默认每次执行后进行验证的断言  
+        .build();  
+</code></pre>
+
 </div>
 
 	</div>
@@ -4446,19 +4499,23 @@ public class HelloWorldControlerTests {
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

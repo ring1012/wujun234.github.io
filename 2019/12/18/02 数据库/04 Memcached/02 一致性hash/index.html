@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		02 一致性hash | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,26 +4395,33 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:22</span>
+	<span id="post-date">2019-12-18 01:00:43</span>
 </div>
 
 
 <div id="article">
 	<p>一致性hash算法解决了分布式环境下机器增加或者减少时，简单的取模运算无法获取较高命中率的问题。通过虚拟节点的使用，一致性hash算法可以均匀分担机器的负载，使得这一算法更具现实的意义。</p>
 <p><a href="https://blog.csdn.net/lihao21/article/details/54193868" target="_blank" rel="noopener">一致性Hash(Consistent Hashing)原理剖析</a></p>
-<h3 id="基本思想"><a href="#基本思想" class="headerlink" title="基本思想"></a>基本思想</h3><p>key 与 机器节点 都 hash 到环上。</p>
-<h5 id="1-取0-2-32-1的环"><a href="#1-取0-2-32-1的环" class="headerlink" title="1. 取0~2^32-1的环"></a>1. 取0~2^32-1的环</h5><p><img src="/images/1545202356321.jpg" alt=""></p>
-<h5 id="2-将对象放置到Hash环"><a href="#2-将对象放置到Hash环" class="headerlink" title="2. 将对象放置到Hash环"></a>2. 将对象放置到Hash环</h5><p>使用hash函数计算这4个对象的hash值</p>
+<h3 id="基本思想"><a class="header-anchor" href="#基本思想">¶</a>基本思想</h3>
+<p>key 与 机器节点 都 hash 到环上。</p>
+<h5 id="1-取0-2-32-1的环"><a class="header-anchor" href="#1-取0-2-32-1的环">¶</a>1. 取0~2^32-1的环</h5>
+<p><img src="/images/1545202356321.jpg" alt=""></p>
+<h5 id="2-将对象放置到Hash环"><a class="header-anchor" href="#2-将对象放置到Hash环">¶</a>2. 将对象放置到Hash环</h5>
+<p>使用hash函数计算这4个对象的hash值</p>
 <p><img src="/images/1545202357646.jpg" alt=""></p>
-<h5 id="3-将机器放置到Hash环"><a href="#3-将机器放置到Hash环" class="headerlink" title="3. 将机器放置到Hash环"></a>3. 将机器放置到Hash环</h5><p>使用同样的hash函数，将机器也放置到hash环上。</p>
+<h5 id="3-将机器放置到Hash环"><a class="header-anchor" href="#3-将机器放置到Hash环">¶</a>3. 将机器放置到Hash环</h5>
+<p>使用同样的hash函数，将机器也放置到hash环上。</p>
 <p><img src="/images/1545202357686.jpg" alt="image"></p>
-<h5 id="4-为对象选择机器"><a href="#4-为对象选择机器" class="headerlink" title="4. 为对象选择机器"></a>4. 为对象选择机器</h5><p>将对象和机器都放置到同一个hash环后，在hash环上顺时针查找距离这个对象的hash值最近的机器，即是这个对象所属的机器。 </p>
+<h5 id="4-为对象选择机器"><a class="header-anchor" href="#4-为对象选择机器">¶</a>4. 为对象选择机器</h5>
+<p>将对象和机器都放置到同一个hash环后，在hash环上顺时针查找距离这个对象的hash值最近的机器，即是这个对象所属的机器。</p>
 <p><img src="/images/1545202357728.jpg" alt="image"></p>
-<h5 id="5-处理机器增减的情况"><a href="#5-处理机器增减的情况" class="headerlink" title="5. 处理机器增减的情况"></a>5. 处理机器增减的情况</h5><p>增加机器c4，只有机器c3与c4之间的对象需要重新分配新的机器。</p>
+<h5 id="5-处理机器增减的情况"><a class="header-anchor" href="#5-处理机器增减的情况">¶</a>5. 处理机器增减的情况</h5>
+<p>增加机器c4，只有机器c3与c4之间的对象需要重新分配新的机器。</p>
 <p><img src="/images/1545202357769.jpg" alt="image"></p>
 <p>机器c1下线，只有原有被分配到机器c1对象需要被重新分配到新的机器。</p>
 <p><img src="/images/1545202357808.jpg" alt="image"></p>
-<h3 id="虚拟节点"><a href="#虚拟节点" class="headerlink" title="虚拟节点"></a>虚拟节点</h3><p>一致性hash解决命中率问题，虚拟节点解决key的分布均匀问题(负载均衡)</p>
+<h3 id="虚拟节点"><a class="header-anchor" href="#虚拟节点">¶</a>虚拟节点</h3>
+<p>一致性hash解决命中率问题，虚拟节点解决key的分布均匀问题(负载均衡)</p>
 <ol>
 <li>使用一般的hash运算，服务器的映射地点的分布非常不均匀；</li>
 <li>使用虚拟节点的思想，为每个物理节点（服务器）在圆上分配100～200个点。</li>
@@ -4408,19 +4438,23 @@
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

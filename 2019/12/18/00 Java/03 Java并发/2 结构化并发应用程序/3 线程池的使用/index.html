@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		3 线程池的使用 | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,12 +4395,13 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:53</span>
+	<span id="post-date">2019-12-18 01:00:42</span>
 </div>
 
 
 <div id="article">
-	<h3 id="1-在任务与执行策略之间的隐性耦合"><a href="#1-在任务与执行策略之间的隐性耦合" class="headerlink" title="1 在任务与执行策略之间的隐性耦合"></a>1 在任务与执行策略之间的隐性耦合</h3><p>Executor框架将任务的提交与任务的执行策略解耦开来，但仍有些类型的任务存在隐性耦合，需要明确地指定执行策略，包括：</p>
+	<h3 id="1-在任务与执行策略之间的隐性耦合"><a class="header-anchor" href="#1-在任务与执行策略之间的隐性耦合">¶</a>1 在任务与执行策略之间的隐性耦合</h3>
+<p>Executor框架将任务的提交与任务的执行策略解耦开来，但仍有些类型的任务存在隐性耦合，需要明确地指定执行策略，包括：</p>
 <ul>
 <li>依赖性任务。</li>
 <li>使用线程封闭机制的任务。</li>
@@ -4385,13 +4409,18 @@
 <li>使用ThreadLocal的任务。</li>
 </ul>
 <p>只有当任务都是同类型的并且相互独立时，线程池的性能才能达到最佳。</p>
-<h5 id="1-1-线程饥饿死锁"><a href="#1-1-线程饥饿死锁" class="headerlink" title="1.1 线程饥饿死锁"></a>1.1 线程饥饿死锁</h5><p>在线程池中，如果任务依赖于其他任务，那么可能产生死锁。</p>
-<h5 id="1-2-运行时间较长的任务"><a href="#1-2-运行时间较长的任务" class="headerlink" title="1.2 运行时间较长的任务"></a>1.2 运行时间较长的任务</h5><p>如果任务阻塞的时间过长，那么即使不出现死锁，线程池的响应性也会变得糟糕。</p>
-<h3 id="2-设置线程池的大小"><a href="#2-设置线程池的大小" class="headerlink" title="2 设置线程池的大小"></a>2 设置线程池的大小</h3><p>线程池过大，会发生资源竞争。线程池过小，会降低吞吐率。</p>
+<h5 id="1-1-线程饥饿死锁"><a class="header-anchor" href="#1-1-线程饥饿死锁">¶</a>1.1 线程饥饿死锁</h5>
+<p>在线程池中，如果任务依赖于其他任务，那么可能产生死锁。</p>
+<h5 id="1-2-运行时间较长的任务"><a class="header-anchor" href="#1-2-运行时间较长的任务">¶</a>1.2 运行时间较长的任务</h5>
+<p>如果任务阻塞的时间过长，那么即使不出现死锁，线程池的响应性也会变得糟糕。</p>
+<h3 id="2-设置线程池的大小"><a class="header-anchor" href="#2-设置线程池的大小">¶</a>2 设置线程池的大小</h3>
+<p>线程池过大，会发生资源竞争。线程池过小，会降低吞吐率。</p>
 <p>如果需要执行的行为相差很大的不同类别的任务，应考虑使用多个线程池，每个线程池可根据需要调整。</p>
 <p>CPU周期、括内存、文件句柄、套接字句柄和数据库连接等资源约束线程池：计算每个任务对该资源的需求量，然后用该资源的可用总量除以每个任务的需求量，所得结果就是线程池大小的上限。</p>
-<h3 id="3-配置ThreadPoolExecutor"><a href="#3-配置ThreadPoolExecutor" class="headerlink" title="3 配置ThreadPoolExecutor"></a>3 配置ThreadPoolExecutor</h3><p>ThreadPoolExecutor为一些Executor提供了基本的实现，还可以通过ThreadPoolExecutor的构造函数来实例化一个对象，并根据自己的需求来定制。</p>
-<h5 id="3-1-线程的创建与销毁"><a href="#3-1-线程的创建与销毁" class="headerlink" title="3.1 线程的创建与销毁"></a>3.1 线程的创建与销毁</h5><p>负责线程的创建与销毁的线程池因素</p>
+<h3 id="3-配置ThreadPoolExecutor"><a class="header-anchor" href="#3-配置ThreadPoolExecutor">¶</a>3 配置ThreadPoolExecutor</h3>
+<p>ThreadPoolExecutor为一些Executor提供了基本的实现，还可以通过ThreadPoolExecutor的构造函数来实例化一个对象，并根据自己的需求来定制。</p>
+<h5 id="3-1-线程的创建与销毁"><a class="header-anchor" href="#3-1-线程的创建与销毁">¶</a>3.1 线程的创建与销毁</h5>
+<p>负责线程的创建与销毁的线程池因素</p>
 <ul>
 <li><strong>基本大小</strong>(Core Pool Size)：没有任务执行时线程池的大小，工作队列满了才能创建更多线程</li>
 <li><strong>最大大小</strong>(Maximum Pool Size)：可同时活动的线程数量的上限</li>
@@ -4411,26 +4440,41 @@
                           TimeUnit unit,
                           BlockingQueue&lt;Runnable&gt; workQueue,
                           ThreadFactory threadFactory) {
-}</code></pre><h5 id="3-2-管理队列任务"><a href="#3-2-管理队列任务" class="headerlink" title="3.2 管理队列任务"></a>3.2 管理队列任务</h5><p>ThreadPoolExecutor允许提供一个BlockingQueue来保存等待执行的任务。</p>
+}
+</code></pre>
+<h5 id="3-2-管理队列任务"><a class="header-anchor" href="#3-2-管理队列任务">¶</a>3.2 管理队列任务</h5>
+<p>ThreadPoolExecutor允许提供一个BlockingQueue来保存等待执行的任务。</p>
 <p>基本的任务排队方法有3种：</p>
 <ul>
-<li><strong>无界队列</strong><br>newFixedThreadPool和newSingIeThreadExecutor默认将使用一个无界的 LinkedBlockingQueue。</li>
-<li><strong>有界队列</strong><br>使用有界队列更稳妥，但需选择饱和策略。如ArrayBlockingQueue、有界的 LinkedBlockingQueue、PriorityBlockingQueue。</li>
-<li><strong>同步移交</strong><br>对于非常大的或者无界的线程池，可以通过使用SynchronousQueue。任务不排队，直接从生产者移交给工作者线程。（newCachedThreadPool）</li>
+<li><strong>无界队列</strong><br>
+newFixedThreadPool和newSingIeThreadExecutor默认将使用一个无界的 LinkedBlockingQueue。</li>
+<li><strong>有界队列</strong><br>
+使用有界队列更稳妥，但需选择饱和策略。如ArrayBlockingQueue、有界的 LinkedBlockingQueue、PriorityBlockingQueue。</li>
+<li><strong>同步移交</strong><br>
+对于非常大的或者无界的线程池，可以通过使用SynchronousQueue。任务不排队，直接从生产者移交给工作者线程。（newCachedThreadPool）</li>
 </ul>
-<h5 id="3-3-饱和策略"><a href="#3-3-饱和策略" class="headerlink" title="3.3 饱和策略"></a>3.3 饱和策略</h5><p>ThreadPoolExecutor的饱和策略通过调用 setRejectedExecutionHandler 来修改。</p>
+<h5 id="3-3-饱和策略"><a class="header-anchor" href="#3-3-饱和策略">¶</a>3.3 饱和策略</h5>
+<p>ThreadPoolExecutor的饱和策略通过调用 setRejectedExecutionHandler 来修改。</p>
 <ul>
 <li>Abort（中止）： 默认的饱和策略，抛出未检查的 RejectedExecutionException。调用者可以捕获处理</li>
 <li>Discard（抛弃）： 悄悄抛弃任务</li>
 <li>DiscardOldest（抛弃最旧的）： 抛弃下一个将被执行的任务，然后尝试重新提交新的任务。（不要和优先级队列放在一起使用）</li>
 <li>CallerRuns（调用者运行）： 将任务回退到调用者，在调用者线程执行</li>
 </ul>
-<pre><code>executor.setRejectedExecutionHandler(new ThreadPoolExecutor.CallerRunsPolicy()) ;</code></pre><h5 id="3-4-线程工厂"><a href="#3-4-线程工厂" class="headerlink" title="3.4 线程工厂"></a>3.4 线程工厂</h5><p>如在应用程序中需要利用安全策略来控制访问权限，可用 Executor 中的 privilegedThreadFactory 工厂来定制自己的线程工厂。</p>
+<pre><code>executor.setRejectedExecutionHandler(new ThreadPoolExecutor.CallerRunsPolicy()) ;
+</code></pre>
+<h5 id="3-4-线程工厂"><a class="header-anchor" href="#3-4-线程工厂">¶</a>3.4 线程工厂</h5>
+<p>如在应用程序中需要利用安全策略来控制访问权限，可用 Executor 中的 privilegedThreadFactory 工厂来定制自己的线程工厂。</p>
 <pre><code>public interface ThreadFactory {
     Thread newThread(Runnable r);
-}</code></pre><h5 id="3-5-在调用构造函数后再定制-ThreadPoolExecutor"><a href="#3-5-在调用构造函数后再定制-ThreadPoolExecutor" class="headerlink" title="3.5 在调用构造函数后再定制 ThreadPoolExecutor"></a>3.5 在调用构造函数后再定制 ThreadPoolExecutor</h5><p>Executors 的 unconfigurableExecutorService 工厂方法，可对一个现有的 ExecutorService 进行包装，使其只暴露出 ExecutorService 的方法，因此不能对它进行配置。</p>
-<p>除此之外，其他的 Executor 可在构造完成后，再次定制改变参数。  </p>
-<h3 id="4-扩展ThreadPoolExecutor"><a href="#4-扩展ThreadPoolExecutor" class="headerlink" title="4 扩展ThreadPoolExecutor"></a>4 扩展ThreadPoolExecutor</h3><p>ThreadPoolExecutor是可扩展的，提供了几个可以在子类化中改写的方法：beforeExecute、 afterExecute 和 terminated。可以添加日志、计时<br>监视、通知等功能</p>
+}
+</code></pre>
+<h5 id="3-5-在调用构造函数后再定制-ThreadPoolExecutor"><a class="header-anchor" href="#3-5-在调用构造函数后再定制-ThreadPoolExecutor">¶</a>3.5 在调用构造函数后再定制 ThreadPoolExecutor</h5>
+<p>Executors 的 unconfigurableExecutorService 工厂方法，可对一个现有的 ExecutorService 进行包装，使其只暴露出 ExecutorService 的方法，因此不能对它进行配置。</p>
+<p>除此之外，其他的 Executor 可在构造完成后，再次定制改变参数。</p>
+<h3 id="4-扩展ThreadPoolExecutor"><a class="header-anchor" href="#4-扩展ThreadPoolExecutor">¶</a>4 扩展ThreadPoolExecutor</h3>
+<p>ThreadPoolExecutor是可扩展的，提供了几个可以在子类化中改写的方法：beforeExecute、 afterExecute 和 terminated。可以添加日志、计时<br>
+监视、通知等功能</p>
 <pre><code>private class SaveOlderCategoryTask implements Callable&lt;String&gt; {
     DcdCategory category;
 
@@ -4444,7 +4488,9 @@
         saveCategory(category, oldMinBehotTime, 0L);
         return &quot;complete&quot;;
     }
-}</code></pre><pre><code>public static void doExecutor(Collection&lt;FutureTask&gt; list) {
+}
+</code></pre>
+<pre><code>public static void doExecutor(Collection&lt;FutureTask&gt; list) {
     ThreadFactory namedThreadFactory = new ThreadFactoryBuilder()
             .setNameFormat(&quot;dcd-pool-%d&quot;).build();
 
@@ -4462,7 +4508,10 @@
         }
     });
     pool.shutdown();
-}</code></pre><h3 id="5-递归算法的并行化"><a href="#5-递归算法的并行化" class="headerlink" title="5 递归算法的并行化"></a>5 递归算法的并行化</h3><p>当串行循环中的各个迭代操作之间彼此独立，并且每个迭代操作执行的工作量比管理一个新任务时带来的开销更多，那么这个串行循环就适合并行化；</p>
+}
+</code></pre>
+<h3 id="5-递归算法的并行化"><a class="header-anchor" href="#5-递归算法的并行化">¶</a>5 递归算法的并行化</h3>
+<p>当串行循环中的各个迭代操作之间彼此独立，并且每个迭代操作执行的工作量比管理一个新任务时带来的开销更多，那么这个串行循环就适合并行化；</p>
 <pre><code>void processSequntially(List&lt;Element&gt; elements){
     for(Element e:elements){
         process(e);
@@ -4477,7 +4526,9 @@ void processInParallel(Executor exec,List&lt;Element&gt; elements){
             }
         });
     }
-}</code></pre><p>在一些递归设计中同样可以采用循环并行化的方法进行优化；</p>
+}
+</code></pre>
+<p>在一些递归设计中同样可以采用循环并行化的方法进行优化；</p>
 <pre><code>public&lt;T&gt; void sequentialRecursive(List&lt;Node&gt; nodes,Collection&lt;T&gt; results){
     for(Node&lt;T&gt; n:nodes){
         results.add(n.compute());
@@ -4496,7 +4547,9 @@ public&lt;T&gt; void parrallelRecursive(final Executor exec,List&lt;Node&lt;T&gt
         });
         parrallelRecursive(exec,n.getChildren(),results);
     }
-}</code></pre><p>等待通过并行方式计算的结果</p>
+}
+</code></pre>
+<p>等待通过并行方式计算的结果</p>
 <pre><code>public&lt;T&gt; Collection&lt;T&gt; getParrallelResults(List&lt;Node&lt;T&gt;&gt; nodes) throws InterruptedException{
     ExecutorService exec=Executors.newCachedThreadPool();
     Queue&lt;T&gt; resultQueue=new ConcurrentLinkedQueue&lt;T&gt;();
@@ -4504,7 +4557,10 @@ public&lt;T&gt; void parrallelRecursive(final Executor exec,List&lt;Node&lt;T&gt
     exec.shutdown();
     exec.awaitTermination(Long.Max_VALUE,TimeUnit.SECONDS);
     return resultQueue;
-}</code></pre><h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><p>对于并发执行的任务，Executor框架是一种强大且灵活的框架。提供了大量可调节的选项，并且提供了几个钩子方法来扩展行为。</p>
+}
+</code></pre>
+<h3 id="小结"><a class="header-anchor" href="#小结">¶</a>小结</h3>
+<p>对于并发执行的任务，Executor框架是一种强大且灵活的框架。提供了大量可调节的选项，并且提供了几个钩子方法来扩展行为。</p>
 
 </div>
 
@@ -4514,19 +4570,23 @@ public&lt;T&gt; void parrallelRecursive(final Executor exec,List&lt;Node&lt;T&gt
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

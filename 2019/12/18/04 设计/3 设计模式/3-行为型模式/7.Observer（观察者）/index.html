@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		7.Observer（观察者） | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,7 +4395,7 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:54</span>
+	<span id="post-date">2019-12-18 01:00:43</span>
 </div>
 
 
@@ -4383,39 +4406,45 @@
 <p>Subject 类</p>
 <pre><code>import java.util.ArrayList;
 import java.util.List;
-
+ 
 public class Subject {
-
+   
    private List&lt;Observer&gt; observers 
       = new ArrayList&lt;Observer&gt;();
    private int state;
-
+ 
    public int getState() {
       return state;
    }
-
+ 
    public void setState(int state) {
       this.state = state;
       notifyAllObservers();
    }
-
+ 
    public void attach(Observer observer){
       observers.add(observer);      
    }
-
+ 
    public void notifyAllObservers(){
       for (Observer observer : observers) {
          observer.update();
       }
    }  
-}</code></pre><p>Observer 类。</p>
+}
+</code></pre>
+<p>Observer 类。</p>
 <pre><code>public abstract class Observer {
    protected Subject subject;
    public abstract void update();
-}</code></pre><p>使用 Subject 和实体观察者对象。</p>
+}
+</code></pre>
+<p>使用 Subject 和实体观察者对象。</p>
 <pre><code>Subject subject = new Subject();
 new HexaObserver(subject);
-subject.setState(15);</code></pre>
+subject.setState(15);
+</code></pre>
+
 </div>
 
 	</div>
@@ -4424,19 +4453,23 @@ subject.setState(15);</code></pre>
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

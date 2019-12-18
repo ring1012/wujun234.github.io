@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		3 远程仓库 | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,21 +4395,43 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:40</span>
+	<span id="post-date">2019-12-18 01:00:44</span>
 </div>
 
 
 <div id="article">
-	<h3 id="创建SSH-Key"><a href="#创建SSH-Key" class="headerlink" title="创建SSH Key"></a>创建SSH Key</h3><p>在用户主目录看看.ssh目录下有没有<code>id_rsa</code>和<code>id_rsa.pub</code>这两个文件，如果没有，打开Shell（Windows下打开Git Bash），创建SSH Key：</p>
-<pre><code>$ ssh-keygen -t rsa -C &quot;youremail@example.com&quot;</code></pre><p><code>id_rsa</code>是私钥，不能泄露出去，<code>id_rsa.pub</code>是公钥。Key文本框里粘贴<code>id_rsa.pub</code>文件的内容</p>
-<h3 id="添加远程库"><a href="#添加远程库" class="headerlink" title="添加远程库"></a>添加远程库</h3><h5 id="关联远程库"><a href="#关联远程库" class="headerlink" title="关联远程库"></a>关联远程库</h5><pre><code>git remote add origin git@server-name:path/repo-name.git</code></pre><p>远程库的名字就是origin，这是Git默认的叫法，也可以改成别的</p>
-<h5 id="推送内容"><a href="#推送内容" class="headerlink" title="推送内容"></a>推送内容</h5><p>由于远程库是空的，第一次推送master分支时，加上了-u参数</p>
-<pre><code>git push -u origin master</code></pre><h3 id="修改远程库"><a href="#修改远程库" class="headerlink" title="修改远程库"></a>修改远程库</h3><h5 id="方法一-通过命令直接修改远程地址"><a href="#方法一-通过命令直接修改远程地址" class="headerlink" title="方法一 通过命令直接修改远程地址"></a>方法一 通过命令直接修改远程地址</h5><pre><code>git remote set-url origin &lt;new_url&gt;</code></pre><h5 id="方法二-通过命令先删除再添加远程仓库"><a href="#方法二-通过命令先删除再添加远程仓库" class="headerlink" title="方法二 通过命令先删除再添加远程仓库"></a>方法二 通过命令先删除再添加远程仓库</h5><pre><code>git remote rm origin
-git remote add origin &lt;new_url&gt;</code></pre><h5 id="方法三-直接修改配置文件"><a href="#方法三-直接修改配置文件" class="headerlink" title="方法三 直接修改配置文件"></a>方法三 直接修改配置文件</h5><ol>
+	<h3 id="创建SSH-Key"><a class="header-anchor" href="#创建SSH-Key">¶</a>创建SSH Key</h3>
+<p>在用户主目录看看.ssh目录下有没有<code>id_rsa</code>和<code>id_rsa.pub</code>这两个文件，如果没有，打开Shell（Windows下打开Git Bash），创建SSH Key：</p>
+<pre><code>$ ssh-keygen -t rsa -C &quot;youremail@example.com&quot;
+</code></pre>
+<p><code>id_rsa</code>是私钥，不能泄露出去，<code>id_rsa.pub</code>是公钥。Key文本框里粘贴<code>id_rsa.pub</code>文件的内容</p>
+<h3 id="添加远程库"><a class="header-anchor" href="#添加远程库">¶</a>添加远程库</h3>
+<h5 id="关联远程库"><a class="header-anchor" href="#关联远程库">¶</a>关联远程库</h5>
+<pre><code>git remote add origin git@server-name:path/repo-name.git
+</code></pre>
+<p>远程库的名字就是origin，这是Git默认的叫法，也可以改成别的</p>
+<h5 id="推送内容"><a class="header-anchor" href="#推送内容">¶</a>推送内容</h5>
+<p>由于远程库是空的，第一次推送master分支时，加上了-u参数</p>
+<pre><code>git push -u origin master
+</code></pre>
+<h3 id="修改远程库"><a class="header-anchor" href="#修改远程库">¶</a>修改远程库</h3>
+<h5 id="方法一-通过命令直接修改远程地址"><a class="header-anchor" href="#方法一-通过命令直接修改远程地址">¶</a>方法一 通过命令直接修改远程地址</h5>
+<pre><code>git remote set-url origin &lt;new_url&gt;
+</code></pre>
+<h5 id="方法二-通过命令先删除再添加远程仓库"><a class="header-anchor" href="#方法二-通过命令先删除再添加远程仓库">¶</a>方法二 通过命令先删除再添加远程仓库</h5>
+<pre><code>git remote rm origin
+git remote add origin &lt;new_url&gt;
+</code></pre>
+<h5 id="方法三-直接修改配置文件"><a class="header-anchor" href="#方法三-直接修改配置文件">¶</a>方法三 直接修改配置文件</h5>
+<ol>
 <li>进入/.git</li>
-<li>修改config<pre><code> [remote &quot;origin&quot;]
- url = &lt;new_url&gt;</code></pre><h5 id="方法四-通过第三方git客户端修改"><a href="#方法四-通过第三方git客户端修改" class="headerlink" title="方法四 通过第三方git客户端修改"></a>方法四 通过第三方git客户端修改</h5>以SourceTree为例，点击 仓库 -&gt; 仓库配置 -&gt; 远程仓库 即可管理此项目中配置的所有远程仓库， 而且这个界面最下方还可以点击编辑配置文件，同样可以完成方法三。</li>
+<li>修改config<pre><code>[remote &quot;origin&quot;]
+url = &lt;new_url&gt;
+</code></pre>
+</li>
 </ol>
+<h5 id="方法四-通过第三方git客户端修改"><a class="header-anchor" href="#方法四-通过第三方git客户端修改">¶</a>方法四 通过第三方git客户端修改</h5>
+<p>以SourceTree为例，点击 仓库 -&gt; 仓库配置 -&gt; 远程仓库 即可管理此项目中配置的所有远程仓库， 而且这个界面最下方还可以点击编辑配置文件，同样可以完成方法三。</p>
 
 </div>
 
@@ -4396,19 +4441,23 @@ git remote add origin &lt;new_url&gt;</code></pre><h5 id="方法三-直接修改
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

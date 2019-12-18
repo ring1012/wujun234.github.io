@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		2.1 ArrayList、Vector | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,59 +4395,74 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:47</span>
+	<span id="post-date">2019-12-18 01:00:41</span>
 </div>
 
 
 <div id="article">
-	<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>ArrayList除未实现同步外，跟Vector大致相同。同步效率低，在不需要同步的时候使用ArrayList。</p>
-<h3 id="ArrayList"><a href="#ArrayList" class="headerlink" title="ArrayList"></a>ArrayList</h3><hr>
-<h4 id="总体介绍"><a href="#总体介绍" class="headerlink" title="总体介绍"></a>总体介绍</h4><p><code>ArrayList</code> 实现了 <code>List</code>、<code>RandomAccess</code> 接口。是顺序容器，允许 null 元素，支持随机访问。</p>
-<p><code>ArrayList</code>底层通过动态数组实现，主要包含Object数组 <code>elementData</code> ，实际容量 <code>capacity</code> 以及当前大小 <code>size</code>。</p>
+	<h3 id="前言"><a class="header-anchor" href="#前言">¶</a>前言</h3>
+<p>ArrayList除未实现同步外，跟Vector大致相同。同步效率低，在不需要同步的时候使用ArrayList。</p>
+<h3 id="ArrayList"><a class="header-anchor" href="#ArrayList">¶</a>ArrayList</h3>
+<hr>
+<h4 id="总体介绍"><a class="header-anchor" href="#总体介绍">¶</a>总体介绍</h4>
+<p><code>ArrayList</code> 实现了 <code>List</code>、<code>RandomAccess</code> 接口。是顺序容器，允许 null 元素，支持随机访问。</p>
+<p><code>ArrayList </code>底层通过动态数组实现，主要包含Object数组 <code>elementData</code> ，实际容量 <code>capacity</code> 以及当前大小 <code>size</code>。</p>
 <p><code>capacity</code>默认10，容量不足时会自动扩容。</p>
 <p><img src="/images/1545011834810.png" alt="image"></p>
 <p>为追求效率，ArrayList没有实现同步。用户可以手动同步，也可使用Vector替代，还可采用 Collections.synchronizedList() 包装。</p>
-<h4 id="方法剖析"><a href="#方法剖析" class="headerlink" title="方法剖析"></a>方法剖析</h4><h5 id="add"><a href="#add" class="headerlink" title="add()"></a>add()</h5><p><img src="/images/1545011835088.png" alt="image"></p>
-<h6 id="调用-add-E-e"><a href="#调用-add-E-e" class="headerlink" title="调用 add(E e)"></a>调用 <code>add(E e)</code></h6><ol>
-<li><p>扩容校验。</p>
-</li>
-<li><p>将插入的值放到尾部，并将 size + 1 。</p>
-<pre><code class="java"> public boolean add(E e) {
-     ensureCapacityInternal(size + 1);  // Increments modCount!!
-     elementData[size++] = e;
-     return true;
- }</code></pre>
-<h6 id="调用-add-index-e"><a href="#调用-add-index-e" class="headerlink" title="调用 add(index,e)"></a>调用 <code>add(index,e)</code></h6></li>
-<li><p>扩容校验。</p>
-</li>
-<li><p>复制数据，本次数据插入 index ，后面数据后移。</p>
-<pre><code class="java"> public void add(int index, E element) {
-     rangeCheckForAdd(index);
-     ensureCapacityInternal(size + 1);  // Increments modCount!!
-     System.arraycopy(elementData, index, elementData, index + 1,
-                      size - index);
-     elementData[index] = element;
-     size++;
- }</code></pre>
-<h5 id="grow"><a href="#grow" class="headerlink" title="grow()"></a>grow()</h5><p>扩容操作<br><img src="/images/1545011835380.png" alt="image"></p>
-<pre><code class="java"> private void grow(int minCapacity) {
-     int oldCapacity = elementData.length;
-     int newCapacity = oldCapacity + (oldCapacity &gt;&gt; 1);//原来的1.5倍
-     if (newCapacity - minCapacity &lt; 0)
-         newCapacity = minCapacity;
-     if (newCapacity - MAX_ARRAY_SIZE &gt; 0)
-         newCapacity = hugeCapacity(minCapacity);
-     elementData = Arrays.copyOf(elementData, newCapacity);//扩展空间并复制
- }</code></pre>
-<h5 id="remove"><a href="#remove" class="headerlink" title="remove()"></a>remove()</h5><p>remove(int index) 删除指定位置的元素<br>remove(Object o) 删除第一个满足 o.equals(elementData[index]) 的元素  </p>
-<p>删除操作是 add() 操作的逆过程，需要将删除点之后的元素向前移动一个位置。为了让GC起作用，必须显式的为最后一个位置赋 null 值。</p>
-</li>
+<h4 id="方法剖析"><a class="header-anchor" href="#方法剖析">¶</a>方法剖析</h4>
+<h5 id="add"><a class="header-anchor" href="#add">¶</a>add()</h5>
+<p><img src="/images/1545011835088.png" alt="image"></p>
+<h6 id="调用-add-E-e"><a class="header-anchor" href="#调用-add-E-e">¶</a>调用 <code>add(E e)</code></h6>
+<ol>
+<li>扩容校验。</li>
+<li>将插入的值放到尾部，并将 size + 1 。</li>
 </ol>
-<h4 id="序列化"><a href="#序列化" class="headerlink" title="序列化"></a>序列化</h4><p>ArrayList只序列化了被使用的数据。</p>
+<pre><code class="language-java">    public boolean add(E e) {
+        ensureCapacityInternal(size + 1);  // Increments modCount!!
+        elementData[size++] = e;
+        return true;
+    }
+</code></pre>
+<h6 id="调用-add-index-e"><a class="header-anchor" href="#调用-add-index-e">¶</a>调用 <code>add(index,e)</code></h6>
+<ol>
+<li>扩容校验。</li>
+<li>复制数据，本次数据插入 index ，后面数据后移。</li>
+</ol>
+<pre><code class="language-java">    public void add(int index, E element) {
+        rangeCheckForAdd(index);
+        ensureCapacityInternal(size + 1);  // Increments modCount!!
+        System.arraycopy(elementData, index, elementData, index + 1,
+                         size - index);
+        elementData[index] = element;
+        size++;
+    }
+</code></pre>
+<h5 id="grow"><a class="header-anchor" href="#grow">¶</a>grow()</h5>
+<p>扩容操作<br>
+<img src="/images/1545011835380.png" alt="image"></p>
+<pre><code class="language-java">    private void grow(int minCapacity) {
+        int oldCapacity = elementData.length;
+        int newCapacity = oldCapacity + (oldCapacity &gt;&gt; 1);//原来的1.5倍
+        if (newCapacity - minCapacity &lt; 0)
+            newCapacity = minCapacity;
+        if (newCapacity - MAX_ARRAY_SIZE &gt; 0)
+            newCapacity = hugeCapacity(minCapacity);
+        elementData = Arrays.copyOf(elementData, newCapacity);//扩展空间并复制
+    }
+</code></pre>
+<h5 id="remove"><a class="header-anchor" href="#remove">¶</a>remove()</h5>
+<p>remove(int index) 删除指定位置的元素<br>
+remove(Object o) 删除第一个满足 o.equals(elementData[index]) 的元素</p>
+<p>删除操作是 add() 操作的逆过程，需要将删除点之后的元素向前移动一个位置。为了让GC起作用，必须显式的为最后一个位置赋 null 值。</p>
+<h4 id="序列化"><a class="header-anchor" href="#序列化">¶</a>序列化</h4>
+<p>ArrayList只序列化了被使用的数据。</p>
 <p>由于 ArrayList 是基于动态数组实现的，所以并不是所有的空间都被使用。因此使用了 <code>transient</code> 修饰，可以防止被自动序列化。</p>
-<pre><code class="java">transient Object[] elementData;</code></pre>
-<p> ArrayList 自定义了序列化与反序列化: writeObject 和 readObject 方法。</p>
-<h3 id="Vector"><a href="#Vector" class="headerlink" title="Vector"></a>Vector</h3><hr>
+<pre><code class="language-java">transient Object[] elementData;
+</code></pre>
+<p>ArrayList 自定义了序列化与反序列化: writeObject 和 readObject 方法。</p>
+<h3 id="Vector"><a class="header-anchor" href="#Vector">¶</a>Vector</h3>
+<hr>
 <p><code>Vector</code> 实现与 <code>ArrayList</code> 类似, 但所有方法都被 <code>synchronized</code> 修饰 ，开销较大。</p>
 
 </div>
@@ -4435,19 +4473,23 @@
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

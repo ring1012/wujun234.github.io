@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		1 Apache Thrift 初识 (1) - 简介 | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,62 +4395,84 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:42</span>
+	<span id="post-date">2019-12-18 01:00:44</span>
 </div>
 
 
 <div id="article">
 	<p>Thrift 是最初由 Facebook 开发的 RPC 框架，适用于程序对程序静态的数据交换，需要先确定好数据结构。</p>
-<h3 id="1-特性"><a href="#1-特性" class="headerlink" title="1 特性"></a>1 特性</h3><ul>
-<li><p>静态化<br>当数据结构发生变化时，必须重新编辑IDL文件、代码生成再编译载入的流程。</p>
+<h3 id="1-特性"><a class="header-anchor" href="#1-特性">¶</a>1 特性</h3>
+<ul>
+<li>
+<p>静态化<br>
+当数据结构发生变化时，必须重新编辑IDL文件、代码生成再编译载入的流程。</p>
 </li>
-<li><p>跨语言<br>Thrift 通过 IDL(接口定义语言) 在.thrift文件中确定好数据结构和接口，通过编译器来生成不同语言的代码。</p>
+<li>
+<p>跨语言<br>
+Thrift 通过 IDL(接口定义语言) 在.thrift文件中确定好数据结构和接口，通过编译器来生成不同语言的代码。</p>
 </li>
-<li><p>优势<br>相对于 JSON 和 XML 无论在性能、传输大小上有明显的优势。</p>
+<li>
+<p>优势<br>
+相对于 JSON 和 XML 无论在性能、传输大小上有明显的优势。</p>
 </li>
 </ul>
-<h3 id="2-栈结构"><a href="#2-栈结构" class="headerlink" title="2 栈结构"></a>2 栈结构</h3><p><img src="/images/1545712501911.png" alt="Thrift的栈结构"></p>
+<h3 id="2-栈结构"><a class="header-anchor" href="#2-栈结构">¶</a>2 栈结构</h3>
+<p><img src="/images/1545712501911.png" alt="Thrift的栈结构"></p>
 <p>Thrift 包含三个主要的组件：protocol，transport 和 server。</p>
 <p><img src="/images/1545712501984.png" alt="Thrift的网络栈"></p>
-<h5 id="2-1-Transport"><a href="#2-1-Transport" class="headerlink" title="2.1 Transport"></a>2.1 Transport</h5><p>Transport层提供了一个简单的网络读写抽象层。这使得thrift底层的transport从系统其它部分（如：序列化/反序列化）解耦。</p>
-<h5 id="2-2-Protocol"><a href="#2-2-Protocol" class="headerlink" title="2.2 Protocol"></a>2.2 Protocol</h5><p>Protocol抽象层定义了一种将内存中数据结构映射成可传输格式的机制。换句话说，Protocol定义了datatype怎样使用底层的Transport对自己进行编解码。因此，Protocol的实现要给出编码机制并负责对数据进行序列化。</p>
-<h5 id="2-3-Processor"><a href="#2-3-Processor" class="headerlink" title="2.3 Processor"></a>2.3 Processor</h5><p>Processor封装了从输入数据流中读数据和向数据流中写数据的操作。<br>主要工作流程如下：</p>
+<h5 id="2-1-Transport"><a class="header-anchor" href="#2-1-Transport">¶</a>2.1 Transport</h5>
+<p>Transport层提供了一个简单的网络读写抽象层。这使得thrift底层的transport从系统其它部分（如：序列化/反序列化）解耦。</p>
+<h5 id="2-2-Protocol"><a class="header-anchor" href="#2-2-Protocol">¶</a>2.2 Protocol</h5>
+<p>Protocol抽象层定义了一种将内存中数据结构映射成可传输格式的机制。换句话说，Protocol定义了datatype怎样使用底层的Transport对自己进行编解码。因此，Protocol的实现要给出编码机制并负责对数据进行序列化。</p>
+<h5 id="2-3-Processor"><a class="header-anchor" href="#2-3-Processor">¶</a>2.3 Processor</h5>
+<p>Processor封装了从输入数据流中读数据和向数据流中写数据的操作。<br>
+主要工作流程如下：</p>
 <ul>
 <li>从连接中读取数据（使用输入protocol）</li>
 <li>将处理授权给handler（由用户实现）</li>
 <li>最后将结果写到连接上（使用输出protocol）。</li>
 </ul>
-<h5 id="2-4-Server"><a href="#2-4-Server" class="headerlink" title="2.4 Server"></a>2.4 Server</h5><p>Server将以上所有特性集成在一起：</p>
-<p>（1）  创建一个transport对象<br>（2）  为transport对象创建输入输出protocol<br>（3）  基于输入输出protocol创建processor<br>（4）  等待连接请求并将之交给processor处理</p>
+<h5 id="2-4-Server"><a class="header-anchor" href="#2-4-Server">¶</a>2.4 Server</h5>
+<p>Server将以上所有特性集成在一起：</p>
+<p>（1）  创建一个transport对象<br>
+（2）  为transport对象创建输入输出protocol<br>
+（3）  基于输入输出protocol创建processor<br>
+（4）  等待连接请求并将之交给processor处理</p>
 <blockquote>
-<p>TSimpleServer<br>TNonblockingServer<br>THsHaServer<br>TThreadedSelectorServer<br>TThreadPoolServer</p>
+<p>TSimpleServer<br>
+TNonblockingServer<br>
+THsHaServer<br>
+TThreadedSelectorServer<br>
+TThreadPoolServer</p>
 </blockquote>
 <p>TThreadedSelectorServer 对大多数案例来说都是个安全之选。如果你的系统资源允许运行大量并发线程的话，建议你使用 TThreadPoolServer。</p>
-<h3 id="3-调用流程"><a href="#3-调用流程" class="headerlink" title="3 调用流程"></a>3 调用流程</h3><h5 id="3-1-服务端编码的基本流程"><a href="#3-1-服务端编码的基本流程" class="headerlink" title="3.1 服务端编码的基本流程"></a>3.1 服务端编码的基本流程</h5><ol>
-<li><p>创建TTransport</p>
-</li>
-<li><p>创建TProtocol</p>
-</li>
-<li><p>创建TProcessor</p>
-</li>
-<li><p>创建Server</p>
-</li>
-<li><p>启动服务</p>
-<h5 id="3-2-客户端编码的基本流程"><a href="#3-2-客户端编码的基本流程" class="headerlink" title="3.2 客户端编码的基本流程"></a>3.2 客户端编码的基本流程</h5></li>
-<li><p>创建TTransport</p>
-</li>
-<li><p>创建TProtocol</p>
-</li>
-<li><p>创建Client</p>
-</li>
-<li><p>client方法调用</p>
-</li>
+<h3 id="3-调用流程"><a class="header-anchor" href="#3-调用流程">¶</a>3 调用流程</h3>
+<h5 id="3-1-服务端编码的基本流程"><a class="header-anchor" href="#3-1-服务端编码的基本流程">¶</a>3.1 服务端编码的基本流程</h5>
+<ol>
+<li>创建TTransport</li>
+<li>创建TProtocol</li>
+<li>创建TProcessor</li>
+<li>创建Server</li>
+<li>启动服务</li>
 </ol>
-<h3 id="4-传输体系"><a href="#4-传输体系" class="headerlink" title="4 传输体系"></a>4 传输体系</h3><h4 id="4-1-传输协议"><a href="#4-1-传输协议" class="headerlink" title="4.1 传输协议"></a>4.1 传输协议</h4><p>Thrift 支持多种传输协议，用户可以根据实际需求选择合适的类型。Thrift 传输协议上总体可划分为文本 (text) 和二进制 (binary) 传输协议两大类。常用的协议包含：</p>
+<h5 id="3-2-客户端编码的基本流程"><a class="header-anchor" href="#3-2-客户端编码的基本流程">¶</a>3.2 客户端编码的基本流程</h5>
+<ol>
+<li>创建TTransport</li>
+<li>创建TProtocol</li>
+<li>创建Client</li>
+<li>client方法调用</li>
+</ol>
+<h3 id="4-传输体系"><a class="header-anchor" href="#4-传输体系">¶</a>4 传输体系</h3>
+<h4 id="4-1-传输协议"><a class="header-anchor" href="#4-1-传输协议">¶</a>4.1 传输协议</h4>
+<p>Thrift 支持多种传输协议，用户可以根据实际需求选择合适的类型。Thrift 传输协议上总体可划分为文本 (text) 和二进制 (binary) 传输协议两大类。常用的协议包含：</p>
 <blockquote>
-<p>TBinaryProtocol：是Thrift的默认协议，使用二进制编码格式进行数据传输，基本上直接发送原始数据`<br>TCompactProtocol：压缩的、密集的数据传输协议，基于Variable-length quantity的zigzag 编码格式<br>TJSONProtocol：以JSON (JavaScript Object Notation)数据编码协议进行数据传输<br>TDebugProtocol：常常用以编码人员测试，以文本的形式展现方便阅读</p>
+<p>TBinaryProtocol：是Thrift的默认协议，使用二进制编码格式进行数据传输，基本上直接发送原始数据`<br>
+TCompactProtocol：压缩的、密集的数据传输协议，基于Variable-length quantity的zigzag 编码格式<br>
+TJSONProtocol：以JSON (JavaScript Object Notation)数据编码协议进行数据传输<br>
+TDebugProtocol：常常用以编码人员测试，以文本的形式展现方便阅读</p>
 </blockquote>
-<h4 id="4-2-传输方式"><a href="#4-2-传输方式" class="headerlink" title="4.2 传输方式"></a>4.2 传输方式</h4><p>与传输协议一样，Thrift 也支持几种不同的传输方式。</p>
+<h4 id="4-2-传输方式"><a class="header-anchor" href="#4-2-传输方式">¶</a>4.2 传输方式</h4>
+<p>与传输协议一样，Thrift 也支持几种不同的传输方式。</p>
 <ol>
 <li>TSocket：阻塞型 socket，用于客户端，采用系统函数 read 和 write 进行读写数据。</li>
 <li>TServerSocket：非阻塞型 socket，用于服务器端，accecpt 到的 socket 类型都是 TSocket（即阻塞型 socket）。</li>
@@ -4441,7 +4486,8 @@
 <li>TSSLServerSocket 继承 TServerSocket，非阻塞型 socket， 用于服务器端。accecpt 到的 socket 类型都是 TSSLSocket 类型。</li>
 <li>THttpClient 和 THttpServer 是基于 Http1.1 协议的继承 Transport 类型，均继承 THttpTransport，其中 THttpClient 用于客户端，THttpServer 用于服务器端。两者都调用下一层 TTransport 类进行读写操作，均用到TMemoryBuffer 作为读写缓存，只有调用 flush() 函数才会将真正调用网络 I/O 接口发送数据。</li>
 </ol>
-<h3 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h3><ul>
+<h3 id="参考文档"><a class="header-anchor" href="#参考文档">¶</a>参考文档</h3>
+<ul>
 <li><a href="http://kongdehui.com/2017/07/26/Thrift%E5%85%A5%E9%97%A8/" target="_blank" rel="noopener">Thrift入门</a></li>
 <li><a href="http://www.cnblogs.com/cyfonly/p/6059374.html" target="_blank" rel="noopener">和 Thrift 的一场美丽邂逅</a></li>
 <li><a href="http://blog.csdn.net/whycold/article/category/1251519" target="_blank" rel="noopener">Thrift源码研究</a></li>
@@ -4455,19 +4501,23 @@
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

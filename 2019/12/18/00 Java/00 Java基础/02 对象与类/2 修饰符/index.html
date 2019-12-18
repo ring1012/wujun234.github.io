@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		2 修饰符 | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,44 +4395,71 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:46</span>
+	<span id="post-date">2019-12-18 01:00:41</span>
 </div>
 
 
 <div id="article">
-	<h3 id="访问修饰符"><a href="#访问修饰符" class="headerlink" title="访问修饰符"></a>访问修饰符</h3><ul>
+	<h3 id="访问修饰符"><a class="header-anchor" href="#访问修饰符">¶</a>访问修饰符</h3>
+<ul>
 <li><strong>private</strong>——仅对本类可见</li>
-<li><strong>public</strong>——对所有类可见<br>接口里方法默认public</li>
+<li><strong>public</strong>——对所有类可见<br>
+接口里方法默认public</li>
 <li><strong>protected</strong>——对本包和所有子类可见</li>
 <li><strong>default</strong>——对本包可见</li>
 </ul>
 <p>一个方法可以访问所属类的所有对象的私有对象</p>
-<h3 id="非访问修饰符"><a href="#非访问修饰符" class="headerlink" title="非访问修饰符"></a>非访问修饰符</h3><h4 id="final"><a href="#final" class="headerlink" title="final"></a>final</h4><ul>
-<li><strong>final 域</strong><br>final域必须显式指定初始值，赋值后，不能被重新赋值。</li>
-<li><strong>final 方法</strong><br>final 方法可以被子类继承，但是不能被子类修改。</li>
-<li><strong>final 类</strong><br>final 类不能被继承</li>
+<h3 id="非访问修饰符"><a class="header-anchor" href="#非访问修饰符">¶</a>非访问修饰符</h3>
+<h4 id="final"><a class="header-anchor" href="#final">¶</a>final</h4>
+<ul>
+<li><strong>final 域</strong><br>
+final域必须显式指定初始值，赋值后，不能被重新赋值。</li>
+<li><strong>final 方法</strong><br>
+final 方法可以被子类继承，但是不能被子类修改。</li>
+<li><strong>final 类</strong><br>
+final 类不能被继承</li>
 </ul>
-<h4 id="static"><a href="#static" class="headerlink" title="static"></a>static</h4><ul>
-<li><strong>静态域</strong><br>类域，多实例也只有一份拷贝</li>
-<li><strong>静态常量</strong><br>多与final组成静态常量，一般大写</li>
-<li><strong>静态方法</strong><br>类方法，独立于对象，没有隐式参数this，可以访问静态域。<br>不可从一个 static 方法内部发出对非 static 方法的调用。</li>
-<li><strong>静态内部类</strong><br>只有内部类能被声明为static。详见“静态内部类”</li>
-<li><strong>静态代码块</strong><br>静态块在类加载时自动执行</li>
-<li><strong>静态导包</strong><br>JDK1.5，用import static代替import静态导入，可以直接使用类的静态方法和静态域，而不需要使用类名作为前缀。</li>
+<h4 id="static"><a class="header-anchor" href="#static">¶</a>static</h4>
+<ul>
+<li><strong>静态域</strong><br>
+类域，多实例也只有一份拷贝</li>
+<li><strong>静态常量</strong><br>
+多与final组成静态常量，一般大写</li>
+<li><strong>静态方法</strong><br>
+类方法，独立于对象，没有隐式参数this，可以访问静态域。<br>
+不可从一个 static 方法内部发出对非 static 方法的调用。</li>
+<li><strong>静态内部类</strong><br>
+只有内部类能被声明为static。详见“静态内部类”</li>
+<li><strong>静态代码块</strong><br>
+静态块在类加载时自动执行</li>
+<li><strong>静态导包</strong><br>
+JDK1.5，用import static代替import静态导入，可以直接使用类的静态方法和静态域，而不需要使用类名作为前缀。</li>
 </ul>
-<h4 id="abstract"><a href="#abstract" class="headerlink" title="abstract"></a>abstract</h4><ul>
-<li><strong>抽象类</strong><br>抽象类不能实例化，唯一目的是为了对该类进行扩充。<br>抽象类可以不包含抽象方法。</li>
-<li><strong>抽象方法</strong><br>抽象方法是一种没有任何实现的方法，具体实现由子类提供。<br>任何继承抽象类的子类必须实现父类的所有抽象方法，除非该子类也是抽象类。<br>包含抽象方法的类，一定要声明为抽象类。</li>
+<h4 id="abstract"><a class="header-anchor" href="#abstract">¶</a>abstract</h4>
+<ul>
+<li><strong>抽象类</strong><br>
+抽象类不能实例化，唯一目的是为了对该类进行扩充。<br>
+抽象类可以不包含抽象方法。</li>
+<li><strong>抽象方法</strong><br>
+抽象方法是一种没有任何实现的方法，具体实现由子类提供。<br>
+任何继承抽象类的子类必须实现父类的所有抽象方法，除非该子类也是抽象类。<br>
+包含抽象方法的类，一定要声明为抽象类。</li>
 </ul>
-<h4 id="synchronized"><a href="#synchronized" class="headerlink" title="synchronized"></a>synchronized</h4><ul>
-<li><strong>方法</strong>  </li>
-<li><strong>代码块</strong><br>synchronized 声明的方法同一时间只能被一个线程访问。</li>
+<h4 id="synchronized"><a class="header-anchor" href="#synchronized">¶</a>synchronized</h4>
+<ul>
+<li><strong>方法</strong></li>
+<li><strong>代码块</strong><br>
+synchronized 声明的方法同一时间只能被一个线程访问。</li>
 </ul>
-<h4 id="transient"><a href="#transient" class="headerlink" title="transient"></a>transient</h4><ul>
-<li><strong>transient 变量</strong><br>序列化时被跳过</li>
+<h4 id="transient"><a class="header-anchor" href="#transient">¶</a>transient</h4>
+<ul>
+<li><strong>transient 变量</strong><br>
+序列化时被跳过</li>
 </ul>
-<h4 id="volatile"><a href="#volatile" class="headerlink" title="volatile"></a>volatile</h4><ul>
-<li><strong>volatile 变量</strong><br>同步变量，保证此变量对所有线程的可见性，禁止指令重排序优化。</li>
+<h4 id="volatile"><a class="header-anchor" href="#volatile">¶</a>volatile</h4>
+<ul>
+<li><strong>volatile 变量</strong><br>
+同步变量，保证此变量对所有线程的可见性，禁止指令重排序优化。</li>
 </ul>
 
 </div>
@@ -4420,19 +4470,23 @@
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

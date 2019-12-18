@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		1 类加载器 | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,12 +4395,13 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:50</span>
+	<span id="post-date">2019-12-18 01:00:42</span>
 </div>
 
 
 <div id="article">
-	<h3 id="1-类加载过程"><a href="#1-类加载过程" class="headerlink" title="1 类加载过程"></a>1 类加载过程</h3><p>虚拟机只加载程序执行时所需要的类文件。假设程序从MyProgram.class开始运行，下面是虚拟机执行的步骤：</p>
+	<h3 id="1-类加载过程"><a class="header-anchor" href="#1-类加载过程">¶</a>1 类加载过程</h3>
+<p>虚拟机只加载程序执行时所需要的类文件。假设程序从MyProgram.class开始运行，下面是虚拟机执行的步骤：</p>
 <ol>
 <li>虚拟机有一个用于加载类文件的机制。</li>
 <li>如果类拥有类型为另一个类的域，或者是拥有超类，那么这些类文件也会被加载。</li>
@@ -4386,29 +4410,44 @@
 </ol>
 <p>每个Java程序至少拥有三个类加载器：</p>
 <ul>
-<li>引导类加载器<br>加载系统类。必含，通常C语言实现。没有对应的ClassLoader对象。</li>
-<li>扩展类加载器<br>加载 jre/lib/ext 目录下“标准的扩展”</li>
-<li>系统类加载器<br>加载应用类</li>
+<li>引导类加载器<br>
+加载系统类。必含，通常C语言实现。没有对应的ClassLoader对象。</li>
+<li>扩展类加载器<br>
+加载 jre/lib/ext 目录下“标准的扩展”</li>
+<li>系统类加载器<br>
+加载应用类</li>
 </ul>
-<h3 id="2-类加载器的层次结构"><a href="#2-类加载器的层次结构" class="headerlink" title="2 类加载器的层次结构"></a>2 类加载器的层次结构</h3><p>类加载器有一种父/子关系。除了引导类加载器外，每个类加载器都有一个父类加载器。父类加载失败子类才加载。</p>
+<h3 id="2-类加载器的层次结构"><a class="header-anchor" href="#2-类加载器的层次结构">¶</a>2 类加载器的层次结构</h3>
+<p>类加载器有一种父/子关系。除了引导类加载器外，每个类加载器都有一个父类加载器。父类加载失败子类才加载。</p>
 <p>如果插件被打包为JAR文件，那就可以直接用URLClassLoader类的实例去加载这些类。</p>
 <pre><code>URL url = new URL(&quot;path&quot;);
 URLClassLoader pluginLoader = new URLClassLoader(new URL[] {url});
-Class&lt;?&gt; cl = pluginLoader.loadClass(&quot;mypackage.MyClass&quot;);</code></pre><p>可以通过下面将其设置成为任何类加载器</p>
+Class&lt;?&gt; cl = pluginLoader.loadClass(&quot;mypackage.MyClass&quot;);
+</code></pre>
+<p>可以通过下面将其设置成为任何类加载器</p>
 <pre><code>Thread = Thread.currentThread();
-t.setContextClassLoader(loader);</code></pre><p>助手方法可以获取这个上下文类加载器：</p>
+t.setContextClassLoader(loader);
+</code></pre>
+<p>助手方法可以获取这个上下文类加载器：</p>
 <pre><code>Thread t = Thread.currentThread();
 ClassLoader loader = t.getCOntextClassLoader();
-Class cl = loader.loaderClass(className);</code></pre><p>当调用由不同的类加载器加载的插件类的方法时，进行上下文类加载器的设置是一种好的思路；或者，让助手方法的调用者设置上下文类加载器。</p>
-<h3 id="3-将类加载器作为命名空间"><a href="#3-将类加载器作为命名空间" class="headerlink" title="3 将类加载器作为命名空间"></a>3 将类加载器作为命名空间</h3><p>同一虚拟机中，可以有两个类的类名和包名都相同。类是由它的全名和类加载器来确定的。</p>
-<h3 id="4-编写自己的类加载器"><a href="#4-编写自己的类加载器" class="headerlink" title="4 编写自己的类加载器"></a>4 编写自己的类加载器</h3><p>编写自己的类加载器，只需要继承ClassLoader类，然后覆盖下面这个方法</p>
-<pre><code>findClass(String className)</code></pre><p>ClassLoader超类的loadClass方法用于将类的加载操作委托给其父类加载器去进行，只有当该类尚未加载并且父类加载器也无法加载该类时，才调用findClass方法。</p>
+Class cl = loader.loaderClass(className);
+</code></pre>
+<p>当调用由不同的类加载器加载的插件类的方法时，进行上下文类加载器的设置是一种好的思路；或者，让助手方法的调用者设置上下文类加载器。</p>
+<h3 id="3-将类加载器作为命名空间"><a class="header-anchor" href="#3-将类加载器作为命名空间">¶</a>3 将类加载器作为命名空间</h3>
+<p>同一虚拟机中，可以有两个类的类名和包名都相同。类是由它的全名和类加载器来确定的。</p>
+<h3 id="4-编写自己的类加载器"><a class="header-anchor" href="#4-编写自己的类加载器">¶</a>4 编写自己的类加载器</h3>
+<p>编写自己的类加载器，只需要继承ClassLoader类，然后覆盖下面这个方法</p>
+<pre><code>findClass(String className)
+</code></pre>
+<p>ClassLoader超类的loadClass方法用于将类的加载操作委托给其父类加载器去进行，只有当该类尚未加载并且父类加载器也无法加载该类时，才调用findClass方法。</p>
 <p>如果要实现该方法，必须做到以下几点：</p>
 <ol>
 <li>为来自本地文件系统或者其他来源的类加载其字节码</li>
 <li>调用ClassLoader超类的defineClass方法，想虚拟机提供字节码。</li>
 </ol>
-<h3 id="5-字节码校验"><a href="#5-字节码校验" class="headerlink" title="5 字节码校验"></a>5 字节码校验</h3><p>当类加载器将新在加载的Java平台类的字节码传递给虚拟机，这些字节码首先要接受校验器的校验。校验器负责检查那些指令无法执行的明细那有破坏性的操作。出了系统类外，所有的类都要被校验。</p>
+<h3 id="5-字节码校验"><a class="header-anchor" href="#5-字节码校验">¶</a>5 字节码校验</h3>
+<p>当类加载器将新在加载的Java平台类的字节码传递给虚拟机，这些字节码首先要接受校验器的校验。校验器负责检查那些指令无法执行的明细那有破坏性的操作。出了系统类外，所有的类都要被校验。</p>
 <p>下面是校验器执行的一些检查：</p>
 <ul>
 <li>变量要在使用之前进行初始化。</li>
@@ -4426,19 +4465,23 @@ Class cl = loader.loaderClass(className);</code></pre><p>当调用由不同的�
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

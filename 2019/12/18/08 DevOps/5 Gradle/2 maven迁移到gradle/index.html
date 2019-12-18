@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		2 maven迁移到gradle | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,39 +4395,56 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:41</span>
+	<span id="post-date">2019-12-18 01:00:44</span>
 </div>
 
 
 <div id="article">
-	<h3 id="1-生成Maven构建图"><a href="#1-生成Maven构建图" class="headerlink" title="1 生成Maven构建图"></a>1 生成Maven构建图</h3><ol>
-<li>在根项目中 .mvn/extensions.xml 文件声明Gradle扩展<pre><code>&lt;extensions&gt;
- &lt;extension&gt;
-     &lt;groupId&gt;com.gradle&lt;/groupId&gt;
-     &lt;artifactId&gt;gradle-enterprise-maven-extension&lt;/artifactId&gt;
-     &lt;version&gt;1.0.6&lt;/version&gt;
- &lt;/extension&gt;
-&lt;/extensions&gt;</code></pre></li>
-<li>运行脚本<pre><code>mvn install -Dmaven.test.skip=true</code></pre>同意协议，获取构建图地址，类似 <a href="https://gradle.com/s/4jhcbxcnjoog4" target="_blank" rel="noopener">https://gradle.com/s/4jhcbxcnjoog4</a></li>
+	<h3 id="1-生成Maven构建图"><a class="header-anchor" href="#1-生成Maven构建图">¶</a>1 生成Maven构建图</h3>
+<ol>
+<li>在根项目中 .mvn/extensions.xml 文件声明Gradle扩展</li>
 </ol>
-<h3 id="2-运行自动转换"><a href="#2-运行自动转换" class="headerlink" title="2 运行自动转换"></a>2 运行自动转换</h3><pre><code>gradle init</code></pre><ul>
+<pre><code>&lt;extensions&gt;
+    &lt;extension&gt;
+        &lt;groupId&gt;com.gradle&lt;/groupId&gt;
+        &lt;artifactId&gt;gradle-enterprise-maven-extension&lt;/artifactId&gt;
+        &lt;version&gt;1.0.6&lt;/version&gt;
+    &lt;/extension&gt;
+&lt;/extensions&gt;
+</code></pre>
+<ol start="2">
+<li>运行脚本</li>
+</ol>
+<pre><code>mvn install -Dmaven.test.skip=true
+</code></pre>
+<p>同意协议，获取构建图地址，类似 <a href="https://gradle.com/s/4jhcbxcnjoog4" target="_blank" rel="noopener">https://gradle.com/s/4jhcbxcnjoog4</a></p>
+<h3 id="2-运行自动转换"><a class="header-anchor" href="#2-运行自动转换">¶</a>2 运行自动转换</h3>
+<pre><code>gradle init
+</code></pre>
+<ul>
 <li>删除无用的 pom 文件</li>
 <li>删除 .idea 文件后再重新导入项目</li>
 </ul>
-<h3 id="3-生成Gradle构建图"><a href="#3-生成Gradle构建图" class="headerlink" title="3 生成Gradle构建图"></a>3 生成Gradle构建图</h3><pre><code>gradlew build --scan -x test</code></pre><p>与之前maven的构建图对比，查漏补缺</p>
-<h3 id="4-验证依赖，修复问题"><a href="#4-验证依赖，修复问题" class="headerlink" title="4 验证依赖，修复问题"></a>4 验证依赖，修复问题</h3><p>lambok</p>
-<pre><code>compileOnly &#39;org.projectlombok:lombok:1.18.4&#39;
-annotationProcessor  &#39;org.projectlombok:lombok:1.18.4&#39;</code></pre><p>mapstruct</p>
+<h3 id="3-生成Gradle构建图"><a class="header-anchor" href="#3-生成Gradle构建图">¶</a>3 生成Gradle构建图</h3>
+<pre><code>gradlew build --scan -x test
+</code></pre>
+<p>与之前maven的构建图对比，查漏补缺</p>
+<h3 id="4-验证依赖，修复问题"><a class="header-anchor" href="#4-验证依赖，修复问题">¶</a>4 验证依赖，修复问题</h3>
+<p>lambok</p>
+<pre><code>compileOnly 'org.projectlombok:lombok:1.18.4'
+annotationProcessor  'org.projectlombok:lombok:1.18.4'
+</code></pre>
+<p>mapstruct</p>
 <pre><code>plugins {
     ...
-    id &#39;net.ltgt.apt&#39; version &#39;0.21&#39;
+    id 'net.ltgt.apt' version '0.21'
     id &quot;net.ltgt.apt-idea&quot; version &quot;0.21&quot;
 }
 
 dependencies {
     ...
     compile &quot;org.mapstruct:mapstruct:${mapstructVersion}&quot;
-
+ 
     // OR use this with Java 8 and beyond
     compile &quot;org.mapstruct:mapstruct-jdk8:${mapstructVersion}&quot;
     annotationProcessor &quot;org.mapstruct:mapstruct-processor:${mapstructVersion}&quot;
@@ -4414,29 +4454,33 @@ dependencies {
 //设置
 tasks.withType(JavaCompile) {
     options.compilerArgs = [
-            &#39;-Amapstruct.suppressGeneratorTimestamp=true&#39;,
-            &#39;-Amapstruct.suppressGeneratorVersionInfoComment=true&#39;,
-            &#39;-Amapstruct.defaultComponentModel=spring&#39;
+            '-Amapstruct.suppressGeneratorTimestamp=true',
+            '-Amapstruct.suppressGeneratorVersionInfoComment=true',
+            '-Amapstruct.defaultComponentModel=spring'
     ]
-}</code></pre><p>springboot插件指定Main函数</p>
+}
+</code></pre>
+<p>springboot插件指定Main函数</p>
 <pre><code>plugins {
-    id &#39;org.springframework.boot&#39; version&quot;2.1.2.RELEASE&quot;
+    id 'org.springframework.boot' version&quot;2.1.2.RELEASE&quot;
 }
 
 subprojects {
-    apply plugin: &#39;org.springframework.boot&#39;
+    apply plugin: 'org.springframework.boot'
 }
 
 //指定main
 bootJar {
-    mainClassName = &#39;com.sohu.auto.article.admin.AdminAppliction&#39;
+    mainClassName = 'com.sohu.auto.article.admin.AdminAppliction'
 }
 
 //构建
-gradlew bootJar</code></pre><p>buildscript</p>
+gradlew bootJar
+</code></pre>
+<p>buildscript</p>
 <pre><code>buildscript {
     ext {
-        springBootVersion = &#39;2.1.2.RELEASE&#39;
+        springBootVersion = '2.1.2.RELEASE'
     }
     repositories {
         mavenLocal()
@@ -4446,7 +4490,10 @@ gradlew bootJar</code></pre><p>buildscript</p>
     dependencies {
         classpath(&quot;org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}&quot;)
     }
-}</code></pre><h3 id="5-速度对比"><a href="#5-速度对比" class="headerlink" title="5 速度对比"></a>5 速度对比</h3><p>依赖都下载到本地，跳过测试，构建</p>
+}
+</code></pre>
+<h3 id="5-速度对比"><a class="header-anchor" href="#5-速度对比">¶</a>5 速度对比</h3>
+<p>依赖都下载到本地，跳过测试，构建</p>
 <ul>
 <li>Maven首次构建41s：<a href="https://scans.gradle.com/s/xojxxkbqk2mxg" target="_blank" rel="noopener">https://scans.gradle.com/s/xojxxkbqk2mxg</a></li>
 <li>Maven再次构建17s：<a href="https://scans.gradle.com/s/7bb2hb6tugh7s" target="_blank" rel="noopener">https://scans.gradle.com/s/7bb2hb6tugh7s</a></li>
@@ -4467,19 +4514,23 @@ gradlew bootJar</code></pre><p>buildscript</p>
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

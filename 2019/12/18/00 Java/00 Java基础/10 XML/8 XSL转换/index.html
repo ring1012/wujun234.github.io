@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		8 XSL转换 | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,35 +4395,55 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:47</span>
+	<span id="post-date">2019-12-18 01:00:41</span>
 </div>
 
 
 <div id="article">
 	<p>XSL 指扩展样式表语言（EXtensible Stylesheet Language），可描述如何来显示 XML 文档。</p>
 <p>XSL 包括三部分：XSLT、XPath、XSL-FO</p>
-<h3 id="XSLT"><a href="#XSLT" class="headerlink" title="XSLT"></a>XSLT</h3><p>XSLT = XSL 转换，是一种用于将 XML 文档转换为 XHTML 文档或其他 XML 文档的语言。</p>
+<h3 id="XSLT"><a class="header-anchor" href="#XSLT">¶</a>XSLT</h3>
+<p>XSLT = XSL 转换，是一种用于将 XML 文档转换为 XHTML 文档或其他 XML 文档的语言。</p>
 <p>XSLT 使用 XPath 来定义源文档中可匹配一个或多个预定义模板的部分。一旦匹配被找到，XSLT 就会把源文档的匹配部分转换为结果文档。</p>
-<h4 id="样式表声明"><a href="#样式表声明" class="headerlink" title="样式表声明"></a>样式表声明</h4><p>把文档声明为 XSL 样式表的根元素是 <a href="xsl:stylesheet" target="_blank" rel="noopener">xsl:stylesheet</a> 或 <a href="xsl:transform" target="_blank" rel="noopener">xsl:transform</a>。</p>
-<pre><code class="XML">&lt;xsl:stylesheet version=&quot;1.0&quot; xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;&gt;
+<h4 id="样式表声明"><a class="header-anchor" href="#样式表声明">¶</a>样式表声明</h4>
+<p>把文档声明为 XSL 样式表的根元素是 <a href="xsl:stylesheet" target="_blank" rel="noopener">xsl:stylesheet</a> 或 <a href="xsl:transform" target="_blank" rel="noopener">xsl:transform</a>。</p>
+<pre><code class="language-XML">&lt;xsl:stylesheet version=&quot;1.0&quot; xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;&gt;
 &lt;!--Or--&gt;
-&lt;xsl:transform version=&quot;1.0&quot; xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;&gt;</code></pre>
-<h4 id="样式表模板"><a href="#样式表模板" class="headerlink" title="样式表模板"></a>样式表模板</h4><h5 id="xsl-template-元素"><a href="#xsl-template-元素" class="headerlink" title="xsl:template 元素"></a><a href="xsl:template" target="_blank" rel="noopener">xsl:template</a> 元素</h5><p>用于构建模板。<br>match 属性用于关联 XML 元素和模板。match 属性也可用来为整个文档定义模板。match 属性的值是 XPath 表达式（举例，match=”/“ 定义整个文档）。</p>
-<h5 id="xsl-value-of-元素"><a href="#xsl-value-of-元素" class="headerlink" title="xsl:value-of 元素"></a><a href="xsl:value-of" target="_blank" rel="noopener">xsl:value-of</a> 元素</h5><p>用于提取某个选定节点的值，并把值添加到转换的输出流中。<br>select 属性的值是一个 XPath 表达式。</p>
-<h5 id="xsl-for-each-元素"><a href="#xsl-for-each-元素" class="headerlink" title="xsl:for-each 元素"></a><a href="xsl:for-each" target="_blank" rel="noopener">xsl:for-each</a> 元素</h5><p>用于选取指定的节点集中的每个 XML 元素。<br>select 属性的值是一个 XPath 表达式。</p>
-<h5 id="xsl-sort-元素"><a href="#xsl-sort-元素" class="headerlink" title="xsl:sort 元素"></a><a href="xsl:sort" target="_blank" rel="noopener">xsl:sort</a> 元素</h5><p>用于对结果进行排序。<br>select 属性的值是一个 XPath 表达式。</p>
-<h5 id="xsl-if-元素"><a href="#xsl-if-元素" class="headerlink" title="xsl:if 元素"></a><a href="xsl:if" target="_blank" rel="noopener">xsl:if</a> 元素</h5><pre><code>&lt;xsl:if test=&quot;expression&quot;&gt;
+&lt;xsl:transform version=&quot;1.0&quot; xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;&gt;
+</code></pre>
+<h4 id="样式表模板"><a class="header-anchor" href="#样式表模板">¶</a>样式表模板</h4>
+<h5 id="xsl-template-元素"><a class="header-anchor" href="#xsl-template-元素">¶</a><a href="xsl:template" target="_blank" rel="noopener">xsl:template</a> 元素</h5>
+<p>用于构建模板。<br>
+match 属性用于关联 XML 元素和模板。match 属性也可用来为整个文档定义模板。match 属性的值是 XPath 表达式（举例，match=&quot;/&quot; 定义整个文档）。</p>
+<h5 id="xsl-value-of-元素"><a class="header-anchor" href="#xsl-value-of-元素">¶</a><a href="xsl:value-of" target="_blank" rel="noopener">xsl:value-of</a> 元素</h5>
+<p>用于提取某个选定节点的值，并把值添加到转换的输出流中。<br>
+select 属性的值是一个 XPath 表达式。</p>
+<h5 id="xsl-for-each-元素"><a class="header-anchor" href="#xsl-for-each-元素">¶</a><a href="xsl:for-each" target="_blank" rel="noopener">xsl:for-each</a> 元素</h5>
+<p>用于选取指定的节点集中的每个 XML 元素。<br>
+select 属性的值是一个 XPath 表达式。</p>
+<h5 id="xsl-sort-元素"><a class="header-anchor" href="#xsl-sort-元素">¶</a><a href="xsl:sort" target="_blank" rel="noopener">xsl:sort</a> 元素</h5>
+<p>用于对结果进行排序。<br>
+select 属性的值是一个 XPath 表达式。</p>
+<h5 id="xsl-if-元素"><a class="header-anchor" href="#xsl-if-元素">¶</a><a href="xsl:if" target="_blank" rel="noopener">xsl:if</a> 元素</h5>
+<pre><code>&lt;xsl:if test=&quot;expression&quot;&gt;
   ...
   ...如果条件成立则输出...
   ...
-&lt;/xsl:if&gt;</code></pre><h5 id="xsl-choose-元素"><a href="#xsl-choose-元素" class="headerlink" title="xsl:choose 元素"></a><a href="xsl:choose" target="_blank" rel="noopener">xsl:choose</a> 元素</h5><pre><code>&lt;xsl:choose&gt;
+&lt;/xsl:if&gt;
+</code></pre>
+<h5 id="xsl-choose-元素"><a class="header-anchor" href="#xsl-choose-元素">¶</a><a href="xsl:choose" target="_blank" rel="noopener">xsl:choose</a> 元素</h5>
+<pre><code>&lt;xsl:choose&gt;
   &lt;xsl:when test=&quot;expression&quot;&gt;
     ... 输出 ...
   &lt;/xsl:when&gt;
   &lt;xsl:otherwise&gt;
     ... 输出 ....
   &lt;/xsl:otherwise&gt;
-&lt;/xsl:choose&gt;</code></pre><h4 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h4><h5 id="原始-XML-文档"><a href="#原始-XML-文档" class="headerlink" title="原始 XML 文档"></a>原始 XML 文档</h5><pre><code class="XML">&lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?&gt;
+&lt;/xsl:choose&gt;
+</code></pre>
+<h4 id="实例"><a class="header-anchor" href="#实例">¶</a>实例</h4>
+<h5 id="原始-XML-文档"><a class="header-anchor" href="#原始-XML-文档">¶</a>原始 XML 文档</h5>
+<pre><code class="language-XML">&lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?&gt;
 &lt;catalog&gt;
   &lt;cd&gt;
     &lt;title&gt;Empire Burlesque&lt;/title&gt;
@@ -4413,8 +4456,10 @@
 .
 .
 .
-&lt;/catalog&gt;</code></pre>
-<h5 id="创建-XSL-样式表"><a href="#创建-XSL-样式表" class="headerlink" title="创建 XSL 样式表"></a>创建 XSL 样式表</h5><pre><code class="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?&gt;
+&lt;/catalog&gt;
+</code></pre>
+<h5 id="创建-XSL-样式表"><a class="header-anchor" href="#创建-XSL-样式表">¶</a>创建 XSL 样式表</h5>
+<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?&gt;
 
 &lt;xsl:stylesheet version=&quot;1.0&quot; xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;&gt;
 
@@ -4438,9 +4483,11 @@
   &lt;/html&gt;
 &lt;/xsl:template&gt;
 
-&lt;/xsl:stylesheet&gt;</code></pre>
-<h5 id="把-XSL-样式表链接到-XML-文档"><a href="#把-XSL-样式表链接到-XML-文档" class="headerlink" title="把 XSL 样式表链接到 XML 文档"></a>把 XSL 样式表链接到 XML 文档</h5><p>链接转换</p>
-<pre><code class="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?&gt;
+&lt;/xsl:stylesheet&gt;
+</code></pre>
+<h5 id="把-XSL-样式表链接到-XML-文档"><a class="header-anchor" href="#把-XSL-样式表链接到-XML-文档">¶</a>把 XSL 样式表链接到 XML 文档</h5>
+<p>链接转换</p>
+<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?&gt;
 &lt;?xml-stylesheet type=&quot;text/xsl&quot; href=&quot;cdcatalog.xsl&quot;?&gt;
 &lt;catalog&gt;
   &lt;cd&gt;
@@ -4454,7 +4501,8 @@
 .
 .
 .
-&lt;/catalog&gt;</code></pre>
+&lt;/catalog&gt;
+</code></pre>
 
 </div>
 
@@ -4464,19 +4512,23 @@
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

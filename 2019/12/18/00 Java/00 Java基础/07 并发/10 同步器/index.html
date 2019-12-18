@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		10 同步器 | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,13 +4395,14 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:48</span>
+	<span id="post-date">2019-12-18 01:00:41</span>
 </div>
 
 
 <div id="article">
 	<p>java.util.concurrent 包包含了几个能帮助人们管理相互合作的线程集的类。这些机制具有为线程之间的<strong>共用集结点模式</strong>提供的“预置功能”。如果有一个相互合作的线程集满足这些行为模式之一，那么应该直接重用合适的库类而不要试图提供手工的锁与条件的集合。</p>
-<h5 id="同步器"><a href="#同步器" class="headerlink" title="同步器"></a>同步器</h5><table>
+<h5 id="同步器"><a class="header-anchor" href="#同步器">¶</a>同步器</h5>
+<table>
 <thead>
 <tr>
 <th>类</th>
@@ -4386,7 +4410,8 @@
 <th>说明</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>CyclicBarrier</td>
 <td>允许线程集等待直至其中预定数目的线程到达一个公共障栅，然后可以选择执行一个处理障栅的工作</td>
 <td>当大量的线程需要在它们的结果可用之前完成时</td>
@@ -4416,47 +4441,57 @@
 <td>允许一个线程把对象交给另一个线程</td>
 <td>在没有显式同步的情况下，当两个线程准备好将一个对象从一个线程传递到另一个时</td>
 </tr>
-</tbody></table>
-<h3 id="1-信号量（Semaphore）"><a href="#1-信号量（Semaphore）" class="headerlink" title="1 信号量（Semaphore）"></a>1 信号量（Semaphore）</h3><p>信号量（Semaphore）可以控同时访问的线程个数。</p>
+</tbody>
+</table>
+<h3 id="1-信号量（Semaphore）"><a class="header-anchor" href="#1-信号量（Semaphore）">¶</a>1 信号量（Semaphore）</h3>
+<p>信号量（Semaphore）可以控同时访问的线程个数。</p>
 <ul>
-<li><p>acquire() ：获取一个许可，如果没有就阻塞等待</p>
-</li>
-<li><p>release() ：释放一个许可。</p>
-</li>
-<li><p>tryAcquire()：非阻塞  </p>
-</li>
-<li><p>availablePermits()：得到可用的许可数目</p>
-<pre><code class="java">private Semaphore semaphore = new Semaphore(1);
+<li>acquire() ：获取一个许可，如果没有就阻塞等待</li>
+<li>release() ：释放一个许可。</li>
+<li>tryAcquire()：非阻塞</li>
+<li>availablePermits()：得到可用的许可数目</li>
+</ul>
+<pre><code class="language-java">private Semaphore semaphore = new Semaphore(1);
 semaphore.acquire();
 Thread.currentThread().getName()
-semaphore.release();</code></pre>
-<h3 id="2-倒计时门栓（CountDownLatch）"><a href="#2-倒计时门栓（CountDownLatch）" class="headerlink" title="2 倒计时门栓（CountDownLatch）"></a>2 倒计时门栓（CountDownLatch）</h3><p>CountDownLatch 让一个线程集等待直到计数变为 0。倒计时门栓是一次性的。一旦计数为 0，就不能在重用了。</p>
-</li>
-<li><p>await()：线程挂起，直到count值为0</p>
-</li>
-<li><p>countDown()：将count值减1</p>
+semaphore.release();
+</code></pre>
+<h3 id="2-倒计时门栓（CountDownLatch）"><a class="header-anchor" href="#2-倒计时门栓（CountDownLatch）">¶</a>2 倒计时门栓（CountDownLatch）</h3>
+<p>CountDownLatch 让一个线程集等待直到计数变为 0。倒计时门栓是一次性的。一旦计数为 0，就不能在重用了。</p>
+<ul>
+<li>await()：线程挂起，直到count值为0</li>
+<li>countDown()：将count值减1</li>
+</ul>
 <pre><code>final CountDownLatch latch = new CountDownLatch(2);
 latch.countDown();
-latch.await();</code></pre><h3 id="3-障栅（CyclicBarrier）"><a href="#3-障栅（CyclicBarrier）" class="headerlink" title="3 障栅（CyclicBarrier）"></a>3 障栅（CyclicBarrier）</h3><p>CyclicBarrier 类实现让一组线程等待至某个状态（barrier）之后再全部同时执行。当所有等待线程都被释放以后，CyclicBarrier可以被重用。</p>
-</li>
-<li><p>await()：线程挂起，直至所有线程都到达barrier状态</p>
+latch.await();
+</code></pre>
+<h3 id="3-障栅（CyclicBarrier）"><a class="header-anchor" href="#3-障栅（CyclicBarrier）">¶</a>3 障栅（CyclicBarrier）</h3>
+<p>CyclicBarrier 类实现让一组线程等待至某个状态（barrier）之后再全部同时执行。当所有等待线程都被释放以后，CyclicBarrier可以被重用。</p>
+<ul>
+<li>await()：线程挂起，直至所有线程都到达barrier状态</li>
+</ul>
 <pre><code>//构造一个障栅，并给出参与的线程数  
 CyclicBarrier barrier = new CyclicBarrier(nthreads);
 //每一个线程做一些工作，完成后在障栅上调用 await
 public void run(){
-  doWork();
-  brrier.await();
-  ...
-}</code></pre></li>
-</ul>
+    doWork();
+    brrier.await();
+    ...
+}
+</code></pre>
 <p>如果任何一个在障栅上等待的线程离开了障栅，那么障栅就被破坏了。在这种情况下，所有其他线程的 await 方法抛出 BrokenBarrierException 异常。那些已经在等待的线程立即终止 await 的调用。</p>
-<h5 id="可选的障栅"><a href="#可选的障栅" class="headerlink" title="可选的障栅"></a>可选的障栅</h5><p>可以提供一个可选的障栅（barrier action），当所有线程到达障栅的时候就会执行这一动作。</p>
-<pre><code class="java">Runnable barrierAction = ...;
-CyclicBarrier barrier = new CyclicBarrier(nthreads, barrierAction);</code></pre>
+<h5 id="可选的障栅"><a class="header-anchor" href="#可选的障栅">¶</a>可选的障栅</h5>
+<p>可以提供一个可选的障栅（barrier action），当所有线程到达障栅的时候就会执行这一动作。</p>
+<pre><code class="language-java">Runnable barrierAction = ...;
+CyclicBarrier barrier = new CyclicBarrier(nthreads, barrierAction);
+</code></pre>
 <p>该动作可以收集那些单个线程的运行结果。</p>
 <p>Phaser 类增加了更大的灵活性，允许改变不同阶段中参与线程的个数。</p>
-<h3 id="4-交换器（Exchanger）"><a href="#4-交换器（Exchanger）" class="headerlink" title="4 交换器（Exchanger）"></a>4 交换器（Exchanger）</h3><p>当两个线程在同一数据缓冲区的两个实例上工作的时候，就可以使用交换器（Exchanger）。典型的情况是，一个线程向缓冲区填入数据，另一个线程消耗这些数据。当它们都完成以后，相互交换缓冲区。</p>
-<h3 id="5-同步队列（SynchronousQueue）"><a href="#5-同步队列（SynchronousQueue）" class="headerlink" title="5 同步队列（SynchronousQueue）"></a>5 同步队列（SynchronousQueue）</h3><p>同步队列是一种将生产者与消费者线程配对的机制。当一个线程调用 SynchronousQueue 的 put 方法时，它会阻塞直到另一个线程调用 take 方法为止，反之亦然。与 Exchanger 的情况不同，数据仅仅沿一个方向传递，从生产者到消费者。</p>
+<h3 id="4-交换器（Exchanger）"><a class="header-anchor" href="#4-交换器（Exchanger）">¶</a>4 交换器（Exchanger）</h3>
+<p>当两个线程在同一数据缓冲区的两个实例上工作的时候，就可以使用交换器（Exchanger）。典型的情况是，一个线程向缓冲区填入数据，另一个线程消耗这些数据。当它们都完成以后，相互交换缓冲区。</p>
+<h3 id="5-同步队列（SynchronousQueue）"><a class="header-anchor" href="#5-同步队列（SynchronousQueue）">¶</a>5 同步队列（SynchronousQueue）</h3>
+<p>同步队列是一种将生产者与消费者线程配对的机制。当一个线程调用 SynchronousQueue 的 put 方法时，它会阻塞直到另一个线程调用 take 方法为止，反之亦然。与 Exchanger 的情况不同，数据仅仅沿一个方向传递，从生产者到消费者。</p>
 <p>即使 SynchronousQueue 类实现了 BlockingQueue 接口，概念上讲，它依然不是一个队列。它没有包含任何元素，它的 size 方法总是返回 0。</p>
 
 </div>
@@ -4467,19 +4502,23 @@ CyclicBarrier barrier = new CyclicBarrier(nthreads, barrierAction);</code></pre>
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

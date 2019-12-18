@@ -1,10 +1,30 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +35,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4369,16 +4390,14 @@
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/02%20%E6%95%B0%E6%8D%AE%E5%BA%93/06%20Cassandra/1%20Cassandra%20%E7%AE%80%E4%BB%8B/">1 Cassandra 简介</a>
+					<a class="article-title" href="/2019/12/18/02%20%E6%95%B0%E6%8D%AE%E5%BA%93/06%20Cassandra/6%20Cassandra%20vs.%20HBase/">6 Cassandra vs. HBase</a>
 				</h2>
 				<span class="post-date">2019-12-18</span>
 				<div class="article-digest">
-					官方文档
-（不完整，很多todo）
-Datastax
-CQL语法
-1 Cassandra简介
-Cassandra 是一种分布式非关系型数据库，具有高性能、可扩展、无中心化、高可用性、无单点故障等特征。
+					参考：
+
+Cassandra vs. HBase: twins or just strangers with similar looks?[Jun 19, 2018]
+HBase vs Cassand
 					...
 				</div>
 			</article>
@@ -4387,14 +4406,37 @@ Cassandra 是一种分布式非关系型数据库，具有高性能、可扩展�
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/02%20%E6%95%B0%E6%8D%AE%E5%BA%93/06%20Cassandra/2%20Cassandra%20%E6%9E%B6%E6%9E%84/">2 Cassandra 架构</a>
+					<a class="article-title" href="/2019/12/18/02%20%E6%95%B0%E6%8D%AE%E5%BA%93/06%20Cassandra/5%20Gossip%20%E5%8D%8F%E8%AE%AE/">5 Gossip 协议</a>
 				</h2>
 				<span class="post-date">2019-12-18</span>
 				<div class="article-digest">
-					1 核心架构1）Node节点，存放数据的地方，Cassandra的基础设施。
-2）datacenter
-数据中心，关联节点的集合。可以是物理或虚拟的。
-复制策略由datacenter设置。数据通过复制
+					Gossip的原始论文：《Efficient Reconciliation and Flow Control for Anti-Entropy Protocols》
+
+¶1 概述
+¶1）特点
+
+最终一
+					...
+				</div>
+			</article>
+			
+		
+
+			<article class="article-li">
+				<h2>
+					<a class="article-title" href="/2019/12/18/02%20%E6%95%B0%E6%8D%AE%E5%BA%93/06%20Cassandra/4%20%E8%BF%81%E7%A7%BB%E6%A1%88%E4%BE%8B%E7%A4%BA%E4%BE%8B/">4 迁移案例示例</a>
+				</h2>
+				<span class="post-date">2019-12-18</span>
+				<div class="article-digest">
+					¶1 关系型数据库的设计
+用户信息 E-R 图
+
+¶2 Cassandra 设计
+¶1）归一化到自定义索引的规范化实体
+最佳选择，但是设计时应该增加时间戳 column。
+
+¶2）部分去规范化实体
+采
 					...
 				</div>
 			</article>
@@ -4416,15 +4458,17 @@ Cassandra 是一种分布式非关系型数据库，具有高性能、可扩展�
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/02%20%E6%95%B0%E6%8D%AE%E5%BA%93/06%20Cassandra/4%20%E8%BF%81%E7%A7%BB%E6%A1%88%E4%BE%8B%E7%A4%BA%E4%BE%8B/">4 迁移案例示例</a>
+					<a class="article-title" href="/2019/12/18/02%20%E6%95%B0%E6%8D%AE%E5%BA%93/06%20Cassandra/2%20Cassandra%20%E6%9E%B6%E6%9E%84/">2 Cassandra 架构</a>
 				</h2>
 				<span class="post-date">2019-12-18</span>
 				<div class="article-digest">
-					1 关系型数据库的设计用户信息 E-R 图
+					¶1 核心架构
+¶1）Node
+节点，存放数据的地方，Cassandra的基础设施。
+¶2）datacenter
 
-2 Cassandra 设计1）归一化到自定义索引的规范化实体最佳选择，但是设计时应该增加时间戳 column。
-
-2）部分去规范化实体采用 Super 
+数据中心，关联节点的集合。可以是物理或虚拟的。
+复制策略由datacenter设置。
 					...
 				</div>
 			</article>
@@ -4433,30 +4477,17 @@ Cassandra 是一种分布式非关系型数据库，具有高性能、可扩展�
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/02%20%E6%95%B0%E6%8D%AE%E5%BA%93/06%20Cassandra/5%20Gossip%20%E5%8D%8F%E8%AE%AE/">5 Gossip 协议</a>
+					<a class="article-title" href="/2019/12/18/02%20%E6%95%B0%E6%8D%AE%E5%BA%93/06%20Cassandra/1%20Cassandra%20%E7%AE%80%E4%BB%8B/">1 Cassandra 简介</a>
 				</h2>
 				<span class="post-date">2019-12-18</span>
 				<div class="article-digest">
-					Gossip的原始论文：《Efficient Reconciliation and Flow Control for Anti-Entropy Protocols》
+					官方文档
+（不完整，很多todo）
+Datastax
+CQL语法
+¶1 Cassandra简介
 
-1 概述1）特点
-最终一致性：在
-					...
-				</div>
-			</article>
-			
-		
-
-			<article class="article-li">
-				<h2>
-					<a class="article-title" href="/2019/12/18/02%20%E6%95%B0%E6%8D%AE%E5%BA%93/06%20Cassandra/6%20Cassandra%20vs.%20HBase/">6 Cassandra vs. HBase</a>
-				</h2>
-				<span class="post-date">2019-12-18</span>
-				<div class="article-digest">
-					参考：
-
-Cassandra vs. HBase: twins or just strangers with similar looks?[Jun 19, 2018]
-HBase vs Cassand
+Cassandra 是一种分布式非关系型数据库，具有高性能、可扩展、无中心化、高可用性、无单点故障等特
 					...
 				</div>
 			</article>
@@ -4470,19 +4501,23 @@ HBase vs Cassand
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

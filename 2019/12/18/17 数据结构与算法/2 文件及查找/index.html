@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		2 文件及查找 | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,12 +4395,13 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:15</span>
+	<span id="post-date">2019-12-18 01:00:44</span>
 </div>
 
 
 <div id="article">
-	<h3 id="1-文件的基本概念"><a href="#1-文件的基本概念" class="headerlink" title="1 文件的基本概念"></a>1 文件的基本概念</h3><ul>
+	<h3 id="1-文件的基本概念"><a class="header-anchor" href="#1-文件的基本概念">¶</a>1 文件的基本概念</h3>
+<ul>
 <li>记录：是文件中存取的基本单位</li>
 <li>数据项：是文件可使用的最小单位，有时也称为字段、属性</li>
 <li>主关键字项：其值能唯一标识一个记录的数据项或数据项的组合</li>
@@ -4391,7 +4415,8 @@
 <ul>
 <li>顺序存取：按记录号一次存取逻辑记录</li>
 <li>直接存取：按记录号或记录的相对位置直接取得需要的记录</li>
-<li>按关键字存取：给定一个关键字的值，查询一个或多个关键字与给定值相关的记录<ul>
+<li>按关键字存取：给定一个关键字的值，查询一个或多个关键字与给定值相关的记录
+<ul>
 <li>简单查询：查询关键字等于给定值的记录</li>
 <li>区域查询：查询关键字属于某个范围的记录</li>
 <li>函数查询：给定关键字的值使函数成立的记录</li>
@@ -4399,10 +4424,14 @@
 </ul>
 </li>
 </ul>
-<h3 id="2-文件的分类"><a href="#2-文件的分类" class="headerlink" title="2 文件的分类"></a>2 文件的分类</h3><h4 id="1）顺序文件"><a href="#1）顺序文件" class="headerlink" title="1）顺序文件"></a>1）顺序文件</h4><p>顺序文件是记录按其在文件中的逻辑顺序依次存入存储介质所建立的文件。</p>
+<h3 id="2-文件的分类"><a class="header-anchor" href="#2-文件的分类">¶</a>2 文件的分类</h3>
+<h4 id="1）顺序文件"><a class="header-anchor" href="#1）顺序文件">¶</a>1）顺序文件</h4>
+<p>顺序文件是记录按其在文件中的逻辑顺序依次存入存储介质所建立的文件。</p>
 <p>优点是连续存取的速度快，因此主要用于只进行顺序存取、批量修改的情况。</p>
 <p>典型介质是磁带。</p>
-<h4 id="2）索引文件"><a href="#2）索引文件" class="headerlink" title="2）索引文件"></a>2）索引文件</h4><h5 id="索引文件概述"><a href="#索引文件概述" class="headerlink" title="索引文件概述"></a>索引文件概述</h5><p>索引文件由索引区和文件数据区构成。</p>
+<h4 id="2）索引文件"><a class="header-anchor" href="#2）索引文件">¶</a>2）索引文件</h4>
+<h5 id="索引文件概述"><a class="header-anchor" href="#索引文件概述">¶</a>索引文件概述</h5>
+<p>索引文件由索引区和文件数据区构成。</p>
 <p>文件数据区按关键字有序的称为索引顺序文件（稀疏索引），否则为索引非顺序文件（稠密索引、通常是指索引文件）。</p>
 <p>索引区指明逻辑记录和物理记录之间的一一对应关系，称为索引表。由索引项组成。索引项分为关键字和关键字对应的记录地址</p>
 <p>索引文件在存储器上分为两个区：索引区和数据区。前者放索引表，后者放主文件。</p>
@@ -4415,22 +4444,32 @@
 <li>查找表：若索引很大，一个页块容纳不下时，可以对索引表建立一个索引，称为查找表。</li>
 <li>多级索引是一种静态索引，各级索引均为顺序表，修改不便，每次修改都要重组索引。因此，当数据文件在使用过程中记录变动较多时，应采用动态索引</li>
 </ul>
-<h5 id="ISAM"><a href="#ISAM" class="headerlink" title="ISAM"></a>ISAM</h5><p>ISAM（索引顺序存取方法，Indexed Sequential Access Methed），是一种专为磁盘存取文件设计的文件组织方式，采用静态索引结构。</p>
+<h5 id="ISAM"><a class="header-anchor" href="#ISAM">¶</a>ISAM</h5>
+<p>ISAM（索引顺序存取方法，Indexed Sequential Access Methed），是一种专为磁盘存取文件设计的文件组织方式，采用静态索引结构。</p>
 <p>ISAM文件由多级主索引、柱面索引、磁道索引和主文件组成。</p>
-<h5 id="VSAM"><a href="#VSAM" class="headerlink" title="VSAM"></a>VSAM</h5><p>VSAM（虚拟存储存取方法，Virtual Storage Access Method，也是一种索引顺序文件的组织方式，采用 B+ 树作为动态索引结构。</p>
-<h4 id="3）直接存取文件（散列文件）"><a href="#3）直接存取文件（散列文件）" class="headerlink" title="3）直接存取文件（散列文件）"></a>3）直接存取文件（散列文件）</h4><p>在散列文件中，存储单位是桶。桶溢出时通过拉链法存到溢出桶中。</p>
-<h4 id="4）多关键字文件"><a href="#4）多关键字文件" class="headerlink" title="4）多关键字文件"></a>4）多关键字文件</h4><h5 id="多重表文件"><a href="#多重表文件" class="headerlink" title="多重表文件"></a>多重表文件</h5><p>多重表文件是将索引方法和链接方法相结合的一种组织方式，对每个需要查询的次关键字建立一个索引，同时将具有相同关键字的记录链接成一个链表，并将此链表的头指针、链表长度及次关键字作为索引表的一个索引项。</p>
-<h5 id="倒排文件"><a href="#倒排文件" class="headerlink" title="倒排文件"></a>倒排文件</h5><p>倒排文件和多重链表的区别在于次关键字索引的结构不同，倒排文件的次关键字索引称为倒排表。具有相同关键字的记录之间不进行链接，而是在倒排表中列出具有该次关键字记录的物理地址。</p>
-<h3 id="3-文件的存储"><a href="#3-文件的存储" class="headerlink" title="3 文件的存储"></a>3 文件的存储</h3><h4 id="1）磁盘"><a href="#1）磁盘" class="headerlink" title="1）磁盘"></a>1）磁盘</h4><p>磁盘通常称为直接访问存储设备。是随机存取设备。通常以存储非顺序文件为主，读取以扇区为单位。</p>
+<h5 id="VSAM"><a class="header-anchor" href="#VSAM">¶</a>VSAM</h5>
+<p>VSAM（虚拟存储存取方法，Virtual Storage Access Method，也是一种索引顺序文件的组织方式，采用 B+ 树作为动态索引结构。</p>
+<h4 id="3）直接存取文件（散列文件）"><a class="header-anchor" href="#3）直接存取文件（散列文件）">¶</a>3）直接存取文件（散列文件）</h4>
+<p>在散列文件中，存储单位是桶。桶溢出时通过拉链法存到溢出桶中。</p>
+<h4 id="4）多关键字文件"><a class="header-anchor" href="#4）多关键字文件">¶</a>4）多关键字文件</h4>
+<h5 id="多重表文件"><a class="header-anchor" href="#多重表文件">¶</a>多重表文件</h5>
+<p>多重表文件是将索引方法和链接方法相结合的一种组织方式，对每个需要查询的次关键字建立一个索引，同时将具有相同关键字的记录链接成一个链表，并将此链表的头指针、链表长度及次关键字作为索引表的一个索引项。</p>
+<h5 id="倒排文件"><a class="header-anchor" href="#倒排文件">¶</a>倒排文件</h5>
+<p>倒排文件和多重链表的区别在于次关键字索引的结构不同，倒排文件的次关键字索引称为倒排表。具有相同关键字的记录之间不进行链接，而是在倒排表中列出具有该次关键字记录的物理地址。</p>
+<h3 id="3-文件的存储"><a class="header-anchor" href="#3-文件的存储">¶</a>3 文件的存储</h3>
+<h4 id="1）磁盘"><a class="header-anchor" href="#1）磁盘">¶</a>1）磁盘</h4>
+<p>磁盘通常称为直接访问存储设备。是随机存取设备。通常以存储非顺序文件为主，读取以扇区为单位。</p>
 <p>使用磁盘主要有3个时间需要考虑：</p>
 <ul>
 <li>寻道时间：磁头从当前位置移到数据存放磁道位置后所花的时间</li>
 <li>旋转时间：磁头从当前扇区移动到数据存放扇区位置所花的时间</li>
 <li>传送时间：数据从磁盘读取数据，并将数据传送到内存的时间</li>
 </ul>
-<h4 id="2）磁带"><a href="#2）磁带" class="headerlink" title="2）磁带"></a>2）磁带</h4><p>磁带通常称为顺序存储设备，只能顺序访问。</p>
+<h4 id="2）磁带"><a class="header-anchor" href="#2）磁带">¶</a>2）磁带</h4>
+<p>磁带通常称为顺序存储设备，只能顺序访问。</p>
 <p>存取单位是磁带长度，存储单位是块。</p>
-<h4 id="3）CD-ROM、闪存"><a href="#3）CD-ROM、闪存" class="headerlink" title="3）CD-ROM、闪存"></a>3）CD-ROM、闪存</h4>
+<h4 id="3）CD-ROM、闪存"><a class="header-anchor" href="#3）CD-ROM、闪存">¶</a>3）CD-ROM、闪存</h4>
+
 </div>
 
 	</div>
@@ -4439,19 +4478,23 @@
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

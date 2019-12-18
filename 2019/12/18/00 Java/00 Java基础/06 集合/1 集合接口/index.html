@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		1 集合接口 | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,16 +4395,25 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:47</span>
+	<span id="post-date">2019-12-18 01:00:41</span>
 </div>
 
 
 <div id="article">
-	<p>框架，是一个类的集。<br>容器，是可以容纳其他Java对象的对象。<br>JDK 1.2开始，Java集合框架(JCF)提供了通用的容器。<br>JDK 1.5开始，集合类是带有类型参数的泛型类。<br>Java容器里只能放对象，基本类型会自动装箱。<br>集合中也是值传递。</p>
-<h4 id="1-接口与实现"><a href="#1-接口与实现" class="headerlink" title="1 接口与实现"></a>1 接口与实现</h4><h5 id="接口"><a href="#接口" class="headerlink" title="接口"></a>接口</h5><p>为了规范容器的行为，统一设计，JCF定义了14种容器接口<br><img src="/images/1545011832790.png" alt="image"></p>
+	<p>框架，是一个类的集。<br>
+容器，是可以容纳其他Java对象的对象。<br>
+JDK 1.2开始，Java集合框架(JCF)提供了通用的容器。<br>
+JDK 1.5开始，集合类是带有类型参数的泛型类。<br>
+Java容器里只能放对象，基本类型会自动装箱。<br>
+集合中也是值传递。</p>
+<h4 id="1-接口与实现"><a class="header-anchor" href="#1-接口与实现">¶</a>1 接口与实现</h4>
+<h5 id="接口"><a class="header-anchor" href="#接口">¶</a>接口</h5>
+<p>为了规范容器的行为，统一设计，JCF定义了14种容器接口<br>
+<img src="/images/1545011832790.png" alt="image"></p>
 <p>Map接口没有继承自Collection接口，因为Map表示的是关联式容器而不是集合。</p>
 <p>JDK 1.6开始，Stack已被Deque取代。</p>
-<h5 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h5><p>上述接口的通用实现见下表：</p>
+<h5 id="实现"><a class="header-anchor" href="#实现">¶</a>实现</h5>
+<p>上述接口的通用实现见下表：</p>
 <table> 
     <tr> 
         <td rowspan="2" colspan="2"> 
@@ -4429,26 +4461,38 @@
         <td>LinkedHashMap</td> 
     </tr> 
 </table>
-
-<h4 id="2-迭代器（Iterator）"><a href="#2-迭代器（Iterator）" class="headerlink" title="2 迭代器（Iterator）"></a>2 迭代器（Iterator）</h4><p>Collection的iterator方法返回一个迭代器对象。可以使用这iterator依次访问集合中的元素。</p>
+<h4 id="2-迭代器（Iterator）"><a class="header-anchor" href="#2-迭代器（Iterator）">¶</a>2 迭代器（Iterator）</h4>
+<p>Collection的iterator方法返回一个迭代器对象。可以使用这iterator依次访问集合中的元素。</p>
 <pre><code>public interface Iterator&lt;E&gt; {
     boolean hasNext();
     E next();
     void remove();
-}</code></pre><h5 id="Iterator中的循环"><a href="#Iterator中的循环" class="headerlink" title="Iterator中的循环"></a>Iterator中的循环</h5><p>先hasNext()，再next()取用一个对象。</p>
+}
+</code></pre>
+<h5 id="Iterator中的循环"><a class="header-anchor" href="#Iterator中的循环">¶</a>Iterator中的循环</h5>
+<p>先hasNext()，再next()取用一个对象。</p>
 <pre><code>Collection&lt;String&gt; c = ...;
 Iterator&lt;String&gt; iter = c.iterator();
 while(iter.hasNext()){
     String element =iter.next();
-}</code></pre><p>JDK 1.5开始，提供增强“for each”循环支持Iterable接口。  </p>
-<pre><code>for(String element : c){}</code></pre><p>Collection接口扩展了Iterable接口，任何集合都可以使用增强for循环。</p>
-<h5 id="Iterator中的remove方法"><a href="#Iterator中的remove方法" class="headerlink" title="Iterator中的remove方法"></a>Iterator中的remove方法</h5><p>Iterator.next 类似 InputStream.read，调用、读取、消耗。<br>next方法和remove方法具有相互依赖型，调用remove之前没有调用next是不合法的。<br>remove是指删除最后遍历的元素</p>
+}
+</code></pre>
+<p>JDK 1.5开始，提供增强“for each”循环支持Iterable接口。</p>
+<pre><code>for(String element : c){}
+</code></pre>
+<p>Collection接口扩展了Iterable接口，任何集合都可以使用增强for循环。</p>
+<h5 id="Iterator中的remove方法"><a class="header-anchor" href="#Iterator中的remove方法">¶</a>Iterator中的remove方法</h5>
+<p>Iterator.next 类似 InputStream.read，调用、读取、消耗。<br>
+next方法和remove方法具有相互依赖型，调用remove之前没有调用next是不合法的。<br>
+remove是指删除最后遍历的元素</p>
 <pre><code>it.next();
 it.remove();//OK
 
 it.next();
 it.remove();
-it.remove();//IllegalStateException</code></pre>
+it.remove();//IllegalStateException
+</code></pre>
+
 </div>
 
 	</div>
@@ -4457,19 +4501,23 @@ it.remove();//IllegalStateException</code></pre>
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

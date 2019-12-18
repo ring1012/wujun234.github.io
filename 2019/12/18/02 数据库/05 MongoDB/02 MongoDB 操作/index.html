@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		02 MongoDB 操作 | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,45 +4395,56 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:23</span>
+	<span id="post-date">2019-12-18 01:00:43</span>
 </div>
 
 
 <div id="article">
-	<h3 id="1-连接"><a href="#1-连接" class="headerlink" title="1 连接"></a>1 连接</h3><p>标准 URI 连接语法：<br><code>mongodb://[username:password@]host1[:port1][,host2[:port2],...[,hostN[:portN]]][/[database][?options]]</code></p>
+	<h3 id="1-连接"><a class="header-anchor" href="#1-连接">¶</a>1 连接</h3>
+<p>标准 URI 连接语法：<br>
+<code>mongodb://[username:password@]host1[:port1][,host2[:port2],...[,hostN[:portN]]][/[database][?options]]</code></p>
 <ul>
 <li>mongodb:// 固定格式</li>
 <li>username:password@ 可选项，如果设置，在连接数据库服务器之后，驱动都会尝试登陆这个数据库</li>
 <li>host1 必须的指定至少一个host, host1 是这个URI唯一要填写的。它指定了要连接服务器的地址。如果要连接复制集，请指定多个主机地址。</li>
 <li>portX 可选的指定端口，如果不填，默认为27017</li>
 <li>/database 如果指定username:password@，连接并验证登陆指定数据库。若不指定，默认打开 test 数据库。</li>
-<li>?options 是连接选项。如果不使用/database，则前面需要加上/。所有连接选项都是键值对name=value，键值对之间通过&amp;或;隔开 </li>
+<li>?options 是连接选项。如果不使用/database，则前面需要加上/。所有连接选项都是键值对name=value，键值对之间通过&amp;或;隔开</li>
 </ul>
-<h3 id="2-数据库"><a href="#2-数据库" class="headerlink" title="2 数据库"></a>2 数据库</h3><ul>
+<h3 id="2-数据库"><a class="header-anchor" href="#2-数据库">¶</a>2 数据库</h3>
+<ul>
 <li>use DATABASE_NAME：创建或切换数据库</li>
 <li>db.dropDatabase()：删除当前数据库</li>
 </ul>
-<h3 id="3-集合"><a href="#3-集合" class="headerlink" title="3 集合"></a>3 集合</h3><ul>
+<h3 id="3-集合"><a class="header-anchor" href="#3-集合">¶</a>3 集合</h3>
+<ul>
 <li>db.createCollection(name, options)：创建集合</li>
 <li>db.COLLECTION_NAME.drop()：删除集合</li>
 </ul>
-<h3 id="4-文档"><a href="#4-文档" class="headerlink" title="4 文档"></a>4 文档</h3><ul>
+<h3 id="4-文档"><a class="header-anchor" href="#4-文档">¶</a>4 文档</h3>
+<ul>
 <li>insert(document)：插入文档</li>
 <li>save(document)：通过传入的文档来替换已有文档</li>
-<li>update()：更新文档<pre><code>db.collection.update(
- &lt;query&gt;,//查询条件（where）
- &lt;update&gt;,//update的对象和一些更新的操作符（set）
- {//可选
-   upsert: &lt;boolean&gt;,//如果update对象不存在，是否插入objNew。默认false
-   multi: &lt;boolean&gt;,//多条记录全部更新。默认false
-   writeConcern: &lt;document&gt;//抛出异常的级别
- }
-)</code></pre></li>
+<li>update()：更新文档</li>
+</ul>
+<pre><code>db.collection.update(
+   &lt;query&gt;,//查询条件（where）
+   &lt;update&gt;,//update的对象和一些更新的操作符（set）
+   {//可选
+     upsert: &lt;boolean&gt;,//如果update对象不存在，是否插入objNew。默认false
+     multi: &lt;boolean&gt;,//多条记录全部更新。默认false
+     writeConcern: &lt;document&gt;//抛出异常的级别
+   }
+)
+</code></pre>
+<ul>
 <li>delete()：删除文档</li>
 </ul>
-<h3 id="5-文档查询"><a href="#5-文档查询" class="headerlink" title="5 文档查询"></a>5 文档查询</h3><p>db.collection.find(query, projection)：查询文档</p>
+<h3 id="5-文档查询"><a class="header-anchor" href="#5-文档查询">¶</a>5 文档查询</h3>
+<p>db.collection.find(query, projection)：查询文档</p>
 <ul>
-<li>query ：可选，使用查询操作符指定查询条件<ul>
+<li>query ：可选，使用查询操作符指定查询条件
+<ul>
 <li>AND：逗号隔开</li>
 <li>OR ：关键字 $or</li>
 <li>(&gt;) 大于 - $gt</li>
@@ -4426,9 +4460,13 @@
 <li>.skip(NUMBER)：跳过指定数量的数据</li>
 <li>.sort(KEY:1)：排序， 1 升序，-1降序</li>
 </ul>
-<h3 id="6-文档索引"><a href="#6-文档索引" class="headerlink" title="6 文档索引"></a>6 文档索引</h3><p>db.collection.createIndex(keys, options)：Key 为索引字段，1 升序，-1降序</p>
+<h3 id="6-文档索引"><a class="header-anchor" href="#6-文档索引">¶</a>6 文档索引</h3>
+<p>db.collection.createIndex(keys, options)：Key 为索引字段，1 升序，-1降序</p>
 <pre><code>db.col.createIndex({&quot;title&quot;:1})
-db.col.createIndex({&quot;title&quot;:1,&quot;description&quot;:-1})</code></pre><h3 id="7-文档聚合"><a href="#7-文档聚合" class="headerlink" title="7 文档聚合"></a>7 文档聚合</h3><p>db.collection.aggregate(AGGREGATE_OPERATION)</p>
+db.col.createIndex({&quot;title&quot;:1,&quot;description&quot;:-1})
+</code></pre>
+<h3 id="7-文档聚合"><a class="header-anchor" href="#7-文档聚合">¶</a>7 文档聚合</h3>
+<p>db.collection.aggregate(AGGREGATE_OPERATION)</p>
 <ul>
 <li>$project：修改输入文档的结构。可以用来重命名、增加或删除域，也可以用于创建计算结果以及嵌套文档。</li>
 <li>$match：用于过滤数据，只输出符合条件的文档。$match使用MongoDB的标准查询操作。</li>
@@ -4448,19 +4486,23 @@ db.col.createIndex({&quot;title&quot;:1,&quot;description&quot;:-1})</code></pre
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

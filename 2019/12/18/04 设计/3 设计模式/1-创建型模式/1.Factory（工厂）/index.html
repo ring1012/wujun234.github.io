@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		1.Factory（工厂） | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,27 +4395,39 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:54</span>
+	<span id="post-date">2019-12-18 01:00:43</span>
 </div>
 
 
 <div id="article">
-	<h3 id="1-简单工厂（Simple-Factory）"><a href="#1-简单工厂（Simple-Factory）" class="headerlink" title="1 简单工厂（Simple Factory）"></a>1 简单工厂（Simple Factory）</h3><p>根据参数的不同返回不同类的实例。</p>
+	<h3 id="1-简单工厂（Simple-Factory）"><a class="header-anchor" href="#1-简单工厂（Simple-Factory）">¶</a>1 简单工厂（Simple Factory）</h3>
+<p>根据参数的不同返回不同类的实例。</p>
 <p><img src="/images/1547524397460.png" alt="image"></p>
-<h5 id="模式应用"><a href="#模式应用" class="headerlink" title="模式应用"></a>模式应用</h5><p>java.text.DateFormat</p>
-<pre><code>public final static DateFormat getDateInstance(int style);</code></pre><h3 id="2-工厂方法（Factory-Method）"><a href="#2-工厂方法（Factory-Method）" class="headerlink" title="2 工厂方法（Factory Method）"></a>2 工厂方法（Factory Method）</h3><p>不传参数，而是分别建立工厂，使用工厂方法</p>
+<h5 id="模式应用"><a class="header-anchor" href="#模式应用">¶</a>模式应用</h5>
+<p>java.text.DateFormat</p>
+<pre><code>public final static DateFormat getDateInstance(int style);
+</code></pre>
+<h3 id="2-工厂方法（Factory-Method）"><a class="header-anchor" href="#2-工厂方法（Factory-Method）">¶</a>2 工厂方法（Factory Method）</h3>
+<p>不传参数，而是分别建立工厂，使用工厂方法</p>
 <p><img src="/images/1547524397770.png" alt="image"></p>
-<h5 id="模式应用-1"><a href="#模式应用-1" class="headerlink" title="模式应用"></a>模式应用</h5><p>JDBC中的工厂方法</p>
+<h5 id="模式应用-v2"><a class="header-anchor" href="#模式应用-v2">¶</a>模式应用</h5>
+<p>JDBC中的工厂方法</p>
 <pre><code>Connection conn = DriverManager.getConnection(&quot;jdbc:……&quot;);
-Statement statement = conn.createStatement();</code></pre><h3 id="3-抽象工厂（Abstract-Factory）"><a href="#3-抽象工厂（Abstract-Factory）" class="headerlink" title="3 抽象工厂（Abstract Factory）"></a>3 抽象工厂（Abstract Factory）</h3><p>系统的产品有多于一个的产品族，而系统只消费其中某一族的产品。</p>
+Statement statement = conn.createStatement();
+</code></pre>
+<h3 id="3-抽象工厂（Abstract-Factory）"><a class="header-anchor" href="#3-抽象工厂（Abstract-Factory）">¶</a>3 抽象工厂（Abstract Factory）</h3>
+<p>系统的产品有多于一个的产品族，而系统只消费其中某一族的产品。</p>
 <p><img src="/images/1547524398094.png" alt="image"></p>
-<h5 id="模式应用-2"><a href="#模式应用-2" class="headerlink" title="模式应用"></a>模式应用</h5><p>在很多软件系统中需要更换界面主题，要求界面中的按钮、文本框、背景色等一起发生改变。</p>
-<h4 id="3-1-增加工厂"><a href="#3-1-增加工厂" class="headerlink" title="3.1 增加工厂"></a>3.1 增加工厂</h4><ol>
+<h5 id="模式应用-v3"><a class="header-anchor" href="#模式应用-v3">¶</a>模式应用</h5>
+<p>在很多软件系统中需要更换界面主题，要求界面中的按钮、文本框、背景色等一起发生改变。</p>
+<h4 id="3-1-增加工厂"><a class="header-anchor" href="#3-1-增加工厂">¶</a>3.1 增加工厂</h4>
+<ol>
 <li>新增一个工厂子类</li>
 <li>并增加相应产品子类</li>
 </ol>
 <p><img src="/images/1547524398197.png" alt="image"></p>
-<h4 id="3-2-增加产品"><a href="#3-2-增加产品" class="headerlink" title="3.2 增加产品"></a>3.2 增加产品</h4><ol>
+<h4 id="3-2-增加产品"><a class="header-anchor" href="#3-2-增加产品">¶</a>3.2 增加产品</h4>
+<ol>
 <li>新增一个产品父类</li>
 <li>再增加对应每个工厂的产品子类</li>
 <li>最后在工厂父类、子类中新增产品方法</li>
@@ -4407,19 +4442,23 @@ Statement statement = conn.createStatement();</code></pre><h3 id="3-抽象工厂
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

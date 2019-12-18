@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		4 归并排序 | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,7 +4395,7 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:43</span>
+	<span id="post-date">2019-12-18 01:00:44</span>
 </div>
 
 
@@ -4380,7 +4403,10 @@
 	<p>归并排序 (Merging Sort) 就是利用归并的思想实现的排序方法。</p>
 <p>假设初始序列含有 n 个记录 ， 则可以看成是 n 个有序的子序列，每个子序列的长度为 1 ，然后两两归并，得到 [n/2] ([x]表示不小于 x 的最小整数)个长度为 2 或 1 的有序子序列；再两两归并，……，如此重复，直至得到一个长度为 n 的有序序列为止，这种排序方法称为 2 路归并排序。</p>
 <p><img src="/images/1558694020139.gif" alt=""></p>
-<p>思路：将一个数组分成两部分（A,B）。<br>A实现左边有序，再实现右边有序，然后进行合并，最后实现A这一个大部分实现有序。<br>然后B同样进行以上同样的操作，最后B这一大部分实现有序，最后，AB合并，实现整体有序。<br>同样，在实现A的有序也是自底向上进行合并的。</p>
+<p>思路：将一个数组分成两部分（A,B）。<br>
+A实现左边有序，再实现右边有序，然后进行合并，最后实现A这一个大部分实现有序。<br>
+然后B同样进行以上同样的操作，最后B这一大部分实现有序，最后，AB合并，实现整体有序。<br>
+同样，在实现A的有序也是自底向上进行合并的。</p>
 <pre><code>public static void mergeSort(int array[],int first,int end,int temp[]){
     int mid = (first+end)/2;
     if(first &lt; end){
@@ -4422,9 +4448,13 @@ public static void merge(int array[],int first,int mid,int end,int temp[]){
             }
         }
     }
-}</code></pre><h4 id="复杂度分析"><a href="#复杂度分析" class="headerlink" title="复杂度分析"></a>复杂度分析</h4><p>O(nlogn)</p>
+}
+</code></pre>
+<h4 id="复杂度分析"><a class="header-anchor" href="#复杂度分析">¶</a>复杂度分析</h4>
+<p>O(nlogn)</p>
 <p>归并排序是一种比较占用内存，但却效率高且稳定的算法。</p>
-<h4 id="非递归实现归并排序"><a href="#非递归实现归并排序" class="headerlink" title="非递归实现归并排序"></a>非递归实现归并排序</h4><pre><code>/* 对顺序表L作归并非递归排序 */
+<h4 id="非递归实现归并排序"><a class="header-anchor" href="#非递归实现归并排序">¶</a>非递归实现归并排序</h4>
+<pre><code>/* 对顺序表L作归并非递归排序 */
 void MergeSort2(SqList *L)
 {
   int* TR = (int *)malloc(L-&gt;length * sizeof(int));  /* 申请额外空间 */
@@ -4436,7 +4466,9 @@ void MergeSort2(SqList *L)
     MergePass(TR, L-&gt;r, k, L-&gt;length);
     k = 2 * k;  /* 子序列长度加倍 */
   }
-}</code></pre><pre><code>/* 将SR[]中相邻长度为s的子序列两两归并到TR[] */
+}
+</code></pre>
+<pre><code>/* 将SR[]中相邻长度为s的子序列两两归并到TR[] */
 void MergePass(int SR[], int TR[], int s, int t)
 {
   int i = 1;
@@ -4451,7 +4483,9 @@ void MergePass(int SR[], int TR[], int s, int t)
   else               /* 若最后只剩下单个子序列 */
     for ( j = i; j &lt;= n; j++)
       TR[j] = SR[j];
-}</code></pre>
+}
+</code></pre>
+
 </div>
 
 	</div>
@@ -4460,19 +4494,23 @@ void MergePass(int SR[], int TR[], int s, int t)
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

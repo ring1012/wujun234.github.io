@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		2.6 linkedhashmap、linkedhashset | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,13 +4395,15 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:46</span>
+	<span id="post-date">2019-12-18 01:00:41</span>
 </div>
 
 
 <div id="article">
-	<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>LinkedHashSet仅对LinkedHashMap做了一层包装，实现相同。LinkedHashSet里面有一个LinkedHashMap（适配器模式）。</p>
-<h3 id="总体介绍"><a href="#总体介绍" class="headerlink" title="总体介绍"></a>总体介绍</h3><p><code>LinkedHashMap</code> 有序，非同步，允许<code>null</code>键<code>null</code>值，是由<code>linkedList</code>增强的<code>HashMap</code>。</p>
+	<h3 id="前言"><a class="header-anchor" href="#前言">¶</a>前言</h3>
+<p>LinkedHashSet仅对LinkedHashMap做了一层包装，实现相同。LinkedHashSet里面有一个LinkedHashMap（适配器模式）。</p>
+<h3 id="总体介绍"><a class="header-anchor" href="#总体介绍">¶</a>总体介绍</h3>
+<p><code>LinkedHashMap</code> 有序，非同步，允许<code>null</code>键<code>null</code>值，是由<code>linkedList</code>增强的<code>HashMap</code>。</p>
 <p>继承于<code>HashMap</code>，采用双向链表的形式将所有<code>entry</code>连接起来，保证顺序。</p>
 <p>排序方式有两种：</p>
 <ul>
@@ -4386,7 +4411,8 @@
 <li>根据访问顺序排序。</li>
 </ul>
 <p><img src="/images/1545011840745.png" alt=""></p>
-<h4 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h4><pre><code class="java">private transient Entry&lt;K,V&gt; header;
+<h4 id="数据结构"><a class="header-anchor" href="#数据结构">¶</a>数据结构</h4>
+<pre><code class="language-java">private transient Entry&lt;K,V&gt; header;
 
 private final boolean accessOrder;
 
@@ -4396,75 +4422,89 @@ private static class Entry&lt;K,V&gt; extends HashMap.Entry&lt;K,V&gt; {
     Entry(int hash, K key, V value, HashMap.Entry&lt;K,V&gt; next) {
         super(hash, key, value, next);
     }
-}  </code></pre>
+}  
+</code></pre>
 <ul>
 <li>多了一个<code>header</code>，是这个双向链表的头结点，一个哑元</li>
 <li><code>Entry</code> 继承于 <code>HashMap</code> 的<code>Entry</code>，并新增了上下节点的指针，形成双向链表。</li>
 <li>还有一个 <code>accessOrder</code> 成员变量，默认是 <code>false</code>，默认按照插入顺序排序，为 <code>true</code> 时按照访问顺序排序</li>
 </ul>
-<h4 id="构造方法"><a href="#构造方法" class="headerlink" title="构造方法"></a>构造方法</h4><pre><code class="java">    public LinkedHashMap() {
+<h4 id="构造方法"><a class="header-anchor" href="#构造方法">¶</a>构造方法</h4>
+<pre><code class="language-java">    public LinkedHashMap() {
         super();
         accessOrder = false;
-    }</code></pre>
+    }
+</code></pre>
 <p>调用的 <code>HashMap</code> 的构造方法, 实现<code>init()</code>：</p>
-<pre><code class="java">    @Override
+<pre><code class="language-java">    @Override
     void init() {
         header = new Entry&lt;&gt;(-1, null, null, null);
         header.before = header.after = header;
-    }</code></pre>
+    }
+</code></pre>
 <p>其实也就是对 <code>header</code> 进行了初始化。</p>
-<h3 id="方法剖析"><a href="#方法剖析" class="headerlink" title="方法剖析"></a>方法剖析</h3><h4 id="get-方法"><a href="#get-方法" class="headerlink" title="get 方法"></a>get 方法</h4><p>重写HashMap的 <code>get()</code> ，多了一个判断</p>
-<pre><code class="java">    public V get(Object key) {
+<h3 id="方法剖析"><a class="header-anchor" href="#方法剖析">¶</a>方法剖析</h3>
+<h4 id="get-方法"><a class="header-anchor" href="#get-方法">¶</a>get 方法</h4>
+<p>重写HashMap的 <code>get()</code> ，多了一个判断</p>
+<pre><code class="language-java">    public V get(Object key) {
         Entry&lt;K,V&gt; e = (Entry&lt;K,V&gt;)getEntry(key);
         if (e == null)
             return null;
         //多了一个判断
         e.recordAccess(this);
         return e.value;
-    }</code></pre>
+    }
+</code></pre>
 <p>判断是否是根据访问顺序排序，如果是则需要将当前这个 Entry 移动到链表的末尾</p>
-<pre><code class="java">    void recordAccess(HashMap&lt;K,V&gt; m) {
+<pre><code class="language-java">    void recordAccess(HashMap&lt;K,V&gt; m) {
         LinkedHashMap&lt;K,V&gt; lm = (LinkedHashMap&lt;K,V&gt;)m;
         if (lm.accessOrder) {
             lm.modCount++;
-
+            
             //删除
             remove();
             //添加到头部
             addBefore(lm.header);
         }
-    }</code></pre>
-<h4 id="put-方法"><a href="#put-方法" class="headerlink" title="put() 方法"></a>put() 方法</h4><p>插入有两重含义：</p>
+    }
+</code></pre>
+<h4 id="put-方法"><a class="header-anchor" href="#put-方法">¶</a>put() 方法</h4>
+<p>插入有两重含义：</p>
 <ol>
 <li>从 table 的角度看，新的 entry 需要插入到对应的 bucket 里，当有哈希冲突时，采用头插法将新的 entry 插入到冲突链表的头部。</li>
-<li>从 header 的角度看，新的 entry 需要插入到双向链表的尾部。<br><img src="/images/1545011841033.png" alt=""></li>
+<li>从 header 的角度看，新的 entry 需要插入到双向链表的尾部。<br>
+<img src="/images/1545011841033.png" alt=""></li>
 </ol>
-<p>调用了 HashMap 的实现，并判断是否需要删除最少使用的 Entry(默认不删除)   </p>
-<pre><code class="java">    void addEntry(int hash, K key, V value, int bucketIndex) {
+<p>调用了 HashMap 的实现，并判断是否需要删除最少使用的 Entry(默认不删除)</p>
+<pre><code class="language-java">    void addEntry(int hash, K key, V value, int bucketIndex) {
         super.addEntry(hash, key, value, bucketIndex);
         // Remove eldest entry if instructed
         Entry&lt;K,V&gt; eldest = header.after;
         if (removeEldestEntry(eldest)) {
             removeEntryForKey(eldest.key);
         }
-    }</code></pre>
+    }
+</code></pre>
 <p>将新增的 Entry 加入到 header 双向链表中</p>
-<pre><code class="java">    void createEntry(int hash, K key, V value, int bucketIndex) {
+<pre><code class="language-java">    void createEntry(int hash, K key, V value, int bucketIndex) {
         HashMap.Entry&lt;K,V&gt; old = table[bucketIndex];
         Entry&lt;K,V&gt; e = new Entry&lt;&gt;(hash, key, value, old);
         //就多了这一步
         table[bucketIndex] = e;
         e.addBefore(header);
         size++;
-    }</code></pre>
+    }
+</code></pre>
 <p>写入到双向链表中</p>
-<pre><code class="java">    private void addBefore(Entry&lt;K,V&gt; existingEntry) {
+<pre><code class="language-java">    private void addBefore(Entry&lt;K,V&gt; existingEntry) {
         after  = existingEntry;
         before = existingEntry.before;
         before.after = this;
         after.before = this;
-    }  </code></pre>
-<h4 id="remove-方法"><a href="#remove-方法" class="headerlink" title="remove() 方法"></a>remove() 方法</h4><p>调用 removeEntryForKey() ，先找到 key 值对应的 entry ，然后删除该 entry （修改链表的相应引用）。</p>
+    }  
+</code></pre>
+<h4 id="remove-方法"><a class="header-anchor" href="#remove-方法">¶</a>remove() 方法</h4>
+<p>调用 removeEntryForKey() ，先找到 key 值对应的 entry ，然后删除该 entry （修改链表的相应引用）。</p>
 <p>删除也有两重含义：</p>
 <ol>
 <li>从 table 的角度看，需要将该 entry 从对应的 bucket 里删除，如果对应的冲突链表不空，需要修改冲突链表的相应引用。</li>
@@ -4501,18 +4541,25 @@ private static class Entry&lt;K,V&gt; extends HashMap.Entry&lt;K,V&gt; {
         e = next;
     }
     return e;
-}</code></pre><pre><code>void recordRemoval(HashMap&lt;K,V&gt; m) {
+}
+</code></pre>
+<pre><code>void recordRemoval(HashMap&lt;K,V&gt; m) {
     remove();
 }
 private void remove() {
     before.after = after;
     after.before = before;
-}</code></pre><h4 id="clear-方法"><a href="#clear-方法" class="headerlink" title="clear() 方法"></a>clear() 方法</h4><p>只需要把指针都指向自己即可，原本那些 Entry 没有引用之后就会被 JVM 自动回收。</p>
-<pre><code class="java">    public void clear() {
+}
+</code></pre>
+<h4 id="clear-方法"><a class="header-anchor" href="#clear-方法">¶</a>clear() 方法</h4>
+<p>只需要把指针都指向自己即可，原本那些 Entry 没有引用之后就会被 JVM 自动回收。</p>
+<pre><code class="language-java">    public void clear() {
         super.clear();
         header.before = header.after = header;
-    }</code></pre>
-<h3 id="LinkedHashMap经典用法"><a href="#LinkedHashMap经典用法" class="headerlink" title="LinkedHashMap经典用法"></a>LinkedHashMap经典用法</h3><p>LinkedHashMap可以轻松实现一个采用了FIFO替换策略的缓存。</p>
+    }
+</code></pre>
+<h3 id="LinkedHashMap经典用法"><a class="header-anchor" href="#LinkedHashMap经典用法">¶</a>LinkedHashMap经典用法</h3>
+<p>LinkedHashMap可以轻松实现一个采用了FIFO替换策略的缓存。</p>
 <p>LinkedHashMap有一个子类方法 boolean removeEldestEntry(Map.Entry&lt;K,V&gt; eldest) ，决定是否要删除“最老”的Entry，如返回 true ，就删除。每次插入新元素的之后，都会询问removeEldestEntry()。</p>
 <p>只需在子类中重载该方法，当元素个数超过一定数量时让removeEldestEntry()返回true，就能够实现一个固定大小的FIFO策略的缓存。</p>
 <p>示例代码如下：</p>
@@ -4527,7 +4574,9 @@ class FIFOCache&lt;K, V&gt; extends LinkedHashMap&lt;K, V&gt;{
     protected boolean removeEldestEntry(Map.Entry&lt;K,V&gt; eldest) {
         return size() &gt; cacheSize;
     }
-}</code></pre>
+}
+</code></pre>
+
 </div>
 
 	</div>
@@ -4536,19 +4585,23 @@ class FIFOCache&lt;K, V&gt; extends LinkedHashMap&lt;K, V&gt;{
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

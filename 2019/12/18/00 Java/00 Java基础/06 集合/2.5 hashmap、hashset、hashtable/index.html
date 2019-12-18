@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		2.5 hashmap、hashset、hashtable | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,26 +4395,37 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:47</span>
+	<span id="post-date">2019-12-18 01:00:41</span>
 </div>
 
 
 <div id="article">
-	<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p><code>HashSet</code>仅对<code>HashMap</code>做了一层包装，实现相同。<code>HashSet</code>里面有一个<code>HashMap</code>（适配器模式）。</p>
+	<h3 id="前言"><a class="header-anchor" href="#前言">¶</a>前言</h3>
+<p><code>HashSet</code>仅对<code>HashMap</code>做了一层包装，实现相同。<code>HashSet</code>里面有一个<code>HashMap</code>（适配器模式）。</p>
 <p><code>Hashtable</code>与<code>HashMap</code>大致相同，但<code>Hashtable</code>是同步的，并且不允许使用 null 。</p>
-<h2 id="HashMap"><a href="#HashMap" class="headerlink" title="HashMap"></a>HashMap</h2><h3 id="总体介绍"><a href="#总体介绍" class="headerlink" title="总体介绍"></a>总体介绍</h3><p>基于哈希表，实现了<code>Map</code>接口。允许<code>null</code>值<code>null</code>键，非同步，无序。</p>
-<p>哈希表有两种实现方式，开放地址方式和冲突链表方式。<br>HashMap采用的是冲突链表方式（数组和链表）。</p>
-<h4 id="JDK1-7"><a href="#JDK1-7" class="headerlink" title="JDK1.7"></a>JDK1.7</h4><p><img src="/images/1545011839762.png" alt=""></p>
-<h4 id="JDK1-8"><a href="#JDK1-8" class="headerlink" title="JDK1.8"></a>JDK1.8</h4><p>当 Hash 冲突严重时，链表越来越长，查询效率越来越低；时间复杂度为 <code>O(N)</code>。</p>
+<h2 id="HashMap"><a class="header-anchor" href="#HashMap">¶</a>HashMap</h2>
+<h3 id="总体介绍"><a class="header-anchor" href="#总体介绍">¶</a>总体介绍</h3>
+<p>基于哈希表，实现了<code>Map</code>接口。允许<code>null</code>值<code>null</code>键，非同步，无序。</p>
+<p>哈希表有两种实现方式，开放地址方式和冲突链表方式。<br>
+HashMap采用的是冲突链表方式（数组和链表）。</p>
+<h4 id="JDK1-7"><a class="header-anchor" href="#JDK1-7">¶</a>JDK1.7</h4>
+<p><img src="/images/1545011839762.png" alt=""></p>
+<h4 id="JDK1-8"><a class="header-anchor" href="#JDK1-8">¶</a>JDK1.8</h4>
+<p>当 Hash 冲突严重时，链表越来越长，查询效率越来越低；时间复杂度为 <code>O(N)</code>。</p>
 <p>JDK1.8 优化了查询效率，若链表数超过阈值(默认为8)，链表转为<strong>红黑树</strong>，时间复杂度<code>O(logn)</code>。若链表数降到阈值(默认为6)以下，又恢复成链表。</p>
 <p><img src="/images/1545011840049.jpg" alt=""></p>
-<h4 id="重要参数"><a href="#重要参数" class="headerlink" title="重要参数"></a>重要参数</h4><p>有两个重要的参数：</p>
+<h4 id="重要参数"><a class="header-anchor" href="#重要参数">¶</a>重要参数</h4>
+<p>有两个重要的参数：</p>
 <ul>
-<li>初始容量<br>inital capacity=默认16，必须是 <code>2^n</code>，最大1 &lt;&lt; 30</li>
-<li>负载因子<br>load factor=默认0.75f</li>
+<li>初始容量<br>
+inital capacity=默认16，必须是 <code>2^n</code>，最大1 &lt;&lt; 30</li>
+<li>负载因子<br>
+load factor=默认0.75f</li>
 </ul>
 <p>当 entry 的数量超过<code>capacity*load_factor</code>时，容器将自动扩容并重新哈希。</p>
-<h3 id="方法剖析"><a href="#方法剖析" class="headerlink" title="方法剖析"></a>方法剖析</h3><h4 id="get"><a href="#get" class="headerlink" title="get()"></a>get()</h4><p>调用 getEntry(Object key) 得到相应的 entry ，然后返回 entry.getValue()。</p>
+<h3 id="方法剖析"><a class="header-anchor" href="#方法剖析">¶</a>方法剖析</h3>
+<h4 id="get"><a class="header-anchor" href="#get">¶</a>get()</h4>
+<p>调用 getEntry(Object key) 得到相应的 entry ，然后返回 entry.getValue()。</p>
 <pre><code>final Entry&lt;K,V&gt; getEntry(Object key) {
     if (size == 0) {
         return null;
@@ -4409,14 +4443,23 @@
             return e;
     }
     return null;
-}</code></pre><ol>
+}
+</code></pre>
+<ol>
 <li>首先通过 hash() 函数得到哈希值hash</li>
-<li>通过哈希值hash得到对应 bucket 的下标<br>h &amp; (length-1)等价于 h%length，因为length是 <code>2^n</code>，length-1就是二进制低位全是1，跟 h 相与会将哈希值的高位全抹掉，剩下的就是余数了。<pre><code>static int indexFor(int h, int length) {
- return h &amp; (length-1);
-}</code></pre></li>
-<li>然后依次遍历冲突链表，通过 key.equals(k) 方法来判断是否是要找的那个 entry 。<br><img src="/images/1545011840175.png" alt=""></li>
+<li>通过哈希值hash得到对应 bucket 的下标<br>
+h &amp; (length-1)等价于 h%length，因为length是 <code>2^n</code>，length-1就是二进制低位全是1，跟 h 相与会将哈希值的高位全抹掉，剩下的就是余数了。</li>
 </ol>
-<h4 id="put"><a href="#put" class="headerlink" title="put()"></a>put()</h4><p>首先get()，如已含则直接返回。否则通过<code>addEntry</code><strong>头插法</strong>插入新的 entry。</p>
+<pre><code>static int indexFor(int h, int length) {
+    return h &amp; (length-1);
+}
+</code></pre>
+<ol start="3">
+<li>然后依次遍历冲突链表，通过 key.equals(k) 方法来判断是否是要找的那个 entry 。<br>
+<img src="/images/1545011840175.png" alt=""></li>
+</ol>
+<h4 id="put"><a class="header-anchor" href="#put">¶</a>put()</h4>
+<p>首先get()，如已含则直接返回。否则通过<code>addEntry</code><strong>头插法</strong>插入新的 entry。</p>
 <p><img src="/images/1545011840453.png" alt=""></p>
 <pre><code>void addEntry(int hash, K key, V value, int bucketIndex) {
     //threshold=The next size value at which to resize (capacity * load factor).
@@ -4427,7 +4470,10 @@
     }
     //在冲突链表头部插入新的entry
     createEntry(hash, key, value, bucketIndex);
-}</code></pre><h5 id="扩容"><a href="#扩容" class="headerlink" title="扩容"></a>扩容</h5><p>计算新容量，新建一数组</p>
+}
+</code></pre>
+<h5 id="扩容"><a class="header-anchor" href="#扩容">¶</a>扩容</h5>
+<p>计算新容量，新建一数组</p>
 <pre><code>void resize(int newCapacity) {
     Entry[] oldTable = table;
     int oldCapacity = oldTable.length;
@@ -4440,7 +4486,10 @@
     transfer(newTable, initHashSeedAsNeeded(newCapacity));//转移
     table = newTable;
     threshold = (int)Math.min(newCapacity * loadFactor, MAXIMUM_CAPACITY + 1);
-}</code></pre><h5 id="转移"><a href="#转移" class="headerlink" title="转移"></a>转移</h5><p>重新哈希到新数组</p>
+}
+</code></pre>
+<h5 id="转移"><a class="header-anchor" href="#转移">¶</a>转移</h5>
+<p>重新哈希到新数组</p>
 <pre><code>void transfer(Entry[] newTable, boolean rehash) {
     int newCapacity = newTable.length;
     for (Entry&lt;K,V&gt; e : table) {
@@ -4456,11 +4505,14 @@
             e = next;
         }
     }
-}</code></pre><h3 id="HashSet"><a href="#HashSet" class="headerlink" title="HashSet"></a>HashSet</h3><p>前面已经说过<code>HashSet</code>是对<code>HashMap</code>的简单包装，对<code>HashSet</code>的函数调用都会转换成合适的<code>HashMap</code>方法，因此<code>HashSet</code>的实现非常简单，只有不到300行代码。这里不再赘述。</p>
-<pre><code class="Java">public class HashSet&lt;E&gt;
+}
+</code></pre>
+<h3 id="HashSet"><a class="header-anchor" href="#HashSet">¶</a>HashSet</h3>
+<p>前面已经说过<code>HashSet</code>是对<code>HashMap</code>的简单包装，对<code>HashSet</code>的函数调用都会转换成合适的<code>HashMap</code>方法，因此<code>HashSet</code>的实现非常简单，只有不到300行代码。这里不再赘述。</p>
+<pre><code class="language-Java">public class HashSet&lt;E&gt;
 {
-    ......
-    private transient HashMap&lt;E,Object&gt; map;//HashSet里面有一个HashMap
+	......
+	private transient HashMap&lt;E,Object&gt; map;//HashSet里面有一个HashMap
     // Dummy value to associate with an Object in the backing Map
     private static final Object PRESENT = new Object();
     public HashSet() {
@@ -4471,8 +4523,10 @@
         return map.put(e, PRESENT)==null;
     }
     ......
-}</code></pre>
-<h3 id="Hashtable"><a href="#Hashtable" class="headerlink" title="Hashtable"></a>Hashtable</h3><p>单一锁，put,get都同步，效率低</p>
+}
+</code></pre>
+<h3 id="Hashtable"><a class="header-anchor" href="#Hashtable">¶</a>Hashtable</h3>
+<p>单一锁，put,get都同步，效率低</p>
 
 </div>
 
@@ -4482,19 +4536,23 @@
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

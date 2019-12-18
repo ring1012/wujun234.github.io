@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		7 Apache Commons Text | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,13 +4395,15 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:39</span>
+	<span id="post-date">2019-12-18 01:00:44</span>
 </div>
 
 
 <div id="article">
-	<p><a href="http://commons.apache.org/proper/commons-text/" target="_blank" rel="noopener">Apache Commons Text官网</a><br>文本处理</p>
-<h2 id="包结构"><a href="#包结构" class="headerlink" title="包结构"></a>包结构</h2><hr>
+	<p><a href="http://commons.apache.org/proper/commons-text/" target="_blank" rel="noopener">Apache Commons Text官网</a><br>
+文本处理</p>
+<h2 id="包结构"><a class="header-anchor" href="#包结构">¶</a>包结构</h2>
+<hr>
 <table>
 <thead>
 <tr>
@@ -4386,7 +4411,8 @@
 <th>Description</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>org.apache.commons.text</td>
 <td>文本处理基础类</td>
 </tr>
@@ -4410,19 +4436,11 @@
 <td>org.apache.commons.text.translate</td>
 <td>由一组小的构件块创建文本翻译规则的API</td>
 </tr>
-<tr>
-<td>## 常用</td>
-<td></td>
-</tr>
-<tr>
-<td>***</td>
-<td></td>
-</tr>
-<tr>
-<td>#### 基础类</td>
-<td></td>
-</tr>
-</tbody></table>
+</tbody>
+</table>
+<h2 id="常用"><a class="header-anchor" href="#常用">¶</a>常用</h2>
+<hr>
+<h4 id="基础类"><a class="header-anchor" href="#基础类">¶</a>基础类</h4>
 <p><strong>AlphabetConverter</strong> ： 字母转换</p>
 <pre><code> Character[] originals;   // a, b, c, d
  Character[] encoding;    // 0, 1, d
@@ -4434,91 +4452,140 @@
  ac.encode(&quot;b&quot;);    // 01
  ac.encode(&quot;c&quot;);    // 0d
  ac.encode(&quot;d&quot;);    // d
- ac.encode(&quot;abcd&quot;); // 00010dd</code></pre><p><strong>CaseUtils</strong> ：  驼峰转换</p>
+ ac.encode(&quot;abcd&quot;); // 00010dd
+</code></pre>
+<p><strong>CaseUtils</strong> ：  驼峰转换</p>
 <pre><code> toCamelCase(String str, boolean capitalizeFirstLetter, char... delimiters)
 
  CaseUtils.toCamelCase(null, false)                                 = null
  CaseUtils.toCamelCase(&quot;&quot;, false, *)                                = &quot;&quot;
- CaseUtils.toCamelCase(&quot;To.Camel.Case&quot;, false, new char[]{&#39;.&#39;})     = &quot;toCamelCase&quot;
- CaseUtils.toCamelCase(&quot; to @ Camel case&quot;, true, new char[]{&#39;@&#39;})   = &quot;ToCamelCase&quot;
- CaseUtils.toCamelCase(&quot; @to @ Camel case&quot;, false, new char[]{&#39;@&#39;}) = &quot;toCamelCase&quot;</code></pre><p><strong>RandomStringGenerator</strong> ： 随机字符串生成</p>
+ CaseUtils.toCamelCase(&quot;To.Camel.Case&quot;, false, new char[]{'.'})     = &quot;toCamelCase&quot;
+ CaseUtils.toCamelCase(&quot; to @ Camel case&quot;, true, new char[]{'@'})   = &quot;ToCamelCase&quot;
+ CaseUtils.toCamelCase(&quot; @to @ Camel case&quot;, false, new char[]{'@'}) = &quot;toCamelCase&quot;
+</code></pre>
+<p><strong>RandomStringGenerator</strong> ： 随机字符串生成</p>
 <ul>
-<li>generate(int length)<br>generate(int minLengthInclusive, int maxLengthInclusive)</li>
+<li>generate(int length)<br>
+generate(int minLengthInclusive, int maxLengthInclusive)</li>
 </ul>
-<p><strong>StringEscapeUtils</strong> ： 字符串转义<br>适用于Java, Javascript, HTML 和XML.</p>
+<p><strong>StringEscapeUtils</strong> ： 字符串转义<br>
+适用于Java, Javascript, HTML 和XML.</p>
 <ul>
-<li><p>escapeSql - 提供sql转义功能，防止sql注入攻击</p>
-<pre><code>StringEscapeUtils.escapeSql(&quot;or 1=1 &quot;)</code></pre></li>
-<li><p>escapeHtml /unescapeHtml 转义/反转义html脚本</p>
-<pre><code>StringEscapeUtils.unescapeHtml(&quot;&amp;lt;a&amp;gt;dddd&amp;lt;/a&amp;gt;&quot;) </code></pre></li>
-<li><p>escapeJavascript/unescapeJavascript 转义/反转义js脚本</p>
-<pre><code>StringEscapeUtils.escapeJavaScript(&quot;&lt;script&gt;alert(&#39;1111&#39;)&lt;/script&gt;&quot;)</code></pre></li>
-<li><p>escapeJava/unescapeJava 把字符串转为unicode编码</p>
-<pre><code>StringEscapeUtils.escapeJava(&quot;测试&quot;) </code></pre></li>
-<li><p><em>StringSubstitutor*</em> ： 字符串替换器<br>通过方法或构造器，用 ${变量名} 替换 ，通常将变量放在 map 中</p>
-</li>
-<li><p>replace 替换</p>
-<pre><code class="java">Map valuesMap = HashMap();
-valuesMap.put(&quot;animal&quot;, &quot;quick brown fox&quot;);
-valuesMap.put(&quot;target&quot;, &quot;lazy dog&quot;);
-String templateString = &quot;The ${animal} jumped over the ${target}.&quot;;
-StrSubstitutor sub = new StrSubstitutor(valuesMap);
-String resolvedString = sub.replace(templateString);</code></pre>
-</li>
-<li><p>replaceSystemProperties 替换系统属性</p>
-<pre><code>StrSubstitutor.replaceSystemProperties(&quot;You are running with java.version = ${java.version} and os.name = ${os.name}.&quot;);</code></pre></li>
-<li><p><em>StringTokenizer*</em> ： 字符串标记截取<br>与 java.util.StringTokenizer 类似，但更灵活可控。<br>与String.Split()的区别是，split使用正则表达式，StringTokenizer是逐字截取</p>
-</li>
-<li><p>构造器</p>
-<pre><code class="java">StringTokenizer(String input)//构造默认分隔符（空格，制表符，换行符和换页符）解析器
-StringTokenizer(String input, char delim)//构造制定分隔符解析器</code></pre>
-</li>
-<li><p>使用</p>
-<pre><code class="java">String str = &quot;100|66,55:200|567,90:102|43,54&quot;;
+<li>escapeSql - 提供sql转义功能，防止sql注入攻击</li>
+</ul>
+<pre><code>StringEscapeUtils.escapeSql(&quot;or 1=1 &quot;)
+</code></pre>
+<ul>
+<li>escapeHtml /unescapeHtml 转义/反转义html脚本</li>
+</ul>
+<pre><code>StringEscapeUtils.unescapeHtml(&quot;&amp;lt;a&amp;gt;dddd&amp;lt;/a&amp;gt;&quot;) 
+</code></pre>
+<ul>
+<li>escapeJavascript/unescapeJavascript 转义/反转义js脚本</li>
+</ul>
+<pre><code>StringEscapeUtils.escapeJavaScript(&quot;&lt;script&gt;alert('1111')&lt;/script&gt;&quot;)
+</code></pre>
+<ul>
+<li>escapeJava/unescapeJava 把字符串转为unicode编码</li>
+</ul>
+<pre><code>StringEscapeUtils.escapeJava(&quot;测试&quot;) 
+</code></pre>
+<p><strong>StringSubstitutor</strong> ： 字符串替换器<br>
+通过方法或构造器，用 ${变量名} 替换 ，通常将变量放在 map 中</p>
+<ul>
+<li>replace 替换</li>
+</ul>
+<pre><code class="language-java"> Map valuesMap = HashMap();
+ valuesMap.put(&quot;animal&quot;, &quot;quick brown fox&quot;);
+ valuesMap.put(&quot;target&quot;, &quot;lazy dog&quot;);
+ String templateString = &quot;The ${animal} jumped over the ${target}.&quot;;
+ StrSubstitutor sub = new StrSubstitutor(valuesMap);
+ String resolvedString = sub.replace(templateString);
+</code></pre>
+<ul>
+<li>replaceSystemProperties 替换系统属性</li>
+</ul>
+<pre><code> StrSubstitutor.replaceSystemProperties(&quot;You are running with java.version = ${java.version} and os.name = ${os.name}.&quot;);
+</code></pre>
+<p><strong>StringTokenizer</strong> ： 字符串标记截取<br>
+与 java.util.StringTokenizer 类似，但更灵活可控。<br>
+与String.Split()的区别是，split使用正则表达式，StringTokenizer是逐字截取</p>
+<ul>
+<li>构造器</li>
+</ul>
+<pre><code class="language-java">StringTokenizer(String input)//构造默认分隔符（空格，制表符，换行符和换页符）解析器
+StringTokenizer(String input, char delim)//构造制定分隔符解析器
+</code></pre>
+<ul>
+<li>使用</li>
+</ul>
+<pre><code class="language-java">String str = &quot;100|66,55:200|567,90:102|43,54&quot;;
 StringTokenizer st = new StringTokenizer(str ，&quot;:,|&quot;);
 while( st.hasMoreElements() ){
-  System.out.println(st.nextToken());
-}</code></pre>
-</li>
-<li><p><em>WordUtils*</em> ： 词语操作</p>
-</li>
-<li><p>wrap - 封装字符串，以空格区分单词，固定长度换行，可自定义换行符</p>
+    System.out.println(st.nextToken());
+}
+</code></pre>
+<p><strong>WordUtils</strong> ： 词语操作</p>
+<ul>
+<li>wrap - 封装字符串，以空格区分单词，固定长度换行，可自定义换行符</li>
+</ul>
 <pre><code>String str = &quot;Here is one line of text that is going to be wrapped after 20 columns.&quot; 
 WordUtils.wrap(str,20)//&quot;Here is one line of\ntext that is going\nto be wrapped after\n20 columns.&quot;
-WordUtils.wrap(str,20,&quot;&lt;br /&gt;&quot;,false)//&quot;Here is one line of&lt;br /&gt;text that is going&lt; br /&gt;to be wrapped after&lt;br /&gt;20 columns.&quot;</code></pre></li>
-<li><p>capitalize - 首字母大写</p>
-<pre><code>WordUtils.capitalize(null)        = null
-WordUtils.capitalize(&quot;&quot;)          = &quot;&quot;
-WordUtils.capitalize(&quot;i am FINE&quot;) = &quot;I Am FINE&quot;</code></pre></li>
-<li><p>capitalizeFully - 首字母大写，其余小写</p>
-<pre><code>WordUtils.capitalizeFully(null)        = null
-WordUtils.capitalizeFully(&quot;&quot;)          = &quot;&quot;
-WordUtils.capitalizeFully(&quot;i am FINE&quot;) = &quot;I Am Fine&quot;</code></pre></li>
-<li><p>uncapitalize - 取消首字母大写</p>
-<pre><code>WordUtils.uncapitalize(null)        = null
-WordUtils.uncapitalize(&quot;&quot;)          = &quot;&quot;
-WordUtils.uncapitalize(&quot;I Am FINE&quot;) = &quot;i am fINE&quot;</code></pre></li>
-<li><p>swapCase - 大小写反转</p>
-<pre><code>StringUtils.swapCase(null)                 = null
-StringUtils.swapCase(&quot;&quot;)                   = &quot;&quot;
-StringUtils.swapCase(&quot;The dog has a BONE&quot;) = &quot;tHE DOG HAS A bone&quot;</code></pre></li>
-<li><p>initials - 首字母缩写</p>
-<pre><code>WordUtils.initials(null)             = null
-WordUtils.initials(&quot;&quot;)               = &quot;&quot;
-WordUtils.initials(&quot;Ben John Lee&quot;)   = &quot;BJL&quot;
-WordUtils.initials(&quot;Ben J.Lee&quot;)      = &quot;BJ&quot;</code></pre></li>
-<li><p>containsAllWords - 是否包含数组所有单词</p>
-<pre><code>containsAllWords(CharSequence word,CharSequence... words)
-WordUtils.containsAllWords(&quot;abcd&quot;, &quot;ab&quot;, &quot;cd&quot;) = false
-WordUtils.containsAllWords(&quot;abc def&quot;, &quot;def&quot;, &quot;abc&quot;) = true</code></pre></li>
-<li><p>abbreviate - 缩写语句。从第一个空格之后开始，设置最低最高限制，可选结尾符，-1为不限制</p>
-<pre><code>abbreviate(String str,int lower,int upper,String appendToEnd)
-WordUtils.abbreviate(&quot;Now is the time for all good men&quot;, 0, 40, null));     = &quot;Now&quot;
-WordUtils.abbreviate(&quot;Now is the time for all good men&quot;, 10, 40, null));    = &quot;Now is the&quot;
-WordUtils.abbreviate(&quot;Now is the time for all good men&quot;, 20, 40, &quot; ...&quot;));  = &quot;Now is the time for all ...&quot;
-WordUtils.abbreviate(&quot;Now is the time for all good men&quot;, 1000, -1, &quot;&quot;));    = &quot;Now is the time for all good men&quot;
-WordUtils.abbreviate(&quot;Now is the time for all good men&quot;, 9, -10, null));    = IllegalArgumentException</code></pre></li>
+WordUtils.wrap(str,20,&quot;&lt;br /&gt;&quot;,false)//&quot;Here is one line of&lt;br /&gt;text that is going&lt; br /&gt;to be wrapped after&lt;br /&gt;20 columns.&quot;
+</code></pre>
+<ul>
+<li>capitalize - 首字母大写</li>
 </ul>
+<pre><code> WordUtils.capitalize(null)        = null
+ WordUtils.capitalize(&quot;&quot;)          = &quot;&quot;
+ WordUtils.capitalize(&quot;i am FINE&quot;) = &quot;I Am FINE&quot;
+</code></pre>
+<ul>
+<li>capitalizeFully - 首字母大写，其余小写</li>
+</ul>
+<pre><code> WordUtils.capitalizeFully(null)        = null
+ WordUtils.capitalizeFully(&quot;&quot;)          = &quot;&quot;
+ WordUtils.capitalizeFully(&quot;i am FINE&quot;) = &quot;I Am Fine&quot;
+</code></pre>
+<ul>
+<li>uncapitalize - 取消首字母大写</li>
+</ul>
+<pre><code> WordUtils.uncapitalize(null)        = null
+ WordUtils.uncapitalize(&quot;&quot;)          = &quot;&quot;
+ WordUtils.uncapitalize(&quot;I Am FINE&quot;) = &quot;i am fINE&quot;
+</code></pre>
+<ul>
+<li>swapCase - 大小写反转</li>
+</ul>
+<pre><code> StringUtils.swapCase(null)                 = null
+ StringUtils.swapCase(&quot;&quot;)                   = &quot;&quot;
+ StringUtils.swapCase(&quot;The dog has a BONE&quot;) = &quot;tHE DOG HAS A bone&quot;
+</code></pre>
+<ul>
+<li>initials - 首字母缩写</li>
+</ul>
+<pre><code> WordUtils.initials(null)             = null
+ WordUtils.initials(&quot;&quot;)               = &quot;&quot;
+ WordUtils.initials(&quot;Ben John Lee&quot;)   = &quot;BJL&quot;
+ WordUtils.initials(&quot;Ben J.Lee&quot;)      = &quot;BJ&quot;
+</code></pre>
+<ul>
+<li>containsAllWords - 是否包含数组所有单词</li>
+</ul>
+<pre><code>containsAllWords(CharSequence word,CharSequence... words)
+ WordUtils.containsAllWords(&quot;abcd&quot;, &quot;ab&quot;, &quot;cd&quot;) = false
+ WordUtils.containsAllWords(&quot;abc def&quot;, &quot;def&quot;, &quot;abc&quot;) = true
+</code></pre>
+<ul>
+<li>abbreviate - 缩写语句。从第一个空格之后开始，设置最低最高限制，可选结尾符，-1为不限制</li>
+</ul>
+<pre><code>abbreviate(String str,int lower,int upper,String appendToEnd)
+ WordUtils.abbreviate(&quot;Now is the time for all good men&quot;, 0, 40, null));     = &quot;Now&quot;
+ WordUtils.abbreviate(&quot;Now is the time for all good men&quot;, 10, 40, null));    = &quot;Now is the&quot;
+ WordUtils.abbreviate(&quot;Now is the time for all good men&quot;, 20, 40, &quot; ...&quot;));  = &quot;Now is the time for all ...&quot;
+ WordUtils.abbreviate(&quot;Now is the time for all good men&quot;, 1000, -1, &quot;&quot;));    = &quot;Now is the time for all good men&quot;
+ WordUtils.abbreviate(&quot;Now is the time for all good men&quot;, 9, -10, null));    = IllegalArgumentException
+</code></pre>
 
 </div>
 
@@ -4528,19 +4595,23 @@ WordUtils.abbreviate(&quot;Now is the time for all good men&quot;, 9, -10, null)
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

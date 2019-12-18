@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		4 Java虚拟机发展史 | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,19 +4395,26 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:51</span>
+	<span id="post-date">2019-12-18 01:00:42</span>
 </div>
 
 
 <div id="article">
 	<ul>
-<li><strong>Sun Classic/Exact VM</strong><br>Classic VM是第一款商用虚拟机，纯解析器方式来执行Java代码，如果要使用JIT编译器就必须进行外挂，解析器和编译器不能配合工作，编译器执行效率非常差；Exact VM是Sun虚拟机团队曾在Solaris平台发布的虚拟机，支持两级即时编译器、编译器和解释器混合工作、使用准确内存管理（虚拟机可以知道内存中某个位置的数据具体是什么类型），但很快就被HotSpot VM所取代；</li>
-<li><strong>Sun HotSpot VM</strong><br>Sun JDK和OpenJDK所带的虚拟机，目前使用范围最广；继承了前两款虚拟机的优点，还支持热点代码探测技术（通过计数器找出最具编译价值的代码）；2006年Sun公司宣布JDK包括HotSpot VM开源，在此基础上建立OpenJDK；</li>
-<li><strong>Sun Mobile-Embedded VM/Meta-Circular VM</strong><br>还有一些Sun开发的面对移动和嵌入式发布的和实验性质的虚拟机；</li>
-<li><strong>BEA JRockit/IBM J9 VM</strong><br>JRockit VM号称是世界上最快的Java虚拟机，专注于服务器端应用，不包含解析器实现，全部靠即时编译器编译执行；J9 VM定位于HotSpot比较接近，主要目的是作为IBM公司各种Java产品的执行平台；</li>
-<li><strong>Azul VM/BEA Liquid VM</strong><br>特定硬件平台专有的高性能虚拟机；</li>
-<li><strong>Apache Harmony/Google Android Dalvik VM</strong><br>Apache Harmony包含自己的虚拟机和Java库，但没有通过TCK认证；Dalvik VM是Android平台的核心组成部分，其并没有遵循Java虚拟机规范，不能直接执行Class文件，使用的是寄存器架构而不是JVM常见的栈架构；</li>
-<li><strong>Microsoft JVM及其他</strong><br>微软曾经是Java技术的铁杆支持者，开发过Windows下性能最好的Java虚拟机，但后来被Sun起诉终止其发展；</li>
+<li><strong>Sun Classic/Exact VM</strong><br>
+Classic VM是第一款商用虚拟机，纯解析器方式来执行Java代码，如果要使用JIT编译器就必须进行外挂，解析器和编译器不能配合工作，编译器执行效率非常差；Exact VM是Sun虚拟机团队曾在Solaris平台发布的虚拟机，支持两级即时编译器、编译器和解释器混合工作、使用准确内存管理（虚拟机可以知道内存中某个位置的数据具体是什么类型），但很快就被HotSpot VM所取代；</li>
+<li><strong>Sun HotSpot VM</strong><br>
+Sun JDK和OpenJDK所带的虚拟机，目前使用范围最广；继承了前两款虚拟机的优点，还支持热点代码探测技术（通过计数器找出最具编译价值的代码）；2006年Sun公司宣布JDK包括HotSpot VM开源，在此基础上建立OpenJDK；</li>
+<li><strong>Sun Mobile-Embedded VM/Meta-Circular VM</strong><br>
+还有一些Sun开发的面对移动和嵌入式发布的和实验性质的虚拟机；</li>
+<li><strong>BEA JRockit/IBM J9 VM</strong><br>
+JRockit VM号称是世界上最快的Java虚拟机，专注于服务器端应用，不包含解析器实现，全部靠即时编译器编译执行；J9 VM定位于HotSpot比较接近，主要目的是作为IBM公司各种Java产品的执行平台；</li>
+<li><strong>Azul VM/BEA Liquid VM</strong><br>
+特定硬件平台专有的高性能虚拟机；</li>
+<li><strong>Apache Harmony/Google Android Dalvik VM</strong><br>
+Apache Harmony包含自己的虚拟机和Java库，但没有通过TCK认证；Dalvik VM是Android平台的核心组成部分，其并没有遵循Java虚拟机规范，不能直接执行Class文件，使用的是寄存器架构而不是JVM常见的栈架构；</li>
+<li><strong>Microsoft JVM及其他</strong><br>
+微软曾经是Java技术的铁杆支持者，开发过Windows下性能最好的Java虚拟机，但后来被Sun起诉终止其发展；</li>
 </ul>
 
 </div>
@@ -4395,19 +4425,23 @@
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

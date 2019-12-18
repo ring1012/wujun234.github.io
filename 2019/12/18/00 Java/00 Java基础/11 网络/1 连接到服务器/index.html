@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		1 连接到服务器 | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,27 +4395,43 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:49</span>
+	<span id="post-date">2019-12-18 01:00:41</span>
 </div>
 
 
 <div id="article">
-	<h3 id="1-使用telnet"><a href="#1-使用telnet" class="headerlink" title="1 使用telnet"></a>1 使用telnet</h3><p>telnet是用于网络编程的强大调试工具，可远程连接和服务通信。windows的telnet需要单独激活</p>
-<pre><code>telnet time-a.nist.gov 13</code></pre><p>获取标准时间</p>
-<h3 id="2-用Java连接到服务器"><a href="#2-用Java连接到服务器" class="headerlink" title="2 用Java连接到服务器"></a>2 用Java连接到服务器</h3><p>套接字作用与telnet相同，java.net包提供的接口与io包基本相同。</p>
+	<h3 id="1-使用telnet"><a class="header-anchor" href="#1-使用telnet">¶</a>1 使用telnet</h3>
+<p>telnet是用于网络编程的强大调试工具，可远程连接和服务通信。windows的telnet需要单独激活</p>
+<pre><code>telnet time-a.nist.gov 13
+</code></pre>
+<p>获取标准时间</p>
+<h3 id="2-用Java连接到服务器"><a class="header-anchor" href="#2-用Java连接到服务器">¶</a>2 用Java连接到服务器</h3>
+<p>套接字作用与telnet相同，java.net包提供的接口与io包基本相同。</p>
 <pre><code>Socket s = new Socket(&quot;time-a.nist.gov&quot;, 13);
-InputStream inStream = s.getInputStream();</code></pre><h3 id="3-套接字超时"><a href="#3-套接字超时" class="headerlink" title="3 套接字超时"></a>3 套接字超时</h3><p>套接字读操作阻塞，当主机不可达时，会因操作系统限制而超时。</p>
+InputStream inStream = s.getInputStream();
+</code></pre>
+<h3 id="3-套接字超时"><a class="header-anchor" href="#3-套接字超时">¶</a>3 套接字超时</h3>
+<p>套接字读操作阻塞，当主机不可达时，会因操作系统限制而超时。</p>
 <p>主动设置超时，会抛异常，可处理</p>
-<pre><code class="java">Socket s = new Socket(...);
-s.setTimeout(10000);</code></pre>
+<pre><code class="language-java">Socket s = new Socket(...);
+s.setTimeout(10000);
+</code></pre>
 <p>普通构造器会无限阻塞，直至连接成功。可先建造一个无连接套接字，然后再使用超时连接。</p>
 <pre><code>Socket s = new Socket();
-s.connect(new InetSocketAddress(host, port),timeout);</code></pre><h3 id="4-可中断套接字"><a href="#4-可中断套接字" class="headerlink" title="4 可中断套接字"></a>4 可中断套接字</h3><p>套接字线程会阻塞至建立连接或超时，无法中断阻塞。为了能中断套接字操作，可以使用nio包新特性：SocketChannel类。如果线程在执行打开、读取、写入操作时发生线程中断，操作不会阻塞，而会抛出异常。</p>
+s.connect(new InetSocketAddress(host, port),timeout);
+</code></pre>
+<h3 id="4-可中断套接字"><a class="header-anchor" href="#4-可中断套接字">¶</a>4 可中断套接字</h3>
+<p>套接字线程会阻塞至建立连接或超时，无法中断阻塞。为了能中断套接字操作，可以使用nio包新特性：SocketChannel类。如果线程在执行打开、读取、写入操作时发生线程中断，操作不会阻塞，而会抛出异常。</p>
 <p>打开通道</p>
-<pre><code>SocketChannel channel = SocketChannel.open(new InetSocketAddress(host, port));</code></pre><p>读取信息</p>
+<pre><code>SocketChannel channel = SocketChannel.open(new InetSocketAddress(host, port));
+</code></pre>
+<p>读取信息</p>
 <pre><code>Scanner in = new Scanner(channel, &quot;UTF-8&quot;);
 //OR
-OutputStream outStream = Channerl.newOutputStram(channel);</code></pre><h3 id="5-因特网地址"><a href="#5-因特网地址" class="headerlink" title="5 因特网地址"></a>5 因特网地址</h3><p>InetAdress类可在主机名与因特网地址直接转换。</p>
+OutputStream outStream = Channerl.newOutputStram(channel);
+</code></pre>
+<h3 id="5-因特网地址"><a class="header-anchor" href="#5-因特网地址">¶</a>5 因特网地址</h3>
+<p>InetAdress类可在主机名与因特网地址直接转换。</p>
 <p>获取因特网地址：getByName、getAllByName、getLocalHost</p>
 <pre><code>//任意一个
 InetAdress address = InetAdress.getByName(&quot;time-a.nist.gov&quot;);
@@ -4401,7 +4440,9 @@ InetAdress[] addresses = InetAdress.getAllByName(&quot;time-a.nist.gov&quot;);
 //本机ip，不是127
 InetAdress localhost = InetAdress.getLocalHost();
 //获取字节
-byte[] addressBytes = address.getAddress();</code></pre>
+byte[] addressBytes = address.getAddress();
+</code></pre>
+
 </div>
 
 	</div>
@@ -4410,19 +4451,23 @@ byte[] addressBytes = address.getAddress();</code></pre>
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

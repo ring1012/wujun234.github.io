@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		1 Cassandra 简介 | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,21 +4395,23 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:23</span>
+	<span id="post-date">2019-12-18 01:00:43</span>
 </div>
 
 
 <div id="article">
-	<p><a href="http://cassandra.apache.org/doc/latest/" target="_blank" rel="noopener">官方文档
+	<p><a href="http://cassandra.apache.org/doc/latest/" target="_blank" rel="noopener">官方文档<br>
 </a>（不完整，很多todo）</p>
 <p><a href="https://docs.datastax.com/en/cassandra/3.0/index.html" target="_blank" rel="noopener">Datastax</a></p>
 <p><a href="http://cassandra.apache.org/doc/latest/cql/index.html" target="_blank" rel="noopener">CQL语法</a></p>
-<h3 id="1-Cassandra简介"><a href="#1-Cassandra简介" class="headerlink" title="1 Cassandra简介"></a>1 Cassandra简介</h3><ul>
+<h3 id="1-Cassandra简介"><a class="header-anchor" href="#1-Cassandra简介">¶</a>1 Cassandra简介</h3>
+<ul>
 <li>Cassandra 是一种分布式非关系型数据库，具有高性能、可扩展、无中心化、高可用性、无单点故障等特征。</li>
 <li>以 Amazon 完全分布式的 Dynamo 数据库作为基础，结合 <a href="http://blog.bizcloudsoft.com/wp-content/uploads/Google-Bigtable%E4%B8%AD%E6%96%87%E7%89%88_1.0.pdf" target="_blank" rel="noopener">Google BigTable</a> 基于列族（Column Family）的数据模型，实现 P2P 去中心化的存储。</li>
 <li>在 CAP 原则上，HBase 选择了 CP，Cassandra 则更倾向于 AP，所以在一致性上有所减弱。适合实时事务处理和提供交互型数据。</li>
 </ul>
-<h5 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h5><ul>
+<h5 id="特性"><a class="header-anchor" href="#特性">¶</a>特性</h5>
+<ul>
 <li>对等分布式：P2P架构，无中心节点，集群中每一个节点都具有相同地位。</li>
 <li>分布式管理：基于Gossip协议，允许节点相互通信并检测集群中的任何故障节点。</li>
 <li>放置数据：分布式 hash 表，每个节点都对应一个 hash 值，用于存储一定范围内的分区键的数据。</li>
@@ -4394,41 +4419,51 @@
 <li>可配置的放置策略：可配置不同的策略用于分布副本。</li>
 <li>可配置的一致性：对读写操作均可配置不同的一致性级别。</li>
 </ul>
-<h3 id="2-存储过程"><a href="#2-存储过程" class="headerlink" title="2 存储过程"></a>2 存储过程</h3><p>用户可以使用Cassandra查询语言（CQL）通过其节点访问Cassandra。</p>
-<h4 id="写操作"><a href="#写操作" class="headerlink" title="写操作"></a>写操作</h4><ol>
+<h3 id="2-存储过程"><a class="header-anchor" href="#2-存储过程">¶</a>2 存储过程</h3>
+<p>用户可以使用Cassandra查询语言（CQL）通过其节点访问Cassandra。</p>
+<h4 id="写操作"><a class="header-anchor" href="#写操作">¶</a>写操作</h4>
+<ol>
 <li>将新记录写入CommitLog;</li>
 <li>将新纪录写入Memtable;</li>
 <li>达到阈值, 将Memtable中的数据刷入到磁盘上的SSTables, 清空JVM Heap和CommitLog;</li>
 <li>达到阈值, 将SSTables压缩合并.</li>
 </ol>
 <p><img src="/images/1555919626953.png" alt=""></p>
-<h4 id="读操作"><a href="#读操作" class="headerlink" title="读操作"></a>读操作</h4><p>读取时，Cassandra 需要结合 memtable 和可能多个 SSTable 的结果。</p>
+<h4 id="读操作"><a class="header-anchor" href="#读操作">¶</a>读操作</h4>
+<p>读取时，Cassandra 需要结合 memtable 和可能多个 SSTable 的结果。</p>
 <ol>
-<li>检查 memtable。<ul>
+<li>检查 memtable。
+<ul>
 <li>在 Memtable 中找到 Key 的 value</li>
 </ul>
 </li>
-<li>检查 Row Cache<ul>
+<li>检查 Row Cache
+<ul>
 <li>若在缓存中找到 value，返回。</li>
 <li>若缓存中没有找到，查找每个 SSTable 的 BloomFilter，看是否在该 SSTable 中。</li>
 </ul>
 </li>
-<li>若在该SSTable<ul>
+<li>若在该SSTable
+<ul>
 <li>查找 SSTable 的 Partition Summary。确定 Key 在 Partition Index 中的大概位置。</li>
 <li>查找 Partition Index 中 Key 位于 SSTable 中的偏移量。</li>
 <li>查找完成之后将 Key 位于每个 SSTable 中的偏移量放入 Key Cache 中。</li>
 </ul>
 </li>
-<li>合并 SSTable 与 Memtable 数据<ul>
+<li>合并 SSTable 与 Memtable 数据
+<ul>
 <li>在各个 SSTable 中找到 Key 的所有 value，再在 Memtable 中找到 Key 的 value。</li>
 <li>对所有的 value 进行合并操作，原则是取时间戳最新的数据作为正确地数据。</li>
 </ul>
 </li>
 <li>将合并后的数据返回给 Coordinator 并且将 Key 及其 value 放入 Row Cache 缓存中。</li>
 </ol>
-<p><em>Read request flow</em><br><img src="/images/1555919631473.png" alt=""></p>
-<p><em>Row cache and Key cache request flow</em><br><img src="/images/1555919632389.png" alt="image"></p>
-<h3 id="3-数据一致性"><a href="#3-数据一致性" class="headerlink" title="3 数据一致性"></a>3 数据一致性</h3><p>Cassandra 的一致性是可配置调整的：</p>
+<p><em>Read request flow</em><br>
+<img src="/images/1555919631473.png" alt=""></p>
+<p><em>Row cache and Key cache request flow</em><br>
+<img src="/images/1555919632389.png" alt="image"></p>
+<h3 id="3-数据一致性"><a class="header-anchor" href="#3-数据一致性">¶</a>3 数据一致性</h3>
+<p>Cassandra 的一致性是可配置调整的：</p>
 <ul>
 <li>读不旧于写一致性（Read-your-writes consistency）：使用者读到的数据，总是不旧于自身上一个写入的数据。</li>
 <li>会话一致性（Session Consistency）：使用者在一个会话中才保证读写一致性，启动新会话后则无需保证。</li>
@@ -4436,7 +4471,8 @@
 <li>单写一致性（Monotonic Write Consistency）：写入的数据完成后才能开始下一次的写入。</li>
 <li>写不旧于读一致性（Writes-follow-reads Consistency）：写入的副本不旧于上一次读到的数据，即不会写入更旧的数据。</li>
 </ul>
-<h3 id="4-客户端"><a href="#4-客户端" class="headerlink" title="4 客户端"></a>4 客户端</h3><p>客户端连接到某一节点发起读或写请求时，该节点充当客户端应用于拥有相当数据的节点数据的节点间的协调者，用以根据集群配置确定环（ring）中的哪个节点应当获取这个请求。</p>
+<h3 id="4-客户端"><a class="header-anchor" href="#4-客户端">¶</a>4 客户端</h3>
+<p>客户端连接到某一节点发起读或写请求时，该节点充当客户端应用于拥有相当数据的节点数据的节点间的协调者，用以根据集群配置确定环（ring）中的哪个节点应当获取这个请求。</p>
 <p><img src="/images/1555919633778.png" alt=""></p>
 
 </div>
@@ -4447,19 +4483,23 @@
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

@@ -1,10 +1,30 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +35,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4369,47 +4390,23 @@
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/02%20%E5%AF%B9%E8%B1%A1%E4%B8%8E%E7%B1%BB/2%20%E4%BF%AE%E9%A5%B0%E7%AC%A6/">2 修饰符</a>
+					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/02%20%E5%AF%B9%E8%B1%A1%E4%B8%8E%E7%B1%BB/5%20%E6%96%87%E6%A1%A3%E6%B3%A8%E9%87%8A/">5 文档注释</a>
 				</h2>
 				<span class="post-date">2019-12-18</span>
 				<div class="article-digest">
-					访问修饰符
-private——仅对本类可见
-public——对所有类可见接口里方法默认public
-protected——对本包和所有子类可见
-default——对本包可见
+					¶1、注释方法
+三种注释方法，注释不会出现在可执行文件中
 
-一个方法可以访问所属类的
-					...
-				</div>
-			</article>
-			
-		
+//
+/*   */
+/**  */自动生成文档
 
-			<article class="article-li">
-				<h2>
-					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/02%20%E5%AF%B9%E8%B1%A1%E4%B8%8E%E7%B1%BB/1%20%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/">1 面向对象</a>
-				</h2>
-				<span class="post-date">2019-12-18</span>
-				<div class="article-digest">
-					1 抽象抽象是将一类对象的共同特征总结出来构造类的过程，包括数据抽象和行为抽象两方面。抽象只关注对象有哪些属性和行为，并不关注这些行为的细节是什么。
-2 封装把数据和行为隐藏，只能通过暴露的接口访问数
-					...
-				</div>
-			</article>
-			
-		
+¶2、注释的插入
+javadoc 从下面几个特性中抽取信息：
 
-			<article class="article-li">
-				<h2>
-					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/02%20%E5%AF%B9%E8%B1%A1%E4%B8%8E%E7%B1%BB/3%20%E7%B1%BB/">3 类</a>
-				</h2>
-				<span class="post-date">2019-12-18</span>
-				<div class="article-digest">
-					1 类类是构造对象的模板。由类构造对象的过程称为创建类的实例。一个源文件中，只能有一个公共类，类名必须与文件名相同。
-1.1 类之间的关系最常见的关系有：  
-
-==依赖==（”uses-a”）：一个
+包
+公有类与接口
+公有的
 					...
 				</div>
 			</article>
@@ -4422,7 +4419,8 @@ default——对本包可见
 				</h2>
 				<span class="post-date">2019-12-18</span>
 				<div class="article-digest">
-					反射 (Reflection) 是 Java 的特征之一，它允许运行中的 Java 程序获取自身的信息，并且可以操作类或对象的内部属性。反射的核心是 JVM 在运行时才动态加载类或调用方法/访问属性，
+					反射 (Reflection) 是 Java 的特征之一，它允许运行中的 Java 程序获取自身的信息，并且可以操作类或对象的内部属性。
+反射的核心是 JVM 在运行时才动态加载类或调用方法/访问属性
 					...
 				</div>
 			</article>
@@ -4431,21 +4429,55 @@ default——对本包可见
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/02%20%E5%AF%B9%E8%B1%A1%E4%B8%8E%E7%B1%BB/5%20%E6%96%87%E6%A1%A3%E6%B3%A8%E9%87%8A/">5 文档注释</a>
+					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/02%20%E5%AF%B9%E8%B1%A1%E4%B8%8E%E7%B1%BB/3%20%E7%B1%BB/">3 类</a>
 				</h2>
 				<span class="post-date">2019-12-18</span>
 				<div class="article-digest">
-					1、注释方法三种注释方法，注释不会出现在可执行文件中
+					¶1 类
+类是构造对象的模板。
+由类构造对象的过程称为创建类的实例。
+一个源文件中，只能有一个公共类，类名必须与文件名相同。
+¶1.1 类之间的关系
+最常见的关系有：
 
-//
-/*   */
-/**  */自动生成文档
+==依赖==（”uses-a”
+					...
+				</div>
+			</article>
+			
+		
 
-2、注释的插入javadoc 从下面几个特性中抽取信息：
+			<article class="article-li">
+				<h2>
+					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/02%20%E5%AF%B9%E8%B1%A1%E4%B8%8E%E7%B1%BB/2%20%E4%BF%AE%E9%A5%B0%E7%AC%A6/">2 修饰符</a>
+				</h2>
+				<span class="post-date">2019-12-18</span>
+				<div class="article-digest">
+					¶访问修饰符
 
-包
-公有类与接口
-公有的和受保护
+private——仅对本类可见
+public——对所有类可见
+接口里方法默认public
+protected——对本包和所有子类可见
+default——对本包可见
+
+一个方法可以访问所
+					...
+				</div>
+			</article>
+			
+		
+
+			<article class="article-li">
+				<h2>
+					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/02%20%E5%AF%B9%E8%B1%A1%E4%B8%8E%E7%B1%BB/1%20%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/">1 面向对象</a>
+				</h2>
+				<span class="post-date">2019-12-18</span>
+				<div class="article-digest">
+					¶1 抽象
+抽象是将一类对象的共同特征总结出来构造类的过程，包括数据抽象和行为抽象两方面。抽象只关注对象有哪些属性和行为，并不关注这些行为的细节是什么。
+¶2 封装
+把数据和行为隐藏，只能通过暴露的接
 					...
 				</div>
 			</article>
@@ -4459,19 +4491,23 @@ default——对本包可见
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

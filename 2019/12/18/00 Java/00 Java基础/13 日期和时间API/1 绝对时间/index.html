@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		1 绝对时间 | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,7 +4395,7 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:49</span>
+	<span id="post-date">2019-12-18 01:00:41</span>
 </div>
 
 
@@ -4385,18 +4408,26 @@
 <li>每天正午与官方时间精确匹配</li>
 <li>在其他时间点上，以精确定义的方式与官方时间接近匹配</li>
 </ul>
-<h3 id="1-Instants"><a href="#1-Instants" class="headerlink" title="1. Instants"></a>1. Instants</h3><p>Instants（时刻，时间点）表示时间线上的某个点，时间线的原点被设为“新纪元”——本初子午线的1970年1月1日午夜。</p>
+<h3 id="1-Instants"><a class="header-anchor" href="#1-Instants">¶</a>1. Instants</h3>
+<p>Instants（时刻，时间点）表示时间线上的某个点，时间线的原点被设为“新纪元”——本初子午线的1970年1月1日午夜。</p>
 <p>精确到纳秒，Instants.MIN可追溯10亿年，Instants.MAX是公元10亿年的12月31日。</p>
-<h5 id="1-1-当前时刻"><a href="#1-1-当前时刻" class="headerlink" title="1.1 当前时刻"></a>1.1 当前时刻</h5><p>Instants.now()获取当前时刻，可做时间戳</p>
-<h3 id="2-Duration"><a href="#2-Duration" class="headerlink" title="2. Duration"></a>2. Duration</h3><p>Duration（时间区间）是两个时刻之间的时间量。</p>
+<h5 id="1-1-当前时刻"><a class="header-anchor" href="#1-1-当前时刻">¶</a>1.1 当前时刻</h5>
+<p>Instants.now()获取当前时刻，可做时间戳</p>
+<h3 id="2-Duration"><a class="header-anchor" href="#2-Duration">¶</a>2. Duration</h3>
+<p>Duration（时间区间）是两个时刻之间的时间量。</p>
 <p>因为纳秒级别超出一个long型长度，秒数存在一个 long 中，纳秒数存在一个 int 中。</p>
-<h5 id="2-1-传统度量"><a href="#2-1-传统度量" class="headerlink" title="2.1 传统度量"></a>2.1 传统度量</h5><p>可以使用toNanos、toMillis、getSeconds、toMinutes、toHours和toDays转换为传统时间度量单位。</p>
-<h5 id="2-2-时间差"><a href="#2-2-时间差" class="headerlink" title="2.2 时间差"></a>2.2 时间差</h5><p>between(start,end) 获取两时刻的时间差</p>
+<h5 id="2-1-传统度量"><a class="header-anchor" href="#2-1-传统度量">¶</a>2.1 传统度量</h5>
+<p>可以使用toNanos、toMillis、getSeconds、toMinutes、toHours和toDays转换为传统时间度量单位。</p>
+<h5 id="2-2-时间差"><a class="header-anchor" href="#2-2-时间差">¶</a>2.2 时间差</h5>
+<p>between(start,end) 获取两时刻的时间差</p>
 <pre><code>Instant start = Instant.now();
 runAlgorithm();
 Instant end = Instant.now();
 Duration timeElapsed = Duration.between(start, end);
-long millis = timeElapsed.toMillis();</code></pre><h5 id="2-3-计算"><a href="#2-3-计算" class="headerlink" title="2.3 计算"></a>2.3 计算</h5><p>如果要计算精确到纳秒级，需要整个Duration的存储内容</p>
+long millis = timeElapsed.toMillis();
+</code></pre>
+<h5 id="2-3-计算"><a class="header-anchor" href="#2-3-计算">¶</a>2.3 计算</h5>
+<p>如果要计算精确到纳秒级，需要整个Duration的存储内容</p>
 <table>
 <thead>
 <tr>
@@ -4404,7 +4435,8 @@ long millis = timeElapsed.toMillis();</code></pre><h5 id="2-3-计算"><a href="#
 <th>描述</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>plus, minus</td>
 <td>在当前Instant或Duration上加减一个Duration</td>
 </tr>
@@ -4424,7 +4456,8 @@ long millis = timeElapsed.toMillis();</code></pre><h5 id="2-3-计算"><a href="#
 <td>isZero, isNegative</td>
 <td>检查当前Duration是否0或负值</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 
 </div>
 
@@ -4434,19 +4467,23 @@ long millis = timeElapsed.toMillis();</code></pre><h5 id="2-3-计算"><a href="#
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

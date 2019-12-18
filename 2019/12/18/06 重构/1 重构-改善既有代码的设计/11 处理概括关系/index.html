@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		11 处理概括关系 | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,38 +4395,63 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:38</span>
+	<span id="post-date">2019-12-18 01:00:44</span>
 </div>
 
 
 <div id="article">
 	<!-- TOC -->
 <ul>
-<li><a href="#1-pull-up-field-字段上移">1 Pull Up Field （字段上移）</a></li>
-<li><a href="#2-pull-up-method-函数上移">2 Pull Up Method （函数上移）</a></li>
-<li><a href="#3-pull-up-constructor-body-构造函数本体上移">3 Pull Up Constructor Body （构造函数本体上移）</a></li>
-<li><a href="#4-push-down-method-函数下移">4 Push Down Method （函数下移）</a></li>
-<li><a href="#5-push-down-field-字段下移">5 Push Down Field （字段下移）</a></li>
-<li><a href="#6-extract-subclass-提炼子类">6 Extract Subclass （提炼子类）</a></li>
-<li><a href="#7-extract-superclass-提炼超类">7 Extract Superclass （提炼超类）</a></li>
-<li><a href="#8-extract-interface-提炼接口">8 Extract Interface （提炼接口）</a></li>
-<li><a href="#9-collapse-hierarchy-折叠继承体系">9 Collapse Hierarchy （折叠继承体系）</a></li>
-<li><a href="#10-form-template-method-塑造模板函数">10 Form Template Method （塑造模板函数）</a></li>
-<li><a href="#11-replace-inheritance-with-delegation-以委托取代继承">11 Replace Inheritance with Delegation （以委托取代继承）</a></li>
-<li><a href="#12-replace-delegation-with-inheritance-以继承取代委托">12 Replace Delegation with Inheritance （以继承取代委托）</a><!-- /TOC -->
-<h3 id="1-Pull-Up-Field-（字段上移）"><a href="#1-Pull-Up-Field-（字段上移）" class="headerlink" title="1 Pull Up Field （字段上移）"></a>1 Pull Up Field （字段上移）</h3>两个子类拥有相同的字段。<br>将该字段移至超类。</li>
+<li><a href="#1-pull-up-field-%E5%AD%97%E6%AE%B5%E4%B8%8A%E7%A7%BB">1 Pull Up Field （字段上移）</a></li>
+<li><a href="#2-pull-up-method-%E5%87%BD%E6%95%B0%E4%B8%8A%E7%A7%BB">2 Pull Up Method （函数上移）</a></li>
+<li><a href="#3-pull-up-constructor-body-%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E6%9C%AC%E4%BD%93%E4%B8%8A%E7%A7%BB">3 Pull Up Constructor Body （构造函数本体上移）</a></li>
+<li><a href="#4-push-down-method-%E5%87%BD%E6%95%B0%E4%B8%8B%E7%A7%BB">4 Push Down Method （函数下移）</a></li>
+<li><a href="#5-push-down-field-%E5%AD%97%E6%AE%B5%E4%B8%8B%E7%A7%BB">5 Push Down Field （字段下移）</a></li>
+<li><a href="#6-extract-subclass-%E6%8F%90%E7%82%BC%E5%AD%90%E7%B1%BB">6 Extract Subclass （提炼子类）</a></li>
+<li><a href="#7-extract-superclass-%E6%8F%90%E7%82%BC%E8%B6%85%E7%B1%BB">7 Extract Superclass （提炼超类）</a></li>
+<li><a href="#8-extract-interface-%E6%8F%90%E7%82%BC%E6%8E%A5%E5%8F%A3">8 Extract Interface （提炼接口）</a></li>
+<li><a href="#9-collapse-hierarchy-%E6%8A%98%E5%8F%A0%E7%BB%A7%E6%89%BF%E4%BD%93%E7%B3%BB">9 Collapse Hierarchy （折叠继承体系）</a></li>
+<li><a href="#10-form-template-method-%E5%A1%91%E9%80%A0%E6%A8%A1%E6%9D%BF%E5%87%BD%E6%95%B0">10 Form Template Method （塑造模板函数）</a></li>
+<li><a href="#11-replace-inheritance-with-delegation-%E4%BB%A5%E5%A7%94%E6%89%98%E5%8F%96%E4%BB%A3%E7%BB%A7%E6%89%BF">11 Replace Inheritance with Delegation （以委托取代继承）</a></li>
+<li><a href="#12-replace-delegation-with-inheritance-%E4%BB%A5%E7%BB%A7%E6%89%BF%E5%8F%96%E4%BB%A3%E5%A7%94%E6%89%98">12 Replace Delegation with Inheritance （以继承取代委托）</a></li>
 </ul>
-<h3 id="2-Pull-Up-Method-（函数上移）"><a href="#2-Pull-Up-Method-（函数上移）" class="headerlink" title="2 Pull Up Method （函数上移）"></a>2 Pull Up Method （函数上移）</h3><p>有些函数，在各个子类中产生完全相同的结果。<br>将该函数移至超类。</p>
-<h3 id="3-Pull-Up-Constructor-Body-（构造函数本体上移）"><a href="#3-Pull-Up-Constructor-Body-（构造函数本体上移）" class="headerlink" title="3 Pull Up Constructor Body （构造函数本体上移）"></a>3 Pull Up Constructor Body （构造函数本体上移）</h3><p>你在各个子类中拥有一些构造函数，它们的本体几乎完全一致。<br>在超类中新建一个构造函数，并在子类构造函数中调用它。</p>
-<h3 id="4-Push-Down-Method-（函数下移）"><a href="#4-Push-Down-Method-（函数下移）" class="headerlink" title="4 Push Down Method （函数下移）"></a>4 Push Down Method （函数下移）</h3><p>超类中的某个函数只与部分（而非全部）子类有关。<br>将这个函数移到相关的那些子类去。</p>
-<h3 id="5-Push-Down-Field-（字段下移）"><a href="#5-Push-Down-Field-（字段下移）" class="headerlink" title="5 Push Down Field （字段下移）"></a>5 Push Down Field （字段下移）</h3><p>超类中的某个字段只被部分（而非全部）子类用到。<br>将这个字段移到需要它的那些子类去。</p>
-<h3 id="6-Extract-Subclass-（提炼子类）"><a href="#6-Extract-Subclass-（提炼子类）" class="headerlink" title="6 Extract Subclass （提炼子类）"></a>6 Extract Subclass （提炼子类）</h3><p>类中的某些特性只被某些 （而非全部）实例用到。<br>新建一个子类，将上面所说的那一部分特性移到子类中。</p>
-<h3 id="7-Extract-Superclass-（提炼超类）"><a href="#7-Extract-Superclass-（提炼超类）" class="headerlink" title="7 Extract Superclass （提炼超类）"></a>7 Extract Superclass （提炼超类）</h3><p>两个类有相似特性。<br>为这两个类建立一个超类，将相同特性移至超类。</p>
-<h3 id="8-Extract-Interface-（提炼接口）"><a href="#8-Extract-Interface-（提炼接口）" class="headerlink" title="8 Extract Interface （提炼接口）"></a>8 Extract Interface （提炼接口）</h3><p>若干客户使用类接口中的同一子集，或者两个类的接口有部分相同。<br>将相同的子集提炼到一个独立接口中。</p>
-<h3 id="9-Collapse-Hierarchy-（折叠继承体系）"><a href="#9-Collapse-Hierarchy-（折叠继承体系）" class="headerlink" title="9 Collapse Hierarchy （折叠继承体系）"></a>9 Collapse Hierarchy （折叠继承体系）</h3><p>超类和子类之间无太大区别。<br>将它们合为一体。</p>
-<h3 id="10-Form-Template-Method-（塑造模板函数）"><a href="#10-Form-Template-Method-（塑造模板函数）" class="headerlink" title="10 Form Template Method （塑造模板函数）"></a>10 Form Template Method （塑造模板函数）</h3><p>你有一些子类，其中相应的某些函数以相同顺序执行类似的操作，但各个操作的细节上有所不同。<br>将这些操作分别放进独立函数中，并保持它们都有相同的签名，于是原函数也就变得相同了.然后将原函数上移至超类。</p>
-<h3 id="11-Replace-Inheritance-with-Delegation-（以委托取代继承）"><a href="#11-Replace-Inheritance-with-Delegation-（以委托取代继承）" class="headerlink" title="11 Replace Inheritance with Delegation （以委托取代继承）"></a>11 Replace Inheritance with Delegation （以委托取代继承）</h3><p>某个子类只使用超类接口中的一部分，或是根本不需要继承而来的数据。<br>在子类中新建一个字段用以保存超类；调整子类函数，令它改而委托超类；然后去掉两者之间的继承关系。</p>
-<h3 id="12-Replace-Delegation-with-Inheritance-（以继承取代委托）"><a href="#12-Replace-Delegation-with-Inheritance-（以继承取代委托）" class="headerlink" title="12 Replace Delegation with Inheritance （以继承取代委托）"></a>12 Replace Delegation with Inheritance （以继承取代委托）</h3><p>你在两个类之间使用委托关系，并经常为整个接口编写许多极简单的委托函数。<br>让委托类继承受托类。</p>
+<!-- /TOC -->
+<h3 id="1-Pull-Up-Field-（字段上移）"><a class="header-anchor" href="#1-Pull-Up-Field-（字段上移）">¶</a>1 Pull Up Field （字段上移）</h3>
+<p>两个子类拥有相同的字段。<br>
+将该字段移至超类。</p>
+<h3 id="2-Pull-Up-Method-（函数上移）"><a class="header-anchor" href="#2-Pull-Up-Method-（函数上移）">¶</a>2 Pull Up Method （函数上移）</h3>
+<p>有些函数，在各个子类中产生完全相同的结果。<br>
+将该函数移至超类。</p>
+<h3 id="3-Pull-Up-Constructor-Body-（构造函数本体上移）"><a class="header-anchor" href="#3-Pull-Up-Constructor-Body-（构造函数本体上移）">¶</a>3 Pull Up Constructor Body （构造函数本体上移）</h3>
+<p>你在各个子类中拥有一些构造函数，它们的本体几乎完全一致。<br>
+在超类中新建一个构造函数，并在子类构造函数中调用它。</p>
+<h3 id="4-Push-Down-Method-（函数下移）"><a class="header-anchor" href="#4-Push-Down-Method-（函数下移）">¶</a>4 Push Down Method （函数下移）</h3>
+<p>超类中的某个函数只与部分（而非全部）子类有关。<br>
+将这个函数移到相关的那些子类去。</p>
+<h3 id="5-Push-Down-Field-（字段下移）"><a class="header-anchor" href="#5-Push-Down-Field-（字段下移）">¶</a>5 Push Down Field （字段下移）</h3>
+<p>超类中的某个字段只被部分（而非全部）子类用到。<br>
+将这个字段移到需要它的那些子类去。</p>
+<h3 id="6-Extract-Subclass-（提炼子类）"><a class="header-anchor" href="#6-Extract-Subclass-（提炼子类）">¶</a>6 Extract Subclass （提炼子类）</h3>
+<p>类中的某些特性只被某些 （而非全部）实例用到。<br>
+新建一个子类，将上面所说的那一部分特性移到子类中。</p>
+<h3 id="7-Extract-Superclass-（提炼超类）"><a class="header-anchor" href="#7-Extract-Superclass-（提炼超类）">¶</a>7 Extract Superclass （提炼超类）</h3>
+<p>两个类有相似特性。<br>
+为这两个类建立一个超类，将相同特性移至超类。</p>
+<h3 id="8-Extract-Interface-（提炼接口）"><a class="header-anchor" href="#8-Extract-Interface-（提炼接口）">¶</a>8 Extract Interface （提炼接口）</h3>
+<p>若干客户使用类接口中的同一子集，或者两个类的接口有部分相同。<br>
+将相同的子集提炼到一个独立接口中。</p>
+<h3 id="9-Collapse-Hierarchy-（折叠继承体系）"><a class="header-anchor" href="#9-Collapse-Hierarchy-（折叠继承体系）">¶</a>9 Collapse Hierarchy （折叠继承体系）</h3>
+<p>超类和子类之间无太大区别。<br>
+将它们合为一体。</p>
+<h3 id="10-Form-Template-Method-（塑造模板函数）"><a class="header-anchor" href="#10-Form-Template-Method-（塑造模板函数）">¶</a>10 Form Template Method （塑造模板函数）</h3>
+<p>你有一些子类，其中相应的某些函数以相同顺序执行类似的操作，但各个操作的细节上有所不同。<br>
+将这些操作分别放进独立函数中，并保持它们都有相同的签名，于是原函数也就变得相同了.然后将原函数上移至超类。</p>
+<h3 id="11-Replace-Inheritance-with-Delegation-（以委托取代继承）"><a class="header-anchor" href="#11-Replace-Inheritance-with-Delegation-（以委托取代继承）">¶</a>11 Replace Inheritance with Delegation （以委托取代继承）</h3>
+<p>某个子类只使用超类接口中的一部分，或是根本不需要继承而来的数据。<br>
+在子类中新建一个字段用以保存超类；调整子类函数，令它改而委托超类；然后去掉两者之间的继承关系。</p>
+<h3 id="12-Replace-Delegation-with-Inheritance-（以继承取代委托）"><a class="header-anchor" href="#12-Replace-Delegation-with-Inheritance-（以继承取代委托）">¶</a>12 Replace Delegation with Inheritance （以继承取代委托）</h3>
+<p>你在两个类之间使用委托关系，并经常为整个接口编写许多极简单的委托函数。<br>
+让委托类继承受托类。</p>
 
 </div>
 
@@ -4413,19 +4461,23 @@
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		3 使用注解 | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,25 +4395,33 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:50</span>
+	<span id="post-date">2019-12-18 01:00:42</span>
 </div>
 
 
 <div id="article">
 	<p>注解是插入到源代码的标签，由其他工具对其进行处理，不会改变程序的编译方式</p>
-<h5 id="注解位置"><a href="#注解位置" class="headerlink" title="注解位置"></a>注解位置</h5><p>在Java中，注解是当作一个修饰符来使用的。它被置于被注解项之前，中间没有分号。每一个注解的名称前面都加上了@符号。</p>
-<h5 id="注解项"><a href="#注解项" class="headerlink" title="注解项"></a>注解项</h5><p>注解项可以是方法、类、成员以及局部变量，还可以是包、参数变量、类型参数和类型用法。</p>
-<h5 id="注解接口"><a href="#注解接口" class="headerlink" title="注解接口"></a>注解接口</h5><p>每个注解都必须通过<code>@interface</code>注解接口进行定义。接口中的方法与注解中的元素相对应。</p>
+<h5 id="注解位置"><a class="header-anchor" href="#注解位置">¶</a>注解位置</h5>
+<p>在Java中，注解是当作一个修饰符来使用的。它被置于被注解项之前，中间没有分号。每一个注解的名称前面都加上了@符号。</p>
+<h5 id="注解项"><a class="header-anchor" href="#注解项">¶</a>注解项</h5>
+<p>注解项可以是方法、类、成员以及局部变量，还可以是包、参数变量、类型参数和类型用法。</p>
+<h5 id="注解接口"><a class="header-anchor" href="#注解接口">¶</a>注解接口</h5>
+<p>每个注解都必须通过<code>@interface</code>注解接口进行定义。接口中的方法与注解中的元素相对应。</p>
 <pre><code>@Target(ElementType.METHOD)
 @Retention(RetentionPolicy.RUNTIME)
 public @interface Test {
-    long timeout() default 0L;
-}</code></pre><p>注解Target和Retention是<em>元注解</em>。它们注解了Test注解，即将Test注解标识成一个只能运行到方法啥功能的注解，并且当类文件载入到虚拟机的时候，仍可以保留下来。</p>
-<h5 id="获取注解"><a href="#获取注解" class="headerlink" title="获取注解"></a>获取注解</h5><ul>
-<li>boolean isAnnotationPresent<br>如果该项具有给定类型的注解，则返回true</li>
-<li>getAnnotation()获得给定类型的注解。  </li>
-<li>getAnnotations()获得作用于该项的所有注解，包括继承而来的注解。  </li>
-<li>getDeclaredAnnotations()<br>获得为该项声明的所有注解，不包含继承而来的注解。</li>
+	long timeout() default 0L;
+}
+</code></pre>
+<p>注解Target和Retention是<em>元注解</em>。它们注解了Test注解，即将Test注解标识成一个只能运行到方法啥功能的注解，并且当类文件载入到虚拟机的时候，仍可以保留下来。</p>
+<h5 id="获取注解"><a class="header-anchor" href="#获取注解">¶</a>获取注解</h5>
+<ul>
+<li>boolean isAnnotationPresent<br>
+如果该项具有给定类型的注解，则返回true</li>
+<li>getAnnotation()获得给定类型的注解。</li>
+<li>getAnnotations()获得作用于该项的所有注解，包括继承而来的注解。</li>
+<li>getDeclaredAnnotations()<br>
+获得为该项声明的所有注解，不包含继承而来的注解。</li>
 </ul>
 <p>Method、Constructor、Field、Class和Package都支持。</p>
 
@@ -4402,19 +4433,23 @@ public @interface Test {
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

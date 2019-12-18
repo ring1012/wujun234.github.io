@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		1.Adapter（适配器） | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,21 +4395,25 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:54</span>
+	<span id="post-date">2019-12-18 01:00:43</span>
 </div>
 
 
 <div id="article">
 	<p>将一个接口转换成客户希望的另一个接口，适配器模式使接口不兼容的那些类可以一起工作，别名包装器(Wrapper)。</p>
 <p>如非必要，可以重构</p>
-<h5 id="模式应用"><a href="#模式应用" class="headerlink" title="模式应用"></a>模式应用</h5><ul>
+<h5 id="模式应用"><a class="header-anchor" href="#模式应用">¶</a>模式应用</h5>
+<ul>
 <li>Enumeration 接口转化为 Iterator 接口</li>
 <li>Java I/O中 <code>InputStreamReader</code> 和 <code>OutputStreamWriter</code></li>
 </ul>
-<h4 id="待适配"><a href="#待适配" class="headerlink" title="待适配"></a>待适配</h4><p>待适配</p>
+<h4 id="待适配"><a class="header-anchor" href="#待适配">¶</a>待适配</h4>
+<p>待适配</p>
 <pre><code>public class Source {
     public void method1() {}
-}</code></pre><p>目标接口</p>
+}
+</code></pre>
+<p>目标接口</p>
 <pre><code>public interface Targetable {
 
     /* 与原类中的方法相同 */
@@ -4394,18 +4421,24 @@
 
     /* 新类的方法 */
     public void method2();
-}</code></pre><h3 id="1-类的适配器模式"><a href="#1-类的适配器模式" class="headerlink" title="1 类的适配器模式"></a>1 类的适配器模式</h3><p>Adapter类继承Source类，实现Targetable接口</p>
+}
+</code></pre>
+<h3 id="1-类的适配器模式"><a class="header-anchor" href="#1-类的适配器模式">¶</a>1 类的适配器模式</h3>
+<p>Adapter类继承Source类，实现Targetable接口</p>
 <pre><code>public class Adapter extends Source implements Targetable {
 
     @Override
     public void method2() {
         System.out.println(&quot;this is the targetable method!&quot;);
     }
-}</code></pre><h3 id="2-对象的适配器模式"><a href="#2-对象的适配器模式" class="headerlink" title="2 对象的适配器模式"></a>2 对象的适配器模式</h3><p>持有Source类的实例</p>
+}
+</code></pre>
+<h3 id="2-对象的适配器模式"><a class="header-anchor" href="#2-对象的适配器模式">¶</a>2 对象的适配器模式</h3>
+<p>持有Source类的实例</p>
 <pre><code>public class Wrapper implements Targetable {
 
     private Source source;
-
+    
     public Wrapper(Source source){
         super();
         this.source = source;
@@ -4415,12 +4448,15 @@
     public void method1() {
         source.method1();
     }
-
+    
     @Override
     public void method2() {
         System.out.println(&quot;this is the targetable method!&quot;);
     }
-}</code></pre><h3 id="3-接口的适配器模式"><a href="#3-接口的适配器模式" class="headerlink" title="3 接口的适配器模式"></a>3 接口的适配器模式</h3><p>不希望实现一个接口中所有的方法时，通过抽象类实现该接口，再继承抽象类</p>
+}
+</code></pre>
+<h3 id="3-接口的适配器模式"><a class="header-anchor" href="#3-接口的适配器模式">¶</a>3 接口的适配器模式</h3>
+<p>不希望实现一个接口中所有的方法时，通过抽象类实现该接口，再继承抽象类</p>
 <pre><code>public abstract class Wrapper2 implements Targetable{
     public void method1(){}
     public void method2(){}
@@ -4428,9 +4464,11 @@
 
 public class SourceSub1 extends Wrapper2 {
     public void method1(){
-        System.out.println(&quot;the sourceable interface&#39;s first Sub1!&quot;);
+        System.out.println(&quot;the sourceable interface's first Sub1!&quot;);
     }
-}</code></pre>
+}
+</code></pre>
+
 </div>
 
 	</div>
@@ -4439,19 +4477,23 @@ public class SourceSub1 extends Wrapper2 {
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

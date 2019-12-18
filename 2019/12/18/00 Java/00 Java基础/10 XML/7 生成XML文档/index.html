@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		7 生成XML文档 | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,27 +4395,47 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:48</span>
+	<span id="post-date">2019-12-18 01:00:41</span>
 </div>
 
 
 <div id="article">
-	<h3 id="1-不带命名空间的文档"><a href="#1-不带命名空间的文档" class="headerlink" title="1 不带命名空间的文档"></a>1 不带命名空间的文档</h3><p>创建空文档</p>
-<pre><code>Document doc = builder.newDocument();</code></pre><p>构建元素</p>
+	<h3 id="1-不带命名空间的文档"><a class="header-anchor" href="#1-不带命名空间的文档">¶</a>1 不带命名空间的文档</h3>
+<p>创建空文档</p>
+<pre><code>Document doc = builder.newDocument();
+</code></pre>
+<p>构建元素</p>
 <pre><code>Element rootElement = doc.createElement(rootName);
-Element childElement = doc.createElement(childName);</code></pre><p>构建文本节点</p>
-<pre><code>Text textNode = doc.createTextNode(textContents);</code></pre><p>设置元素属性</p>
-<pre><code>rootElement.setAttribute(name, value);</code></pre><p>添加给文档</p>
+Element childElement = doc.createElement(childName);
+</code></pre>
+<p>构建文本节点</p>
+<pre><code>Text textNode = doc.createTextNode(textContents);
+</code></pre>
+<p>设置元素属性</p>
+<pre><code>rootElement.setAttribute(name, value);
+</code></pre>
+<p>添加给文档</p>
 <pre><code>doc.appendChild(rootElement);
 rootElement.appendChild(childElement);
-childElement.appendChild(textNode);</code></pre><h3 id="2-带命名空间的文档"><a href="#2-带命名空间的文档" class="headerlink" title="2 带命名空间的文档"></a>2 带命名空间的文档</h3><p>创建命名空间感知的生成器</p>
+childElement.appendChild(textNode);
+</code></pre>
+<h3 id="2-带命名空间的文档"><a class="header-anchor" href="#2-带命名空间的文档">¶</a>2 带命名空间的文档</h3>
+<p>创建命名空间感知的生成器</p>
 <pre><code>DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 factory.setNamespaceAware(true);
-builder = factory.newDocumentBuilder();</code></pre><p>使用createElementNS创建节点</p>
+builder = factory.newDocumentBuilder();
+</code></pre>
+<p>使用createElementNS创建节点</p>
 <pre><code>String namespace = &quot;&quot;;
 Element rootElement = doc.createElementNS(namespace,&quot;svg:svg&quot;);
-//结果：&lt;svg:svg xmlns:svg=&quot;&quot;&gt;</code></pre><p>设置元素属性</p>
-<pre><code>rootElement.setAttributeNS(namespace, qualifiedName, value);</code></pre><h3 id="3-DOM树写出文档"><a href="#3-DOM树写出文档" class="headerlink" title="3 DOM树写出文档"></a>3 DOM树写出文档</h3><h4 id="XSLT-API"><a href="#XSLT-API" class="headerlink" title="XSLT API"></a>XSLT API</h4><p>DOM树写出到输出流,最容易的方式是使用XSLT API。</p>
+//结果：&lt;svg:svg xmlns:svg=&quot;&quot;&gt;
+</code></pre>
+<p>设置元素属性</p>
+<pre><code>rootElement.setAttributeNS(namespace, qualifiedName, value);
+</code></pre>
+<h3 id="3-DOM树写出文档"><a class="header-anchor" href="#3-DOM树写出文档">¶</a>3 DOM树写出文档</h3>
+<h4 id="XSLT-API"><a class="header-anchor" href="#XSLT-API">¶</a>XSLT API</h4>
+<p>DOM树写出到输出流,最容易的方式是使用XSLT API。</p>
 <pre><code>Transformer t = TransformerFactory.newInstance().newTransformer();
 //将DOCTYPE节点纳入输出
 t.setOutputProperty(OutPutKeys.DOCTYPE_SYSTEM, systemIdentifier);
@@ -4402,17 +4445,25 @@ t.setOutputProperty(OutPutKeys.INDENT, &quot;YES&quot;);
 t.setOutputProperty(OutPutKeys.METHOD, &quot;xml&quot;);
 t.setOutputProperty(&quot;{http://xml.apache.org/xslt}indent-amount&quot;, &quot;2&quot;);
 //转换到文档
-t.transform(new DOMSorce(doc),new StreamResult(new FileOutputStream(file)));</code></pre><h4 id="LSSerializer接口"><a href="#LSSerializer接口" class="headerlink" title="LSSerializer接口"></a>LSSerializer接口</h4><pre><code>DOMImplementation impl = doc.getImplementation();
+t.transform(new DOMSorce(doc),new StreamResult(new FileOutputStream(file)));
+</code></pre>
+<h4 id="LSSerializer接口"><a class="header-anchor" href="#LSSerializer接口">¶</a>LSSerializer接口</h4>
+<pre><code>DOMImplementation impl = doc.getImplementation();
 DOMImplementationLS implLS = (DOMImplementationLS)impl.getFeature(&quot;LS&quot;,&quot;3.0&quot;);
 lssERIALIZER SER = implLS.createLSSerializer();
 //设置空格和换行
 ser.getDomConfig().setParameter(&quot;format-pretty-print&quot;, true);
 //转为字符串
-String str = ser.writeToString(doc);</code></pre><p>写入文件</p>
+String str = ser.writeToString(doc);
+</code></pre>
+<p>写入文件</p>
 <pre><code>LSOutput out = implLS.createLSOutput();
 out.serEncoding(&quot;UTF-8&quot;);
 out.setByteStream(Files.newOutputStream(path));
-ser.write(doc, out);</code></pre><h3 id="4-StAX写出XML文档"><a href="#4-StAX写出XML文档" class="headerlink" title="4 StAX写出XML文档"></a>4 StAX写出XML文档</h3><pre><code>XMLOutputFactory factory = XMLOutputFactory.newInstance();
+ser.write(doc, out);
+</code></pre>
+<h3 id="4-StAX写出XML文档"><a class="header-anchor" href="#4-StAX写出XML文档">¶</a>4 StAX写出XML文档</h3>
+<pre><code>XMLOutputFactory factory = XMLOutputFactory.newInstance();
 XMLStreamWriter writer = factory.createXMLStreamWriter(out);
 //产生XML文件头
 writer.writerStartDocument();
@@ -4427,7 +4478,9 @@ writer.writerEndElement();
 //写出没有子节点的元素
 writer.writerEmptyElement(name);
 //文档结尾
-writer.writerEndDocument();</code></pre>
+writer.writerEndDocument();
+</code></pre>
+
 </div>
 
 	</div>
@@ -4436,19 +4489,23 @@ writer.writerEndDocument();</code></pre>
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

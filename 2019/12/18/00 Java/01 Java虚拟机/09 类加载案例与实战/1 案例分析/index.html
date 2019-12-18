@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		1 案例分析 | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,23 +4395,26 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:52</span>
+	<span id="post-date">2019-12-18 01:00:42</span>
 </div>
 
 
 <div id="article">
-	<h3 id="1-Tomcat：正统的类加载器架构"><a href="#1-Tomcat：正统的类加载器架构" class="headerlink" title="1 Tomcat：正统的类加载器架构"></a>1 Tomcat：正统的类加载器架构</h3><p><img src="/images/1545638705563.jpg" alt="image"></p>
+	<h3 id="1-Tomcat：正统的类加载器架构"><a class="header-anchor" href="#1-Tomcat：正统的类加载器架构">¶</a>1 Tomcat：正统的类加载器架构</h3>
+<p><img src="/images/1545638705563.jpg" alt="image"></p>
 <ul>
 <li>Java Web服务器：部署在同一个服务器上的两个Web应用程序所使用的Java类库可以实现相互隔离又要可以互相共享；尽可能保证自身的安全不受部署的Web应用程序影响；要支持JSP生成类的热替换；</li>
 <li>上图中，灰色背景的三个类加载器是JDK默认提供的类加载器，而CommonClassLoader、CatalinaClassLoader、SharedClassLoader和WebappClassLoader是Tomcat自己定义的类加载器，分别加载/common/（可被Tomcat和Web应用共用）、/server/（可被Tomcat使用）、/shared/（可被Web应用使用）和/WebApp/WEB-INF/（可被当前Web应用使用）中的Java类库，Tomcat 6.x把前面三个目录默认合并到一起变成一个/lib目录（作用同原先的common目录）；</li>
 </ul>
-<h3 id="2-OSGI：灵活的类加载架构"><a href="#2-OSGI：灵活的类加载架构" class="headerlink" title="2 OSGI：灵活的类加载架构"></a>2 OSGI：灵活的类加载架构</h3><p><img src="/images/1545638707200.jpg" alt="image"></p>
+<h3 id="2-OSGI：灵活的类加载架构"><a class="header-anchor" href="#2-OSGI：灵活的类加载架构">¶</a>2 OSGI：灵活的类加载架构</h3>
+<p><img src="/images/1545638707200.jpg" alt="image"></p>
 <ul>
 <li>OSGI的每个模块称为Bundle，可以声明它所依赖的Java Package（通过Import-Package描述），也可以声明它允许导出发布的Java Package（通过Export-Package描述）；</li>
 <li>除了更精确的模块划分和可见性控制外，引入OSGI的另外一个重要理由是基于OSGI的程序很可能可以实现<strong>模块级的热插拔功能</strong>；</li>
 <li>OSGI的类加载器之间只有规则，没有固定的委派关系；加载器之间的关系更为复杂、运行时才能确定的网状结构，提供灵活性的同时，可能会产生许多的隐患；</li>
 </ul>
-<h3 id="3-字节码生成技术与动态代理的实现"><a href="#3-字节码生成技术与动态代理的实现" class="headerlink" title="3 字节码生成技术与动态代理的实现"></a>3 字节码生成技术与动态代理的实现</h3><ul>
+<h3 id="3-字节码生成技术与动态代理的实现"><a class="header-anchor" href="#3-字节码生成技术与动态代理的实现">¶</a>3 字节码生成技术与动态代理的实现</h3>
+<ul>
 <li>在Java里面除了javac和字节码类库外，使用字节码生成的例子还有Web服务器中的JSP编译器、编译时植入的AOP框架和很常用的动态代理技术等，这里选择其中相对简单的动态代理来看看字节码生成技术是如何影响程序运作的；</li>
 <li>动态代理的优势在于实现了在原始类和接口还未知的时候就确定类的代理行为，可以很灵活地重用于不同的应用场景之中；</li>
 <li>以下的例子中生成的代理类“$Proxy0.class”文件可以看到代理为传入接口的每一个方法统一调用了InvocationHandler对象的invoke方法；其生成代理类的字节码大致过程其实就是根据Class文件的格式规范去拼接字节码；</li>
@@ -4427,7 +4453,10 @@
              IHello hello = (IHello) new DynamicProxy().bind(new Hello());
              hello.sayHello();
        }
-}</code></pre><h3 id="4-Retrotranslator：跨越JDK版本"><a href="#4-Retrotranslator：跨越JDK版本" class="headerlink" title="4 Retrotranslator：跨越JDK版本"></a>4 Retrotranslator：跨越JDK版本</h3><ul>
+}
+</code></pre>
+<h3 id="4-Retrotranslator：跨越JDK版本"><a class="header-anchor" href="#4-Retrotranslator：跨越JDK版本">¶</a>4 Retrotranslator：跨越JDK版本</h3>
+<ul>
 <li>Retrotranslator的作用是将JDK 1.5编译出来的Class文件转变为可以在JDK 1.4或JDK 1.3部署的版本，它可以很好地支持自动装箱、泛型、动态注解、枚举、变长参数、遍历循环、静态导入这些语法特性，甚至还可以支持JDK 1.5中新增的集合改进、并发包以及对泛型、注解等的反射操作；</li>
 <li>JDK升级通常包括四种类型：编译器层面的做的改进、Java API的代码增强、需要再字节码中进行支持的活动以及虚拟机内部的改进，Retrotranslator只能模拟前两类，第二类通过独立类库实现，第一类则通过ASM框架直接对字节码进行处理；</li>
 </ul>
@@ -4440,19 +4469,23 @@
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

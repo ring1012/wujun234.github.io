@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		2 实现服务器 | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,42 +4395,54 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:49</span>
+	<span id="post-date">2019-12-18 01:00:41</span>
 </div>
 
 
 <div id="article">
-	<h3 id="1-服务器套接字"><a href="#1-服务器套接字" class="headerlink" title="1 服务器套接字"></a>1 服务器套接字</h3><p>ServerSocket类用于建立套接字</p>
-<pre><code class="java">ServerSocket s = new ServerSocket(8189);</code></pre>
+	<h3 id="1-服务器套接字"><a class="header-anchor" href="#1-服务器套接字">¶</a>1 服务器套接字</h3>
+<p>ServerSocket类用于建立套接字</p>
+<pre><code class="language-java">ServerSocket s = new ServerSocket(8189);
+</code></pre>
 <p>不停等待，直到建立连接</p>
-<pre><code class="java">Socket incoming = s.accept();</code></pre>
+<pre><code class="language-java">Socket incoming = s.accept();
+</code></pre>
 <p>输入流来自客户端，发送给输出流的会变为客户端的输入</p>
 <pre><code>InputStream inStream = incoming.getInputStream();
-OutputStream outStream = incoming.getOutputStream();</code></pre><p>发送文本</p>
+OutputStream outStream = incoming.getOutputStream();
+</code></pre>
+<p>发送文本</p>
 <pre><code>Scanner in = new Scanner(inStream, &quot;UTF-8&quot;);
 PrintWriter out = new PrintWriter(new OutputStreamWrite(outStream), &quot;UTF-8&quot;), true/*autoFlush*/)
-out.println(&quot;Hello!Enter BYE to exit.&quot;);</code></pre><p>关闭连接</p>
+out.println(&quot;Hello!Enter BYE to exit.&quot;);
+</code></pre>
+<p>关闭连接</p>
 <pre><code>String line = in.nextLine();
 out.println(&quot;Echo:&quot; + line);
 if(line.trim().equals(&quot;BYE&quot;)) done = true;
 
-incoming.close();</code></pre><p>每个服务器程序，都会不间断执行下面这个循环</p>
+incoming.close();
+</code></pre>
+<p>每个服务器程序，都会不间断执行下面这个循环</p>
 <ol>
 <li>通过输入流从客户端接收一个命令</li>
 <li>解码客户端命令</li>
 <li>收集客户端请求的信息</li>
 <li>通过输出流发送信息给客户端</li>
 </ol>
-<h3 id="2-为多个客户端服务"><a href="#2-为多个客户端服务" class="headerlink" title="2 为多个客户端服务"></a>2 为多个客户端服务</h3><p>运用线程可支持多连接，每当程序建立一个新的套接字连接时，启动一个新线程来处理链接，而主程序立即返回并等待下一个连接。</p>
-<pre><code class="java">while(true){
+<h3 id="2-为多个客户端服务"><a class="header-anchor" href="#2-为多个客户端服务">¶</a>2 为多个客户端服务</h3>
+<p>运用线程可支持多连接，每当程序建立一个新的套接字连接时，启动一个新线程来处理链接，而主程序立即返回并等待下一个连接。</p>
+<pre><code class="language-java">while(true){
     Socket incoming = s.accept();
     Runnable r = new ThreadedEchoHandler(incoming);
-
+    
     Thread t = new Tread(r);
     t.start();
-}</code></pre>
+}
+</code></pre>
 <p>为使服务器实现更高的吞吐量，可以使用nio包的一些特性。</p>
-<h3 id="3-半关闭"><a href="#3-半关闭" class="headerlink" title="3 半关闭"></a>3 半关闭</h3><p>半关闭是：套接字连接的一端可以终止其输出，同时仍旧接受另一端的数据。</p>
+<h3 id="3-半关闭"><a class="header-anchor" href="#3-半关闭">¶</a>3 半关闭</h3>
+<p>半关闭是：套接字连接的一端可以终止其输出，同时仍旧接受另一端的数据。</p>
 <p>可以通过关闭一个套接字的输出流来表示发送给服务器的请求数据已结束，但必须保持输入流处于打开状态</p>
 <pre><code>try(Socket socket = new Socket(host, port)){
     Scanner in = new Scanner(socket.getInputStream(),&quot;UTF-8&quot;);
@@ -4421,7 +4456,9 @@ incoming.close();</code></pre><p>每个服务器程序，都会不间断执行�
         String line = in.nextLine();
         ...
     }
-}</code></pre>
+}
+</code></pre>
+
 </div>
 
 	</div>
@@ -4430,19 +4467,23 @@ incoming.close();</code></pre><p>每个服务器程序，都会不间断执行�
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

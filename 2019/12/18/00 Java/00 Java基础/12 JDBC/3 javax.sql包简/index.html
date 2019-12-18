@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		3 javax.sql包简 | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,7 +4395,7 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:49</span>
+	<span id="post-date">2019-12-18 01:00:41</span>
 </div>
 
 
@@ -4386,10 +4409,11 @@
 <li>Rowsets</li>
 </ol>
 <p>应用程序可直接使用的 API是DataSource和RowSet。连接池和分布式事务API由中间层基础架构在内部使用。</p>
-<h3 id="DataSource"><a href="#DataSource" class="headerlink" title="DataSource"></a>DataSource</h3><p>DataSource主要目的是替换DriverManager。</p>
+<h3 id="DataSource"><a class="header-anchor" href="#DataSource">¶</a>DataSource</h3>
+<p>DataSource主要目的是替换DriverManager。</p>
 <p><strong>替换原因</strong>：</p>
 <ul>
-<li>可以使用连接池、语句池和分布式事务。 </li>
+<li>可以使用连接池、语句池和分布式事务。</li>
 <li>可以对数据源的属性进行更改，不需要更改应用程序代码</li>
 <li>缓存PreparedStatement以便更快的执行</li>
 <li>可以设置连接超时时间</li>
@@ -4401,17 +4425,21 @@
 <li>分布式事务实现：生成用于分布式事务的Connection对象，几乎总是参与到连接池中。该实现与中间层事务管理器一起工作</li>
 </ul>
 <p>通过 DataSource 对象访问的驱动程序不会向 DriverManager 注册。</p>
-<h4 id="连接池和语句池"><a href="#连接池和语句池" class="headerlink" title="连接池和语句池"></a>连接池和语句池</h4><p>连接池由中间层自动完成。应用程序只是简单地使用DataSource.getConnection方法来获取池连接，并以与使用任何Connection对象相同的方式使用它。</p>
+<h4 id="连接池和语句池"><a class="header-anchor" href="#连接池和语句池">¶</a>连接池和语句池</h4>
+<p>连接池由中间层自动完成。应用程序只是简单地使用DataSource.getConnection方法来获取池连接，并以与使用任何Connection对象相同的方式使用它。</p>
 <p>实现原理：连接池使用集合来进行装载，返回的Connection是原始Connection的代理，代理Connection的close方法，当调用close方法时，不是真正关连接，而是把它代理的Connection对象放回到连接池中，等待下一次重复利用。</p>
-<h4 id="分布式事务"><a href="#分布式事务" class="headerlink" title="分布式事务"></a>分布式事务</h4><p>用于分布式事务的类和接口是：</p>
+<h4 id="分布式事务"><a class="header-anchor" href="#分布式事务">¶</a>分布式事务</h4>
+<p>用于分布式事务的类和接口是：</p>
 <ul>
 <li>XADataSource</li>
-<li>XAConnection<br>这些XA接口的实现，需要数据库的JDBC提供，mysql没有。</li>
+<li>XAConnection<br>
+这些XA接口的实现，需要数据库的JDBC提供，mysql没有。</li>
 </ul>
 <p>不需任何特殊操作，只需像通常那样通过DataSource.getConnection获取连接，由事务管理器在幕后管理事务。</p>
-<p> XADataSource接口创建XAConnection对象，每个XAConnection对象都会创建事务管理器用来管理连接的XAResource对象。</p>
+<p>XADataSource接口创建XAConnection对象，每个XAConnection对象都会创建事务管理器用来管理连接的XAResource对象。</p>
 <p>一旦XAConnection参与事物，则不能手动干扰事务管理器。 如，不能调用Connection.commit或Connection.rollback方法，无法将连接设置为自动提交模式。</p>
-<h4 id="Rowsets"><a href="#Rowsets" class="headerlink" title="Rowsets"></a>Rowsets</h4><p><strong>RowSet继承自ResultSet</strong>，和ResultSet相比，它更具灵活性。可离线，可更新的。</p>
+<h4 id="Rowsets"><a class="header-anchor" href="#Rowsets">¶</a>Rowsets</h4>
+<p><strong>RowSet继承自ResultSet</strong>，和ResultSet相比，它更具灵活性。可离线，可更新的。</p>
 <p>RowSet提供的额外的特性：</p>
 <ul>
 <li>使用了JavaBean的事件驱动模型，它可以给注册的组件发送事件通知，比如游标的移动，行的增删改，以及RowSet内容的修改等。</li>
@@ -4419,11 +4447,14 @@
 </ul>
 <p>RowSet分为两大类：</p>
 <ol>
-<li>连接型RowSet<ul>
+<li>连接型RowSet
+<ul>
 <li>JdbcRowSet：与数据库进行连接，和ResultSet很类似。</li>
 </ul>
 </li>
-<li>离线型RowSet<br>不需要和数据库进行连接，更轻量级，更易序列化。适用于在网络间传递数据。<ul>
+<li>离线型RowSet<br>
+不需要和数据库进行连接，更轻量级，更易序列化。适用于在网络间传递数据。
+<ul>
 <li>CachedRowSet：可获取连接，执行查询并读取ResultSet的数据到RowSet里。可以在离线时对数据进行维护和更新，然后重新连接到数据库里，并回写改动的数据。</li>
 <li>WebRowSet：继承自CachedRowSet，可以读写XML文档。</li>
 <li>JoinRowSet：继承自WebRowSet，可不连数据库执行join</li>
@@ -4440,19 +4471,23 @@
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

@@ -1,10 +1,30 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +35,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4369,12 +4390,13 @@
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/07%20%E5%B9%B6%E5%8F%91/2%20%E4%B8%AD%E6%96%AD%E7%BA%BF%E7%A8%8B/">2 中断线程</a>
+					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/11%20%E7%BD%91%E7%BB%9C/3%20%E8%8E%B7%E5%8F%96Web%E6%95%B0%E6%8D%AE/">3 获取Web数据</a>
 				</h2>
 				<span class="post-date">2019-12-18</span>
 				<div class="article-digest">
-					当线程的run方法执行方法体中最后一条语句并经由return返回时。或出现了在方法中没有捕获的异常时，线程终止。
-没有可以强制线程终止的方法，interrupt方法可以用来请求终止线程。isInter
+					Java库支持更高级别处理，而不只是创建套接字连接发送HTTP请求。
+Java库与网页交互并不是特别方便，可以考虑使用其他库，如HttpClient、Feign、RestTemple
+¶1 URL和U
 					...
 				</div>
 			</article>
@@ -4383,17 +4405,16 @@
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/07%20%E5%B9%B6%E5%8F%91/1%20%E4%BB%80%E4%B9%88%E6%98%AF%E7%BA%BF%E7%A8%8B/">1 什么是线程</a>
+					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/11%20%E7%BD%91%E7%BB%9C/2%20%E5%AE%9E%E7%8E%B0%E6%9C%8D%E5%8A%A1%E5%99%A8/">2 实现服务器</a>
 				</h2>
 				<span class="post-date">2019-12-18</span>
 				<div class="article-digest">
-					并发和并行的区别
-并发:单核处理多个任务
-并行:多核同时处理多个任
+					¶1 服务器套接字
+ServerSocket类用于建立套接字
+ServerSocket s = new ServerSocket(8189);
 
-进程和线程的区别
-进程：每个进程都有独立的代码和数据空间（进程上下文），进程间的切换会有较大的开销，一个进程包含1–n个线程。
-线
+不停等待，直到建立连接
+Socket incoming
 					...
 				</div>
 			</article>
@@ -4402,11 +4423,16 @@
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/07%20%E5%B9%B6%E5%8F%91/10%20%E5%90%8C%E6%AD%A5%E5%99%A8/">10 同步器</a>
+					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/11%20%E7%BD%91%E7%BB%9C/1%20%E8%BF%9E%E6%8E%A5%E5%88%B0%E6%9C%8D%E5%8A%A1%E5%99%A8/">1 连接到服务器</a>
 				</h2>
 				<span class="post-date">2019-12-18</span>
 				<div class="article-digest">
-					java.util.concurrent 包包含了几个能帮助人们管理相互合作的线程集的类。这些机制具有为线程之间的共用集结点模式提供的“预置功能”。如果有一个相互合作的线程集满足这些行为模式之一，那么
+					¶1 使用telnet
+telnet是用于网络编程的强大调试工具，可远程连接和服务通信。windows的telnet需要单独激活
+telnet time-a.nist.gov 13
+
+获取标准时间
+¶
 					...
 				</div>
 			</article>
@@ -4415,16 +4441,14 @@
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/07%20%E5%B9%B6%E5%8F%91/3%20%E7%BA%BF%E7%A8%8B%E7%8A%B6%E6%80%81/">3 线程状态</a>
+					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/10%20XML/8%20XSL%E8%BD%AC%E6%8D%A2/">8 XSL转换</a>
 				</h2>
 				<span class="post-date">2019-12-18</span>
 				<div class="article-digest">
-					线程状态线程可以有如下 6 种状态：
-
-New(新建)创建后，尚未启动的线程
-Runable(可运行)
-正在JVM中执行的线程处于这种状态（注意不是在CPU中执行，见2）
-Runable对应了两种OS
+					XSL 指扩展样式表语言（EXtensible Stylesheet Language），可描述如何来显示 XML 文档。
+XSL 包括三部分：XSLT、XPath、XSL-FO
+¶XSLT
+XSLT
 					...
 				</div>
 			</article>
@@ -4433,15 +4457,16 @@ Runable对应了两种OS
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/07%20%E5%B9%B6%E5%8F%91/4%20%E7%BA%BF%E7%A8%8B%E5%B1%9E%E6%80%A7/">4 线程属性</a>
+					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/10%20XML/7%20%E7%94%9F%E6%88%90XML%E6%96%87%E6%A1%A3/">7 生成XML文档</a>
 				</h2>
 				<span class="post-date">2019-12-18</span>
 				<div class="article-digest">
-					1 线程优先级不要将程序构建为功能的正确性依赖于优先级。
-Linux上线程不具有优先级。
+					¶1 不带命名空间的文档
+创建空文档
+Document doc = builder.newDocument();
 
-void setPriority(fnt newPriority)：设置线程的优先级。
-static voi
+构建元素
+Element rootElement = doc.createEleme
 					...
 				</div>
 			</article>
@@ -4450,12 +4475,14 @@ static voi
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/07%20%E5%B9%B6%E5%8F%91/5%20%E5%90%8C%E6%AD%A5/">5 同步</a>
+					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/10%20XML/6%20%E9%AA%8C%E8%AF%81XML%E6%96%87%E6%A1%A3/">6 验证XML文档</a>
 				</h2>
 				<span class="post-date">2019-12-18</span>
 				<div class="article-digest">
-					有两种机制防止代码块受并发访问的干扰。synchronized关键字,ReentrantLock类。
-1 可重入锁（ReentrantLock）可重入锁（ReentrantLock）锁是可重入的，因为
+					如果要指定文档结构，可以提供一个文档类型定义（DTD）或一个XML Schema定义。
+¶1 DTD
+文档类型定义（DTD）可定义合法的XML文档构建模块。它使用一系列合法的元素来定义文档的结构。
+¶
 					...
 				</div>
 			</article>
@@ -4464,13 +4491,12 @@ static voi
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/07%20%E5%B9%B6%E5%8F%91/6%20%E9%98%BB%E5%A1%9E%E9%98%9F%E5%88%97/">6 阻塞队列</a>
+					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/10%20XML/5%20XML%E8%A7%A3%E6%9E%90-%E6%B5%81%E6%9C%BA%E5%88%B6/">5 XML解析-流机制</a>
 				</h2>
 				<span class="post-date">2019-12-18</span>
 				<div class="article-digest">
-					对于许多线程问题，可以通过使用一个或多个队列以优雅且安全的方式将其形式化。
-使用队列，可以安全地从一个线程向另一个线程传递数据。
-使用通知模式实现线程的同步。当试图向队列添加元素而队列已满，或是想从队
+					如果文档很大，并且处理算法又非常简单，可以在运行时解析节点，而不必看到完整的树形结构，应该使用流机制解析器（streaming parser）。
+Java类库提供的流机制解析器：老而弥坚的SAX解析器
 					...
 				</div>
 			</article>
@@ -4479,12 +4505,15 @@ static voi
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/07%20%E5%B9%B6%E5%8F%91/8%20Callable%E4%B8%8EFuture/">8 Callable与Future</a>
+					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/10%20XML/4%20XML%E8%A7%A3%E6%9E%90-%E6%A0%91%E5%9E%8B/">4 XML解析-树型</a>
 				</h2>
 				<span class="post-date">2019-12-18</span>
 				<div class="article-digest">
-					CallableCallable与Runnable类似，它们的主要区别是 Callable 的 call() 方法可以返回值和抛出异常。Callable接口是一个参数化的类型，只有一个方法call。
-
+					xml文件除了给开发者看，更多的情况使用程序读取xml文件的内容。读取xml文档的过程就是xml解析
+¶1 XML解析方式
+Java库提供了两种XML解析器：
+¶树型解析器：DOM解析
+DOM解析器一
 					...
 				</div>
 			</article>
@@ -4493,11 +4522,13 @@ static voi
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/07%20%E5%B9%B6%E5%8F%91/7%20%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8%E7%9A%84%E9%9B%86%E5%90%88/">7 线程安全的集合</a>
+					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/10%20XML/3%20XPath/">3 XPath</a>
 				</h2>
 				<span class="post-date">2019-12-18</span>
 				<div class="article-digest">
-					1 Concurrent集合java.util.concurrent包中 ConcurrentHashMap、ConcurrentSkipListMap、ConcurrentSkipListSet 和
+					XPath 是一种用于在 XML 文档中进行导航的语言。
+XPath 使用路径表达式来选取 XML 文档中的节点或者节点集。节点是通过沿着路径 (path) 或者步 (steps) 来选取的。
+¶XP
 					...
 				</div>
 			</article>
@@ -4506,11 +4537,16 @@ static voi
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/07%20%E5%B9%B6%E5%8F%91/9%20%E6%89%A7%E8%A1%8C%E5%99%A8Executor/">9 执行器Executor</a>
+					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/10%20XML/2%20%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4/">2 命名空间</a>
 				</h2>
 				<span class="post-date">2019-12-18</span>
 				<div class="article-digest">
-					执行器（Executor）类有许多静态工厂方法用来构建线程池。| 方法 | 描述 ||—|—|| newCachedThreadPool | 必要时创建新线程；空闲线程会被保留 60 秒 || new
+					¶使用前缀
+来避免命名冲突
+&lt;h:table&gt;
+   &lt;h:tr&gt;
+       &lt;h:td&gt;Apples&lt;/h:td&gt;
+       &lt;h:td
 					...
 				</div>
 			</article>
@@ -4526,19 +4562,23 @@ static voi
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

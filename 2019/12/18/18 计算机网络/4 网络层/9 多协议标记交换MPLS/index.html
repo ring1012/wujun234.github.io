@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		9 多协议标记交换MPLS | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,12 +4395,12 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:44</span>
+	<span id="post-date">2019-12-18 01:00:41</span>
 </div>
 
 
 <div id="article">
-	<p>多协议标记交换MPLS，“多协议”表示在MPLS的上层可以采用多种协议。</p>
+	<p>多协议标记交换MPLS，“多协议&quot;表示在MPLS的上层可以采用多种协议。</p>
 <p>MPLS利用面向连接技术，使每个分组携带一个叫做标记的小整数。当分组到达交换机时，交换机读取分组的标记，并用标记值来检索分组转发表。这样就比查找路由表来转发分组要快得多。</p>
 <p>MPLS具有以下三个方面的特点：</p>
 <ul>
@@ -4385,7 +4408,9 @@
 <li>(2)支持流量工程， 平衡网络负载。</li>
 <li>(3)有效地支持虚拟专用网VPN。</li>
 </ul>
-<h3 id="1-MPLS的工作原理"><a href="#1-MPLS的工作原理" class="headerlink" title="1 MPLS的工作原理"></a>1 MPLS的工作原理</h3><h4 id="1-基本工作过程"><a href="#1-基本工作过程" class="headerlink" title="1. 基本工作过程"></a>1. 基本工作过程</h4><p>MPLS在入口结点给每一个IP数据报打上固定长度的“标记”，然后根据标记在第二层(链路层)用硬件进行转发(在标记交换路由器中进行标记对换)，因而转发速率大大加快。</p>
+<h3 id="1-MPLS的工作原理"><a class="header-anchor" href="#1-MPLS的工作原理">¶</a>1 MPLS的工作原理</h3>
+<h4 id="1-基本工作过程"><a class="header-anchor" href="#1-基本工作过程">¶</a>1. 基本工作过程</h4>
+<p>MPLS在入口结点给每一个IP数据报打上固定长度的“标记”，然后根据标记在第二层(链路层)用硬件进行转发(在标记交换路由器中进行标记对换)，因而转发速率大大加快。</p>
 <p><img src="/images/1569397274703.png" alt="image"></p>
 <p>MPLS域是指该域中有许多彼此相邻的路由器，并且所有的路由器都是支持MPLS技术的标记交换路由器LSR 。LSR同时具有标记交换和路由选择这两种功能，标记交换功能是为了快速转发，但在这之前LSR需要使用路由选择功能构造转发表。</p>
 <ul>
@@ -4394,9 +4419,11 @@
 <li>（3）由于在全网内统一分配全局标记数值是非常困难的，因此一个标记仅仅在两个标记交换路由器LSR之间才有意义。分组每经过一个LSR，LSR就要做两件事：一是转发，二是更换新的标记，即把入标记更换成为出标记。这就叫做标记对换。</li>
 <li>（4）当IP数据报离开MPLS域时，MPLS出口结点就把MPLS的标记去除，把IP数据报交付非MPLS的主机或路由器，以后就按照普通的转发方法进行转发。</li>
 </ul>
-<h4 id="2-转发等价类FEC"><a href="#2-转发等价类FEC" class="headerlink" title="2.转发等价类FEC"></a>2.转发等价类FEC</h4><p>MPLS有个很重要的概念就是转发等价类FEC。所谓“转发等价类”就是路由器按照同样方式对待的 IP 数据报的集合。</p>
+<h4 id="2-转发等价类FEC"><a class="header-anchor" href="#2-转发等价类FEC">¶</a>2.转发等价类FEC</h4>
+<p>MPLS有个很重要的概念就是转发等价类FEC。所谓“转发等价类”就是路由器按照同样方式对待的 IP 数据报的集合。</p>
 <p>网络管理员采用自定义的FEC就可以更好地管理网络的资源。</p>
-<h3 id="2-MPLS首部的位置与格式"><a href="#2-MPLS首部的位置与格式" class="headerlink" title="2 MPLS首部的位置与格式"></a>2 MPLS首部的位置与格式</h3><p>在把IP数据报封装成以太网帧之前，先要插入一个 MPLS首部。</p>
+<h3 id="2-MPLS首部的位置与格式"><a class="header-anchor" href="#2-MPLS首部的位置与格式">¶</a>2 MPLS首部的位置与格式</h3>
+<p>在把IP数据报封装成以太网帧之前，先要插入一个 MPLS首部。</p>
 <p>MPLS首部就处在第二层和第三层之间。</p>
 
 </div>
@@ -4407,19 +4434,23 @@
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

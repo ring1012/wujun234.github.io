@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		1 线性表（List） | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,16 +4395,19 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:42</span>
+	<span id="post-date">2019-12-18 01:00:44</span>
 </div>
 
 
 <div id="article">
-	<h2 id="一、线性表的定义和基本操作"><a href="#一、线性表的定义和基本操作" class="headerlink" title="一、线性表的定义和基本操作"></a>一、线性表的定义和基本操作</h2><h5 id="1）定义"><a href="#1）定义" class="headerlink" title="1）定义"></a>1）定义</h5><p>线性表：零个或多个数据元素的有序排列。</p>
+	<h2 id="一、线性表的定义和基本操作"><a class="header-anchor" href="#一、线性表的定义和基本操作">¶</a>一、线性表的定义和基本操作</h2>
+<h5 id="1）定义"><a class="header-anchor" href="#1）定义">¶</a>1）定义</h5>
+<p>线性表：零个或多个数据元素的有序排列。</p>
 <blockquote>
 <p>除第一个元素外，每个元素有且只有一个直接前驱元素；初最后一个元素外，每个元素有且只有一个直接后继元素。</p>
 </blockquote>
-<h5 id="2）基本操作"><a href="#2）基本操作" class="headerlink" title="2）基本操作"></a>2）基本操作</h5><ul>
+<h5 id="2）基本操作"><a class="header-anchor" href="#2）基本操作">¶</a>2）基本操作</h5>
+<ul>
 <li>InitList：初始化</li>
 <li>ListEmpty：判空</li>
 <li>ClearList：清空</li>
@@ -4391,19 +4417,25 @@
 <li>ListDelete：删除</li>
 <li>ListLength：长度</li>
 </ul>
-<h2 id="二、线性表的实现"><a href="#二、线性表的实现" class="headerlink" title="二、线性表的实现"></a>二、线性表的实现</h2><h3 id="1-顺序存储"><a href="#1-顺序存储" class="headerlink" title="1 顺序存储"></a>1 顺序存储</h3><h5 id="1）定义-1"><a href="#1）定义-1" class="headerlink" title="1）定义"></a>1）定义</h5><p>线性表的顺序存储结构，指的是用一段地址连续的存储单元依次存储线性表的数据元素。</p>
-<h5 id="2）存储结构"><a href="#2）存储结构" class="headerlink" title="2）存储结构"></a>2）存储结构</h5><p>一维数组，存取时间性能为O(1)，随机存取结构</p>
+<h2 id="二、线性表的实现"><a class="header-anchor" href="#二、线性表的实现">¶</a>二、线性表的实现</h2>
+<h3 id="1-顺序存储"><a class="header-anchor" href="#1-顺序存储">¶</a>1 顺序存储</h3>
+<h5 id="1）定义-v2"><a class="header-anchor" href="#1）定义-v2">¶</a>1）定义</h5>
+<p>线性表的顺序存储结构，指的是用一段地址连续的存储单元依次存储线性表的数据元素。</p>
+<h5 id="2）存储结构"><a class="header-anchor" href="#2）存储结构">¶</a>2）存储结构</h5>
+<p>一维数组，存取时间性能为O(1)，随机存取结构</p>
 <ul>
 <li>存储空间的起始位置：数组 data 的存储位置</li>
-<li>线性表的最大容量：数组长度 MaxSize </li>
+<li>线性表的最大容量：数组长度 MaxSize</li>
 <li>线性表的当前长度 : length</li>
 </ul>
-<h5 id="3）主要操作"><a href="#3）主要操作" class="headerlink" title="3）主要操作"></a>3）主要操作</h5><ul>
+<h5 id="3）主要操作"><a class="header-anchor" href="#3）主要操作">¶</a>3）主要操作</h5>
+<ul>
 <li>取值O(1)：返回数组中指定下标的值。下标超限抛异常</li>
 <li>插入O(n)：从最后一个元素到插入位置元素依次后移，插入，表长+1。位置或长度有问题抛异常或扩容。</li>
 <li>删除O(n)：从删除位置到最后元素依次前移，表长-1。删除位置不合理抛异常。</li>
 </ul>
-<h5 id="4）优缺点"><a href="#4）优缺点" class="headerlink" title="4）优缺点"></a>4）优缺点</h5><p>优点</p>
+<h5 id="4）优缺点"><a class="header-anchor" href="#4）优缺点">¶</a>4）优缺点</h5>
+<p>优点</p>
 <ul>
 <li>无须为表示表中元素之间的逻辑关系而增加额外的存储空间</li>
 <li>可以快速地存取表中任一位置的元素</li>
@@ -4412,105 +4444,144 @@
 <ul>
 <li>插入和删除操作需要移动大量元素</li>
 <li>当线性表长度变化较大时，难以确定存储空间的容量</li>
-<li>造成存储空间的”碎片”</li>
+<li>造成存储空间的&quot;碎片&quot;</li>
 </ul>
-<h3 id="2-链式存储"><a href="#2-链式存储" class="headerlink" title="2 链式存储"></a>2 链式存储</h3><h4 id="2-1-单链表"><a href="#2-1-单链表" class="headerlink" title="2.1 单链表"></a>2.1 单链表</h4><h5 id="1）定义-2"><a href="#1）定义-2" class="headerlink" title="1）定义"></a>1）定义</h5><p>不考虑相邻，哪有空就存哪，让每个元素知道它下一个元素的位置</p>
-<h5 id="2）存储结构-1"><a href="#2）存储结构-1" class="headerlink" title="2）存储结构"></a>2）存储结构</h5><p>链式结构中，除了要存数据元素信息外，还要存储它的后继元素的存储地址。</p>
+<h3 id="2-链式存储"><a class="header-anchor" href="#2-链式存储">¶</a>2 链式存储</h3>
+<h4 id="2-1-单链表"><a class="header-anchor" href="#2-1-单链表">¶</a>2.1 单链表</h4>
+<h5 id="1）定义-v3"><a class="header-anchor" href="#1）定义-v3">¶</a>1）定义</h5>
+<p>不考虑相邻，哪有空就存哪，让每个元素知道它下一个元素的位置</p>
+<h5 id="2）存储结构-v2"><a class="header-anchor" href="#2）存储结构-v2">¶</a>2）存储结构</h5>
+<p>链式结构中，除了要存数据元素信息外，还要存储它的后继元素的存储地址。</p>
 <ul>
 <li>单链表：每个结点中只包含一个指针域，n 个结点链结成一个链表</li>
-<li>结点：数据元素的存储映像，由数据域和指针域组成<ul>
+<li>结点：数据元素的存储映像，由数据域和指针域组成
+<ul>
 <li>数据域：存储数据元素信息的域</li>
 <li>指针域：存储直接后继位置的域</li>
 </ul>
 </li>
 <li>头指针：（必要元素）指向链表中第一个结点的存储位置</li>
-<li>头结点：（可选元素）为方便操作，可在第一个结点前附设一个头结点。<ul>
+<li>头结点：（可选元素）为方便操作，可在第一个结点前附设一个头结点。
+<ul>
 <li>头结点的数据域可以不存储任何信息，也可以存储如线性表的长度等附加信息。</li>
 <li>有了头节点，对第一结点前插入和删除第一结点，与其他结点的操作就统一了</li>
 </ul>
 </li>
 <li>线性链表的最后一个结点指针为“空”</li>
 </ul>
-<h5 id="3）主要操作-1"><a href="#3）主要操作-1" class="headerlink" title="3）主要操作"></a>3）主要操作</h5><ul>
+<h5 id="3）主要操作-v2"><a class="header-anchor" href="#3）主要操作-v2">¶</a>3）主要操作</h5>
+<ul>
 <li>读取O(n)：从第一个节点遍历</li>
-<li>插入、删除：遍历查找第i个元素O(n)，改变指针，插入和删除O(1)<ul>
+<li>插入、删除：遍历查找第i个元素O(n)，改变指针，插入和删除O(1)
+<ul>
 <li>若不知道位置，与顺序存储结构没有优势。知道位置后，优势很大</li>
 <li>对于插入或删除数据越频繁的操作，单链表的效率优势就越是明显</li>
 </ul>
 </li>
-<li>整表创建：动态生成链表。从空表起，依次建立元素结点，插入链表。<ul>
+<li>整表创建：动态生成链表。从空表起，依次建立元素结点，插入链表。
+<ul>
 <li>头插法：新结点插入到头结点与前一新元素之间。</li>
 <li>尾插法：记录尾结点，新结点插在终端结点后面</li>
 </ul>
 </li>
 <li>整表删除：便利每个节点，在内存中将它释放</li>
 </ul>
-<h5 id="4）单链表与顺序存储优缺点"><a href="#4）单链表与顺序存储优缺点" class="headerlink" title="4）单链表与顺序存储优缺点"></a>4）单链表与顺序存储优缺点</h5><ul>
-<li>时间性能<ul>
-<li>查找<ul>
+<h5 id="4）单链表与顺序存储优缺点"><a class="header-anchor" href="#4）单链表与顺序存储优缺点">¶</a>4）单链表与顺序存储优缺点</h5>
+<ul>
+<li>
+<p>时间性能</p>
+<ul>
+<li>查找
+<ul>
 <li>顺序：o(1)</li>
 <li>单链表：O(n)</li>
 </ul>
 </li>
-<li>插入和删除<ul>
+<li>插入和删除
+<ul>
 <li>顺序：平均移动一半元素，O(n)</li>
 <li>单链表：找出位置后，O(1)</li>
 </ul>
 </li>
 </ul>
 </li>
-<li>空间性能<ul>
+<li>
+<p>空间性能</p>
+<ul>
 <li>顺序：需预分配，大了浪费，小了溢出</li>
 <li>单链表：无需分配不受限</li>
 </ul>
 </li>
+<li>
+<p>若线性表需要频繁查找，很少进行插入和删除操作时，宜采用顺序存储结构。</p>
+</li>
+<li>
+<p>若需要频繁插入和删除时，宜采用单链表结构。</p>
+</li>
+<li>
+<p>元素个数变化较大或未知时，最好用单链表。</p>
+</li>
+<li>
+<p>如长度确定，顺序存储结构效率会高很多。</p>
+</li>
 </ul>
-<ul>
-<li>若线性表需要频繁查找，很少进行插入和删除操作时，宜采用顺序存储结构。</li>
-<li>若需要频繁插入和删除时，宜采用单链表结构。</li>
-<li>元素个数变化较大或未知时，最好用单链表。</li>
-<li>如长度确定，顺序存储结构效率会高很多。</li>
-</ul>
-<h4 id="2-2-静态链表"><a href="#2-2-静态链表" class="headerlink" title="2.2 静态链表"></a>2.2 静态链表</h4><h5 id="1）定义-3"><a href="#1）定义-3" class="headerlink" title="1）定义"></a>1）定义</h5><p>针对没有指针的语言，用数组来代替指针描述链表，被称为静态链表。</p>
-<h5 id="2）存储结构-2"><a href="#2）存储结构-2" class="headerlink" title="2）存储结构"></a>2）存储结构</h5><p>游标实现法：数组的元素都是由两个数据域组成， data 和 cur</p>
+<h4 id="2-2-静态链表"><a class="header-anchor" href="#2-2-静态链表">¶</a>2.2 静态链表</h4>
+<h5 id="1）定义-v4"><a class="header-anchor" href="#1）定义-v4">¶</a>1）定义</h5>
+<p>针对没有指针的语言，用数组来代替指针描述链表，被称为静态链表。</p>
+<h5 id="2）存储结构-v3"><a class="header-anchor" href="#2）存储结构-v3">¶</a>2）存储结构</h5>
+<p>游标实现法：数组的元素都是由两个数据域组成， data 和 cur</p>
 <ul>
 <li>数据域data ：用来存放数据元素</li>
 <li>游标 cur ：相当于单链表中的 next 指针，存放该元素的后继在数组中的下标</li>
 <li>第一个元素：存放备用链表的第一个结点的下标</li>
 <li>最后一个元素：存放第一个有数值的元素的下标</li>
 </ul>
-<h5 id="3）主要操作-2"><a href="#3）主要操作-2" class="headerlink" title="3）主要操作"></a>3）主要操作</h5><p>将可用空间链成备用链表</p>
+<h5 id="3）主要操作-v3"><a class="header-anchor" href="#3）主要操作-v3">¶</a>3）主要操作</h5>
+<p>将可用空间链成备用链表</p>
 <ul>
-<li>插入  <ul>
+<li>插入
+<ul>
 <li>模拟空间分配：从备用链表上取第一个结点作为待插入的新结点</li>
 </ul>
 </li>
-<li>删除<ul>
+<li>删除
+<ul>
 <li>模拟空间释放：将删除位置加入备用链表第一位</li>
 </ul>
 </li>
 </ul>
-<h5 id="4）静态链表优缺点"><a href="#4）静态链表优缺点" class="headerlink" title="4）静态链表优缺点"></a>4）静态链表优缺点</h5><ul>
+<h5 id="4）静态链表优缺点"><a class="header-anchor" href="#4）静态链表优缺点">¶</a>4）静态链表优缺点</h5>
+<ul>
 <li>插入和删除操作时 ，只需要修改游标。</li>
 <li>没有解决连镇存储分配带来的表长难以确定的问题</li>
 <li>失去了顺序存储结构随机存取的特性</li>
 </ul>
-<h4 id="2-3-循环链表"><a href="#2-3-循环链表" class="headerlink" title="2.3 循环链表"></a>2.3 循环链表</h4><h5 id="1）定义-4"><a href="#1）定义-4" class="headerlink" title="1）定义"></a>1）定义</h5><p>循环链表：将单链表中终端结点的指针端由空指针改为指向头结点，这种头尾相接的单链表称为单循环链表，简称循环链表。</p>
-<h5 id="2）差异"><a href="#2）差异" class="headerlink" title="2）差异"></a>2）差异</h5><p>循环链表和单链表的主要差异就在于循环的判断条件上，原沫是判断 p-&gt;next 是否为空，现在则是 p -&gt; next 不等于头结点，则循环未结束。</p>
-<h5 id="3）尾指针"><a href="#3）尾指针" class="headerlink" title="3）尾指针"></a>3）尾指针</h5><p>如用尾指针替代头指针，则查找开始结点和终端结点都很方便。</p>
-<h4 id="2-4-双向链表"><a href="#2-4-双向链表" class="headerlink" title="2.4 双向链表"></a>2.4 双向链表</h4><h5 id="1）定义-5"><a href="#1）定义-5" class="headerlink" title="1）定义"></a>1）定义</h5><p>双向链表是在单链表的每个结点中，再设置一个指向其前驱结点的指针域。</p>
-<h5 id="2）主要操作"><a href="#2）主要操作" class="headerlink" title="2）主要操作"></a>2）主要操作</h5><p>在插入和删除时，需要更改两个指针变量。顺序很重要，千万不能写反了。</p>
+<h4 id="2-3-循环链表"><a class="header-anchor" href="#2-3-循环链表">¶</a>2.3 循环链表</h4>
+<h5 id="1）定义-v5"><a class="header-anchor" href="#1）定义-v5">¶</a>1）定义</h5>
+<p>循环链表：将单链表中终端结点的指针端由空指针改为指向头结点，这种头尾相接的单链表称为单循环链表，简称循环链表。</p>
+<h5 id="2）差异"><a class="header-anchor" href="#2）差异">¶</a>2）差异</h5>
+<p>循环链表和单链表的主要差异就在于循环的判断条件上，原沫是判断 p-&gt;next 是否为空，现在则是 p -&gt; next 不等于头结点，则循环未结束。</p>
+<h5 id="3）尾指针"><a class="header-anchor" href="#3）尾指针">¶</a>3）尾指针</h5>
+<p>如用尾指针替代头指针，则查找开始结点和终端结点都很方便。</p>
+<h4 id="2-4-双向链表"><a class="header-anchor" href="#2-4-双向链表">¶</a>2.4 双向链表</h4>
+<h5 id="1）定义-v6"><a class="header-anchor" href="#1）定义-v6">¶</a>1）定义</h5>
+<p>双向链表是在单链表的每个结点中，再设置一个指向其前驱结点的指针域。</p>
+<h5 id="2）主要操作"><a class="header-anchor" href="#2）主要操作">¶</a>2）主要操作</h5>
+<p>在插入和删除时，需要更改两个指针变量。顺序很重要，千万不能写反了。</p>
 <ul>
-<li>插入<ul>
+<li>插入
+<ul>
 <li>先搞定插入结点的前驱和后继，再搞定后结点的前驱，最后解决前结点的后继。</li>
 </ul>
 </li>
-<li>删除<ul>
+<li>删除
+<ul>
 <li>将前结点的后继指向后结点，将后结点的前驱指向前结点</li>
 </ul>
 </li>
 </ul>
-<h3 id="3-线性表的应用"><a href="#3-线性表的应用" class="headerlink" title="3 线性表的应用"></a>3 线性表的应用</h3><p>一元整系数的加法和乘法操作</p>
+<h3 id="3-线性表的应用"><a class="header-anchor" href="#3-线性表的应用">¶</a>3 线性表的应用</h3>
+<p>一元整系数的加法和乘法操作</p>
 <p>队列和堆栈</p>
 
 </div>
@@ -4521,19 +4592,23 @@
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		2.3 ArrayDeque | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,16 +4395,20 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:47</span>
+	<span id="post-date">2019-12-18 01:00:41</span>
 </div>
 
 
 <div id="article">
-	<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>栈<code>Stack</code>已过时，队列<code>LinkedList</code>效率不高，栈和队列首选<code>ArrayDeque</code>。</p>
-<h3 id="总体介绍"><a href="#总体介绍" class="headerlink" title="总体介绍"></a>总体介绍</h3><hr>
-<h4 id="Deque接口"><a href="#Deque接口" class="headerlink" title="Deque接口"></a>Deque接口</h4><p><code>ArrayDeque</code>实现了<code>Deque</code>接口，<code>Deque</code>继承<code>Queue</code>实现了<code>Stack</code>相关方法。</p>
-<p><code>Deque</code>的含义是“double ended queue”，即双端队列。既可当栈使用，也可当队列使用。  </p>
-<h5 id="Deque与Queue相对应的接口："><a href="#Deque与Queue相对应的接口：" class="headerlink" title="Deque与Queue相对应的接口："></a><em>Deque</em>与<em>Queue</em>相对应的接口：</h5><table>
+	<h3 id="前言"><a class="header-anchor" href="#前言">¶</a>前言</h3>
+<p>栈<code>Stack</code>已过时，队列<code>LinkedList</code>效率不高，栈和队列首选<code>ArrayDeque</code>。</p>
+<h3 id="总体介绍"><a class="header-anchor" href="#总体介绍">¶</a>总体介绍</h3>
+<hr>
+<h4 id="Deque接口"><a class="header-anchor" href="#Deque接口">¶</a>Deque接口</h4>
+<p><code>ArrayDeque</code>实现了<code>Deque</code>接口，<code>Deque</code>继承<code>Queue</code>实现了<code>Stack</code>相关方法。</p>
+<p><code>Deque</code>的含义是“double ended queue”，即双端队列。既可当栈使用，也可当队列使用。</p>
+<h5 id="Deque与Queue相对应的接口："><a class="header-anchor" href="#Deque与Queue相对应的接口：">¶</a><em>Deque</em>与<em>Queue</em>相对应的接口：</h5>
+<table>
 <thead>
 <tr>
 <th>Queue Method</th>
@@ -4389,7 +4416,8 @@
 <th>说明</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td><code>add(e)</code></td>
 <td><code>addLast(e)</code></td>
 <td>向队尾插入元素，失败则抛出异常</td>
@@ -4419,8 +4447,10 @@
 <td><code>peekFirst()</code></td>
 <td>获取但不删除队首元素，失败则返回<code>null</code></td>
 </tr>
-</tbody></table>
-<h5 id="Deque与Stack对应的接口："><a href="#Deque与Stack对应的接口：" class="headerlink" title="Deque与Stack对应的接口："></a><em>Deque</em>与<em>Stack</em>对应的接口：</h5><table>
+</tbody>
+</table>
+<h5 id="Deque与Stack对应的接口："><a class="header-anchor" href="#Deque与Stack对应的接口：">¶</a><em>Deque</em>与<em>Stack</em>对应的接口：</h5>
+<table>
 <thead>
 <tr>
 <th>Stack Method</th>
@@ -4428,7 +4458,8 @@
 <th>说明</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td><code>push(e)</code></td>
 <td><code>addFirst(e)</code></td>
 <td>向栈顶插入元素，失败则抛出异常</td>
@@ -4458,33 +4489,45 @@
 <td><code>peekFirst()</code></td>
 <td>获取但不删除栈顶元素，失败则返回<code>null</code></td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 <p>以上接口分为<strong>添加</strong>，<strong>删除</strong>，<strong>取值</strong>三类，都有两套接口，<strong>一套失败抛异常，一套失败返回特殊值</strong>。</p>
-<h4 id="ArrayDeque"><a href="#ArrayDeque" class="headerlink" title="ArrayDeque"></a>ArrayDeque</h4><p><code>ArrayDeque</code>底层通过<strong>循环数组</strong>实现。非线程安全，不允许<code>null</code>元素。<br><code>head</code>指向首端第一个有效元素，<code>tail</code>指向尾端第一个可以插入元素的空位</p>
+<h4 id="ArrayDeque"><a class="header-anchor" href="#ArrayDeque">¶</a>ArrayDeque</h4>
+<p><code>ArrayDeque</code>底层通过<strong>循环数组</strong>实现。非线程安全，不允许<code>null</code>元素。<br>
+<code>head</code>指向首端第一个有效元素，<code>tail</code>指向尾端第一个可以插入元素的空位</p>
 <p><img src="/images/1545011836585.png" alt="ArrayDeque_base.png"></p>
-<h3 id="方法剖析"><a href="#方法剖析" class="headerlink" title="方法剖析"></a>方法剖析</h3><hr>
-<h4 id="1-添加"><a href="#1-添加" class="headerlink" title="1 添加"></a>1 添加</h4><p><strong>空间问题在插入之后解决</strong>，因为<code>tail</code>总是指向下一个可插入的空位，也就意味着<code>elements</code>数组至少有一个空位，所以插入元素的时候不用考虑空间问题。</p>
-<h5 id="addFirst"><a href="#addFirst" class="headerlink" title="addFirst()"></a>addFirst()</h5><p><code>addFirst(E e)</code>是在<code>head</code>前插入元素。 elements[–head] = e 。</p>
-<pre><code class="Java">public void addFirst(E e) {
+<h3 id="方法剖析"><a class="header-anchor" href="#方法剖析">¶</a>方法剖析</h3>
+<hr>
+<h4 id="1-添加"><a class="header-anchor" href="#1-添加">¶</a>1 添加</h4>
+<p><strong>空间问题在插入之后解决</strong>，因为<code>tail</code>总是指向下一个可插入的空位，也就意味着<code>elements</code>数组至少有一个空位，所以插入元素的时候不用考虑空间问题。</p>
+<h5 id="addFirst"><a class="header-anchor" href="#addFirst">¶</a>addFirst()</h5>
+<p><code>addFirst(E e)</code>是在<code>head</code>前插入元素。 elements[–head] = e 。</p>
+<pre><code class="language-Java">public void addFirst(E e) {
     if (e == null)//不允许放入null
         throw new NullPointerException();
     elements[head = (head - 1) &amp; (elements.length - 1)] = e;//下标是否越界
     if (head == tail)//空间是否够用
         doubleCapacity();//扩容
-}</code></pre>
-<h5 id="addLast"><a href="#addLast" class="headerlink" title="addLast()"></a>addLast()</h5><p><code>addLast(E e)</code>是在<code>tail</code>的位置插入元素。elements[tail] = e;</p>
-<pre><code class="Java">public void addLast(E e) {
+}
+</code></pre>
+<h5 id="addLast"><a class="header-anchor" href="#addLast">¶</a>addLast()</h5>
+<p><code>addLast(E e)</code>是在<code>tail</code>的位置插入元素。elements[tail] = e;</p>
+<pre><code class="language-Java">public void addLast(E e) {
     if (e == null)//不允许放入null
         throw new NullPointerException();
     elements[tail] = e;//赋值
     if ( (tail = (tail + 1) &amp; (elements.length - 1)) == head)//下标越界处理
         doubleCapacity();//扩容
-}</code></pre>
-<h5 id="下标越界"><a href="#下标越界" class="headerlink" title="下标越界"></a>下标越界</h5><p>下标越界时<code>head = (head - 1) &amp; (elements.length - 1)</code>取余。<br>因为<code>elements.length</code>必需是<code>2</code>的指数倍，<code>elements - 1</code>就是二进制低位全<code>1</code>，跟<code>head - 1</code>相与之后就起到了取模的作用，如果<code>head - 1</code>为负数（其实只可能是-1），则相当于对其取相对于<code>elements.length</code>的补码。</p>
-<h5 id="扩容"><a href="#扩容" class="headerlink" title="扩容"></a>扩容</h5><p>扩容函数<code>doubleCapacity()</code>，逻辑是申请一个更大的数组（原数组的两倍），然后将原数组复制过去。</p>
+}
+</code></pre>
+<h5 id="下标越界"><a class="header-anchor" href="#下标越界">¶</a>下标越界</h5>
+<p>下标越界时<code>head = (head - 1) &amp; (elements.length - 1)</code>取余。<br>
+因为<code>elements.length</code>必需是<code>2</code>的指数倍，<code>elements - 1</code>就是二进制低位全<code>1</code>，跟<code>head - 1</code>相与之后就起到了取模的作用，如果<code>head - 1</code>为负数（其实只可能是-1），则相当于对其取相对于<code>elements.length</code>的补码。</p>
+<h5 id="扩容"><a class="header-anchor" href="#扩容">¶</a>扩容</h5>
+<p>扩容函数<code>doubleCapacity()</code>，逻辑是申请一个更大的数组（原数组的两倍），然后将原数组复制过去。</p>
 <p><img src="/images/1545011836851.png" alt="ArrayDeque_doubleCapacity.png"></p>
 <p>复制分两次进行，第一次复制<code>head</code>右边的元素，第二次复制<code>head</code>左边的元素。</p>
-<pre><code class="Java">private void doubleCapacity() {
+<pre><code class="language-Java">private void doubleCapacity() {
     assert head == tail;
     int p = head;
     int n = elements.length;
@@ -4498,18 +4541,23 @@
     elements = (E[])a;
     head = 0;
     tail = n;
-}</code></pre>
-<h4 id="2-删除"><a href="#2-删除" class="headerlink" title="2 删除"></a>2 删除</h4><h5 id="pollFirst"><a href="#pollFirst" class="headerlink" title="pollFirst()"></a>pollFirst()</h5><p><code>pollFirst()</code>删除并返回<code>head</code>处的元素。</p>
-<pre><code class="Java">public E pollFirst() {
+}
+</code></pre>
+<h4 id="2-删除"><a class="header-anchor" href="#2-删除">¶</a>2 删除</h4>
+<h5 id="pollFirst"><a class="header-anchor" href="#pollFirst">¶</a>pollFirst()</h5>
+<p><code>pollFirst()</code>删除并返回<code>head</code>处的元素。</p>
+<pre><code class="language-Java">public E pollFirst() {
     E result = elements[head];
     if (result == null)//null值意味着deque为空
         return null;
     elements[h] = null;//let GC work
     head = (head + 1) &amp; (elements.length - 1);//下标越界处理
     return result;
-}</code></pre>
-<h5 id="pollLast"><a href="#pollLast" class="headerlink" title="pollLast()"></a>pollLast()</h5><p><code>pollLast()</code>删除并返回<code>tail</code>前的元素。</p>
-<pre><code class="Java">public E pollLast() {
+}
+</code></pre>
+<h5 id="pollLast"><a class="header-anchor" href="#pollLast">¶</a>pollLast()</h5>
+<p><code>pollLast()</code>删除并返回<code>tail</code>前的元素。</p>
+<pre><code class="language-Java">public E pollLast() {
     int t = (tail - 1) &amp; (elements.length - 1);//tail的上一个位置是最后一个元素
     E result = elements[t];
     if (result == null)//null值意味着deque为空
@@ -4517,15 +4565,21 @@
     elements[t] = null;//let GC work
     tail = t;
     return result;
-}</code></pre>
-<h4 id="3-取值"><a href="#3-取值" class="headerlink" title="3 取值"></a>3 取值</h4><h5 id="peekFirst"><a href="#peekFirst" class="headerlink" title="peekFirst()"></a>peekFirst()</h5><p><code>peekFirst()</code>返回但不删除<code>head</code>处的元素。</p>
-<pre><code class="Java">public E peekFirst() {
+}
+</code></pre>
+<h4 id="3-取值"><a class="header-anchor" href="#3-取值">¶</a>3 取值</h4>
+<h5 id="peekFirst"><a class="header-anchor" href="#peekFirst">¶</a>peekFirst()</h5>
+<p><code>peekFirst()</code>返回但不删除<code>head</code>处的元素。</p>
+<pre><code class="language-Java">public E peekFirst() {
     return elements[head]; // elements[head] is null if deque empty
-}</code></pre>
-<h5 id="peekLast"><a href="#peekLast" class="headerlink" title="peekLast()"></a>peekLast()</h5><p><code>peekLast()</code>返回但不删除<code>tail</code>前的元素。</p>
-<pre><code class="Java">public E peekLast() {
+}
+</code></pre>
+<h5 id="peekLast"><a class="header-anchor" href="#peekLast">¶</a>peekLast()</h5>
+<p><code>peekLast()</code>返回但不删除<code>tail</code>前的元素。</p>
+<pre><code class="language-Java">public E peekLast() {
     return elements[(tail - 1) &amp; (elements.length - 1)];
-}</code></pre>
+}
+</code></pre>
 
 </div>
 
@@ -4535,19 +4589,23 @@
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		4 串（string） | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,101 +4395,119 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:42</span>
+	<span id="post-date">2019-12-18 01:00:44</span>
 </div>
 
 
 <div id="article">
-	<h3 id="1-基本概念"><a href="#1-基本概念" class="headerlink" title="1 基本概念"></a>1 基本概念</h3><ul>
+	<h3 id="1-基本概念"><a class="header-anchor" href="#1-基本概念">¶</a>1 基本概念</h3>
+<ul>
 <li>串：是由零个或多个字符组成的优先序列，又名叫字符串。</li>
 <li>本质是一种线性表的扩展，但更多的是关注子串的应用问题</li>
 <li>子串在主串中的位置就是子串的第一个字符在主串中的序号。</li>
 </ul>
-<h5 id="字符编码"><a href="#字符编码" class="headerlink" title="字符编码"></a>字符编码</h5><ul>
+<h5 id="字符编码"><a class="header-anchor" href="#字符编码">¶</a>字符编码</h5>
+<ul>
 <li>ASCII：7位</li>
 <li>拓展 ASCII：8位</li>
 <li>Unicode：16位</li>
 </ul>
-<h5 id="串的比较"><a href="#串的比较" class="headerlink" title="串的比较"></a>串的比较</h5><ul>
+<h5 id="串的比较"><a class="header-anchor" href="#串的比较">¶</a>串的比较</h5>
+<ul>
 <li>挨个比较字符，以第一个不同的为序</li>
 <li>前缀相同则短的小</li>
 </ul>
-<h3 id="2-存储结构"><a href="#2-存储结构" class="headerlink" title="2 存储结构"></a>2 存储结构</h3><h5 id="串的顺序存储结构"><a href="#串的顺序存储结构" class="headerlink" title="串的顺序存储结构"></a>串的顺序存储结构</h5><p>一般是用定长数组来定义，存在一个预定义的最大串长度。</p>
+<h3 id="2-存储结构"><a class="header-anchor" href="#2-存储结构">¶</a>2 存储结构</h3>
+<h5 id="串的顺序存储结构"><a class="header-anchor" href="#串的顺序存储结构">¶</a>串的顺序存储结构</h5>
+<p>一般是用定长数组来定义，存在一个预定义的最大串长度。</p>
 <ul>
 <li>实际的串长度保存在数组的 0 下标位置。</li>
-<li>或在串值后面加一个不计入串长度的结束标记字符，比如”\0”</li>
+<li>或在串值后面加一个不计入串长度的结束标记字符，比如&quot;\0&quot;</li>
 </ul>
 <p>对于超出预定义的最大串长度的计算，串值的存储空间可在程序执行过程中动态分配</p>
-<h5 id="串的链式存储结构"><a href="#串的链式存储结构" class="headerlink" title="串的链式存储结构"></a>串的链式存储结构</h5><p>与线性表相似，但为了不浪费空间，一个结点可存放多个字符，最后一个结点未占满时用”#”或其它非串值字符不全。</p>
+<h5 id="串的链式存储结构"><a class="header-anchor" href="#串的链式存储结构">¶</a>串的链式存储结构</h5>
+<p>与线性表相似，但为了不浪费空间，一个结点可存放多个字符，最后一个结点未占满时用&quot;#&quot;或其它非串值字符不全。</p>
 <p>串的链式存储结构除了在连接串与串操作时有一定方便之外，总的来说不如顺序存储灵活 ，性能也不如顺序存储结构好。</p>
-<h3 id="3-字符串匹配"><a href="#3-字符串匹配" class="headerlink" title="3 字符串匹配"></a>3 字符串匹配</h3><h4 id="1-KMP-模式匹配算法"><a href="#1-KMP-模式匹配算法" class="headerlink" title="1)KMP 模式匹配算法"></a>1)KMP 模式匹配算法</h4><p>Knuth-Morris-Pratt 字符串查找算法，简称为 “KMP算法”。减少了不必要的比较，比朴素的模式匹配算法效率提高了很多。</p>
-<h5 id="算法流程"><a href="#算法流程" class="headerlink" title="算法流程"></a>算法流程</h5><p>假设现在文本串S匹配到 i 位置，模式串P匹配到 j 位置</p>
+<h3 id="3-字符串匹配"><a class="header-anchor" href="#3-字符串匹配">¶</a>3 字符串匹配</h3>
+<h4 id="1-KMP-模式匹配算法"><a class="header-anchor" href="#1-KMP-模式匹配算法">¶</a>1)KMP 模式匹配算法</h4>
+<p>Knuth-Morris-Pratt 字符串查找算法，简称为 “KMP算法”。减少了不必要的比较，比朴素的模式匹配算法效率提高了很多。</p>
+<h5 id="算法流程"><a class="header-anchor" href="#算法流程">¶</a>算法流程</h5>
+<p>假设现在文本串S匹配到 i 位置，模式串P匹配到 j 位置</p>
 <ul>
 <li>如果 j = -1，或者当前字符匹配成功，都令i++，j++，继续匹配下一个字符；</li>
 <li>如果 j != -1，且当前字符匹配失败，则令 i 不变，j = next[j]。</li>
 </ul>
 <p>next 数组代表当前字符之前的字符串中，有多大长度的相同前缀后缀。</p>
-<h5 id="计算next-数组"><a href="#计算next-数组" class="headerlink" title="计算next 数组"></a>计算next 数组</h5><p>next[j] = k 代表p[j] 之前的模式串子串中，有长度为k 的相同前缀和后缀</p>
+<h5 id="计算next-数组"><a class="header-anchor" href="#计算next-数组">¶</a>计算next 数组</h5>
+<p>next[j] = k 代表p[j] 之前的模式串子串中，有长度为k 的相同前缀和后缀</p>
 <pre><code>//优化过后的next 数组求法
 void GetNextval(char* p, int next[])
 {
-    int pLen = strlen(p);
-    next[0] = -1;
-    int k = -1;
-    int j = 0;
-    while (j &lt; pLen - 1)
-    {
-        //p[k]表示前缀，p[j]表示后缀  
-        if (k == -1 || p[j] == p[k])
-        {
-            ++j;
-            ++k;
-            //较之前next数组求法，改动在下面4行
-            if (p[j] != p[k])
-                next[j] = k;   //之前只有这一行
-            else
-                //因为不能出现p[j] = p[ next[j ]]，所以当出现时需要继续递归，k = next[k] = next[next[k]]
-                next[j] = next[k];
-        }
-        else
-        {
-            k = next[k];
-        }
-    }
-}</code></pre><h5 id="KMP代码"><a href="#KMP代码" class="headerlink" title="KMP代码"></a>KMP代码</h5><pre><code>int KmpSearch(char* s, char* p)
+	int pLen = strlen(p);
+	next[0] = -1;
+	int k = -1;
+	int j = 0;
+	while (j &lt; pLen - 1)
+	{
+		//p[k]表示前缀，p[j]表示后缀  
+		if (k == -1 || p[j] == p[k])
+		{
+			++j;
+			++k;
+			//较之前next数组求法，改动在下面4行
+			if (p[j] != p[k])
+				next[j] = k;   //之前只有这一行
+			else
+				//因为不能出现p[j] = p[ next[j ]]，所以当出现时需要继续递归，k = next[k] = next[next[k]]
+				next[j] = next[k];
+		}
+		else
+		{
+			k = next[k];
+		}
+	}
+}
+</code></pre>
+<h5 id="KMP代码"><a class="header-anchor" href="#KMP代码">¶</a>KMP代码</h5>
+<pre><code>int KmpSearch(char* s, char* p)
 {
-    int i = 0;
-    int j = 0;
-    int sLen = strlen(s);
-    int pLen = strlen(p);
-    while (i &lt; sLen &amp;&amp; j &lt; pLen)
-    {
-        //①如果j = -1，或者当前字符匹配成功（即S[i] == P[j]），都令i++，j++    
-        if (j == -1 || s[i] == p[j])
-        {
-            i++;
-            j++;
-        }
-        else
-        {
-            //②如果j != -1，且当前字符匹配失败（即S[i] != P[j]），则令 i 不变，j = next[j]    
-            //next[j]即为j所对应的next值      
-            j = next[j];
-        }
-    }
-    if (j == pLen)
-        return i - j;
-    else
-        return -1;
-}</code></pre><h5 id="KMP的时间复杂度分析"><a href="#KMP的时间复杂度分析" class="headerlink" title="KMP的时间复杂度分析"></a>KMP的时间复杂度分析</h5><p>文本串的长度为n，模式串的长度为m，匹配过程为O(n)，计算next为O(m)，KMP的整体时间复杂度为O(m + n)。</p>
-<h4 id="2-BM算法-更快"><a href="#2-BM算法-更快" class="headerlink" title="2)BM算法(更快)"></a>2)BM算法(更快)</h4><p>Boyer-Moore算法，简称BM算法。</p>
+	int i = 0;
+	int j = 0;
+	int sLen = strlen(s);
+	int pLen = strlen(p);
+	while (i &lt; sLen &amp;&amp; j &lt; pLen)
+	{
+		//①如果j = -1，或者当前字符匹配成功（即S[i] == P[j]），都令i++，j++    
+		if (j == -1 || s[i] == p[j])
+		{
+			i++;
+			j++;
+		}
+		else
+		{
+			//②如果j != -1，且当前字符匹配失败（即S[i] != P[j]），则令 i 不变，j = next[j]    
+			//next[j]即为j所对应的next值      
+			j = next[j];
+		}
+	}
+	if (j == pLen)
+		return i - j;
+	else
+		return -1;
+}
+</code></pre>
+<h5 id="KMP的时间复杂度分析"><a class="header-anchor" href="#KMP的时间复杂度分析">¶</a>KMP的时间复杂度分析</h5>
+<p>文本串的长度为n，模式串的长度为m，匹配过程为O(n)，计算next为O(m)，KMP的整体时间复杂度为O(m + n)。</p>
+<h4 id="2-BM算法-更快"><a class="header-anchor" href="#2-BM算法-更快">¶</a>2)BM算法(更快)</h4>
+<p>Boyer-Moore算法，简称BM算法。</p>
 <p>从模式串的尾部开始匹配，且拥有在最坏情况下O(N)的时间复杂度。</p>
 <p>BM算法定义了两个规则：</p>
 <ul>
-<li>坏字符规则：当文本串中的某个字符跟模式串的某个字符不匹配时，我们称文本串中的这个失配字符为坏字符，此时模式串需要向右移动，移动的位数 = 坏字符在模式串中的位置 - 坏字符在模式串中最右出现的位置。此外，如果”坏字符”不包含在模式串之中，则最右出现位置为-1。</li>
+<li>坏字符规则：当文本串中的某个字符跟模式串的某个字符不匹配时，我们称文本串中的这个失配字符为坏字符，此时模式串需要向右移动，移动的位数 = 坏字符在模式串中的位置 - 坏字符在模式串中最右出现的位置。此外，如果&quot;坏字符&quot;不包含在模式串之中，则最右出现位置为-1。</li>
 <li>好后缀规则：当字符失配时，后移位数 = 好后缀在模式串中的位置 - 好后缀在模式串上一次出现的位置，且如果好后缀在模式串中没有再次出现，则为-1。</li>
 </ul>
-<h4 id="3-Sunday算法-最快"><a href="#3-Sunday算法-最快" class="headerlink" title="3)Sunday算法(最快)"></a>3)Sunday算法(最快)</h4><p>Sunday算法是从前往后匹配，在匹配失败时关注的是文本串中参加匹配的最末位字符的下一位字符。</p>
+<h4 id="3-Sunday算法-最快"><a class="header-anchor" href="#3-Sunday算法-最快">¶</a>3)Sunday算法(最快)</h4>
+<p>Sunday算法是从前往后匹配，在匹配失败时关注的是文本串中参加匹配的最末位字符的下一位字符。</p>
 <ul>
 <li>如果该字符没有在模式串中出现则直接跳过，即移动位数 = 匹配串长度 + 1；</li>
 <li>否则，其移动位数 = 模式串中最右端的该字符到末尾的距离+1。</li>
@@ -4480,19 +4521,23 @@ void GetNextval(char* p, int next[])
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

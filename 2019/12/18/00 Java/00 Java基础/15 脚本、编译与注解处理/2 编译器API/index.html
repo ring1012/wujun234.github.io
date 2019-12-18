@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		2 编译器API | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,17 +4395,21 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:50</span>
+	<span id="post-date">2019-12-18 01:00:41</span>
 </div>
 
 
 <div id="article">
 	<p>编译器API替代jdk/lib/toors.jar类库</p>
-<h3 id="1-编译便捷之法"><a href="#1-编译便捷之法" class="headerlink" title="1 编译便捷之法"></a>1 编译便捷之法</h3><pre><code>JavaCompiler compiler = ToolProvider.getSystemJavaCompiler();
+<h3 id="1-编译便捷之法"><a class="header-anchor" href="#1-编译便捷之法">¶</a>1 编译便捷之法</h3>
+<pre><code>JavaCompiler compiler = ToolProvider.getSystemJavaCompiler();
 OutputStream outStream = ...;
 OutputStream errStream = ...;
-int result = compiler.run(null, outStream, errStream, &quot;-sourcepath&quot;, &quot;src&quot;, &quot;Test.java&quot;);</code></pre><p>返回值0表示编译成功。</p>
-<h3 id="2-使用编译工具"><a href="#2-使用编译工具" class="headerlink" title="2 使用编译工具"></a>2 使用编译工具</h3><p>通过 ComlilationTask 对象对编译过程进行更多控制</p>
+int result = compiler.run(null, outStream, errStream, &quot;-sourcepath&quot;, &quot;src&quot;, &quot;Test.java&quot;);
+</code></pre>
+<p>返回值0表示编译成功。</p>
+<h3 id="2-使用编译工具"><a class="header-anchor" href="#2-使用编译工具">¶</a>2 使用编译工具</h3>
+<p>通过 ComlilationTask 对象对编译过程进行更多控制</p>
 <p>……</p>
 
 </div>
@@ -4393,19 +4420,23 @@ int result = compiler.run(null, outStream, errStream, &quot;-sourcepath&quot;, &
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

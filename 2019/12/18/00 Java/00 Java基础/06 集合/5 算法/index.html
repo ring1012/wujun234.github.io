@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		5 算法 | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,25 +4395,43 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:46</span>
+	<span id="post-date">2019-12-18 01:00:41</span>
 </div>
 
 
 <div id="article">
 	<p>泛型集合接口有一个很大的优点，即算法只需要实现一次。</p>
-<h4 id="1-排序与混排"><a href="#1-排序与混排" class="headerlink" title="1 排序与混排"></a>1 排序与混排</h4><h5 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h5><p>Collections.sort()<br>底层使用了数组的归并排序。即先转化集合为数组，排好序以后在复制回以前的集合。<br>归并排序相较于快速排序，速度慢，但是稳定，它不需要交换相同的元素。<br>排序传递的列表必须是可修改的，不必要是可改变大小的。  </p>
-<h5 id="混排"><a href="#混排" class="headerlink" title="混排"></a>混排</h5><p>Collections.shuffle(List)<br>随机的打乱列表中元素的顺序。//每次都不一样。</p>
-<h4 id="2-二分查找"><a href="#2-二分查找" class="headerlink" title="2 二分查找"></a>2 二分查找</h4><p>Collections.binarySearch</p>
+<h4 id="1-排序与混排"><a class="header-anchor" href="#1-排序与混排">¶</a>1 排序与混排</h4>
+<h5 id="排序"><a class="header-anchor" href="#排序">¶</a>排序</h5>
+<p>Collections.sort()<br>
+底层使用了数组的归并排序。即先转化集合为数组，排好序以后在复制回以前的集合。<br>
+归并排序相较于快速排序，速度慢，但是稳定，它不需要交换相同的元素。<br>
+排序传递的列表必须是可修改的，不必要是可改变大小的。</p>
+<h5 id="混排"><a class="header-anchor" href="#混排">¶</a>混排</h5>
+<p>Collections.shuffle(List)<br>
+随机的打乱列表中元素的顺序。//每次都不一样。</p>
+<h4 id="2-二分查找"><a class="header-anchor" href="#2-二分查找">¶</a>2 二分查找</h4>
+<p>Collections.binarySearch</p>
 <p>集合必须是排好序的。返回的数值大于等于0，则表示匹配对象的索引。返回负值，则表示没有匹配的元素。可以利用返回值计算应该将element插入到集合的位置（-i-1），以保持集合的有序性。</p>
 <p>只有采取随机访问，二分查找才有意义，如果必须利用迭代一次次的遍历链表的一般元素来找到中间元素的位置，二分查找就失去了它的优势，因此，如果传入的是LinkedList链表，它将自动转换成线性查找。</p>
-<h4 id="3-简单算法"><a href="#3-简单算法" class="headerlink" title="3 简单算法"></a>3 简单算法</h4><p>在Collections类中包含了几个简单且很有用的算法。<br>max、min、copy、fill、addAll、replaceAll、swap、reverse、rotate、frequency、disjoint<br>indexOfSubList、lastIndexOfSubList</p>
-<h4 id="4-批操作"><a href="#4-批操作" class="headerlink" title="4　批操作"></a>4　批操作</h4><p>可避免频繁地使用迭代器。</p>
+<h4 id="3-简单算法"><a class="header-anchor" href="#3-简单算法">¶</a>3 简单算法</h4>
+<p>在Collections类中包含了几个简单且很有用的算法。<br>
+max、min、copy、fill、addAll、replaceAll、swap、reverse、rotate、frequency、disjoint<br>
+indexOfSubList、lastIndexOfSubList</p>
+<h4 id="4-批操作"><a class="header-anchor" href="#4-批操作">¶</a>4　批操作</h4>
+<p>可避免频繁地使用迭代器。</p>
 <p>指Set的removeAll、retainAll操作。对于Map，也可keySet().removeAll()。</p>
-<h4 id="5-集合与数组之间的转换"><a href="#5-集合与数组之间的转换" class="headerlink" title="5 集合与数组之间的转换"></a>5 集合与数组之间的转换</h4><p>数组转集合：利用Arrays.adList的包装器。</p>
+<h4 id="5-集合与数组之间的转换"><a class="header-anchor" href="#5-集合与数组之间的转换">¶</a>5 集合与数组之间的转换</h4>
+<p>数组转集合：利用Arrays.adList的包装器。</p>
 <pre><code>String[] arr = {&quot;aaa&quot;,&quot;bbb&quot;};
-List&lt;String&gt; list = new ArrayList&lt;&gt;(Arrays.asList(arr));</code></pre><p>集合转数组：list.toArray(new String[]);</p>
+List&lt;String&gt; list = new ArrayList&lt;&gt;(Arrays.asList(arr));
+</code></pre>
+<p>集合转数组：list.toArray(new String[]);</p>
 <pre><code>String[] strArr = list.toArray(new String[0]);
-String[] strArr = list.toArray(new String[list.size()]);</code></pre><h4 id="6-编写自己的算法"><a href="#6-编写自己的算法" class="headerlink" title="6 编写自己的算法"></a>6 编写自己的算法</h4><p>如果编写以集合作为参数的任何方法，应该尽可能地使用接口，而不要使用具体的实现。</p>
+String[] strArr = list.toArray(new String[list.size()]);
+</code></pre>
+<h4 id="6-编写自己的算法"><a class="header-anchor" href="#6-编写自己的算法">¶</a>6 编写自己的算法</h4>
+<p>如果编写以集合作为参数的任何方法，应该尽可能地使用接口，而不要使用具体的实现。</p>
 
 </div>
 
@@ -4400,19 +4441,23 @@ String[] strArr = list.toArray(new String[list.size()]);</code></pre><h4 id="6-�
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

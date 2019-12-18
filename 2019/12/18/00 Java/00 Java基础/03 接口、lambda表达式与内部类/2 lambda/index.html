@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		2 lambda | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,43 +4395,74 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:46</span>
+	<span id="post-date">2019-12-18 01:00:41</span>
 </div>
 
 
 <div id="article">
 	<p>@since 1.8</p>
-<h4 id="1-语法"><a href="#1-语法" class="headerlink" title="1 语法"></a>1 语法</h4><p>参数，箭头（-&gt;）以及一个表达式。  </p>
-<pre><code>(String first, String second) -&gt;first.length() - second.length()</code></pre><p>没有参数也要提供空括号，就像无参数方法一样。  </p>
-<pre><code>() -&gt; { for (int i = 100; i &gt;= 0; i--) System.out.println(i); }</code></pre><p>如果可以推导出参数类型，则可以忽略类型。  </p>
+<h4 id="1-语法"><a class="header-anchor" href="#1-语法">¶</a>1 语法</h4>
+<p>参数，箭头（-&gt;）以及一个表达式。</p>
+<pre><code>(String first, String second) -&gt;first.length() - second.length()
+</code></pre>
+<p>没有参数也要提供空括号，就像无参数方法一样。</p>
+<pre><code>() -&gt; { for (int i = 100; i &gt;= 0; i--) System.out.println(i); }
+</code></pre>
+<p>如果可以推导出参数类型，则可以忽略类型。</p>
 <pre><code>Comparator&lt;String&gt; comp
     = (first, second) // Same as (String first, String second)
-        -&gt; first.length() - second.length();</code></pre><p>如果方法只有一个参数，而且参数类型可以推导出，这个连小括号都省略了  </p>
+        -&gt; first.length() - second.length();
+</code></pre>
+<p>如果方法只有一个参数，而且参数类型可以推导出，这个连小括号都省略了</p>
 <pre><code>ActionListener listener = event -&gt;
-    System.out.println(&quot;The time is &quot; + new Date());</code></pre><p>无需指定lambda表达式的返回类型。返回类型总会由上下文推导得出。</p>
-<pre><code>(String first, String second) -&gt;first.length() - second.length()</code></pre><h4 id="2-函数式接口"><a href="#2-函数式接口" class="headerlink" title="2 函数式接口"></a>2 函数式接口</h4><p>对于只有一个抽象方法的接口，需要这种接口的对象时，就可以提供一个lambda表达式。</p>
-<pre><code>Arrays.sort(planets, (first, second) -&gt; first.length() - second.length());</code></pre><p>Arrays.sort(方法的第二个参数要求是一个实现Comparaor接口的实例。Comparaor就是只有一个方法的接口。<br>Lambda表达式不是对象，而是函数。或者更具体的说，上面的sort方法想要传入的参数并不是那个Comparator对象的实例，而是其compare方法的计算方法。<br>在Java中对lambda表达式能做的也只是转换为函数式接口。想要用lambda表达式做某些处理，就为它建立一个特定的函数式接口。</p>
-<h4 id="3-方法引用"><a href="#3-方法引用" class="headerlink" title="3 方法引用"></a>3 方法引用</h4><p>::操作符表示直接传入一个方法作为方法体。</p>
-<pre><code>System.out::println等价于event -&gt; System.out.println(event)</code></pre><p>::操作符的用法：</p>
+    System.out.println(&quot;The time is &quot; + new Date());
+</code></pre>
+<p>无需指定lambda表达式的返回类型。返回类型总会由上下文推导得出。</p>
+<pre><code>(String first, String second) -&gt;first.length() - second.length()
+</code></pre>
+<h4 id="2-函数式接口"><a class="header-anchor" href="#2-函数式接口">¶</a>2 函数式接口</h4>
+<p>对于只有一个抽象方法的接口，需要这种接口的对象时，就可以提供一个lambda表达式。</p>
+<pre><code>Arrays.sort(planets, (first, second) -&gt; first.length() - second.length());
+</code></pre>
+<p>Arrays.sort(方法的第二个参数要求是一个实现Comparaor接口的实例。Comparaor就是只有一个方法的接口。<br>
+Lambda表达式不是对象，而是函数。或者更具体的说，上面的sort方法想要传入的参数并不是那个Comparator对象的实例，而是其compare方法的计算方法。<br>
+在Java中对lambda表达式能做的也只是转换为函数式接口。想要用lambda表达式做某些处理，就为它建立一个特定的函数式接口。</p>
+<h4 id="3-方法引用"><a class="header-anchor" href="#3-方法引用">¶</a>3 方法引用</h4>
+<p>::操作符表示直接传入一个方法作为方法体。</p>
+<pre><code>System.out::println等价于event -&gt; System.out.println(event)
+</code></pre>
+<p>::操作符的用法：</p>
 <ul>
 <li>特定对象的方法引用：instance::method</li>
 <li>静态方法引用：Class::static_method</li>
 <li>特定类的任意对象的方法引用：Class::method//这个的意思是把第一个参数当作实例，例：String::compareTo的意思是(x,y)-&gt;x.compareTo(y)</li>
 <li>同样的，this和super关键字也同样能用。</li>
 </ul>
-<h4 id="4-构造器引用"><a href="#4-构造器引用" class="headerlink" title="4 构造器引用"></a>4 构造器引用</h4><p>Class::new，或者更一般的Class&lt; T &gt;::new。请注意构造器没有参数。<br>与方法引用类似，只是用new代替方法名称。<br>哪一个构造器取决于上下文。</p>
+<h4 id="4-构造器引用"><a class="header-anchor" href="#4-构造器引用">¶</a>4 构造器引用</h4>
+<p>Class::new，或者更一般的Class&lt; T &gt;::new。请注意构造器没有参数。<br>
+与方法引用类似，只是用new代替方法名称。<br>
+哪一个构造器取决于上下文。</p>
 <pre><code>ArrayList&lt;String&gt; names = . . .;
 Stream&lt;Person&gt; stream = names.stream().map(Person::new);//等同于调用 new Person(String)
-List&lt;Person&gt; people = stream.collect(Collectors.toList());</code></pre><h5 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h5><p>int[]::new参数数组的长度，等价于x-&gt;new int[x].<br>数组构造器引用可以克服对泛型数组的限制。</p>
+List&lt;Person&gt; people = stream.collect(Collectors.toList());
+</code></pre>
+<h5 id="数组"><a class="header-anchor" href="#数组">¶</a>数组</h5>
+<p>int[]::new参数数组的长度，等价于x-&gt;new int[x].<br>
+数组构造器引用可以克服对泛型数组的限制。</p>
 <pre><code>Object[] people = stream.toArray();//返回一个Object[]
-Person[] people = stream.toArray(Person[]::new);//返回一个Person[]</code></pre><h4 id="5-变量作用域"><a href="#5-变量作用域" class="headerlink" title="5 变量作用域"></a>5 变量作用域</h4><p>lambda表达式由3个部分：</p>
+Person[] people = stream.toArray(Person[]::new);//返回一个Person[]
+</code></pre>
+<h4 id="5-变量作用域"><a class="header-anchor" href="#5-变量作用域">¶</a>5 变量作用域</h4>
+<p>lambda表达式由3个部分：</p>
 <ol>
 <li>一个代码块</li>
 <li>参数</li>
 <li>自由变量的值，指非参数且不再代码中定义的变量。//只能引用不会改变的变量。</li>
 </ol>
-<p>闭包：代码块和自由变量。lambda表达式就是闭包。<br>lambda表达式中this指创建这个lambda表达式的方法的this。</p>
-<h4 id="6-处理Lambda表达式"><a href="#6-处理Lambda表达式" class="headerlink" title="6 处理Lambda表达式"></a>6 处理Lambda表达式</h4><p>使用lambda表达式的重点是延迟执行：</p>
+<p>闭包：代码块和自由变量。lambda表达式就是闭包。<br>
+lambda表达式中this指创建这个lambda表达式的方法的this。</p>
+<h4 id="6-处理Lambda表达式"><a class="header-anchor" href="#6-处理Lambda表达式">¶</a>6 处理Lambda表达式</h4>
+<p>使用lambda表达式的重点是延迟执行：</p>
 <ul>
 <li>要分离线程时候使用</li>
 <li>在多个时间要运行</li>
@@ -4416,7 +4470,8 @@ Person[] people = stream.toArray(Person[]::new);//返回一个Person[]</code></p
 <li>某些事件发生时运行</li>
 <li>有必要才运行</li>
 </ul>
-<h4 id="7-再谈Comparators"><a href="#7-再谈Comparators" class="headerlink" title="7 再谈Comparators"></a>7 再谈Comparators</h4>
+<h4 id="7-再谈Comparators"><a class="header-anchor" href="#7-再谈Comparators">¶</a>7 再谈Comparators</h4>
+
 </div>
 
 	</div>
@@ -4425,19 +4480,23 @@ Person[] people = stream.toArray(Person[]::new);//返回一个Person[]</code></p
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

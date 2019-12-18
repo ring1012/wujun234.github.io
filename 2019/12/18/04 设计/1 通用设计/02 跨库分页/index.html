@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		02 跨库分页 | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,33 +4395,44 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:38</span>
+	<span id="post-date">2019-12-18 01:00:43</span>
 </div>
 
 
 <div id="article">
 	<p>原文：<a href="https://mp.weixin.qq.com/s/cMAXYBxmevFV_fwysZqP8w" target="_blank" rel="noopener">https://mp.weixin.qq.com/s/cMAXYBxmevFV_fwysZqP8w</a></p>
-<h3 id="需求缘起"><a href="#需求缘起" class="headerlink" title="需求缘起"></a>需求缘起</h3><h5 id="分页需求"><a href="#分页需求" class="headerlink" title="分页需求"></a>分页需求</h5><p>分页拉取需求有这样一些特点：</p>
+<h3 id="需求缘起"><a class="header-anchor" href="#需求缘起">¶</a>需求缘起</h3>
+<h5 id="分页需求"><a class="header-anchor" href="#分页需求">¶</a>分页需求</h5>
+<p>分页拉取需求有这样一些特点：</p>
 <ol>
 <li>有一个业务主键id</li>
 <li>分页排序是按照非业务主键id来排序的，业务中经常按照时间time来排序order by</li>
 </ol>
 <p>在数据量不大时，可以通过在排序字段time上建立索引，利用SQL提供的offset/limit功能就能满足分页查询需求：</p>
-<pre><code>select * from T order by time offset X limit Y</code></pre><h5 id="分库需求"><a href="#分库需求" class="headerlink" title="分库需求"></a>分库需求</h5><p>随着数据量的增大，数据库需要进行水平切分。<br>大部分的业务场景，会使用业务主键id作为“分库依据”，主键id取模分库。</p>
-<h5 id="问题的提出"><a href="#问题的提出" class="headerlink" title="问题的提出"></a>问题的提出</h5><p>分库后，数据库层失去了排序的全局视野，如何满足“跨越多个水平切分数据库，且分库依据与排序依据为不同属性，并需要进行分页”的查询需求？</p>
-<h3 id="方法一：全局视野法"><a href="#方法一：全局视野法" class="headerlink" title="方法一：全局视野法"></a>方法一：全局视野法</h3><ol>
+<pre><code>select * from T order by time offset X limit Y
+</code></pre>
+<h5 id="分库需求"><a class="header-anchor" href="#分库需求">¶</a>分库需求</h5>
+<p>随着数据量的增大，数据库需要进行水平切分。<br>
+大部分的业务场景，会使用业务主键id作为“分库依据”，主键id取模分库。</p>
+<h5 id="问题的提出"><a class="header-anchor" href="#问题的提出">¶</a>问题的提出</h5>
+<p>分库后，数据库层失去了排序的全局视野，如何满足“跨越多个水平切分数据库，且分库依据与排序依据为不同属性，并需要进行分页”的查询需求？</p>
+<h3 id="方法一：全局视野法"><a class="header-anchor" href="#方法一：全局视野法">¶</a>方法一：全局视野法</h3>
+<ol>
 <li>将<code>order by time offset X limit Y</code>，改写成<code>order by time offset 0 limit X+Y</code></li>
 <li>服务层对得到的N*(X+Y)条数据进行内存排序，内存排序后再取偏移量X后的Y条记录</li>
 </ol>
 <p>这种方法随着翻页的进行，性能越来越低。</p>
-<h3 id="方法二：业务折衷法-禁止跳页查询"><a href="#方法二：业务折衷法-禁止跳页查询" class="headerlink" title="方法二：业务折衷法-禁止跳页查询"></a>方法二：业务折衷法-禁止跳页查询</h3><ol>
+<h3 id="方法二：业务折衷法-禁止跳页查询"><a class="header-anchor" href="#方法二：业务折衷法-禁止跳页查询">¶</a>方法二：业务折衷法-禁止跳页查询</h3>
+<ol>
 <li>用正常的方法取得第一页数据，并得到第一页记录的time_max</li>
 <li>每次翻页，将<code>order by time offset X limit Y</code>，改写成<code>order by time where time&gt;$time_max limit Y</code></li>
 </ol>
 <p>以保证每次只返回一页数据，性能为常量。</p>
-<h3 id="方法三：业务折衷法-允许模糊数据"><a href="#方法三：业务折衷法-允许模糊数据" class="headerlink" title="方法三：业务折衷法-允许模糊数据"></a>方法三：业务折衷法-允许模糊数据</h3><p>将<code>order by time offset X limit Y</code>，改写成<code>order by time offset X/N limit Y/N</code></p>
+<h3 id="方法三：业务折衷法-允许模糊数据"><a class="header-anchor" href="#方法三：业务折衷法-允许模糊数据">¶</a>方法三：业务折衷法-允许模糊数据</h3>
+<p>将<code>order by time offset X limit Y</code>，改写成<code>order by time offset X/N limit Y/N</code></p>
 <p>技术方案的复杂度便大大降低了，既不需要返回更多的数据，也不需要进行服务内存排序了。</p>
-<h3 id="方法四：终极武器-二次查询法"><a href="#方法四：终极武器-二次查询法" class="headerlink" title="方法四：终极武器-二次查询法"></a>方法四：终极武器-二次查询法</h3><p>即能够满足业务的精确需要，无需业务折衷，又高性能的方法</p>
+<h3 id="方法四：终极武器-二次查询法"><a class="header-anchor" href="#方法四：终极武器-二次查询法">¶</a>方法四：终极武器-二次查询法</h3>
+<p>即能够满足业务的精确需要，无需业务折衷，又高性能的方法</p>
 <ol>
 <li>将<code>order by time offset X limit Y</code>，改写成<code>order by time offset X/N limit Y</code></li>
 <li>找到最小值<code>time_min</code></li>
@@ -4406,7 +4440,8 @@
 <li>设置虚拟<code>time_min</code>，找到<code>time_min</code>在各个分库的<code>offset</code>，从而得到<code>time_min</code>在全局的<code>offset</code></li>
 <li>得到了<code>time_min</code>在全局的<code>offset</code>，自然得到了全局的<code>offset X limit</code></li>
 </ol>
-<p>优点是：可以精确的返回业务所需数据，每次返回的数据量都非常小，不会随着翻页增加数据的返回量。<br>不足是：需要进行两次数据库查询。</p>
+<p>优点是：可以精确的返回业务所需数据，每次返回的数据量都非常小，不会随着翻页增加数据的返回量。<br>
+不足是：需要进行两次数据库查询。</p>
 
 </div>
 
@@ -4416,19 +4451,23 @@
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

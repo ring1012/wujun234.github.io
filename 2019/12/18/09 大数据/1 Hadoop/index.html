@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		1 Hadoop | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,40 +4395,48 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:15</span>
+	<span id="post-date">2019-12-18 01:00:44</span>
 </div>
 
 
 <div id="article">
-	<h3 id="1-整体框架"><a href="#1-整体框架" class="headerlink" title="1 整体框架"></a>1 整体框架</h3><p><img src="/images/1556100016561.png" alt="image"></p>
+	<h3 id="1-整体框架"><a class="header-anchor" href="#1-整体框架">¶</a>1 整体框架</h3>
+<p><img src="/images/1556100016561.png" alt="image"></p>
 <ul>
 <li>HDFS: 分布式文件存储</li>
 <li>YARN: 分布式资源管理，允许任何一个分布式程序（不仅仅是 MapReduce）基于 Hadoop 集群的数据运行</li>
 <li>MapReduce: 批处理。分布式计算</li>
 <li>Others: 利用YARN的资源管理功能实现其他的数据处理方式</li>
 </ul>
-<h3 id="生态系统"><a href="#生态系统" class="headerlink" title="生态系统"></a>生态系统</h3><p><img src="/images/1556100018209.jpg" alt=""></p>
-<h5 id="数据格式"><a href="#数据格式" class="headerlink" title="数据格式"></a>数据格式</h5><ul>
+<h3 id="生态系统"><a class="header-anchor" href="#生态系统">¶</a>生态系统</h3>
+<p><img src="/images/1556100018209.jpg" alt=""></p>
+<h5 id="数据格式"><a class="header-anchor" href="#数据格式">¶</a>数据格式</h5>
+<ul>
 <li>Avro：序列化数据</li>
 <li>Parquet</li>
 </ul>
-<h5 id="数据摄取"><a href="#数据摄取" class="headerlink" title="数据摄取"></a>数据摄取</h5><ul>
+<h5 id="数据摄取"><a class="header-anchor" href="#数据摄取">¶</a>数据摄取</h5>
+<ul>
 <li>Flume：日志收集</li>
 <li>Sqoop</li>
 </ul>
-<h5 id="数据处理"><a href="#数据处理" class="headerlink" title="数据处理"></a>数据处理</h5><ul>
+<h5 id="数据处理"><a class="header-anchor" href="#数据处理">¶</a>数据处理</h5>
+<ul>
 <li>Pig：数据分析平台，抽象 MapReduce 脚本</li>
 <li>Hive：交互式SQL。将sql语句转换为MapReduce任务</li>
 <li>Crunch</li>
 <li>Spark：迭代处理。MapReduce 的优化，允许在内存中保存中间结果集</li>
 </ul>
-<h5 id="存储"><a href="#存储" class="headerlink" title="存储"></a>存储</h5><ul>
+<h5 id="存储"><a class="header-anchor" href="#存储">¶</a>存储</h5>
+<ul>
 <li>HBase：分布式列式数据库</li>
 </ul>
-<h5 id="协作"><a href="#协作" class="headerlink" title="协作"></a>协作</h5><ul>
+<h5 id="协作"><a class="header-anchor" href="#协作">¶</a>协作</h5>
+<ul>
 <li>ZooKeeper：协调系统</li>
 </ul>
-<h5 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h5><ul>
+<h5 id="其他"><a class="header-anchor" href="#其他">¶</a>其他</h5>
+<ul>
 <li>Ambari：创建、管理、监视 Hadoop 的集群</li>
 <li>Mahout：机器学习框架</li>
 <li>Storm：流处理。在无边界数据流上运行实时、分布式的运算</li>
@@ -4420,19 +4451,23 @@
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

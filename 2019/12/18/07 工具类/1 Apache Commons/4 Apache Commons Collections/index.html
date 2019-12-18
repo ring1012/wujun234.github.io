@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		4 Apache Commons Collections | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,13 +4395,14 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:39</span>
+	<span id="post-date">2019-12-18 01:00:44</span>
 </div>
 
 
 <div id="article">
-	<p>官网首页<a href="http://commons.apache.org/proper/commons-collections/" target="_blank" rel="noopener">Commons Collections</a><br>###概览</p>
-<p><a href="http://docs.oracle.com/javase/tutorial/collections/" target="_blank" rel="noopener">Java集合框架</a>是JDK 1.2添加的主要功能。它增加了许多强大的数据结构，加速了许多的重大Java应用的开发。从那时起就成为了Java中处理集合的公认标准。 </p>
+	<p>官网首页<a href="http://commons.apache.org/proper/commons-collections/" target="_blank" rel="noopener">Commons Collections</a><br>
+###概览</p>
+<p><a href="http://docs.oracle.com/javase/tutorial/collections/" target="_blank" rel="noopener">Java集合框架</a>是JDK 1.2添加的主要功能。它增加了许多强大的数据结构，加速了许多的重大Java应用的开发。从那时起就成为了Java中处理集合的公认标准。</p>
 <p>Commons-Collections试图通过提供新的接口，实现和工具来构建JDK类。有许多功能，其中包括：</p>
 <ul>
 <li>Bag 接口，每个对象都有多个副本的集合</li>
@@ -4387,13 +4411,14 @@
 <li>转换装饰器，在对象添加到集合中时类型转换</li>
 <li>复合集合 ，使多个集合看起来像一个集合</li>
 <li>有序 Map 和 Set ，让元素保留加入集合时的顺序，包括一个基于 LRU 的Map</li>
-<li>ReferenceMap,允许 key 和/或 value 在密切控制下被垃圾回收 </li>
+<li>ReferenceMap,允许 key 和/或 value 在密切控制下被垃圾回收</li>
 <li>许多比较器</li>
 <li>许多迭代器</li>
 <li>数组和枚举转为集合的适配器</li>
 <li>用于测试或创建集合典型属性（如联合，交集和闭包）的工具</li>
 </ul>
-<h3 id="包结构"><a href="#包结构" class="headerlink" title="包结构"></a>包结构</h3><hr>
+<h3 id="包结构"><a class="header-anchor" href="#包结构">¶</a>包结构</h3>
+<hr>
 <table>
 <thead>
 <tr>
@@ -4401,7 +4426,8 @@
 <th>Description</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>org.apache.commons.collections4</td>
 <td>包含子包中共享的接口和工具</td>
 </tr>
@@ -4473,9 +4499,12 @@
 <td>org.apache.commons.collections4.trie.analyzer</td>
 <td>多种 <code>KeyAnalyzer</code> 接口的实现</td>
 </tr>
-</tbody></table>
-<h2 id="一、Utilities"><a href="#一、Utilities" class="headerlink" title="一、Utilities"></a>一、Utilities</h2><hr>
-<p>大多数方法在<code>CollectionUtils</code>和<code>MapUtils</code>都有，包括交集，计数，迭代，函子和类型转换等操作。因为大部分集合接口都继承于<code>Collection</code>或<code>Map</code>接口，所以这些方法对他们都适用。<br>而<code>SetUtils</code>提供了 <code>Set</code> 和 <code>SortedSet</code> 接口的方法。</p>
+</tbody>
+</table>
+<h2 id="一、Utilities"><a class="header-anchor" href="#一、Utilities">¶</a>一、Utilities</h2>
+<hr>
+<p>大多数方法在<code>CollectionUtils</code>和<code>MapUtils</code>都有，包括交集，计数，迭代，函子和类型转换等操作。因为大部分集合接口都继承于<code>Collection</code>或<code>Map</code>接口，所以这些方法对他们都适用。<br>
+而<code>SetUtils</code>提供了 <code>Set</code> 和 <code>SortedSet</code> 接口的方法。</p>
 <table>
 <thead>
 <tr>
@@ -4483,7 +4512,8 @@
 <th>描述</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>BagUtils</td>
 <td><code>Bag</code> 和 <code>SortedBag</code> 实例的工具方法和装饰器</td>
 </tr>
@@ -4537,7 +4567,7 @@
 </tr>
 <tr>
 <td>PredicateUtils</td>
-<td><code>Predicate</code>函子接口的工具与实现</td>
+<td><code>Predicate </code>函子接口的工具与实现</td>
 </tr>
 <tr>
 <td>QueueUtils</td>
@@ -4559,53 +4589,98 @@
 <td>TrieUtils</td>
 <td><code>Trie</code> 工具集</td>
 </tr>
-</tbody></table>
-<h2 id="二、Maps"><a href="#二、Maps" class="headerlink" title="二、Maps"></a>二、Maps</h2><hr>
+</tbody>
+</table>
+<h2 id="二、Maps"><a class="header-anchor" href="#二、Maps">¶</a>二、Maps</h2>
+<hr>
 <p><code>org.apache.commons.collections4.map</code> 包含<code>Map</code>，<code>IterableMap</code>，<code>OrderedMap</code>和<code>SortedMap</code>接口的实现。</p>
-<h4 id="1、迭代map"><a href="#1、迭代map" class="headerlink" title="1、迭代map"></a>1、迭代map</h4><p><code>IterableMap</code>接口</p>
+<h4 id="1、迭代map"><a class="header-anchor" href="#1、迭代map">¶</a>1、迭代map</h4>
+<p><code>IterableMap</code>接口</p>
 <pre><code>    IterableMap iterableMap = (IterableMap) new HashMap();
     MapIterator it = iterableMap.mapIterator();
     while(it.hasNext()){
       Object key = it.next();
       Object value = it.getValue();
-    }</code></pre><h4 id="2、有序map"><a href="#2、有序map" class="headerlink" title="2、有序map"></a>2、有序map</h4><p><code>orderedmap</code>接口是有顺序的，但是并没有进行排序。<code>linkedmap</code>和<code>listorderedmap</code>(封装器)是这个接口的两种实现。这个接口支持map迭代，同时允许对map进行前向迭代和反向迭代。</p>
+    }
+</code></pre>
+<h4 id="2、有序map"><a class="header-anchor" href="#2、有序map">¶</a>2、有序map</h4>
+<p><code>orderedmap</code>接口是有顺序的，但是并没有进行排序。<code>linkedmap</code>和<code>listorderedmap</code>(封装器)是这个接口的两种实现。这个接口支持map迭代，同时允许对map进行前向迭代和反向迭代。</p>
 <pre><code>OrderedMap map = new LinkedMap();
 map.put(&quot;FIVE&quot;, &quot;5&quot;);
 map.put(&quot;SIX&quot;, &quot;6&quot;);
 map.put(&quot;SEVEN&quot;, &quot;7&quot;);
 map.firstKey();  // returns &quot;FIVE&quot;
 map.nextKey(&quot;FIVE&quot;);  // returns &quot;SIX&quot;
-map.nextKey(&quot;SIX&quot;);  // returns &quot;SEVEN&quot;</code></pre><h4 id="3、双向Map"><a href="#3、双向Map" class="headerlink" title="3、双向Map"></a>3、双向Map</h4><h5 id="3-1）BidiMap-lt-K-V-gt-接口"><a href="#3-1）BidiMap-lt-K-V-gt-接口" class="headerlink" title="3.1）BidiMap&lt;K,V&gt;接口"></a>3.1）BidiMap&lt;K,V&gt;接口</h5><p><code>BidiMap</code>扩展了<code>Map</code>，可以在键和值之间进行双向查找。<br>强行限制键和值之间为1：1关系，不同键无法映射到相同的值。<br>提供了反向视图，可以双向访问。<br>额外还有<code>OrderedBidiMap</code> 和 <code>SortedBidiMap</code> 接口</p>
-<h5 id="3-2）org-apache-commons-collections4-bidimap-包"><a href="#3-2）org-apache-commons-collections4-bidimap-包" class="headerlink" title="3.2）org.apache.commons.collections4.bidimap 包"></a>3.2）org.apache.commons.collections4.bidimap 包</h5><p>包含<code>BidiMap</code>, <code>OrderedBidiMap</code> 和 <code>SortedBidiMap</code> 接口的实现<br>包中提供了以下实现：</p>
+map.nextKey(&quot;SIX&quot;);  // returns &quot;SEVEN&quot;
+</code></pre>
+<h4 id="3、双向Map"><a class="header-anchor" href="#3、双向Map">¶</a>3、双向Map</h4>
+<h5 id="3-1）BidiMap-K-V-接口"><a class="header-anchor" href="#3-1）BidiMap-K-V-接口">¶</a>3.1）BidiMap&lt;K,V&gt;接口</h5>
+<p><code>BidiMap</code>扩展了<code>Map</code>，可以在键和值之间进行双向查找。<br>
+强行限制键和值之间为1：1关系，不同键无法映射到相同的值。<br>
+提供了反向视图，可以双向访问。<br>
+额外还有<code>OrderedBidiMap</code> 和 <code>SortedBidiMap</code> 接口</p>
+<h5 id="3-2）org-apache-commons-collections4-bidimap-包"><a class="header-anchor" href="#3-2）org-apache-commons-collections4-bidimap-包">¶</a>3.2）org.apache.commons.collections4.bidimap 包</h5>
+<p>包含<code>BidiMap</code>, <code>OrderedBidiMap</code> 和 <code>SortedBidiMap</code> 接口的实现<br>
+包中提供了以下实现：</p>
 <pre><code> DualHashBidiMap - 使用两个HashMap来实现BidiMap
  DualLinkedHashBidiMap - 使用两个LinkedHashMaps来实现BidiMap
  DualTreeBidiMap - 使用两个TreeMaps来实现SortedBidiMap
- TreeBidiMap - OrderedBidiMap的红黑树实现</code></pre><p>包装中提供以下装饰器：</p>
-<pre><code> Unmodifiable - 确保map无法被更改</code></pre><h5 id="3-3）实例"><a href="#3-3）实例" class="headerlink" title="3.3）实例"></a>3.3）实例</h5><pre><code>BidiMap bidi = new TreeBidiMap();
+ TreeBidiMap - OrderedBidiMap的红黑树实现
+</code></pre>
+<p>包装中提供以下装饰器：</p>
+<pre><code> Unmodifiable - 确保map无法被更改
+</code></pre>
+<h5 id="3-3）实例"><a class="header-anchor" href="#3-3）实例">¶</a>3.3）实例</h5>
+<pre><code>BidiMap bidi = new TreeBidiMap();
 bidi.put(&quot;SIX&quot;, &quot;6&quot;);
 bidi.get(&quot;SIX&quot;);  // returns &quot;6&quot;
 bidi.getKey(&quot;6&quot;);  // returns &quot;SIX&quot;
 bidi.removeValue(&quot;6&quot;);  // removes the mapping
-BidiMap inverse = bidi.inverseBidiMap();  // returns a map with keys and values swapped</code></pre><h2 id="三、Bags"><a href="#三、Bags" class="headerlink" title="三、Bags"></a>三、Bags</h2><hr>
-<h5 id="（1）Bag-接口"><a href="#（1）Bag-接口" class="headerlink" title="（1）Bag 接口"></a>（1）Bag<E> 接口</h5><p>顶层包下。<br>定义了一个集合，用于统计对象在集合中出现的次数。<br><em>注意：此接口违反了<code>Collection</code>规范。作为<code>Collection</code>使用时要小心。</em></p>
+BidiMap inverse = bidi.inverseBidiMap();  // returns a map with keys and values swapped
+</code></pre>
+<h2 id="三、Bags"><a class="header-anchor" href="#三、Bags">¶</a>三、Bags</h2>
+<hr>
+<h5 id="（1）Bag-E-接口"><a class="header-anchor" href="#（1）Bag-E-接口">¶</a>（1）Bag<E> 接口</h5>
+<p>顶层包下。<br>
+定义了一个集合，用于统计对象在集合中出现的次数。<br>
+<em>注意：此接口违反了<code>Collection</code>规范。作为<code>Collection</code>使用时要小心。</em></p>
 <pre><code>add/remove - 增/删
 getCount(Object object) - 返回bag中当前给定对象的出现次数。
-uniqueSet() - 返回bag中的一组独特元素。</code></pre><p>假设你有一个包含{a，a，b，c}的包。 调用getCount（a）将返回2，而调用uniqueSet（）将返回{a，b，c}。</p>
-<h5 id="（2）BagUtils"><a href="#（2）BagUtils" class="headerlink" title="（2）BagUtils"></a>（2）BagUtils</h5><p>顶层包下。<br><code>Bag</code> 和 <code>SortedBag</code> 实例的工具方法和装饰器。<br>各种bag转换方法。  </p>
-<h5 id="（3）org-apache-commons-collections4-bag-包"><a href="#（3）org-apache-commons-collections4-bag-包" class="headerlink" title="（3）org.apache.commons.collections4.bag 包"></a>（3）org.apache.commons.collections4.bag 包</h5><p><code>Bag</code> 和 <code>SortedBag</code> 接口的实现。bag存储对象和对象的出现次数。</p>
+uniqueSet() - 返回bag中的一组独特元素。
+</code></pre>
+<p>假设你有一个包含{a，a，b，c}的包。 调用getCount（a）将返回2，而调用uniqueSet（）将返回{a，b，c}。</p>
+<h5 id="（2）BagUtils"><a class="header-anchor" href="#（2）BagUtils">¶</a>（2）BagUtils</h5>
+<p>顶层包下。<br>
+<code>Bag</code> 和 <code>SortedBag</code> 实例的工具方法和装饰器。<br>
+各种bag转换方法。</p>
+<h5 id="（3）org-apache-commons-collections4-bag-包"><a class="header-anchor" href="#（3）org-apache-commons-collections4-bag-包">¶</a>（3）org.apache.commons.collections4.bag 包</h5>
+<p><code>Bag</code> 和 <code>SortedBag</code> 接口的实现。bag存储对象和对象的出现次数。</p>
 <p>包中提供了以下实现：</p>
 <pre><code>HashBag - 使用HashMap存储数据
-TreeBag - 使用TreeMap来存储数据</code></pre><p>包装中提供以下装饰器：</p>
+TreeBag - 使用TreeMap来存储数据
+</code></pre>
+<p>包装中提供以下装饰器：</p>
 <pre><code>Synchronized - 多线程环境下的同步方法访问
 Unmodifiable - 确保bag不能被改变
 Predicated - 确保只能添加有效的元素
 Transformed - 转换每个添加到包中的元素
-Collection - 确保符合java.util.Collection规范</code></pre><h5 id="（4）例子"><a href="#（4）例子" class="headerlink" title="（4）例子"></a>（4）例子</h5><pre><code>Bag bag = new HashBag();
+Collection - 确保符合java.util.Collection规范
+</code></pre>
+<h5 id="（4）例子"><a class="header-anchor" href="#（4）例子">¶</a>（4）例子</h5>
+<pre><code>Bag bag = new HashBag();
 bag.add(&quot;ONE&quot;, 6);  // add 6 copies of &quot;ONE&quot;
 bag.remove(&quot;ONE&quot;, 2);  // removes 2 copies of &quot;ONE&quot;
-bag.getCount(&quot;ONE&quot;);  // returns 4, the number of copies in the bag (6 - 2)</code></pre><h2 id="四、KeyValue"><a href="#四、KeyValue" class="headerlink" title="四、KeyValue"></a>四、KeyValue</h2><hr>
-<h5 id="（1）KeyValue-lt-K-V-gt-接口"><a href="#（1）KeyValue-lt-K-V-gt-接口" class="headerlink" title="（1）KeyValue&lt;K,V&gt;接口"></a>（1）KeyValue&lt;K,V&gt;接口</h5><p>简单键值对。<br>Map在键值对之外有许多附加功能。 这个接口定义了最小键值对，只有两个get方法：getKey()、getValue()  </p>
-<h5 id="（2）org-apache-commons-collections4-keyvalue-包"><a href="#（2）org-apache-commons-collections4-keyvalue-包" class="headerlink" title="（2）org.apache.commons.collections4.keyvalue 包"></a>（2）org.apache.commons.collections4.keyvalue 包</h5><p>包含collection和map相关的键/值类实现。<br>MapEntry,KeyValue,MultiKey<br><strong>MultiKey</strong> - 允许多键合并，主要目的是处理嵌套Map，</p>
+bag.getCount(&quot;ONE&quot;);  // returns 4, the number of copies in the bag (6 - 2)
+</code></pre>
+<h2 id="四、KeyValue"><a class="header-anchor" href="#四、KeyValue">¶</a>四、KeyValue</h2>
+<hr>
+<h5 id="（1）KeyValue-K-V-接口"><a class="header-anchor" href="#（1）KeyValue-K-V-接口">¶</a>（1）KeyValue&lt;K,V&gt;接口</h5>
+<p>简单键值对。<br>
+Map在键值对之外有许多附加功能。 这个接口定义了最小键值对，只有两个get方法：getKey()、getValue()</p>
+<h5 id="（2）org-apache-commons-collections4-keyvalue-包"><a class="header-anchor" href="#（2）org-apache-commons-collections4-keyvalue-包">¶</a>（2）org.apache.commons.collections4.keyvalue 包</h5>
+<p>包含collection和map相关的键/值类实现。<br>
+MapEntry,KeyValue,MultiKey<br>
+<strong>MultiKey</strong> - 允许多键合并，主要目的是处理嵌套Map，</p>
 <pre><code> // populate map with data mapping key+locale to localizedText
  Map map = new HashMap();
  MultiKey multiKey = new MultiKey(key, locale);
@@ -4613,7 +4688,9 @@ bag.getCount(&quot;ONE&quot;);  // returns 4, the number of copies in the bag (6
 
  // later retrieve the localized text
  MultiKey multiKey = new MultiKey(key, locale);
- String localizedText = (String) map.get(multiKey);</code></pre>
+ String localizedText = (String) map.get(multiKey);
+</code></pre>
+
 </div>
 
 	</div>
@@ -4622,19 +4699,23 @@ bag.getCount(&quot;ONE&quot;);  // returns 4, the number of copies in the bag (6
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

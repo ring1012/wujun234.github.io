@@ -1,10 +1,30 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +35,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4369,13 +4390,16 @@
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/06%20%E9%9B%86%E5%90%88/2.9%20concurrenthashmap/">2.9 concurrenthashmap</a>
+					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/06%20%E9%9B%86%E5%90%88/2.3%20ArrayDeque/">2.3 ArrayDeque</a>
 				</h2>
 				<span class="post-date">2019-12-18</span>
 				<div class="article-digest">
-					JDK1.5起，java.util.concurrent包
-JDK1.7总体介绍ConcurrentHashMap采用了分段锁技术，效率较Hashtable高，不允许空值null。
-Concurren
+					¶前言
+栈Stack已过时，队列LinkedList效率不高，栈和队列首选ArrayDeque。
+¶总体介绍
+
+¶Deque接口
+ArrayDeque实现了Deque接口，Deque继承Queue实现
 					...
 				</div>
 			</article>
@@ -4384,12 +4408,17 @@ Concurren
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/06%20%E9%9B%86%E5%90%88/2.9%20ConcurrentSkipListMap/">2.9 ConcurrentSkipListMap</a>
+					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/06%20%E9%9B%86%E5%90%88/2.2%20LinkedList/">2.2 LinkedList</a>
 				</h2>
 				<span class="post-date">2019-12-18</span>
 				<div class="article-digest">
-					
+					¶前言
+现在栈或者队列的首选是ArrayDeque。
+¶总体介绍
 
+LinkedList同时实现了List接口和Deque接口，允许null元素。
+
+LinkedList底层通过双向链表实现。节点用内
 					...
 				</div>
 			</article>
@@ -4398,12 +4427,16 @@ Concurren
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/06%20%E9%9B%86%E5%90%88/3%20%E6%98%A0%E5%B0%84/">3 映射</a>
+					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/06%20%E9%9B%86%E5%90%88/2.1%20ArrayList%E3%80%81Vector/">2.1 ArrayList、Vector</a>
 				</h2>
 				<span class="post-date">2019-12-18</span>
 				<div class="article-digest">
-					映射(map) 用来存放键 / 值对。如果提供了键， 就能够查找到值。 
-1　基本映射操作Java 类库为映射提供了两个通用的实现： HashMap 和 TreeMap 。这两个类都实现了 Map 接
+					¶前言
+ArrayList除未实现同步外，跟Vector大致相同。同步效率低，在不需要同步的时候使用ArrayList。
+¶ArrayList
+
+¶总体介绍
+ArrayList 实现了 List、Ra
 					...
 				</div>
 			</article>
@@ -4412,12 +4445,38 @@ Concurren
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/06%20%E9%9B%86%E5%90%88/5%20%E7%AE%97%E6%B3%95/">5 算法</a>
+					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/06%20%E9%9B%86%E5%90%88/2.0%20%E5%85%B7%E4%BD%93%E7%9A%84%E9%9B%86%E5%90%88/">2.0 具体的集合</a>
 				</h2>
 				<span class="post-date">2019-12-18</span>
 				<div class="article-digest">
-					泛型集合接口有一个很大的优点，即算法只需要实现一次。
-1 排序与混排排序Collections.sort()底层使用了数组的归并排序。即先转化集合为数组，排好序以后在复制回以前的集合。归并排序相较于快
+					¶Java库中的具体集合
+
+
+
+集合类型
+同步
+可null
+有序
+描述
+
+
+
+
+ArrayList
+否
+是
+是
+动态增缩的索引序列
+
+
+Vector
+是
+是
+是
+过时，同步的ArrayList
+
+
+L
 					...
 				</div>
 			</article>
@@ -4426,12 +4485,15 @@ Concurren
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/06%20%E9%9B%86%E5%90%88/6%20%E9%81%97%E7%95%99%E7%9A%84%E9%9B%86%E5%90%88/">6 遗留的集合</a>
+					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/06%20%E9%9B%86%E5%90%88/1%20%E9%9B%86%E5%90%88%E6%8E%A5%E5%8F%A3/">1 集合接口</a>
 				</h2>
 				<span class="post-date">2019-12-18</span>
 				<div class="article-digest">
-					1 Hashtable与HashMap的作用是一样的，但是Hashtable是线程同步的。如果同步性没有要求，应该尽量使用HashMap。
-2 枚举遗留集合使用Enumeration接口对元素序列进行
+					框架，是一个类的集。
+容器，是可以容纳其他Java对象的对象。
+JDK 1.2开始，Java集合框架(JCF)提供了通用的容器。
+JDK 1.5开始，集合类是带有类型参数的泛型类。
+Java容器里只能
 					...
 				</div>
 			</article>
@@ -4447,19 +4509,23 @@ Concurren
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

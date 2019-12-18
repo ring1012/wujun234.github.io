@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		1 nginx笔记 | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,25 +4395,34 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:41</span>
+	<span id="post-date">2019-12-18 01:00:44</span>
 </div>
 
 
 <div id="article">
-	<h1 id="一、nginx架构"><a href="#一、nginx架构" class="headerlink" title="一、nginx架构"></a>一、nginx架构</h1><p><img src="/images/1545712500935.png" alt="进程模型"></p>
-<h4 id="1-进程模型"><a href="#1-进程模型" class="headerlink" title="1. 进程模型"></a>1. 进程模型</h4><p>Nginx分一个master进程和多个worker进程。  </p>
+	<h1>一、nginx架构</h1>
+<p><img src="/images/1545712500935.png" alt="进程模型"></p>
+<h4 id="1-进程模型"><a class="header-anchor" href="#1-进程模型">¶</a>1. 进程模型</h4>
+<p>Nginx分一个master进程和多个worker进程。</p>
 <ul>
 <li>master进程：读取和评估配置，并管理worker进程。接收来外界信号，向worker进程发送信号，监控worker进程运行状态，当worker进程异常退出后，会自动重新启动新的worker进程。</li>
 <li>worker进程：对请求进行实际处理。worker进程之间对等且互相独立，竞争客户端请求，一个请求只能在一个worker进程中处理。worker进程的数量可在配置文件中设置的，一般设置与机器CPU核数一致。</li>
 </ul>
-<h4 id="2-异步非阻塞"><a href="#2-异步非阻塞" class="headerlink" title="2. 异步非阻塞"></a>2. 异步非阻塞</h4><p>master进程根据配置建立好socket，再fork出多个worker进程。worker进程竞争请求，每个worker只有一个主线程，有一个函数，执行无限循环，不断处理收到的来自客户端的请求。异步非阻塞，同时处理的请求只有一个，只是在请求间不断地切换而已。</p>
-<h4 id="3-流畅修改"><a href="#3-流畅修改" class="headerlink" title="3. 流畅修改"></a>3. 流畅修改</h4><p>　　重启或修改nginx配置，服务不会中断。<br>　　master进程接到信号，先重新加载配置文件，再启动新worker进程，并向所有老worker进程发送信号。老worker收到信号后，不再接收新的请求，处理完当前进程中请求后退出。</p>
-<h4 id="4-模型优点"><a href="#4-模型优点" class="headerlink" title="4. 模型优点"></a>4. 模型优点</h4><ul>
+<h4 id="2-异步非阻塞"><a class="header-anchor" href="#2-异步非阻塞">¶</a>2. 异步非阻塞</h4>
+<p>master进程根据配置建立好socket，再fork出多个worker进程。worker进程竞争请求，每个worker只有一个主线程，有一个函数，执行无限循环，不断处理收到的来自客户端的请求。异步非阻塞，同时处理的请求只有一个，只是在请求间不断地切换而已。</p>
+<h4 id="3-流畅修改"><a class="header-anchor" href="#3-流畅修改">¶</a>3. 流畅修改</h4>
+<p>重启或修改nginx配置，服务不会中断。<br>
+　　master进程接到信号，先重新加载配置文件，再启动新worker进程，并向所有老worker进程发送信号。老worker收到信号后，不再接收新的请求，处理完当前进程中请求后退出。</p>
+<h4 id="4-模型优点"><a class="header-anchor" href="#4-模型优点">¶</a>4. 模型优点</h4>
+<ul>
 <li>独立进程，不需要加锁，节省开销。</li>
 <li>独立进程，互相不影响，一个进程出问题，其它进程还在工作，服务不会中断，降低了风险。</li>
 </ul>
-<h1 id="二、Nginx-安装"><a href="#二、Nginx-安装" class="headerlink" title="二、Nginx 安装"></a>二、Nginx 安装</h1><ol>
-<li>安装Nginx<pre><code>#1、下载 Nginx
+<h1>二、Nginx 安装</h1>
+<ol>
+<li>安装Nginx</li>
+</ol>
+<pre><code>#1、下载 Nginx
 wget http://nginx.org/download/nginx-1.6.2.tar.gz
 #2、解压安装包
 tar zxvf nginx-1.6.2.tar.gz
@@ -4401,17 +4433,25 @@ cd nginx-1.6.2
 make
 make install
 #5、查看nginx版本
-/usr/local/webserver/nginx/sbin/nginx -v</code></pre></li>
+/usr/local/webserver/nginx/sbin/nginx -v
+</code></pre>
+<ol start="2">
 <li>配置Nginx</li>
 </ol>
 <ul>
-<li>创建用户 user：<pre><code>/usr/sbin/groupadd user
-/usr/sbin/useradd -g user user</code></pre></li>
+<li>创建用户 user：</li>
+</ul>
+<pre><code>/usr/sbin/groupadd user
+/usr/sbin/useradd -g user user
+</code></pre>
+<ul>
 <li>配置nginx.conf</li>
 </ul>
 <ol start="3">
-<li>控制Nginx<ul>
-<li>启动nginx：运行可执行文件<br>-s 参数控制Nginx ：</li>
+<li>控制Nginx
+<ul>
+<li>启动nginx：运行可执行文件<br>
+-s 参数控制Nginx ：</li>
 <li>stop：快速关闭服务</li>
 <li>quit：正常关闭服务</li>
 <li>reload： 重新加载配置文件</li>
@@ -4419,205 +4459,269 @@ make install
 </ul>
 </li>
 </ol>
-<h1 id="三、配置文件结构"><a href="#三、配置文件结构" class="headerlink" title="三、配置文件结构"></a>三、配置文件结构</h1><p>nginx的配置系统由一个主配置文件nginx.conf和其他一些辅助的配置文件构成。<br># 号表示注释。</p>
-<p>####指令组成<br>指令由指令名称及其参数组成。</p>
+<h1>三、配置文件结构</h1>
+<p>nginx的配置系统由一个主配置文件nginx.conf和其他一些辅助的配置文件构成。<br>
+# 号表示注释。</p>
+<p>####指令组成<br>
+指令由指令名称及其参数组成。</p>
 <ul>
-<li><p>简单指令，以分号结尾。如果指令含空格，要用引号括起来。</p>
-<pre><code>user nobody;</code></pre></li>
-<li><p>块指令，包含大括号括起来的复合配置块。</p>
+<li>简单指令，以分号结尾。如果指令含空格，要用引号括起来。</li>
+</ul>
+<pre><code>user nobody;
+</code></pre>
+<ul>
+<li>块指令，包含大括号括起来的复合配置块。</li>
+</ul>
 <pre><code>server {
-# configuration of HTTP virtual server 2
-}</code></pre><p>####include指令<br>为了使配置更易于维护，可将复杂或可服用指令拆分存储在其他.conf，并在主nginx.conf文件中使用include指令引用引进来。</p>
-<pre><code>include conf.d/http;</code></pre><p>####指令上下文<br>如果块指令在大括号内部有其他指令，则称为上下文</p>
-</li>
-<li><p>main :  任何上下文之外的就属于main，与具体业务功能无关的一些参数。</p>
-</li>
-<li><p>http：main中，与提供http服务相关的一些配置参数。如keepalive、gzip。</p>
-</li>
-<li><p>server : http中，每个虚拟主机对应一个server配置项，包含该虚拟主机相关的配置。</p>
-</li>
-<li><p>location : http中，某些特定的URL对应的一系列配置项。</p>
-</li>
-<li><p>mail :  实现email相关的SMTP/IMAP/POP3代理时，共享的一些配置项。</p>
-</li>
-<li><p>events : main中，一般连接处理</p>
-</li>
-<li><p>stream : TCP协议流量</p>
-</li>
+  # configuration of HTTP virtual server 2
+}
+</code></pre>
+<p>####include指令<br>
+为了使配置更易于维护，可将复杂或可服用指令拆分存储在其他.conf，并在主nginx.conf文件中使用include指令引用引进来。</p>
+<pre><code>include conf.d/http;
+</code></pre>
+<p>####指令上下文<br>
+如果块指令在大括号内部有其他指令，则称为上下文</p>
+<ul>
+<li>main :  任何上下文之外的就属于main，与具体业务功能无关的一些参数。</li>
+<li>http：main中，与提供http服务相关的一些配置参数。如keepalive、gzip。</li>
+<li>server : http中，每个虚拟主机对应一个server配置项，包含该虚拟主机相关的配置。</li>
+<li>location : http中，某些特定的URL对应的一系列配置项。</li>
+<li>mail :  实现email相关的SMTP/IMAP/POP3代理时，共享的一些配置项。</li>
+<li>events : main中，一般连接处理</li>
+<li>stream : TCP协议流量</li>
 </ul>
 <p>指令上下文之间可能互相包含。</p>
 <p>####示例配置</p>
-<pre><code>user  nobody;
-worker_processes  1;
-error_log  logs/error.log  info;
+<pre><code>user  nobody;
+worker_processes  1;
+error_log  logs/error.log  info;
 
 events {
-    worker_connections  1024;
+    worker_connections  1024;
 }
 
 http {
-    server {
-        listen          80;
-        server_name     [www.linuxidc.com](http://www.linuxidc.com/);
-        access_log      logs/linuxidc.access.log main;
-        location / {
-            index index.html;
-            root  /var/www/[linuxidc.com/htdocs](http://linuxidc.com/htdocs);
-        }
-    }
+    server {
+        listen          80;
+        server_name     [www.linuxidc.com](http://www.linuxidc.com/);
+        access_log      logs/linuxidc.access.log main;
+        location / {
+            index index.html;
+            root  /var/www/[linuxidc.com/htdocs](http://linuxidc.com/htdocs);
+        }
+    }
 
-    server {
-        listen          80;
-        server_name     [www.Androidj.com](http://www.androidj.com/);
-        access_log      logs/androidj.access.log main;
-        location / {
-            index index.html;
-            root  /var/www/[androidj.com/htdocs](http://androidj.com/htdocs);
-        }
-    }
+    server {
+        listen          80;
+        server_name     [www.Androidj.com](http://www.androidj.com/);
+        access_log      logs/androidj.access.log main;
+        location / {
+            index index.html;
+            root  /var/www/[androidj.com/htdocs](http://androidj.com/htdocs);
+        }
+    }
 }
 
 mail {
-    auth_http  127.0.0.1:80/auth.php;
-    pop3_capabilities  &quot;TOP&quot;  &quot;USER&quot;;
-    imap_capabilities  &quot;IMAP4rev1&quot;  &quot;UIDPLUS&quot;;
-    server {
-        listen     110;
-        protocol   pop3;
-        proxy      on;
-    }
+    auth_http  127.0.0.1:80/auth.php;
+    pop3_capabilities  &quot;TOP&quot;  &quot;USER&quot;;
+    imap_capabilities  &quot;IMAP4rev1&quot;  &quot;UIDPLUS&quot;;
+    server {
+        listen     110;
+        protocol   pop3;
+        proxy      on;
+    }
 
-    server {
-        listen      25;
-        protocol    smtp;
-        proxy       on;
-        smtp_auth   login plain;
-        xclient     off;
-    }
-}</code></pre><h1 id="四、nginx模块"><a href="#四、nginx模块" class="headerlink" title="四、nginx模块"></a>四、nginx模块</h1><p>nginx是由core和一系列的功能模块所组成。<br>nginx core实现了底层的通讯协议，为其他模块和nginx进程构建了基本的运行时环境，并且构建了其他各模块的协作基础。</p>
+    server {
+        listen      25;
+        protocol    smtp;
+        proxy       on;
+        smtp_auth   login plain;
+        xclient     off;
+    }
+}
+</code></pre>
+<h1>四、nginx模块</h1>
+<p>nginx是由core和一系列的功能模块所组成。<br>
+nginx core实现了底层的通讯协议，为其他模块和nginx进程构建了基本的运行时环境，并且构建了其他各模块的协作基础。</p>
 <ul>
-<li><strong>event module</strong>:<br>事件处理模块。提供了各具体事件的处理。</li>
-<li><strong>phase handler</strong>:<br>handler模块。主要负责处理客户端请求并产生待响应内容。</li>
-<li><strong>output filter</strong>:<br>filter模块。主要是负责对输出的内容进行处理，可以对输出进行修改。</li>
-<li><strong>upstream</strong>:<br>upstream模块。实现反向代理的功能，将真正的请求转发到后端服务器上，并从后端服务器上读取响应，发回客户端。upstream模块是一种特殊的handler。</li>
-<li><strong>load-balancer</strong>:<br>负载均衡模块。实现特定的算法，在众多的后端服务器中，选择一个服务器出来作为某个请求的转发服务器。</li>
+<li><strong>event module</strong>:<br>
+事件处理模块。提供了各具体事件的处理。</li>
+<li><strong>phase handler</strong>:<br>
+handler模块。主要负责处理客户端请求并产生待响应内容。</li>
+<li><strong>output filter</strong>:<br>
+filter模块。主要是负责对输出的内容进行处理，可以对输出进行修改。</li>
+<li><strong>upstream</strong>:<br>
+upstream模块。实现反向代理的功能，将真正的请求转发到后端服务器上，并从后端服务器上读取响应，发回客户端。upstream模块是一种特殊的handler。</li>
+<li><strong>load-balancer</strong>:<br>
+负载均衡模块。实现特定的算法，在众多的后端服务器中，选择一个服务器出来作为某个请求的转发服务器。</li>
 </ul>
-<h1 id="五、nginx应用"><a href="#五、nginx应用" class="headerlink" title="五、nginx应用"></a>五、nginx应用</h1><ol>
-<li><p>代理服务器(反向、正向)</p>
-</li>
-<li><p>HTTP服务器(包含动静分离)</p>
-</li>
-<li><p>负载均衡</p>
-<h2 id="代理服务器"><a href="#代理服务器" class="headerlink" title="代理服务器"></a>代理服务器</h2><h3 id="反向代理"><a href="#反向代理" class="headerlink" title="反向代理"></a>反向代理</h3><h5 id="1-传递请求"><a href="#1-传递请求" class="headerlink" title="1. 传递请求"></a>1. 传递请求</h5><p>当NGINX代理请求时，它将请求发送到指定的代理服务器，获取响应，并将其发送回客户端。 </p>
-</li>
+<h1>五、nginx应用</h1>
+<ol>
+<li>代理服务器(反向、正向)</li>
+<li>HTTP服务器(包含动静分离)</li>
+<li>负载均衡</li>
 </ol>
-<p><strong>**_ pass指令</strong>：地址可指定为域名或IP地址(可包括端口)。也可以指向一组命名的服务器。如果URI与地址一起指定，将替换匹配请求的URI。</p>
+<h2 id="代理服务器"><a class="header-anchor" href="#代理服务器">¶</a>代理服务器</h2>
+<h3 id="反向代理"><a class="header-anchor" href="#反向代理">¶</a>反向代理</h3>
+<h5 id="1-传递请求"><a class="header-anchor" href="#1-传递请求">¶</a>1. 传递请求</h5>
+<p>当NGINX代理请求时，它将请求发送到指定的代理服务器，获取响应，并将其发送回客户端。<br>
+<strong>**_ pass指令</strong>：地址可指定为域名或IP地址(可包括端口)。也可以指向一组命名的服务器。如果URI与地址一起指定，将替换匹配请求的URI。</p>
 <ul>
-<li><p>proxy_pass 将请求传递给HTTP代理服务器</p>
-</li>
-<li><p>fastcgi_pass 将请求传递给FastCGI服务器</p>
-</li>
-<li><p>uwsgi_pass 将请求传递给uwsgi服务器</p>
-</li>
-<li><p>scgi_pass 将请求传递给SCGI服务器</p>
-</li>
-<li><p>memcached_pass 将请求传递给memcached服务器</p>
+<li>proxy_pass 将请求传递给HTTP代理服务器</li>
+<li>fastcgi_pass 将请求传递给FastCGI服务器</li>
+<li>uwsgi_pass 将请求传递给uwsgi服务器</li>
+<li>scgi_pass 将请求传递给SCGI服务器</li>
+<li>memcached_pass 将请求传递给memcached服务器</li>
+</ul>
 <pre><code>location /some/path/ {
-  proxy_pass http://www.example.com/link/;
+    proxy_pass http://www.example.com/link/;
 }
 location ~ \.php {
-  proxy_pass http://127.0.0.1:8000;
-}</code></pre><h5 id="2-传递请求标头"><a href="#2-传递请求标头" class="headerlink" title="2. 传递请求标头"></a>2. 传递请求标头</h5></li>
-<li><p><em>proxy_set_header*</em>:修改、设置header字段，可以在一个或多个location、server、http块中指定。 </p>
+    proxy_pass http://127.0.0.1:8000;
+}
+</code></pre>
+<h5 id="2-传递请求标头"><a class="header-anchor" href="#2-传递请求标头">¶</a>2. 传递请求标头</h5>
+<p><strong>proxy_set_header</strong>:修改、设置header字段，可以在一个或多个location、server、http块中指定。</p>
 <pre><code>location /some/path/ {
-   proxy_set_header Host $host;
-}</code></pre><h5 id="3-配置缓冲区"><a href="#3-配置缓冲区" class="headerlink" title="3. 配置缓冲区"></a>3. 配置缓冲区</h5><p>默认情况下，NGINX缓存来自代理服务器的响应，直到收到整个响应。<br>proxy_buffering：启用和禁用缓冲<br>proxy_buffers ：请求缓冲区的大小和数量<br>proxy_buffer_size ：响应缓冲区的大小</p>
+    proxy_set_header Host $host;
+}
+</code></pre>
+<h5 id="3-配置缓冲区"><a class="header-anchor" href="#3-配置缓冲区">¶</a>3. 配置缓冲区</h5>
+<p>默认情况下，NGINX缓存来自代理服务器的响应，直到收到整个响应。<br>
+proxy_buffering：启用和禁用缓冲<br>
+proxy_buffers ：请求缓冲区的大小和数量<br>
+proxy_buffer_size ：响应缓冲区的大小</p>
 <pre><code>location /some/path/ {
-   proxy_buffers 16 4k;
-   proxy_buffer_size 2k;
-   proxy_pass http://localhost:8000;
-}</code></pre><h5 id="4-选择传出IP地址"><a href="#4-选择传出IP地址" class="headerlink" title="4. 选择传出IP地址"></a>4. 选择传出IP地址</h5><p>代理服务器配置为只接受特定IP的连接时。<br>proxy_bind：指定IP</p>
+    proxy_buffers 16 4k;
+    proxy_buffer_size 2k;
+    proxy_pass http://localhost:8000;
+}
+</code></pre>
+<h5 id="4-选择传出IP地址"><a class="header-anchor" href="#4-选择传出IP地址">¶</a>4. 选择传出IP地址</h5>
+<p>代理服务器配置为只接受特定IP的连接时。<br>
+proxy_bind：指定IP</p>
 <pre><code>location /app1/ {
-   proxy_bind 127.0.0.1;
-   proxy_pass http://example.com/app1/;
-}</code></pre><h3 id="正向代理"><a href="#正向代理" class="headerlink" title="正向代理"></a>正向代理</h3></li>
-</ul>
+    proxy_bind 127.0.0.1;
+    proxy_pass http://example.com/app1/;
+}
+</code></pre>
+<h3 id="正向代理"><a class="header-anchor" href="#正向代理">¶</a>正向代理</h3>
 <p>客户端向代理发送一个请求并指定目标，然后代理向原始服务器转交请求并将获得的内容返回给客户端。目前不支持HTTPS。</p>
 <ul>
 <li>resolver：配置正向代理的DNS服务器</li>
-<li>listen：正向代理的端口<pre><code>  resolver 114.114.114.114 8.8.8.8;
-  server {
-      resolver_timeout 5s;
-      listen 81;
-      access_log  e:/wwwrootproxy.access.log;
-      error_log   e:/wwwrootproxy.error.log;
-      location / {
-          proxy_pass http://$host$request_uri;
-      }
-  }</code></pre></li>
+<li>listen：正向代理的端口</li>
 </ul>
-<h2 id="HTTP服务器"><a href="#HTTP服务器" class="headerlink" title="HTTP服务器"></a>HTTP服务器</h2><h5 id="Web服务器"><a href="#Web服务器" class="headerlink" title="Web服务器"></a>Web服务器</h5><h5 id="1-日志"><a href="#1-日志" class="headerlink" title="1. 日志"></a>1. 日志</h5><ul>
+<pre><code>    resolver 114.114.114.114 8.8.8.8;
+    server {
+        resolver_timeout 5s;
+        listen 81;
+        access_log  e:/wwwrootproxy.access.log;
+        error_log   e:/wwwrootproxy.error.log;
+        location / {
+            proxy_pass http://$host$request_uri;
+        }
+    }
+</code></pre>
+<h2 id="HTTP服务器"><a class="header-anchor" href="#HTTP服务器">¶</a>HTTP服务器</h2>
+<h5 id="Web服务器"><a class="header-anchor" href="#Web服务器">¶</a>Web服务器</h5>
+<h5 id="1-日志"><a class="header-anchor" href="#1-日志">¶</a>1. 日志</h5>
+<ul>
 <li>access_log 访问日志，可结合if参数条件记录</li>
-<li>error_log 错误日志<h5 id="2-server"><a href="#2-server" class="headerlink" title="2. server"></a>2. server</h5></li>
+<li>error_log 错误日志</li>
+</ul>
+<h5 id="2-server"><a class="header-anchor" href="#2-server">¶</a>2. server</h5>
+<ul>
 <li>server：http中，定义多个虚拟服务器</li>
 <li>listen：指定侦听请求的IP地址和端口。如果省略端口，则使用标准端口。 如果省略地址，将侦听所有地址。</li>
-<li>server_name：如多个server匹配listen，可指定主机头域<h5 id="3-资源定位"><a href="#3-资源定位" class="headerlink" title="3. 资源定位"></a>3. 资源定位</h5></li>
+<li>server_name：如多个server匹配listen，可指定主机头域</li>
+</ul>
+<h5 id="3-资源定位"><a class="header-anchor" href="#3-资源定位">¶</a>3. 资源定位</h5>
+<ul>
 <li>root：指定搜索文件的根目录，可放在http，server或location</li>
-<li>index：指令定义索引文件的名称，默认为index.html<br>匹配root+URI+index</li>
-<li>try_files：检查指定的文件或目录是否存在，如果没有则返回配置的URI、状态代码、代理。<h5 id="4-返回特定状态码"><a href="#4-返回特定状态码" class="headerlink" title="4. 返回特定状态码"></a>4. 返回特定状态码</h5></li>
-<li>return [响应代码] [重定向URL]|[响应文本]：返回指令<h5 id="5-重写URI"><a href="#5-重写URI" class="headerlink" title="5. 重写URI"></a>5. 重写URI</h5></li>
-<li>rewrite regex replacement [flag]：location 和 server中，结合正则表达式和标志位实现url重写以及重定向<ul>
+<li>index：指令定义索引文件的名称，默认为index.html<br>
+匹配root+URI+index</li>
+<li>try_files：检查指定的文件或目录是否存在，如果没有则返回配置的URI、状态代码、代理。</li>
+</ul>
+<h5 id="4-返回特定状态码"><a class="header-anchor" href="#4-返回特定状态码">¶</a>4. 返回特定状态码</h5>
+<ul>
+<li>return [响应代码] [重定向URL]|[响应文本]：返回指令</li>
+</ul>
+<h5 id="5-重写URI"><a class="header-anchor" href="#5-重写URI">¶</a>5. 重写URI</h5>
+<ul>
+<li>rewrite regex replacement [flag]：location 和 server中，结合正则表达式和标志位实现url重写以及重定向
+<ul>
 <li>last： 停止执行当前上下文中的重写指令</li>
 <li>break：停止执行当前虚拟主机的后续rewrite指令集</li>
 <li>redirect ：返回302临时重定向</li>
-<li>permanent ：返回301永久重定向<h5 id="6-重写HTTP响应"><a href="#6-重写HTTP响应" class="headerlink" title="6. 重写HTTP响应"></a>6. 重写HTTP响应</h5></li>
+<li>permanent ：返回301永久重定向</li>
 </ul>
 </li>
+</ul>
+<h5 id="6-重写HTTP响应"><a class="header-anchor" href="#6-重写HTTP响应">¶</a>6. 重写HTTP响应</h5>
+<ul>
 <li>sub_filter：重写或更改响应中的内容</li>
-<li>error_page : 处理错误<h5 id="7-压缩和解压"><a href="#7-压缩和解压" class="headerlink" title="7. 压缩和解压"></a>7. 压缩和解压</h5></li>
+<li>error_page : 处理错误</li>
+</ul>
+<h5 id="7-压缩和解压"><a class="header-anchor" href="#7-压缩和解压">¶</a>7. 压缩和解压</h5>
+<ul>
 <li>gzip：向客户端发送响应之前，NGINX会执行压缩</li>
-<li>gunzip：为了服务于不接受压缩数据的客户端<pre><code>map $status $loggable {
-~^[23] 0;
-default 1;
+<li>gunzip：为了服务于不接受压缩数据的客户端</li>
+</ul>
+<pre><code>map $status $loggable {
+  ~^[23] 0;
+  default 1;
 }
 access_log /access.log combined if=$loggable;
 error_log /error.log;
-</code></pre></li>
-</ul>
-<p>http {<br>    server {<br>        listen       80;<br>        server_name  localhost;<br>        client_max_body_size 1024M;<br>        gzip on;</p>
-<pre><code>    location / {  
-        root /data/www;
-        index  index.html;
-        try_files $uri /images/default.gif;
-        try_files $uri $uri/ $uri.html =404;
-        try_files $uri $uri/ @backend;
-    }
 
-    location /users/ {
-        rewrite ^/users/(.*)$ /show?user=$1 break;
-    }
+http {
+    server {
+        listen       80;      
+        server_name  localhost;
+        client_max_body_size 1024M; 
+        gzip on;
 
-    location @backend {
-        proxy_pass http://backend.example.com;
-    }
+        location / {  
+            root /data/www;
+            index  index.html;
+            try_files $uri /images/default.gif;
+            try_files $uri $uri/ $uri.html =404;
+            try_files $uri $uri/ @backend;
+        }
 
-    location /wrong/url {
-        return 404;
-    }
+        location /users/ {
+            rewrite ^/users/(.*)$ /show?user=$1 break;
+        }
 
-    location / {
-        gunzip on;
-        sub_filter &#39;href=&quot;http://127.0.0.1:8080/&#39; &#39;href=&quot;https://$host/&#39;;
-        sub_filter /blog/ /blog-staging/;
-        sub_filter_once on;
-    }
+        location @backend {
+            proxy_pass http://backend.example.com;
+        }
 
-    error_page 404 /404.html;
-}</code></pre><p>}</p>
-<p>```<br>如果访问<a href="http://localhost就会默认访问到/data/www目录下面的index.html。" target="_blank" rel="noopener">http://localhost就会默认访问到/data/www目录下面的index.html。</a></p>
-<h5 id="动静分离"><a href="#动静分离" class="headerlink" title="动静分离"></a>动静分离</h5><p>根据请求URI拆分动静资源，分开导流向不同的代理或提供不同的文件</p>
-<h2 id="负载均衡"><a href="#负载均衡" class="headerlink" title="负载均衡"></a>负载均衡</h2><p>根据规则随机的将请求分发到指定的服务器上处理，负载均衡配置一般都需要同时配置反向代理，通过反向代理跳转到负载均衡。<br>Nginx目前支持自带3种负载均衡策略，还有2种常用的第三方策略。</p>
-<h5 id="1-RR-默认"><a href="#1-RR-默认" class="headerlink" title="1. RR(默认)"></a>1. RR(默认)</h5><p>每个请求按时间顺序逐一分配到不同的后端服务器，如果后端服务器down掉，能自动剔除。</p>
+        location /wrong/url {
+            return 404;
+        }
+
+        location / {
+            gunzip on;
+            sub_filter 'href=&quot;http://127.0.0.1:8080/' 'href=&quot;https://$host/';
+            sub_filter /blog/ /blog-staging/;
+            sub_filter_once on;
+        }
+
+        error_page 404 /404.html;
+    }
+}
+</code></pre>
+<p>如果访问http://localhost就会默认访问到/data/www目录下面的index.html。</p>
+<h5 id="动静分离"><a class="header-anchor" href="#动静分离">¶</a>动静分离</h5>
+<p>根据请求URI拆分动静资源，分开导流向不同的代理或提供不同的文件</p>
+<h2 id="负载均衡"><a class="header-anchor" href="#负载均衡">¶</a>负载均衡</h2>
+<p>根据规则随机的将请求分发到指定的服务器上处理，负载均衡配置一般都需要同时配置反向代理，通过反向代理跳转到负载均衡。<br>
+Nginx目前支持自带3种负载均衡策略，还有2种常用的第三方策略。</p>
+<h5 id="1-RR-默认"><a class="header-anchor" href="#1-RR-默认">¶</a>1. RR(默认)</h5>
+<p>每个请求按时间顺序逐一分配到不同的后端服务器，如果后端服务器down掉，能自动剔除。</p>
 <pre><code>upstream test {
     server localhost:8080;
     server localhost:8081;
@@ -4628,27 +4732,40 @@ server {
         proxy_pass http://test;
         proxy_set_header Host $host:$server_port;
     }
-}</code></pre><h5 id="2-权重"><a href="#2-权重" class="headerlink" title="2. 权重"></a>2. 权重</h5><p>指定轮询几率，weight和访问比率成正比，用于后端服务器性能不均的情况。 </p>
+}
+</code></pre>
+<h5 id="2-权重"><a class="header-anchor" href="#2-权重">¶</a>2. 权重</h5>
+<p>指定轮询几率，weight和访问比率成正比，用于后端服务器性能不均的情况。</p>
 <pre><code>upstream test {
     server localhost:8080 weight=9;
     server localhost:8081 weight=1;
-}</code></pre><h5 id="3-ip-hash"><a href="#3-ip-hash" class="headerlink" title="3. ip_hash"></a>3. ip_hash</h5><p>ip_hash的每个请求按访问ip的hash结果分配，每个访客固定访问一个服务器，可解决程序状态问题。</p>
+}
+</code></pre>
+<h5 id="3-ip-hash"><a class="header-anchor" href="#3-ip-hash">¶</a>3. ip_hash</h5>
+<p>ip_hash的每个请求按访问ip的hash结果分配，每个访客固定访问一个服务器，可解决程序状态问题。</p>
 <pre><code>upstream test {
     ip_hash;
     server localhost:8080;
     server localhost:8081;
-}</code></pre><h5 id="4-fair-第三方"><a href="#4-fair-第三方" class="headerlink" title="4. fair(第三方)"></a>4. fair(第三方)</h5><p>按后端服务器的响应时间来分配请求，响应时间短的优先分配。</p>
+}
+</code></pre>
+<h5 id="4-fair-第三方"><a class="header-anchor" href="#4-fair-第三方">¶</a>4. fair(第三方)</h5>
+<p>按后端服务器的响应时间来分配请求，响应时间短的优先分配。</p>
 <pre><code>upstream backend {
     fair;
     server localhost:8080;
     server localhost:8081;
-}</code></pre><h5 id="5-url-hash-第三方"><a href="#5-url-hash-第三方" class="headerlink" title="5. url_hash(第三方)"></a>5. url_hash(第三方)</h5><p>按访问url的hash结果来分配请求，使每个url定向到同一个后端服务器，后端服务器为缓存时比较有效。 在upstream中加入hash语句，server语句中不能写入weight等其他的参数，hash_method是使用的hash算法</p>
+}
+</code></pre>
+<h5 id="5-url-hash-第三方"><a class="header-anchor" href="#5-url-hash-第三方">¶</a>5. url_hash(第三方)</h5>
+<p>按访问url的hash结果来分配请求，使每个url定向到同一个后端服务器，后端服务器为缓存时比较有效。 在upstream中加入hash语句，server语句中不能写入weight等其他的参数，hash_method是使用的hash算法</p>
 <pre><code>upstream backend {
     hash $request_uri;
     hash_method crc32;
     server localhost:8080;
     server localhost:8081;
 }</code></pre>
+
 </div>
 
 	</div>
@@ -4657,19 +4774,23 @@ server {
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

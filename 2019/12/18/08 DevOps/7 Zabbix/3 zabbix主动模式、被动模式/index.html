@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		3 zabbix主动模式、被动模式 | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,7 +4395,7 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:41</span>
+	<span id="post-date">2019-12-18 01:00:44</span>
 </div>
 
 
@@ -4393,20 +4416,44 @@
 <li>添加Proxy节点或者Node模式做分布式监控</li>
 <li>调整Agentd为主动模式</li>
 </ol>
-<h3 id="被动模式"><a href="#被动模式" class="headerlink" title="被动模式"></a>被动模式</h3><p>客户端默认端口10050</p>
-<h4 id="流程"><a href="#流程" class="headerlink" title="流程"></a>流程</h4><p>Server打开一个TCP连接<br>Server发送一个key为agent.ping<br>Agent接受这个请求，然后响应&lt; HEADER &gt;&lt; DATALEN &gt;<br>Server对接受到的数据进行处理<br>TCP连接关闭 </p>
-<h4 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h4><p>1、agent端重点</p>
+<h3 id="被动模式"><a class="header-anchor" href="#被动模式">¶</a>被动模式</h3>
+<p>客户端默认端口10050</p>
+<h4 id="流程"><a class="header-anchor" href="#流程">¶</a>流程</h4>
+<p>Server打开一个TCP连接<br>
+Server发送一个key为agent.ping<br>
+Agent接受这个请求，然后响应&lt; HEADER &gt;&lt; DATALEN &gt;<br>
+Server对接受到的数据进行处理<br>
+TCP连接关闭</p>
+<h4 id="配置"><a class="header-anchor" href="#配置">¶</a>配置</h4>
+<p>1、agent端重点</p>
 <pre><code>StartAgents=3//被动模式，启动客户端数不为0
 Server=x.x.x.x//允许获取数据的地址，可配置0.0.0.0/0允许任意ip获取数据
-Hostname=zabbix_client//与服务端设置的名字相同</code></pre><p>2、zabbix-server端<br>zabbix监控模板默认使用的就是被动模式，直接添加就好</p>
-<h3 id="主动模式"><a href="#主动模式" class="headerlink" title="主动模式"></a>主动模式</h3><h4 id="流程-1"><a href="#流程-1" class="headerlink" title="流程"></a>流程</h4><p>1.获取列表</p>
-<p>Agent向Server建立一个TCP连接<br>Agent请求需要检测的items数据列表<br>Server响应Agent，发送一个Items列表<br>Agent处理响应<br>TCP连接完成本次会话关闭<br>Agent开始周期性地收集数据  </p>
+Hostname=zabbix_client//与服务端设置的名字相同
+</code></pre>
+<p>2、zabbix-server端<br>
+zabbix监控模板默认使用的就是被动模式，直接添加就好</p>
+<h3 id="主动模式"><a class="header-anchor" href="#主动模式">¶</a>主动模式</h3>
+<h4 id="流程-v2"><a class="header-anchor" href="#流程-v2">¶</a>流程</h4>
+<p>1.获取列表</p>
+<p>Agent向Server建立一个TCP连接<br>
+Agent请求需要检测的items数据列表<br>
+Server响应Agent，发送一个Items列表<br>
+Agent处理响应<br>
+TCP连接完成本次会话关闭<br>
+Agent开始周期性地收集数据</p>
 <p>2.主动检测提交数据</p>
-<p>Agent建立TCP连接<br>Agent提交items列表收集的数据<br>Server处理数据，并返回响应状态<br>关闭TCP连接</p>
-<h4 id="配置-1"><a href="#配置-1" class="headerlink" title="配置"></a>配置</h4><p>1、agent配置</p>
+<p>Agent建立TCP连接<br>
+Agent提交items列表收集的数据<br>
+Server处理数据，并返回响应状态<br>
+关闭TCP连接</p>
+<h4 id="配置-v2"><a class="header-anchor" href="#配置-v2">¶</a>配置</h4>
+<p>1、agent配置</p>
 <pre><code>StartAgents=0//主动模式，不启动客户端
 ServerActive=x.x.x.x//配置服务器地址，可配置域名，域名如用nginx需要tcp转发10051端口
-Hostname=zabbix_master//与服务端设置的名字相同</code></pre><p>2、zabbix-server端<br>克隆默认的模板，将配置项和自动发现改为主动模式，主机连接主动模式模板</p>
+Hostname=zabbix_master//与服务端设置的名字相同
+</code></pre>
+<p>2、zabbix-server端<br>
+克隆默认的模板，将配置项和自动发现改为主动模式，主机连接主动模式模板</p>
 
 </div>
 
@@ -4416,19 +4463,23 @@ Hostname=zabbix_master//与服务端设置的名字相同</code></pre><p>2、zab
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

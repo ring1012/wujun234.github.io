@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		1 Gradle 概述 | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,7 +4395,7 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:41</span>
+	<span id="post-date">2019-12-18 01:00:44</span>
 </div>
 
 
@@ -4382,44 +4405,69 @@
 <li>Gradle 同时拥有 Ant 和 Maven 的优点，具有 Ant 的强大和灵活，继承了 Maven 的生命周期管理。</li>
 <li>它使用基于 Groovy 的 DSL，提供声明式的构建语言，构建脚本简单、明了，使 Gradle 构建脚本更加简洁、清晰，同时采用标准的项目布局，拥有完全的可配置性。</li>
 <li>还可以通过插件扩展，提供默认的构建生命周期，也可以自定义任务、单独运行任务、定义任务间的依赖。</li>
-<li>Gradle 沿用、改进了 Maven 的依赖管理，可以与 Maven 和 Ivy 仓库结合；同时与 Ant 天生兼容，有效的重用 Ant 的任务；兼具多种实现插件的方式，拥有强大的官方插件库；从构建级别，支持从 Ant、Maven 的逐步迁移；通过包装器，无缝无缝兼容各个平台。<h3 id="1-安装"><a href="#1-安装" class="headerlink" title="1 安装"></a>1 安装</h3>Gradle 5.3 依赖 JDK8 或以上。<a href="https://gradle.org/releases/" target="_blank" rel="noopener">下载</a> ，解压，设置 <code>GRADLE_HOME</code> 环境变量并将 <code>GRADLE_HOME/bin</code> 加到 <code>PATH</code> 环境变量中。运行gradle -v命令验证安装。</li>
+<li>Gradle 沿用、改进了 Maven 的依赖管理，可以与 Maven 和 Ivy 仓库结合；同时与 Ant 天生兼容，有效的重用 Ant 的任务；兼具多种实现插件的方式，拥有强大的官方插件库；从构建级别，支持从 Ant、Maven 的逐步迁移；通过包装器，无缝无缝兼容各个平台。</li>
 </ul>
+<h3 id="1-安装"><a class="header-anchor" href="#1-安装">¶</a>1 安装</h3>
+<p>Gradle 5.3 依赖 JDK8 或以上。<a href="https://gradle.org/releases/" target="_blank" rel="noopener">下载</a> ，解压，设置 <code>GRADLE_HOME</code> 环境变量并将 <code>GRADLE_HOME/bin</code> 加到 <code>PATH</code> 环境变量中。运行gradle -v命令验证安装。</p>
 <p>IDEA 2018.3.5 版本能支持 Gradle 5.3.1</p>
 <p>IDEA配置File -&gt; Settings -&gt;Build,Execution,Deployment -&gt;Gradle -&gt;use local gradle distribution</p>
-<h3 id="2-Gradle基础"><a href="#2-Gradle基础" class="headerlink" title="2 Gradle基础"></a>2 Gradle基础</h3><h4 id="1）projects-和-tasks"><a href="#1）projects-和-tasks" class="headerlink" title="1）projects 和 tasks"></a>1）projects 和 tasks</h4><p>Gradle有两个最基本的概念：项目 和 任务。Gradle里面的所有东西都基于这两个概念。</p>
-<h5 id="项目"><a href="#项目" class="headerlink" title="项目"></a>项目</h5><p>任何一个Gradle构建都是由一个或多个项目组成。  </p>
+<h3 id="2-Gradle基础"><a class="header-anchor" href="#2-Gradle基础">¶</a>2 Gradle基础</h3>
+<h4 id="1）projects-和-tasks"><a class="header-anchor" href="#1）projects-和-tasks">¶</a>1）projects 和 tasks</h4>
+<p>Gradle有两个最基本的概念：项目 和 任务。Gradle里面的所有东西都基于这两个概念。</p>
+<h5 id="项目"><a class="header-anchor" href="#项目">¶</a>项目</h5>
+<p>任何一个Gradle构建都是由一个或多个项目组成。</p>
 <p>一个项目代表着想通过Gradle来做什么。比如，要构建的东西（JAR包或应用程序）或要完成的东西（部署应用到生产环境）。</p>
-<h5 id="任务"><a href="#任务" class="headerlink" title="任务"></a>任务</h5><p>每一个项目都由一个或多个任务组成。  </p>
+<h5 id="任务"><a class="header-anchor" href="#任务">¶</a>任务</h5>
+<p>每一个项目都由一个或多个任务组成。</p>
 <p>一个任务表示构建执行的一些原子工作。比如编译一些类，创建一个JAR包，生成javadoc，或者是把一些档案发布到仓库中。</p>
-<h4 id="2）build-gradle"><a href="#2）build-gradle" class="headerlink" title="2）build.gradle"></a>2）build.gradle</h4><p>Gradle 有一个类似 Maven 中 pom.xml 的配置文件：build.gradle。  </p>
+<h4 id="2）build-gradle"><a class="header-anchor" href="#2）build-gradle">¶</a>2）build.gradle</h4>
+<p>Gradle 有一个类似 Maven 中 pom.xml 的配置文件：build.gradle。</p>
 <p>功能也基本一样，负责当前项目的构建定义。</p>
-<p>build.gradle是Gradle默认的构建脚本文件，执行Gradle命令的时候，会默认加载当前目录下的build.gradle脚本文件。 </p>
-<h5 id="Hello-world"><a href="#Hello-world" class="headerlink" title="Hello world"></a>Hello world</h5><p>build.gradle</p>
+<p>build.gradle是Gradle默认的构建脚本文件，执行Gradle命令的时候，会默认加载当前目录下的build.gradle脚本文件。</p>
+<h5 id="Hello-world"><a class="header-anchor" href="#Hello-world">¶</a>Hello world</h5>
+<p>build.gradle</p>
 <pre><code>task hello {
     doLast {
-        println &#39;Hello world!&#39;
+        println 'Hello world!'
     }
-}</code></pre><p>gradle -q hello</p>
-<pre><code>Hello world!</code></pre><h4 id="3）settings-gradle"><a href="#3）settings-gradle" class="headerlink" title="3）settings.gradle"></a>3）settings.gradle</h4><p>setting.gradle的作用是为了配置子工程</p>
-<pre><code>rootProject.name = &#39;auto-article&#39;
-include(&#39;:data&#39;)
-include(&#39;:receiver&#39;)
-include(&#39;:api&#39;)
-include(&#39;:listener&#39;)
-include(&#39;:cache&#39;)
-include(&#39;:admin&#39;)</code></pre><h3 id="gradle仓库设置"><a href="#gradle仓库设置" class="headerlink" title="gradle仓库设置"></a>gradle仓库设置</h3><p>maven { url 地址}</p>
+}
+</code></pre>
+<p>gradle -q hello</p>
+<pre><code>Hello world!
+</code></pre>
+<h4 id="3）settings-gradle"><a class="header-anchor" href="#3）settings-gradle">¶</a>3）settings.gradle</h4>
+<p>setting.gradle的作用是为了配置子工程</p>
+<pre><code>rootProject.name = 'auto-article'
+include(':data')
+include(':receiver')
+include(':api')
+include(':listener')
+include(':cache')
+include(':admin')
+</code></pre>
+<h3 id="gradle仓库设置"><a class="header-anchor" href="#gradle仓库设置">¶</a>gradle仓库设置</h3>
+<p>maven { url 地址}</p>
 <pre><code>repositories {
     mavenLocal()
 
     maven {
-        url = &#39;http://nexus.auto.sohuno.com/repository/maven-public/&#39;
+        url = 'http://nexus.auto.sohuno.com/repository/maven-public/'
     }
-
+    
     mavenCentral()
-}</code></pre><h3 id="构建命令"><a href="#构建命令" class="headerlink" title="构建命令"></a>构建命令</h3><p>清理命令</p>
-<pre><code>gradle clean</code></pre><p>构建打包命令</p>
-<pre><code>gradle clean build</code></pre><p>编译时跳过测试，使用-x,-x参数用来排除不需要执行的任务</p>
-<pre><code>gradle clean build -x test</code></pre>
+}
+</code></pre>
+<h3 id="构建命令"><a class="header-anchor" href="#构建命令">¶</a>构建命令</h3>
+<p>清理命令</p>
+<pre><code>gradle clean
+</code></pre>
+<p>构建打包命令</p>
+<pre><code>gradle clean build
+</code></pre>
+<p>编译时跳过测试，使用-x,-x参数用来排除不需要执行的任务</p>
+<pre><code>gradle clean build -x test
+</code></pre>
+
 </div>
 
 	</div>
@@ -4428,19 +4476,23 @@ include(&#39;:admin&#39;)</code></pre><h3 id="gradle仓库设置"><a href="#grad
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

@@ -1,10 +1,30 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +35,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4369,14 +4390,16 @@
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/01%20Spring/03%20AOP/1%20AOP%E7%AE%80%E4%BB%8B/">1 AOP简介</a>
+					<a class="article-title" href="/2019/12/18/01%20Spring/03%20AOP/3%20%E5%88%87%E9%9D%A2/">3 切面</a>
 				</h2>
 				<span class="post-date">2019-12-18</span>
 				<div class="article-digest">
-					把通用功能集中模块化到某个特定的类，并规定怎么用，这个类就称为切面（aspects），关注点分离，业务模块清晰。AOP即Aspect Oriented Programming。
-AOP术语
-
-通知（A
+					¶1 创建切面
+使用@Aspect注解创建切面
+@Aspect
+@Component
+public class LogAspect {
+    @Pointcut(&quot;execution(* 
 					...
 				</div>
 			</article>
@@ -4389,9 +4412,10 @@ AOP术语
 				</h2>
 				<span class="post-date">2019-12-18</span>
 				<div class="article-digest">
-					1 编写切点@Pointcut 定义可重复使用的切点
+					¶1 编写切点
+@Pointcut 定义可重复使用的切点
 @Pointcut(&quot;execution(public * com.xxx.mapper.*.*(..))&quot;)
-public 
+publi
 					...
 				</div>
 			</article>
@@ -4400,15 +4424,15 @@ public
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/01%20Spring/03%20AOP/3%20%E5%88%87%E9%9D%A2/">3 切面</a>
+					<a class="article-title" href="/2019/12/18/01%20Spring/03%20AOP/1%20AOP%E7%AE%80%E4%BB%8B/">1 AOP简介</a>
 				</h2>
 				<span class="post-date">2019-12-18</span>
 				<div class="article-digest">
-					1 创建切面使用@Aspect注解创建切面
-@Aspect
-@Component
-public class LogAspect {
-    @Pointcut(&quot;execution(* cn
+					把通用功能集中模块化到某个特定的类，并规定怎么用，这个类就称为切面（aspects），关注点分离，业务模块清晰。AOP即Aspect Oriented Programming。
+¶AOP术语
+
+
+通知
 					...
 				</div>
 			</article>
@@ -4422,19 +4446,23 @@ public class LogAspect {
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		2 捕获异常 | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,7 +4395,7 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:46</span>
+	<span id="post-date">2019-12-18 01:00:41</span>
 </div>
 
 
@@ -4383,25 +4406,35 @@
 <li>如不捕获异常，可 throws 声明异常，将异常传递给调用者</li>
 <li>子类覆盖超类的方法中，只能 throws 超类方法的异常，其他只能自己捕获处理</li>
 </ul>
-<h4 id="1-捕获多个异常"><a href="#1-捕获多个异常" class="headerlink" title="1 捕获多个异常"></a>1 捕获多个异常</h4><ul>
-<li>基本语句<pre><code>try{
+<h4 id="1-捕获多个异常"><a class="header-anchor" href="#1-捕获多个异常">¶</a>1 捕获多个异常</h4>
+<ul>
+<li>基本语句</li>
+</ul>
+<pre><code>try{
 }
 catch (FileNotFoundException e){
 }
 catch (UnknownHostException e){
-}</code></pre></li>
+}
+</code></pre>
+<ul>
 <li>合并catch语句</li>
 </ul>
 <pre><code>try{
 }
 catch (FileNotFoundException | UnknownHostException e){
-}</code></pre><h4 id="2-再次抛出异常"><a href="#2-再次抛出异常" class="headerlink" title="2 再次抛出异常"></a>2 再次抛出异常</h4><ul>
+}
+</code></pre>
+<h4 id="2-再次抛出异常"><a class="header-anchor" href="#2-再次抛出异常">¶</a>2 再次抛出异常</h4>
+<ul>
 <li>基本方法</li>
 </ul>
 <pre><code>try{
 }catch (SQLException e){
     throw new ServletException(&quot;database error: &quot;+e.getMessage());
-}</code></pre><ul>
+}
+</code></pre>
+<ul>
 <li>保留原始异常</li>
 </ul>
 <pre><code>try{
@@ -4410,15 +4443,24 @@ catch (SQLException e){
     Throwable se=new ServletException(&quot;database error&quot;);
     se.initCause(e);
     throw se;
-}</code></pre><ul>
-<li>获取原始异常：<pre><code>Throwable e = se.getCause();</code></pre><h4 id="3-finaly子句"><a href="#3-finaly子句" class="headerlink" title="3 finaly子句"></a>3 finaly子句</h4></li>
+}
+</code></pre>
+<ul>
+<li>获取原始异常：</li>
+</ul>
+<pre><code>Throwable e = se.getCause();
+</code></pre>
+<h4 id="3-finaly子句"><a class="header-anchor" href="#3-finaly子句">¶</a>3 finaly子句</h4>
+<ul>
 <li>基本语法</li>
 </ul>
 <pre><code>try{
 }catch(Exception e){
 }finally{
     in.close();
-}</code></pre><ul>
+}
+</code></pre>
+<ul>
 <li>强烈建议独立使用try/catch 和 try/finally语句块，提高代码的清晰度。</li>
 </ul>
 <pre><code>InputStream in= ... ;
@@ -4430,26 +4472,39 @@ try{
     }
 }catch(IOException e){
     show error message
-}</code></pre><ul>
+}
+</code></pre>
+<ul>
 <li>注意：当 finally 和 catch 包含 return 语句，会执行 finally 的 return。</li>
 <li>注意：finally 也可能抛出异常，而导致本来要catch抛出的异常被覆盖</li>
 </ul>
-<h4 id="4-带资源的try语句"><a href="#4-带资源的try语句" class="headerlink" title="4 带资源的try语句"></a>4 带资源的try语句</h4><p>假如资源实现了AutoCloseable/Closeable接口。可以利用带资源的try语句，try 退出时，会自动调用res.close()。</p>
+<h4 id="4-带资源的try语句"><a class="header-anchor" href="#4-带资源的try语句">¶</a>4 带资源的try语句</h4>
+<p>假如资源实现了AutoCloseable/Closeable接口。可以利用带资源的try语句，try 退出时，会自动调用res.close()。</p>
 <pre><code>try(Resource res=...){
     work with res
-}</code></pre><p>还能指定多个资源</p>
+}
+</code></pre>
+<p>还能指定多个资源</p>
 <pre><code>try (Resource res1=...,Resource res2=...){
     work with res
-}</code></pre><p>如果.close()也抛出了异常，不会覆盖原来该抛出的异常，而是被抑制，可以通过getSuppressed方法获取被抑制的异常。</p>
-<h4 id="5-分析堆栈跟踪"><a href="#5-分析堆栈跟踪" class="headerlink" title="5 分析堆栈跟踪"></a>5 分析堆栈跟踪</h4><p>堆栈跟踪（stack trace）是一个方法调用过程的列表。</p>
+}
+</code></pre>
+<p>如果.close()也抛出了异常，不会覆盖原来该抛出的异常，而是被抑制，可以通过getSuppressed方法获取被抑制的异常。</p>
+<h4 id="5-分析堆栈跟踪"><a class="header-anchor" href="#5-分析堆栈跟踪">¶</a>5 分析堆栈跟踪</h4>
+<p>堆栈跟踪（stack trace）是一个方法调用过程的列表。</p>
 <ul>
-<li>getStackTrace()<br>得到StackTraceElement对象的一个数组。<br>能获得文件名，类名，当前执行的代码行号    </li>
+<li>getStackTrace()<br>
+得到StackTraceElement对象的一个数组。<br>
+能获得文件名，类名，当前执行的代码行号</li>
 </ul>
 <pre><code>Throwable t = new Throwable();
 StackTraceElement[] frames = t.getStackTrace();
 for(StackTraceElement f : frames)
-    System.out.println(f);</code></pre><ul>
-<li>Thread.getAllStackTrace<br>获得所有线程的堆栈跟踪</li>
+    System.out.println(f);
+</code></pre>
+<ul>
+<li>Thread.getAllStackTrace<br>
+获得所有线程的堆栈跟踪</li>
 </ul>
 <pre><code>Map&lt;Thread,StackTraceElement[]&gt; map = Thread.getAllStackTraces();
 for(Thread t : map.keySet())
@@ -4457,7 +4512,9 @@ for(Thread t : map.keySet())
     StackTraceElement[] frames=map.get(t);
     for(StackTraceElement f : frames)
     System.out.println(f);
-}</code></pre>
+}
+</code></pre>
+
 </div>
 
 	</div>
@@ -4466,19 +4523,23 @@ for(Thread t : map.keySet())
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

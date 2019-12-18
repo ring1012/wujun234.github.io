@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		2 编译优化技术 | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,19 +4395,25 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:52</span>
+	<span id="post-date">2019-12-18 01:00:42</span>
 </div>
 
 
 <div id="article">
-	<h3 id="1-优化技术概览"><a href="#1-优化技术概览" class="headerlink" title="1 优化技术概览"></a>1 优化技术概览</h3><p><img src="/images/1545642659285.jpg" alt="image"><br><img src="/images/1545642661932.jpg" alt="image"></p>
-<h3 id="2-公共子表达式消除"><a href="#2-公共子表达式消除" class="headerlink" title="2 公共子表达式消除"></a>2 公共子表达式消除</h3><p>如果一个表达式E已经计算过了，并且从先前的计算到现在E中所有变量的值都没有发生变化，那么E的这次出现就成为了公共子表达式，只需要直接用前面计算过的表达式结果代替E就可以了；</p>
-<h3 id="3-数组边界检查消除"><a href="#3-数组边界检查消除" class="headerlink" title="3 数组边界检查消除"></a>3 数组边界检查消除</h3><p>对于虚拟机的执行子系统来说，每次数组元素的读写都带有一次隐含的条件判断，对于拥有大量数组访问的程序代码无疑是一种性能负担；</p>
-<h3 id="4-方法内联"><a href="#4-方法内联" class="headerlink" title="4 方法内联"></a>4 方法内联</h3><ul>
+	<h3 id="1-优化技术概览"><a class="header-anchor" href="#1-优化技术概览">¶</a>1 优化技术概览</h3>
+<p><img src="/images/1545642659285.jpg" alt="image"><br>
+<img src="/images/1545642661932.jpg" alt="image"></p>
+<h3 id="2-公共子表达式消除"><a class="header-anchor" href="#2-公共子表达式消除">¶</a>2 公共子表达式消除</h3>
+<p>如果一个表达式E已经计算过了，并且从先前的计算到现在E中所有变量的值都没有发生变化，那么E的这次出现就成为了公共子表达式，只需要直接用前面计算过的表达式结果代替E就可以了；</p>
+<h3 id="3-数组边界检查消除"><a class="header-anchor" href="#3-数组边界检查消除">¶</a>3 数组边界检查消除</h3>
+<p>对于虚拟机的执行子系统来说，每次数组元素的读写都带有一次隐含的条件判断，对于拥有大量数组访问的程序代码无疑是一种性能负担；</p>
+<h3 id="4-方法内联"><a class="header-anchor" href="#4-方法内联">¶</a>4 方法内联</h3>
+<ul>
 <li>除了消除方法调用的成本外更重要的意义是为其他优化手段建立良好的基础；</li>
 <li>为了解决虚方法的内联问题，引入了类型继承关系分析（CHA）技术和内联缓存（Inline Cache）来完成方法内联；</li>
 </ul>
-<h3 id="5-逃逸分析"><a href="#5-逃逸分析" class="headerlink" title="5 逃逸分析"></a>5 逃逸分析</h3><p>逃逸分析的基本行为就是分析对象动态作用域，当一个对象在方法中被定义后，它可能被外部方法所引用（方法逃逸），甚至还可能被外部线程所访问到（线程逃逸）；</p>
+<h3 id="5-逃逸分析"><a class="header-anchor" href="#5-逃逸分析">¶</a>5 逃逸分析</h3>
+<p>逃逸分析的基本行为就是分析对象动态作用域，当一个对象在方法中被定义后，它可能被外部方法所引用（方法逃逸），甚至还可能被外部线程所访问到（线程逃逸）；</p>
 <p>如果能证明一个对象不会逃逸到方法或线程之外，则可能为这个变量进行一些高效的优化，比如栈上分配（减轻垃圾收集的压力）、同步消除（读写不会有竞争）、标量替换；</p>
 
 </div>
@@ -4395,19 +4424,23 @@
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

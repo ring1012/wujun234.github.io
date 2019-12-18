@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		6 Hive | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,13 +4395,14 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:15</span>
+	<span id="post-date">2019-12-18 01:00:44</span>
 </div>
 
 
 <div id="article">
 	<p><a href="http://hive.apache.org/" target="_blank" rel="noopener">HIVE官网</a></p>
-<h3 id="1-HIVE-简介"><a href="#1-HIVE-简介" class="headerlink" title="1 HIVE 简介"></a>1 HIVE 简介</h3><ul>
+<h3 id="1-HIVE-简介"><a class="header-anchor" href="#1-HIVE-简介">¶</a>1 HIVE 简介</h3>
+<ul>
 <li>是基于 Hadoop 的一个数据仓库工具</li>
 <li>可以将结构化的数据映射为一张数据库表</li>
 <li>并提供 HQL(Hive SQL)查询功能</li>
@@ -4386,18 +4410,23 @@
 <li>Hive的本质是将 SQL 语句转换为 MapReduce 任务运行</li>
 <li>使不熟悉 MapReduce 的用户很方便地利用 HQL 处理和计算 HDFS 上的结构化的数据，适用于离线的批量数据计算。</li>
 </ul>
-<h3 id="2-HIVE架构"><a href="#2-HIVE架构" class="headerlink" title="2 HIVE架构"></a>2 HIVE架构</h3><p><img src="/images/1555664992721.png" alt=""></p>
-<h4 id="1）Hive-Clients"><a href="#1）Hive-Clients" class="headerlink" title="1）Hive Clients"></a>1）Hive Clients</h4><p>用户操作Hive的接口主要有三个：CLI，Client 和 Web UI， 其中最常用的是CLI。</p>
+<h3 id="2-HIVE架构"><a class="header-anchor" href="#2-HIVE架构">¶</a>2 HIVE架构</h3>
+<p><img src="/images/1555664992721.png" alt=""></p>
+<h4 id="1）Hive-Clients"><a class="header-anchor" href="#1）Hive-Clients">¶</a>1）Hive Clients</h4>
+<p>用户操作Hive的接口主要有三个：CLI，Client 和 Web UI， 其中最常用的是CLI。</p>
 <p>CLI启动的时候，会同时启动一个Hive副本, Client是Hive的客户端，用户连接至Hive Server。</p>
 <p>在启动 Client模式的时候，需要指出Hive Server所在节点，并且在该节点启动Hive Server。</p>
 <p>而客户端则又可以分为三种Thrift Client、JDBC Client、ODBC Client。</p>
-<h4 id="2）Hive-Services"><a href="#2）Hive-Services" class="headerlink" title="2）Hive Services"></a>2）Hive Services</h4><p>客户端与Hive的交互通过Hive Service来完成，客户端希望执行的任何Hive查询操作必须通过Hive Service来进行通信，Hive Service中的驱动程序处理来自不同应用程序的请求，以便mete store和filed system进一步处理。</p>
-<h4 id="3）Hive-Storage-and-Computing"><a href="#3）Hive-Storage-and-Computing" class="headerlink" title="3）Hive Storage and Computing"></a>3）Hive Storage and Computing</h4><p>Hive服务如Meta store，File system和Job Client依次与Hive Store交互执行以下操作:</p>
+<h4 id="2）Hive-Services"><a class="header-anchor" href="#2）Hive-Services">¶</a>2）Hive Services</h4>
+<p>客户端与Hive的交互通过Hive Service来完成，客户端希望执行的任何Hive查询操作必须通过Hive Service来进行通信，Hive Service中的驱动程序处理来自不同应用程序的请求，以便mete store和filed system进一步处理。</p>
+<h4 id="3）Hive-Storage-and-Computing"><a class="header-anchor" href="#3）Hive-Storage-and-Computing">¶</a>3）Hive Storage and Computing</h4>
+<p>Hive服务如Meta store，File system和Job Client依次与Hive Store交互执行以下操作:</p>
 <ul>
 <li>在Hive中创建的表的元数据信息存储在Meta storage database。</li>
 <li>查询结果和加载在表中的数据存储在HDFS上的Hadoop集群上。</li>
 </ul>
-<h3 id="3-Hive的缺优点"><a href="#3-Hive的缺优点" class="headerlink" title="3 Hive的缺优点"></a>3 Hive的缺优点</h3><p>优点</p>
+<h3 id="3-Hive的缺优点"><a class="header-anchor" href="#3-Hive的缺优点">¶</a>3 Hive的缺优点</h3>
+<p>优点</p>
 <ul>
 <li>可扩展性：Hive 可以自由的扩展集群的规模，一般情况下不需要重启服务</li>
 <li>延展性：Hive 支持自定义函数，用户可以根据自己的需求来实现自己的函数</li>
@@ -4418,19 +4447,23 @@
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

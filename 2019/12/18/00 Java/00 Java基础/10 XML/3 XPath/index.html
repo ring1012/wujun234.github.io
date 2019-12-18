@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		3 XPath | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,18 +4395,83 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:48</span>
+	<span id="post-date">2019-12-18 01:00:41</span>
 </div>
 
 
 <div id="article">
 	<p>XPath 是一种用于在 XML 文档中进行导航的语言。</p>
 <p>XPath 使用路径表达式来选取 XML 文档中的节点或者节点集。节点是通过沿着路径 (path) 或者步 (steps) 来选取的。</p>
-<h5 id="XPath-节点"><a href="#XPath-节点" class="headerlink" title="XPath 节点"></a>XPath 节点</h5><p>在 XPath 中，有七种类型的节点：元素、属性、文本、命名空间、处理指令、注释以及文档节点（或称为根节点）。XML 文档是被作为节点树来对待的。树的根被称为文档节点或者根节点。</p>
-<h3 id="1-语法"><a href="#1-语法" class="headerlink" title="1 语法"></a>1 语法</h3><h4 id="路径表达式"><a href="#路径表达式" class="headerlink" title="路径表达式"></a>路径表达式</h4><p>最有用的路径表达式<br>表达式     |描述<br>—|—<br>nodename |选取此节点的所有子节点。<br>/     |从根节点选取。<br>//     |从匹配选择的当前节点选择文档中的节点，而不考虑它们的位置。<br>.     |选取当前节点。<br>..     |选取当前节点的父节点。<br>@     |选取属性。</p>
-<h4 id="谓语（Predicates）"><a href="#谓语（Predicates）" class="headerlink" title="谓语（Predicates）"></a>谓语（Predicates）</h4><p>谓语用来查找某个特定的节点或者包含某个指定的值的节点。</p>
-<p>谓语被嵌在方括号中。<br>路径表达式     |结果<br>—|—<br>/bookstore/book[1]     |选取属于 bookstore 子元素的第一个 book 元素。<br>/bookstore/book[last()]     |选取属于 bookstore 子元素的最后一个 book 元素。<br>/bookstore/book[position()&lt; 3]     |选取最前面的两个属于 bookstore 元素的子元素的 book 元素。<br>//title[@lang]     |选取所有拥有名为 lang 的属性的 title 元素。</p>
-<h4 id="选取未知节点"><a href="#选取未知节点" class="headerlink" title="选取未知节点"></a>选取未知节点</h4><p>XPath 通配符可用来选取未知的 XML 元素。</p>
+<h5 id="XPath-节点"><a class="header-anchor" href="#XPath-节点">¶</a>XPath 节点</h5>
+<p>在 XPath 中，有七种类型的节点：元素、属性、文本、命名空间、处理指令、注释以及文档节点（或称为根节点）。XML 文档是被作为节点树来对待的。树的根被称为文档节点或者根节点。</p>
+<h3 id="1-语法"><a class="header-anchor" href="#1-语法">¶</a>1 语法</h3>
+<h4 id="路径表达式"><a class="header-anchor" href="#路径表达式">¶</a>路径表达式</h4>
+<p>最有用的路径表达式</p>
+<table>
+<thead>
+<tr>
+<th>表达式</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>nodename</td>
+<td>选取此节点的所有子节点。</td>
+</tr>
+<tr>
+<td>/</td>
+<td>从根节点选取。</td>
+</tr>
+<tr>
+<td>//</td>
+<td>从匹配选择的当前节点选择文档中的节点，而不考虑它们的位置。</td>
+</tr>
+<tr>
+<td>.</td>
+<td>选取当前节点。</td>
+</tr>
+<tr>
+<td>…</td>
+<td>选取当前节点的父节点。</td>
+</tr>
+<tr>
+<td>@</td>
+<td>选取属性。</td>
+</tr>
+</tbody>
+</table>
+<h4 id="谓语（Predicates）"><a class="header-anchor" href="#谓语（Predicates）">¶</a>谓语（Predicates）</h4>
+<p>谓语用来查找某个特定的节点或者包含某个指定的值的节点。</p>
+<p>谓语被嵌在方括号中。</p>
+<table>
+<thead>
+<tr>
+<th>路径表达式</th>
+<th>结果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>/bookstore/book[1]</td>
+<td>选取属于 bookstore 子元素的第一个 book 元素。</td>
+</tr>
+<tr>
+<td>/bookstore/book[last()]</td>
+<td>选取属于 bookstore 子元素的最后一个 book 元素。</td>
+</tr>
+<tr>
+<td>/bookstore/book[position()&lt; 3]</td>
+<td>选取最前面的两个属于 bookstore 元素的子元素的 book 元素。</td>
+</tr>
+<tr>
+<td>//title[@lang]</td>
+<td>选取所有拥有名为 lang 的属性的 title 元素。</td>
+</tr>
+</tbody>
+</table>
+<h4 id="选取未知节点"><a class="header-anchor" href="#选取未知节点">¶</a>选取未知节点</h4>
+<p>XPath 通配符可用来选取未知的 XML 元素。</p>
 <table>
 <thead>
 <tr>
@@ -4391,7 +4479,8 @@
 <th>描述</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>*</td>
 <td>匹配任何元素节点。</td>
 </tr>
@@ -4403,20 +4492,28 @@
 <td>node()</td>
 <td>匹配任何类型的节点。</td>
 </tr>
-</tbody></table>
-<h4 id="选取若干路径"><a href="#选取若干路径" class="headerlink" title="选取若干路径"></a>选取若干路径</h4><p>通过在路径表达式中使用“|”运算符，可以选取若干个路径。</p>
-<h3 id="2-实例"><a href="#2-实例" class="headerlink" title="2 实例"></a>2 实例</h3><p>Java SE 5.0增加了一个API来计算XPath表达式</p>
+</tbody>
+</table>
+<h4 id="选取若干路径"><a class="header-anchor" href="#选取若干路径">¶</a>选取若干路径</h4>
+<p>通过在路径表达式中使用“|”运算符，可以选取若干个路径。</p>
+<h3 id="2-实例"><a class="header-anchor" href="#2-实例">¶</a>2 实例</h3>
+<p>Java SE 5.0增加了一个API来计算XPath表达式</p>
 <ol>
-<li>从XPathFactory创建一个XPath对象<pre><code>XPathFactory xpfactory = XPathFactory.newInstance();
-path = xpfactory.newXPath();</code></pre></li>
-<li>计算XPath表达式<pre><code class="java">String result = path.evaluate(expression, doc);
+<li>从XPathFactory创建一个XPath对象</li>
+</ol>
+<pre><code>XPathFactory xpfactory = XPathFactory.newInstance();
+path = xpfactory.newXPath();
+</code></pre>
+<ol start="2">
+<li>计算XPath表达式</li>
+</ol>
+<pre><code class="language-java">String result = path.evaluate(expression, doc);
 NodeList nodes = (NodeList)path.evaluate(expression, doc, XPathConstants.NODESET);
 Node node = (Node)path.evaluate(expression, doc, XPathConstants.NODE);
 int count =((Number)path.evaluate(expression, doc, XPathConstants.NUMBER)) .intValue();
 //从任意一个节点或节点列表开始
-result = path.evaluate(expression, node);</code></pre>
-</li>
-</ol>
+result = path.evaluate(expression, node);
+</code></pre>
 
 </div>
 
@@ -4426,19 +4523,23 @@ result = path.evaluate(expression, node);</code></pre>
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

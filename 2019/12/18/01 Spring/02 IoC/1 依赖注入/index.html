@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		1 依赖注入 | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,67 +4395,111 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:17</span>
+	<span id="post-date">2019-12-18 01:00:42</span>
 </div>
 
 
 <div id="article">
-	<p>IoC容器负责装配Bean，即创建应用对象之间协作关系，是<strong>依赖注入</strong>(Dependency injection)的本质。  </p>
+	<p>IoC容器负责装配Bean，即创建应用对象之间协作关系，是<strong>依赖注入</strong>(Dependency injection)的本质。</p>
 <p>装配方式优先级：自动装配 &gt; Java配置文件 &gt; XML配置文件</p>
-<h3 id="2-1-自动装配"><a href="#2-1-自动装配" class="headerlink" title="2.1 自动装配"></a>2.1 自动装配</h3><p>Spring从两个角度来实现自动装配：  </p>
-<h4 id="组件扫描"><a href="#组件扫描" class="headerlink" title="组件扫描"></a>组件扫描</h4><p>Spring自动发现ApplicationContext中所创建的bean</p>
+<h3 id="2-1-自动装配"><a class="header-anchor" href="#2-1-自动装配">¶</a>2.1 自动装配</h3>
+<p>Spring从两个角度来实现自动装配：</p>
+<h4 id="组件扫描"><a class="header-anchor" href="#组件扫描">¶</a>组件扫描</h4>
+<p>Spring自动发现ApplicationContext中所创建的bean</p>
 <ul>
-<li><p><strong>@Component</strong><br>让Spring为类自动创建bean，默认ID是类名称的首字母小写。也可给注解传入指定的参数指定名字。</p>
+<li><strong>@Component</strong><br>
+让Spring为类自动创建bean，默认ID是类名称的首字母小写。也可给注解传入指定的参数指定名字。</li>
+</ul>
 <pre><code>@Component  
-@Component(&quot;lonelyHeartsClub&quot;)</code></pre><p>还有@Repository、@Service、@Controller等</p>
-</li>
-<li><p><strong>@ComponentScan</strong><br>开启Component扫描，默认设置该目录以及子目录下所有被@Component注解修饰的类。也可指定扫描的包。</p>
+@Component(&quot;lonelyHeartsClub&quot;)
+</code></pre>
+<p>还有@Repository、@Service、@Controller等</p>
+<ul>
+<li><strong>@ComponentScan</strong><br>
+开启Component扫描，默认设置该目录以及子目录下所有被@Component注解修饰的类。也可指定扫描的包。</li>
+</ul>
 <pre><code>@ComponentScan(&quot;soundsystem&quot;)//扫描指定包  
 @ComponentScan(basePackages = &quot;soundsystem&quot;)
 @ComponentScan(basePackages = {&quot;soundsystem&quot;, &quot;video&quot;})
-@ComponentScan(basePackageClasses = {CDPlayer.class, DVDPlayer.class})//扫描指定类所属的包</code></pre><h4 id="自动装配"><a href="#自动装配" class="headerlink" title="自动装配"></a>自动装配</h4><p>Spring自动满足bean之间的依赖</p>
-</li>
-</ul>
-<p><strong>@Autowired</strong>：声明自动装配，可用在构造器、方法、成员变量上。<br>只要对应类型的bean有且只有一个，则会自动装配。推荐通过构造器注入以避免NullPointerException问题。</p>
-<h5 id="注入到List和Map"><a href="#注入到List和Map" class="headerlink" title="注入到List和Map"></a>注入到List和Map</h5><pre><code>@Autowired
+@ComponentScan(basePackageClasses = {CDPlayer.class, DVDPlayer.class})//扫描指定类所属的包
+</code></pre>
+<h4 id="自动装配"><a class="header-anchor" href="#自动装配">¶</a>自动装配</h4>
+<p>Spring自动满足bean之间的依赖</p>
+<p><strong>@Autowired</strong>：声明自动装配，可用在构造器、方法、成员变量上。<br>
+只要对应类型的bean有且只有一个，则会自动装配。推荐通过构造器注入以避免NullPointerException问题。</p>
+<h5 id="注入到List和Map"><a class="header-anchor" href="#注入到List和Map">¶</a>注入到List和Map</h5>
+<pre><code>@Autowired
 private List&lt;BeanInterface&gt; list;
 @Autowired
-private Map&lt;String,Interface&gt; map;</code></pre><p>@Autowired 可直接将接口的实现Bean注入到List和Map中，其中Map的key必须为String，取的是Bean名字。</p>
-<h5 id="允许null值"><a href="#允许null值" class="headerlink" title="允许null值"></a>允许null值</h5><p>默认要求依赖对象必须存在，如允许null值，可设置@Autowired(required=false)</p>
+private Map&lt;String,Interface&gt; map;
+</code></pre>
+<p>@Autowired 可直接将接口的实现Bean注入到List和Map中，其中Map的key必须为String，取的是Bean名字。</p>
+<h5 id="允许null值"><a class="header-anchor" href="#允许null值">¶</a>允许null值</h5>
+<p>默认要求依赖对象必须存在，如允许null值，可设置@Autowired(required=false)</p>
 <p>还有@Resource等</p>
-<h3 id="2-2-Java配置文件"><a href="#2-2-Java配置文件" class="headerlink" title="2.2 Java配置文件"></a>2.2 Java配置文件</h3><p>想要装配第三方库中的组件时，因为没办法在它的类上添加@Component和@Autowired注解，不能自动化配置，必须要采用显式装配。</p>
-<h4 id="创建配置类"><a href="#创建配置类" class="headerlink" title="创建配置类"></a>创建配置类</h4><p>@Configuration：表明是配置类</p>
-<h4 id="声明bean"><a href="#声明bean" class="headerlink" title="声明bean"></a>声明bean</h4><p><strong>@Bean</strong>：声明bean，需编写方法创建所需类型实例， 注解@Bean。默认ID是方法名，也可通过name属性指定名字。</p>
+<h3 id="2-2-Java配置文件"><a class="header-anchor" href="#2-2-Java配置文件">¶</a>2.2 Java配置文件</h3>
+<p>想要装配第三方库中的组件时，因为没办法在它的类上添加@Component和@Autowired注解，不能自动化配置，必须要采用显式装配。</p>
+<h4 id="创建配置类"><a class="header-anchor" href="#创建配置类">¶</a>创建配置类</h4>
+<p>@Configuration：表明是配置类</p>
+<h4 id="声明bean"><a class="header-anchor" href="#声明bean">¶</a>声明bean</h4>
+<p><strong>@Bean</strong>：声明bean，需编写方法创建所需类型实例， 注解@Bean。默认ID是方法名，也可通过name属性指定名字。</p>
 <pre><code>@Bean(name = &quot;lonelyHeartsClub&quot;)
 public CompactDisc sgtPeppers() {
     return new SgtPeppers();
-}</code></pre><h4 id="装配bean"><a href="#装配bean" class="headerlink" title="装配bean"></a>装配bean</h4><p>在JavaConfig中装配bean的最简单方式就是引用创建bean的方法。<br>默认情况下，Spring中所有的bean都是<strong>单例模式</strong>，Spring会拦截@Bean注解的函数调用，并返回之前创建好的bean。</p>
+}
+</code></pre>
+<h4 id="装配bean"><a class="header-anchor" href="#装配bean">¶</a>装配bean</h4>
+<p>在JavaConfig中装配bean的最简单方式就是引用创建bean的方法。<br>
+默认情况下，Spring中所有的bean都是<strong>单例模式</strong>，Spring会拦截@Bean注解的函数调用，并返回之前创建好的bean。</p>
 <pre><code>@Bean
 public CDPlayer cdPlayer() {
     return new CDPlayer(sgtPeppers());
-}</code></pre><h3 id="2-3-XML配置文件"><a href="#2-3-XML配置文件" class="headerlink" title="2.3 XML配置文件"></a>2.3 XML配置文件</h3><p>维护已有的XML配置， 在完成新的Spring工作时， 使用自动化配置和JavaConfig。<br>创建一个XML文件， 并且以<beans>元素为根。使用<bean>元素声明bean并指定class属性。<constructor-arg>元素注入构造器</p>
-<h5 id="set注入"><a href="#set注入" class="headerlink" title="set注入"></a>set注入</h5><pre><code class="java">private OrderServiceImp orderService;
+}
+</code></pre>
+<h3 id="2-3-XML配置文件"><a class="header-anchor" href="#2-3-XML配置文件">¶</a>2.3 XML配置文件</h3>
+<p>维护已有的XML配置， 在完成新的Spring工作时， 使用自动化配置和JavaConfig。<br>
+创建一个XML文件， 并且以<beans>元素为根。使用<bean>元素声明bean并指定class属性。<constructor-arg>元素注入构造器</p>
+<h5 id="set注入"><a class="header-anchor" href="#set注入">¶</a>set注入</h5>
+<pre><code class="language-java">private OrderServiceImp orderService;
 public void setOrderService(OrderServiceImp orderService) {
     this.orderService = orderService;
-}</code></pre>
+}
+</code></pre>
 <p>Spring配置XML文件：其中配置声明OrderAction类存在属性orderService。程式运行时候，会将已经实例化的orderService对象调用setOrderService方式注入。</p>
-<pre><code class="xml">&lt;bean name=&quot;orderAction&quot; class=&quot;com.pec.action.OrderAction&quot;&gt;
+<pre><code class="language-xml">&lt;bean name=&quot;orderAction&quot; class=&quot;com.pec.action.OrderAction&quot;&gt;
     &lt;property name=&quot;orderService&quot; ref=&quot;orderService&quot;&gt;&lt;/property&gt;
 &lt;/bean&gt;
-&lt;bean name=&quot;orderService&quot; class=&quot;com.pec.service.imp.OrderServiceImp&quot;&gt;&lt;/bean&gt;</code></pre>
-<h5 id="构造器注入"><a href="#构造器注入" class="headerlink" title="构造器注入"></a>构造器注入</h5><pre><code>private OrderServiceImp orderService;
+&lt;bean name=&quot;orderService&quot; class=&quot;com.pec.service.imp.OrderServiceImp&quot;&gt;&lt;/bean&gt;
+</code></pre>
+<h5 id="构造器注入"><a class="header-anchor" href="#构造器注入">¶</a>构造器注入</h5>
+<pre><code>private OrderServiceImp orderService;
 public OrderAction(OrderServiceImp orderService) {
     this.orderService = orderService;
-}</code></pre><p>Spring配置XML文件</p>
+}
+</code></pre>
+<p>Spring配置XML文件</p>
 <pre><code>&lt;bean name=&quot;orderAction&quot; class=&quot;com.pec.action.OrderAction&quot;&gt;
     &lt;constructor-arg ref=&quot;orderService&quot;&gt;&lt;/constructor-arg&gt;
 &lt;/bean&gt;
-&lt;bean name=&quot;orderService&quot; class=&quot;com.pec.service.imp.OrderServiceImp&quot;&gt;&lt;/bean&gt;</code></pre><h3 id="2-4-多种配置方法混用"><a href="#2-4-多种配置方法混用" class="headerlink" title="2.4 多种配置方法混用"></a>2.4 多种配置方法混用</h3><p>通常的做法是：无论使用JavaConfig或者XML装配，都要创建一个root configuration；并且在这个配置文件中开启自动扫描机制</p>
-<h5 id="JavaConfig中引用"><a href="#JavaConfig中引用" class="headerlink" title="JavaConfig中引用"></a>JavaConfig中引用</h5><ul>
+&lt;bean name=&quot;orderService&quot; class=&quot;com.pec.service.imp.OrderServiceImp&quot;&gt;&lt;/bean&gt;
+</code></pre>
+<h3 id="2-4-多种配置方法混用"><a class="header-anchor" href="#2-4-多种配置方法混用">¶</a>2.4 多种配置方法混用</h3>
+<p>通常的做法是：无论使用JavaConfig或者XML装配，都要创建一个root configuration；并且在这个配置文件中开启自动扫描机制</p>
+<h5 id="JavaConfig中引用"><a class="header-anchor" href="#JavaConfig中引用">¶</a>JavaConfig中引用</h5>
+<ul>
 <li>@Import：导入其他的JavaConfig</li>
-<li>@ImportResource：导入XML配置文件<pre><code>@Import({CDPlayerConfig.class, CDConfig.class})
-@ImportResource(&quot;classpath: cd-config.xml&quot;)</code></pre><h5 id="XML配置中引用"><a href="#XML配置中引用" class="headerlink" title="XML配置中引用"></a>XML配置中引用</h5><import>标签引入其他的XML配置文件<pre><code>&lt;import resource=&quot;classpath:/spring/calculate-web.xml&quot;/&gt;</code></pre><bean>标签导入Java配置文件<pre><code>&lt;bean class=&quot;soundsystem.CDConfig&quot; /&gt;</code></pre></li>
+<li>@ImportResource：导入XML配置文件</li>
 </ul>
+<pre><code>@Import({CDPlayerConfig.class, CDConfig.class})
+@ImportResource(&quot;classpath: cd-config.xml&quot;)
+</code></pre>
+<h5 id="XML配置中引用"><a class="header-anchor" href="#XML配置中引用">¶</a>XML配置中引用</h5>
+<p><import>标签引入其他的XML配置文件</p>
+<pre><code>&lt;import resource=&quot;classpath:/spring/calculate-web.xml&quot;/&gt;
+</code></pre>
+<p><bean>标签导入Java配置文件</p>
+<pre><code>&lt;bean class=&quot;soundsystem.CDConfig&quot; /&gt;
+</code></pre>
 
 </div>
 
@@ -4442,19 +4509,23 @@ public OrderAction(OrderServiceImp orderService) {
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

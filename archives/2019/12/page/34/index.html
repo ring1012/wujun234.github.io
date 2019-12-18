@@ -1,10 +1,30 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +35,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4369,18 +4390,63 @@
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/02%20%E6%95%B0%E6%8D%AE%E5%BA%93/01%20MySQL/06%20%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/">06 数据类型</a>
+					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/06%20%E9%9B%86%E5%90%88/5%20%E7%AE%97%E6%B3%95/">5 算法</a>
+				</h2>
+				<span class="post-date">2019-12-18</span>
+				<div class="article-digest">
+					泛型集合接口有一个很大的优点，即算法只需要实现一次。
+¶1 排序与混排
+¶排序
+Collections.sort()
+底层使用了数组的归并排序。即先转化集合为数组，排好序以后在复制回以前的集合。
+归并
+					...
+				</div>
+			</article>
+			
+		
+
+			<article class="article-li">
+				<h2>
+					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/06%20%E9%9B%86%E5%90%88/4%20%E8%A7%86%E5%9B%BE%E4%B8%8E%E5%8C%85%E8%A3%85%E5%99%A8/">4 视图与包装器</a>
+				</h2>
+				<span class="post-date">2019-12-18</span>
+				<div class="article-digest">
+					视图：保持对原集合的控制。只用来展示集合中的元素。
+视图是不可修改的，任何改变视图size的操作都会影响到原集合。抛出异常。
+¶1、轻量级集包装器
+¶Arrays.asList方法
+Arrays.as
+					...
+				</div>
+			</article>
+			
+		
+
+			<article class="article-li">
+				<h2>
+					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/06%20%E9%9B%86%E5%90%88/3%20%E6%98%A0%E5%B0%84/">3 映射</a>
+				</h2>
+				<span class="post-date">2019-12-18</span>
+				<div class="article-digest">
+					映射(map) 用来存放键 / 值对。如
+果提供了键， 就能够查找到值。
+¶1　基本映射操作
+Java 类库为映射提供了两个通用的实现： HashMap 和 TreeMap 。这两个类都实现了 Map
+					...
+				</div>
+			</article>
+			
+		
+
+			<article class="article-li">
+				<h2>
+					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/06%20%E9%9B%86%E5%90%88/2.9%20ConcurrentSkipListMap/">2.9 ConcurrentSkipListMap</a>
 				</h2>
 				<span class="post-date">2019-12-18</span>
 				<div class="article-digest">
 					
-更小的通常更好
 
-一般情况下，应该尽量使用可以正确存储数据的最小数据类型。更小的数据类型通常更快。
-
-简单就好
-
-简单数据类型的操作通常需要更少的cpu周期，例如整型比字符操作代价更低，因为字符集和
 					...
 				</div>
 			</article>
@@ -4389,13 +4455,15 @@
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/02%20%E6%95%B0%E6%8D%AE%E5%BA%93/01%20MySQL/08%20%E7%B4%A2%E5%BC%95/">08 索引</a>
+					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/06%20%E9%9B%86%E5%90%88/2.9%20concurrenthashmap/">2.9 concurrenthashmap</a>
 				</h2>
 				<span class="post-date">2019-12-18</span>
 				<div class="article-digest">
-					索引（Index）是帮助MySQL高效获取数据的数据结构。索引可包含多列，顺序相关，最左前缀列最高效。
-1 索引类型索引是在存储引擎中实现的，并不是所有的存储引擎都支持所有的索引类型。
-大部分数据库系
+					JDK1.5起，java.util.concurrent包
+¶JDK1.7
+¶总体介绍
+ConcurrentHashMap采用了分段锁技术，效率较Hashtable高，不允许空值null。
+Concu
 					...
 				</div>
 			</article>
@@ -4404,16 +4472,17 @@
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/02%20%E6%95%B0%E6%8D%AE%E5%BA%93/01%20MySQL/07%20SQL/">07 SQL</a>
+					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/06%20%E9%9B%86%E5%90%88/2.7%20priorityqueue/">2.7 priorityqueue</a>
 				</h2>
 				<span class="post-date">2019-12-18</span>
 				<div class="article-digest">
-					1 数据库
-CREATE DATABASE CREATE DATABASE 数据库名;
- USE 数据库名;
-2 表
-CREATE TABLE CREATE TABLE 表名 (
-   列名 列类型 
+					¶总体介绍
+优先队列的作用是能保证每次取出的元素都是队列中权值最小的。
+实现了Queue接口，不允许null，通过数组实现的小顶堆。
+
+父子节点的编号之间有如下关系：
+
+leftNo = parent
 					...
 				</div>
 			</article>
@@ -4422,14 +4491,14 @@ CREATE TABLE CREATE TABLE 表名 (
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/02%20%E6%95%B0%E6%8D%AE%E5%BA%93/01%20MySQL/09%20%E6%9F%A5%E8%AF%A2%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/">09 查询性能优化</a>
+					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/06%20%E9%9B%86%E5%90%88/2.6%20linkedhashmap%E3%80%81linkedhashset/">2.6 linkedhashmap、linkedhashset</a>
 				</h2>
 				<span class="post-date">2019-12-18</span>
 				<div class="article-digest">
-					1 使用 Explain 进行分析Explain 用来分析 SELECT 查询语句，开发人员可以通过分析 Explain 结果来优化查询语句。
-比较重要的字段有：
-
-select_type : 查询类
+					¶前言
+LinkedHashSet仅对LinkedHashMap做了一层包装，实现相同。LinkedHashSet里面有一个LinkedHashMap（适配器模式）。
+¶总体介绍
+LinkedHash
 					...
 				</div>
 			</article>
@@ -4438,14 +4507,13 @@ select_type : 查询类
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/02%20%E6%95%B0%E6%8D%AE%E5%BA%93/01%20MySQL/11%20%E5%A4%8D%E5%88%B6/">11 复制</a>
+					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/06%20%E9%9B%86%E5%90%88/2.5%20hashmap%E3%80%81hashset%E3%80%81hashtable/">2.5 hashmap、hashset、hashtable</a>
 				</h2>
 				<span class="post-date">2019-12-18</span>
 				<div class="article-digest">
-					一、主从复制在主库上记录二进制日志，在从库重放日志，实现异步的数据复制。非强一致性，由于时延、大语句执行等。
-主要涉及三个线程：BinLog 线程、I/O 线程和 SQL 线程。
-
-BinLog 线程
+					¶前言
+HashSet仅对HashMap做了一层包装，实现相同。HashSet里面有一个HashMap（适配器模式）。
+Hashtable与HashMap大致相同，但Hashtable是同步的，并且不
 					...
 				</div>
 			</article>
@@ -4454,14 +4522,15 @@ BinLog 线程
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/02%20%E6%95%B0%E6%8D%AE%E5%BA%93/01%20MySQL/10%20%E6%B0%B4%E5%B9%B3%E5%9E%82%E7%9B%B4%E6%8B%86%E5%88%86/">10 水平垂直拆分</a>
+					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/06%20%E9%9B%86%E5%90%88/2.4%20treemap%E3%80%81treeset/">2.4 treemap、treeset</a>
 				</h2>
 				<span class="post-date">2019-12-18</span>
 				<div class="article-digest">
-					当数据库量非常大的时候，DB 已经成为系统瓶颈时就可以考虑进行水平垂直拆分了。
-水平拆分将一张表中的记录拆分到多个结构相同的表中。
-可以将数据分布到集群的不同节点上，从而减缓单个数据库的压力。
-垂直拆
+					¶前言
+TreeSet仅对TreeMap做了一层包装，实现相同。TreeSet里面有一个TreeMap（适配器模式）。
+¶TreeMap
+¶总体介绍
+TreeMap实现了SortedMap接口，有序。
 					...
 				</div>
 			</article>
@@ -4470,59 +4539,16 @@ BinLog 线程
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/01%20Spring/08%20Log/1%20%E9%BB%98%E8%AE%A4%E6%97%A5%E5%BF%97/">1 默认日志</a>
+					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/06%20%E9%9B%86%E5%90%88/2.3%20ArrayDeque/">2.3 ArrayDeque</a>
 				</h2>
 				<span class="post-date">2019-12-18</span>
 				<div class="article-digest">
-					Spring Boot在所有内部日志中使用Commons Logging，但是默认配置也提供了对常用日志的支持
-格式化日志2016-04-13 08:23:50.120  INFO 37397 ---
-					...
-				</div>
-			</article>
-			
-		
+					¶前言
+栈Stack已过时，队列LinkedList效率不高，栈和队列首选ArrayDeque。
+¶总体介绍
 
-			<article class="article-li">
-				<h2>
-					<a class="article-title" href="/2019/12/18/01%20Spring/08%20Log/2%20slf4j%20%E5%92%8C%20log4j%E3%80%81logback%20%E5%85%B3%E7%B3%BB/">2 slf4j 和 log4j、logback 关系</a>
-				</h2>
-				<span class="post-date">2019-12-18</span>
-				<div class="article-digest">
-					slf4j（The Simple Logging Facade for Java）是日志框架的抽象，而log4j logback是具体实现了的日志框架。
-
-log4j：是apache实现的一个开源日志
-					...
-				</div>
-			</article>
-			
-		
-
-			<article class="article-li">
-				<h2>
-					<a class="article-title" href="/2019/12/18/01%20Spring/07%20Async/1%20Scheduled/">1 Scheduled</a>
-				</h2>
-				<span class="post-date">2019-12-18</span>
-				<div class="article-digest">
-					@Scheduled@EnableScheduling注解，启用定时任务的配置
-@SpringBootApplication
-@EnableScheduling
-public class Applic
-					...
-				</div>
-			</article>
-			
-		
-
-			<article class="article-li">
-				<h2>
-					<a class="article-title" href="/2019/12/18/01%20Spring/07%20Async/2%20Async/">2 Async</a>
-				</h2>
-				<span class="post-date">2019-12-18</span>
-				<div class="article-digest">
-					1 异步异步调用@EnableAsync启用@Async注解
-@SpringBootApplication
-@EnableAsync
-public class Application {}使用@Asy
+¶Deque接口
+ArrayDeque实现了Deque接口，Deque继承Queue实现
 					...
 				</div>
 			</article>
@@ -4538,19 +4564,23 @@ public class Application {}使用@Asy
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

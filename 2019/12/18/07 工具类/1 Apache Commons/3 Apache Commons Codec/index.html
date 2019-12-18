@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		3 Apache Commons Codec | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,13 +4395,15 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:40</span>
+	<span id="post-date">2019-12-18 01:00:44</span>
 </div>
 
 
 <div id="article">
-	<p><a href="http://commons.apache.org/proper/commons-codec/" target="_blank" rel="noopener">Apache Commons Codec官网</a><br>通用的编码解码算法（例如语音编码器、 Base64、URL）</p>
-<h2 id="包结构"><a href="#包结构" class="headerlink" title="包结构"></a>包结构</h2><hr>
+	<p><a href="http://commons.apache.org/proper/commons-codec/" target="_blank" rel="noopener">Apache Commons Codec官网</a><br>
+通用的编码解码算法（例如语音编码器、 Base64、URL）</p>
+<h2 id="包结构"><a class="header-anchor" href="#包结构">¶</a>包结构</h2>
+<hr>
 <table>
 <thead>
 <tr>
@@ -4386,7 +4411,8 @@
 <th>Description</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>org.apache.commons.codec</td>
 <td>由子包中各种实现使用的接口和类</td>
 </tr>
@@ -4400,43 +4426,79 @@
 </tr>
 <tr>
 <td>org.apache.commons.codec.digest</td>
-<td>简化常见的 MessageDigest 工作，包含一个兼容libc crypt(3) 的加密方法，支持DES，MD5，SHA-256和SHA-512算法以及Apache特定”$apr1$”变体。</td>
+<td>简化常见的 MessageDigest 工作，包含一个兼容libc crypt(3) 的加密方法，支持DES，MD5，SHA-256和SHA-512算法以及Apache特定&quot;$apr1$&quot;变体。</td>
 </tr>
 <tr>
 <td>org.apache.commons.codec.language</td>
 <td>语言和语音编码器。</td>
 </tr>
 <tr>
-<td>org.apache.commons.codec.net</td>
+<td><a href="http://org.apache.commons.codec.net" target="_blank" rel="noopener">org.apache.commons.codec.net</a></td>
 <td>网络相关的编码和解码。</td>
 </tr>
-</tbody></table>
-<h2 id="常用"><a href="#常用" class="headerlink" title="常用"></a>常用</h2><hr>
+</tbody>
+</table>
+<h2 id="常用"><a class="header-anchor" href="#常用">¶</a>常用</h2>
+<hr>
 <p>Codec 目前由一组工具和一个简单编码,解码框架组成，分为三类：二进制编码器，语言编码器和网络编码器。</p>
-<h4 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h4><p>org.apache.commons.codec.digest 子包</p>
+<h4 id="工具"><a class="header-anchor" href="#工具">¶</a>工具</h4>
+<p>org.apache.commons.codec.digest 子包</p>
 <ul>
-<li><strong>MD5 &amp; SHA</strong><pre><code>DigestUtils.md5Hex(byte[] data);
+<li><strong>MD5 &amp; SHA</strong></li>
+</ul>
+<pre><code>DigestUtils.md5Hex(byte[] data);
 DigestUtils.sha256Hex(byte[] data);
-...</code></pre><h4 id="二进制编码器"><a href="#二进制编码器" class="headerlink" title="二进制编码器"></a>二进制编码器</h4>org.apache.commons.codec.binary 子包</li>
-<li><strong>Base64</strong><pre><code>Base64 base64 = new Base64();
+...
+</code></pre>
+<h4 id="二进制编码器"><a class="header-anchor" href="#二进制编码器">¶</a>二进制编码器</h4>
+<p>org.apache.commons.codec.binary 子包</p>
+<ul>
+<li><strong>Base64</strong></li>
+</ul>
+<pre><code>Base64 base64 = new Base64();
 base64.encodeBase64(byte[] binaryData) 编码
 base64.decodeBase64(String base64String) 解码
-...</code></pre></li>
-<li><strong>Hex</strong><pre><code>Hex hex = new Hex();
+...
+</code></pre>
+<ul>
+<li><strong>Hex</strong></li>
+</ul>
+<pre><code>Hex hex = new Hex();
 hex.encodeHex(byte[] data)
 hex.decodeHex(char[] data)
-...</code></pre><h4 id="语言编码器"><a href="#语言编码器" class="headerlink" title="语言编码器"></a>语言编码器</h4>org.apache.commons.codec.language 子包</li>
-<li><strong>Soundex</strong><br>Soundex类 - Soundex 算法的实现<br>Soundex 是固定第一个英文加上3个数字。通常用在类似音比对<pre><code>Soundex soundex = new Soundex();
+...
+</code></pre>
+<h4 id="语言编码器"><a class="header-anchor" href="#语言编码器">¶</a>语言编码器</h4>
+<p>org.apache.commons.codec.language 子包</p>
+<ul>
+<li><strong>Soundex</strong><br>
+Soundex类 - Soundex 算法的实现<br>
+Soundex 是固定第一个英文加上3个数字。通常用在类似音比对</li>
+</ul>
+<pre><code>Soundex soundex = new Soundex();
 soundex.encode(&quot;resume&quot;);//R250
-soundex.encode(&quot;resin&quot;);//R250</code></pre></li>
-<li><strong>Metaphone</strong><br>Metaphone类 - Metaphone 算法的实现，将字符串转为 Metaphone 值<br>Metaphone 根据key给发音相似的单字, 比 Soundex 准确, 没有固定长度<pre><code>Metaphone metaphone = new Metaphone();
+soundex.encode(&quot;resin&quot;);//R250
+</code></pre>
+<ul>
+<li><strong>Metaphone</strong><br>
+Metaphone类 - Metaphone 算法的实现，将字符串转为 Metaphone 值<br>
+Metaphone 根据key给发音相似的单字, 比 Soundex 准确, 没有固定长度</li>
+</ul>
+<pre><code>Metaphone metaphone = new Metaphone();
 metaphone.encode(&quot;resume&quot;);//RSM
-metaphone.encode(&quot;resin&quot;);//RSN</code></pre><h4 id="网络编码器"><a href="#网络编码器" class="headerlink" title="网络编码器"></a>网络编码器</h4>org.apache.commons.codec.net 子包</li>
-<li><strong>URLCodec</strong><br>URLCodec类 - 实现’www-form-urlencoded’编码方案。<pre><code>URLCodec codec = new URLCodec();
+metaphone.encode(&quot;resin&quot;);//RSN
+</code></pre>
+<h4 id="网络编码器"><a class="header-anchor" href="#网络编码器">¶</a>网络编码器</h4>
+<p><a href="http://org.apache.commons.codec.net" target="_blank" rel="noopener">org.apache.commons.codec.net</a> 子包</p>
+<ul>
+<li><strong>URLCodec</strong><br>
+URLCodec类 - 实现’www-form-urlencoded’编码方案。</li>
+</ul>
+<pre><code>URLCodec codec = new URLCodec();
 codec.encode(String str, String charset);
 codec.decode(String str, String charset);
-...</code></pre></li>
-</ul>
+...
+</code></pre>
 
 </div>
 
@@ -4446,19 +4508,23 @@ codec.decode(String str, String charset);
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		3 Spring RestTemplate | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,14 +4395,15 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:17</span>
+	<span id="post-date">2019-12-18 01:00:42</span>
 </div>
 
 
 <div id="article">
 	<p>RestTemplate属于Spring-Web，是Spring的同步客户端HTTP访问的中心类。简化了与HTTP服务器的通信，并应用了RESTful原则。</p>
 <p>RestTemplate默认依赖JDK的HttpURLConnection来建立HTTP连接。 可切换到使用不同的HTTP库，例如Apache HttpComponents，Netty和OkHttp。</p>
-<h3 id="组成"><a href="#组成" class="headerlink" title="组成"></a>组成</h3><p>RestTemplate包含以下几个部分：</p>
+<h3 id="组成"><a class="header-anchor" href="#组成">¶</a>组成</h3>
+<p>RestTemplate包含以下几个部分：</p>
 <ul>
 <li>HttpMessageConverter：对象转换器</li>
 <li>ClientHttpRequestFactory：客户端连接器，默认是JDK的HttpURLConnection</li>
@@ -4387,7 +4411,8 @@
 <li>ClientHttpRequestInterceptor：请求拦截器</li>
 </ul>
 <p><img src="/images/1545011851872.png" alt=""></p>
-<h3 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h3><p>初始化时，可以传入ClientHttpRequestFactory，自定义参数。</p>
+<h3 id="初始化"><a class="header-anchor" href="#初始化">¶</a>初始化</h3>
+<p>初始化时，可以传入ClientHttpRequestFactory，自定义参数。</p>
 <pre><code>@Bean
 RestTemplate restTemplate(){
     SimpleClientHttpRequestFactory requestFactory = new SimpleClientHttpRequestFactory();
@@ -4396,42 +4421,66 @@ RestTemplate restTemplate(){
     requestFactory.setReadTimeout(1000);
     RestTemplate restTemplate = new RestTemplate(requestFactory);
     return restTemplate;
-}</code></pre><p>注入</p>
+}
+</code></pre>
+<p>注入</p>
 <pre><code>@Autowired
-private RestTemplate restTemplate;</code></pre><h2 id="访问服务"><a href="#访问服务" class="headerlink" title="访问服务"></a>访问服务</h2><h3 id="HTTP方法"><a href="#HTTP方法" class="headerlink" title="HTTP方法"></a>HTTP方法</h3><p>使用java.net.URI代替String形式的URI，不会被URL编码两次<br>以get和post为例，更多见 <a href="https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/web/client/RestTemplate.html" target="_blank" rel="noopener">官网api</a></p>
+private RestTemplate restTemplate;
+</code></pre>
+<h2 id="访问服务"><a class="header-anchor" href="#访问服务">¶</a>访问服务</h2>
+<h3 id="HTTP方法"><a class="header-anchor" href="#HTTP方法">¶</a>HTTP方法</h3>
+<p>使用java.net.URI代替String形式的URI，不会被URL编码两次<br>
+以get和post为例，更多见 <a href="https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/web/client/RestTemplate.html" target="_blank" rel="noopener">官网api</a></p>
 <p><strong>1. GET</strong></p>
 <ul>
-<li>getForObject()   <pre><code>public &lt;T&gt; T getForObject(URI url, Class&lt;T&gt; responseType)
-public &lt;T&gt; T getForObject(String url, Class&lt;T&gt; responseType, Object... urlVariables)
-public &lt;T&gt; T getForObject(String url, Class&lt;T&gt; responseType, Map&lt;String, ?&gt; urlVariables)</code></pre></li>
-<li>getForEntity()   <pre><code>public &lt;T&gt; ResponseEntity&lt;T&gt; getForEntity(URI url,Class&lt;T&gt; responseType)
-public &lt;T&gt; ResponseEntity&lt;T&gt; getForEntity(String url,Class&lt;T&gt; responseType,Object... uriVariables)
-public &lt;T&gt; ResponseEntity&lt;T&gt; getForEntity(String url,Class&lt;T&gt; responseType,Map&lt;String,?&gt; uriVariables)</code></pre></li>
-<li><em>2. POST*</em></li>
-<li>postForObject()   <pre><code>public &lt;T&gt; T postForObject(URI url,Object request,Class&lt;T&gt; responseType)
-public &lt;T&gt; T postForObject(String url,Object request,Class&lt;T&gt; responseType,Object... uriVariables)
-public &lt;T&gt; T postForObject(String url,Object request,Class&lt;T&gt; responseType,Map&lt;String,?&gt; uriVariables)</code></pre></li>
-<li>postForEntity()   <pre><code>public &lt;T&gt; ResponseEntity&lt;T&gt; postForEntity(String url,@NullableObject request,Class&lt;T&gt; responseType,Object... uriVariables)
-public &lt;T&gt; ResponseEntity&lt;T&gt; postForEntity(String url,Object request,Class&lt;T&gt; responseType,Map&lt;String,?&gt; uriVariables)
-public &lt;T&gt; ResponseEntity&lt;T&gt; postForEntity(URI url,Object request,Class&lt;T&gt; responseType)</code></pre></li>
+<li>getForObject()</li>
 </ul>
+<pre><code>public &lt;T&gt; T getForObject(URI url, Class&lt;T&gt; responseType)
+public &lt;T&gt; T getForObject(String url, Class&lt;T&gt; responseType, Object... urlVariables)
+public &lt;T&gt; T getForObject(String url, Class&lt;T&gt; responseType, Map&lt;String, ?&gt; urlVariables)
+</code></pre>
+<ul>
+<li>getForEntity()</li>
+</ul>
+<pre><code>public &lt;T&gt; ResponseEntity&lt;T&gt; getForEntity(URI url,Class&lt;T&gt; responseType)
+public &lt;T&gt; ResponseEntity&lt;T&gt; getForEntity(String url,Class&lt;T&gt; responseType,Object... uriVariables)
+public &lt;T&gt; ResponseEntity&lt;T&gt; getForEntity(String url,Class&lt;T&gt; responseType,Map&lt;String,?&gt; uriVariables)
+</code></pre>
+<p><strong>2. POST</strong></p>
+<ul>
+<li>postForObject()</li>
+</ul>
+<pre><code>public &lt;T&gt; T postForObject(URI url,Object request,Class&lt;T&gt; responseType)
+public &lt;T&gt; T postForObject(String url,Object request,Class&lt;T&gt; responseType,Object... uriVariables)
+public &lt;T&gt; T postForObject(String url,Object request,Class&lt;T&gt; responseType,Map&lt;String,?&gt; uriVariables)
+</code></pre>
+<ul>
+<li>postForEntity()</li>
+</ul>
+<pre><code>public &lt;T&gt; ResponseEntity&lt;T&gt; postForEntity(String url,@NullableObject request,Class&lt;T&gt; responseType,Object... uriVariables)
+public &lt;T&gt; ResponseEntity&lt;T&gt; postForEntity(String url,Object request,Class&lt;T&gt; responseType,Map&lt;String,?&gt; uriVariables)
+public &lt;T&gt; ResponseEntity&lt;T&gt; postForEntity(URI url,Object request,Class&lt;T&gt; responseType)
+</code></pre>
 <p><strong>3. 实例</strong></p>
 <pre><code>    HttpHeaders headers = new HttpHeaders();
     headers.add(&quot;X-Auth-Token&quot;, &quot;&quot;);
-
+    
     MultiValueMap&lt;String, String&gt; postParameters = new LinkedMultiValueMap&lt;String, String&gt;();
     postParameters.add(&quot;parameter1&quot;, &quot;111&quot;);
     postParameters.add(&quot;parameter2&quot;, &quot;222&quot;);
     postParameters.add(&quot;parameter3&quot;, &quot;333&quot;);
-
+    
     HttpEntity&lt;MultiValueMap&lt;String, String&gt;&gt; requestEntity = new HttpEntity&lt;MultiValueMap&lt;String, String&gt;&gt;(postParameters, headers);
-
+    
     Object result = null; 
-
+    
     try {
         result = restTemplate.postForObject(&quot;http://demo&quot;, requestEntity, ParseResultVo.class);
     } catch (RestClientException e) {
-    }</code></pre><h3 id="异常处理"><a href="#异常处理" class="headerlink" title="异常处理"></a>异常处理</h3><p><strong>捕获HttpServerErrorException</strong></p>
+    }
+</code></pre>
+<h3 id="异常处理"><a class="header-anchor" href="#异常处理">¶</a>异常处理</h3>
+<p><strong>捕获HttpServerErrorException</strong></p>
 <pre><code>int retryCount = 0;  
 while (true) {  
     try {  
@@ -4443,39 +4492,44 @@ while (true) {
         }  
         retryCount++;  
     }  
-}  </code></pre><p><strong>自定义异常处理</strong></p>
+}  
+</code></pre>
+<p><strong>自定义异常处理</strong></p>
 <pre><code>public class CustomErrorHandler extends DefaultResponseErrorHandler {  
-
+  
     @Override  
     public void handleError(ClientHttpResponse response) throws IOException {  
-
+  
     }  
-
+  
 } 
 
 @Configuration  
 public class RestClientConfig {  
-
+  
     @Bean  
     public RestTemplate restTemplate() {  
         RestTemplate restTemplate = new RestTemplate();  
         restTemplate.setErrorHandler(new CustomErrorHandler());  
         return restTemplate;  
     }  
-
-}  </code></pre><h3 id="设置连接池"><a href="#设置连接池" class="headerlink" title="设置连接池"></a>设置连接池</h3><pre><code>@Configuration  
+  
+}  
+</code></pre>
+<h3 id="设置连接池"><a class="header-anchor" href="#设置连接池">¶</a>设置连接池</h3>
+<pre><code>@Configuration  
 public class RestClientConfig {  
-
+  
   @Bean  
   public ClientHttpRequestFactory httpRequestFactory() {  
     return new HttpComponentsClientHttpRequestFactory(httpClient());  
   }  
-
+  
   @Bean  
   public RestTemplate restTemplate() {  
     return new RestTemplate(httpRequestFactory());  
   }  
-
+  
   @Bean  
   public HttpClient httpClient() {  
     Registry&lt;ConnectionSocketFactory&gt; registry = RegistryBuilder.&lt;ConnectionSocketFactory&gt; create()  
@@ -4485,31 +4539,36 @@ public class RestClientConfig {
     PoolingHttpClientConnectionManager connectionManager = new PoolingHttpClientConnectionManager(registry);  
     connectionManager.setMaxTotal(5);  
     connectionManager.setDefaultMaxPerRoute(5);  
-
+  
     RequestConfig requestConfig = RequestConfig.custom()  
         .setSocketTimeout(8000)  
         .setConnectTimeout(8000)  
         .setConnectionRequestTimeout(8000)  
         .build();  
-
+  
     return HttpClientBuilder.create()  
         .setDefaultRequestConfig(requestConfig)  
         .setConnectionManager(connectionManager)  
         .build();  
   }  
-
-}  </code></pre><h3 id="处理文件"><a href="#处理文件" class="headerlink" title="处理文件"></a>处理文件</h3><p><strong>发送文件</strong></p>
+  
+}  
+</code></pre>
+<h3 id="处理文件"><a class="header-anchor" href="#处理文件">¶</a>处理文件</h3>
+<p><strong>发送文件</strong></p>
 <pre><code>MultiValueMap&lt;String, Object&gt; multiPartBody = new LinkedMultiValueMap&lt;&gt;();  
 multiPartBody.add(&quot;file&quot;, new ClassPathResource(&quot;/tmp/user.txt&quot;));  
 RequestEntity&lt;MultiValueMap&lt;String, Object&gt;&gt; requestEntity = RequestEntity  
         .post(uri)  
         .contentType(MediaType.MULTIPART_FORM_DATA)  
-        .body(multiPartBody);  </code></pre><p><strong>下载文件</strong></p>
+        .body(multiPartBody);  
+</code></pre>
+<p><strong>下载文件</strong></p>
 <pre><code>// 小文件  
 RequestEntity requestEntity = RequestEntity.get(uri).build();  
 ResponseEntity&lt;byte[]&gt; responseEntity = restTemplate.exchange(requestEntity, byte[].class);  
 byte[] downloadContent = responseEntity.getBody();  
-
+  
 // 大文件  
 ResponseExtractor&lt;ResponseEntity&lt;File&gt;&gt; responseExtractor = new ResponseExtractor&lt;ResponseEntity&lt;File&gt;&gt;() {  
     @Override  
@@ -4519,7 +4578,10 @@ ResponseExtractor&lt;ResponseEntity&lt;File&gt;&gt; responseExtractor = new Resp
         return ResponseEntity.status(response.getStatusCode()).headers(response.getHeaders()).body(rcvFile);  
     }  
 };  
-File getFile = this.restTemplate.execute(targetUri, HttpMethod.GET, null, responseExtractor);  </code></pre><h3 id="Spring-Boot"><a href="#Spring-Boot" class="headerlink" title="Spring Boot"></a>Spring Boot</h3><p>RestTemplateBuilder</p>
+File getFile = this.restTemplate.execute(targetUri, HttpMethod.GET, null, responseExtractor);  
+</code></pre>
+<h3 id="Spring-Boot"><a class="header-anchor" href="#Spring-Boot">¶</a>Spring Boot</h3>
+<p>RestTemplateBuilder</p>
 <pre><code>@Component  
 public class CustomRestTemplateCustomizer implements RestTemplateCustomizer {  
     @Override  
@@ -4531,12 +4593,14 @@ public class CustomRestTemplateCustomizer implements RestTemplateCustomizer {
                 .errorHandler(new CustomResponseErrorHandler())  
                 .configure(restTemplate);  
     }  
-}  </code></pre><p>单独设置</p>
+}  
+</code></pre>
+<p>单独设置</p>
 <pre><code>@Service  
 public class MyRestClientService {  
-
+  
     private RestTemplate restTemplate;  
-
+  
     public MyRestClientService(RestTemplateBuilder restTemplateBuilder) {  
         this.restTemplate = restTemplateBuilder  
             .basicAuthorization(&quot;username&quot;, &quot;password&quot;)  
@@ -4548,13 +4612,19 @@ public class MyRestClientService {
             .uriTemplateHandler(new OkHttp3ClientHttpRequestFactory())  
             .build();  
     }  
-
+  
     public String site() {  
         return this.restTemplate.getForObject(&quot;http://rensanning.iteye.com/&quot;, String.class);  
     }  
-
-}  </code></pre><h2 id="参数设置"><a href="#参数设置" class="headerlink" title="参数设置"></a>参数设置</h2><h3 id="指定转换器"><a href="#指定转换器" class="headerlink" title="指定转换器"></a>指定转换器</h3><p>RestTemplate默认注册了一组HttpMessageConverter用来处理一些不同的contentType的请求。</p>
-<p>StringHttpMessageConverter来处理text/plain;<br>MappingJackson2HttpMessageConverter来处理application/json;<br>MappingJackson2XmlHttpMessageConverter来处理application/xml。  </p>
+  
+}  
+</code></pre>
+<h2 id="参数设置"><a class="header-anchor" href="#参数设置">¶</a>参数设置</h2>
+<h3 id="指定转换器"><a class="header-anchor" href="#指定转换器">¶</a>指定转换器</h3>
+<p>RestTemplate默认注册了一组HttpMessageConverter用来处理一些不同的contentType的请求。</p>
+<p>StringHttpMessageConverter来处理text/plain;<br>
+MappingJackson2HttpMessageConverter来处理application/json;<br>
+MappingJackson2XmlHttpMessageConverter来处理application/xml。</p>
 <p>可实现org.springframework.http.converter.HttpMessageConverter接口自己写一个转换器。</p>
 <p>替换例子：</p>
 <pre><code>RestTemplate restTemplate = new RestTemplate();
@@ -4565,7 +4635,10 @@ List&lt;HttpMessageConverter&lt;?&gt;&gt; messageConverters = restTemplate.getMe
 //默认的MappingJackson2HttpMessageConverter在第7个 先把它移除掉
 messageConverters.remove(6); 
 //添加上GSON的转换器
-messageConverters.add(6, new GsonHttpMessageConverter());</code></pre><h3 id="设置底层连接方式"><a href="#设置底层连接方式" class="headerlink" title="设置底层连接方式"></a>设置底层连接方式</h3><p>通过构造参数设置，以切换HttpClient为例</p>
+messageConverters.add(6, new GsonHttpMessageConverter());
+</code></pre>
+<h3 id="设置底层连接方式"><a class="header-anchor" href="#设置底层连接方式">¶</a>设置底层连接方式</h3>
+<p>通过构造参数设置，以切换HttpClient为例</p>
 <pre><code>//生成一个设置了连接超时时间、请求超时时间、异常最大重试次数的httpClient
 RequestConfig config = RequestConfig.custom().setConnectionRequestTimeout(10000).setConnectTimeout(10000).setSocketTimeout(30000).build();
 
@@ -4577,7 +4650,10 @@ HttpClient httpClient = builder.build();
 ClientHttpRequestFactory requestFactory = new HttpComponentsClientHttpRequestFactory(httpClient);
 
 //ClientHttpRequestFactory作为参数构造一个使用作为底层的RestTemplate
-RestTemplate restTemplate = new RestTemplate(requestFactory);</code></pre><h3 id="设置拦截器"><a href="#设置拦截器" class="headerlink" title="设置拦截器"></a>设置拦截器</h3><p>拦截器需要我们实现org.springframework.http.client.ClientHttpRequestInterceptor接口。</p>
+RestTemplate restTemplate = new RestTemplate(requestFactory);
+</code></pre>
+<h3 id="设置拦截器"><a class="header-anchor" href="#设置拦截器">¶</a>设置拦截器</h3>
+<p>拦截器需要我们实现org.springframework.http.client.ClientHttpRequestInterceptor接口。</p>
 <pre><code>public class TokenInterceptor implements ClientHttpRequestInterceptor{ 
     @Override 
     public ClientHttpResponse intercept(HttpRequest request, byte[] body, ClientHttpRequestExecution execution) throws IOException {
@@ -4590,11 +4666,15 @@ RestTemplate restTemplate = new RestTemplate(requestFactory);</code></pre><h3 id
         //……
         return execution.execute(request, body);
     }
-}</code></pre><p>创建RestTemplate实例的时候，添加拦截器</p>
+}
+</code></pre>
+<p>创建RestTemplate实例的时候，添加拦截器</p>
 <pre><code>RestTemplate restTemplate = new RestTemplate();
 
 //向restTemplate中添加自定义的拦截器
-restTemplate.getInterceptors().add(new TokenInterceptor());</code></pre>
+restTemplate.getInterceptors().add(new TokenInterceptor());
+</code></pre>
+
 </div>
 
 	</div>
@@ -4603,19 +4683,23 @@ restTemplate.getInterceptors().add(new TokenInterceptor());</code></pre>
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

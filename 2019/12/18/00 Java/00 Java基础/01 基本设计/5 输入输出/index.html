@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		5 输入输出 | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,37 +4395,56 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:45</span>
+	<span id="post-date">2019-12-18 01:00:41</span>
 </div>
 
 
 <div id="article">
-	<h3 id="1-读取输入"><a href="#1-读取输入" class="headerlink" title="1 读取输入"></a>1 读取输入</h3><h4 id="Scanner-类"><a href="#Scanner-类" class="headerlink" title="Scanner 类"></a>Scanner 类</h4><ul>
+	<h3 id="1-读取输入"><a class="header-anchor" href="#1-读取输入">¶</a>1 读取输入</h3>
+<h4 id="Scanner-类"><a class="header-anchor" href="#Scanner-类">¶</a>Scanner 类</h4>
+<ul>
 <li>文件输入</li>
 </ul>
 <pre><code>Scanner scan = new Scanner(Paths.get(&quot;myfile.txt&quot;)，&quot;UTF-8&quot;);
-// 如果是win系统，使用双反斜杠,&quot;c:\\mydirectory\\myfile.txt&quot; ，每个\需要额外的一个\。</code></pre><ul>
+// 如果是win系统，使用双反斜杠,&quot;c:\\mydirectory\\myfile.txt&quot; ，每个\需要额外的一个\。
+</code></pre>
+<ul>
 <li>标准输入</li>
 </ul>
 <pre><code>Scanner in= new Scanner(System.in);
 nextLine():下一行
 next()：下一个单词（以空格分割）
 nextInt()
-nextDouble()</code></pre><h4 id="Console-类"><a href="#Console-类" class="headerlink" title="Console 类"></a>Console 类</h4><p>因为输入是可见的，所以 Scanner 类不适用于控制台读取密码，可以使用 Console 类，但每次只能读取一行,而且在 IDE 上无法使用：</p>
+nextDouble()
+</code></pre>
+<h4 id="Console-类"><a class="header-anchor" href="#Console-类">¶</a>Console 类</h4>
+<p>因为输入是可见的，所以 Scanner 类不适用于控制台读取密码，可以使用 Console 类，但每次只能读取一行,而且在 IDE 上无法使用：</p>
 <pre><code>Console cons = System.console();
 String username = cons.readLine(&quot;User name: &quot;);
-char[] passwd = cons.readPassword(&quot;Password: &quot;);</code></pre><h3 id="2-格式化输出"><a href="#2-格式化输出" class="headerlink" title="2 格式化输出"></a>2 格式化输出</h3><h4 id="printf-方法"><a href="#printf-方法" class="headerlink" title="printf 方法"></a>printf 方法</h4><p>一种方法是 Java 沿用了 C 语言的 printf 方法</p>
-<pre><code>System.out.printf(&quot;%,.2f&quot;, 10000 / 3.0);//输出3,333.33</code></pre><h4 id="String-format"><a href="#String-format" class="headerlink" title="String.format"></a>String.format</h4><p>另一种方法可以用 String.format 方法创建一个不输出的格式化字符串。</p>
+char[] passwd = cons.readPassword(&quot;Password: &quot;);
+</code></pre>
+<h3 id="2-格式化输出"><a class="header-anchor" href="#2-格式化输出">¶</a>2 格式化输出</h3>
+<h4 id="printf-方法"><a class="header-anchor" href="#printf-方法">¶</a>printf 方法</h4>
+<p>一种方法是 Java 沿用了 C 语言的 printf 方法</p>
+<pre><code>System.out.printf(&quot;%,.2f&quot;, 10000 / 3.0);//输出3,333.33
+</code></pre>
+<h4 id="String-format"><a class="header-anchor" href="#String-format">¶</a>String.format</h4>
+<p>另一种方法可以用 String.format 方法创建一个不输出的格式化字符串。</p>
 <pre><code>String name = &quot;boy&quot;;
 int age = 10;
-String message = String.format(&quot;Hello,%s.Next year,you&#39;ll be %d \n&quot;, name, age);
+String message = String.format(&quot;Hello,%s.Next year,you'll be %d \n&quot;, name, age);
 System.out.printf(message);
-// 输出Hello,boy.Next year,you&#39;ll be 1</code></pre><h4 id="文件输出"><a href="#文件输出" class="headerlink" title="文件输出"></a>文件输出</h4><ul>
-<li>写入文件需要构造一个 PrintWriter 对象：  </li>
+// 输出Hello,boy.Next year,you'll be 1
+</code></pre>
+<h4 id="文件输出"><a class="header-anchor" href="#文件输出">¶</a>文件输出</h4>
+<ul>
+<li>写入文件需要构造一个 PrintWriter 对象：</li>
 </ul>
 <p>此PrintWriter类与System.out（是PrintStream类对象）在print、println、printf上用法相同。</p>
 <pre><code>PrintWriter out = new PrintWriter(&quot;myfile.txt&quot;,&quot;UTF-8&quot;);
-//在构造器中只需要提供文件名，没有的话会新建，如果之前已存在会覆盖</code></pre><ul>
+//在构造器中只需要提供文件名，没有的话会新建，如果之前已存在会覆盖
+</code></pre>
+<ul>
 <li>用相对路径时，文件位于java虚拟机启动路径的相对位置。可以调用System.getProperty(“user.dir”)找到。</li>
 </ul>
 
@@ -4414,19 +4456,23 @@ System.out.printf(message);
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

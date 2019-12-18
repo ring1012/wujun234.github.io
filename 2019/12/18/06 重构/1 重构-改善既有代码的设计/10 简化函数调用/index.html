@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		10 简化函数调用 | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,54 +4395,87 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:39</span>
+	<span id="post-date">2019-12-18 01:00:44</span>
 </div>
 
 
 <div id="article">
 	<!-- TOC -->
 <ul>
-<li><a href="#1-rename-method-函数改名">1 Rename Method （函数改名）</a></li>
-<li><a href="#2-add-parameter-添加参数">2 Add Parameter （添加参数）</a></li>
-<li><a href="#3-remove-parameter-移除参数">3 Remove Parameter （移除参数）</a></li>
-<li><a href="#4-separate-query-from-modifier-将查询函数和修改函数分离">4 Separate Query from Modifier （将查询函数和修改函数分离）</a></li>
-<li><a href="#5-parameterize-method-令函数携带参数">5 Parameterize Method （令函数携带参数）</a></li>
-<li><a href="#6-replace-rarameter-with-explicit-methods-以明确函数取代参数">6 Replace Rarameter with Explicit Methods （以明确函数取代参数）</a></li>
-<li><a href="#7-preserve-whole-object-保持对象完整">7 Preserve Whole Object （保持对象完整）</a></li>
-<li><a href="#8-replace-parameter-with-methods-以函数取代参数">8 Replace Parameter with Methods （以函数取代参数）</a></li>
-<li><a href="#9-introduce-parameter-object引入参数对象">9 Introduce Parameter Object（引入参数对象）</a></li>
-<li><a href="#10-remove-setting-method-移除设值函数">10 Remove Setting Method （移除设值函数）</a></li>
-<li><a href="#11-hide-method-隐藏函数">11 Hide Method （隐藏函数）</a></li>
-<li><a href="#12-replace-constructor-with-factory-method-以工厂函数取代构造函数">12 Replace Constructor with Factory Method （以工厂函数取代构造函数）</a></li>
-<li><a href="#13-encapsulate-downcast-封装向下转型">13 Encapsulate Downcast （封装向下转型）</a></li>
-<li><a href="#14-replace-error-code-with-exception-以异常取代错误码">14 Replace Error Code with Exception （以异常取代错误码）</a></li>
-<li><a href="#15-replace-exception-with-test-以测试取代异常">15 Replace Exception with Test （以测试取代异常）</a><!-- /TOC -->
-
-</li>
+<li><a href="#1-rename-method-%E5%87%BD%E6%95%B0%E6%94%B9%E5%90%8D">1 Rename Method （函数改名）</a></li>
+<li><a href="#2-add-parameter-%E6%B7%BB%E5%8A%A0%E5%8F%82%E6%95%B0">2 Add Parameter （添加参数）</a></li>
+<li><a href="#3-remove-parameter-%E7%A7%BB%E9%99%A4%E5%8F%82%E6%95%B0">3 Remove Parameter （移除参数）</a></li>
+<li><a href="#4-separate-query-from-modifier-%E5%B0%86%E6%9F%A5%E8%AF%A2%E5%87%BD%E6%95%B0%E5%92%8C%E4%BF%AE%E6%94%B9%E5%87%BD%E6%95%B0%E5%88%86%E7%A6%BB">4 Separate Query from Modifier （将查询函数和修改函数分离）</a></li>
+<li><a href="#5-parameterize-method-%E4%BB%A4%E5%87%BD%E6%95%B0%E6%90%BA%E5%B8%A6%E5%8F%82%E6%95%B0">5 Parameterize Method （令函数携带参数）</a></li>
+<li><a href="#6-replace-rarameter-with-explicit-methods-%E4%BB%A5%E6%98%8E%E7%A1%AE%E5%87%BD%E6%95%B0%E5%8F%96%E4%BB%A3%E5%8F%82%E6%95%B0">6 Replace Rarameter with Explicit Methods （以明确函数取代参数）</a></li>
+<li><a href="#7-preserve-whole-object-%E4%BF%9D%E6%8C%81%E5%AF%B9%E8%B1%A1%E5%AE%8C%E6%95%B4">7 Preserve Whole Object （保持对象完整）</a></li>
+<li><a href="#8-replace-parameter-with-methods-%E4%BB%A5%E5%87%BD%E6%95%B0%E5%8F%96%E4%BB%A3%E5%8F%82%E6%95%B0">8 Replace Parameter with Methods （以函数取代参数）</a></li>
+<li><a href="#9-introduce-parameter-object%E5%BC%95%E5%85%A5%E5%8F%82%E6%95%B0%E5%AF%B9%E8%B1%A1">9 Introduce Parameter Object（引入参数对象）</a></li>
+<li><a href="#10-remove-setting-method-%E7%A7%BB%E9%99%A4%E8%AE%BE%E5%80%BC%E5%87%BD%E6%95%B0">10 Remove Setting Method （移除设值函数）</a></li>
+<li><a href="#11-hide-method-%E9%9A%90%E8%97%8F%E5%87%BD%E6%95%B0">11 Hide Method （隐藏函数）</a></li>
+<li><a href="#12-replace-constructor-with-factory-method-%E4%BB%A5%E5%B7%A5%E5%8E%82%E5%87%BD%E6%95%B0%E5%8F%96%E4%BB%A3%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0">12 Replace Constructor with Factory Method （以工厂函数取代构造函数）</a></li>
+<li><a href="#13-encapsulate-downcast-%E5%B0%81%E8%A3%85%E5%90%91%E4%B8%8B%E8%BD%AC%E5%9E%8B">13 Encapsulate Downcast （封装向下转型）</a></li>
+<li><a href="#14-replace-error-code-with-exception-%E4%BB%A5%E5%BC%82%E5%B8%B8%E5%8F%96%E4%BB%A3%E9%94%99%E8%AF%AF%E7%A0%81">14 Replace Error Code with Exception （以异常取代错误码）</a></li>
+<li><a href="#15-replace-exception-with-test-%E4%BB%A5%E6%B5%8B%E8%AF%95%E5%8F%96%E4%BB%A3%E5%BC%82%E5%B8%B8">15 Replace Exception with Test （以测试取代异常）</a></li>
 </ul>
-<h3 id="1-Rename-Method-（函数改名）"><a href="#1-Rename-Method-（函数改名）" class="headerlink" title="1 Rename Method （函数改名）"></a>1 Rename Method （函数改名）</h3><p>函数的名称未能揭示函数的用途。<br>修改函数名称。</p>
-<h3 id="2-Add-Parameter-（添加参数）"><a href="#2-Add-Parameter-（添加参数）" class="headerlink" title="2 Add Parameter （添加参数）"></a>2 Add Parameter （添加参数）</h3><p>某个函数需要从调用端得到更多信息。<br>为此函数添加一个对象参数，让该对象带进函数所需信息。</p>
-<h3 id="3-Remove-Parameter-（移除参数）"><a href="#3-Remove-Parameter-（移除参数）" class="headerlink" title="3 Remove Parameter （移除参数）"></a>3 Remove Parameter （移除参数）</h3><p>函数本体不再需要某个参数。<br>将该参数去除。</p>
-<h3 id="4-Separate-Query-from-Modifier-（将查询函数和修改函数分离）"><a href="#4-Separate-Query-from-Modifier-（将查询函数和修改函数分离）" class="headerlink" title="4 Separate Query from Modifier （将查询函数和修改函数分离）"></a>4 Separate Query from Modifier （将查询函数和修改函数分离）</h3><p>某个函数既返回对象状态值，又修改对象状态。<br>建立两个不同的函数，其中一个负责查询，另一个负责修改。</p>
-<h3 id="5-Parameterize-Method-（令函数携带参数）"><a href="#5-Parameterize-Method-（令函数携带参数）" class="headerlink" title="5 Parameterize Method （令函数携带参数）"></a>5 Parameterize Method （令函数携带参数）</h3><p>若干函数做了类似的工作，但在函数本体中却包含了不同的值。<br>建立单一函数，以参数表达那些不同的值。</p>
-<h3 id="6-Replace-Rarameter-with-Explicit-Methods-（以明确函数取代参数）"><a href="#6-Replace-Rarameter-with-Explicit-Methods-（以明确函数取代参数）" class="headerlink" title="6 Replace Rarameter with Explicit Methods （以明确函数取代参数）"></a>6 Replace Rarameter with Explicit Methods （以明确函数取代参数）</h3><p>你有一个函数，其中完全取决于参数值而采取不同行为。<br>针对该参数的每一个可能值，建立一个独立函数。</p>
-<h3 id="7-Preserve-Whole-Object-（保持对象完整）"><a href="#7-Preserve-Whole-Object-（保持对象完整）" class="headerlink" title="7 Preserve Whole Object （保持对象完整）"></a>7 Preserve Whole Object （保持对象完整）</h3><p>你从某个对象中取出若干值，将它们作为某一次函数调用时的参数。<br>改为传递整个对象。</p>
-<h5 id="动机"><a href="#动机" class="headerlink" title="动机"></a>动机</h5><p>如果你传的是数值，被调用函数就只依赖于这些数值，而不依赖它们所数的对象。但如果你传递的是整个对象，被调用函数所在的对象就需要依赖参数对象。</p>
+<!-- /TOC -->
+<h3 id="1-Rename-Method-（函数改名）"><a class="header-anchor" href="#1-Rename-Method-（函数改名）">¶</a>1 Rename Method （函数改名）</h3>
+<p>函数的名称未能揭示函数的用途。<br>
+修改函数名称。</p>
+<h3 id="2-Add-Parameter-（添加参数）"><a class="header-anchor" href="#2-Add-Parameter-（添加参数）">¶</a>2 Add Parameter （添加参数）</h3>
+<p>某个函数需要从调用端得到更多信息。<br>
+为此函数添加一个对象参数，让该对象带进函数所需信息。</p>
+<h3 id="3-Remove-Parameter-（移除参数）"><a class="header-anchor" href="#3-Remove-Parameter-（移除参数）">¶</a>3 Remove Parameter （移除参数）</h3>
+<p>函数本体不再需要某个参数。<br>
+将该参数去除。</p>
+<h3 id="4-Separate-Query-from-Modifier-（将查询函数和修改函数分离）"><a class="header-anchor" href="#4-Separate-Query-from-Modifier-（将查询函数和修改函数分离）">¶</a>4 Separate Query from Modifier （将查询函数和修改函数分离）</h3>
+<p>某个函数既返回对象状态值，又修改对象状态。<br>
+建立两个不同的函数，其中一个负责查询，另一个负责修改。</p>
+<h3 id="5-Parameterize-Method-（令函数携带参数）"><a class="header-anchor" href="#5-Parameterize-Method-（令函数携带参数）">¶</a>5 Parameterize Method （令函数携带参数）</h3>
+<p>若干函数做了类似的工作，但在函数本体中却包含了不同的值。<br>
+建立单一函数，以参数表达那些不同的值。</p>
+<h3 id="6-Replace-Rarameter-with-Explicit-Methods-（以明确函数取代参数）"><a class="header-anchor" href="#6-Replace-Rarameter-with-Explicit-Methods-（以明确函数取代参数）">¶</a>6 Replace Rarameter with Explicit Methods （以明确函数取代参数）</h3>
+<p>你有一个函数，其中完全取决于参数值而采取不同行为。<br>
+针对该参数的每一个可能值，建立一个独立函数。</p>
+<h3 id="7-Preserve-Whole-Object-（保持对象完整）"><a class="header-anchor" href="#7-Preserve-Whole-Object-（保持对象完整）">¶</a>7 Preserve Whole Object （保持对象完整）</h3>
+<p>你从某个对象中取出若干值，将它们作为某一次函数调用时的参数。<br>
+改为传递整个对象。</p>
+<h5 id="动机"><a class="header-anchor" href="#动机">¶</a>动机</h5>
+<p>如果你传的是数值，被调用函数就只依赖于这些数值，而不依赖它们所数的对象。但如果你传递的是整个对象，被调用函数所在的对象就需要依赖参数对象。</p>
 <p>如果被调用函数使用了来自另一个对象的很多数据，这可能意味着该函数实际上应该本定义在那些数据所属的对象中.所以，考虑 Preserce Whole Object 的同时，你也应该考虑Move Method.</p>
-<h3 id="8-Replace-Parameter-with-Methods-（以函数取代参数）"><a href="#8-Replace-Parameter-with-Methods-（以函数取代参数）" class="headerlink" title="8 Replace Parameter with Methods （以函数取代参数）"></a>8 Replace Parameter with Methods （以函数取代参数）</h3><p>对象调用某个函数，并将所得结果作为参数，传递给另一个函数。而接受该参数的函数本身也能够调用前一个函数。<br>让参数接受者取出该项参数，并直接调用前一个函数。</p>
-<h5 id="动机-1"><a href="#动机-1" class="headerlink" title="动机"></a>动机</h5><p>如果函数可以通过其他途径获得参数值，那么它就不应该通过参数取得该值。</p>
-<h3 id="9-Introduce-Parameter-Object（引入参数对象）"><a href="#9-Introduce-Parameter-Object（引入参数对象）" class="headerlink" title="9 Introduce Parameter Object（引入参数对象）"></a>9 Introduce Parameter Object（引入参数对象）</h3><p>某些参数总是很自然地同时出现。<br>以一个对象取代这些参数。</p>
-<h5 id="动机-2"><a href="#动机-2" class="headerlink" title="动机"></a>动机</h5><ul>
+<h3 id="8-Replace-Parameter-with-Methods-（以函数取代参数）"><a class="header-anchor" href="#8-Replace-Parameter-with-Methods-（以函数取代参数）">¶</a>8 Replace Parameter with Methods （以函数取代参数）</h3>
+<p>对象调用某个函数，并将所得结果作为参数，传递给另一个函数。而接受该参数的函数本身也能够调用前一个函数。<br>
+让参数接受者取出该项参数，并直接调用前一个函数。</p>
+<h5 id="动机-v2"><a class="header-anchor" href="#动机-v2">¶</a>动机</h5>
+<p>如果函数可以通过其他途径获得参数值，那么它就不应该通过参数取得该值。</p>
+<h3 id="9-Introduce-Parameter-Object（引入参数对象）"><a class="header-anchor" href="#9-Introduce-Parameter-Object（引入参数对象）">¶</a>9 Introduce Parameter Object（引入参数对象）</h3>
+<p>某些参数总是很自然地同时出现。<br>
+以一个对象取代这些参数。</p>
+<h5 id="动机-v3"><a class="header-anchor" href="#动机-v3">¶</a>动机</h5>
+<ul>
 <li>缩短参数列</li>
 <li>发现共通处理</li>
 </ul>
-<h3 id="10-Remove-Setting-Method-（移除设值函数）"><a href="#10-Remove-Setting-Method-（移除设值函数）" class="headerlink" title="10 Remove Setting Method （移除设值函数）"></a>10 Remove Setting Method （移除设值函数）</h3><p>类中的某个字段应该在对象创建时被设值，然后就不再改变。<br>去掉该字段的所有设值函数。</p>
-<h5 id="动机-3"><a href="#动机-3" class="headerlink" title="动机"></a>动机</h5><p>如果你不希望在对象创建之后此字段还有机会被改变，那就不要为它提供设值函数 (同时将该字段设为final)。</p>
-<h3 id="11-Hide-Method-（隐藏函数）"><a href="#11-Hide-Method-（隐藏函数）" class="headerlink" title="11 Hide Method （隐藏函数）"></a>11 Hide Method （隐藏函数）</h3><p>有一个函数，从来没有被其他任何类用到。<br>将这个函数修改为private。</p>
-<h3 id="12-Replace-Constructor-with-Factory-Method-（以工厂函数取代构造函数）"><a href="#12-Replace-Constructor-with-Factory-Method-（以工厂函数取代构造函数）" class="headerlink" title="12 Replace Constructor with Factory Method （以工厂函数取代构造函数）"></a>12 Replace Constructor with Factory Method （以工厂函数取代构造函数）</h3><p>你希望在创建对象时不仅仅是做简单的建构动作。<br>将构造函数替换为工厂函数。</p>
-<h3 id="13-Encapsulate-Downcast-（封装向下转型）"><a href="#13-Encapsulate-Downcast-（封装向下转型）" class="headerlink" title="13 Encapsulate Downcast （封装向下转型）"></a>13 Encapsulate Downcast （封装向下转型）</h3><p>某个函数返回的对象，需要由函数调用者执行向下转型。<br>将向下转型动作移到函数中。</p>
-<h3 id="14-Replace-Error-Code-with-Exception-（以异常取代错误码）"><a href="#14-Replace-Error-Code-with-Exception-（以异常取代错误码）" class="headerlink" title="14 Replace Error Code with Exception （以异常取代错误码）"></a>14 Replace Error Code with Exception （以异常取代错误码）</h3><p>某个函数返回一个特定的代码，用以表示某种错误情况。<br>改用异常。</p>
-<h3 id="15-Replace-Exception-with-Test-（以测试取代异常）"><a href="#15-Replace-Exception-with-Test-（以测试取代异常）" class="headerlink" title="15 Replace Exception with Test （以测试取代异常）"></a>15 Replace Exception with Test （以测试取代异常）</h3><p>面对一个调用者可以预先检查的条件，你抛出了一个异常。<br>修改调用者，使它在调用函数之前先做检查。</p>
+<h3 id="10-Remove-Setting-Method-（移除设值函数）"><a class="header-anchor" href="#10-Remove-Setting-Method-（移除设值函数）">¶</a>10 Remove Setting Method （移除设值函数）</h3>
+<p>类中的某个字段应该在对象创建时被设值，然后就不再改变。<br>
+去掉该字段的所有设值函数。</p>
+<h5 id="动机-v4"><a class="header-anchor" href="#动机-v4">¶</a>动机</h5>
+<p>如果你不希望在对象创建之后此字段还有机会被改变，那就不要为它提供设值函数 (同时将该字段设为final)。</p>
+<h3 id="11-Hide-Method-（隐藏函数）"><a class="header-anchor" href="#11-Hide-Method-（隐藏函数）">¶</a>11 Hide Method （隐藏函数）</h3>
+<p>有一个函数，从来没有被其他任何类用到。<br>
+将这个函数修改为private。</p>
+<h3 id="12-Replace-Constructor-with-Factory-Method-（以工厂函数取代构造函数）"><a class="header-anchor" href="#12-Replace-Constructor-with-Factory-Method-（以工厂函数取代构造函数）">¶</a>12 Replace Constructor with Factory Method （以工厂函数取代构造函数）</h3>
+<p>你希望在创建对象时不仅仅是做简单的建构动作。<br>
+将构造函数替换为工厂函数。</p>
+<h3 id="13-Encapsulate-Downcast-（封装向下转型）"><a class="header-anchor" href="#13-Encapsulate-Downcast-（封装向下转型）">¶</a>13 Encapsulate Downcast （封装向下转型）</h3>
+<p>某个函数返回的对象，需要由函数调用者执行向下转型。<br>
+将向下转型动作移到函数中。</p>
+<h3 id="14-Replace-Error-Code-with-Exception-（以异常取代错误码）"><a class="header-anchor" href="#14-Replace-Error-Code-with-Exception-（以异常取代错误码）">¶</a>14 Replace Error Code with Exception （以异常取代错误码）</h3>
+<p>某个函数返回一个特定的代码，用以表示某种错误情况。<br>
+改用异常。</p>
+<h3 id="15-Replace-Exception-with-Test-（以测试取代异常）"><a class="header-anchor" href="#15-Replace-Exception-with-Test-（以测试取代异常）">¶</a>15 Replace Exception with Test （以测试取代异常）</h3>
+<p>面对一个调用者可以预先检查的条件，你抛出了一个异常。<br>
+修改调用者，使它在调用函数之前先做检查。</p>
 
 </div>
 
@@ -4429,19 +4485,23 @@
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		02 Spring Cloud Consul | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,7 +4395,7 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:24</span>
+	<span id="post-date">2019-12-18 01:00:43</span>
 </div>
 
 
@@ -4384,46 +4407,69 @@
 <li>Key/Value存储</li>
 <li>多数据中心</li>
 </ul>
-<p>Consul自身提供了服务端，不需要创建服务注册中心，通过命令“$consul agent -dev”启动consul服务端程序的开发模式。<br>#consul-provider </p>
+<p>Consul自身提供了服务端，不需要创建服务注册中心，通过命令“$consul agent -dev”启动consul服务端程序的开发模式。<br>
+#consul-provider</p>
 <ol>
-<li>pom<pre><code>&lt;dependency&gt;
- &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
- &lt;artifactId&gt;spring-cloud-starter-consul-discovery&lt;/artifactId&gt;
-&lt;/dependency&gt;</code></pre></li>
-<li>application.properties<pre><code>spring.application.name=consul-provider
-</code></pre></li>
+<li>pom</li>
 </ol>
-<p>spring.cloud.consul.host=localhost<br>spring.cloud.consul.port=8100</p>
-<pre><code>3. 启动类加注解@EnableDiscoveryClient
+<pre><code>&lt;dependency&gt;
+	&lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
+	&lt;artifactId&gt;spring-cloud-starter-consul-discovery&lt;/artifactId&gt;
+&lt;/dependency&gt;
+</code></pre>
+<ol start="2">
+<li>application.properties</li>
+</ol>
+<pre><code>spring.application.name=consul-provider
 
-# consul-consumer
-1. pom</code></pre><dependency>
-    <groupId>org.springframework.cloud</groupId>
-    <artifactId>spring-cloud-starter-consul-discovery</artifactId>
-</dependency>
-```
-2. application.properties
-```
-spring.application.name=consul-consumer
+spring.cloud.consul.host=localhost
+spring.cloud.consul.port=8100
+</code></pre>
+<ol start="3">
+<li>启动类加注解@EnableDiscoveryClient</li>
+</ol>
+<h1>consul-consumer</h1>
+<ol>
+<li>pom</li>
+</ol>
+<pre><code>&lt;dependency&gt;
+	&lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
+	&lt;artifactId&gt;spring-cloud-starter-consul-discovery&lt;/artifactId&gt;
+&lt;/dependency&gt;
+</code></pre>
+<ol start="2">
+<li>application.properties</li>
+</ol>
+<pre><code>spring.application.name=consul-consumer
 
-<p>spring.cloud.consul.host=localhost<br>spring.cloud.consul.port=8100</p>
-<pre><code>3. 启动类加注解@EnableDiscoveryClient
-4. LoadBalancerClient手动调用</code></pre><p>@RestController<br>public class DcController {</p>
-<pre><code>@Bean
-public RestTemplate restTemplate() {
-    return new RestTemplate();
+spring.cloud.consul.host=localhost
+spring.cloud.consul.port=8100
+</code></pre>
+<ol start="3">
+<li>启动类加注解@EnableDiscoveryClient</li>
+<li>LoadBalancerClient手动调用</li>
+</ol>
+<pre><code>@RestController
+public class DcController {
+
+    @Bean
+	public RestTemplate restTemplate() {
+		return new RestTemplate();
+	}
+    @Autowired
+    LoadBalancerClient loadBalancerClient;
+    @Autowired
+    RestTemplate restTemplate;
+
+    @GetMapping(&quot;/consumer&quot;)
+    public String dc() {
+        ServiceInstance serviceInstance = loadBalancerClient.choose(&quot;consul-provider&quot;);
+        String url = &quot;http://&quot; + serviceInstance.getHost() + &quot;:&quot; + serviceInstance.getPort() + &quot;/dc&quot;;
+        return restTemplate.getForObject(url, String.class);
+    }
+
 }
-@Autowired
-LoadBalancerClient loadBalancerClient;
-@Autowired
-RestTemplate restTemplate;
-
-@GetMapping(&quot;/consumer&quot;)
-public String dc() {
-    ServiceInstance serviceInstance = loadBalancerClient.choose(&quot;consul-provider&quot;);
-    String url = &quot;http://&quot; + serviceInstance.getHost() + &quot;:&quot; + serviceInstance.getPort() + &quot;/dc&quot;;
-    return restTemplate.getForObject(url, String.class);
-}</code></pre><p>}<br>```</p>
+</code></pre>
 
 </div>
 
@@ -4433,19 +4479,23 @@ public String dc() {
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

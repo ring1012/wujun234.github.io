@@ -1,10 +1,30 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +35,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4373,7 +4394,21 @@
 				</h2>
 				<span class="post-date">2019-12-18</span>
 				<div class="article-digest">
-					执行器（Executor）类有许多静态工厂方法用来构建线程池。| 方法 | 描述 ||—|—|| newCachedThreadPool | 必要时创建新线程；空闲线程会被保留 60 秒 || new
+					执行器（Executor）类有许多静态工厂方法用来构建线程池。
+
+
+
+方法
+描述
+
+
+
+
+newCachedThreadPool
+必要时创建新线程；空闲线程会被保留 60 秒
+
+
+newFixedTh
 					...
 				</div>
 			</article>
@@ -4382,13 +4417,13 @@
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/10%20XML/8%20XSL%E8%BD%AC%E6%8D%A2/">8 XSL转换</a>
+					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/07%20%E5%B9%B6%E5%8F%91/8%20Callable%E4%B8%8EFuture/">8 Callable与Future</a>
 				</h2>
 				<span class="post-date">2019-12-18</span>
 				<div class="article-digest">
-					XSL 指扩展样式表语言（EXtensible Stylesheet Language），可描述如何来显示 XML 文档。
-XSL 包括三部分：XSLT、XPath、XSL-FO
-XSLTXSLT =
+					¶Callable
+Callable与Runnable类似，它们的主要区别是 Callable 的 call() 方法可以返回值和抛出异常。
+Callable接口是一个参数化的类型，只有一个方法cal
 					...
 				</div>
 			</article>
@@ -4397,14 +4432,12 @@ XSLTXSLT =
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/09%20IO/1%20%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E6%B5%81/">1 输入输出流</a>
+					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/07%20%E5%B9%B6%E5%8F%91/7%20%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8%E7%9A%84%E9%9B%86%E5%90%88/">7 线程安全的集合</a>
 				</h2>
 				<span class="post-date">2019-12-18</span>
 				<div class="article-digest">
-					Java 的 I/O 类库的基本架构Java 的 I/O 操作类可以分成四组：
-
-基于字节操作的 I/O 接口：InputStream 和 OutputStream
-基于字符操作的 I/O 接口：Wr
+					¶1 Concurrent集合
+java.util.concurrent包中 ConcurrentHashMap、ConcurrentSkipListMap、ConcurrentSkipListSet
 					...
 				</div>
 			</article>
@@ -4413,12 +4446,13 @@ XSLTXSLT =
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/09%20IO/3%20%E8%AF%BB%E5%86%99%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%95%B0%E6%8D%AE/">3 读写二进制数据</a>
+					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/07%20%E5%B9%B6%E5%8F%91/6%20%E9%98%BB%E5%A1%9E%E9%98%9F%E5%88%97/">6 阻塞队列</a>
 				</h2>
 				<span class="post-date">2019-12-18</span>
 				<div class="article-digest">
-					1 DataInput和DataOutput接口DataInput接口 write* 方法写二进制格式数据，DataInput接口 read*方法读回二进制格式数据。
-DataInputStream类
+					对于许多线程问题，可以通过使用一个或多个队列以优雅且安全的方式将其形式化。
+使用队列，可以安全地从一个线程向另一个线程传递数据。
+使用通知模式实现线程的同步。当试图向队列添加元素而队列已满，或是想从队
 					...
 				</div>
 			</article>
@@ -4427,12 +4461,13 @@ DataInputStream类
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/09%20IO/2%20%E8%AF%BB%E5%86%99%E6%96%87%E6%9C%AC/">2 读写文本</a>
+					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/07%20%E5%B9%B6%E5%8F%91/5%20%E5%90%8C%E6%AD%A5/">5 同步</a>
 				</h2>
 				<span class="post-date">2019-12-18</span>
 				<div class="article-digest">
-					存储文本字符串时，需要考虑字符编码方式。
-OutputStreamWriter类将使用选定的字符编码方式，把Unicode码元的输出流转换为字节流。InputStreamReader类将包含字节的输入
+					有两种机制防止代码块受并发访问的干扰。synchronized关键字,ReentrantLock类。
+¶1 可重入锁（ReentrantLock）
+可重入锁（ReentrantLock）锁是可重入的，
 					...
 				</div>
 			</article>
@@ -4441,12 +4476,16 @@ OutputStreamWriter类将使用选定的字符编码方式，把Unicode码元的�
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/09%20IO/4%20%E5%BA%8F%E5%88%97%E5%8C%96/">4 序列化</a>
+					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/07%20%E5%B9%B6%E5%8F%91/4%20%E7%BA%BF%E7%A8%8B%E5%B1%9E%E6%80%A7/">4 线程属性</a>
 				</h2>
 				<span class="post-date">2019-12-18</span>
 				<div class="article-digest">
-					Java 提供了一种对象序列化的机制，该机制中，一个对象可以被表示为一个字节序列，写出到输出流中，并在之后将其读回。整个过程都是 Java 虚拟机独立的。
-1 保存和加载序列化对象类 ObjectIn
+					¶1 线程优先级
+不要将程序构建为功能的正确性依赖于优先级。
+Linux上线程不具有优先级。
+
+void setPriority(fnt newPriority)：设置线程的优先级。
+static v
 					...
 				</div>
 			</article>
@@ -4455,12 +4494,19 @@ OutputStreamWriter类将使用选定的字符编码方式，把Unicode码元的�
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/09%20IO/5%20%E6%93%8D%E4%BD%9C%E6%96%87%E4%BB%B6/">5 操作文件</a>
+					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/07%20%E5%B9%B6%E5%8F%91/3%20%E7%BA%BF%E7%A8%8B%E7%8A%B6%E6%80%81/">3 线程状态</a>
 				</h2>
 				<span class="post-date">2019-12-18</span>
 				<div class="article-digest">
-					Path接口和Files类封装了在用户机器上处理文件系统所需的所有功能，他们是在JavaSE7中新添加进来的，比自JDK1.0以来一直使用的File类方便很多。
-1 PathPath表示的是一个目录名
+					¶线程状态
+线程可以有如下 6 种状态：
+
+New(新建)
+创建后，尚未启动的线程
+Runable(可运行)
+
+正在JVM中执行的线程处于这种状态（注意不是在CPU中执行，见2）
+Runable对应了
 					...
 				</div>
 			</article>
@@ -4469,12 +4515,12 @@ OutputStreamWriter类将使用选定的字符编码方式，把Unicode码元的�
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/09%20IO/6%20NIO%EF%BC%88%E5%86%85%E5%AD%98%E6%98%A0%E5%B0%84%E6%96%87%E4%BB%B6%EF%BC%89/">6 NIO（内存映射文件）</a>
+					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/07%20%E5%B9%B6%E5%8F%91/2%20%E4%B8%AD%E6%96%AD%E7%BA%BF%E7%A8%8B/">2 中断线程</a>
 				</h2>
 				<span class="post-date">2019-12-18</span>
 				<div class="article-digest">
-					JDK 1.4中引入java.nio，全称java non-blocking IO，为所有的原始类型（boolean类型除外）提供缓存支持的数据容器，使用它可以提供非阻塞式的高伸缩性网络。
-原来的 I
+					当线程的run方法执行方法体中最后一条语句并经由return返回时。或出现了在方法中没有捕获的异常时，线程终止。
+没有可以强制线程终止的方法，interrupt方法可以用来请求终止线程。isInter
 					...
 				</div>
 			</article>
@@ -4483,13 +4529,14 @@ OutputStreamWriter类将使用选定的字符编码方式，把Unicode码元的�
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/09%20IO/7%20%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">7 正则表达式</a>
+					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/07%20%E5%B9%B6%E5%8F%91/11%20%E6%89%B9%E9%87%8F%E8%8E%B7%E5%8F%96%E5%A4%9A%E6%9D%A1%E7%BA%BF%E7%A8%8B%E7%9A%84%E6%89%A7%E8%A1%8C%E7%BB%93%E6%9E%9C/">11 批量获取多条线程的执行结果</a>
 				</h2>
 				<span class="post-date">2019-12-18</span>
 				<div class="article-digest">
-					语法在使用正则表达式的各种程序和类库之间，表达式语法并未完全标准化。
-字符
-字符类是一个括在括号中的可选择的字符集，例如，[Jj]、[0-9]、[A-Za-z]或1。这里“-”表示是一个范围，而 ^ 
+					当向线程池提交callable任务后，我们可能需要一次性获取所有返回结果，有三种处理方法。
+¶方法一：自己维护返回结果
+// 创建一个线程池
+ExecutorService executorServi
 					...
 				</div>
 			</article>
@@ -4498,12 +4545,11 @@ OutputStreamWriter类将使用选定的字符编码方式，把Unicode码元的�
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/08%20Java%20SE%208%E7%9A%84%E6%B5%81%E5%BA%93/1%20Stream/">1 Stream</a>
+					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/07%20%E5%B9%B6%E5%8F%91/10%20%E5%90%8C%E6%AD%A5%E5%99%A8/">10 同步器</a>
 				</h2>
 				<span class="post-date">2019-12-18</span>
 				<div class="article-digest">
-					Java 8 中的 Stream 是对集合对象功能的增强，像一个高级版本的Iterator，专注于对集合对象进行各种非常便利、高效的聚合操作，或者大批量数据操作。
-Stream 单向，不可往复，数据源
+					java.util.concurrent 包包含了几个能帮助人们管理相互合作的线程集的类。这些机制具有为线程之间的共用集结点模式提供的“预置功能”。如果有一个相互合作的线程集满足这些行为模式之一，那么
 					...
 				</div>
 			</article>
@@ -4519,19 +4565,23 @@ Stream 单向，不可往复，数据源
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

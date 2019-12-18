@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		1 显式锁 | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,29 +4395,38 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:53</span>
+	<span id="post-date">2019-12-18 01:00:42</span>
 </div>
 
 
 <div id="article">
 	<p>ReentrantLock 并不是一种替代内置加锁的方法，而是当内置加锁机制不适用时，作为一种可选择的高级功能。</p>
-<h3 id="1-Lock-与-ReentrantLock"><a href="#1-Lock-与-ReentrantLock" class="headerlink" title="1 Lock 与 ReentrantLock"></a>1 Lock 与 ReentrantLock</h3><p>ReentrantLock 实现了Lock接口，并提供了与 synchronized 相同的互斥性、内存可见性和可重入的加锁语义。</p>
+<h3 id="1-Lock-与-ReentrantLock"><a class="header-anchor" href="#1-Lock-与-ReentrantLock">¶</a>1 Lock 与 ReentrantLock</h3>
+<p>ReentrantLock 实现了Lock接口，并提供了与 synchronized 相同的互斥性、内存可见性和可重入的加锁语义。</p>
 <p>与synchronized相比，ReentrantLock提供了更好的活跃性或性能。但也更“危险”，不会自动清除锁，必须在finally中释放锁。</p>
-<h5 id="1-1-轮询锁与定时锁"><a href="#1-1-轮询锁与定时锁" class="headerlink" title="1.1 轮询锁与定时锁"></a>1.1 轮询锁与定时锁</h5><p>可定时的与可轮询的锁获取模式是由tryLock方法实现的，避免死锁的发生。</p>
+<h5 id="1-1-轮询锁与定时锁"><a class="header-anchor" href="#1-1-轮询锁与定时锁">¶</a>1.1 轮询锁与定时锁</h5>
+<p>可定时的与可轮询的锁获取模式是由tryLock方法实现的，避免死锁的发生。</p>
 <p>如果不能获取所有需要的锁，通过使用可定时或者可轮询的锁，从而重新获得控制权，释放已经获得的锁，然后重新尝试获取所有的锁（如果不能同时获取，则回退），如果在指定时间内不能获取所有需要的锁，则返回一个失败状态。</p>
-<h5 id="1-2-可中断的锁获取操作"><a href="#1-2-可中断的锁获取操作" class="headerlink" title="1.2 可中断的锁获取操作"></a>1.2 可中断的锁获取操作</h5><p>可中断的锁获取操作能在可取消的操作中使用加锁。</p>
+<h5 id="1-2-可中断的锁获取操作"><a class="header-anchor" href="#1-2-可中断的锁获取操作">¶</a>1.2 可中断的锁获取操作</h5>
+<p>可中断的锁获取操作能在可取消的操作中使用加锁。</p>
 <p>lockInterruptibly 方法能够在获得锁的同时保持对中断的响应，并且由于它包含在Lock中，因此无须创建其他类型的不可中断阻塞机制。</p>
 <p>定时的tryLock同样能响应中断，因此当需要实现一个定时的和可中断的锁获取操作时，可以使用tryLock方法。</p>
-<h5 id="1-3-非块结构的加锁"><a href="#1-3-非块结构的加锁" class="headerlink" title="1.3 非块结构的加锁"></a>1.3 非块结构的加锁</h5><p>通过降低锁的颗粒度来提高代码的可伸缩性。</p>
-<p>连锁式加锁或者锁耦：<br>为每个链表节点使用一个独立的锁，使不同的线程能独立地对链表不同部分进行操作。每个节点的锁将保护连接指针以及在该节点中存储的数据，遍历或者修改该链表时，必须持有该节点的锁</p>
-<h3 id="2-性能因素考虑"><a href="#2-性能因素考虑" class="headerlink" title="2 性能因素考虑"></a>2 性能因素考虑</h3><p>性能是个不断变化的指标，如果在昨天的测试基准中发现 X 比 Y 更快，那么在今天就可能已经过时了。</p>
-<h3 id="3-公平性"><a href="#3-公平性" class="headerlink" title="3 公平性"></a>3 公平性</h3><ul>
+<h5 id="1-3-非块结构的加锁"><a class="header-anchor" href="#1-3-非块结构的加锁">¶</a>1.3 非块结构的加锁</h5>
+<p>通过降低锁的颗粒度来提高代码的可伸缩性。</p>
+<p>连锁式加锁或者锁耦：<br>
+为每个链表节点使用一个独立的锁，使不同的线程能独立地对链表不同部分进行操作。每个节点的锁将保护连接指针以及在该节点中存储的数据，遍历或者修改该链表时，必须持有该节点的锁</p>
+<h3 id="2-性能因素考虑"><a class="header-anchor" href="#2-性能因素考虑">¶</a>2 性能因素考虑</h3>
+<p>性能是个不断变化的指标，如果在昨天的测试基准中发现 X 比 Y 更快，那么在今天就可能已经过时了。</p>
+<h3 id="3-公平性"><a class="header-anchor" href="#3-公平性">¶</a>3 公平性</h3>
+<ul>
 <li>公平的锁：按照发出请求的顺序来获得锁</li>
-<li>非公平的锁（默认）：允许插队 </li>
+<li>非公平的锁（默认）：允许插队</li>
 </ul>
 <p>当执行加锁操作时，公平性将由于在挂起线程和恢复线程时存在的开销降低性能。统计上的公平性保证一确保被阻塞的线程能最终获得锁，通常已经够用了，并且实际开销也小得多。</p>
-<h3 id="4-在-synchronized-和-ReentrantLock-之间进行选择"><a href="#4-在-synchronized-和-ReentrantLock-之间进行选择" class="headerlink" title="4 在 synchronized 和 ReentrantLock 之间进行选择"></a>4 在 synchronized 和 ReentrantLock 之间进行选择</h3><p>当需要一些高级功能时才应该使用ReenfrantLock，这些功能包括：可定时的、可轮询的与可中断的锁获取操作，公平队列，以及非块结、构的锁。否则，还是应该优先使用synchronized。</p>
-<h3 id="5-读-写锁"><a href="#5-读-写锁" class="headerlink" title="5 读-写锁"></a>5 读-写锁</h3><p>一个资源可以被多个读操作访问，或者被一个写操作访问，但两者不能同时进行。在这种情况下就可以使用读/写锁。</p>
+<h3 id="4-在-synchronized-和-ReentrantLock-之间进行选择"><a class="header-anchor" href="#4-在-synchronized-和-ReentrantLock-之间进行选择">¶</a>4 在 synchronized 和 ReentrantLock 之间进行选择</h3>
+<p>当需要一些高级功能时才应该使用ReenfrantLock，这些功能包括：可定时的、可轮询的与可中断的锁获取操作，公平队列，以及非块结、构的锁。否则，还是应该优先使用synchronized。</p>
+<h3 id="5-读-写锁"><a class="header-anchor" href="#5-读-写锁">¶</a>5 读-写锁</h3>
+<p>一个资源可以被多个读操作访问，或者被一个写操作访问，但两者不能同时进行。在这种情况下就可以使用读/写锁。</p>
 <p>ReadWriteLock 中的读取锁和写入锁只是读-写锁对象的不同视图。</p>
 <ul>
 <li>ReentrantReadWriteLock 为读写锁提供了可重入的加锁语义</li>
@@ -4411,19 +4443,23 @@
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

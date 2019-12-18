@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		3 线程状态 | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,27 +4395,38 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:48</span>
+	<span id="post-date">2019-12-18 01:00:41</span>
 </div>
 
 
 <div id="article">
-	<h3 id="线程状态"><a href="#线程状态" class="headerlink" title="线程状态"></a>线程状态</h3><p>线程可以有如下 6 种状态：</p>
+	<h3 id="线程状态"><a class="header-anchor" href="#线程状态">¶</a>线程状态</h3>
+<p>线程可以有如下 6 种状态：</p>
 <ul>
-<li><strong>New(新建)</strong><br>创建后，尚未启动的线程</li>
-<li><strong>Runable(可运行)</strong><ul>
+<li><strong>New(新建)</strong><br>
+创建后，尚未启动的线程</li>
+<li><strong>Runable(可运行)</strong>
+<ul>
 <li>正在JVM中执行的线程处于这种状态（注意不是在CPU中执行，见2）</li>
 <li>Runable对应了两种OS线程状态Running和Ready，也就说Runable状态的Java线程有可能正在执行，也有可能正在等待CPU为它分配执行时间</li>
 </ul>
 </li>
-<li><strong>Blocked(被阻塞)</strong><br>当一个线程试图获取一个内部的对象锁，而该锁被其他线程所持有，则该线程锁进入阻塞状态。</li>
-<li><strong>Waiting(等待)</strong><br>当线程等待另一个线程通知调度器一个条件时，它自己进入等待状态。调用进入Waiting状态：Object.wait、Thread.join、LockSupport.park()</li>
-<li><strong>Timed Waiting(计时等待)</strong><br>计时等待状态一直保持到超时期满或者接收到适当的通知。调用如下方法的计时版会让线程进入计时等待状态：<br>Object.wait、Thread.join、Thread.sleep、Lock.tryLock、Condition.await、LockSupport.parkNanos()、LockSupport.parkUntil()</li>
-<li><strong>Terminated(被终止)</strong><br>自然退出或未捕获异常导致死亡。已经终止的线程处于这种状态</li>
+<li><strong>Blocked(被阻塞)</strong><br>
+当一个线程试图获取一个内部的对象锁，而该锁被其他线程所持有，则该线程锁进入阻塞状态。</li>
+<li><strong>Waiting(等待)</strong><br>
+当线程等待另一个线程通知调度器一个条件时，它自己进入等待状态。调用进入Waiting状态：Object.wait、Thread.join、LockSupport.park()</li>
+<li><strong>Timed Waiting(计时等待)</strong><br>
+计时等待状态一直保持到超时期满或者接收到适当的通知。调用如下方法的计时版会让线程进入计时等待状态：<br>
+Object.wait、Thread.join、Thread.sleep、Lock.tryLock、Condition.await、LockSupport.parkNanos()、LockSupport.parkUntil()</li>
+<li><strong>Terminated(被终止)</strong><br>
+自然退出或未捕获异常导致死亡。已经终止的线程处于这种状态</li>
 </ul>
 <p>要确定一个线程的当前状态，可调用 getState 方法。</p>
 <pre><code>Thread.getState()//得到线程的状态
-Thread.join()//等待终止指定的线程</code></pre><h4 id="状态转换"><a href="#状态转换" class="headerlink" title="状态转换"></a>状态转换</h4><p><img src="/images/1545011843644.jpg" alt=""></p>
+Thread.join()//等待终止指定的线程
+</code></pre>
+<h4 id="状态转换"><a class="header-anchor" href="#状态转换">¶</a>状态转换</h4>
+<p><img src="/images/1545011843644.jpg" alt=""></p>
 
 </div>
 
@@ -4402,19 +4436,23 @@ Thread.join()//等待终止指定的线程</code></pre><h4 id="状态转换"><a 
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

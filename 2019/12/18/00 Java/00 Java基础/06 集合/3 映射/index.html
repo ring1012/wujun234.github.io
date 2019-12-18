@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		3 映射 | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,39 +4395,66 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:46</span>
+	<span id="post-date">2019-12-18 01:00:41</span>
 </div>
 
 
 <div id="article">
-	<p>映射(map) 用来存放键 / 值对。如<br>果提供了键， 就能够查找到值。 </p>
-<h3 id="1-基本映射操作"><a href="#1-基本映射操作" class="headerlink" title="1　基本映射操作"></a>1　基本映射操作</h3><p>Java 类库为映射提供了两个通用的实现： HashMap 和 TreeMap 。这两个类都实现了 Map 接口。</p>
+	<p>映射(map) 用来存放键 / 值对。如<br>
+果提供了键， 就能够查找到值。</p>
+<h3 id="1-基本映射操作"><a class="header-anchor" href="#1-基本映射操作">¶</a>1　基本映射操作</h3>
+<p>Java 类库为映射提供了两个通用的实现： HashMap 和 TreeMap 。这两个类都实现了 Map 接口。</p>
 <p>散列映射对键进行散列， 树映射用键的整体顺序对元素进行排序， 并将其组织成搜索树。</p>
 <p>键必须是唯一的。不能对同一个键存放两个值。 put 将返回用这个键参数存储的上一个值。</p>
 <p>remove 方法用于从映射中删除给定键对应的元素。 size 方法用于返回映射中的元素数。</p>
-<h3 id="2-更新映射项"><a href="#2-更新映射项" class="headerlink" title="2　更新映射项"></a>2　更新映射项</h3><pre><code>counts.put (word, counts.get(word)+ 1)</code></pre><p>第一次看到 word 时。在这种情况下，get 会返回 null<br>简单的补救：</p>
+<h3 id="2-更新映射项"><a class="header-anchor" href="#2-更新映射项">¶</a>2　更新映射项</h3>
+<pre><code>counts.put (word, counts.get(word)+ 1)
+</code></pre>
+<p>第一次看到 word 时。在这种情况下，get 会返回 null<br>
+简单的补救：</p>
 <ul>
-<li>getOrDefault 方法：提供默认值<pre><code>counts,put(word, counts.getOrDefault(word, 0)+ 1);</code></pre></li>
-<li>putlfAbsent 方法：只有当键原先存在时才会放入一个值。<pre><code>counts.putlfAbsent (word, 0);
-counts.put (word, counts.get(word)+ 1); // Now we know that get will succeed</code></pre></li>
+<li>getOrDefault 方法：提供默认值</li>
+</ul>
+<pre><code>counts,put(word, counts.getOrDefault(word, 0)+ 1);
+</code></pre>
+<ul>
+<li>putlfAbsent 方法：只有当键原先存在时才会放入一个值。</li>
+</ul>
+<pre><code>counts.putlfAbsent (word, 0);
+counts.put (word, counts.get(word)+ 1); // Now we know that get will succeed
+</code></pre>
+<ul>
 <li>merge 方法：如果键原先不存在，将把 word 与 1 关联，否则使用 Integer::sum 函数组合原值和 1</li>
 </ul>
-<pre><code>counts.merge(word, 1, Integer::sum)</code></pre><h3 id="3-映射视图"><a href="#3-映射视图" class="headerlink" title="3　映射视图"></a>3　映射视图</h3><p>集合框架不认为映射本身是一个集合。不过， 可以得到映射的视图——实现了Collection 接口或某个子接口的对象。</p>
+<pre><code>counts.merge(word, 1, Integer::sum)
+</code></pre>
+<h3 id="3-映射视图"><a class="header-anchor" href="#3-映射视图">¶</a>3　映射视图</h3>
+<p>集合框架不认为映射本身是一个集合。不过， 可以得到映射的视图——实现了Collection 接口或某个子接口的对象。</p>
 <p>有 3 种视图： 键集、 值集合（不是一个集） 以及键 / 值对集。</p>
 <pre><code>Set&lt;K&gt; keySet()
 Collection&lt;V&gt; values()
-Set&lt;Map.Entry&lt;K, V&gt; entrySet()</code></pre><p>如果在键集视图上调用迭代器的 remove 方法， 实际上会从映射中删除这个键和与它关联的值。</p>
+Set&lt;Map.Entry&lt;K, V&gt; entrySet()
+</code></pre>
+<p>如果在键集视图上调用迭代器的 remove 方法， 实际上会从映射中删除这个键和与它关联的值。</p>
 <p>如果试图调用 add 方法， 它会抛出一个 UnsupportedOperationException。</p>
-<h3 id="4-弱散列映射"><a href="#4-弱散列映射" class="headerlink" title="4　弱散列映射"></a>4　弱散列映射</h3><p>WeakHashMap使用弱引用保存键</p>
-<h3 id="5-链接散列集与映射"><a href="#5-链接散列集与映射" class="headerlink" title="5　链接散列集与映射"></a>5　链接散列集与映射</h3><p>LinkedHashSet 和 LinkedHashMap类用来记住插人元素项的顺序。</p>
+<h3 id="4-弱散列映射"><a class="header-anchor" href="#4-弱散列映射">¶</a>4　弱散列映射</h3>
+<p>WeakHashMap使用弱引用保存键</p>
+<h3 id="5-链接散列集与映射"><a class="header-anchor" href="#5-链接散列集与映射">¶</a>5　链接散列集与映射</h3>
+<p>LinkedHashSet 和 LinkedHashMap类用来记住插人元素项的顺序。</p>
 <p>链接散列映射将用访问顺序， 而不是插入顺序， 对映射条目进行迭代。</p>
-<h3 id="6-枚举集与映射"><a href="#6-枚举集与映射" class="headerlink" title="6　枚举集与映射"></a>6　枚举集与映射</h3><p>EmimSet 是一个枚举类型元素集的高效实现。 由于枚举类型只有有限个实例， 所以EnumSet 内部用位序列实现。如果对应的值在集中， 则相应的位被置为 1。</p>
+<h3 id="6-枚举集与映射"><a class="header-anchor" href="#6-枚举集与映射">¶</a>6　枚举集与映射</h3>
+<p>EmimSet 是一个枚举类型元素集的高效实现。 由于枚举类型只有有限个实例， 所以EnumSet 内部用位序列实现。如果对应的值在集中， 则相应的位被置为 1。</p>
 <pre><code>enum Weekday { MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY, SUNDAY };
 EnumSet&lt;Weekday&gt; always = EnumSet.allOf(Weekday.class);
 EnumSet&lt;Weekday&gt; never = EnumSet.noneOf(Weekday.class);
 EnumSet&lt;Weekday&gt; workday = EnumSet.range(Weekday.MONDAY, Weekday.FRIDAY);
-EnumSet&lt;Weekday&gt; mwf = EnumSet.of(Weekday.MONDAY, Weekday.WEDNESDAY, Weekday.FRIDAY);</code></pre><p>EnumMap 是一个键类型为枚举类型的映射。它可以直接且高效地用一个值数组实现。</p>
-<pre><code>EnumMap&lt;Weekday, Employee〉 personlnCharge = new EnumMapo(Weekday.class);</code></pre><h3 id="7-标识散列映射"><a href="#7-标识散列映射" class="headerlink" title="7　标识散列映射"></a>7　标识散列映射</h3><p>IdentityHashMap 类散列值用 System.identityHashCode 方法计算, 这是 Object.hashCode 方法根据对象的内存地址来计算散列码时所使用的方式。 </p>
+EnumSet&lt;Weekday&gt; mwf = EnumSet.of(Weekday.MONDAY, Weekday.WEDNESDAY, Weekday.FRIDAY);
+</code></pre>
+<p>EnumMap 是一个键类型为枚举类型的映射。它可以直接且高效地用一个值数组实现。</p>
+<pre><code>EnumMap&lt;Weekday, Employee〉 personlnCharge = new EnumMapo(Weekday.class);
+</code></pre>
+<h3 id="7-标识散列映射"><a class="header-anchor" href="#7-标识散列映射">¶</a>7　标识散列映射</h3>
+<p>IdentityHashMap 类散列值用 System.identityHashCode 方法计算, 这是 Object.hashCode 方法根据对象的内存地址来计算散列码时所使用的方式。</p>
 <p>在对两个对象进行比较时， IdentityHashMap 类使用 ==, 而不使用 equals。</p>
 <p>不同的键对象， 即使内容相同， 也被视为是不同的对象。 在实现对象遍历算法 （如对象串行化）时， 这个类非常有用， 可以用来跟踪每个对象的遍历状况。</p>
 
@@ -4416,19 +4466,23 @@ EnumSet&lt;Weekday&gt; mwf = EnumSet.of(Weekday.MONDAY, Weekday.WEDNESDAY, Weekd
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

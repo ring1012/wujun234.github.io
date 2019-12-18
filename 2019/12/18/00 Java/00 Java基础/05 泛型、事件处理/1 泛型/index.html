@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		1 泛型 | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,50 +4395,75 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:46</span>
+	<span id="post-date">2019-12-18 01:00:41</span>
 </div>
 
 
 <div id="article">
-	<h4 id="1-泛型类"><a href="#1-泛型类" class="headerlink" title="1 泛型类"></a>1 泛型类</h4><p>泛型类可以有多个<strong>类型变量</strong>，用尖括号（&lt; &gt;）括起来，并放在类名的后面。<br>通常用E表示集合的元素类型， K和V分别表示表的关键字与值的类型。 T、U、S等表示“任意类型”。<br>泛型类可看作普通类的工厂。</p>
+	<h4 id="1-泛型类"><a class="header-anchor" href="#1-泛型类">¶</a>1 泛型类</h4>
+<p>泛型类可以有多个<strong>类型变量</strong>，用尖括号（&lt; &gt;）括起来，并放在类名的后面。<br>
+通常用E表示集合的元素类型， K和V分别表示表的关键字与值的类型。 T、U、S等表示“任意类型”。<br>
+泛型类可看作普通类的工厂。</p>
 <pre><code>public class Pair&lt;T,U&gt;{}
 public class Pair&lt;T&gt;{
     private T first;
     public Pair(T first){ this.first=first;}
     public T getFirst(){ return first;}
     public void setFirst(T first){ this.first=first;}
-}</code></pre><h4 id="2-泛型方法"><a href="#2-泛型方法" class="headerlink" title="2 泛型方法"></a>2 泛型方法</h4><p>泛型方法可以定义在普通类中，也可以定义在泛型类中。<br>只有声明了<T>的方法才是泛型方法<br>类型变量放在修饰符的后面，返回类型的前面。</p>
+}
+</code></pre>
+<h4 id="2-泛型方法"><a class="header-anchor" href="#2-泛型方法">¶</a>2 泛型方法</h4>
+<p>泛型方法可以定义在普通类中，也可以定义在泛型类中。<br>
+只有声明了<T>的方法才是泛型方法<br>
+类型变量放在修饰符的后面，返回类型的前面。</p>
 <pre><code>class ArrayAlg{
     public static &lt;T&gt; T getMiddle(T... a){
         return a[a.length/2];
     }
-}</code></pre><h4 id="3-类型变量的限定"><a href="#3-类型变量的限定" class="headerlink" title="3 类型变量的限定"></a>3 类型变量的限定</h4><p>通过对类型变量T设置限定，对类型变量加以约束。<br>T和绑定类型可以是类，也可以是接口。</p>
-<pre><code>&lt;T extends Bounding Type &gt;</code></pre><p>一个类型变量或通配符可以有多个限定。<br>限定类型用“&amp;”分隔，而逗号用来分隔类型变量。</p>
-<pre><code>&lt;T extends Comparable &amp; Serializable,U&gt;</code></pre><p>在Java的继承中，可以拥有多个接口超类型，但限定中至多有一个类。如果用一个类作为限定，它必须是限定列表中的第一个。</p>
-<h4 id="4-泛型代码和虚拟机"><a href="#4-泛型代码和虚拟机" class="headerlink" title="4 泛型代码和虚拟机"></a>4 泛型代码和虚拟机</h4><h5 id="4-1-原始类型"><a href="#4-1-原始类型" class="headerlink" title="4.1 原始类型"></a>4.1 原始类型</h5><p>虚拟机中没有泛型，泛型类型都会转换为相应普通类，即原始类型。<br>原始类型的名字就是删去类型参数后的泛型类型名。擦除类型变量，并替换为第一个限定类型（无限定的变量用Object）。<br>Pair<T>的原始类型：</p>
+}
+</code></pre>
+<h4 id="3-类型变量的限定"><a class="header-anchor" href="#3-类型变量的限定">¶</a>3 类型变量的限定</h4>
+<p>通过对类型变量T设置限定，对类型变量加以约束。<br>
+T和绑定类型可以是类，也可以是接口。</p>
+<pre><code>&lt;T extends Bounding Type &gt;
+</code></pre>
+<p>一个类型变量或通配符可以有多个限定。<br>
+限定类型用“&amp;”分隔，而逗号用来分隔类型变量。</p>
+<pre><code>&lt;T extends Comparable &amp; Serializable,U&gt;
+</code></pre>
+<p>在Java的继承中，可以拥有多个接口超类型，但限定中至多有一个类。如果用一个类作为限定，它必须是限定列表中的第一个。</p>
+<h4 id="4-泛型代码和虚拟机"><a class="header-anchor" href="#4-泛型代码和虚拟机">¶</a>4 泛型代码和虚拟机</h4>
+<h5 id="4-1-原始类型"><a class="header-anchor" href="#4-1-原始类型">¶</a>4.1 原始类型</h5>
+<p>虚拟机中没有泛型，泛型类型都会转换为相应普通类，即原始类型。<br>
+原始类型的名字就是删去类型参数后的泛型类型名。擦除类型变量，并替换为第一个限定类型（无限定的变量用Object）。<br>
+Pair<T>的原始类型：</p>
 <pre><code>public class Pair{
-    private Object first;
-    public Pair(Object first){this.first=first;}
-    public Object getFirst(){ return first; }
-    public void setFirst(Object first){ this.first=first; }
-}</code></pre><h5 id="4-2-类型转换"><a href="#4-2-类型转换" class="headerlink" title="4.2 类型转换"></a>4.2 类型转换</h5><p>当程序调用泛型方法时，如果擦除返回类型，编译器插入强制类型转换。  </p>
+	private Object first;
+	public Pair(Object first){this.first=first;}
+	public Object getFirst(){ return first; }
+	public void setFirst(Object first){ this.first=first; }
+}
+</code></pre>
+<h5 id="4-2-类型转换"><a class="header-anchor" href="#4-2-类型转换">¶</a>4.2 类型转换</h5>
+<p>当程序调用泛型方法时，如果擦除返回类型，编译器插入强制类型转换。</p>
 <ol>
-<li>调用原始方法  </li>
-<li>将返回的Object对象进行强制类型转换  </li>
+<li>调用原始方法</li>
+<li>将返回的Object对象进行强制类型转换</li>
 </ol>
 <p>当存取一个泛型域时也要插入强制类型转换。</p>
-<h5 id="4-3-桥方法"><a href="#4-3-桥方法" class="headerlink" title="4.3 桥方法"></a>4.3 桥方法</h5><p>当泛型方法被擦除后与多态发生冲突，编译器会在泛型方法类中生成一个桥方法。</p>
+<h5 id="4-3-桥方法"><a class="header-anchor" href="#4-3-桥方法">¶</a>4.3 桥方法</h5>
+<p>当泛型方法被擦除后与多态发生冲突，编译器会在泛型方法类中生成一个桥方法。</p>
 <pre><code>//超类  
 class Pair&lt;T&gt;{
-    public void setSecond(T second){}
+	public void setSecond(T second){}
 }
 //子类  
 class DateInterval extends Pair&lt;Date&gt;{
-    public void setSecond(Date second){}
+	public void setSecond(Date second){}
 }
 //子类被擦除后  
 class DateInterval extends Pair{
-    public void setSecond(Date second){ ... }
+	public void setSecond(Date second){ ... }
 }
 //还有从超类继承的方法  
 public void setSecond(Object second)
@@ -4424,16 +4472,26 @@ DateInterval interval=new DateInterval(...);
 Pair&lt;Date&gt; pair=interval;//OK--assignment to superclass
 pair.setSecond(aDate);
 //编译器在DateInterval类中生成桥方法
-public void setSecond(Object second){ setSecond((Date) second); }</code></pre><h4 id="5-约束与局限性"><a href="#5-约束与局限性" class="headerlink" title="5 约束与局限性"></a>5 约束与局限性</h4><ol>
+public void setSecond(Object second){ setSecond((Date) second); }
+</code></pre>
+<h4 id="5-约束与局限性"><a class="header-anchor" href="#5-约束与局限性">¶</a>5 约束与局限性</h4>
+<ol>
 <li>类型参数不支持基本类型</li>
-<li>运行时类型检查只适用于原始类型<br>instanceof、getClass判断获取的都是原始类型 </li>
-<li>不能抛出或捕获泛型类的实例<br>可在异常声明中</li>
-<li>不能创建参数化类型的数组<br>可以使用ArrayList</li>
-<li>不能实例化类型变量<br>不能使用new T(…),new T[…]或T.class这样的表达式</li>
-<li>泛型类的静态上下文中的类型变量无效<br>不能在静态域或方法中引用类型变量，要重新定义</li>
+<li>运行时类型检查只适用于原始类型<br>
+instanceof、getClass判断获取的都是原始类型</li>
+<li>不能抛出或捕获泛型类的实例<br>
+可在异常声明中</li>
+<li>不能创建参数化类型的数组<br>
+可以使用ArrayList</li>
+<li>不能实例化类型变量<br>
+不能使用new T(…),new T[…]或T.class这样的表达式</li>
+<li>泛型类的静态上下文中的类型变量无效<br>
+不能在静态域或方法中引用类型变量，要重新定义</li>
 <li>注意擦除后的冲突</li>
 </ol>
-<h4 id="6-通配符类型"><a href="#6-通配符类型" class="headerlink" title="6 通配符类型"></a>6 通配符类型</h4><h5 id="6-1-子类型限定"><a href="#6-1-子类型限定" class="headerlink" title="6.1 子类型限定"></a>6.1 子类型限定</h5><? extends Class>
+<h4 id="6-通配符类型"><a class="header-anchor" href="#6-通配符类型">¶</a>6 通配符类型</h4>
+<h5 id="6-1-子类型限定"><a class="header-anchor" href="#6-1-子类型限定">¶</a>6.1 子类型限定</h5>
+<? extends Class>
 ```
 ? extends Employee getFirst()
 void setFirst(? extends Employee)
@@ -4449,8 +4507,11 @@ void setFirst(? super Manager)
 ##### 6.2 无限定通配符
 <?>
 <pre><code>? getFirst()
-void setFirst(?)</code></pre><p>get的返回值只能赋给一个Object，set方法不能被调。  </p>
-<h4 id="8-反射和泛型"><a href="#8-反射和泛型" class="headerlink" title="8 反射和泛型"></a>8 反射和泛型</h4>
+void setFirst(?)
+</code></pre>
+<p>get的返回值只能赋给一个Object，set方法不能被调。</p>
+<h4 id="8-反射和泛型"><a class="header-anchor" href="#8-反射和泛型">¶</a>8 反射和泛型</h4>
+
 </div>
 
 	</div>
@@ -4459,19 +4520,23 @@ void setFirst(?)</code></pre><p>get的返回值只能赋给一个Object，set方
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

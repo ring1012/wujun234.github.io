@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		2 点对点协议 PPP | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,14 +4395,16 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:44</span>
+	<span id="post-date">2019-12-18 01:00:41</span>
 </div>
 
 
 <div id="article">
 	<p>点对点协议PPP(point-to-point protocol)是最常用的数据链路层协议</p>
 <p>PPP 协议是用户计算机和 <strong>ISP</strong> 进行通信所使用的数据链路层协议。</p>
-<h2 id="1-PPP协议的特点"><a href="#1-PPP协议的特点" class="headerlink" title="1 PPP协议的特点"></a>1 PPP协议的特点</h2><h4 id="1）PPP-协议应满足的需求"><a href="#1）PPP-协议应满足的需求" class="headerlink" title="1）PPP 协议应满足的需求"></a>1）PPP 协议应满足的需求</h4><ul>
+<h2 id="1-PPP协议的特点"><a class="header-anchor" href="#1-PPP协议的特点">¶</a>1 PPP协议的特点</h2>
+<h4 id="1）PPP-协议应满足的需求"><a class="header-anchor" href="#1）PPP-协议应满足的需求">¶</a>1）PPP 协议应满足的需求</h4>
+<ul>
 <li>(1)简单：数据链路层没有必要提供比IP协议更多的功能。接收方每收到一个帧，就进行CRC检验，如果CRC检验正确，就收下这个帧，反之就丢弃这个帧</li>
 <li>(2)封装成帧：规定特殊的字符作为帧定界符</li>
 <li>(3)透明性：保证数据传输的透明性</li>
@@ -4391,21 +4416,26 @@
 <li>(9)网络层地址协商：必须提供一种机制使通信的两个网络层实体能知道彼此的网络层地址</li>
 <li>(10)数据压缩协商：必须提供一种，但并未要求标准化</li>
 </ul>
-<h4 id="2）PPP-协议的组成："><a href="#2）PPP-协议的组成：" class="headerlink" title="2）PPP 协议的组成："></a>2）PPP 协议的组成：</h4><ul>
+<h4 id="2）PPP-协议的组成："><a class="header-anchor" href="#2）PPP-协议的组成：">¶</a>2）PPP 协议的组成：</h4>
+<ul>
 <li>(1)一个将IP数据报封装到串行链路的方法。</li>
 <li>(2)一个用来建立、配置和测试数据链路连接的<strong>链路控制协议 LCP</strong>(link control protocol)</li>
 <li>(3)一套<strong>网络控制协议 NCP</strong>(network control protocol)</li>
 </ul>
-<h2 id="2-PPP协议的帧格式"><a href="#2-PPP协议的帧格式" class="headerlink" title="2 PPP协议的帧格式"></a>2 PPP协议的帧格式</h2><h4 id="（1）各字段的含义"><a href="#（1）各字段的含义" class="headerlink" title="（1）各字段的含义"></a>（1）各字段的含义</h4><ul>
+<h2 id="2-PPP协议的帧格式"><a class="header-anchor" href="#2-PPP协议的帧格式">¶</a>2 PPP协议的帧格式</h2>
+<h4 id="（1）各字段的含义"><a class="header-anchor" href="#（1）各字段的含义">¶</a>（1）各字段的含义</h4>
+<ul>
 <li>首部中：有标志字段F、地址字段A和控制字段C，还有2字节的协议字段</li>
 <li>尾部中：有帧检验序列FCS和标志字段F</li>
 </ul>
 <p><img src="/images/1568971327296.jpg" alt="image"></p>
-<h4 id="（2）字节填充"><a href="#（2）字节填充" class="headerlink" title="（2）字节填充"></a>（2）字节填充</h4><ul>
+<h4 id="（2）字节填充"><a class="header-anchor" href="#（2）字节填充">¶</a>（2）字节填充</h4>
+<ul>
 <li>在异步传输中：使用转义字符进行字节填充</li>
 <li>在同步传输中：使用零比特填充，即在连续的1之后添加一个0</li>
 </ul>
-<h2 id="3-PPP协议的工作状态"><a href="#3-PPP协议的工作状态" class="headerlink" title="3 PPP协议的工作状态"></a>3 PPP协议的工作状态</h2><p><img src="/images/1568971327734.jpg" alt="image"></p>
+<h2 id="3-PPP协议的工作状态"><a class="header-anchor" href="#3-PPP协议的工作状态">¶</a>3 PPP协议的工作状态</h2>
+<p><img src="/images/1568971327734.jpg" alt="image"></p>
 <ol>
 <li><strong>链路静止</strong>：PPP链路的起始和终止状态是链路静止(link dead)状态，此时在用户机和ISP的路由器之间没有物理层的连接</li>
 <li><strong>链路建立</strong>：当用户机通过调制解调器呼叫路由器时，路由器检测到发出的载波信号，在双方建立了物理层连接后，进入链路建立(link establish)状态</li>
@@ -4424,19 +4454,23 @@
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

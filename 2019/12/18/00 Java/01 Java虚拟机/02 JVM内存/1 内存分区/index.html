@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		1 内存分区 | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,58 +4395,69 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:51</span>
+	<span id="post-date">2019-12-18 01:00:42</span>
 </div>
 
 
 <div id="article">
 	<p>JVM所管理的内存分为以下几个区域</p>
 <p><img src="/images/1545365485253.jpg" alt="image"></p>
-<h3 id="1-程序计数器"><a href="#1-程序计数器" class="headerlink" title="1 程序计数器"></a>1 程序计数器</h3><ul>
+<h3 id="1-程序计数器"><a class="header-anchor" href="#1-程序计数器">¶</a>1 程序计数器</h3>
+<ul>
 <li>线程私有，是当前线程所执行字节码的<strong>行号指示器</strong>。</li>
 <li>执行java方法，记录正在执行的虚拟机字节码指令的地址；执行native方法，计数器为空。</li>
 <li>JVM中唯一不存在OutOfMemoryError的区域。</li>
 </ul>
-<h3 id="2-虚拟机栈"><a href="#2-虚拟机栈" class="headerlink" title="2 虚拟机栈"></a>2 虚拟机栈</h3><ul>
-<li>线程私有，控制<strong>方法执行</strong>   </li>
+<h3 id="2-虚拟机栈"><a class="header-anchor" href="#2-虚拟机栈">¶</a>2 虚拟机栈</h3>
+<ul>
+<li>线程私有，控制<strong>方法执行</strong></li>
 <li>方法执行时创建一个<strong>栈帧</strong>，存储局部变量表、操作数栈、动态链接、方法出口等信息</li>
 <li>通常所讲的<strong>栈内存</strong>是指虚拟机栈中<strong>局部变量表</strong>部分，存放了<strong>基本数据类型、对象引用和returnAddress类型</strong>；</li>
 <li>方法从调用到执行完成 == 栈帧在虚拟机栈从入栈到出栈。</li>
 </ul>
 <p><img src="/images/1545365485678.jpg" alt="image"></p>
-<h3 id="3-本地方法栈"><a href="#3-本地方法栈" class="headerlink" title="3 本地方法栈"></a>3 本地方法栈</h3><p>同虚拟机栈相似，只不过是调用Native时用到。</p>
-<h3 id="4-堆"><a href="#4-堆" class="headerlink" title="4 堆"></a>4 堆</h3><ul>
+<h3 id="3-本地方法栈"><a class="header-anchor" href="#3-本地方法栈">¶</a>3 本地方法栈</h3>
+<p>同虚拟机栈相似，只不过是调用Native时用到。</p>
+<h3 id="4-堆"><a class="header-anchor" href="#4-堆">¶</a>4 堆</h3>
+<ul>
 <li>存放<strong>对象实例</strong>，线程共享，空间最大。</li>
 <li>内存回收角度：分代算法，新生代、老年代。</li>
 <li>内存分配角度：可划分出多个线程私有的分配缓冲区。</li>
 <li>不需要连续内存，可选择固定大小或可扩展</li>
-<li>较新版本的Java（从Java 6的某个更新开始）中，由于JIT编译器的发展和”逃逸分析”技术的逐渐成熟，栈上分配、标量替换等优化技术，使得对象不一定分配在堆上。</li>
+<li>较新版本的Java（从Java 6的某个更新开始）中，由于JIT编译器的发展和&quot;逃逸分析&quot;技术的逐渐成熟，栈上分配、标量替换等优化技术，使得对象不一定分配在堆上。</li>
 </ul>
-<h4 id="5-方法区"><a href="#5-方法区" class="headerlink" title="5 方法区"></a>5 方法区</h4><ul>
+<h4 id="5-方法区"><a class="header-anchor" href="#5-方法区">¶</a>5 方法区</h4>
+<ul>
 <li>线程共享。存储已加载的<strong>类信息、常量、静态变量、即时编译</strong>后的代码等数据。</li>
 <li>堆的一个逻辑部分，别名“非堆”</li>
 <li>可选择不实现GC，该区域对于垃圾收集来说条件比较苛刻，但是还是非常有必要要进行回收处理</li>
 </ul>
-<h5 id="5-1-HotSpot实现"><a href="#5-1-HotSpot实现" class="headerlink" title="5.1 HotSpot实现"></a>5.1 HotSpot实现</h5><ul>
+<h5 id="5-1-HotSpot实现"><a class="header-anchor" href="#5-1-HotSpot实现">¶</a>5.1 HotSpot实现</h5>
+<ul>
 <li>永久代（PermGen）：jdk1.8之前，HotSpot对方法区的永久代GC实现</li>
 <li>元空间（Metaspace）：jdk1.8之后元空间替代了永久代，<strong>使用本地内存</strong></li>
 </ul>
-<h4 id="6-运行时常量池"><a href="#6-运行时常量池" class="headerlink" title="6 运行时常量池"></a>6 运行时常量池</h4><ul>
+<h4 id="6-运行时常量池"><a class="header-anchor" href="#6-运行时常量池">¶</a>6 运行时常量池</h4>
+<ul>
 <li>方法区一部分</li>
 <li>存储Class文件中编译器生成的各种<strong>字面量，符号引用，直接引用</strong>；</li>
 <li>具备动态性，可以在运行期间将新的常量放入池中，如String的intern方法；</li>
 <li>JDK1.7之后<strong>字符串常量池</strong>移到堆空间</li>
 </ul>
-<h5 id="6-1-String-intern"><a href="#6-1-String-intern" class="headerlink" title="6.1 String.intern()"></a>6.1 String.intern()</h5><p>String.intern()重用String对象</p>
+<h5 id="6-1-String-intern"><a class="header-anchor" href="#6-1-String-intern">¶</a>6.1 String.intern()</h5>
+<p>String.intern()重用String对象</p>
 <ul>
-<li>已包含<br>返回常量池中字符串对象</li>
-<li>未包含<ul>
+<li>已包含<br>
+返回常量池中字符串对象</li>
+<li>未包含
+<ul>
 <li>1.6之前，将字符串对象<strong>复制</strong>到方法区常量池，并返回方法区复制对象的引用</li>
 <li>1.7之后，将字符串对象的<strong>引用</strong>记录到堆中常量池，并返回此对象的引用。</li>
 </ul>
 </li>
 </ul>
-<h3 id="7-直接内存"><a href="#7-直接内存" class="headerlink" title="7 直接内存"></a>7 直接内存</h3><ul>
+<h3 id="7-直接内存"><a class="header-anchor" href="#7-直接内存">¶</a>7 直接内存</h3>
+<ul>
 <li>非JVM内存；</li>
 <li>NIO可以使用Native函数库直接分配对外内存，通过DirectByteBuffer对象作为这块内存的引用进行操作以提升性能；</li>
 </ul>
@@ -4436,19 +4470,23 @@
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

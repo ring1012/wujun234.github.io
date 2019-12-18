@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		1 物理层的基本概念 | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,13 +4395,14 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:44</span>
+	<span id="post-date">2019-12-18 01:00:41</span>
 </div>
 
 
 <div id="article">
 	<p>物理层的作用是尽可能地屏蔽计算机网络中的物理设备、传输媒体、通信方式等方面的差异，使数据链路层感觉不到这些差异。</p>
-<h2 id="1、物理层的基本概念"><a href="#1、物理层的基本概念" class="headerlink" title="1、物理层的基本概念"></a>1、物理层的基本概念</h2><p>物理层的主要任务描述为确定与传输媒体的接口的一些特性： </p>
+<h2 id="1、物理层的基本概念"><a class="header-anchor" href="#1、物理层的基本概念">¶</a>1、物理层的基本概念</h2>
+<p>物理层的主要任务描述为确定与传输媒体的接口的一些特性：</p>
 <ul>
 <li>机械特性：指明接口所用接线器的形状和尺寸、引线数目和排列、固定和锁定装置等等。</li>
 <li>电气特性：指明在接口电缆的各条线上出现的电压的范围。</li>
@@ -4386,7 +4410,9 @@
 <li>规程特性：指明对于不同功能的各种可能事件的出现顺序。</li>
 </ul>
 <p>将计算机内部的“并行”转为通信线路的“串行”</p>
-<h2 id="2、数据通信的基础知识"><a href="#2、数据通信的基础知识" class="headerlink" title="2、数据通信的基础知识"></a>2、数据通信的基础知识</h2><h3 id="1）数据通信系统的模型"><a href="#1）数据通信系统的模型" class="headerlink" title="1）数据通信系统的模型"></a>1）数据通信系统的模型</h3><p>一个数据通信系统可划分为三大部分：</p>
+<h2 id="2、数据通信的基础知识"><a class="header-anchor" href="#2、数据通信的基础知识">¶</a>2、数据通信的基础知识</h2>
+<h3 id="1）数据通信系统的模型"><a class="header-anchor" href="#1）数据通信系统的模型">¶</a>1）数据通信系统的模型</h3>
+<p>一个数据通信系统可划分为三大部分：</p>
 <ul>
 <li>源系统：源点、发送器</li>
 <li>传输系统</li>
@@ -4397,22 +4423,27 @@
 <li><strong>模拟信号</strong>（连续信号）：代表消息的参数的取值是连续的</li>
 <li><strong>数字信号</strong>（离散信号）：代表消息的参数的取值是离散的，代表不同离散数值的基本波形称为码元(symbol)</li>
 </ul>
-<h3 id="2）信道的基本概念"><a href="#2）信道的基本概念" class="headerlink" title="2）信道的基本概念"></a>2）信道的基本概念</h3><p><strong>信道</strong>(channel)一般是用来表示向某一个方向传送信息的媒体，一条通信电路往往包括一条发送信道和一条接收信道</p>
-<h4 id="（1）交互方式"><a href="#（1）交互方式" class="headerlink" title="（1）交互方式"></a>（1）交互方式</h4><ul>
+<h3 id="2）信道的基本概念"><a class="header-anchor" href="#2）信道的基本概念">¶</a>2）信道的基本概念</h3>
+<p><strong>信道</strong>(channel)一般是用来表示向某一个方向传送信息的媒体，一条通信电路往往包括一条发送信道和一条接收信道</p>
+<h4 id="（1）交互方式"><a class="header-anchor" href="#（1）交互方式">¶</a>（1）交互方式</h4>
+<ul>
 <li>单向通信（单工通信）：只能有一个方向的通信而没有反方向的交互</li>
 <li>双向交替通信（半双工通信）：通信的双方都可以发送信息，但不能双方同时发送或同时接收</li>
 <li>双向同时通信（全双工通信）：通信的双方可以同时发送和接收信息</li>
 </ul>
-<h4 id="（2）调制"><a href="#（2）调制" class="headerlink" title="（2）调制"></a>（2）调制</h4><p>来自信源的信号称为<strong>基带信号</strong>（即基本频带信号），包含较多的低频成分，需要进行<strong>调制</strong>(modulation)后才可以在信道中传输</p>
+<h4 id="（2）调制"><a class="header-anchor" href="#（2）调制">¶</a>（2）调制</h4>
+<p>来自信源的信号称为<strong>基带信号</strong>（即基本频带信号），包含较多的低频成分，需要进行<strong>调制</strong>(modulation)后才可以在信道中传输</p>
 <ul>
-<li><strong>基带调制</strong>：仅仅对基带信号的波形进行变换，使它能够与信道特性相适应，变换后的信号仍然是基带信号（编码）<ul>
+<li><strong>基带调制</strong>：仅仅对基带信号的波形进行变换，使它能够与信道特性相适应，变换后的信号仍然是基带信号（编码）
+<ul>
 <li>不归零制：正电平代表1，负电平代表0</li>
 <li>归零制：正脉冲代表1，负脉冲代表0</li>
 <li>曼切斯特编码：位周期中心的向上跳代表0，向下跳代表1。也可以反过来定义</li>
 <li>差分曼切斯特编码：在每一位中心处始终都有跳变。位开始边界有跳变代表0，没有跳变代表1.</li>
 </ul>
 </li>
-<li><strong>带通调制</strong>：使用载波(carrier)进行调制，把基带信号的频率范围搬移到较高的频段，调制后的信号称为带通信号（调制）<ul>
+<li><strong>带通调制</strong>：使用载波(carrier)进行调制，把基带信号的频率范围搬移到较高的频段，调制后的信号称为带通信号（调制）
+<ul>
 <li>调幅(AM)：载波的振幅随基带数字信号而变化</li>
 <li>调频(FM)：载波的频率随基带数字信号而变化</li>
 <li>调相(PM)：载波的初始相位随基带数字信号而变化</li>
@@ -4420,7 +4451,8 @@
 </ul>
 </li>
 </ul>
-<h3 id="3）信道的极限容量"><a href="#3）信道的极限容量" class="headerlink" title="3）信道的极限容量"></a>3）信道的极限容量</h3><p>限制码元在信道上的传输速率的因素：</p>
+<h3 id="3）信道的极限容量"><a class="header-anchor" href="#3）信道的极限容量">¶</a>3）信道的极限容量</h3>
+<p>限制码元在信道上的传输速率的因素：</p>
 <ul>
 <li><strong>信道的频率范围</strong>：在任何信道中，码元传输的速率是有上限的，传输速率超过此上限，就会出现严重的码间串扰的问题，使接收端对码元的判决（即识别）成为不可能（奈氏准则）</li>
 <li><strong>信噪比</strong>：信号的平均功率和噪声的平均功率之比（S/N），信道的带宽或信道中的信噪比越大，信息的极限传输速率就越高</li>
@@ -4431,22 +4463,26 @@
 <li>只要信息传输速率低于信道的极限信息传输速率，就存在某种方法实现无差错的传输</li>
 <li>提高信息的传输速率：用编码的方式使每一个码元携带更多比特的信息量</li>
 </ul>
-<h2 id="3、传输介质及其特性"><a href="#3、传输介质及其特性" class="headerlink" title="3、传输介质及其特性"></a>3、传输介质及其特性</h2><p>传输媒体是数据传输系统中在发送器和接收器之间的物理通路，可以分为导向传输媒体和非导向传输媒体</p>
-<h4 id="（1）导向传输媒体"><a href="#（1）导向传输媒体" class="headerlink" title="（1）导向传输媒体"></a>（1）导向传输媒体</h4><p>指电磁波被导向沿着固体媒体传播</p>
+<h2 id="3、传输介质及其特性"><a class="header-anchor" href="#3、传输介质及其特性">¶</a>3、传输介质及其特性</h2>
+<p>传输媒体是数据传输系统中在发送器和接收器之间的物理通路，可以分为导向传输媒体和非导向传输媒体</p>
+<h4 id="（1）导向传输媒体"><a class="header-anchor" href="#（1）导向传输媒体">¶</a>（1）导向传输媒体</h4>
+<p>指电磁波被导向沿着固体媒体传播</p>
 <ul>
 <li>双绞线：电话线、局域网</li>
 <li>同轴电缆：有线电视</li>
 <li>光缆：多模光纤、单模光纤</li>
 <li>架空明线：已近淘汰</li>
 </ul>
-<h4 id="（2）非导向传输媒体"><a href="#（2）非导向传输媒体" class="headerlink" title="（2）非导向传输媒体"></a>（2）非导向传输媒体</h4><p>指自由空间，在非导向传输媒体中电磁波的传输称为无线传输    </p>
+<h4 id="（2）非导向传输媒体"><a class="header-anchor" href="#（2）非导向传输媒体">¶</a>（2）非导向传输媒体</h4>
+<p>指自由空间，在非导向传输媒体中电磁波的传输称为无线传输</p>
 <ul>
 <li>短波通信：电离层反射。多径效应</li>
 <li>微波接力通信：地面中继站。维护费用高，不隐蔽</li>
 <li>同步卫星通信：人造同步卫星。传播时延大，保密性差</li>
 <li>低轨道卫星通信</li>
 </ul>
-<h2 id="4、信道复用技术"><a href="#4、信道复用技术" class="headerlink" title="4、信道复用技术"></a>4、信道复用技术</h2><p><strong>复用</strong>(multiplexing)是在发送端使用一个复用器将多个信道合并，使用一个共享信道进行通信，在接收端再使用分用器将信息分别送往相应的终点</p>
+<h2 id="4、信道复用技术"><a class="header-anchor" href="#4、信道复用技术">¶</a>4、信道复用技术</h2>
+<p><strong>复用</strong>(multiplexing)是在发送端使用一个复用器将多个信道合并，使用一个共享信道进行通信，在接收端再使用分用器将信息分别送往相应的终点</p>
 <ul>
 <li><strong>频分复用FDM</strong>：所有用户在同样的时间占用不同的带宽资源</li>
 <li><strong>时分复用TDM</strong>：所有用户在不同的时间占用同样的带宽资源</li>
@@ -4454,19 +4490,24 @@
 <li><strong>波分复用WDM</strong>：是光的频分复用。使用一根光纤来同时传输多个频率接近的光载波信号。</li>
 <li><strong>码分复用CDM</strong>：（码分多址CDMA）。各用户使用经过特殊挑选的不同码型，可以在同样的时间使用同样的频带进行通信，相互之间不会造成干扰</li>
 </ul>
-<h2 id="5、数字传输系统"><a href="#5、数字传输系统" class="headerlink" title="5、数字传输系统"></a>5、数字传输系统</h2><p>历史系统缺点：</p>
+<h2 id="5、数字传输系统"><a class="header-anchor" href="#5、数字传输系统">¶</a>5、数字传输系统</h2>
+<p>历史系统缺点：</p>
 <ul>
 <li>速率标准不统一</li>
 <li>不是同步传输</li>
 </ul>
 <p>1988美国新推出标准：同步光纤网SONET。</p>
 <p>基于SONET，制定出国际标准：同步数字系列SDH，也适用于微波和卫星传输。</p>
-<h2 id="6、宽带接入技术"><a href="#6、宽带接入技术" class="headerlink" title="6、宽带接入技术"></a>6、宽带接入技术</h2><h4 id="（1）ADSL技术"><a href="#（1）ADSL技术" class="headerlink" title="（1）ADSL技术"></a>（1）ADSL技术</h4><p>非对称数字用户线 ADSL 技术是用数字技术对现有的模拟电话用户线进行改造。</p>
+<h2 id="6、宽带接入技术"><a class="header-anchor" href="#6、宽带接入技术">¶</a>6、宽带接入技术</h2>
+<h4 id="（1）ADSL技术"><a class="header-anchor" href="#（1）ADSL技术">¶</a>（1）ADSL技术</h4>
+<p>非对称数字用户线 ADSL 技术是用数字技术对现有的模拟电话用户线进行改造。</p>
 <p>低频留给电话，高频用来上网。</p>
-<h4 id="（2）光纤同轴混合网（HFC网）"><a href="#（2）光纤同轴混合网（HFC网）" class="headerlink" title="（2）光纤同轴混合网（HFC网）"></a>（2）光纤同轴混合网（HFC网）</h4><p>光纤同轴混合网（HFC网）是在有线电视网的基础上开发的。</p>
+<h4 id="（2）光纤同轴混合网（HFC网）"><a class="header-anchor" href="#（2）光纤同轴混合网（HFC网）">¶</a>（2）光纤同轴混合网（HFC网）</h4>
+<p>光纤同轴混合网（HFC网）是在有线电视网的基础上开发的。</p>
 <p>需要机顶盒、解调器。</p>
 <p>大量用户同时上网会使网速慢很多。</p>
-<h4 id="（3）FTTx-技术"><a href="#（3）FTTx-技术" class="headerlink" title="（3）FTTx 技术"></a>（3）FTTx 技术</h4><p>光纤到户 FTTH，将光纤铺入家门口。</p>
+<h4 id="（3）FTTx-技术"><a class="header-anchor" href="#（3）FTTx-技术">¶</a>（3）FTTx 技术</h4>
+<p>光纤到户 FTTH，将光纤铺入家门口。</p>
 <p>光配线网 ODN，使数十家庭共用一根光纤干线。</p>
 
 </div>
@@ -4477,19 +4518,23 @@
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		1 插入排序 | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,12 +4395,13 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:43</span>
+	<span id="post-date">2019-12-18 01:00:44</span>
 </div>
 
 
 <div id="article">
-	<h2 id="1、直接插入排序"><a href="#1、直接插入排序" class="headerlink" title="1、直接插入排序"></a>1、直接插入排序</h2><p>直接插入排序(Straight Insertion Sort) 的基本操作是将一个记录插入到已经排好序的有序表中，从而得到一个新的、记录数增 1 的有序袭。</p>
+	<h2 id="1、直接插入排序"><a class="header-anchor" href="#1、直接插入排序">¶</a>1、直接插入排序</h2>
+<p>直接插入排序(Straight Insertion Sort) 的基本操作是将一个记录插入到已经排好序的有序表中，从而得到一个新的、记录数增 1 的有序袭。</p>
 <p><img src="/images/1558694017942.gif" alt=""></p>
 <p>思路：如第0到5范围内的数从小到大排列，第六个数记为temp，此时第temp比第5个数小，那么第5个数往后退，接着再与第4个数比较，如果还是比第4个数小，那么第4个数继续后退，接着如果不小于第3个数，这个时候将temp存到4的位置 。总的来说，就是在一个有序范围内，插入一个该范围之外的数，随着执行下，有序范围逐渐扩大，最后整体有序。</p>
 <pre><code>public static void insert(int array[]){
@@ -4390,8 +4414,12 @@
         }
         array[j]=temp;
     }
-}</code></pre><h3 id="复杂度分析"><a href="#复杂度分析" class="headerlink" title="复杂度分析"></a>复杂度分析</h3><p>同样的O(n^2^)时间复杂度，直接插入排序法比冒泡和简单选择排序的性能要好一些。</p>
-<h2 id="2、希尔排序"><a href="#2、希尔排序" class="headerlink" title="2、希尔排序"></a>2、希尔排序</h2><p><img src="/images/1558694019685.gif" alt=""></p>
+}
+</code></pre>
+<h3 id="复杂度分析"><a class="header-anchor" href="#复杂度分析">¶</a>复杂度分析</h3>
+<p>同样的O(n<sup>2</sup>)时间复杂度，直接插入排序法比冒泡和简单选择排序的性能要好一些。</p>
+<h2 id="2、希尔排序"><a class="header-anchor" href="#2、希尔排序">¶</a>2、希尔排序</h2>
+<p><img src="/images/1558694019685.gif" alt=""></p>
 <p>思路：希尔排序是在插入排序的基础上进一步改进的。</p>
 <ul>
 <li>插入排序每一次移动只能移动一位，而希尔排序可以按步长移动。</li>
@@ -4417,7 +4445,10 @@
         }
         gap=gap/2;
     }
-}</code></pre><h4 id="复杂度分析-1"><a href="#复杂度分析-1" class="headerlink" title="复杂度分析"></a>复杂度分析</h4><p>选好增量序列，可以达到O(n^3/2^)</p>
+}
+</code></pre>
+<h4 id="复杂度分析-v2"><a class="header-anchor" href="#复杂度分析-v2">¶</a>复杂度分析</h4>
+<p>选好增量序列，可以达到O(n<sup>3/2</sup>)</p>
 
 </div>
 
@@ -4427,19 +4458,23 @@
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

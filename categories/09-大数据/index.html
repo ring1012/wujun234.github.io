@@ -1,10 +1,30 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +35,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4369,15 +4390,12 @@
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/09%20%E5%A4%A7%E6%95%B0%E6%8D%AE/1%20Hadoop/">1 Hadoop</a>
+					<a class="article-title" href="/2019/12/18/09%20%E5%A4%A7%E6%95%B0%E6%8D%AE/7%20Sqoop%E6%BA%90%E7%A0%81%20-%20%20%E4%BB%8E%20MySQL%20%E5%AF%BC%E5%85%A5%E5%88%B0%20Hive/">7 Sqoop源码 -  从 MySQL 导入到 Hive</a>
 				</h2>
 				<span class="post-date">2019-12-18</span>
 				<div class="article-digest">
-					1 整体框架
-
-HDFS: 分布式文件存储
-YARN: 分布式资源管理，允许任何一个分布式程序（不仅仅是 MapReduce）基于 Hadoop 集群的数据运行
-MapReduce: 批处理。分布式计
+					Sqoop 源码 ：https://github.com/apache/sqoop
+Sqoop 用户手册 ：http://sqoop.apache.org/docs/1.4.6/SqoopUserGu
 					...
 				</div>
 			</article>
@@ -4386,13 +4404,39 @@ MapReduce: 批处理。分布式计
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/09%20%E5%A4%A7%E6%95%B0%E6%8D%AE/3%20MapReduce/">3 MapReduce</a>
+					<a class="article-title" href="/2019/12/18/09%20%E5%A4%A7%E6%95%B0%E6%8D%AE/6%20Hive/">6 Hive</a>
 				</h2>
 				<span class="post-date">2019-12-18</span>
 				<div class="article-digest">
-					MapReduce建立在HDFS基础上，为海量的数据提供了一个计算框架。由两个阶段组成：Map和Reduce，用户只需实现map()和reduce()两个函数，即可实现分布式计算。
+					HIVE官网
+¶1 HIVE 简介
 
-1 架构主从结构
+是基于 Hadoop 的一个数据仓库工具
+可以将结构化的数据映射为一张数据库表
+并提供 HQL(Hive SQL)查询功能
+底层数据是存储在 HDFS 上
+Hiv
+					...
+				</div>
+			</article>
+			
+		
+
+			<article class="article-li">
+				<h2>
+					<a class="article-title" href="/2019/12/18/09%20%E5%A4%A7%E6%95%B0%E6%8D%AE/5%20HBase/">5 HBase</a>
+				</h2>
+				<span class="post-date">2019-12-18</span>
+				<div class="article-digest">
+					HBASE官网
+参考：
+HBase 深入浅出
+¶1 HBase 简介
+
+HBase（Hadoop Database）是Bigtable的开源实现
+稀疏的，面向列
+基于HDFS，高可靠，可伸缩
+利用Zo
 					...
 				</div>
 			</article>
@@ -4418,13 +4462,30 @@ Task
 
 			<article class="article-li">
 				<h2>
+					<a class="article-title" href="/2019/12/18/09%20%E5%A4%A7%E6%95%B0%E6%8D%AE/3%20MapReduce/">3 MapReduce</a>
+				</h2>
+				<span class="post-date">2019-12-18</span>
+				<div class="article-digest">
+					MapReduce建立在HDFS基础上，为海量的数据提供了一个计算框架。由两个阶段组成：Map和Reduce，用户只需实现map()和reduce()两个函数，即可实现分布式计算。
+
+¶1 架构
+主从
+					...
+				</div>
+			</article>
+			
+		
+
+			<article class="article-li">
+				<h2>
 					<a class="article-title" href="/2019/12/18/09%20%E5%A4%A7%E6%95%B0%E6%8D%AE/2%20HDFS/">2 HDFS</a>
 				</h2>
 				<span class="post-date">2019-12-18</span>
 				<div class="article-digest">
 					HDFS官网
-1 简介HDFS 是 GFS（Google File System）的克隆版本。
-HDFS（Hadoop Distributed File System）是Hadoop项目的核心子项目，
+¶1 简介
+HDFS 是 GFS（Google File System）的克隆版本。
+HDFS（Hadoop Distributed File System）是Hadoop项目的核心子项
 					...
 				</div>
 			</article>
@@ -4433,49 +4494,16 @@ HDFS（Hadoop Distributed File System）是Hadoop项目的核心子项目，
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/09%20%E5%A4%A7%E6%95%B0%E6%8D%AE/5%20HBase/">5 HBase</a>
+					<a class="article-title" href="/2019/12/18/09%20%E5%A4%A7%E6%95%B0%E6%8D%AE/1%20Hadoop/">1 Hadoop</a>
 				</h2>
 				<span class="post-date">2019-12-18</span>
 				<div class="article-digest">
-					HBASE官网
-参考：HBase 深入浅出
-1 HBase 简介
-HBase（Hadoop Database）是Bigtable的开源实现
-稀疏的，面向列
-基于HDFS，高可靠，可伸缩
-利用Zooke
-					...
-				</div>
-			</article>
-			
-		
+					¶1 整体框架
 
-			<article class="article-li">
-				<h2>
-					<a class="article-title" href="/2019/12/18/09%20%E5%A4%A7%E6%95%B0%E6%8D%AE/7%20Sqoop%E6%BA%90%E7%A0%81%20-%20%20%E4%BB%8E%20MySQL%20%E5%AF%BC%E5%85%A5%E5%88%B0%20Hive/">7 Sqoop源码 -  从 MySQL 导入到 Hive</a>
-				</h2>
-				<span class="post-date">2019-12-18</span>
-				<div class="article-digest">
-					Sqoop 源码 ：https://github.com/apache/sqoopSqoop 用户手册 ：http://sqoop.apache.org/docs/1.4.6/SqoopUserGui
-					...
-				</div>
-			</article>
-			
-		
 
-			<article class="article-li">
-				<h2>
-					<a class="article-title" href="/2019/12/18/09%20%E5%A4%A7%E6%95%B0%E6%8D%AE/6%20Hive/">6 Hive</a>
-				</h2>
-				<span class="post-date">2019-12-18</span>
-				<div class="article-digest">
-					HIVE官网
-1 HIVE 简介
-是基于 Hadoop 的一个数据仓库工具
-可以将结构化的数据映射为一张数据库表
-并提供 HQL(Hive SQL)查询功能
-底层数据是存储在 HDFS 上
-Hive的
+HDFS: 分布式文件存储
+YARN: 分布式资源管理，允许任何一个分布式程序（不仅仅是 MapReduce）基于 Hadoop 集群的数据运行
+MapReduce: 批处理。分布
 					...
 				</div>
 			</article>
@@ -4489,19 +4517,23 @@ Hive的
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

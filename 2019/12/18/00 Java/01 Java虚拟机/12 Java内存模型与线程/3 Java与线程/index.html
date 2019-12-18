@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		3 Java与线程 | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,28 +4395,37 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:52</span>
+	<span id="post-date">2019-12-18 01:00:42</span>
 </div>
 
 
 <div id="article">
-	<h3 id="1-线程的实现"><a href="#1-线程的实现" class="headerlink" title="1 线程的实现"></a>1 线程的实现</h3><p>线程是比进程更轻量级的调度执行单位，线程的引入可以把一个进程的资源分配和执行调度分开，各个线程既可以共享进程资源又可以独立调度；</p>
-<h5 id="Thread类"><a href="#Thread类" class="headerlink" title="Thread类"></a>Thread类</h5><p>Thread类与大部分的Java API有显著的差别，它的所有关键方法都是声明为Native的；</p>
-<h5 id="实现方式"><a href="#实现方式" class="headerlink" title="实现方式"></a>实现方式</h5><p>实现线程主要有三种方式：</p>
+	<h3 id="1-线程的实现"><a class="header-anchor" href="#1-线程的实现">¶</a>1 线程的实现</h3>
+<p>线程是比进程更轻量级的调度执行单位，线程的引入可以把一个进程的资源分配和执行调度分开，各个线程既可以共享进程资源又可以独立调度；</p>
+<h5 id="Thread类"><a class="header-anchor" href="#Thread类">¶</a>Thread类</h5>
+<p>Thread类与大部分的Java API有显著的差别，它的所有关键方法都是声明为Native的；</p>
+<h5 id="实现方式"><a class="header-anchor" href="#实现方式">¶</a>实现方式</h5>
+<p>实现线程主要有三种方式：</p>
 <ul>
-<li>使用内核线程实现<br>（一对一线程模型，系统调用代价相对较高、一个系统支持轻量级进程的数量是有限的）</li>
-<li>使用用户线程实现<br>（一对N线程模型，优势在于不需要系统内核支援，劣势在于所有线程操作都需要用户程序自己处理）</li>
-<li>使用用户线程加轻量级进程混合实现<br>（N对M线程模型，用户线程是完全建立在用户空间中，因此用户线程的创建、切换等操作依然廉价，并且可以支持大规模的用户线程并发；而操作系统提供支持的轻量级进程则作为用户线程和内核线程之间的桥梁，这样可以使用内核提供的线程调度功能及处理器映射，并且用户线程的系统调用要通过轻量级线程来完成，大大降低了整个进程被完全阻塞的风险）；</li>
+<li>使用内核线程实现<br>
+（一对一线程模型，系统调用代价相对较高、一个系统支持轻量级进程的数量是有限的）</li>
+<li>使用用户线程实现<br>
+（一对N线程模型，优势在于不需要系统内核支援，劣势在于所有线程操作都需要用户程序自己处理）</li>
+<li>使用用户线程加轻量级进程混合实现<br>
+（N对M线程模型，用户线程是完全建立在用户空间中，因此用户线程的创建、切换等操作依然廉价，并且可以支持大规模的用户线程并发；而操作系统提供支持的轻量级进程则作为用户线程和内核线程之间的桥梁，这样可以使用内核提供的线程调度功能及处理器映射，并且用户线程的系统调用要通过轻量级线程来完成，大大降低了整个进程被完全阻塞的风险）；</li>
 </ul>
 <p>对于Sun JDK来说，它的Windows版与Linux版都是使用一对一的线程模型实现的，一条Java线程就映射到一条轻量级进程之中，因为Windows和Linux系统提供的线程模式就是一对一的；</p>
 <p><img src="/images/1545648769064.jpg" alt="image"></p>
-<h3 id="2-Java线程调度"><a href="#2-Java线程调度" class="headerlink" title="2 Java线程调度"></a>2 Java线程调度</h3><p>线程调度是指系统为线程分配处理器使用权的过程，主要调度方式有两种，分别是</p>
+<h3 id="2-Java线程调度"><a class="header-anchor" href="#2-Java线程调度">¶</a>2 Java线程调度</h3>
+<p>线程调度是指系统为线程分配处理器使用权的过程，主要调度方式有两种，分别是</p>
 <ul>
 <li>协同式线程调度（线程的执行时间由线程本身来控制）</li>
 <li>抢占式线程调度（线程由系统来分配执行时间，线程的切换不由线程本身来决定）；</li>
 </ul>
 <p>Java语言一共设置了10个级别的线程优先级，不过线程优先级并不是太靠谱，原因就是操作系统的线程优先级不见得总是与Java线程的优先级一一对应，另外优先级还可能被系统自行改变；</p>
-<h3 id="3-状态转换"><a href="#3-状态转换" class="headerlink" title="3 状态转换"></a>3 状态转换</h3><p>Java语言定义了五种线程状态，在任意一个时间点，一个线程只能有且只有其中一种状态，分别是新建（New）、运行（Runnable）、无限期等待（Waiting）、限期等待（Timed Waiting）、阻塞（Blocled）、结束（Terminated）。它们之间相互的转换关系如下所示：<br><img src="/images/1545648769238.jpg" alt="image"></p>
+<h3 id="3-状态转换"><a class="header-anchor" href="#3-状态转换">¶</a>3 状态转换</h3>
+<p>Java语言定义了五种线程状态，在任意一个时间点，一个线程只能有且只有其中一种状态，分别是新建（New）、运行（Runnable）、无限期等待（Waiting）、限期等待（Timed Waiting）、阻塞（Blocled）、结束（Terminated）。它们之间相互的转换关系如下所示：<br>
+<img src="/images/1545648769238.jpg" alt="image"></p>
 
 </div>
 
@@ -4403,19 +4435,23 @@
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

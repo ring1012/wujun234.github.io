@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		1 Docker笔记 | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,35 +4395,56 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:41</span>
+	<span id="post-date">2019-12-18 01:00:44</span>
 </div>
 
 
 <div id="article">
-	<h2 id="Docker简介"><a href="#Docker简介" class="headerlink" title="Docker简介"></a>Docker简介</h2><p>Docker是一个虚拟环境容器，可以将开发环境、代码、配置文件等一并打包到这个容器中，并发布和应用到任意平台中。</p>
-<h2 id="Docker架构"><a href="#Docker架构" class="headerlink" title="Docker架构"></a>Docker架构</h2><h4 id="架构"><a href="#架构" class="headerlink" title="架构"></a>架构</h4><p>Docker使用Go语言进行开发，使用的是客户端/服务器（C/S）架构的模式。<br><img src="/images/1545712505423.png" alt="Docker架构"></p>
+	<h2 id="Docker简介"><a class="header-anchor" href="#Docker简介">¶</a>Docker简介</h2>
+<p>Docker是一个虚拟环境容器，可以将开发环境、代码、配置文件等一并打包到这个容器中，并发布和应用到任意平台中。</p>
+<h2 id="Docker架构"><a class="header-anchor" href="#Docker架构">¶</a>Docker架构</h2>
+<h4 id="架构"><a class="header-anchor" href="#架构">¶</a>架构</h4>
+<p>Docker使用Go语言进行开发，使用的是客户端/服务器（C/S）架构的模式。<br>
+<img src="/images/1545712505423.png" alt="Docker架构"></p>
 <ul>
 <li>Docker 客户端：是主要的用户与 Docker 交互方式。它接收用户指令并且与背后的 Docker 守护进程通信。</li>
-<li>Docker 守护进程：用户并不直接和守护进程进行交互，而是通过 Docker 客户端间接和其通信。<h4 id="技术依赖"><a href="#技术依赖" class="headerlink" title="技术依赖"></a>技术依赖</h4><img src="/images/1545712505458.png" alt="Docker技术依赖"><br>Docker依赖linux kernel三项最基本的技术。</li>
+<li>Docker 守护进程：用户并不直接和守护进程进行交互，而是通过 Docker 客户端间接和其通信。</li>
+</ul>
+<h4 id="技术依赖"><a class="header-anchor" href="#技术依赖">¶</a>技术依赖</h4>
+<p><img src="/images/1545712505458.png" alt="Docker技术依赖"><br>
+Docker依赖linux kernel三项最基本的技术。</p>
+<ul>
 <li>namespaces：命名空间，对Docker容器进行隔离。让容器拥有独立的hostname，ip，pid;</li>
 <li>Cgroups：资源配额，是容器对宿主机资源进行核算并限制的关键功能。</li>
 <li>union FS：采用copy-on-write技术，让镜像共用某一层，对于某些差异层在差异的内存存储。</li>
 <li>Libcontainer：上面三项技术的封装库。</li>
-<li>Docker engine ：用来控制容器的运行，以及镜像文件的拉取。<h4 id="三种主要部件"><a href="#三种主要部件" class="headerlink" title="三种主要部件"></a>三种主要部件</h4></li>
+<li>Docker engine ：用来控制容器的运行，以及镜像文件的拉取。</li>
 </ul>
+<h4 id="三种主要部件"><a class="header-anchor" href="#三种主要部件">¶</a>三种主要部件</h4>
 <ol>
 <li><strong>镜像</strong>（Image）：包含有文件系统的只读模板，提供运行环境。镜像由层 (layers) 组成，有基础镜像、中间件镜像、应用镜像。一层一层构建，每层缓存。</li>
 <li><strong>容器</strong>（Container）：镜像创建容器，应用在容器中运行。容器之间相互隔离。容器从镜像启动时，Docker在镜像的上层创建一个可写层，镜像本身只读。</li>
 <li><strong>仓库</strong>（Repository）：镜像仓库，用tag标示镜像。</li>
 </ol>
-<h2 id="Docker安装"><a href="#Docker安装" class="headerlink" title="Docker安装"></a>Docker安装</h2><p>1、下载脚本并且安装Docker及依赖包</p>
-<pre><code>wget -qO- https://get.docker.com/ | sh</code></pre><p>或</p>
-<pre><code>sudo apt-get install docker-engine</code></pre><p>2、 启动docker 后台服务</p>
+<h2 id="Docker安装"><a class="header-anchor" href="#Docker安装">¶</a>Docker安装</h2>
+<p>1、下载脚本并且安装Docker及依赖包</p>
+<pre><code>wget -qO- https://get.docker.com/ | sh
+</code></pre>
+<p>或</p>
+<pre><code>sudo apt-get install docker-engine
+</code></pre>
+<p>2、 启动docker 后台服务</p>
 <pre><code>sudo service docker start #启动守护进程
 sudo docker run hello-world #校验docker是否安装成功
-sudo service docker stop #关闭守护进程</code></pre><h2 id="Docker使用"><a href="#Docker使用" class="headerlink" title="Docker使用"></a>Docker使用</h2><p>从仓库（一般为DockerHub）下载（pull）一个镜像，Docker执行run方法得到一个容器，用户在容器里执行各种操作。Docker执行commit方法将一个容器转化为镜像。Docker利用login、push等命令将本地镜像推送（push）到仓库。其他机器或服务器上就可以使用该镜像去生成容器，进而运行相应的应用程序了。</p>
+sudo service docker stop #关闭守护进程
+</code></pre>
+<h2 id="Docker使用"><a class="header-anchor" href="#Docker使用">¶</a>Docker使用</h2>
+<p>从仓库（一般为DockerHub）下载（pull）一个镜像，Docker执行run方法得到一个容器，用户在容器里执行各种操作。Docker执行commit方法将一个容器转化为镜像。Docker利用login、push等命令将本地镜像推送（push）到仓库。其他机器或服务器上就可以使用该镜像去生成容器，进而运行相应的应用程序了。</p>
 <ul>
-<li>docker info<h4 id="操作镜像"><a href="#操作镜像" class="headerlink" title="操作镜像"></a>操作镜像</h4></li>
+<li>docker info</li>
+</ul>
+<h4 id="操作镜像"><a class="header-anchor" href="#操作镜像">¶</a>操作镜像</h4>
+<ul>
 <li>docker search：从DockerHub搜索镜像</li>
 <li>docker pull：下载镜像</li>
 <li>docker images：查看当前系统中的images信息</li>
@@ -4408,29 +4452,46 @@ sudo service docker stop #关闭守护进程</code></pre><h2 id="Docker使用"><
 <li>docker save  -o：保存镜像</li>
 <li>docker load -i ：加载镜像</li>
 <li>docker commit：通过修改一个容器来构建镜像</li>
-<li><strong>Docker Build [选项] 路径</strong>：使用Dockerfile构建一个镜像</li>
+<li><strong>Docker Build [选项] 路径</strong>：使用Dockerfile构建一个镜像<br>
+–tag：给镜像命名和打标签，格式时name:tag<br>
+–rm：构建成功后移除临时容器<br>
+–no-cache：构建镜像时不使用缓存<br>
+–force-rm：总是移除临时容器(与rm相比失败也移除)</li>
 </ul>
-<p>–tag：给镜像命名和打标签，格式时name:tag<br>–rm：构建成功后移除临时容器<br>–no-cache：构建镜像时不使用缓存<br>–force-rm：总是移除临时容器(与rm相比失败也移除)  </p>
-<h4 id="操作容器"><a href="#操作容器" class="headerlink" title="操作容器"></a>操作容器</h4><ul>
-<li>docker run：基于镜像启动容器  </li>
-</ul>
-<p>-i：打开并保持stdout<br>-t：分配一个终端（pseudo-tty）。<br>-d：后台运行，所有的stdout都输出到log<br>-p [([<host_interface>:[host_port]])|(<host_port>):]：绑定端口到指定接口，默认不指定绑定 ip 则监听所有网络接口。  </p>
+<h4 id="操作容器"><a class="header-anchor" href="#操作容器">¶</a>操作容器</h4>
 <ul>
+<li>docker run：基于镜像启动容器<br>
+-i：打开并保持stdout<br>
+-t：分配一个终端（pseudo-tty）。<br>
+-d：后台运行，所有的stdout都输出到log<br>
+-p [([&lt;host_interface&gt;:[host_port]])|(&lt;host_port&gt;):]：绑定端口到指定接口，默认不指定绑定 ip 则监听所有网络接口。</li>
 <li>docker start：启动容器</li>
 <li>docker stop ：停止容器</li>
 <li>docker restart ：重启容器</li>
 <li>docker attach：连接指定运行镜像，可进入后台容器</li>
 <li>docker exec：在运行中的容器中命令</li>
 <li>docker rm：删除容器</li>
-<li>退出容器<br>exit：退出<br>ctrl+p ctrl+q ：后台运行<h4 id="操作仓库"><a href="#操作仓库" class="headerlink" title="操作仓库"></a>操作仓库</h4></li>
-<li>镜像发布<br>（1）注册DockerHub账号<br>（2）利用命令docker login登录DockerHub<br>（3）docker push将本地的镜像推送到DockerHub上<br>（4）docker pull下载镜像  </li>
-<li>镜像更新<ul>
+<li>退出容器<br>
+exit：退出<br>
+ctrl+p ctrl+q ：后台运行</li>
+</ul>
+<h4 id="操作仓库"><a class="header-anchor" href="#操作仓库">¶</a>操作仓库</h4>
+<ul>
+<li>镜像发布<br>
+（1）注册DockerHub账号<br>
+（2）利用命令docker login登录DockerHub<br>
+（3）docker push将本地的镜像推送到DockerHub上<br>
+（4）docker pull下载镜像</li>
+<li>镜像更新
+<ul>
 <li>创建容器之后做更改，之后commit生成镜像，然后push到仓库中</li>
 <li>更新Dockerfile。在工作时一般建议这种方式，更简洁明了</li>
 </ul>
 </li>
 </ul>
-<h2 id="Dockerfile"><a href="#Dockerfile" class="headerlink" title="Dockerfile"></a>Dockerfile</h2><p>####Dockerfile结构<br>DockerFile分为四部分组成：基础镜像信息、构建者信息、镜像操作指令和容器启动时执行指令。</p>
+<h2 id="Dockerfile"><a class="header-anchor" href="#Dockerfile">¶</a>Dockerfile</h2>
+<p>####Dockerfile结构<br>
+DockerFile分为四部分组成：基础镜像信息、构建者信息、镜像操作指令和容器启动时执行指令。</p>
 <pre><code># 指明基础镜像
 From ubutu
 # 构建者信息
@@ -4440,30 +4501,71 @@ apt/sourcelist.list
 RUN apt-get update &amp;&amp; apt-get install -y ngnix
 RUN echo &quot;\ndaemon off;&quot;&gt;&gt;/etc/ngnix/nignix.conf
 #容器启动时执行指令
-CMD /usr/sbin/ngnix</code></pre><h4 id="Dockerfile指令"><a href="#Dockerfile指令" class="headerlink" title="Dockerfile指令"></a>Dockerfile指令</h4><p>Dockerfile的基本指令有十三个</p>
+CMD /usr/sbin/ngnix
+</code></pre>
+<h4 id="Dockerfile指令"><a class="header-anchor" href="#Dockerfile指令">¶</a>Dockerfile指令</h4>
+<p>Dockerfile的基本指令有十三个</p>
 <ol>
-<li>FROM<br>FROM <image><br>指定基础源镜像。第一条必须为From指令。多个镜像时，可使用多个From指令。</li>
-<li>MAINTAINER<br>MAINTAINER <name> <email><br>指定构建者信息。</li>
-<li>RUN<br>RUN “command” “param1” “param2”:在/bin/sh上执行<br>Run [“executable” ,”Param1”, “param2”]:使用exec运行。例如：RUN [“/bin/bash”, “-c”,”echo hello”]<br>一句RUN就是一层，每条run指令在当前基础镜像执行，并且提交新镜像。  </li>
-<li>CMD<br>支持三种格式：<br>CMD [“executable” ,”Param1”, “param2”]使用exec执行，推荐<br>CMD command param1 param2，在/bin/sh上执行<br>CMD [“Param1”, “param2”] 提供给ENTRYPOINT做默认参数。<br>每个容器只能执行一条CMD命令，多个CMD命令时，只最后一条被执行。<br>在启动容器的时候提供一个默认的命令项。如果docker   run的时候提供了命令项，就会覆盖掉这个命令。  </li>
-<li>EXPOSE<br>EXPOSE <port> [<port>…]<br>告诉Docker服务器容器对外映射的容器端口号，在docker run -p的时候生效。</li>
-<li>ENV<br>EVN <key> <value> 只能设置一个<br>EVN <key>=<value>允许一次设置多个<br>指定一个环境变量，会被后续 RUN 指令使用，并在容器运行时保持。  </li>
-<li>ADD<br>ADD <src> <dest><br>复制本机文件、目录或远程文件，添加到指定的容器目录，支持GO的正则模糊匹配。如果源是一个目录，只会复制目录下的内容，目录本身不会复制。ADD命令会将复制的压缩文件夹自动解压，这也是与COPY命令最大的不同。  </li>
-<li>COPY<br>COPY <src> <dest><br>COPY除了不能自动解压，也不能复制网络文件。其它功能和ADD相同。  </li>
-<li>ENTRYPOINT<br>ENTRYPOINT [“executable”, “param1”, “param2”]<br>ENTRYPOINT command param1 param2 ：shell中执行<br>和CMD命令一样，唯一的区别是不可被 docker run 提供的参数覆盖。<br>如果要覆盖需要带上选项–entrypoint，如果有多个选项，只有最后一个会生效。  </li>
-<li>VOLUME<br>VOLUME [“path”]<br>在主机上创建一个挂载，挂载到容器的指定路径。docker run -v命令更强大。  </li>
-<li>USER<br>USER daemon<br>指定运行容器时的用户名或UID，后续的RUN、CMD、ENTRYPOINT也会使用指定的用户运行命令。  </li>
-<li>WORKDIR<br>WORKDIR path<br>为后续的 RUN 、 CMD 、 ENTRYPOINT 指令配置工作目录。 </li>
-<li>ONBUILD<br>ONBUILD [INSTRUCTION]<br>配置当所创建的镜像作为其它新创建镜像的基础镜像时，所先执行的操作指令。  </li>
+<li>FROM<br>
+FROM <image><br>
+指定基础源镜像。第一条必须为From指令。多个镜像时，可使用多个From指令。</li>
+<li>MAINTAINER<br>
+MAINTAINER <name> <email><br>
+指定构建者信息。</li>
+<li>RUN<br>
+RUN “command” “param1” “param2”:在/bin/sh上执行<br>
+Run [“executable” ,”Param1”, “param2”]:使用exec运行。例如：RUN [“/bin/bash”, “-c”,”echo hello”]<br>
+一句RUN就是一层，每条run指令在当前基础镜像执行，并且提交新镜像。</li>
+<li>CMD<br>
+支持三种格式：<br>
+CMD [“executable” ,”Param1”, “param2”]使用exec执行，推荐<br>
+CMD command param1 param2，在/bin/sh上执行<br>
+CMD [“Param1”, “param2”] 提供给ENTRYPOINT做默认参数。<br>
+每个容器只能执行一条CMD命令，多个CMD命令时，只最后一条被执行。<br>
+在启动容器的时候提供一个默认的命令项。如果docker   run的时候提供了命令项，就会覆盖掉这个命令。</li>
+<li>EXPOSE<br>
+EXPOSE <port> [<port>…]<br>
+告诉Docker服务器容器对外映射的容器端口号，在docker run -p的时候生效。</li>
+<li>ENV<br>
+EVN <key> <value> 只能设置一个<br>
+EVN <key>=<value>允许一次设置多个<br>
+指定一个环境变量，会被后续 RUN 指令使用，并在容器运行时保持。</li>
+<li>ADD<br>
+ADD <src> <dest><br>
+复制本机文件、目录或远程文件，添加到指定的容器目录，支持GO的正则模糊匹配。如果源是一个目录，只会复制目录下的内容，目录本身不会复制。ADD命令会将复制的压缩文件夹自动解压，这也是与COPY命令最大的不同。</li>
+<li>COPY<br>
+COPY <src> <dest><br>
+COPY除了不能自动解压，也不能复制网络文件。其它功能和ADD相同。</li>
+<li>ENTRYPOINT<br>
+ENTRYPOINT [“executable”, “param1”, “param2”]<br>
+ENTRYPOINT command param1 param2 ：shell中执行<br>
+和CMD命令一样，唯一的区别是不可被 docker run 提供的参数覆盖。<br>
+如果要覆盖需要带上选项–entrypoint，如果有多个选项，只有最后一个会生效。</li>
+<li>VOLUME<br>
+VOLUME [“path”]<br>
+在主机上创建一个挂载，挂载到容器的指定路径。docker run -v命令更强大。</li>
+<li>USER<br>
+USER daemon<br>
+指定运行容器时的用户名或UID，后续的RUN、CMD、ENTRYPOINT也会使用指定的用户运行命令。</li>
+<li>WORKDIR<br>
+WORKDIR path<br>
+为后续的 RUN 、 CMD 、 ENTRYPOINT 指令配置工作目录。</li>
+<li>ONBUILD<br>
+ONBUILD [INSTRUCTION]<br>
+配置当所创建的镜像作为其它新创建镜像的基础镜像时，所先执行的操作指令。</li>
 </ol>
-<h2 id="Docker持续集成、自动交付、自动部署"><a href="#Docker持续集成、自动交付、自动部署" class="headerlink" title="Docker持续集成、自动交付、自动部署"></a>Docker持续集成、自动交付、自动部署</h2><p>Docker加上github+jenkins（domeOS）+ registry可以搭建一个完整的自动化流程。</p>
+<h2 id="Docker持续集成、自动交付、自动部署"><a class="header-anchor" href="#Docker持续集成、自动交付、自动部署">¶</a>Docker持续集成、自动交付、自动部署</h2>
+<p>Docker加上github+jenkins（domeOS）+ registry可以搭建一个完整的自动化流程。</p>
 <p><img src="/images/1545712505550.png" alt="持续集成和自动部署的原理"></p>
 <ol>
 <li>RD推送代码到git 仓库或者svn等代码服务器上面，git服务器就会通过hook通知jenkins。</li>
 <li>jenkine（或domeOS） 克隆git代码到本地，并通过dockerFile文件进行编译 。</li>
 <li>打包生成一个新版本的镜像并推送到仓库 ，删除当前容器 ，通过新版本镜像重新运行。</li>
 </ol>
-<h2 id="Docker自动扩容"><a href="#Docker自动扩容" class="headerlink" title="Docker自动扩容"></a>Docker自动扩容</h2><p>一般的自动扩容的两种方式<br>docker容量扩大：修改配置文件即可<br>docker节点数扩充：简单的拷贝，运行</p>
+<h2 id="Docker自动扩容"><a class="header-anchor" href="#Docker自动扩容">¶</a>Docker自动扩容</h2>
+<p>一般的自动扩容的两种方式<br>
+docker容量扩大：修改配置文件即可<br>
+docker节点数扩充：简单的拷贝，运行</p>
 
 </div>
 
@@ -4473,19 +4575,23 @@ CMD /usr/sbin/ngnix</code></pre><h4 id="Dockerfile指令"><a href="#Dockerfile�
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

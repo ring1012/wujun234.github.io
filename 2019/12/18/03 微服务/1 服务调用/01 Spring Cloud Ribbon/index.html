@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		01 Spring Cloud Ribbon | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,12 +4395,13 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:23</span>
+	<span id="post-date">2019-12-18 01:00:43</span>
 </div>
 
 
 <div id="article">
-	<p>Spring Cloud Ribbon封装了Netflix Ribbon，是基于HTTP和TCP的客户端负载均衡器。<br>它主要包括六个组件：</p>
+	<p>Spring Cloud Ribbon封装了Netflix Ribbon，是基于HTTP和TCP的客户端负载均衡器。<br>
+它主要包括六个组件：</p>
 <ul>
 <li>ServerList：负载均衡使用的服务器列表。</li>
 <li>ServerListFilter：服务器列表过滤器。</li>
@@ -4393,41 +4417,49 @@
 <li>根据用户指定的策略，在从Server取到的服务注册列表中选择一个实例的地址；</li>
 <li>通过RestClient进行服务调用。</li>
 </ol>
-<h1 id="服务消费"><a href="#服务消费" class="headerlink" title="服务消费"></a>服务消费</h1><ol>
-<li><p>pom依赖</p>
+<h1>服务消费</h1>
+<ol>
+<li>pom依赖</li>
+</ol>
 <pre><code>&lt;dependency&gt;
- &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
- &lt;artifactId&gt;spring-cloud-starter-eureka&lt;/artifactId&gt;
+    &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-cloud-starter-eureka&lt;/artifactId&gt;
 &lt;/dependency&gt;
 &lt;dependency&gt;
- &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
- &lt;artifactId&gt;spring-cloud-starter-ribbon&lt;/artifactId&gt;
-&lt;/dependency&gt;</code></pre></li>
-<li><p>application.properties配置</p>
+    &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-cloud-starter-ribbon&lt;/artifactId&gt;
+&lt;/dependency&gt;
+</code></pre>
+<ol start="2">
+<li>application.properties配置</li>
+</ol>
 <pre><code>spring.application.name=ribbon-consumer
-eureka.client.service-url.defaultZone=http://localhost:8000/eureka/</code></pre></li>
-<li><p>注解@EnableDiscoveryClient开启eureka-client</p>
-</li>
-<li><p>注解@LoadBalanced开启客户端负载均衡；直接通过RestTemplate发起请求。</p>
+eureka.client.service-url.defaultZone=http://localhost:8000/eureka/
+</code></pre>
+<ol start="3">
+<li>注解@EnableDiscoveryClient开启eureka-client</li>
+<li>注解@LoadBalanced开启客户端负载均衡；直接通过RestTemplate发起请求。</li>
+</ol>
 <pre><code>@RestController
 public class DcController {
 
- @Bean
- @LoadBalanced
- public RestTemplate restTemplate() {
-     return new RestTemplate();
- }
+    @Bean
+    @LoadBalanced
+    public RestTemplate restTemplate() {
+        return new RestTemplate();
+    }
 
- @Autowired
- RestTemplate restTemplate;
+    @Autowired
+    RestTemplate restTemplate;
 
- @GetMapping(&quot;/consumer&quot;)
- public String dc() {
-     return restTemplate.getForObject(&quot;http://eureka-client/dc&quot;, String.class);
- }
-}</code></pre><p>host是服务名。Ribbon的拦截器，能在调用时，根据服务名自动选取服务实例，以实际请求的IP地址和端口替换，从而完成服务接口的调用。</p>
-</li>
-<li><p>主要参数配置</p>
+    @GetMapping(&quot;/consumer&quot;)
+    public String dc() {
+        return restTemplate.getForObject(&quot;http://eureka-client/dc&quot;, String.class);
+    }
+}
+</code></pre>
+<p>host是服务名。Ribbon的拦截器，能在调用时，根据服务名自动选取服务实例，以实际请求的IP地址和端口替换，从而完成服务接口的调用。<br>
+5. 主要参数配置</p>
 <pre><code># 负载均衡类，默认为om.netflix.loadbalancer.ZoneAwareLoadBalance
 &lt;clientName&gt;.&lt;nameSpace&gt;.NFLoadBalancerClassName=xx
 # 负载均衡规则类，默认为com.netflix.loadbalancer.AvailabilityFilteringRule
@@ -4437,8 +4469,8 @@ public class DcController {
 # 服务列表类，默认为com.netflix.loadbalancer.ConfigurationBasedServerList,结合eureka使用时默认为com.netflix.niws.loadbalancer.DiscoveryEnabledNIWSServerList
 &lt;clientName&gt;.&lt;nameSpace&gt;.NIWSServerListClassName=xx
 # 服务过滤类，默认为com.netflix.loadbalancer.ZoneAffinityServerListFilter。结合spring cloud eureka使用时默认为org.springframework.cloud.netflix.ribbon.ZonePreferenceServerListFilter
-&lt;clientName&gt;.&lt;nameSpace&gt;.NIWSServerListFilterClassName=xx</code></pre></li>
-</ol>
+&lt;clientName&gt;.&lt;nameSpace&gt;.NIWSServerListFilterClassName=xx
+</code></pre>
 <p>参考： <a href="http://tech.lede.com/2017/03/15/rd/server/SpringCloud1/" target="_blank" rel="noopener">Spring Cloud技术分析（1）——服务治理</a></p>
 
 </div>
@@ -4449,19 +4481,23 @@ public class DcController {
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

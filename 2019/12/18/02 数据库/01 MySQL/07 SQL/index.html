@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		07 SQL | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,361 +4395,416 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:21</span>
+	<span id="post-date">2019-12-18 01:00:43</span>
 </div>
 
 
 <div id="article">
-	<h3 id="1-数据库"><a href="#1-数据库" class="headerlink" title="1 数据库"></a>1 数据库</h3><ul>
-<li>CREATE DATABASE<pre><code class="sql"> CREATE DATABASE 数据库名;
- USE 数据库名;</code></pre>
-<h3 id="2-表"><a href="#2-表" class="headerlink" title="2 表"></a>2 表</h3></li>
-<li>CREATE TABLE<pre><code class="sql"> CREATE TABLE 表名 (
-   列名 列类型 列属性,
-   ...);</code></pre>
+	<h3 id="1-数据库"><a class="header-anchor" href="#1-数据库">¶</a>1 数据库</h3>
+<ul>
+<li>CREATE DATABASE<pre><code class="language-sql">CREATE DATABASE 数据库名;
+USE 数据库名;
+</code></pre>
 </li>
-<li>CREATE TABLE … AS<br>将一个表的内容插入到一个新表<pre><code class="sql">  CREATE TABLE newtable AS
-  SELECT * FROM mytable;</code></pre>
+</ul>
+<h3 id="2-表"><a class="header-anchor" href="#2-表">¶</a>2 表</h3>
+<ul>
+<li>CREATE TABLE<pre><code class="language-sql">CREATE TABLE 表名 (
+  列名 列类型 列属性,
+  ...);
+</code></pre>
+</li>
+<li>CREATE TABLE … AS<br>
+将一个表的内容插入到一个新表<pre><code class="language-sql">CREATE TABLE newtable AS
+SELECT * FROM mytable;
+</code></pre>
 </li>
 <li>DROP TABLE</li>
-<li>ALTER TABLE … ADD<pre><code class="sql"> ALTER TABLE 表名 ADD 列名 列类型;</code></pre>
+<li>ALTER TABLE … ADD<pre><code class="language-sql">ALTER TABLE 表名 ADD 列名 列类型;
+</code></pre>
 </li>
-<li>ALTER TABLE … DROP COLUMN<pre><code class="sql"> ALTER TABLE 表名 DROP COLUMN 列名;</code></pre>
-<h3 id="3-列"><a href="#3-列" class="headerlink" title="3 列"></a>3 列</h3><h4 id="插入"><a href="#插入" class="headerlink" title="插入"></a>插入</h4></li>
-<li>普通插入<pre><code class="sql">  INSERT INTO 表名(列名, 列名) VALUES(列值, 列值);</code></pre>
+<li>ALTER TABLE … DROP COLUMN<pre><code class="language-sql">ALTER TABLE 表名 DROP COLUMN 列名;
+</code></pre>
 </li>
-<li>插入检索出来的数据<ul>
-<li>INSERT INTO SELECT<pre><code class="sql">Insert into Table2(field1,field2,...) select value1,value2,... from Table1</code></pre>
+</ul>
+<h3 id="3-列"><a class="header-anchor" href="#3-列">¶</a>3 列</h3>
+<h4 id="插入"><a class="header-anchor" href="#插入">¶</a>插入</h4>
+<ul>
+<li>普通插入<pre><code class="language-sql">INSERT INTO 表名(列名, 列名) VALUES(列值, 列值);
+</code></pre>
 </li>
-<li>SELECT INTO FROM<pre><code>SELECT vale1, value2 into Table2 from Table1</code></pre></li>
+<li>插入检索出来的数据
+<ul>
+<li>INSERT INTO SELECT</li>
+</ul>
+<pre><code class="language-sql">Insert into Table2(field1,field2,...) select value1,value2,... from Table1
+</code></pre>
+<ul>
+<li>SELECT INTO FROM</li>
+</ul>
+<pre><code>SELECT vale1, value2 into Table2 from Table1
+</code></pre>
+</li>
+<li>避免重复插入
+<ul>
+<li>INSERT IGNORE<br>
+重复忽略</li>
+<li>REPLACE INTO<br>
+除旧迎新</li>
+<li>INSERT … ON DUPLICATE KEY UPDATE<br>
+重复更新<pre><code>INSERT INTO test VALUES (1, '2016-1-1', 10) ON DUPLICATE KEY UPDATE Time='2016-1-1',Data=10;
+</code></pre>
+</li>
 </ul>
 </li>
-<li>避免重复插入<ul>
-<li>INSERT IGNORE<br>  重复忽略</li>
-<li>REPLACE INTO<br>  除旧迎新</li>
-<li>INSERT … ON DUPLICATE KEY UPDATE<br>  重复更新<pre><code>  INSERT INTO test VALUES (1, &#39;2016-1-1&#39;, 10) ON DUPLICATE KEY UPDATE Time=&#39;2016-1-1&#39;,Data=10;</code></pre><h4 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h4></li>
 </ul>
+<h4 id="删除"><a class="header-anchor" href="#删除">¶</a>删除</h4>
+<ul>
+<li>DELETE FROM<pre><code class="language-sql">DELETE FROM 表名称 WHERE 列名称 = 值
+</code></pre>
 </li>
-<li>DELETE FROM<pre><code class="sql">  DELETE FROM 表名称 WHERE 列名称 = 值</code></pre>
+<li>TRUNCATE TABLE<br>
+清空表，删除所有行。<pre><code class="language-sql">TRUNCATE TABLE 表名称;
+</code></pre>
 </li>
-<li>TRUNCATE TABLE<br>  清空表，删除所有行。<pre><code class="sql">  TRUNCATE TABLE 表名称;</code></pre>
-<h4 id="更新"><a href="#更新" class="headerlink" title="更新"></a>更新</h4><pre><code class="sql">UPDATE 表名称 SET 列名称 = 新值 WHERE 列名称 = 某值</code></pre>
-<h4 id="查询"><a href="#查询" class="headerlink" title="查询"></a>查询</h4></li>
-<li>DISTINCT<br>  相同值只会出现一次。所有列的值都相同才算相同。<pre><code class="sql">  SELECT DISTINCT …;</code></pre>
+</ul>
+<h4 id="更新"><a class="header-anchor" href="#更新">¶</a>更新</h4>
+<pre><code class="language-sql">UPDATE 表名称 SET 列名称 = 新值 WHERE 列名称 = 某值
+</code></pre>
+<h4 id="查询"><a class="header-anchor" href="#查询">¶</a>查询</h4>
+<ul>
+<li>DISTINCT<br>
+相同值只会出现一次。所有列的值都相同才算相同。<pre><code class="language-sql">SELECT DISTINCT …;
+</code></pre>
 </li>
-<li>LIMIT<br>  限制返回的行数。可以有两个参数(起始行，返回行数)。<pre><code class="sql">  LIMIT 5;
-  LIMIT 0, 5;</code></pre>
+<li>LIMIT<br>
+限制返回的行数。可以有两个参数(起始行，返回行数)。<pre><code class="language-sql">LIMIT 5;
+LIMIT 0, 5;
+</code></pre>
 </li>
-<li>ORDER BY<br>ASC升序（默认），DESC降序<br>可多列排序，每列指定排序方式<pre><code class="sql">  ORDER BY col1 DESC, col2 ASC;</code></pre>
-<h3 id="4-WHERE"><a href="#4-WHERE" class="headerlink" title="4 WHERE"></a>4 WHERE</h3></li>
-<li>操作符  <table>
+<li>ORDER BY<br>
+ASC升序（默认），DESC降序<br>
+可多列排序，每列指定排序方式<pre><code class="language-sql">ORDER BY col1 DESC, col2 ASC;
+</code></pre>
+</li>
+</ul>
+<h3 id="4-WHERE"><a class="header-anchor" href="#4-WHERE">¶</a>4 WHERE</h3>
+<ul>
+<li>操作符
+<table>
 <thead>
 <tr>
-<th align="center">操作符</th>
-<th align="center">说明</th>
+<th style="text-align:center">操作符</th>
+<th style="text-align:center">说明</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="center">=</td>
-<td align="center">等于</td>
+<tbody>
+<tr>
+<td style="text-align:center">=</td>
+<td style="text-align:center">等于</td>
 </tr>
 <tr>
-<td align="center">&lt;</td>
-<td align="center">小于</td>
+<td style="text-align:center">&lt;</td>
+<td style="text-align:center">小于</td>
 </tr>
 <tr>
-<td align="center">&gt;</td>
-<td align="center">大于</td>
+<td style="text-align:center">&gt;</td>
+<td style="text-align:center">大于</td>
 </tr>
 <tr>
-<td align="center">&lt;&gt; !=</td>
-<td align="center">不等于</td>
+<td style="text-align:center">&lt;&gt; !=</td>
+<td style="text-align:center">不等于</td>
 </tr>
 <tr>
-<td align="center">&lt;= !&gt;</td>
-<td align="center">小于等于</td>
+<td style="text-align:center">&lt;= !&gt;</td>
+<td style="text-align:center">小于等于</td>
 </tr>
 <tr>
-<td align="center">&gt;= !&lt;</td>
-<td align="center">大于等于</td>
+<td style="text-align:center">&gt;= !&lt;</td>
+<td style="text-align:center">大于等于</td>
 </tr>
 <tr>
-<td align="center">BETWEEN</td>
-<td align="center">在两个值之间</td>
+<td style="text-align:center">BETWEEN</td>
+<td style="text-align:center">在两个值之间</td>
 </tr>
 <tr>
-<td align="center">IS NULL</td>
-<td align="center">为 NULL 值</td>
+<td style="text-align:center">IS NULL</td>
+<td style="text-align:center">为 NULL 值</td>
 </tr>
 <tr>
-<td align="center">AND 和 OR</td>
-<td align="center">连接多个过滤条件</td>
+<td style="text-align:center">AND 和 OR</td>
+<td style="text-align:center">连接多个过滤条件</td>
 </tr>
 <tr>
-<td align="center">IN</td>
-<td align="center">匹配一组值或子查询</td>
+<td style="text-align:center">IN</td>
+<td style="text-align:center">匹配一组值或子查询</td>
 </tr>
 <tr>
-<td align="center">NOT</td>
-<td align="center">否定一个条件</td>
+<td style="text-align:center">NOT</td>
+<td style="text-align:center">否定一个条件</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 </li>
-<li>Like<br>Like只能用于文本字段<ul>
+<li>Like<br>
+Like只能用于文本字段
+<ul>
 <li><strong>%</strong>：匹配 &gt;=0 个任意字符；</li>
 <li><strong>_</strong>：匹配 ==1 个任意字符；</li>
 <li><strong>[ ]</strong>：匹配集合内的字符， ^ 否定。</li>
 </ul>
 </li>
 </ul>
-<h3 id="5-计算"><a href="#5-计算" class="headerlink" title="5 计算"></a>5 计算</h3><ul>
+<h3 id="5-计算"><a class="header-anchor" href="#5-计算">¶</a>5 计算</h3>
+<ul>
 <li>AS 别名</li>
-<li>CONCAT() 连接两个字段，不支持”+”</li>
-<li>GROUP_CONCAT() 将多行结果聚合，”,”连接</li>
+<li>CONCAT() 连接两个字段，不支持&quot;+&quot;</li>
+<li>GROUP_CONCAT() 将多行结果聚合，&quot;,&quot;连接</li>
 <li>TRIM() 去除首尾空格。</li>
 </ul>
-<pre><code class="sql">SELECT CONCAT(TRIM(col1), &#39;(&#39;, TRIM(col2), &#39;)&#39;) AS concat_col
-FROM mytable;</code></pre>
-<h3 id="6-函数"><a href="#6-函数" class="headerlink" title="6 函数"></a>6 函数</h3><ul>
-<li><p>汇总  </p>
+<pre><code class="language-sql">SELECT CONCAT(TRIM(col1), '(', TRIM(col2), ')') AS concat_col
+FROM mytable;
+</code></pre>
+<h3 id="6-函数"><a class="header-anchor" href="#6-函数">¶</a>6 函数</h3>
+<ul>
+<li>汇总
 <table>
 <thead>
 <tr>
-<th align="center">函 数</th>
-<th align="center">说 明</th>
+<th style="text-align:center">函 数</th>
+<th style="text-align:center">说 明</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="center">AVG()</td>
-<td align="center">返回某列的平均值</td>
+<tbody>
+<tr>
+<td style="text-align:center">AVG()</td>
+<td style="text-align:center">返回某列的平均值</td>
 </tr>
 <tr>
-<td align="center">COUNT()</td>
-<td align="center">返回某列的行数</td>
+<td style="text-align:center">COUNT()</td>
+<td style="text-align:center">返回某列的行数</td>
 </tr>
 <tr>
-<td align="center">MAX()</td>
-<td align="center">返回某列的最大值</td>
+<td style="text-align:center">MAX()</td>
+<td style="text-align:center">返回某列的最大值</td>
 </tr>
 <tr>
-<td align="center">MIN()</td>
-<td align="center">返回某列的最小值</td>
+<td style="text-align:center">MIN()</td>
+<td style="text-align:center">返回某列的最小值</td>
 </tr>
 <tr>
-<td align="center">SUM()</td>
-<td align="center">返回某列值之和</td>
+<td style="text-align:center">SUM()</td>
+<td style="text-align:center">返回某列值之和</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 </li>
-<li><p>文本处理  </p>
+<li>文本处理
 <table>
 <thead>
 <tr>
-<th align="center">函数</th>
-<th align="center">说明</th>
+<th style="text-align:center">函数</th>
+<th style="text-align:center">说明</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="center">LEFT()</td>
-<td align="center">左边的字符</td>
+<tbody>
+<tr>
+<td style="text-align:center">LEFT()</td>
+<td style="text-align:center">左边的字符</td>
 </tr>
 <tr>
-<td align="center">RIGHT()</td>
-<td align="center">右边的字符</td>
+<td style="text-align:center">RIGHT()</td>
+<td style="text-align:center">右边的字符</td>
 </tr>
 <tr>
-<td align="center">LOWER()</td>
-<td align="center">转换为小写字符</td>
+<td style="text-align:center">LOWER()</td>
+<td style="text-align:center">转换为小写字符</td>
 </tr>
 <tr>
-<td align="center">UPPER()</td>
-<td align="center">转换为大写字符</td>
+<td style="text-align:center">UPPER()</td>
+<td style="text-align:center">转换为大写字符</td>
 </tr>
 <tr>
-<td align="center">LTRIM()</td>
-<td align="center">去除左边的空格</td>
+<td style="text-align:center">LTRIM()</td>
+<td style="text-align:center">去除左边的空格</td>
 </tr>
 <tr>
-<td align="center">RTRIM()</td>
-<td align="center">去除右边的空格</td>
+<td style="text-align:center">RTRIM()</td>
+<td style="text-align:center">去除右边的空格</td>
 </tr>
 <tr>
-<td align="center">LENGTH()</td>
-<td align="center">长度</td>
+<td style="text-align:center">LENGTH()</td>
+<td style="text-align:center">长度</td>
 </tr>
 <tr>
-<td align="center">SOUNDEX()</td>
-<td align="center">转换为语音值</td>
+<td style="text-align:center">SOUNDEX()</td>
+<td style="text-align:center">转换为语音值</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 </li>
-<li><p>日期和时间处理<br>  日期格式：YYYY-MM-DD<br>  时间格式：HH:MM:SS  </p>
+<li>日期和时间处理<br>
+日期格式：YYYY-MM-DD<br>
+时间格式：HH:MM:SS
 <table>
 <thead>
 <tr>
-<th align="center">函 数</th>
-<th align="center">说 明</th>
+<th style="text-align:center">函 数</th>
+<th style="text-align:center">说 明</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="center">AddDate()</td>
-<td align="center">增加一个日期（天、周等）</td>
+<tbody>
+<tr>
+<td style="text-align:center">AddDate()</td>
+<td style="text-align:center">增加一个日期（天、周等）</td>
 </tr>
 <tr>
-<td align="center">AddTime()</td>
-<td align="center">增加一个时间（时、分等）</td>
+<td style="text-align:center">AddTime()</td>
+<td style="text-align:center">增加一个时间（时、分等）</td>
 </tr>
 <tr>
-<td align="center">CurDate()</td>
-<td align="center">返回当前日期</td>
+<td style="text-align:center">CurDate()</td>
+<td style="text-align:center">返回当前日期</td>
 </tr>
 <tr>
-<td align="center">CurTime()</td>
-<td align="center">返回当前时间</td>
+<td style="text-align:center">CurTime()</td>
+<td style="text-align:center">返回当前时间</td>
 </tr>
 <tr>
-<td align="center"><strong>Now()</strong></td>
-<td align="center">返回当前日期和时间，执行开始时得到值</td>
+<td style="text-align:center"><strong>Now()</strong></td>
+<td style="text-align:center">返回当前日期和时间，执行开始时得到值</td>
 </tr>
 <tr>
-<td align="center"><strong>sysdate()</strong></td>
-<td align="center">返回当前日期和时间，执行时动态得到值</td>
+<td style="text-align:center"><strong>sysdate()</strong></td>
+<td style="text-align:center">返回当前日期和时间，执行时动态得到值</td>
 </tr>
 <tr>
-<td align="center">Date()</td>
-<td align="center">返回日期时间的日期部分</td>
+<td style="text-align:center">Date()</td>
+<td style="text-align:center">返回日期时间的日期部分</td>
 </tr>
 <tr>
-<td align="center">DateDiff()</td>
-<td align="center">计算两个日期之差</td>
+<td style="text-align:center">DateDiff()</td>
+<td style="text-align:center">计算两个日期之差</td>
 </tr>
 <tr>
-<td align="center">Date_Add()</td>
-<td align="center">高度灵活的日期运算函数</td>
+<td style="text-align:center">Date_Add()</td>
+<td style="text-align:center">高度灵活的日期运算函数</td>
 </tr>
 <tr>
-<td align="center">date_sub()</td>
-<td align="center">减去一个时间间隔</td>
+<td style="text-align:center">date_sub()</td>
+<td style="text-align:center">减去一个时间间隔</td>
 </tr>
 <tr>
-<td align="center"><strong>Date_Format()</strong></td>
-<td align="center">返回一个格式化的日期或时间串</td>
+<td style="text-align:center"><strong>Date_Format()</strong></td>
+<td style="text-align:center">返回一个格式化的日期或时间串</td>
 </tr>
 <tr>
-<td align="center">Day()</td>
-<td align="center">返回一个日期的天数部分</td>
+<td style="text-align:center">Day()</td>
+<td style="text-align:center">返回一个日期的天数部分</td>
 </tr>
 <tr>
-<td align="center">DayOfWeek()</td>
-<td align="center">对于一个日期，返回对应的星期几</td>
+<td style="text-align:center">DayOfWeek()</td>
+<td style="text-align:center">对于一个日期，返回对应的星期几</td>
 </tr>
 <tr>
-<td align="center">Hour()</td>
-<td align="center">返回一个时间的小时部分</td>
+<td style="text-align:center">Hour()</td>
+<td style="text-align:center">返回一个时间的小时部分</td>
 </tr>
 <tr>
-<td align="center">Minute()</td>
-<td align="center">返回一个时间的分钟部分</td>
+<td style="text-align:center">Minute()</td>
+<td style="text-align:center">返回一个时间的分钟部分</td>
 </tr>
 <tr>
-<td align="center">Month()</td>
-<td align="center">返回一个日期的月份部分</td>
+<td style="text-align:center">Month()</td>
+<td style="text-align:center">返回一个日期的月份部分</td>
 </tr>
 <tr>
-<td align="center">Time()</td>
-<td align="center">返回一个日期时间的时间部分</td>
+<td style="text-align:center">Time()</td>
+<td style="text-align:center">返回一个日期时间的时间部分</td>
 </tr>
 <tr>
-<td align="center">Year()</td>
-<td align="center">返回一个日期的年份部分</td>
+<td style="text-align:center">Year()</td>
+<td style="text-align:center">返回一个日期的年份部分</td>
 </tr>
-<tr>
-<td align="center">```sql</td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="center">–加减指定</td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="center">SELECT now()-interval 60 second;</td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="center">select date_sub(’1998-01-01 00:00:00′, interval ’1 1:1:1′ day_second);</td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="center">select now()+interval 24 hour;</td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="center">select date_add(@dt, interval ’01:15:30′ hour_second);</td>
-<td align="center"></td>
-</tr>
-</tbody></table>
-<p>  SELECT date_format(NOW(),’%Y-%m-%d’);<br>  ```</p>
+</tbody>
+</table>
+<pre><code class="language-sql">--加减指定
+SELECT now()-interval 60 second;
+select date_sub(’1998-01-01 00:00:00′, interval ’1 1:1:1′ day_second);
+select now()+interval 24 hour;
+select date_add(@dt, interval ’01:15:30′ hour_second);
+
+SELECT date_format(NOW(),'%Y-%m-%d');
+</code></pre>
 </li>
-<li><p>数值处理  </p>
+<li>数值处理
 <table>
 <thead>
 <tr>
-<th align="center">函数</th>
-<th align="center">说明</th>
+<th style="text-align:center">函数</th>
+<th style="text-align:center">说明</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="center">SIN()</td>
-<td align="center">正弦</td>
+<tbody>
+<tr>
+<td style="text-align:center">SIN()</td>
+<td style="text-align:center">正弦</td>
 </tr>
 <tr>
-<td align="center">COS()</td>
-<td align="center">余弦</td>
+<td style="text-align:center">COS()</td>
+<td style="text-align:center">余弦</td>
 </tr>
 <tr>
-<td align="center">TAN()</td>
-<td align="center">正切</td>
+<td style="text-align:center">TAN()</td>
+<td style="text-align:center">正切</td>
 </tr>
 <tr>
-<td align="center">ABS()</td>
-<td align="center">绝对值</td>
+<td style="text-align:center">ABS()</td>
+<td style="text-align:center">绝对值</td>
 </tr>
 <tr>
-<td align="center">SQRT()</td>
-<td align="center">平方根</td>
+<td style="text-align:center">SQRT()</td>
+<td style="text-align:center">平方根</td>
 </tr>
 <tr>
-<td align="center">MOD()</td>
-<td align="center">余数</td>
+<td style="text-align:center">MOD()</td>
+<td style="text-align:center">余数</td>
 </tr>
 <tr>
-<td align="center">EXP()</td>
-<td align="center">指数</td>
+<td style="text-align:center">EXP()</td>
+<td style="text-align:center">指数</td>
 </tr>
 <tr>
-<td align="center">PI()</td>
-<td align="center">圆周率</td>
+<td style="text-align:center">PI()</td>
+<td style="text-align:center">圆周率</td>
 </tr>
 <tr>
-<td align="center">RAND()</td>
-<td align="center">随机数</td>
+<td style="text-align:center">RAND()</td>
+<td style="text-align:center">随机数</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 </li>
 </ul>
-<h3 id="7-分组"><a href="#7-分组" class="headerlink" title="7 分组"></a>7 分组</h3><ul>
-<li>GROUP BY<br>  GROUP BY 自动按分组字段进行排序，ORDER BY 也可以按汇总字段来进行排序。<pre><code class="sql">  SELECT col, COUNT(*) AS num
-  FROM mytable
-  GROUP BY col
-  ORDER BY num;</code></pre>
+<h3 id="7-分组"><a class="header-anchor" href="#7-分组">¶</a>7 分组</h3>
+<ul>
+<li>GROUP BY<br>
+GROUP BY 自动按分组字段进行排序，ORDER BY 也可以按汇总字段来进行排序。<pre><code class="language-sql">SELECT col, COUNT(*) AS num
+FROM mytable
+GROUP BY col
+ORDER BY num;
+</code></pre>
 </li>
-<li>HAVING<br>  WHERE 过滤行，HAVING 过滤分组，行过滤应当先于分组过滤。<pre><code class="sql">  SELECT col, COUNT(*) AS num
-  FROM mytable
-  WHERE col &gt; 2
-  GROUP BY col
-  HAVING num &gt;= 2;</code></pre>
+<li>HAVING<br>
+WHERE 过滤行，HAVING 过滤分组，行过滤应当先于分组过滤。<pre><code class="language-sql">SELECT col, COUNT(*) AS num
+FROM mytable
+WHERE col &gt; 2
+GROUP BY col
+HAVING num &gt;= 2;
+</code></pre>
 </li>
-<li>分组规定：<ul>
+<li>分组规定：
+<ul>
 <li>GROUP BY 子句出现在 WHERE 子句之后，ORDER BY 子句之前；</li>
 <li>除了汇总字段外，SELECT 语句中的每一字段都必须在 GROUP BY 子句中给出；</li>
 <li>NULL 的行会单独分为一组；</li>
@@ -4734,15 +4812,18 @@ FROM mytable;</code></pre>
 </ul>
 </li>
 </ul>
-<h3 id="8-子查询"><a href="#8-子查询" class="headerlink" title="8 子查询"></a>8 子查询</h3><p>子查询中只能返回一个字段的数据。</p>
+<h3 id="8-子查询"><a class="header-anchor" href="#8-子查询">¶</a>8 子查询</h3>
+<p>子查询中只能返回一个字段的数据。</p>
 <p>可以将子查询的结果作为 WHRER 语句的过滤条件</p>
-<pre><code class="sql">SELECT *
+<pre><code class="language-sql">SELECT *
 FROM mytable1
 WHERE col1 IN (SELECT col2
-               FROM mytable2);</code></pre>
+               FROM mytable2);
+</code></pre>
 <p>in是把外表和内表作hash连接，而exists是对外表作loop循环，每次loop循环再对内表进行查询。</p>
 <p>如果查询的两个表大小相当，那么用in和exists差别不大；如果两个表中一个较小一个较大，则子查询表大的用exists，子查询表小的用in；</p>
-<h3 id="9-JOIN"><a href="#9-JOIN" class="headerlink" title="9 JOIN"></a>9 JOIN</h3><p>连接可以替换子查询，并且比子查询的效率一般会更快。</p>
+<h3 id="9-JOIN"><a class="header-anchor" href="#9-JOIN">¶</a>9 JOIN</h3>
+<p>连接可以替换子查询，并且比子查询的效率一般会更快。</p>
 <ul>
 <li>INNER JOIN</li>
 </ul>
@@ -4757,7 +4838,8 @@ WHERE col1 IN (SELECT col2
 <li>OUTER JOIN</li>
 </ul>
 <p>外连接保留了没有关联的那些行。分为左外连接，右外连接以及全外连接，左外连接就是保留左表没有关联的行。</p>
-<h3 id="10-UNION"><a href="#10-UNION" class="headerlink" title="10 UNION"></a>10 UNION</h3><p>使用  <strong>UNION</strong>  来组合两个查询，union 和 union all的差别是前者会忽略重复数据，后者不会。</p>
+<h3 id="10-UNION"><a class="header-anchor" href="#10-UNION">¶</a>10 UNION</h3>
+<p>使用  <strong>UNION</strong>  来组合两个查询，union 和 union all的差别是前者会忽略重复数据，后者不会。</p>
 <p>每个查询必须包含相同的列、表达式和聚集函数。</p>
 <p>只能包含一个 ORDER BY 子句，并且必须位于语句的最后。可使用子查询避开语法的问题</p>
 <pre><code>SELECT * from
@@ -4766,7 +4848,10 @@ ORDER BY age limit 0, 1000) t1
 UNION (all)
 SELECT * from
 (SELECT grade FROM student
-ORDER BY age limit 0, 1000);</code></pre><h3 id="11-视图"><a href="#11-视图" class="headerlink" title="11 视图"></a>11 视图</h3><p>视图是虚拟的表，本身不包含数据，也就不能对其进行索引操作。</p>
+ORDER BY age limit 0, 1000);
+</code></pre>
+<h3 id="11-视图"><a class="header-anchor" href="#11-视图">¶</a>11 视图</h3>
+<p>视图是虚拟的表，本身不包含数据，也就不能对其进行索引操作。</p>
 <p>对视图的操作和对普通表的操作一样。</p>
 <p>视图具有如下好处：</p>
 <ul>
@@ -4775,16 +4860,18 @@ ORDER BY age limit 0, 1000);</code></pre><h3 id="11-视图"><a href="#11-视图"
 <li>通过只给用户访问视图的权限，保证数据的安全性；</li>
 <li>更改数据格式和表示。</li>
 </ul>
-<pre><code class="sql">CREATE VIEW myview AS
+<pre><code class="language-sql">CREATE VIEW myview AS
 SELECT Concat(col1, col2) AS concat_col, col3*col4 AS compute_col
 FROM mytable
-WHERE col5 = val;</code></pre>
-<h3 id="12-存储过程"><a href="#12-存储过程" class="headerlink" title="12 存储过程"></a>12 存储过程</h3><p>存储过程可以看成是对一系列 SQL 操作的批处理。</p>
+WHERE col5 = val;
+</code></pre>
+<h3 id="12-存储过程"><a class="header-anchor" href="#12-存储过程">¶</a>12 存储过程</h3>
+<p>存储过程可以看成是对一系列 SQL 操作的批处理。</p>
 <p>命令行中创建存储过程需要自定义分隔符，因为命令行是以 ; 为结束符，而存储过程中也包含了分号，因此会错误把这部分分号当成是结束符，造成语法错误。</p>
 <p>包含 in、out 和 inout 三种参数。</p>
 <p>给变量赋值都需要用 select into 语句。</p>
 <p>每次只能给一个变量赋值，不支持集合的操作。</p>
-<pre><code class="sql">delimiter //
+<pre><code class="language-sql">delimiter //
 
 create procedure myprocedure( out ret int )
     begin
@@ -4795,10 +4882,13 @@ create procedure myprocedure( out ret int )
         select y*y into ret;
     end //
 
-delimiter ;</code></pre>
-<pre><code class="sql">call myprocedure(@ret);
-select @ret;</code></pre>
-<h4 id="游标"><a href="#游标" class="headerlink" title="游标"></a>游标</h4><p>在存储过程中使用游标可以对一个结果集进行移动遍历。</p>
+delimiter ;
+</code></pre>
+<pre><code class="language-sql">call myprocedure(@ret);
+select @ret;
+</code></pre>
+<h4 id="游标"><a class="header-anchor" href="#游标">¶</a>游标</h4>
+<p>在存储过程中使用游标可以对一个结果集进行移动遍历。</p>
 <p>游标主要用于交互式应用，其中用户需要对数据集中的任意行进行浏览和修改。</p>
 <p>使用游标的四个步骤：</p>
 <ol>
@@ -4807,15 +4897,15 @@ select @ret;</code></pre>
 <li>取出数据；</li>
 <li>关闭游标；</li>
 </ol>
-<pre><code class="sql">delimiter //
+<pre><code class="language-sql">delimiter //
 create procedure myprocedure(out ret int)
     begin
         declare done boolean default 0;
 
         declare mycursor cursor for
         select col1 from mytable;
-        # 定义了一个 continue handler，当 sqlstate &#39;02000&#39; 这个条件出现时，会执行 set done = 1
-        declare continue handler for sqlstate &#39;02000&#39; set done = 1;
+        # 定义了一个 continue handler，当 sqlstate '02000' 这个条件出现时，会执行 set done = 1
+        declare continue handler for sqlstate '02000' set done = 1;
 
         open mycursor;
 
@@ -4826,73 +4916,101 @@ create procedure myprocedure(out ret int)
 
         close mycursor;
     end //
- delimiter ;</code></pre>
-<h3 id="13-触发器"><a href="#13-触发器" class="headerlink" title="13 触发器"></a>13 触发器</h3><p>触发器会在某个表执行以下语句时而自动执行：DELETE、INSERT、UPDATE。</p>
+ delimiter ;
+</code></pre>
+<h3 id="13-触发器"><a class="header-anchor" href="#13-触发器">¶</a>13 触发器</h3>
+<p>触发器会在某个表执行以下语句时而自动执行：DELETE、INSERT、UPDATE。</p>
 <p>触发器必须指定在语句执行之前还是之后自动执行，之前执行使用 BEFORE 关键字，之后执行使用 AFTER 关键字。BEFORE 用于数据验证和净化，AFTER 用于审计跟踪，将修改记录到另外一张表中。</p>
 <ul>
-<li>INSERT<br>INSERT 触发器包含一个名为 NEW 的虚拟表。</li>
+<li>INSERT<br>
+INSERT 触发器包含一个名为 NEW 的虚拟表。</li>
 </ul>
-<pre><code class="sql">CREATE TRIGGER mytrigger AFTER INSERT ON mytable
+<pre><code class="language-sql">CREATE TRIGGER mytrigger AFTER INSERT ON mytable
 FOR EACH ROW SELECT NEW.col into @result;
 
-SELECT @result; -- 获取结果</code></pre>
+SELECT @result; -- 获取结果
+</code></pre>
 <ul>
-<li>DELETE<br>DELETE 触发器包含一个名为 OLD 的虚拟表，并且是只读的。</li>
-<li>UPDATE<br>UPDATE 触发器包含一个名为 NEW 和一个名为 OLD 的虚拟表，其中 NEW 是可以被修改的，而 OLD 是只读的。</li>
+<li>DELETE<br>
+DELETE 触发器包含一个名为 OLD 的虚拟表，并且是只读的。</li>
+<li>UPDATE<br>
+UPDATE 触发器包含一个名为 NEW 和一个名为 OLD 的虚拟表，其中 NEW 是可以被修改的，而 OLD 是只读的。</li>
 </ul>
 <p>MySQL 不允许在触发器中使用 CALL 语句，也就是不能调用存储过程。</p>
-<h3 id="14-事务管理"><a href="#14-事务管理" class="headerlink" title="14 事务管理"></a>14 事务管理</h3><p>不能回退 SELECT 、 CREATE 和 DROP 语句。</p>
+<h3 id="14-事务管理"><a class="header-anchor" href="#14-事务管理">¶</a>14 事务管理</h3>
+<p>不能回退 SELECT 、 CREATE 和 DROP 语句。</p>
 <p>MySQL 的事务提交默认是隐式提交，每执行一条语句就把这条语句当成一个事务然后进行提交。当出现 START TRANSACTION 语句时，会关闭隐式提交；当 COMMIT 或 ROLLBACK 语句执行后，事务会自动关闭，重新恢复隐式提交。</p>
 <p>通过设置 autocommit 为 0 可以取消自动提交；autocommit 标记是针对每个连接而不是针对服务器的。</p>
 <p>如果没有设置保留点，ROLLBACK 会回退到 START TRANSACTION 语句处；如果设置了保留点，并且在 ROLLBACK 中指定该保留点，则会回退到该保留点。</p>
-<pre><code class="sql">START TRANSACTION
+<pre><code class="language-sql">START TRANSACTION
 // ...
 SAVEPOINT delete1
 // ...
 ROLLBACK TO delete1
 // ...
-COMMIT</code></pre>
-<h3 id="15-字符集"><a href="#15-字符集" class="headerlink" title="15 字符集"></a>15 字符集</h3><p>校对字符指定如何比较，主要用于排序和分组。</p>
+COMMIT
+</code></pre>
+<h3 id="15-字符集"><a class="header-anchor" href="#15-字符集">¶</a>15 字符集</h3>
+<p>校对字符指定如何比较，主要用于排序和分组。</p>
 <p>除了给表指定字符集和校对外，也可以给列指定：</p>
-<pre><code class="sql">CREATE TABLE mytable
+<pre><code class="language-sql">CREATE TABLE mytable
 (col VARCHAR(10) CHARACTER SET latin COLLATE latin1_general_ci )
-DEFAULT CHARACTER SET hebrew COLLATE hebrew_general_ci;</code></pre>
+DEFAULT CHARACTER SET hebrew COLLATE hebrew_general_ci;
+</code></pre>
 <p>可以在排序、分组时指定校对：</p>
-<pre><code class="sql">SELECT *
+<pre><code class="language-sql">SELECT *
 FROM mytable
-ORDER BY col COLLATE latin1_general_ci;</code></pre>
-<h3 id="16-权限管理"><a href="#16-权限管理" class="headerlink" title="16 权限管理"></a>16 权限管理</h3><p>MySQL 的账户信息保存在 mysql 这个数据库中。</p>
-<pre><code class="sql">USE mysql;
-SELECT user FROM user;</code></pre>
+ORDER BY col COLLATE latin1_general_ci;
+</code></pre>
+<h3 id="16-权限管理"><a class="header-anchor" href="#16-权限管理">¶</a>16 权限管理</h3>
+<p>MySQL 的账户信息保存在 mysql 这个数据库中。</p>
+<pre><code class="language-sql">USE mysql;
+SELECT user FROM user;
+</code></pre>
 <ul>
-<li><strong>创建账户</strong><br>  新创建的账户没有任何权限。<pre><code class="sql">  CREATE USER myuser IDENTIFIED BY &#39;mypassword&#39;;</code></pre>
+<li><strong>创建账户</strong><br>
+新创建的账户没有任何权限。<pre><code class="language-sql">CREATE USER myuser IDENTIFIED BY 'mypassword';
+</code></pre>
 </li>
-<li><strong>修改账户名</strong>  <pre><code class="sql">  RENAME myuser TO newuser;</code></pre>
+<li><strong>修改账户名</strong><pre><code class="language-sql">RENAME myuser TO newuser;
+</code></pre>
 </li>
-<li><strong>删除账户</strong>  <pre><code class="sql">  DROP USER myuser;</code></pre>
+<li><strong>删除账户</strong><pre><code class="language-sql">DROP USER myuser;
+</code></pre>
 </li>
-<li><strong>查看权限</strong>  <pre><code class="sql">  SHOW GRANTS FOR myuser;</code></pre>
+<li><strong>查看权限</strong><pre><code class="language-sql">SHOW GRANTS FOR myuser;
+</code></pre>
 </li>
-<li><strong>授予权限</strong><br>  账户用 username@host 的形式定义，username@% 使用的是默认主机名。<pre><code class="sql">  GRANT SELECT, INSERT ON mydatabase.* TO myuser;</code></pre>
+<li><strong>授予权限</strong><br>
+账户用 username@host 的形式定义，username@% 使用的是默认主机名。<pre><code class="language-sql">GRANT SELECT, INSERT ON mydatabase.* TO myuser;
+</code></pre>
 </li>
-<li><strong>删除权限</strong><br>  GRANT 和 REVOKE 可在几个层次上控制访问权限：<ul>
+<li><strong>删除权限</strong><br>
+GRANT 和 REVOKE 可在几个层次上控制访问权限：
+<ul>
 <li>整个服务器，使用 GRANT ALL 和 REVOKE ALL；</li>
 <li>整个数据库，使用 ON database.*；</li>
 <li>特定的表，使用 ON database.table；</li>
 <li>特定的列；</li>
-<li>特定的存储过程。  <pre><code class="sql">REVOKE SELECT, INSERT ON mydatabase.* FROM myuser;</code></pre>
+<li>特定的存储过程。</li>
+</ul>
+<pre><code class="language-sql">REVOKE SELECT, INSERT ON mydatabase.* FROM myuser;
+</code></pre>
+</li>
+<li><strong>更改密码</strong><br>
+必须使用 Password() 函数<pre><code class="language-sql">SET PASSWROD FOR myuser = Password('new_password');
+</code></pre>
 </li>
 </ul>
-</li>
-<li><strong>更改密码</strong><br>  必须使用 Password() 函数<pre><code class="sql">  SET PASSWROD FOR myuser = Password(&#39;new_password&#39;);</code></pre>
-<h3 id="17-条件选择"><a href="#17-条件选择" class="headerlink" title="17 条件选择"></a>17 条件选择</h3><pre><code>case 
-  when b.customer_type =&#39;L&#39; 
-      then 
-  when customer_main_type=&#39;1&#39; 
-      then (select t2.org_name from tz_cus_organ t2 where t2.ecif_id=b.ecif_id)
-  else
-end</code></pre></li>
-</ul>
+<h3 id="17-条件选择"><a class="header-anchor" href="#17-条件选择">¶</a>17 条件选择</h3>
+<pre><code>case 
+    when b.customer_type ='L' 
+        then 
+    when customer_main_type='1' 
+        then (select t2.org_name from tz_cus_organ t2 where t2.ecif_id=b.ecif_id)
+    else
+end
+</code></pre>
 <p><a href="https://github.com/CyC2018/CS-Notes/blob/master/notes/SQL.md" target="_blank" rel="noopener">修改自此Link</a></p>
 
 </div>
@@ -4903,19 +5021,23 @@ end</code></pre></li>
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

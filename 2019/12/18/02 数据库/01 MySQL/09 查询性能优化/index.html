@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		09 查询性能优化 | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,26 +4395,33 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:21</span>
+	<span id="post-date">2019-12-18 01:00:43</span>
 </div>
 
 
 <div id="article">
-	<h3 id="1-使用-Explain-进行分析"><a href="#1-使用-Explain-进行分析" class="headerlink" title="1 使用 Explain 进行分析"></a>1 使用 Explain 进行分析</h3><p>Explain 用来分析 SELECT 查询语句，开发人员可以通过分析 Explain 结果来优化查询语句。</p>
+	<h3 id="1-使用-Explain-进行分析"><a class="header-anchor" href="#1-使用-Explain-进行分析">¶</a>1 使用 Explain 进行分析</h3>
+<p>Explain 用来分析 SELECT 查询语句，开发人员可以通过分析 Explain 结果来优化查询语句。</p>
 <p>比较重要的字段有：</p>
 <ul>
 <li>select_type : 查询类型，有简单查询、联合查询、子查询等</li>
 <li>key : 使用的索引</li>
 <li>rows : 扫描的行数</li>
 </ul>
-<h3 id="2-优化数据访问"><a href="#2-优化数据访问" class="headerlink" title="2 优化数据访问"></a>2 优化数据访问</h3><h5 id="2-1-减少请求的数据量"><a href="#2-1-减少请求的数据量" class="headerlink" title="2.1 减少请求的数据量"></a>2.1 减少请求的数据量</h5><ul>
+<h3 id="2-优化数据访问"><a class="header-anchor" href="#2-优化数据访问">¶</a>2 优化数据访问</h3>
+<h5 id="2-1-减少请求的数据量"><a class="header-anchor" href="#2-1-减少请求的数据量">¶</a>2.1 减少请求的数据量</h5>
+<ul>
 <li>只返回必要的列：最好不要使用 SELECT * 语句。</li>
 <li>只返回必要的行：使用 LIMIT 语句来限制返回的数据。</li>
 <li>缓存重复查询的数据：使用缓存可以避免在数据库中进行查询，特别在要查询的数据经常被重复查询时，缓存带来的查询性能提升将会是非常明显的。</li>
 </ul>
-<h5 id="2-2-减少服务器端扫描的行数"><a href="#2-2-减少服务器端扫描的行数" class="headerlink" title="2.2 减少服务器端扫描的行数"></a>2.2 减少服务器端扫描的行数</h5><p>最有效的方式是使用索引来覆盖查询。</p>
-<h3 id="3-重构查询方式"><a href="#3-重构查询方式" class="headerlink" title="3 重构查询方式"></a>3 重构查询方式</h3><h5 id="3-1-切分复杂查询"><a href="#3-1-切分复杂查询" class="headerlink" title="3.1 切分复杂查询"></a>3.1 切分复杂查询</h5><p>一个大查询如果一次性执行的话，可能一次锁住很多数据、占满整个事务日志、耗尽系统资源、阻塞很多小的但重要的查询。</p>
-<h5 id="3-2-分解关联查询"><a href="#3-2-分解关联查询" class="headerlink" title="3.2 分解关联查询"></a>3.2 分解关联查询</h5><p>将一个大连接查询分解成对每一个表进行一次单表查询，然后在应用程序中进行关联，这样做的好处有：</p>
+<h5 id="2-2-减少服务器端扫描的行数"><a class="header-anchor" href="#2-2-减少服务器端扫描的行数">¶</a>2.2 减少服务器端扫描的行数</h5>
+<p>最有效的方式是使用索引来覆盖查询。</p>
+<h3 id="3-重构查询方式"><a class="header-anchor" href="#3-重构查询方式">¶</a>3 重构查询方式</h3>
+<h5 id="3-1-切分复杂查询"><a class="header-anchor" href="#3-1-切分复杂查询">¶</a>3.1 切分复杂查询</h5>
+<p>一个大查询如果一次性执行的话，可能一次锁住很多数据、占满整个事务日志、耗尽系统资源、阻塞很多小的但重要的查询。</p>
+<h5 id="3-2-分解关联查询"><a class="header-anchor" href="#3-2-分解关联查询">¶</a>3.2 分解关联查询</h5>
+<p>将一个大连接查询分解成对每一个表进行一次单表查询，然后在应用程序中进行关联，这样做的好处有：</p>
 <ul>
 <li>让缓存更高效。对于连接查询，如果其中一个表发生变化，那么整个查询缓存就无法使用。而分解后的多个查询，即使其中一个表发生变化，对其它表的查询缓存依然可以使用。</li>
 <li>分解成多个单表查询，这些单表查询的缓存结果更可能被其它查询使用到，从而减少冗余记录的查询。</li>
@@ -4399,44 +4429,74 @@
 <li>在应用层进行连接，可以更容易对数据库进行拆分，从而更容易做到高性能和可伸缩。</li>
 <li>查询本身效率也可能会有所提升。</li>
 </ul>
-<h3 id="4-SQL-优化"><a href="#4-SQL-优化" class="headerlink" title="4 SQL 优化"></a>4 SQL 优化</h3><h5 id="负向查询不能使用索引"><a href="#负向查询不能使用索引" class="headerlink" title="负向查询不能使用索引"></a>负向查询不能使用索引</h5><pre><code class="sql">select name from user where id not in (1,3,4);</code></pre>
+<h3 id="4-SQL-优化"><a class="header-anchor" href="#4-SQL-优化">¶</a>4 SQL 优化</h3>
+<h5 id="负向查询不能使用索引"><a class="header-anchor" href="#负向查询不能使用索引">¶</a>负向查询不能使用索引</h5>
+<pre><code class="language-sql">select name from user where id not in (1,3,4);
+</code></pre>
 <p>应该修改为:</p>
-<pre><code>select name from user where id in (2,5,6);</code></pre><h5 id="前导模糊查询不能使用索引"><a href="#前导模糊查询不能使用索引" class="headerlink" title="前导模糊查询不能使用索引"></a>前导模糊查询不能使用索引</h5><p>如:</p>
-<pre><code class="sql">select name from user where name like &#39;%zhangsan&#39;</code></pre>
+<pre><code>select name from user where id in (2,5,6);
+</code></pre>
+<h5 id="前导模糊查询不能使用索引"><a class="header-anchor" href="#前导模糊查询不能使用索引">¶</a>前导模糊查询不能使用索引</h5>
+<p>如:</p>
+<pre><code class="language-sql">select name from user where name like '%zhangsan'
+</code></pre>
 <p>非前导则可以:</p>
-<pre><code class="sql">select name from user where name like &#39;zhangsan%&#39;</code></pre>
+<pre><code class="language-sql">select name from user where name like 'zhangsan%'
+</code></pre>
 <p>建议可以考虑使用 <code>Lucene</code> 等全文索引工具来代替频繁的模糊查询。</p>
-<h5 id="数据区分不明显的不建议创建索引"><a href="#数据区分不明显的不建议创建索引" class="headerlink" title="数据区分不明显的不建议创建索引"></a>数据区分不明显的不建议创建索引</h5><p>如 user 表中的性别字段，可以明显区分的才建议创建索引，如身份证等字段。</p>
-<h5 id="字段的默认值不要为-null"><a href="#字段的默认值不要为-null" class="headerlink" title="字段的默认值不要为 null"></a>字段的默认值不要为 null</h5><p>这样会带来和预期不一致的查询结果。</p>
-<h5 id="在字段上进行计算不能命中索引"><a href="#在字段上进行计算不能命中索引" class="headerlink" title="在字段上进行计算不能命中索引"></a>在字段上进行计算不能命中索引</h5><pre><code class="sql">select name from user where FROM_UNIXTIME(create_time) &lt; CURDATE();</code></pre>
+<h5 id="数据区分不明显的不建议创建索引"><a class="header-anchor" href="#数据区分不明显的不建议创建索引">¶</a>数据区分不明显的不建议创建索引</h5>
+<p>如 user 表中的性别字段，可以明显区分的才建议创建索引，如身份证等字段。</p>
+<h5 id="字段的默认值不要为-null"><a class="header-anchor" href="#字段的默认值不要为-null">¶</a>字段的默认值不要为 null</h5>
+<p>这样会带来和预期不一致的查询结果。</p>
+<h5 id="在字段上进行计算不能命中索引"><a class="header-anchor" href="#在字段上进行计算不能命中索引">¶</a>在字段上进行计算不能命中索引</h5>
+<pre><code class="language-sql">select name from user where FROM_UNIXTIME(create_time) &lt; CURDATE();
+</code></pre>
 <p>应该修改为:</p>
-<pre><code class="sql">select name from user where create_time &lt; FROM_UNIXTIME(CURDATE());</code></pre>
-<h5 id="最左前缀问题"><a href="#最左前缀问题" class="headerlink" title="最左前缀问题"></a>最左前缀问题</h5><p>如果给 user 表中的 username pwd 字段创建了复合索引那么使用以下SQL 都是可以命中索引:</p>
-<pre><code class="sql">select username from user where username=&#39;zhangsan&#39; and pwd =&#39;axsedf1sd&#39;
+<pre><code class="language-sql">select name from user where create_time &lt; FROM_UNIXTIME(CURDATE());
+</code></pre>
+<h5 id="最左前缀问题"><a class="header-anchor" href="#最左前缀问题">¶</a>最左前缀问题</h5>
+<p>如果给 user 表中的 username pwd 字段创建了复合索引那么使用以下SQL 都是可以命中索引:</p>
+<pre><code class="language-sql">select username from user where username='zhangsan' and pwd ='axsedf1sd'
 
-select username from user where pwd =&#39;axsedf1sd&#39; and username=&#39;zhangsan&#39;
+select username from user where pwd ='axsedf1sd' and username='zhangsan'
 
-select username from user where username=&#39;zhangsan&#39;</code></pre>
+select username from user where username='zhangsan'
+</code></pre>
 <p>但是使用</p>
-<pre><code class="sql">select username from user where pwd =&#39;axsedf1sd&#39;</code></pre>
+<pre><code class="language-sql">select username from user where pwd ='axsedf1sd'
+</code></pre>
 <p>是不能命中索引的。</p>
-<h5 id="如果明确知道只有一条记录返回"><a href="#如果明确知道只有一条记录返回" class="headerlink" title="如果明确知道只有一条记录返回"></a>如果明确知道只有一条记录返回</h5><pre><code class="sql">select name from user where username=&#39;zhangsan&#39; limit 1</code></pre>
+<h5 id="如果明确知道只有一条记录返回"><a class="header-anchor" href="#如果明确知道只有一条记录返回">¶</a>如果明确知道只有一条记录返回</h5>
+<pre><code class="language-sql">select name from user where username='zhangsan' limit 1
+</code></pre>
 <p>可以提高效率，可以让数据库停止游标移动。</p>
-<h5 id="不要让数据库帮我们做强制类型转换"><a href="#不要让数据库帮我们做强制类型转换" class="headerlink" title="不要让数据库帮我们做强制类型转换"></a>不要让数据库帮我们做强制类型转换</h5><pre><code class="sql">select name from user where telno=18722222222</code></pre>
+<h5 id="不要让数据库帮我们做强制类型转换"><a class="header-anchor" href="#不要让数据库帮我们做强制类型转换">¶</a>不要让数据库帮我们做强制类型转换</h5>
+<pre><code class="language-sql">select name from user where telno=18722222222
+</code></pre>
 <p>这样虽然可以查出数据，但是会导致全表扫描。</p>
 <p>需要修改为</p>
-<pre><code>select name from user where telno=&#39;18722222222&#39;</code></pre><h5 id="如果需要进行-join-的字段两表的字段类型要相同"><a href="#如果需要进行-join-的字段两表的字段类型要相同" class="headerlink" title="如果需要进行 join 的字段两表的字段类型要相同"></a>如果需要进行 join 的字段两表的字段类型要相同</h5><p>不然也不会命中索引。</p>
-<h3 id="5-查询执行的基础"><a href="#5-查询执行的基础" class="headerlink" title="5 查询执行的基础"></a>5 查询执行的基础</h3><p><img src="/images/1545119138924.png" alt=""></p>
-<h4 id="5-1-Mysql客户端-服务器通信协议"><a href="#5-1-Mysql客户端-服务器通信协议" class="headerlink" title="5.1 Mysql客户端/服务器通信协议"></a>5.1 Mysql客户端/服务器通信协议</h4><p>半双工</p>
+<pre><code>select name from user where telno='18722222222'
+</code></pre>
+<h5 id="如果需要进行-join-的字段两表的字段类型要相同"><a class="header-anchor" href="#如果需要进行-join-的字段两表的字段类型要相同">¶</a>如果需要进行 join 的字段两表的字段类型要相同</h5>
+<p>不然也不会命中索引。</p>
+<h3 id="5-查询执行的基础"><a class="header-anchor" href="#5-查询执行的基础">¶</a>5 查询执行的基础</h3>
+<p><img src="/images/1545119138924.png" alt=""></p>
+<h4 id="5-1-Mysql客户端-服务器通信协议"><a class="header-anchor" href="#5-1-Mysql客户端-服务器通信协议">¶</a>5.1 Mysql客户端/服务器通信协议</h4>
+<p>半双工</p>
 <ul>
 <li>优点：简单快捷；</li>
-<li>缺点：无法进行流量控制，一旦一端开始发送消息，另一端要完整接收后才能响应它。<ul>
-<li>服务器端：<br>参数max_allowed_packet的作用：如果查询太大，服务端会拒绝接收更多的数据。</li>
-<li>客户端：<br>如果服务器发送的数据特别多，客户端必须完整地接收完整个结果。粗暴地断开连接不是个好主意，应该使用Limit进行限制。<br>服务器端发送完全部数据，才会释放相应资源。</li>
+<li>缺点：无法进行流量控制，一旦一端开始发送消息，另一端要完整接收后才能响应它。
+<ul>
+<li>服务器端：<br>
+参数max_allowed_packet的作用：如果查询太大，服务端会拒绝接收更多的数据。</li>
+<li>客户端：<br>
+如果服务器发送的数据特别多，客户端必须完整地接收完整个结果。粗暴地断开连接不是个好主意，应该使用Limit进行限制。<br>
+服务器端发送完全部数据，才会释放相应资源。</li>
 </ul>
 </li>
 </ul>
-<h4 id="5-2-查询缓存"><a href="#5-2-查询缓存" class="headerlink" title="5.2 查询缓存"></a>5.2 查询缓存</h4><p>在解析一个查询语句前，如果查询缓存是打开的，那么MySQL会检查这个查询语句是否命中查询缓存中的数据。如果当前查询恰好命中查询缓存，在检查一次用户权限后直接返回缓存中的结果。这种情况下，查询不会被解析，也不会生成执行计划，更不会执行。</p>
+<h4 id="5-2-查询缓存"><a class="header-anchor" href="#5-2-查询缓存">¶</a>5.2 查询缓存</h4>
+<p>在解析一个查询语句前，如果查询缓存是打开的，那么MySQL会检查这个查询语句是否命中查询缓存中的数据。如果当前查询恰好命中查询缓存，在检查一次用户权限后直接返回缓存中的结果。这种情况下，查询不会被解析，也不会生成执行计划，更不会执行。</p>
 <p>缓存匹配原理:</p>
 <ul>
 <li>Key: SQL的哈希值；</li>
@@ -4444,11 +4504,19 @@ select username from user where username=&#39;zhangsan&#39;</code></pre>
 </ul>
 <p>其中对于函数Hash(SQL)是大小写敏感的，因此即使轻微的改动，也无法利用缓存。（Perconan版本的Mysql能够忽略注释。）</p>
 <p>MySQL的查询缓存系统会跟踪查询中涉及的每个表，如果这些表（数据或结构）发生变化，那么和这张表相关的所有缓存数据都将失效。</p>
-<h3 id="6-优化器的局限性"><a href="#6-优化器的局限性" class="headerlink" title="6 优化器的局限性"></a>6 优化器的局限性</h3><h5 id="6-1-关联子查询"><a href="#6-1-关联子查询" class="headerlink" title="6.1 关联子查询"></a>6.1 关联子查询</h5><p>使用较小的表作为驱动表</p>
-<h5 id="6-2-UNION的限制"><a href="#6-2-UNION的限制" class="headerlink" title="6.2 UNION的限制"></a>6.2 UNION的限制</h5><p>外层的limit无法提前传入内层，可在内层先Limit一下，减少数据量。</p>
-<h5 id="6-5-Mysql无法并行执行"><a href="#6-5-Mysql无法并行执行" class="headerlink" title="6.5 Mysql无法并行执行"></a>6.5 Mysql无法并行执行</h5><p>Mysql无法利用多核。</p>
-<h5 id="6-6-哈希关联"><a href="#6-6-哈希关联" class="headerlink" title="6.6 哈希关联"></a>6.6 哈希关联</h5><p>Mysql的关联都是嵌套关联，不支持哈希关联。<br>不过可以通过建立哈希索引来曲线实现哈希关联。<br>Memory存储的索引都是哈希索引。</p>
-<h5 id="6-7-松散索引扫描"><a href="#6-7-松散索引扫描" class="headerlink" title="6.7 松散索引扫描"></a>6.7 松散索引扫描</h5><p>当查询条件不是最左前缀索引时，无法利用索引，Mysql还不支持松散索引扫描。</p>
+<h3 id="6-优化器的局限性"><a class="header-anchor" href="#6-优化器的局限性">¶</a>6 优化器的局限性</h3>
+<h5 id="6-1-关联子查询"><a class="header-anchor" href="#6-1-关联子查询">¶</a>6.1 关联子查询</h5>
+<p>使用较小的表作为驱动表</p>
+<h5 id="6-2-UNION的限制"><a class="header-anchor" href="#6-2-UNION的限制">¶</a>6.2 UNION的限制</h5>
+<p>外层的limit无法提前传入内层，可在内层先Limit一下，减少数据量。</p>
+<h5 id="6-5-Mysql无法并行执行"><a class="header-anchor" href="#6-5-Mysql无法并行执行">¶</a>6.5 Mysql无法并行执行</h5>
+<p>Mysql无法利用多核。</p>
+<h5 id="6-6-哈希关联"><a class="header-anchor" href="#6-6-哈希关联">¶</a>6.6 哈希关联</h5>
+<p>Mysql的关联都是嵌套关联，不支持哈希关联。<br>
+不过可以通过建立哈希索引来曲线实现哈希关联。<br>
+Memory存储的索引都是哈希索引。</p>
+<h5 id="6-7-松散索引扫描"><a class="header-anchor" href="#6-7-松散索引扫描">¶</a>6.7 松散索引扫描</h5>
+<p>当查询条件不是最左前缀索引时，无法利用索引，Mysql还不支持松散索引扫描。</p>
 
 </div>
 
@@ -4458,19 +4526,23 @@ select username from user where username=&#39;zhangsan&#39;</code></pre>
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

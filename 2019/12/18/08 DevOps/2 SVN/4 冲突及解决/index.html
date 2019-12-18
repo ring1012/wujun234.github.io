@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		4 冲突及解决 | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,19 +4395,31 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:40</span>
+	<span id="post-date">2019-12-18 01:00:44</span>
 </div>
 
 
 <div id="article">
-	<h3 id="1-SVN两种工作模式"><a href="#1-SVN两种工作模式" class="headerlink" title="1 SVN两种工作模式"></a>1 SVN两种工作模式</h3><h5 id="1-1-锁定-修改-锁定模型："><a href="#1-1-锁定-修改-锁定模型：" class="headerlink" title="1.1 锁定-修改-锁定模型："></a>1.1 锁定-修改-锁定模型：</h5><p>一个时间段里版本库的一个文件只允许被一个用户修改。<br>适用于二进制格式文件，内部结构复杂，不容易理解更改处的上下文，采用该方案较好。</p>
+	<h3 id="1-SVN两种工作模式"><a class="header-anchor" href="#1-SVN两种工作模式">¶</a>1 SVN两种工作模式</h3>
+<h5 id="1-1-锁定-修改-锁定模型："><a class="header-anchor" href="#1-1-锁定-修改-锁定模型：">¶</a>1.1 锁定-修改-锁定模型：</h5>
+<p>一个时间段里版本库的一个文件只允许被一个用户修改。<br>
+适用于二进制格式文件，内部结构复杂，不容易理解更改处的上下文，采用该方案较好。</p>
 <ul>
-<li>Get lock/ Release lock：锁定/解锁文件<br>  通过Get lock进行文件加锁，锁定后在浏览界面可以查看文件锁定状态。<br>  修改完成后commit时自动解锁文件。也可通过Release lock手动解锁。</li>
+<li>Get lock/ Release lock：锁定/解锁文件<br>
+通过Get lock进行文件加锁，锁定后在浏览界面可以查看文件锁定状态。<br>
+修改完成后commit时自动解锁文件。也可通过Release lock手动解锁。</li>
 </ul>
-<h5 id="1-2-拷贝-修改-合并模型："><a href="#1-2-拷贝-修改-合并模型：" class="headerlink" title="1.2 拷贝-修改-合并模型："></a>1.2 拷贝-修改-合并模型：</h5><p>每个用户建立一个工作拷贝，用户并行工作，修改各自的工作拷贝，最终，将各个私有拷贝合并在一起，成为最终版本。<br>通过上下文进行合并，适用于文本文件。</p>
-<h3 id="2-冲突及解决"><a href="#2-冲突及解决" class="headerlink" title="2 冲突及解决"></a>2 冲突及解决</h3><h5 id="2-1-什么是冲突"><a href="#2-1-什么是冲突" class="headerlink" title="2.1 什么是冲突"></a>2.1 什么是冲突</h5><p>冲突是随着拷贝-修改-合并方案产生的问题。<br>冲突是指团队协同工作时，当多位团队成员同时修改同一个文件，造成本地文件与SVN系统中的文件版本不一致，而导致文件无法提交的情况</p>
-<h5 id="2-2-冲突产生的原因"><a href="#2-2-冲突产生的原因" class="headerlink" title="2.2 冲突产生的原因"></a>2.2 冲突产生的原因</h5><p>当团队协同工作的时候，多位团队成员同时操作一个文件。团队成员A操作完成后，将该文件提交到SVN上。此时，其他团队成员的本地文件与SVN上的文件版本不一致。当团队成员B操作完成并对文件进行提交操作时，就会产生冲突。</p>
-<h5 id="2-3-冲突的解决方法"><a href="#2-3-冲突的解决方法" class="headerlink" title="2.3 冲突的解决方法"></a>2.3 冲突的解决方法</h5><p>冲突产生后图标会发生变化，并产生三个文件。</p>
+<h5 id="1-2-拷贝-修改-合并模型："><a class="header-anchor" href="#1-2-拷贝-修改-合并模型：">¶</a>1.2 拷贝-修改-合并模型：</h5>
+<p>每个用户建立一个工作拷贝，用户并行工作，修改各自的工作拷贝，最终，将各个私有拷贝合并在一起，成为最终版本。<br>
+通过上下文进行合并，适用于文本文件。</p>
+<h3 id="2-冲突及解决"><a class="header-anchor" href="#2-冲突及解决">¶</a>2 冲突及解决</h3>
+<h5 id="2-1-什么是冲突"><a class="header-anchor" href="#2-1-什么是冲突">¶</a>2.1 什么是冲突</h5>
+<p>冲突是随着拷贝-修改-合并方案产生的问题。<br>
+冲突是指团队协同工作时，当多位团队成员同时修改同一个文件，造成本地文件与SVN系统中的文件版本不一致，而导致文件无法提交的情况</p>
+<h5 id="2-2-冲突产生的原因"><a class="header-anchor" href="#2-2-冲突产生的原因">¶</a>2.2 冲突产生的原因</h5>
+<p>当团队协同工作的时候，多位团队成员同时操作一个文件。团队成员A操作完成后，将该文件提交到SVN上。此时，其他团队成员的本地文件与SVN上的文件版本不一致。当团队成员B操作完成并对文件进行提交操作时，就会产生冲突。</p>
+<h5 id="2-3-冲突的解决方法"><a class="header-anchor" href="#2-3-冲突的解决方法">¶</a>2.3 冲突的解决方法</h5>
+<p>冲突产生后图标会发生变化，并产生三个文件。</p>
 <ul>
 <li>filename.mine：本地修改文件。</li>
 <li>filename.roldrev：做修改之前的检出文件。</li>
@@ -4396,41 +4431,52 @@
 <li>方法二：复制某一工作文件，可用最新版或者本地修改前文件copy更新</li>
 <li>方法三：使用工具解决冲突（ Edit onflicts &amp;TortoiseMerge窗口&amp; Resolved &amp; commit ）</li>
 </ul>
-<h3 id="3-TortoiseMerge介绍"><a href="#3-TortoiseMerge介绍" class="headerlink" title="3 TortoiseMerge介绍"></a>3 TortoiseMerge介绍</h3><p>TortoiseMerge使用三窗口方式显示差异。这个视图也用来解决冲突文件：</p>
+<h3 id="3-TortoiseMerge介绍"><a class="header-anchor" href="#3-TortoiseMerge介绍">¶</a>3 TortoiseMerge介绍</h3>
+<p>TortoiseMerge使用三窗口方式显示差异。这个视图也用来解决冲突文件：</p>
 <ul>
 <li>左窗口显示他人的文件与基础文件的差异</li>
 <li>右窗口显示我的文件与基础文件的差异</li>
 <li>底部窗口显示基础文件，我的文件，与 他人的文件 的合并结果，以及可能的冲突。</li>
 </ul>
-<h5 id="合并一般分为4种情况"><a href="#合并一般分为4种情况" class="headerlink" title="合并一般分为4种情况"></a>合并一般分为4种情况</h5><ul>
-<li>保留”我的修改”,舍弃”别人的修改”。<ul>
-<li>鼠标右键点击Mine框的相应行，点击”Use this text block”。 </li>
+<h5 id="合并一般分为4种情况"><a class="header-anchor" href="#合并一般分为4种情况">¶</a>合并一般分为4种情况</h5>
+<ul>
+<li>保留”我的修改”,舍弃”别人的修改”。
+<ul>
+<li>鼠标右键点击Mine框的相应行，点击”Use this text block”。</li>
 </ul>
 </li>
-<li>舍弃”我的修改”,保留”别人的修改”。<ul>
-<li>鼠标右键点击Theirs框的相应行，点击”Use this text block”。 </li>
+<li>舍弃”我的修改”,保留”别人的修改”。
+<ul>
+<li>鼠标右键点击Theirs框的相应行，点击”Use this text block”。</li>
 </ul>
 </li>
-<li>同时保留”我的修改”和”别人的修改”，并将”我的修改” 放在前面。<ul>
-<li>鼠标右键点击Mine框的相应行，点击”Use text block from mine before theirs”。 </li>
+<li>同时保留”我的修改”和”别人的修改”，并将”我的修改” 放在前面。
+<ul>
+<li>鼠标右键点击Mine框的相应行，点击”Use text block from mine before theirs”。</li>
 </ul>
 </li>
-<li>同时保留”我的修改”和”别人的修改”，并将”别人的修改”放在前面。<ul>
+<li>同时保留”我的修改”和”别人的修改”，并将”别人的修改”放在前面。
+<ul>
 <li>鼠标右键点击Mine框的相应行，点击”Use text block from theirs before mine”</li>
 </ul>
 </li>
 </ul>
-<h5 id="TortoiseMerge图标介绍"><a href="#TortoiseMerge图标介绍" class="headerlink" title="TortoiseMerge图标介绍"></a>TortoiseMerge图标介绍</h5><p><img src="/images/1553151335171.jpg" alt="image"></p>
-<h5 id="避免冲突的建议"><a href="#避免冲突的建议" class="headerlink" title="避免冲突的建议"></a>避免冲突的建议</h5><ul>
+<h5 id="TortoiseMerge图标介绍"><a class="header-anchor" href="#TortoiseMerge图标介绍">¶</a>TortoiseMerge图标介绍</h5>
+<p><img src="/images/1553151335171.jpg" alt="image"></p>
+<h5 id="避免冲突的建议"><a class="header-anchor" href="#避免冲突的建议">¶</a>避免冲突的建议</h5>
+<ul>
 <li>合理规划系统架构和人员分工，尽量减少两个人修改同一个文件的情况。</li>
 <li>研发人员要养成及时Update的习惯，要使自己的开发工作环境，要与配置库保持同步一致。</li>
 <li>研发人员要养成良好的工作习惯，修改了配置库里的文件后，应及时地提交。相互协作穿插研发的代码、数据文件，要及时提交到配置库，还要及时告知相关干系人。</li>
 <li>必要时使用SVN的锁定功能。</li>
 <li>要养成写log Message信息的好习惯，为了方便以后查找历史记录方便，也为了他人查看方便。</li>
 </ul>
-<h3 id="4-树冲突"><a href="#4-树冲突" class="headerlink" title="4 树冲突"></a>4 树冲突</h3><h5 id="树冲突产生原因"><a href="#树冲突产生原因" class="headerlink" title="树冲突产生原因"></a>树冲突产生原因</h5><p>当一名开发人员移动、重命名、删除一个文件或文件夹，而另一名开发人员也对它们进行了移动、重命名、删除或者仅仅是修改时就会发生树冲突。</p>
+<h3 id="4-树冲突"><a class="header-anchor" href="#4-树冲突">¶</a>4 树冲突</h3>
+<h5 id="树冲突产生原因"><a class="header-anchor" href="#树冲突产生原因">¶</a>树冲突产生原因</h5>
+<p>当一名开发人员移动、重命名、删除一个文件或文件夹，而另一名开发人员也对它们进行了移动、重命名、删除或者仅仅是修改时就会发生树冲突。</p>
 <p>有一些其它情况被标记为树冲突，因为冲突中卷入了文件夹而不是文件。例如你在主干和分支中添加了同名的文件夹然后在合并时就会发生树冲突。</p>
-<h5 id="树冲突解决方法"><a href="#树冲突解决方法" class="headerlink" title="树冲突解决方法"></a>树冲突解决方法</h5><p>需要发现冲突的一方，查看log日志获知自己的冲突文件被谁做过什么样的操作，然后与之沟通进行解决，解决后将冲突标记为已解决。</p>
+<h5 id="树冲突解决方法"><a class="header-anchor" href="#树冲突解决方法">¶</a>树冲突解决方法</h5>
+<p>需要发现冲突的一方，查看log日志获知自己的冲突文件被谁做过什么样的操作，然后与之沟通进行解决，解决后将冲突标记为已解决。</p>
 
 </div>
 
@@ -4440,19 +4486,23 @@
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

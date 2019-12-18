@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		03 代码的坏味道 | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,7 +4395,7 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:39</span>
+	<span id="post-date">2019-12-18 01:00:44</span>
 </div>
 
 
@@ -4380,134 +4403,157 @@
 	<p><img src="/images/1552978079094.png" alt=""></p>
 <!-- TOC -->
 <ul>
-<li><a href="#1-重复代码">1 Dupicated Code 重复代码</a></li>
-<li><a href="#2-过长的函数">2 Long Method 过长的函数</a></li>
-<li><a href="#3-过大的类">3 Large Class 过大的类</a></li>
-<li><a href="#4-过长参数列表">4 Long Parmeter List 过长参数列表</a></li>
-<li><a href="#5-发散式变化">5 Divergent Change 发散式变化</a></li>
-<li><a href="#6-霰弹式修改">6 Shotgun Surgery 霰弹式修改</a></li>
-<li><a href="#7-依恋情节">7 Feature Envy 依恋情节</a></li>
-<li><a href="#8-数据泥团">8 Data Clumps 数据泥团</a></li>
-<li><a href="#9-基本类型偏执">9 Primitive Obssession 基本类型偏执</a></li>
-<li><a href="#10-switch惊悚现身">10 Switch Statements switch惊悚现身</a></li>
-<li><a href="#11-平行继承体系">11 Parallel Inheritance Hierarchies 平行继承体系</a></li>
-<li><a href="#12-冗赘类">12 Lazy Class 冗赘类</a></li>
-<li><a href="#13-夸夸其谈未来性">13 Speculative Generality 夸夸其谈未来性</a></li>
-<li><a href="#14-令人迷惑的暂时字段">14 Temporary Field 令人迷惑的暂时字段</a></li>
-<li><a href="#15-过度耦合的消息链">15 Message Chains 过度耦合的消息链</a></li>
-<li><a href="#16-中间人">16 Middle Man 中间人</a></li>
-<li><a href="#17-狎昵关系">17 Inappropriate Intimacy 狎昵关系</a></li>
-<li><a href="#18-异曲同工的类">18 Alternate Classes with Different Interfaces 异曲同工的类</a></li>
-<li><a href="#19-不完美的类库">19 Incomplete Library Class 不完美的类库</a></li>
-<li><a href="#20-纯稚的数据类">20 Data Class 纯稚的数据类</a></li>
-<li><a href="#21-被拒绝的遗赠">21 Refused Bequest 被拒绝的遗赠</a></li>
-<li><a href="#22-过多的注释">22 Comments 过多的注释</a><!-- /TOC -->
-
-</li>
+<li><a href="#1-%E9%87%8D%E5%A4%8D%E4%BB%A3%E7%A0%81">1 Dupicated Code 重复代码</a></li>
+<li><a href="#2-%E8%BF%87%E9%95%BF%E7%9A%84%E5%87%BD%E6%95%B0">2 Long Method 过长的函数</a></li>
+<li><a href="#3-%E8%BF%87%E5%A4%A7%E7%9A%84%E7%B1%BB">3 Large Class 过大的类</a></li>
+<li><a href="#4-%E8%BF%87%E9%95%BF%E5%8F%82%E6%95%B0%E5%88%97%E8%A1%A8">4 Long Parmeter List 过长参数列表</a></li>
+<li><a href="#5-%E5%8F%91%E6%95%A3%E5%BC%8F%E5%8F%98%E5%8C%96">5 Divergent Change 发散式变化</a></li>
+<li><a href="#6-%E9%9C%B0%E5%BC%B9%E5%BC%8F%E4%BF%AE%E6%94%B9">6 Shotgun Surgery 霰弹式修改</a></li>
+<li><a href="#7-%E4%BE%9D%E6%81%8B%E6%83%85%E8%8A%82">7 Feature Envy 依恋情节</a></li>
+<li><a href="#8-%E6%95%B0%E6%8D%AE%E6%B3%A5%E5%9B%A2">8 Data Clumps 数据泥团</a></li>
+<li><a href="#9-%E5%9F%BA%E6%9C%AC%E7%B1%BB%E5%9E%8B%E5%81%8F%E6%89%A7">9 Primitive Obssession 基本类型偏执</a></li>
+<li><a href="#10-switch%E6%83%8A%E6%82%9A%E7%8E%B0%E8%BA%AB">10 Switch Statements switch惊悚现身</a></li>
+<li><a href="#11-%E5%B9%B3%E8%A1%8C%E7%BB%A7%E6%89%BF%E4%BD%93%E7%B3%BB">11 Parallel Inheritance Hierarchies 平行继承体系</a></li>
+<li><a href="#12-%E5%86%97%E8%B5%98%E7%B1%BB">12 Lazy Class 冗赘类</a></li>
+<li><a href="#13-%E5%A4%B8%E5%A4%B8%E5%85%B6%E8%B0%88%E6%9C%AA%E6%9D%A5%E6%80%A7">13 Speculative Generality 夸夸其谈未来性</a></li>
+<li><a href="#14-%E4%BB%A4%E4%BA%BA%E8%BF%B7%E6%83%91%E7%9A%84%E6%9A%82%E6%97%B6%E5%AD%97%E6%AE%B5">14 Temporary Field 令人迷惑的暂时字段</a></li>
+<li><a href="#15-%E8%BF%87%E5%BA%A6%E8%80%A6%E5%90%88%E7%9A%84%E6%B6%88%E6%81%AF%E9%93%BE">15 Message Chains 过度耦合的消息链</a></li>
+<li><a href="#16-%E4%B8%AD%E9%97%B4%E4%BA%BA">16 Middle Man 中间人</a></li>
+<li><a href="#17-%E7%8B%8E%E6%98%B5%E5%85%B3%E7%B3%BB">17 Inappropriate Intimacy 狎昵关系</a></li>
+<li><a href="#18-%E5%BC%82%E6%9B%B2%E5%90%8C%E5%B7%A5%E7%9A%84%E7%B1%BB">18 Alternate Classes with Different Interfaces 异曲同工的类</a></li>
+<li><a href="#19-%E4%B8%8D%E5%AE%8C%E7%BE%8E%E7%9A%84%E7%B1%BB%E5%BA%93">19 Incomplete Library Class 不完美的类库</a></li>
+<li><a href="#20-%E7%BA%AF%E7%A8%9A%E7%9A%84%E6%95%B0%E6%8D%AE%E7%B1%BB">20 Data Class 纯稚的数据类</a></li>
+<li><a href="#21-%E8%A2%AB%E6%8B%92%E7%BB%9D%E7%9A%84%E9%81%97%E8%B5%A0">21 Refused Bequest 被拒绝的遗赠</a></li>
+<li><a href="#22-%E8%BF%87%E5%A4%9A%E7%9A%84%E6%B3%A8%E9%87%8A">22 Comments 过多的注释</a></li>
 </ul>
-<h3 id="1-重复代码"><a href="#1-重复代码" class="headerlink" title="1 重复代码"></a>1 重复代码</h3><ul>
+<!-- /TOC -->
+<h3 id="1-重复代码"><a class="header-anchor" href="#1-重复代码">¶</a>1 重复代码</h3>
+<ul>
 <li>重复的魔法数字：定义为常量</li>
 <li>重复的代码块：提取函数</li>
-<li>重复的类实现：使用类的继承或者扩展代替  </li>
+<li>重复的类实现：使用类的继承或者扩展代替</li>
 <li>兄弟子类中相同：上移到父类</li>
 <li>相似的方法：将差异部分作为参数自定义方法实现</li>
 <li>不同类中的重复：提取新类。</li>
 </ul>
-<h3 id="2-过长的函数"><a href="#2-过长的函数" class="headerlink" title="2 过长的函数"></a>2 过长的函数</h3><ul>
+<h3 id="2-过长的函数"><a class="header-anchor" href="#2-过长的函数">¶</a>2 过长的函数</h3>
+<ul>
 <li>提取注释、循环，以用途命名</li>
 <li>以查询代替临时变量</li>
 <li>分解条件表达式</li>
 </ul>
-<h3 id="3-过大的类"><a href="#3-过大的类" class="headerlink" title="3 过大的类"></a>3 过大的类</h3><ul>
+<h3 id="3-过大的类"><a class="header-anchor" href="#3-过大的类">¶</a>3 过大的类</h3>
+<ul>
 <li>将关联变量提取为新类、子类</li>
 <li>重复代码提取为方法</li>
 </ul>
-<h3 id="4-过长参数列表"><a href="#4-过长参数列表" class="headerlink" title="4 过长参数列表"></a>4 过长参数列表</h3><ul>
+<h3 id="4-过长参数列表"><a class="header-anchor" href="#4-过长参数列表">¶</a>4 过长参数列表</h3>
+<ul>
 <li>用参数对象替代将过多的参数</li>
 </ul>
-<h3 id="5-发散式变化"><a href="#5-发散式变化" class="headerlink" title="5 发散式变化"></a>5 发散式变化</h3><ul>
+<h3 id="5-发散式变化"><a class="header-anchor" href="#5-发散式变化">¶</a>5 发散式变化</h3>
+<ul>
 <li>使一个类只受一种变化的影响，将每种变化提取到新的类中</li>
 </ul>
-<h3 id="6-霰弹式修改"><a href="#6-霰弹式修改" class="headerlink" title="6 霰弹式修改"></a>6 霰弹式修改</h3><ul>
+<h3 id="6-霰弹式修改"><a class="header-anchor" href="#6-霰弹式修改">¶</a>6 霰弹式修改</h3>
+<ul>
 <li>使一种变化只影响一个类，将变化在多个类中的影响提取到一个类中</li>
 </ul>
-<h3 id="7-依恋情节"><a href="#7-依恋情节" class="headerlink" title="7 依恋情节"></a>7 依恋情节</h3><ul>
+<h3 id="7-依恋情节"><a class="header-anchor" href="#7-依恋情节">¶</a>7 依恋情节</h3>
+<ul>
 <li>尽可能的将数据和数据的行为操作放一起</li>
 </ul>
-<h3 id="8-数据泥团"><a href="#8-数据泥团" class="headerlink" title="8 数据泥团"></a>8 数据泥团</h3><ul>
+<h3 id="8-数据泥团"><a class="header-anchor" href="#8-数据泥团">¶</a>8 数据泥团</h3>
+<ul>
 <li>将总是在不同类中一起出现的字段提取到独立类中</li>
 </ul>
-<h3 id="9-基本类型偏执"><a href="#9-基本类型偏执" class="headerlink" title="9 基本类型偏执"></a>9 基本类型偏执</h3><ul>
+<h3 id="9-基本类型偏执"><a class="header-anchor" href="#9-基本类型偏执">¶</a>9 基本类型偏执</h3>
+<ul>
 <li>使用对象替换单独数据值</li>
 <li>以类、子类、状态模式和策略模式替代类型码</li>
 <li>经常放一起的字段提取类</li>
 <li>引入参数对象</li>
 <li>以对象替代数组</li>
 </ul>
-<h3 id="10-switch惊悚现身"><a href="#10-switch惊悚现身" class="headerlink" title="10 switch惊悚现身"></a>10 switch惊悚现身</h3><ul>
-<li>使用多态替换switch语句<ul>
+<h3 id="10-switch惊悚现身"><a class="header-anchor" href="#10-switch惊悚现身">¶</a>10 switch惊悚现身</h3>
+<ul>
+<li>使用多态替换switch语句
+<ul>
 <li>提取函数</li>
 <li>以子类、状态模式和策略模式替代类型码</li>
 </ul>
 </li>
-<li>单一函数中<ul>
+<li>单一函数中
+<ul>
 <li>以明确函数取代参数</li>
 <li>选择条件有null：引入NULL对象</li>
 </ul>
 </li>
 </ul>
-<h3 id="11-平行继承体系"><a href="#11-平行继承体系" class="headerlink" title="11 平行继承体系"></a>11 平行继承体系</h3><p>平行继承体系 是 霰弹式修改 的特殊情况。每当为某个类增加一个子类后，必须也为另一个类增加一个子类。</p>
+<h3 id="11-平行继承体系"><a class="header-anchor" href="#11-平行继承体系">¶</a>11 平行继承体系</h3>
+<p>平行继承体系 是 霰弹式修改 的特殊情况。每当为某个类增加一个子类后，必须也为另一个类增加一个子类。</p>
 <p>常见的解决方案是： 将相同的操作抽象到父类、引用类解决。</p>
-<h3 id="12-冗赘类"><a href="#12-冗赘类" class="headerlink" title="12 冗赘类"></a>12 冗赘类</h3><p>精简无用的类</p>
+<h3 id="12-冗赘类"><a class="header-anchor" href="#12-冗赘类">¶</a>12 冗赘类</h3>
+<p>精简无用的类</p>
 <ul>
 <li>没用的组件：将类内联化</li>
 <li>子类没有足够工作：合并继承层次</li>
 </ul>
-<h3 id="13-夸夸其谈未来性"><a href="#13-夸夸其谈未来性" class="headerlink" title="13 夸夸其谈未来性"></a>13 夸夸其谈未来性</h3><p>用不上的各种装置</p>
+<h3 id="13-夸夸其谈未来性"><a class="header-anchor" href="#13-夸夸其谈未来性">¶</a>13 夸夸其谈未来性</h3>
+<p>用不上的各种装置</p>
 <ul>
 <li>不必要的委托：将类内联化</li>
 <li>没用的抽象类：合并继承层次</li>
 <li>未使用的参数：移动参数</li>
 <li>函数名称带有多余抽象意味：重命名方法</li>
 </ul>
-<h3 id="14-令人迷惑的暂时字段"><a href="#14-令人迷惑的暂时字段" class="headerlink" title="14 令人迷惑的暂时字段"></a>14 令人迷惑的暂时字段</h3><ul>
+<h3 id="14-令人迷惑的暂时字段"><a class="header-anchor" href="#14-令人迷惑的暂时字段">¶</a>14 令人迷惑的暂时字段</h3>
+<ul>
 <li>将为特定情况设置的临时变量，相关代码提取到新类中</li>
 <li>在需要的情况下创建NULL对象，避免条件式代码</li>
 </ul>
-<h3 id="15-过度耦合的消息链"><a href="#15-过度耦合的消息链" class="headerlink" title="15 过度耦合的消息链"></a>15 过度耦合的消息链</h3><p>消息事件传递链过长</p>
+<h3 id="15-过度耦合的消息链"><a class="header-anchor" href="#15-过度耦合的消息链">¶</a>15 过度耦合的消息链</h3>
+<p>消息事件传递链过长</p>
 <ul>
 <li>隐藏委托关系：提取消息最终对象代码到独立函数中</li>
 </ul>
-<h3 id="16-中间人"><a href="#16-中间人" class="headerlink" title="16 中间人"></a>16 中间人</h3><p>过度运用委托</p>
+<h3 id="16-中间人"><a class="header-anchor" href="#16-中间人">¶</a>16 中间人</h3>
+<p>过度运用委托</p>
 <ul>
 <li>去除中间人：直接和真正负责的对象打交道</li>
 <li>以继承取代委托：把中间人变成对象的子类</li>
 </ul>
-<h3 id="17-狎昵关系"><a href="#17-狎昵关系" class="headerlink" title="17 狎昵关系"></a>17 狎昵关系</h3><p>过于狎昵的类需要被岔开</p>
+<h3 id="17-狎昵关系"><a class="header-anchor" href="#17-狎昵关系">¶</a>17 狎昵关系</h3>
+<p>过于狎昵的类需要被岔开</p>
 <ul>
 <li>移动方法、字段</li>
 <li>双向关联改为单项关联</li>
 <li>继承取代委托</li>
 <li>隐藏委托关系</li>
 </ul>
-<h3 id="18-异曲同工的类"><a href="#18-异曲同工的类" class="headerlink" title="18 异曲同工的类"></a>18 异曲同工的类</h3><p>两函数功能相同签名不同：根据用途重命名方法</p>
-<h3 id="19-不完美的类库"><a href="#19-不完美的类库" class="headerlink" title="19 不完美的类库"></a>19 不完美的类库</h3><ul>
+<h3 id="18-异曲同工的类"><a class="header-anchor" href="#18-异曲同工的类">¶</a>18 异曲同工的类</h3>
+<p>两函数功能相同签名不同：根据用途重命名方法</p>
+<h3 id="19-不完美的类库"><a class="header-anchor" href="#19-不完美的类库">¶</a>19 不完美的类库</h3>
+<ul>
 <li>修改类库中的一两个函数：引入外部方法</li>
 <li>添加额外的行为：引入本地扩展</li>
 </ul>
-<h3 id="20-纯稚的数据类"><a href="#20-纯稚的数据类" class="headerlink" title="20 纯稚的数据类"></a>20 纯稚的数据类</h3><p>类似于贫血型Model.期望为model增加set/get函数,保护数据不容易在外部被修改.</p>
+<h3 id="20-纯稚的数据类"><a class="header-anchor" href="#20-纯稚的数据类">¶</a>20 纯稚的数据类</h3>
+<p>类似于贫血型Model.期望为model增加set/get函数,保护数据不容易在外部被修改.</p>
 <ul>
 <li>封装字段</li>
 <li>封装集合</li>
 <li>不该被修改的自动：去除setter方法</li>
 <li>尝试移动使用setter、getter的方法到data类</li>
 </ul>
-<h3 id="21-被拒绝的遗赠"><a href="#21-被拒绝的遗赠" class="headerlink" title="21 被拒绝的遗赠"></a>21 被拒绝的遗赠</h3><p>子类继承了父类中子类不需要的部分函数和数据</p>
+<h3 id="21-被拒绝的遗赠"><a class="header-anchor" href="#21-被拒绝的遗赠">¶</a>21 被拒绝的遗赠</h3>
+<p>子类继承了父类中子类不需要的部分函数和数据</p>
 <ul>
 <li>为子类新建一个兄弟类，将不需要的部分移至此类</li>
 <li>用委托代替继承关系</li>
 </ul>
-<h3 id="22-过多的注释"><a href="#22-过多的注释" class="headerlink" title="22 过多的注释"></a>22 过多的注释</h3><p>尝试代码自解释</p>
+<h3 id="22-过多的注释"><a class="header-anchor" href="#22-过多的注释">¶</a>22 过多的注释</h3>
+<p>尝试代码自解释</p>
 
 </div>
 
@@ -4517,19 +4563,23 @@
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		1 XML概述 | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,7 +4395,7 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:49</span>
+	<span id="post-date">2019-12-18 01:00:41</span>
 </div>
 
 
@@ -4384,27 +4407,52 @@
 <li>存储数据，充当小型数据库</li>
 </ol>
 <p>与HTML一样从标准通用标记语言（SGML）衍生，区别是XML语法要求严格，大小写敏感，标签必须闭合，属性必须引号括起来。</p>
-<h3 id="文档结构"><a href="#文档结构" class="headerlink" title="文档结构"></a>文档结构</h3><h4 id="1-文档头"><a href="#1-文档头" class="headerlink" title="1 文档头"></a>1 文档头</h4><p>XML文档应当以一个文档头开始，可选但推荐</p>
-<pre><code class="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</code></pre>
-<p>version：xml的版本号，一般是1.0。<br>encoding：解析xml文件时查询的码表。<br>保存的时候编码要跟声明的一样</p>
-<h4 id="2-文档类型"><a href="#2-文档类型" class="headerlink" title="2 文档类型"></a>2 文档类型</h4><p>文档类型定义是确保文档正确的一个重要机制，但是它不是必需的。</p>
-<pre><code>&lt;!DOCTYPE ……</code></pre><h4 id="3-正文"><a href="#3-正文" class="headerlink" title="3 正文"></a>3 正文</h4><p>XML文档的正文包含根元素，根元素包含其他元素。</p>
+<h3 id="文档结构"><a class="header-anchor" href="#文档结构">¶</a>文档结构</h3>
+<h4 id="1-文档头"><a class="header-anchor" href="#1-文档头">¶</a>1 文档头</h4>
+<p>XML文档应当以一个文档头开始，可选但推荐</p>
+<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+</code></pre>
+<p>version：xml的版本号，一般是1.0。<br>
+encoding：解析xml文件时查询的码表。<br>
+保存的时候编码要跟声明的一样</p>
+<h4 id="2-文档类型"><a class="header-anchor" href="#2-文档类型">¶</a>2 文档类型</h4>
+<p>文档类型定义是确保文档正确的一个重要机制，但是它不是必需的。</p>
+<pre><code>&lt;!DOCTYPE ……
+</code></pre>
+<h4 id="3-正文"><a class="header-anchor" href="#3-正文">¶</a>3 正文</h4>
+<p>XML文档的正文包含根元素，根元素包含其他元素。</p>
 <p><img src="/images/1545011846369.png" alt=""></p>
-<h4 id="3-1-元素"><a href="#3-1-元素" class="headerlink" title="3.1 元素"></a>3.1 元素</h4><p>元素可以有子元素、文本或两者皆有。最好避免两者皆有</p>
-<pre><code class="xml">&lt;student&gt; 
+<h4 id="3-1-元素"><a class="header-anchor" href="#3-1-元素">¶</a>3.1 元素</h4>
+<p>元素可以有子元素、文本或两者皆有。最好避免两者皆有</p>
+<pre><code class="language-xml">&lt;student&gt; 
     rocco
-&lt;/student&gt;</code></pre>
-<h4 id="3-2-属性"><a href="#3-2-属性" class="headerlink" title="3.2 属性"></a>3.2 属性</h4><p>XML元素可以包含属性</p>
-<pre><code class="xml">&lt;student name=&quot;eric&quot;&gt; 
+&lt;/student&gt;
+</code></pre>
+<h4 id="3-2-属性"><a class="header-anchor" href="#3-2-属性">¶</a>3.2 属性</h4>
+<p>XML元素可以包含属性</p>
+<pre><code class="language-xml">&lt;student name=&quot;eric&quot;&gt; 
     rocco
-&lt;/student&gt;</code></pre>
+&lt;/student&gt;
+</code></pre>
 <p>属性只应该用来修改值的解释，而不是用来指定值。否则直接用元素。</p>
-<h4 id="3-3-转义字符"><a href="#3-3-转义字符" class="headerlink" title="3.3 转义字符"></a>3.3 转义字符</h4><p>在xml中内置了一些特殊字符，需要进行转义。<br>字符引用：&amp;#十进制值或&amp;#x十六进制值<br>实体引用：&amp;name</p>
+<h4 id="3-3-转义字符"><a class="header-anchor" href="#3-3-转义字符">¶</a>3.3 转义字符</h4>
+<p>在xml中内置了一些特殊字符，需要进行转义。<br>
+字符引用：&amp;#十进制值或&amp;#x十六进制值<br>
+实体引用：&amp;name</p>
 <pre><code>&amp;#233;&amp;#xE9;
-&amp;lt;&amp;gt;</code></pre><h4 id="3-4-CDDATA块"><a href="#3-4-CDDATA块" class="headerlink" title="3.4 CDDATA块"></a>3.4 CDDATA块</h4><p>可以囊括特殊字符，进行原样输出，不需转义。</p>
-<pre><code class="xml">&lt;![CDATA[内容]]&gt;</code></pre>
-<h4 id="3-5-处理指令"><a href="#3-5-处理指令" class="headerlink" title="3.5 处理指令"></a>3.5 处理指令</h4><p>用来指挥解析引擎如何解析xml文档内容</p>
-<pre><code>&lt;?xml-stylesheet type=&quot;text/css&quot; href=&quot;1.css&quot;?&gt;</code></pre><h4 id="3-6-注释"><a href="#3-6-注释" class="headerlink" title="3.6 注释"></a>3.6 注释</h4><pre><code class="xml">&lt;!--xml注释--&gt;</code></pre>
+&amp;lt;&amp;gt;
+</code></pre>
+<h4 id="3-4-CDDATA块"><a class="header-anchor" href="#3-4-CDDATA块">¶</a>3.4 CDDATA块</h4>
+<p>可以囊括特殊字符，进行原样输出，不需转义。</p>
+<pre><code class="language-xml">&lt;![CDATA[内容]]&gt;
+</code></pre>
+<h4 id="3-5-处理指令"><a class="header-anchor" href="#3-5-处理指令">¶</a>3.5 处理指令</h4>
+<p>用来指挥解析引擎如何解析xml文档内容</p>
+<pre><code>&lt;?xml-stylesheet type=&quot;text/css&quot; href=&quot;1.css&quot;?&gt;
+</code></pre>
+<h4 id="3-6-注释"><a class="header-anchor" href="#3-6-注释">¶</a>3.6 注释</h4>
+<pre><code class="language-xml">&lt;!--xml注释--&gt;
+</code></pre>
 
 </div>
 
@@ -4414,19 +4462,23 @@
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

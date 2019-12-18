@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		01 Spring Cloud Bus | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,22 +4395,31 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:24</span>
+	<span id="post-date">2019-12-18 01:00:43</span>
 </div>
 
 
 <div id="article">
 	<p>消息总线是一种通信工具，可以在机器之间互相传输消息、文件等。消息总线扮演着一种消息路由的角色，拥有一套完备的路由机制来决定消息传输方向。发送段只需要向消息总线发出消息而不用管消息被如何转发。</p>
-<h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><p>spring cloud bus整合 java的事件处理机制和消息中间件消息的发送和接受，主要由发送端、接收端和事件组成。<br><img src="/images/1545270181639.png" alt=""><br>发送端构造事件event，将其publish到context上下文中（spring cloud bus有一个父上下文，bootstrap），然后将事件发送到channel中。接收端从channel中获取到message，将message转为事件event，然后将event事件publish到context上下文中，最后接收端收到event，调用服务进行处理。<br>整个流程中，只有发送/接收端从context上下文中取事件和发送事件是需要我们在代码中明确写出来的，其它部分都由框架封装完成。</p>
-<h3 id="整合消息中间件"><a href="#整合消息中间件" class="headerlink" title="整合消息中间件"></a>整合消息中间件</h3><p>rabbitmq</p>
+<h3 id="原理"><a class="header-anchor" href="#原理">¶</a>原理</h3>
+<p>spring cloud bus整合 java的事件处理机制和消息中间件消息的发送和接受，主要由发送端、接收端和事件组成。<br>
+<img src="/images/1545270181639.png" alt=""><br>
+发送端构造事件event，将其publish到context上下文中（spring cloud bus有一个父上下文，bootstrap），然后将事件发送到channel中。接收端从channel中获取到message，将message转为事件event，然后将event事件publish到context上下文中，最后接收端收到event，调用服务进行处理。<br>
+整个流程中，只有发送/接收端从context上下文中取事件和发送事件是需要我们在代码中明确写出来的，其它部分都由框架封装完成。</p>
+<h3 id="整合消息中间件"><a class="header-anchor" href="#整合消息中间件">¶</a>整合消息中间件</h3>
+<p>rabbitmq</p>
 <pre><code>&lt;dependency&gt;
     &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
     &lt;artifactId&gt;spring-cloud-starter-bus-amqp&lt;/artifactId&gt;
-&lt;/dependency&gt;</code></pre><p>kafka</p>
+&lt;/dependency&gt;
+</code></pre>
+<p>kafka</p>
 <pre><code>&lt;dependency&gt;
     &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
     &lt;artifactId&gt;spring-cloud-starter-bus-kafka&lt;/artifactId&gt;
-&lt;/dependency&gt;</code></pre>
+&lt;/dependency&gt;
+</code></pre>
+
 </div>
 
 	</div>
@@ -4396,19 +4428,23 @@
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

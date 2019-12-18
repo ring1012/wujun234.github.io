@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		6 Spring Cache | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,15 +4395,16 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:17</span>
+	<span id="post-date">2019-12-18 01:00:43</span>
 </div>
 
 
 <div id="article">
 	<p>Spring自身并没有实现缓存解决方案， 但是它对缓存功能提供了声明式的支持， 能够与多种流行的缓存实现进行集成。</p>
-<p>Spring的缓存抽象在很大程度上是围绕切面构建的。 在Spring中启用缓存时，会创建一个切面， 它触发一个或更多的Spring的缓存注解。 </p>
-<h3 id="1-启用对缓存的支持"><a href="#1-启用对缓存的支持" class="headerlink" title="1 启用对缓存的支持"></a>1 启用对缓存的支持</h3><p>配置类上添加<code>@EnableCaching</code>启用Spring对注解驱动缓存的支持。  </p>
-<p>在方法上添加<code>@Cacheable</code>和<code>@CacheEvict</code>注解使用Spring的缓存抽象。  </p>
+<p>Spring的缓存抽象在很大程度上是围绕切面构建的。 在Spring中启用缓存时，会创建一个切面， 它触发一个或更多的Spring的缓存注解。</p>
+<h3 id="1-启用对缓存的支持"><a class="header-anchor" href="#1-启用对缓存的支持">¶</a>1 启用对缓存的支持</h3>
+<p>配置类上添加<code>@EnableCaching</code>启用Spring对注解驱动缓存的支持。</p>
+<p>在方法上添加<code>@Cacheable</code>和<code>@CacheEvict</code>注解使用Spring的缓存抽象。</p>
 <pre><code>@Configuration
 @EnableCaching
 public class CachingConfig {
@@ -4388,7 +4412,10 @@ public class CachingConfig {
     public CacheManager cacheManager() {
         return new ConcurrentMapCacheManager();
     }
-}</code></pre><h4 id="1-1-配置缓存管理器"><a href="#1-1-配置缓存管理器" class="headerlink" title="1.1 配置缓存管理器"></a>1.1 配置缓存管理器</h4><p>缓存管理器是Spring缓存抽象的核心， 它能够与多个流行的缓存实现进行集成。</p>
+}
+</code></pre>
+<h4 id="1-1-配置缓存管理器"><a class="header-anchor" href="#1-1-配置缓存管理器">¶</a>1.1 配置缓存管理器</h4>
+<p>缓存管理器是Spring缓存抽象的核心， 它能够与多个流行的缓存实现进行集成。</p>
 <p>Spring 3.1内置五个缓存管理器实现</p>
 <ul>
 <li>SimpleCacheManager</li>
@@ -4402,7 +4429,8 @@ public class CachingConfig {
 <li>RedisCacheManager（来自于Spring Data Redis项目）</li>
 <li>GemfireCacheManager（来自于Spring Data GemFire项目）</li>
 </ul>
-<h5 id="使用单个"><a href="#使用单个" class="headerlink" title="使用单个"></a>使用单个</h5><p>Redis可以用来为Spring缓存抽象机制存储缓存条目， Spring Data Redis提供了RedisCacheManager， 这是CacheManager的一个实现。 </p>
+<h5 id="使用单个"><a class="header-anchor" href="#使用单个">¶</a>使用单个</h5>
+<p>Redis可以用来为Spring缓存抽象机制存储缓存条目， Spring Data Redis提供了RedisCacheManager， 这是CacheManager的一个实现。</p>
 <pre><code>@Configuration
 @EnableCaching
 public class CachingConfig {
@@ -4423,7 +4451,10 @@ public class CachingConfig {
         redisTemplate.afterPropertiesSet();
         return redisTemplate;
     }
-}</code></pre><h5 id="使用多个"><a href="#使用多个" class="headerlink" title="使用多个"></a>使用多个</h5><p>CompositeCacheManager要通过一个或更多的缓存管理器来进行配置， 它会迭代这些缓存管理器， 以查找之前所缓存的值。 </p>
+}
+</code></pre>
+<h5 id="使用多个"><a class="header-anchor" href="#使用多个">¶</a>使用多个</h5>
+<p>CompositeCacheManager要通过一个或更多的缓存管理器来进行配置， 它会迭代这些缓存管理器， 以查找之前所缓存的值。</p>
 <pre><code>@Bean
 public CacheManager cacheManager(
         net.sf.ehcache.CacheManager cm,
@@ -4435,7 +4466,10 @@ public CacheManager cacheManager(
     managers.add(new RedisCacheManager(redisTemplate()));
     cacheManager.setCacheManagers(managers);
     return cacheManager;
-}</code></pre><h3 id="2-为方法添加注解以支持缓存"><a href="#2-为方法添加注解以支持缓存" class="headerlink" title="2 为方法添加注解以支持缓存"></a>2 为方法添加注解以支持缓存</h3><p>所有注解都能运用在方法或类上。 放在类上时， 缓存行为会应用到这个类的所有方法上。</p>
+}
+</code></pre>
+<h3 id="2-为方法添加注解以支持缓存"><a class="header-anchor" href="#2-为方法添加注解以支持缓存">¶</a>2 为方法添加注解以支持缓存</h3>
+<p>所有注解都能运用在方法或类上。 放在类上时， 缓存行为会应用到这个类的所有方法上。</p>
 <table>
 <thead>
 <tr>
@@ -4443,7 +4477,8 @@ public CacheManager cacheManager(
 <th>描 述</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>@Cacheable</td>
 <td>（读）调用前，先在缓存中查找方法的返回值。如有则返回，否则调用，返回值会放到缓存之中</td>
 </tr>
@@ -4459,8 +4494,10 @@ public CacheManager cacheManager(
 <td>@Caching</td>
 <td>这是一个分组的注解， 能够同时应用多个其他的缓存注解</td>
 </tr>
-</tbody></table>
-<h4 id="2-1-填充缓存"><a href="#2-1-填充缓存" class="headerlink" title="2.1 填充缓存"></a>2.1 填充缓存</h4><p>@Cacheable和@CachePut都有一个名value属性，缓存名称</p>
+</tbody>
+</table>
+<h4 id="2-1-填充缓存"><a class="header-anchor" href="#2-1-填充缓存">¶</a>2.1 填充缓存</h4>
+<p>@Cacheable和@CachePut都有一个名value属性，缓存名称</p>
 <pre><code>@Cacheable(&quot;spittleCache&quot;)
 public Spittle findOne(long id) {
     try {
@@ -4471,18 +4508,68 @@ public Spittle findOne(long id) {
     } catch (EmptyResultDataAccessException e) {
         return null;
     }
-}</code></pre><h5 id="将值放到缓存之中"><a href="#将值放到缓存之中" class="headerlink" title="将值放到缓存之中"></a>将值放到缓存之中</h5><p>有@CachePut注解的方法始终都会被调用， 而且它的返回值也会放到缓存中。 </p>
+}
+</code></pre>
+<h5 id="将值放到缓存之中"><a class="header-anchor" href="#将值放到缓存之中">¶</a>将值放到缓存之中</h5>
+<p>有@CachePut注解的方法始终都会被调用， 而且它的返回值也会放到缓存中。</p>
 <p>适合用在保存、修改操作上，即刻缓存。</p>
-<h5 id="自定义缓存key"><a href="#自定义缓存key" class="headerlink" title="自定义缓存key"></a>自定义缓存key</h5><p>@Cacheable和@CachePut都有一个名为key属性， 这个属性能够替换默认的key， 它是通过一个SpEL表达式计算得到的。 </p>
-<p>在为缓存编写SpEL表达式的时候， Spring暴露了一些很有用的元数据。<br>表 达 式 | 描 述<br>—|—<br>#root.args | 传递给缓存方法的参数， 形式为数组<br>#root.caches  |该方法执行时所对应的缓存， 形式为数组<br>#root.target | 目标对象#root.targetClass 目标对象的类， 是#root.target.class的简写形式<br>#root.method  |缓存方法<br>#root.methodName  |缓存方法的名字， 是#root.method.name的简写形式<br>#result | 方法调用的返回值（不能用在@Cacheable注解上）<br>#Argument | 任意的方法参数名（如#argName） 或参数索引（如#a0或#p0）</p>
+<h5 id="自定义缓存key"><a class="header-anchor" href="#自定义缓存key">¶</a>自定义缓存key</h5>
+<p>@Cacheable和@CachePut都有一个名为key属性， 这个属性能够替换默认的key， 它是通过一个SpEL表达式计算得到的。</p>
+<p>在为缓存编写SpEL表达式的时候， Spring暴露了一些很有用的元数据。</p>
+<table>
+<thead>
+<tr>
+<th>表 达 式</th>
+<th>描 述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>#root.args</td>
+<td>传递给缓存方法的参数， 形式为数组</td>
+</tr>
+<tr>
+<td>#root.caches</td>
+<td>该方法执行时所对应的缓存， 形式为数组</td>
+</tr>
+<tr>
+<td>#root.target</td>
+<td>目标对象#root.targetClass 目标对象的类， 是#root.target.class的简写形式</td>
+</tr>
+<tr>
+<td>#root.method</td>
+<td>缓存方法</td>
+</tr>
+<tr>
+<td>#root.methodName</td>
+<td>缓存方法的名字， 是#root.method.name的简写形式</td>
+</tr>
+<tr>
+<td>#result</td>
+<td>方法调用的返回值（不能用在@Cacheable注解上）</td>
+</tr>
+<tr>
+<td>#Argument</td>
+<td>任意的方法参数名（如#argName） 或参数索引（如#a0或#p0）</td>
+</tr>
+</tbody>
+</table>
 <pre><code>@CachePut(value=&quot;spittleCache&quot;, key=&quot;#result.id&quot;)
-Spittle save(Spittle spittle);</code></pre><h5 id="条件化缓存"><a href="#条件化缓存" class="headerlink" title="条件化缓存"></a>条件化缓存</h5><p>@Cacheable和@CachePut提供了两个属性用以实现条件化缓存： unless和condition。</p>
+Spittle save(Spittle spittle);
+</code></pre>
+<h5 id="条件化缓存"><a class="header-anchor" href="#条件化缓存">¶</a>条件化缓存</h5>
+<p>@Cacheable和@CachePut提供了两个属性用以实现条件化缓存： unless和condition。</p>
 <p>unless为true阻止添加到缓存中，condition为false缓存被禁用。</p>
-<pre><code>@Cacheable(value=&quot;spittleCache&quot; unless=&quot;#result.message.contains(&#39;NoCache&#39;)&quot;)
-Spittle findOne(long id);</code></pre><h4 id="2-2-移除缓存条目"><a href="#2-2-移除缓存条目" class="headerlink" title="2.2 移除缓存条目"></a>2.2 移除缓存条目</h4><p>带有@CacheEvict注解的方法被调用，在缓存中移除。</p>
+<pre><code>@Cacheable(value=&quot;spittleCache&quot; unless=&quot;#result.message.contains('NoCache')&quot;)
+Spittle findOne(long id);
+</code></pre>
+<h4 id="2-2-移除缓存条目"><a class="header-anchor" href="#2-2-移除缓存条目">¶</a>2.2 移除缓存条目</h4>
+<p>带有@CacheEvict注解的方法被调用，在缓存中移除。</p>
 <p>适用于删除操作。</p>
 <pre><code>@CacheEvict(&quot;spittleCache&quot;)
-void remove(long spittleId);</code></pre>
+void remove(long spittleId);
+</code></pre>
+
 </div>
 
 	</div>
@@ -4491,19 +4578,23 @@ void remove(long spittleId);</code></pre>
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

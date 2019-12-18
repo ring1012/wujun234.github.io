@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		2.7 priorityqueue | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,12 +4395,13 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:46</span>
+	<span id="post-date">2019-12-18 01:00:41</span>
 </div>
 
 
 <div id="article">
-	<h3 id="总体介绍"><a href="#总体介绍" class="headerlink" title="总体介绍"></a>总体介绍</h3><p>优先队列的作用是能保证每次取出的元素都是队列中权值最小的。</p>
+	<h3 id="总体介绍"><a class="header-anchor" href="#总体介绍">¶</a>总体介绍</h3>
+<p>优先队列的作用是能保证每次取出的元素都是队列中权值最小的。</p>
 <p>实现了<code>Queue</code>接口，不允许<code>null</code>，通过数组实现的<strong>小顶堆</strong>。</p>
 <p><img src="/images/1545011841614.png" alt="PriorityQueue_base.png"></p>
 <p>父子节点的编号之间有如下关系：</p>
@@ -4389,10 +4413,12 @@
 <p>通过上述三个公式，可计算出某个节点的父节点以及子节点的下标。因此可直接用数组来存储堆。</p>
 <p><code>PriorityQueue</code>的<code>peek()</code>和<code>element</code>操作是常数时间，<code>add()</code>, <code>offer()</code>, 无参数的<code>remove()</code>以及<code>poll()</code>方法的时间复杂度都是<em>log(N)</em>。</p>
 <p>非同步, 要同步请使用线程安全的 PriorityBlockingQueue 类。</p>
-<h3 id="方法剖析"><a href="#方法剖析" class="headerlink" title="方法剖析"></a>方法剖析</h3><h4 id="add-和offer"><a href="#add-和offer" class="headerlink" title="add()和offer()"></a>add()和offer()</h4><p><code>add(E e)</code>和<code>offer(E e)</code>都是向优先队列中插入元素，只是前者在插入失败时抛出异常，后则则会返回<code>false</code>。</p>
+<h3 id="方法剖析"><a class="header-anchor" href="#方法剖析">¶</a>方法剖析</h3>
+<h4 id="add-和offer"><a class="header-anchor" href="#add-和offer">¶</a>add()和offer()</h4>
+<p><code>add(E e)</code>和<code>offer(E e)</code>都是向优先队列中插入元素，只是前者在插入失败时抛出异常，后则则会返回<code>false</code>。</p>
 <p><img src="/images/1545011841896.png" alt="PriorityQueue_offer.png"></p>
 <p>新加入的元素可能会破坏小顶堆的性质，因此需要进行必要的调整。</p>
-<pre><code class="Java">//offer(E e)
+<pre><code class="language-Java">//offer(E e)
 public boolean offer(E e) {
     if (e == null)//不允许放入null元素
         throw new NullPointerException();
@@ -4406,10 +4432,12 @@ public boolean offer(E e) {
     else
         siftUp(i, e);//调整
     return true;
-}</code></pre>
+}
+</code></pre>
 <p>扩容函数<code>grow()</code>类似于<code>ArrayList</code>里的<code>grow()</code>函数，就是再申请一个更大的数组，并将原数组的元素复制过去。</p>
-<h5 id="调整"><a href="#调整" class="headerlink" title="调整"></a>调整</h5><p><code>siftUp(int k, E x)</code>方法，用于插入元素<code>x</code>并维持堆的特性。调整的过程为：从<code>k</code>指定的位置开始，将<code>x</code>逐层与当前点的<code>parent</code>进行比较并交换，直到满足<code>x &gt;= queue[parent]</code>为止。</p>
-<pre><code class="Java">//siftUp()
+<h5 id="调整"><a class="header-anchor" href="#调整">¶</a>调整</h5>
+<p><code>siftUp(int k, E x)</code>方法，用于插入元素<code>x</code>并维持堆的特性。调整的过程为：从<code>k</code>指定的位置开始，将<code>x</code>逐层与当前点的<code>parent</code>进行比较并交换，直到满足<code>x &gt;= queue[parent]</code>为止。</p>
+<pre><code class="language-Java">//siftUp()
 private void siftUp(int k, E x) {
     while (k &gt; 0) {
         int parent = (k - 1) &gt;&gt;&gt; 1;//parentNo = (nodeNo-1)/2
@@ -4420,11 +4448,14 @@ private void siftUp(int k, E x) {
         k = parent;
     }
     queue[k] = x;
-}</code></pre>
-<h4 id="element-和peek"><a href="#element-和peek" class="headerlink" title="element()和peek()"></a>element()和peek()</h4><p><code>element()</code>和<code>peek()</code>都是获取但不删除队首元素，区别是当方法失败时前者抛出异常，后者返回<code>null</code>。<strong>直接返回数组<code>0</code>下标处的那个元素即可</strong>。</p>
-<h4 id="remove-和poll"><a href="#remove-和poll" class="headerlink" title="remove()和poll()"></a>remove()和poll()</h4><p><code>remove()</code>和<code>poll()</code>都是获取并删除队首元素，区别是当方法失败时前者抛出异常，后者返回<code>null</code>。由于删除操作会改变队列的结构，为维护小顶堆的性质，需要进行必要的调整。</p>
+}
+</code></pre>
+<h4 id="element-和peek"><a class="header-anchor" href="#element-和peek">¶</a>element()和peek()</h4>
+<p><code>element()</code>和<code>peek()</code>都是获取但不删除队首元素，区别是当方法失败时前者抛出异常，后者返回<code>null</code>。<strong>直接返回数组<code>0</code>下标处的那个元素即可</strong>。</p>
+<h4 id="remove-和poll"><a class="header-anchor" href="#remove-和poll">¶</a>remove()和poll()</h4>
+<p><code>remove()</code>和<code>poll()</code>都是获取并删除队首元素，区别是当方法失败时前者抛出异常，后者返回<code>null</code>。由于删除操作会改变队列的结构，为维护小顶堆的性质，需要进行必要的调整。</p>
 <p><img src="/images/1545011842267.png" alt="PriorityQueue_poll.png"></p>
-<pre><code class="Java">public E poll() {
+<pre><code class="language-Java">public E poll() {
     if (size == 0)
         return null;
     int s = --size;
@@ -4435,14 +4466,16 @@ private void siftUp(int k, E x) {
     if (s != 0)
         siftDown(0, x);//调整
     return result;
-}</code></pre>
+}
+</code></pre>
 <p>上述代码首先记录<code>0</code>下标处的元素，并用最后一个元素替换<code>0</code>下标位置的元素，之后调用<code>siftDown()</code>方法对堆进行调整，最后返回原来<code>0</code>下标处的那个元素（也就是最小的那个元素）。</p>
-<h5 id="调整-1"><a href="#调整-1" class="headerlink" title="调整"></a>调整</h5><p><code>siftDown(int k, E x)</code>方法，作用是从<code>k</code>指定的位置开始，将<code>x</code>逐层向下与当前点的左右孩子中较小的那个交换，直到<code>x</code>小于或等于左右孩子中的任何一个为止。</p>
-<pre><code class="Java">//siftDown()
+<h5 id="调整-v2"><a class="header-anchor" href="#调整-v2">¶</a>调整</h5>
+<p><code>siftDown(int k, E x)</code>方法，作用是从<code>k</code>指定的位置开始，将<code>x</code>逐层向下与当前点的左右孩子中较小的那个交换，直到<code>x</code>小于或等于左右孩子中的任何一个为止。</p>
+<pre><code class="language-Java">//siftDown()
 private void siftDown(int k, E x) {
     int half = size &gt;&gt;&gt; 1;
     while (k &lt; half) {
-        //首先找到左右孩子中较小的那个，记录到c里，并用child记录其下标
+    	//首先找到左右孩子中较小的那个，记录到c里，并用child记录其下标
         int child = (k &lt;&lt; 1) + 1;//leftNo = parentNo*2+1
         Object c = queue[child];
         int right = child + 1;
@@ -4455,8 +4488,10 @@ private void siftDown(int k, E x) {
         k = child;
     }
     queue[k] = x;
-}</code></pre>
-<h4 id="remove-Object-o"><a href="#remove-Object-o" class="headerlink" title="remove(Object o)"></a>remove(Object o)</h4><p><code>remove(Object o)</code>方法用于删除队列中跟<code>o</code>相等的某一个元素（如果有多个相等，只删除一个），该方法不是<em>Queue</em>接口内的方法，而是<em>Collection</em>接口的方法。</p>
+}
+</code></pre>
+<h4 id="remove-Object-o"><a class="header-anchor" href="#remove-Object-o">¶</a>remove(Object o)</h4>
+<p><code>remove(Object o)</code>方法用于删除队列中跟<code>o</code>相等的某一个元素（如果有多个相等，只删除一个），该方法不是<em>Queue</em>接口内的方法，而是<em>Collection</em>接口的方法。</p>
 <p>，<code>remove(Object o)</code>可以分为2种情况：</p>
 <ol>
 <li>删除的是最后一个元素。直接删除即可，不需要调整。</li>
@@ -4464,9 +4499,9 @@ private void siftDown(int k, E x) {
 </ol>
 <p><img src="/images/1545011842636.png" alt="PriorityQueue_remove2.png"></p>
 <p>具体代码如下：</p>
-<pre><code class="Java">//remove(Object o)
+<pre><code class="language-Java">//remove(Object o)
 public boolean remove(Object o) {
-    //通过遍历数组的方式找到第一个满足o.equals(queue[i])元素的下标
+	//通过遍历数组的方式找到第一个满足o.equals(queue[i])元素的下标
     int i = indexOf(o);
     if (i == -1)
         return false;
@@ -4480,7 +4515,8 @@ public boolean remove(Object o) {
         ......
     }
     return true;
-}</code></pre>
+}
+</code></pre>
 
 </div>
 
@@ -4490,19 +4526,23 @@ public boolean remove(Object o) {
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

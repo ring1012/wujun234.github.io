@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		7 Dynamic DataSource | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,13 +4395,14 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:17</span>
+	<span id="post-date">2019-12-18 01:00:43</span>
 </div>
 
 
 <div id="article">
 	<p>AOP实现多数据源，可读写分离</p>
-<h3 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h3><pre><code>dynamic-db.master.driver-class-name = com.mysql.jdbc.Driver
+<h3 id="配置文件"><a class="header-anchor" href="#配置文件">¶</a>配置文件</h3>
+<pre><code>dynamic-db.master.driver-class-name = com.mysql.jdbc.Driver
 dynamic-db.master.jdbc-url = jdbc:mysql://somehost:3306/sometable?characterEncoding=utf8&amp;useSSL=false
 dynamic-db.master.username = xxx
 dynamic-db.master.password = xxx
@@ -4386,7 +4410,10 @@ dynamic-db.master.password = xxx
 dynamic-db.slave.driver-class-name = com.mysql.jdbc.Driver
 dynamic-db.slave.jdbc-url = jdbc:mysql://somehost:3306/sometable?characterEncoding=utf8&amp;useSSL=false
 dynamic-db.slave.username = xxx
-dynamic-db.slave.password = xxx</code></pre><h3 id="ContextHolder"><a href="#ContextHolder" class="headerlink" title="ContextHolder"></a>ContextHolder</h3><p>管理DataSource</p>
+dynamic-db.slave.password = xxx
+</code></pre>
+<h3 id="ContextHolder"><a class="header-anchor" href="#ContextHolder">¶</a>ContextHolder</h3>
+<p>管理DataSource</p>
 <pre><code>public class DynamicDataSourceContextHolder {
     //存储当前DataSource
     private static final ThreadLocal&lt;String&gt; CONTEXT_HOLDER = new ThreadLocal&lt;&gt;();
@@ -4409,14 +4436,20 @@ dynamic-db.slave.password = xxx</code></pre><h3 id="ContextHolder"><a href="#Con
     public static boolean containDataSourceKey(String key) {
         return dataSourceKeys.contains(key);
     }
-}</code></pre><h3 id="注册动态配置"><a href="#注册动态配置" class="headerlink" title="注册动态配置"></a>注册动态配置</h3><p>继承AbstractRoutingDataSource </p>
+}
+</code></pre>
+<h3 id="注册动态配置"><a class="header-anchor" href="#注册动态配置">¶</a>注册动态配置</h3>
+<p>继承AbstractRoutingDataSource</p>
 <pre><code>public class DynamicRoutingDataSource extends AbstractRoutingDataSource {
     //将当前DataSource加入应用上下文
     @Override
     protected Object determineCurrentLookupKey() {
         return DynamicDataSourceContextHolder.getDataSourceKey();
     }
-}</code></pre><h3 id="加载配置"><a href="#加载配置" class="headerlink" title="加载配置"></a>加载配置</h3><pre><code>@Slf4j
+}
+</code></pre>
+<h3 id="加载配置"><a class="header-anchor" href="#加载配置">¶</a>加载配置</h3>
+<pre><code>@Slf4j
 @Configuration
 public class DataSourceConfigurer {
     @Bean(&quot;master&quot;)
@@ -4434,7 +4467,7 @@ public class DataSourceConfigurer {
     @Bean(&quot;dynamicDataSource&quot;)
     public DataSource dynamicDataSource() {
         DynamicRoutingDataSource dynamicRoutingDataSource = new DynamicRoutingDataSource();
-
+        
         //所有DataSource
         Map&lt;Object, Object&gt; dataSourceMap = new HashMap&lt;&gt;(2);
         dataSourceMap.put(&quot;master&quot;, master());
@@ -4463,12 +4496,18 @@ public class DataSourceConfigurer {
     public PlatformTransactionManager transactionManager() {
         return new DataSourceTransactionManager(dynamicDataSource());
     }
-}</code></pre><h3 id="注解"><a href="#注解" class="headerlink" title="注解"></a>注解</h3><pre><code>@Target({ElementType.METHOD, ElementType.TYPE})
+}
+</code></pre>
+<h3 id="注解"><a class="header-anchor" href="#注解">¶</a>注解</h3>
+<pre><code>@Target({ElementType.METHOD, ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
 public @interface TargetDataSource {
     String value();
-}</code></pre><h3 id="Aspect"><a href="#Aspect" class="headerlink" title="Aspect"></a>Aspect</h3><pre><code>@Aspect
+}
+</code></pre>
+<h3 id="Aspect"><a class="header-anchor" href="#Aspect">¶</a>Aspect</h3>
+<pre><code>@Aspect
 @Component
 public class DynamicDataSourceAspect {
     //切换
@@ -4483,7 +4522,10 @@ public class DynamicDataSourceAspect {
     public void restoreDataSource(JoinPoint point, TargetDataSource targetDataSource) {
         DynamicDataSourceContextHolder.clearDataSourceKey();
     }
-}</code></pre><h3 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h3><p>读写分离</p>
+}
+</code></pre>
+<h3 id="实例"><a class="header-anchor" href="#实例">¶</a>实例</h3>
+<p>读写分离</p>
 <pre><code>@Repository
 public interface InterMsgMapper {
     @InsertProvider(type = InterMsgProvider.class, method = &quot;insert&quot;)
@@ -4492,7 +4534,9 @@ public interface InterMsgMapper {
     @TargetDataSource(&quot;slave&quot;)
     @SelectProvider(type = InterMsgProvider.class, method = &quot;findMessages&quot;)
     List&lt;InterMsg&gt; findMessages(Long userId, Integer limit, Long lastId, Long currentTime);
-}</code></pre>
+}
+</code></pre>
+
 </div>
 
 	</div>
@@ -4501,19 +4545,23 @@ public interface InterMsgMapper {
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		4 记录日志 | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,37 +4395,46 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:46</span>
+	<span id="post-date">2019-12-18 01:00:41</span>
 </div>
 
 
 <div id="article">
 	<p>java.util.logging.Logger</p>
-<h4 id="1-日志记录器"><a href="#1-日志记录器" class="headerlink" title="1 日志记录器"></a>1 日志记录器</h4><ul>
+<h4 id="1-日志记录器"><a class="header-anchor" href="#1-日志记录器">¶</a>1 日志记录器</h4>
+<ul>
 <li>全局日志记录器：Logger.getGlobal()</li>
 </ul>
-<pre><code>Logger.getGlobal().info(&quot;&quot;);</code></pre><ul>
+<pre><code>Logger.getGlobal().info(&quot;&quot;);
+</code></pre>
+<ul>
 <li>自定义日志记录器：Logger.getLogger()</li>
 </ul>
-<pre><code>Logger myLogger= Logger.getLogger(&quot;log.zhouyong&quot;);</code></pre><h4 id="2-日志级别"><a href="#2-日志级别" class="headerlink" title="2 日志级别"></a>2 日志级别</h4><ul>
-<li>日志级别<ul>
+<pre><code>Logger myLogger= Logger.getLogger(&quot;log.zhouyong&quot;);
+</code></pre>
+<h4 id="2-日志级别"><a class="header-anchor" href="#2-日志级别">¶</a>2 日志级别</h4>
+<ul>
+<li>日志级别
+<ul>
 <li>SEVERE</li>
 <li>WARNING</li>
 <li>INFO</li>
 <li>CONFIG</li>
 <li>FINE</li>
 <li>FINER</li>
-<li>FINEST  </li>
+<li>FINEST</li>
 </ul>
 </li>
-<li>设置日志级别：.setLevel()<ul>
+<li>设置日志级别：.setLevel()
+<ul>
 <li>logger.setLevel(Level.WARNING)</li>
 <li>.setLevel(Level.OFF) 关闭所有</li>
 <li>.setLevel(Level.ALL) 开启所有</li>
 </ul>
 </li>
 </ul>
-<h4 id="3-修改日志管理器配置"><a href="#3-修改日志管理器配置" class="headerlink" title="3 修改日志管理器配置"></a>3 修改日志管理器配置</h4><ul>
+<h4 id="3-修改日志管理器配置"><a class="header-anchor" href="#3-修改日志管理器配置">¶</a>3 修改日志管理器配置</h4>
+<ul>
 <li>默认情况，配置文件存在于：jre/lib/logging.properties</li>
 <li>自定义配置文件存储位置：java -Djava.util.logging.config.file=configFile MainClass</li>
 <li>修改日志记录级别：com.mycompany.myapp.level=FINE</li>
@@ -4417,19 +4449,23 @@
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

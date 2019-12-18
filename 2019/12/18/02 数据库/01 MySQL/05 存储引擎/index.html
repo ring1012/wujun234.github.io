@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		05 存储引擎 | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,20 +4395,23 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:22</span>
+	<span id="post-date">2019-12-18 01:00:43</span>
 </div>
 
 
 <div id="article">
 	<p>在文件系统中，MySQL将每个数据库保存为数据目录下的一个子目录。创建表时，MySQL会在数据库子目录下创建一个和表同名的.frm文件保存表的定义。不同的存储引擎保存数据和索引的方式是不同的，但表的定义则是在MySQL服务层统一处理的。</p>
-<h3 id="InnoDB"><a href="#InnoDB" class="headerlink" title="InnoDB"></a>InnoDB</h3><p>MySQL 的默认事务型存储引擎，被设计用来处理大量的短期事务。</p>
+<h3 id="InnoDB"><a class="header-anchor" href="#InnoDB">¶</a>InnoDB</h3>
+<p>MySQL 的默认事务型存储引擎，被设计用来处理大量的短期事务。</p>
 <p>实现了四个标准的隔离级别，默认级别是可重复读。在可重复读隔离级别下，通过多版本并发控制（MVCC）+ 间隙锁（Next-Key Locking）防止幻影读。</p>
 <p>主索引是<strong>聚簇索引</strong>，在索引中保存了数据，从而避免直接读取磁盘，因此对查询性能有很大的提升。</p>
 <p>内部做了很多优化，包括从磁盘读取数据时采用的<strong>可预测性读</strong>、能够加快读操作并且自动创建的<strong>自适应哈希索引</strong>、能够加速插入操作的<strong>插入缓冲区</strong>等。</p>
 <p>支持真正的在线<strong>热备份</strong>。</p>
-<h3 id="MyISAM"><a href="#MyISAM" class="headerlink" title="MyISAM"></a>MyISAM</h3><p>MySQL 5.1及之前的默认存储引擎，<strong>不支持事务和行级锁</strong>，崩溃后无法安全恢复。</p>
+<h3 id="MyISAM"><a class="header-anchor" href="#MyISAM">¶</a>MyISAM</h3>
+<p>MySQL 5.1及之前的默认存储引擎，<strong>不支持事务和行级锁</strong>，崩溃后无法安全恢复。</p>
 <p>支持压缩表和空间数据索引。</p>
-<h3 id="选择合适的引擎"><a href="#选择合适的引擎" class="headerlink" title="选择合适的引擎"></a>选择合适的引擎</h3><p>大部分情况下，InnoDB都是正确的选择。“除非需要用到某些InnoDB不具备的特性，并且没有其他办法可以替代，否则都应该优先选择InnoDB引擎”。如果要用到全文索引，建议优先考虑InnoDB加上Sphinx的组合，而不是使用支持全文素引的MyISAM。如果不在乎可扩展能力和并发能力，也不在乎崩溃后的数据丢失问题，却对InnoDB的空间占用过多比较敏感，这种场合下选择MyISAM就比较合适。</p>
+<h3 id="选择合适的引擎"><a class="header-anchor" href="#选择合适的引擎">¶</a>选择合适的引擎</h3>
+<p>大部分情况下，InnoDB都是正确的选择。“除非需要用到某些InnoDB不具备的特性，并且没有其他办法可以替代，否则都应该优先选择InnoDB引擎”。如果要用到全文索引，建议优先考虑InnoDB加上Sphinx的组合，而不是使用支持全文素引的MyISAM。如果不在乎可扩展能力和并发能力，也不在乎崩溃后的数据丢失问题，却对InnoDB的空间占用过多比较敏感，这种场合下选择MyISAM就比较合适。</p>
 
 </div>
 
@@ -4395,19 +4421,23 @@
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

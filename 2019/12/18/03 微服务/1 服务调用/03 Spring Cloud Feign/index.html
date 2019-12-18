@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		03 Spring Cloud Feign | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,34 +4395,44 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:23</span>
+	<span id="post-date">2019-12-18 01:00:43</span>
 </div>
 
 
 <div id="article">
 	<p>Spring Cloud Feign是一套基于Netflix Feign实现的声明式服务调用客户端，目的是让Web Service调用更加简单，使用HTTP请求远程服务时能与调用本地方法一样的编码体验。</p>
-<h2 id="工作机制"><a href="#工作机制" class="headerlink" title="工作机制"></a>工作机制</h2><p>提供了HTTP请求模板，通过编写简单的接口和插入注解，就可完成对Web服务接口的绑定。扩展了对Spring MVC注解的支持，整合了Ribbon和Hystrix。内部机制是使用RestTemplate来实现。</p>
-<h2 id="服务调用"><a href="#服务调用" class="headerlink" title="服务调用"></a>服务调用</h2><p>配置Feign+Ribbon+Hystrix，消费服务。因为Spring Cloud的封装，我们几乎不需要关心Ribbon和Hystrix的细节，只需要进行Feign的配置即可。</p>
+<h2 id="工作机制"><a class="header-anchor" href="#工作机制">¶</a>工作机制</h2>
+<p>提供了HTTP请求模板，通过编写简单的接口和插入注解，就可完成对Web服务接口的绑定。扩展了对Spring MVC注解的支持，整合了Ribbon和Hystrix。内部机制是使用RestTemplate来实现。</p>
+<h2 id="服务调用"><a class="header-anchor" href="#服务调用">¶</a>服务调用</h2>
+<p>配置Feign+Ribbon+Hystrix，消费服务。因为Spring Cloud的封装，我们几乎不需要关心Ribbon和Hystrix的细节，只需要进行Feign的配置即可。</p>
 <ol>
-<li><p>pom依赖</p>
+<li>pom依赖</li>
+</ol>
 <pre><code>&lt;dependency&gt;
- &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
- &lt;artifactId&gt;spring-cloud-starter-netflix-eureka-client&lt;/artifactId&gt;
+    &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-cloud-starter-netflix-eureka-client&lt;/artifactId&gt;
 &lt;/dependency&gt;
 &lt;dependency&gt;
- &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
- &lt;artifactId&gt;spring-cloud-starter-openfeign&lt;/artifactId&gt;
-&lt;/dependency&gt;</code></pre></li>
-<li><p>配置application.properties</p>
+    &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-cloud-starter-openfeign&lt;/artifactId&gt;
+&lt;/dependency&gt;
+</code></pre>
+<ol start="2">
+<li>配置application.properties</li>
+</ol>
 <pre><code>spring.application.name=service-consumer
-eureka.client.serviceUrl.defaultZone=http://localhost:8000/eureka</code></pre></li>
-<li><p>启动类添加 @EnableFeignClients 、@EnableDiscoveryClient注解，开启Eureka Client和Feign的相关功能</p>
+eureka.client.serviceUrl.defaultZone=http://localhost:8000/eureka
+</code></pre>
+<ol start="3">
+<li>
+<p>启动类添加 @EnableFeignClients 、@EnableDiscoveryClient注解，开启Eureka Client和Feign的相关功能</p>
 </li>
-<li><p>创建@FeignClient接口，统一声明依赖的服务</p>
+<li>
+<p>创建@FeignClient接口，统一声明依赖的服务</p>
 <ul>
 <li>有url参数也要设置name</li>
 <li>configuration 参数可添加设定配置</li>
-<li>fallback 参数开启Hystrix 并定义Hystrix fallback </li>
+<li>fallback 参数开启Hystrix 并定义Hystrix fallback</li>
 <li>默认，@RequestParam注解的参数转换成字符串添加到URL中，将没有注解的参数通过Jackson转换成json放到请求体中。如果请求方式指定为POST，那么所有未标注解的参数将会被忽略。</li>
 <li>在Spring Cloud环境下，Feign的Encoder<em>只会用来编码没有添加注解的参数</em>。</li>
 </ul>
@@ -4412,7 +4445,9 @@ public interface ConsumerClient {
     //对应服务方提供的接口
     @RequestMapping(value = &quot;/index&quot;, method = RequestMethod.GET)
     String consumer();
-}</code></pre><p>Fallback</p>
+}
+</code></pre>
+<p>Fallback</p>
 <pre><code>//Hystrix Fallback
 @Component
 public class ConsumerFallbackimplements Consumer{
@@ -4421,7 +4456,9 @@ public class ConsumerFallbackimplements Consumer{
     {
     return &quot;Feign客户端访问失败&quot;;
     }
-}</code></pre><p>Configuration</p>
+}
+</code></pre>
+<p>Configuration</p>
 <pre><code>@Configuration
 public class EurekaConfiguration {
 
@@ -4429,19 +4466,21 @@ public class EurekaConfiguration {
     public BasicAuthRequestInterceptor basicAuthRequestInterceptor() {
         return new BasicAuthRequestInterceptor(&quot;zhihao.miao&quot;, &quot;123456&quot;);
     }
-
+    
     @Bean
     public Encoder feignEncoder() {
         HttpMessageConverter jacksonConverter = new MappingJackson2HttpMessageConverter(new ObjectMapper());
         ObjectFactory&lt;HttpMessageConverters&gt; objectFactory = () -&gt; new HttpMessageConverters(jacksonConverter);
         return new SpringEncoder(objectFactory);
     }
-
+    
     @Bean
     public FeignErrorDecoder errorDecoder() {
         return new FeignErrorDecoder();
     }
-}</code></pre><pre><code>public class FeignErrorDecoder implements ErrorDecoder {
+}
+</code></pre>
+<pre><code>public class FeignErrorDecoder implements ErrorDecoder {
 
     @Override
     public Exception decode(String methodKey, Response response) {
@@ -4463,26 +4502,40 @@ public class EurekaConfiguration {
 
         return FeignException.errorStatus(methodKey, response);
     }
-}</code></pre><ol start="5">
-<li><p>通过接口调用服务</p>
+}
+</code></pre>
+<ol start="5">
+<li>通过接口调用服务</li>
+</ol>
 <pre><code>@RestController
 public class DcController {
- @Autowired
- ConsumerClient consumerClient;
- @GetMapping(&quot;/consumer&quot;)
- public String index() {
-     return consumerClient .consumer();
- }
-}</code></pre><h2 id="第一次请求失败"><a href="#第一次请求失败" class="headerlink" title="第一次请求失败"></a>第一次请求失败</h2><p>Hystrix默认的超时时间是1秒，如果超过这个时间尚未响应，将会进入fallback代码。而首次请求往往会比较慢（Spring的懒加载机制）。解决方案有三种，以feign为例。</p>
-</li>
-<li><p>让Hystrix的超时时间改为5秒</p>
-<pre><code>hystrix.command.default.execution.isolation.thread.timeoutInMilliseconds: 5000</code></pre></li>
-<li><p>该配置，用于禁用Hystrix的超时时间</p>
-<pre><code>hystrix.command.default.execution.timeout.enabled: false</code></pre></li>
-<li><p>索性禁用feign的hystrix</p>
-<pre><code>feign.hystrix.enabled: false</code></pre></li>
+    @Autowired
+    ConsumerClient consumerClient;
+    @GetMapping(&quot;/consumer&quot;)
+    public String index() {
+        return consumerClient .consumer();
+    }
+}
+</code></pre>
+<h2 id="第一次请求失败"><a class="header-anchor" href="#第一次请求失败">¶</a>第一次请求失败</h2>
+<p>Hystrix默认的超时时间是1秒，如果超过这个时间尚未响应，将会进入fallback代码。而首次请求往往会比较慢（Spring的懒加载机制）。解决方案有三种，以feign为例。</p>
+<ol>
+<li>让Hystrix的超时时间改为5秒</li>
 </ol>
-<h2 id="处理异常"><a href="#处理异常" class="headerlink" title="处理异常"></a>处理异常</h2><p>如果在FeignClient调用接口，接口服务出现异常的情况下需要提取异常信息，可以使用fallbackFactory。</p>
+<pre><code>hystrix.command.default.execution.isolation.thread.timeoutInMilliseconds: 5000
+</code></pre>
+<ol start="2">
+<li>该配置，用于禁用Hystrix的超时时间</li>
+</ol>
+<pre><code>hystrix.command.default.execution.timeout.enabled: false
+</code></pre>
+<ol start="3">
+<li>索性禁用feign的hystrix</li>
+</ol>
+<pre><code>feign.hystrix.enabled: false
+</code></pre>
+<h2 id="处理异常"><a class="header-anchor" href="#处理异常">¶</a>处理异常</h2>
+<p>如果在FeignClient调用接口，接口服务出现异常的情况下需要提取异常信息，可以使用fallbackFactory。</p>
 <pre><code>@FeignClient(value = &quot;bClient&quot;, url = &quot;${interfase.user.management}&quot;, fallbackFactory = IBClientServiceFallBackFactory.class)
 public interface IBClientService {
     @RequestMapping(value = &quot;/qual/company&quot;, method = RequestMethod.GET)
@@ -4506,7 +4559,10 @@ class IBClientServiceFallBackFactory implements FallbackFactory&lt;IBClientServi
             }
         };
     }
-}</code></pre><h4 id="保留原始异常信息"><a href="#保留原始异常信息" class="headerlink" title="保留原始异常信息"></a>保留原始异常信息</h4><p>当调用服务时，如果服务返回的状态码不是200，就会进入到Feign的ErrorDecoder中，因此如果我们要解析异常信息，就要重写ErrorDecoder</p>
+}
+</code></pre>
+<h4 id="保留原始异常信息"><a class="header-anchor" href="#保留原始异常信息">¶</a>保留原始异常信息</h4>
+<p>当调用服务时，如果服务返回的状态码不是200，就会进入到Feign的ErrorDecoder中，因此如果我们要解析异常信息，就要重写ErrorDecoder</p>
 <pre><code>public class KeepErrMsgConfiguration {
     @Bean
     public ErrorDecoder errorDecoder() {
@@ -4536,19 +4592,31 @@ class IBClientServiceFallBackFactory implements FallbackFactory&lt;IBClientServi
             return exception;
         }
     }
-}</code></pre><p>在@FeignClient注解中指定configuration</p>
+}
+</code></pre>
+<p>在@FeignClient注解中指定configuration</p>
 <pre><code>@FeignClient(name = &quot;serviceId&quot;, fallbackFactory = TestServiceFallback.class, configuration = {KeepErrMsgConfiguration.class})
 public interface TestService {
     @RequestMapping(value = &quot;/get/{id}&quot;, method = RequestMethod.GET)
     String get(@PathVariable(&quot;id&quot;) Integer id);
-}</code></pre><h2 id="超时设置"><a href="#超时设置" class="headerlink" title="超时设置"></a>超时设置</h2><p>线程池设置</p>
+}
+</code></pre>
+<h2 id="超时设置"><a class="header-anchor" href="#超时设置">¶</a>超时设置</h2>
+<p>线程池设置</p>
 <pre><code>hystrix.threadpool.default.coreSize=100
-hystrix.threadpool.default.maxQueueSize=1000</code></pre><p>断路器超时设置和请求的超时</p>
+hystrix.threadpool.default.maxQueueSize=1000
+</code></pre>
+<p>断路器超时设置和请求的超时</p>
 <pre><code>hystrix.command.default.execution.timeout.enabled=true
 hystrix.command.default.execution.isolation.thread.timeoutInMilliseconds=300000
 ribbon.ConnectTimeout=300000
-ribbon.ReadTimeout=300000</code></pre><p>设置回退的最大线程数</p>
-<pre><code>hystrix.command.default.fallback.isolation.semaphore.maxConcurrentRequests=50</code></pre><h2 id="HTTP-Client"><a href="#HTTP-Client" class="headerlink" title="HTTP Client"></a>HTTP Client</h2><p>Feign在默认情况下使用的是JDK原生的URLConnection发送HTTP请求，没有连接池，但是对每个地址会保持一个长连接，即利用HTTP的persistence connection 。</p>
+ribbon.ReadTimeout=300000
+</code></pre>
+<p>设置回退的最大线程数</p>
+<pre><code>hystrix.command.default.fallback.isolation.semaphore.maxConcurrentRequests=50
+</code></pre>
+<h2 id="HTTP-Client"><a class="header-anchor" href="#HTTP-Client">¶</a>HTTP Client</h2>
+<p>Feign在默认情况下使用的是JDK原生的URLConnection发送HTTP请求，没有连接池，但是对每个地址会保持一个长连接，即利用HTTP的persistence connection 。</p>
 <p>Apache的HTTP Client替换Feign原始的http client, 从而获取连接池、超时时间等与性能息息相关的控制能力。Spring Cloud从Brixtion.SR5版本开始支持这种替换，首先在项目中声明Apache HTTP Client和feign-httpclient依赖：</p>
 <pre><code>&lt;!-- 使用Apache HttpClient替换Feign原生httpclient --&gt;
         &lt;dependency&gt;
@@ -4559,12 +4627,21 @@ ribbon.ReadTimeout=300000</code></pre><p>设置回退的最大线程数</p>
             &lt;groupId&gt;com.netflix.feign&lt;/groupId&gt;
             &lt;artifactId&gt;feign-httpclient&lt;/artifactId&gt;
             &lt;version&gt;${feign-httpclient}&lt;/version&gt;
-        &lt;/dependency&gt;</code></pre><p>然后在application.properties中添加：</p>
-<pre><code>feign.httpclient.enabled=true</code></pre><p>还可以替换OkHttpClient</p>
-<pre><code>feign.okhttp.enabled=true</code></pre><h2 id="日志"><a href="#日志" class="headerlink" title="日志"></a>日志</h2><p>Feign的日志可以通过修改配置文件来实现</p>
+        &lt;/dependency&gt;
+</code></pre>
+<p>然后在application.properties中添加：</p>
+<pre><code>feign.httpclient.enabled=true
+</code></pre>
+<p>还可以替换OkHttpClient</p>
+<pre><code>feign.okhttp.enabled=true
+</code></pre>
+<h2 id="日志"><a class="header-anchor" href="#日志">¶</a>日志</h2>
+<p>Feign的日志可以通过修改配置文件来实现</p>
 <pre><code>logging:
     level:
-        project.user.UserClient: DEBUG</code></pre><ul>
+        project.user.UserClient: DEBUG
+</code></pre>
+<ul>
 <li>NONE，无记录（DEFAULT）。</li>
 <li>BASIC，只记录请求方法和URL以及响应状态代码和执行时间。</li>
 <li>HEADERS，记录基本信息以及请求和响应标头。</li>
@@ -4575,7 +4652,9 @@ ribbon.ReadTimeout=300000</code></pre><p>设置回退的最大线程数</p>
     public Logger.Level feignLoggerLevel() {
         //设置日志
         return Logger.Level.FULL;
-    }</code></pre>
+    }
+</code></pre>
+
 </div>
 
 	</div>
@@ -4584,19 +4663,23 @@ ribbon.ReadTimeout=300000</code></pre><p>设置回退的最大线程数</p>
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

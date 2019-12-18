@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		3 类和接口（15-25） | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,20 +4395,25 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:16</span>
+	<span id="post-date">2019-12-18 01:00:42</span>
 </div>
 
 
 <div id="article">
-	<h3 id="第15条：使类和成员的可访问性最小化"><a href="#第15条：使类和成员的可访问性最小化" class="headerlink" title="第15条：使类和成员的可访问性最小化"></a>第15条：使类和成员的可访问性最小化</h3><p>公有静态final域暴露常量，要么包含基本类型值，要么包含指向不可变对象的引用</p>
-<h3 id="第16条：在公有类中使用访问方法而非公有域"><a href="#第16条：在公有类中使用访问方法而非公有域" class="headerlink" title="第16条：在公有类中使用访问方法而非公有域"></a>第16条：在公有类中使用访问方法而非公有域</h3><ul>
+	<h3 id="第15条：使类和成员的可访问性最小化"><a class="header-anchor" href="#第15条：使类和成员的可访问性最小化">¶</a>第15条：使类和成员的可访问性最小化</h3>
+<p>公有静态final域暴露常量，要么包含基本类型值，要么包含指向不可变对象的引用</p>
+<h3 id="第16条：在公有类中使用访问方法而非公有域"><a class="header-anchor" href="#第16条：在公有类中使用访问方法而非公有域">¶</a>第16条：在公有类中使用访问方法而非公有域</h3>
+<ul>
 <li>公有类不应该暴露可变域，因为其客户端代码遍布各处，将来极难改变内部表示法</li>
 <li>公有类暴露不可变域危害较小，事实上也不应该</li>
 <li>包级私有或私有嵌套类，直接暴露数据域并没有本质错误</li>
 </ul>
-<h3 id="第17条：使可变性最小化"><a href="#第17条：使可变性最小化" class="headerlink" title="第17条：使可变性最小化"></a>第17条：使可变性最小化</h3><p>如果类不能被做成不可变，仍然应该尽可能限制它的可变性，降低对象可以存在的状态数！构造器应该创建完全初始化的对象，并建立所有的约束关系，不要在构造器或静态工厂之外再提供公有的初始化方法，除非有足够的理由！</p>
-<h3 id="第18条：复合优先于继承"><a href="#第18条：复合优先于继承" class="headerlink" title="第18条：复合优先于继承"></a>第18条：复合优先于继承</h3><p>在包内部使用继承是安全的，跨越包边界的继承是危险的</p>
-<h3 id="第19条：要么为继承而设计，并提供文档说明，要么就禁止继承"><a href="#第19条：要么为继承而设计，并提供文档说明，要么就禁止继承" class="headerlink" title="第19条：要么为继承而设计，并提供文档说明，要么就禁止继承"></a>第19条：要么为继承而设计，并提供文档说明，要么就禁止继承</h3><p>对于专门为继承而设计且有良好文档说明的类</p>
+<h3 id="第17条：使可变性最小化"><a class="header-anchor" href="#第17条：使可变性最小化">¶</a>第17条：使可变性最小化</h3>
+<p>如果类不能被做成不可变，仍然应该尽可能限制它的可变性，降低对象可以存在的状态数！构造器应该创建完全初始化的对象，并建立所有的约束关系，不要在构造器或静态工厂之外再提供公有的初始化方法，除非有足够的理由！</p>
+<h3 id="第18条：复合优先于继承"><a class="header-anchor" href="#第18条：复合优先于继承">¶</a>第18条：复合优先于继承</h3>
+<p>在包内部使用继承是安全的，跨越包边界的继承是危险的</p>
+<h3 id="第19条：要么为继承而设计，并提供文档说明，要么就禁止继承"><a class="header-anchor" href="#第19条：要么为继承而设计，并提供文档说明，要么就禁止继承">¶</a>第19条：要么为继承而设计，并提供文档说明，要么就禁止继承</h3>
+<p>对于专门为继承而设计且有良好文档说明的类</p>
 <ul>
 <li>该类文档必须有文档说明它可覆盖方法的自用性</li>
 <li>该类必须通过某种形式提供适当的钩子，以便能进入它的内部工作流程中</li>
@@ -4396,7 +4424,8 @@
 <li>将类声明为final</li>
 <li>将构造器变成private或package-private，并增加一些公有的静态工厂来替代构造器</li>
 </ul>
-<h3 id="第20条：接口优于抽象类"><a href="#第20条：接口优于抽象类" class="headerlink" title="第20条：接口优于抽象类"></a>第20条：接口优于抽象类</h3><p>接口与抽象类的区别</p>
+<h3 id="第20条：接口优于抽象类"><a class="header-anchor" href="#第20条：接口优于抽象类">¶</a>第20条：接口优于抽象类</h3>
+<p>接口与抽象类的区别</p>
 <ul>
 <li>抽象类允许包含某些方法的实现，接口不允许</li>
 <li>为实现抽象类定义类型，类必须成为抽象类的子类，而接口则不用关心类层次</li>
@@ -4404,12 +4433,17 @@
 <li>接口是定义mixin的理想选择，mixin用来表明类提供了某些可供选择的行为，允许任选功能混合到类型主要功能中</li>
 <li>接口允许构造非层次结构的类型框架</li>
 </ul>
-<h3 id="第21条-为子类设计接口"><a href="#第21条-为子类设计接口" class="headerlink" title="第21条: 为子类设计接口"></a>第21条: 为子类设计接口</h3><p>编写一个默认方法并不总是可能的，它保留了每个可能的实现的所有不变量。</p>
+<h3 id="第21条-为子类设计接口"><a class="header-anchor" href="#第21条-为子类设计接口">¶</a>第21条: 为子类设计接口</h3>
+<p>编写一个默认方法并不总是可能的，它保留了每个可能的实现的所有不变量。</p>
 <p>在默认方法的情况下，接口的现有实现类可以在没有错误或警告的情况下编译，但在运行时会失败。</p>
-<h3 id="第22条：接口只用于定义类型"><a href="#第22条：接口只用于定义类型" class="headerlink" title="第22条：接口只用于定义类型"></a>第22条：接口只用于定义类型</h3><p>常量接口模式是对接口的不良使用，是反面典型，不值得效仿！</p>
+<h3 id="第22条：接口只用于定义类型"><a class="header-anchor" href="#第22条：接口只用于定义类型">¶</a>第22条：接口只用于定义类型</h3>
+<p>常量接口模式是对接口的不良使用，是反面典型，不值得效仿！</p>
 <p>关键原因：如果类实现常量接口，将来版本中类修改了，不需要这些常量了，它还依然必须实现这个接口，以确保二进制兼容性！</p>
-<h3 id="第23条：类层次优于标签类"><a href="#第23条：类层次优于标签类" class="headerlink" title="第23条：类层次优于标签类"></a>第23条：类层次优于标签类</h3><p>类层次！首先，定义一个抽象类作为根类，提取公用方法到抽象类中！然后，为每种原始标签类定义根类的具体子类，子类包含特定域和方法！</p>
-<h3 id="第24条：优先考虑静态成员类"><a href="#第24条：优先考虑静态成员类" class="headerlink" title="第24条：优先考虑静态成员类"></a>第24条：优先考虑静态成员类</h3><h3 id="第25条-将源文件限制为单个顶级类"><a href="#第25条-将源文件限制为单个顶级类" class="headerlink" title="第25条: 将源文件限制为单个顶级类"></a>第25条: 将源文件限制为单个顶级类</h3><p>虽然Java编译器允许在单个源文件中定义多个顶级类，但这样做没有任何好处，并且存在重大风险。 风险源于在源文件中定义多个顶级类使得为类提供多个定义成为可能。 使用哪个定义会受到源文件传递给编译器的顺序的影响。</p>
+<h3 id="第23条：类层次优于标签类"><a class="header-anchor" href="#第23条：类层次优于标签类">¶</a>第23条：类层次优于标签类</h3>
+<p>类层次！首先，定义一个抽象类作为根类，提取公用方法到抽象类中！然后，为每种原始标签类定义根类的具体子类，子类包含特定域和方法！</p>
+<h3 id="第24条：优先考虑静态成员类"><a class="header-anchor" href="#第24条：优先考虑静态成员类">¶</a>第24条：优先考虑静态成员类</h3>
+<h3 id="第25条-将源文件限制为单个顶级类"><a class="header-anchor" href="#第25条-将源文件限制为单个顶级类">¶</a>第25条: 将源文件限制为单个顶级类</h3>
+<p>虽然Java编译器允许在单个源文件中定义多个顶级类，但这样做没有任何好处，并且存在重大风险。 风险源于在源文件中定义多个顶级类使得为类提供多个定义成为可能。 使用哪个定义会受到源文件传递给编译器的顺序的影响。</p>
 
 </div>
 
@@ -4419,19 +4453,23 @@
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

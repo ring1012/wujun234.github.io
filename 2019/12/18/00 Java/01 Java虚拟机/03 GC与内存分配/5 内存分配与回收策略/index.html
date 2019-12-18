@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		5 内存分配与回收策略 | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,18 +4395,23 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:51</span>
+	<span id="post-date">2019-12-18 01:00:42</span>
 </div>
 
 
 <div id="article">
 	<p>内存管理两个问题：分配内存、回收内存</p>
 <p>分配就是在堆上分配，主要在新生代的Eden区上，少数情况也会直接分配在老年代中。</p>
-<h3 id="1-对象优先在Eden分配"><a href="#1-对象优先在Eden分配" class="headerlink" title="1 对象优先在Eden分配"></a>1 对象优先在Eden分配</h3><p>Eden没有足够空间时会发起一次Minor GC</p>
-<h3 id="2-大对象直接进入老年代"><a href="#2-大对象直接进入老年代" class="headerlink" title="2 大对象直接进入老年代"></a>2 大对象直接进入老年代</h3><p>大对象是只需要大量连续内存空间的对象（如长字符串、数组），应当避免“朝生夕灭”的短命大对象。</p>
-<h3 id="3-长期存活的对象将进入老年代"><a href="#3-长期存活的对象将进入老年代" class="headerlink" title="3 长期存活的对象将进入老年代"></a>3 长期存活的对象将进入老年代</h3><p>每个对象有个对象年龄计数器，当对象在Eden出生并经过第一次Minor GC后存活，并能容纳在Survivor，就会被移到Survivor。每度过一次minor gc，岁数＋1，当过了一定值（默认15）的时候，就移入老年代</p>
-<h3 id="4-动态对象年龄判定"><a href="#4-动态对象年龄判定" class="headerlink" title="4 动态对象年龄判定"></a>4 动态对象年龄判定</h3><p>如果survivor中相同年龄的对象的大小达到总大小的一半，年龄大于或等于这个年龄的对象直接进入老生代，无需等到年龄门槛</p>
-<h3 id="5-空间分配担保"><a href="#5-空间分配担保" class="headerlink" title="5 空间分配担保"></a>5 空间分配担保</h3><p>Minor GC前看老年代剩余空间够不够装新生代失败的，不够就FULL GC</p>
+<h3 id="1-对象优先在Eden分配"><a class="header-anchor" href="#1-对象优先在Eden分配">¶</a>1 对象优先在Eden分配</h3>
+<p>Eden没有足够空间时会发起一次Minor GC</p>
+<h3 id="2-大对象直接进入老年代"><a class="header-anchor" href="#2-大对象直接进入老年代">¶</a>2 大对象直接进入老年代</h3>
+<p>大对象是只需要大量连续内存空间的对象（如长字符串、数组），应当避免“朝生夕灭”的短命大对象。</p>
+<h3 id="3-长期存活的对象将进入老年代"><a class="header-anchor" href="#3-长期存活的对象将进入老年代">¶</a>3 长期存活的对象将进入老年代</h3>
+<p>每个对象有个对象年龄计数器，当对象在Eden出生并经过第一次Minor GC后存活，并能容纳在Survivor，就会被移到Survivor。每度过一次minor gc，岁数＋1，当过了一定值（默认15）的时候，就移入老年代</p>
+<h3 id="4-动态对象年龄判定"><a class="header-anchor" href="#4-动态对象年龄判定">¶</a>4 动态对象年龄判定</h3>
+<p>如果survivor中相同年龄的对象的大小达到总大小的一半，年龄大于或等于这个年龄的对象直接进入老生代，无需等到年龄门槛</p>
+<h3 id="5-空间分配担保"><a class="header-anchor" href="#5-空间分配担保">¶</a>5 空间分配担保</h3>
+<p>Minor GC前看老年代剩余空间够不够装新生代失败的，不够就FULL GC</p>
 
 </div>
 
@@ -4393,19 +4421,23 @@
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

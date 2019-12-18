@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		03 MongoDB 管理 | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,19 +4395,24 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:23</span>
+	<span id="post-date">2019-12-18 01:00:43</span>
 </div>
 
 
 <div id="article">
-	<h3 id="1-复制（副本集）"><a href="#1-复制（副本集）" class="headerlink" title="1 复制（副本集）"></a>1 复制（副本集）</h3><p>复制提供了数据的冗余备份，并在多个服务器上存储数据副本，提高了数据的可用性， 并可以保证数据的安全性。<br>至少需要两个节点。主节点，负责处理客户端请求；从节点，负责复制主节点上的数据。<br>主节点记录在其上的所有操作oplog，从节点定期轮询主节点获取这些操作，然后对自己的数据副本执行这些操作，从而保证从节点的数据与主节点一致。  </p>
+	<h3 id="1-复制（副本集）"><a class="header-anchor" href="#1-复制（副本集）">¶</a>1 复制（副本集）</h3>
+<p>复制提供了数据的冗余备份，并在多个服务器上存储数据副本，提高了数据的可用性， 并可以保证数据的安全性。<br>
+至少需要两个节点。主节点，负责处理客户端请求；从节点，负责复制主节点上的数据。<br>
+主节点记录在其上的所有操作oplog，从节点定期轮询主节点获取这些操作，然后对自己的数据副本执行这些操作，从而保证从节点的数据与主节点一致。</p>
 <ul>
 <li>rs.initiate()：启动一个新的副本集</li>
 <li>rs.conf()：查看副本集的配置</li>
 <li>rs.status() ：查看副本集状态</li>
 <li>rs.add()：添加副本集的成员</li>
 </ul>
-<h3 id="2-分片"><a href="#2-分片" class="headerlink" title="2 分片"></a>2 分片</h3><p>分片集群，在多台机器上分割数据，使得数据库系统能存储和处理更多的数据。<br><img src="/images/1545207452966.png" alt=""></p>
+<h3 id="2-分片"><a class="header-anchor" href="#2-分片">¶</a>2 分片</h3>
+<p>分片集群，在多台机器上分割数据，使得数据库系统能存储和处理更多的数据。<br>
+<img src="/images/1545207452966.png" alt=""></p>
 <ul>
 <li>Shard:用于存储实际的数据块，实际生产环境中一个shard server角色可由几台机器组个一个replica set承担，防止主机单点故障</li>
 <li>Config Server:mongod实例，存储了整个 Cluster Metadata，其中包括 chunk信息。</li>
@@ -4394,19 +4422,28 @@
 步骤二： 启动Config Server
 步骤三： 启动Route Process
 步骤四： 配置Sharding
-步骤五： 将数据库接入Route Process接口</code></pre><h3 id="3-备份与恢复"><a href="#3-备份与恢复" class="headerlink" title="3 备份与恢复"></a>3 备份与恢复</h3><ul>
-<li>mongodump：备份MongoDB数据<br>mongodump -h dbhost -d dbname -o dbdirectory<ul>
+步骤五： 将数据库接入Route Process接口
+</code></pre>
+<h3 id="3-备份与恢复"><a class="header-anchor" href="#3-备份与恢复">¶</a>3 备份与恢复</h3>
+<ul>
+<li>mongodump：备份MongoDB数据<br>
+mongodump -h dbhost -d dbname -o dbdirectory
+<ul>
 <li>-h：MongDB所在服务器地址</li>
 <li>-d：需要备份的数据库实例</li>
 <li>-o：备份的数据存放位置，该目录需要提前建立</li>
 </ul>
 </li>
-<li>mongorestore：恢复备份的数据<br>mongorestore -h <hostname>&lt;:port&gt; -d dbname <path><ul>
+<li>mongorestore：恢复备份的数据<br>
+mongorestore -h <hostname>&lt;:port&gt; -d dbname <path>
+<ul>
 <li>-h &lt;:port&gt;：MongoDB所在服务器地址，默认为： localhost:27017</li>
 <li>-d ：需要恢复的数据库实例</li>
 <li>–drop：恢复的时候，先删除当前数据，然后恢复备份的数据。</li>
-<li><path>：设置备份数据所在位置<br>你不能同时指定 <path> 和 –dir 选项</li>
-<li>–dir：指定备份的目录<br>不能同时指定 <path> 和 –dir 选项。</li>
+<li><path>：设置备份数据所在位置<br>
+你不能同时指定 <path> 和 --dir 选项</li>
+<li>–dir：指定备份的目录<br>
+不能同时指定 <path> 和 --dir 选项。</li>
 </ul>
 </li>
 </ul>
@@ -4419,19 +4456,23 @@
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

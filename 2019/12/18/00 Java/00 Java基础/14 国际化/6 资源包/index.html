@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		6 资源包 | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,23 +4395,37 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:49</span>
+	<span id="post-date">2019-12-18 01:00:41</span>
 </div>
 
 
 <div id="article">
 	<p>ResourceBundle 资源包包含特定语言环境的对象。使用其可以加载并读取语言环境资源。</p>
-<h3 id="1-定位资源包"><a href="#1-定位资源包" class="headerlink" title="1 定位资源包"></a>1 定位资源包</h3><h5 id="包名规则"><a href="#包名规则" class="headerlink" title="包名规则"></a>包名规则</h5><ul>
+<h3 id="1-定位资源包"><a class="header-anchor" href="#1-定位资源包">¶</a>1 定位资源包</h3>
+<h5 id="包名规则"><a class="header-anchor" href="#包名规则">¶</a>包名规则</h5>
+<ul>
 <li>包名_语言_国家：国家相关资源</li>
 <li>包名_语言：语言相关资源</li>
 <li>包名：默认资源</li>
 </ul>
-<h5 id="加载包"><a href="#加载包" class="headerlink" title="加载包"></a>加载包</h5><p>getBundle方法试图匹配当前locale定义的语言和国家的包，直至默认包</p>
-<pre><code>ResourceBundle currentResource  = ResourceBundle.getBundle(bundleName, currentLocale);</code></pre><h3 id="2-属性文件"><a href="#2-属性文件" class="headerlink" title="2 属性文件"></a>2 属性文件</h3><p>对字符串进行国际化可以直接使用属性文件  </p>
-<p>MyProreamStrings.properties<br>MyProreamStrings_en.properties<br>MyProreamStrings_zh.properties</p>
-<pre><code>ResourceBundle bundle  = ResourceBundle.getBundle(&quot;MyProreamStrings_zh&quot;, locale);</code></pre><p>取值</p>
-<pre><code>String aaa = bundle.getString(&quot;aaa&quot;);</code></pre><h3 id="3-包类"><a href="#3-包类" class="headerlink" title="3 包类"></a>3 包类</h3><p>对字符串之外的资源国际化，选哟定义类，必须扩展自 ResourceBundle 类。</p>
-<p>MyProreamResourse.java<br>MyProreamResourse_en.java  </p>
+<h5 id="加载包"><a class="header-anchor" href="#加载包">¶</a>加载包</h5>
+<p>getBundle方法试图匹配当前locale定义的语言和国家的包，直至默认包</p>
+<pre><code>ResourceBundle currentResource  = ResourceBundle.getBundle(bundleName, currentLocale);
+</code></pre>
+<h3 id="2-属性文件"><a class="header-anchor" href="#2-属性文件">¶</a>2 属性文件</h3>
+<p>对字符串进行国际化可以直接使用属性文件</p>
+<p>MyProreamStrings.properties<br>
+MyProreamStrings_en.properties<br>
+MyProreamStrings_zh.properties</p>
+<pre><code>ResourceBundle bundle  = ResourceBundle.getBundle(&quot;MyProreamStrings_zh&quot;, locale);
+</code></pre>
+<p>取值</p>
+<pre><code>String aaa = bundle.getString(&quot;aaa&quot;);
+</code></pre>
+<h3 id="3-包类"><a class="header-anchor" href="#3-包类">¶</a>3 包类</h3>
+<p>对字符串之外的资源国际化，选哟定义类，必须扩展自 ResourceBundle 类。</p>
+<p>MyProreamResourse.java<br>
+MyProreamResourse_en.java</p>
 <p>实现资源包最简单的方法就是继承 ListResourceBundle 类。</p>
 <pre><code>public class programResource extends ListResourceBundle {
     private static final Object[][] contents = {
@@ -4400,7 +4437,9 @@
     protected Object[][] getContents() {
         return contents;
     }
-}</code></pre>
+}
+</code></pre>
+
 </div>
 
 	</div>
@@ -4409,19 +4448,23 @@
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

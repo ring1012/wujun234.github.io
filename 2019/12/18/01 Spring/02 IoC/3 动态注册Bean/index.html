@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		3 动态注册Bean | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,19 +4395,23 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:16</span>
+	<span id="post-date">2019-12-18 01:00:42</span>
 </div>
 
 
 <div id="article">
-	<h3 id="1-注册接口"><a href="#1-注册接口" class="headerlink" title="1 注册接口"></a>1 注册接口</h3><p>有两种接口可动态注册bean</p>
+	<h3 id="1-注册接口"><a class="header-anchor" href="#1-注册接口">¶</a>1 注册接口</h3>
+<p>有两种接口可动态注册bean</p>
 <ol>
-<li>BeanDefinitionRegistry<br>注册Bean定义，使用<code>BeanDefinitionRegistry</code> 接口 <code>registerBeanDefinition()</code> 方法，根据<code>BeanDefinition</code>实例化bean实例</li>
-<li>SingletonBeanRegistry<br>注册bean实例，使用<code>SingletonBeanRegistry</code> 接口<code>registerSingleton()</code> 方法，注册单例bean。</li>
+<li>BeanDefinitionRegistry<br>
+注册Bean定义，使用<code>BeanDefinitionRegistry</code> 接口 <code>registerBeanDefinition()</code> 方法，根据<code>BeanDefinition</code>实例化bean实例</li>
+<li>SingletonBeanRegistry<br>
+注册bean实例，使用<code>SingletonBeanRegistry</code> 接口<code>registerSingleton()</code> 方法，注册单例bean。</li>
 </ol>
 <p><strong>DefaultListableBeanFactory</strong> 接口同时实现了这两个接口</p>
-<h3 id="2-普通注册"><a href="#2-普通注册" class="headerlink" title="2 普通注册"></a>2 普通注册</h3><p>如果是在普通Bean中注册，那么该bean则无法被<strong>BeanPostProcessor</strong>处理，没有AOP的支持。</p>
-<pre><code class="java">public class PersonManagerRegisterController {
+<h3 id="2-普通注册"><a class="header-anchor" href="#2-普通注册">¶</a>2 普通注册</h3>
+<p>如果是在普通Bean中注册，那么该bean则无法被<strong>BeanPostProcessor</strong>处理，没有AOP的支持。</p>
+<pre><code class="language-java">public class PersonManagerRegisterController {
 
     @Autowired
     GenericApplicationContext applicationContext;
@@ -4399,9 +4426,11 @@
         beanFactory.registerSingleton(&quot;personManager&quot;, personManager);
 
     }
-... ...</code></pre>
-<h3 id="3-BeanFactoryPostProcessor-注册"><a href="#3-BeanFactoryPostProcessor-注册" class="headerlink" title="3 BeanFactoryPostProcessor 注册"></a>3 BeanFactoryPostProcessor 注册</h3><p>在Spring容器的启动过程中，BeanFactory载入bean的定义后会立刻执行BeanFactoryPostProcessor，此时动态注册bean，则可以保证动态注册的bean被BeanPostProcessor处理，并且可以保证其的实例化和初始化总是先于依赖它的bean。</p>
-<pre><code class="java">public class MyBeanFactoryPostProcessor implements BeanFactoryPostProcessor {
+... ...
+</code></pre>
+<h3 id="3-BeanFactoryPostProcessor-注册"><a class="header-anchor" href="#3-BeanFactoryPostProcessor-注册">¶</a>3 BeanFactoryPostProcessor 注册</h3>
+<p>在Spring容器的启动过程中，BeanFactory载入bean的定义后会立刻执行BeanFactoryPostProcessor，此时动态注册bean，则可以保证动态注册的bean被BeanPostProcessor处理，并且可以保证其的实例化和初始化总是先于依赖它的bean。</p>
+<pre><code class="language-java">public class MyBeanFactoryPostProcessor implements BeanFactoryPostProcessor {
     @Override
     public void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory) throws BeansException {
         DefaultListableBeanFactory defaultListableBeanFactory
@@ -4420,47 +4449,52 @@
         personManager.setPersonDao(personDao);
         beanFactory.registerSingleton(&quot;personManager2&quot;, personManager);
     }
-}</code></pre>
-<h3 id="4-Spring官方实现"><a href="#4-Spring官方实现" class="headerlink" title="4 Spring官方实现"></a>4 Spring官方实现</h3><h4 id="ImportBeanDefinitionRegistrar"><a href="#ImportBeanDefinitionRegistrar" class="headerlink" title="ImportBeanDefinitionRegistrar"></a>ImportBeanDefinitionRegistrar</h4><p>Spring官方在动态注册bean时，大多使用ImportBeanDefinitionRegistrar接口。</p>
+}
+</code></pre>
+<h3 id="4-Spring官方实现"><a class="header-anchor" href="#4-Spring官方实现">¶</a>4 Spring官方实现</h3>
+<h4 id="ImportBeanDefinitionRegistrar"><a class="header-anchor" href="#ImportBeanDefinitionRegistrar">¶</a>ImportBeanDefinitionRegistrar</h4>
+<p>Spring官方在动态注册bean时，大多使用ImportBeanDefinitionRegistrar接口。</p>
 <p>所有实现了该接口的类的都会被ConfigurationClassPostProcessor处理，ConfigurationClassPostProcessor实现了BeanFactoryPostProcessor接口，所以ImportBeanDefinitionRegistrar中动态注册的bean是优先与依赖其的bean初始化的，也能被aop、validator等机制处理。</p>
-<h4 id="BeanDefinitionRegistryPostProcessor"><a href="#BeanDefinitionRegistryPostProcessor" class="headerlink" title="BeanDefinitionRegistryPostProcessor"></a>BeanDefinitionRegistryPostProcessor</h4><p>Spring官方另一个大量使用的动态注册接口是BeanDefinitionRegistryPostProcessor，这个接口扩展自BeanFactoryPostProcessor，专门用于动态注册Bean。 </p>
-<pre><code class="java">@Component
+<h4 id="BeanDefinitionRegistryPostProcessor"><a class="header-anchor" href="#BeanDefinitionRegistryPostProcessor">¶</a>BeanDefinitionRegistryPostProcessor</h4>
+<p>Spring官方另一个大量使用的动态注册接口是BeanDefinitionRegistryPostProcessor，这个接口扩展自BeanFactoryPostProcessor，专门用于动态注册Bean。</p>
+<pre><code class="language-java">@Component
 public class PersonBeanDefinitionRegistryPostProcessor
-        implements BeanDefinitionRegistryPostProcessor {
+		implements BeanDefinitionRegistryPostProcessor {
 
     // 注册Bean定义
-    @Override
-    public void postProcessBeanDefinitionRegistry(BeanDefinitionRegistry registry)
-            throws BeansException {
-        //构造bean定义
-        BeanDefinitionBuilder beanDefinitionBuilder = BeanDefinitionBuilder
-                .genericBeanDefinition(PersonManager.class);
-        //设置依赖
-        beanDefinitionBuilder.addPropertyReference(&quot;personDao&quot;, &quot;personDao&quot;);
-        BeanDefinition personManagerBeanDefinition = beanDefinitionBuilder
-                .getRawBeanDefinition();
-        //注册bean定义
-        registry.registerBeanDefinition(&quot;personManager1&quot;, personManagerBeanDefinition);
-    }
-
-    // 注册Bean实例
-    @Override
-    public void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory)
-            throws BeansException {
-
-        BeanDefinitionBuilder beanDefinitionBuilder = BeanDefinitionBuilder
-                .genericBeanDefinition(PersonManager.class, () -&gt; {
-                    PersonDao personDao = beanFactory.getBean(PersonDao.class);
-                    PersonManager personManager = new PersonManager();
-                    personManager.setPersonDao(personDao);
-                    return personManager;
-                });
-        BeanDefinition personManagerBeanDefinition = beanDefinitionBuilder
-                .getRawBeanDefinition();
-        ((DefaultListableBeanFactory) beanFactory)
-                .registerBeanDefinition(&quot;personManager2&quot;, personManagerBeanDefinition);
-    }
-}</code></pre>
+	@Override
+	public void postProcessBeanDefinitionRegistry(BeanDefinitionRegistry registry)
+			throws BeansException {
+		//构造bean定义
+		BeanDefinitionBuilder beanDefinitionBuilder = BeanDefinitionBuilder
+				.genericBeanDefinition(PersonManager.class);
+		//设置依赖
+		beanDefinitionBuilder.addPropertyReference(&quot;personDao&quot;, &quot;personDao&quot;);
+		BeanDefinition personManagerBeanDefinition = beanDefinitionBuilder
+				.getRawBeanDefinition();
+		//注册bean定义
+		registry.registerBeanDefinition(&quot;personManager1&quot;, personManagerBeanDefinition);
+	}
+	
+	// 注册Bean实例
+	@Override
+	public void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory)
+			throws BeansException {
+			
+		BeanDefinitionBuilder beanDefinitionBuilder = BeanDefinitionBuilder
+				.genericBeanDefinition(PersonManager.class, () -&gt; {
+					PersonDao personDao = beanFactory.getBean(PersonDao.class);
+					PersonManager personManager = new PersonManager();
+					personManager.setPersonDao(personDao);
+					return personManager;
+				});
+		BeanDefinition personManagerBeanDefinition = beanDefinitionBuilder
+				.getRawBeanDefinition();
+		((DefaultListableBeanFactory) beanFactory)
+				.registerBeanDefinition(&quot;personManager2&quot;, personManagerBeanDefinition);
+	}
+}
+</code></pre>
 
 </div>
 
@@ -4470,19 +4504,23 @@ public class PersonBeanDefinitionRegistryPostProcessor
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

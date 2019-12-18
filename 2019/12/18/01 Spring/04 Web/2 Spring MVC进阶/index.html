@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		2 Spring MVC进阶 | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,18 +4395,23 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:17</span>
+	<span id="post-date">2019-12-18 01:00:42</span>
 </div>
 
 
 <div id="article">
-	<h3 id="1-替代配置"><a href="#1-替代配置" class="headerlink" title="1 替代配置"></a>1 替代配置</h3><h4 id="1-1-自定义DispatcherServlet"><a href="#1-1-自定义DispatcherServlet" class="headerlink" title="1.1 自定义DispatcherServlet"></a>1.1 自定义DispatcherServlet</h4><p>除了三个必须重载的抽象方法，AbstractAnnotationConfigDispatcherServletInitializer还有很多方法可以重载，以实现额外配置。</p>
+	<h3 id="1-替代配置"><a class="header-anchor" href="#1-替代配置">¶</a>1 替代配置</h3>
+<h4 id="1-1-自定义DispatcherServlet"><a class="header-anchor" href="#1-1-自定义DispatcherServlet">¶</a>1.1 自定义DispatcherServlet</h4>
+<p>除了三个必须重载的抽象方法，AbstractAnnotationConfigDispatcherServletInitializer还有很多方法可以重载，以实现额外配置。</p>
 <p>例如，通过对customizeRegistration()的重写，就可以对DispatcherServlet进行额外的配置。</p>
 <pre><code>@Override 
 protected void customizeRegistration(Dynamic registration) {
     registration.setMultipartConfig(new MultipartConfigElement(&quot;/tmp/spittr/uploads&quot;)); 
-}</code></pre><p>ServletRegistration.Dynamic作为入参，可以做很多事情，比如调用setLoadOnStartup()来设置加载时优先级，调用setInitParameter()来设置初始化参数，调用setMultipartConfig()来设置Servlet3.0的多路支持。</p>
-<h4 id="2-2-添加额外的servlet和filter"><a href="#2-2-添加额外的servlet和filter" class="headerlink" title="2.2 添加额外的servlet和filter"></a>2.2 添加额外的servlet和filter</h4><p>实现WebApplicationInitializer接口是在注册servlet、filter、listener时比较推荐的方式</p>
+}
+</code></pre>
+<p>ServletRegistration.Dynamic作为入参，可以做很多事情，比如调用setLoadOnStartup()来设置加载时优先级，调用setInitParameter()来设置初始化参数，调用setMultipartConfig()来设置Servlet3.0的多路支持。</p>
+<h4 id="2-2-添加额外的servlet和filter"><a class="header-anchor" href="#2-2-添加额外的servlet和filter">¶</a>2.2 添加额外的servlet和filter</h4>
+<p>实现WebApplicationInitializer接口是在注册servlet、filter、listener时比较推荐的方式</p>
 <pre><code>public class MyServletInitializer implements WebApplicationInitializer {
     @Override
     public void onStartup(ServletContext servletContext) throws ServletException {
@@ -4397,13 +4425,19 @@ protected void customizeRegistration(Dynamic registration) {
         // 添加映射
         filter.addMappingForUrlPatterns(null, false, &quot;/custom/*&quot;);
     }
-}</code></pre><p>如仅需要注册一个filter并将其映射到DispatcherServlet，重写AbstractAnnotationConfigDispatcherServletInitializer的getServletFilters()方法是一个捷径。</p>
+}
+</code></pre>
+<p>如仅需要注册一个filter并将其映射到DispatcherServlet，重写AbstractAnnotationConfigDispatcherServletInitializer的getServletFilters()方法是一个捷径。</p>
 <pre><code>@Override
 protected Filter[] getServletFilters() {
     return new Filter[] { new MyFilter() };
-}</code></pre><p>通过getServletFilters()返回的filter会自动地映射到DispatcherServlet。</p>
-<h3 id="2-处理multipart表单数据"><a href="#2-处理multipart表单数据" class="headerlink" title="2 处理multipart表单数据"></a>2 处理multipart表单数据</h3><p>Multipart/form-data将表单分割成独立的部分，每个部分都有各自的类型，可以处理二进制数据</p>
-<h4 id="2-1-配置multipart解析器"><a href="#2-1-配置multipart解析器" class="headerlink" title="2.1 配置multipart解析器"></a>2.1 配置multipart解析器</h4><p>Spring提供了两种MultipartResolver实现类： </p>
+}
+</code></pre>
+<p>通过getServletFilters()返回的filter会自动地映射到DispatcherServlet。</p>
+<h3 id="2-处理multipart表单数据"><a class="header-anchor" href="#2-处理multipart表单数据">¶</a>2 处理multipart表单数据</h3>
+<p>Multipart/form-data将表单分割成独立的部分，每个部分都有各自的类型，可以处理二进制数据</p>
+<h4 id="2-1-配置multipart解析器"><a class="header-anchor" href="#2-1-配置multipart解析器">¶</a>2.1 配置multipart解析器</h4>
+<p>Spring提供了两种MultipartResolver实现类：</p>
 <ul>
 <li>CommonsMultipartResolver：使用Jakarta Commons FileUpload来解析multipart请求；</li>
 <li>StandardServletMultipartResolver：依靠Servlet 3.0支持来解析（Spring 3.1及以上）；</li>
@@ -4412,47 +4446,80 @@ protected Filter[] getServletFilters() {
 <pre><code>@Bean
 public MultipartResolver multipartResolver() {
     return new StandardServletMultipartResolver();
-}</code></pre><h5 id="配置multipart详情"><a href="#配置multipart详情" class="headerlink" title="配置multipart详情"></a>配置multipart详情</h5><p>MultipartConfigElement</p>
+}
+</code></pre>
+<h5 id="配置multipart详情"><a class="header-anchor" href="#配置multipart详情">¶</a>配置multipart详情</h5>
+<p>MultipartConfigElement</p>
 <ol>
-<li>继承自WebMvcConfigurerAdapter的servlet初始化类中配置的DispatcherServlet，在servlet注册时通过调用setMultipartConfig()方法来配置<pre><code>DispatcherServlet ds = new DispatcherServlet();
+<li>继承自WebMvcConfigurerAdapter的servlet初始化类中配置的DispatcherServlet，在servlet注册时通过调用setMultipartConfig()方法来配置</li>
+</ol>
+<pre><code>DispatcherServlet ds = new DispatcherServlet();
 Dynamic registration = context.addServlet(&quot;appServlet&quot;, ds);
 registration.addMapping(&quot;/&quot;);
-registration.setMultipartConfig(new MultipartConfigElement(&quot;/tmp/spittr/uploads&quot;));</code></pre></li>
-<li>继承自AbstractAnnotationConfigDispatcherServletInitializer的servlet初始化类，重写customizeRegistration()方法来进行配置<pre><code>@Override
-protected void customizeRegistration(Dynamic registration) {
- registration.setMultipartConfig(new MultipartConfigElement(&quot;/tmp/spittr/uploads&quot;));
-}</code></pre></li>
+registration.setMultipartConfig(new MultipartConfigElement(&quot;/tmp/spittr/uploads&quot;));
+</code></pre>
+<ol start="2">
+<li>继承自AbstractAnnotationConfigDispatcherServletInitializer的servlet初始化类，重写customizeRegistration()方法来进行配置</li>
 </ol>
-<h4 id="2-2-处理multipart请求"><a href="#2-2-处理multipart请求" class="headerlink" title="2.2 处理multipart请求"></a>2.2 处理multipart请求</h4><h5 id="表单"><a href="#表单" class="headerlink" title="表单"></a>表单</h5><p><code>&lt;form&gt;</code>标签enctype=”multipart/form-data”属性<br><code>&lt;input&gt;</code>type=”file”</p>
+<pre><code>@Override
+protected void customizeRegistration(Dynamic registration) {
+    registration.setMultipartConfig(new MultipartConfigElement(&quot;/tmp/spittr/uploads&quot;));
+}
+</code></pre>
+<h4 id="2-2-处理multipart请求"><a class="header-anchor" href="#2-2-处理multipart请求">¶</a>2.2 处理multipart请求</h4>
+<h5 id="表单"><a class="header-anchor" href="#表单">¶</a>表单</h5>
+<p><code>&lt;form&gt;</code>标签enctype=&quot;multipart/form-data&quot;属性<br>
+<code>&lt;input&gt;</code>type=“file”</p>
 <pre><code>&lt;form method=&quot;POST&quot; th:object=&quot;${spitter}&quot; enctype=&quot;multipart/form-data&quot;&gt;
 ...
 &lt;input type=&quot;file&quot; name=&quot;profilePicture&quot; accept=&quot;image/jpeg,image/png,image/gif&quot; /&gt;
-...</code></pre><h5 id="controller"><a href="#controller" class="headerlink" title="controller"></a>controller</h5><p>使用 <strong>@RequestPart</strong> 注解byte数组</p>
+...
+</code></pre>
+<h5 id="controller"><a class="header-anchor" href="#controller">¶</a>controller</h5>
+<p>使用 <strong>@RequestPart</strong> 注解byte数组</p>
 <pre><code>@PostMapping(&quot;/register&quot;)
 public String processRegistration(@RequestPart(&quot;profilePicture&quot;) byte[] profilePicture, @Valid Spitter spitter,Errors errors) {
-}</code></pre><h5 id="接收MultipartFile"><a href="#接收MultipartFile" class="headerlink" title="接收MultipartFile"></a>接收MultipartFile</h5><p>Spring提供了 MultipartFile 接口获取富对象</p>
+}
+</code></pre>
+<h5 id="接收MultipartFile"><a class="header-anchor" href="#接收MultipartFile">¶</a>接收MultipartFile</h5>
+<p>Spring提供了 MultipartFile 接口获取富对象</p>
 <pre><code>@PostMapping(&quot;/register&quot;)
 public String processRegistration(@RequestPart(&quot;profilePicture&quot;) MultipartFile profilePicture, ...) {
-}</code></pre><p>MultipartFile提供获取上传文件的方法，同时提供了很多其他方法，比如原始文件名称、大小和内容类型等。另外还提供了一个InputStream可以将文件数据作为数据流读取。</p>
+}
+</code></pre>
+<p>MultipartFile提供获取上传文件的方法，同时提供了很多其他方法，比如原始文件名称、大小和内容类型等。另外还提供了一个InputStream可以将文件数据作为数据流读取。</p>
 <p>transferTo()写入到文件系统</p>
-<pre><code>profilePicture.transferTo(new File(&quot;/data/spittr/&quot; + profilePicture.getOriginalFilename()));</code></pre><h5 id="接收Part"><a href="#接收Part" class="headerlink" title="接收Part"></a>接收Part</h5><p>Servlet 3.0的容器上，可以选择Part，大多数情况下Part接口和MultipartFile没什么区别。</p>
+<pre><code>profilePicture.transferTo(new File(&quot;/data/spittr/&quot; + profilePicture.getOriginalFilename()));
+</code></pre>
+<h5 id="接收Part"><a class="header-anchor" href="#接收Part">¶</a>接收Part</h5>
+<p>Servlet 3.0的容器上，可以选择Part，大多数情况下Part接口和MultipartFile没什么区别。</p>
 <pre><code>@RequestMapping(value = &quot;/register&quot;, method = RequestMethod.POST)
-public String processRegistration(@RequestPart(&quot;profilePicture&quot;) Part profilePicture, ...) {</code></pre><p>如果使用Part作为参数，就不再需要配置StandardServletMultipartResolverbean，它只需在使用MultipartFile时进行配置。</p>
-<h3 id="3-异常处理"><a href="#3-异常处理" class="headerlink" title="3 异常处理"></a>3 异常处理</h3><p>servlet请求的输出只能是servlet响应。如果请求出现异常，需要将异常转换为servlet响应。</p>
+public String processRegistration(@RequestPart(&quot;profilePicture&quot;) Part profilePicture, ...) {
+</code></pre>
+<p>如果使用Part作为参数，就不再需要配置StandardServletMultipartResolverbean，它只需在使用MultipartFile时进行配置。</p>
+<h3 id="3-异常处理"><a class="header-anchor" href="#3-异常处理">¶</a>3 异常处理</h3>
+<p>servlet请求的输出只能是servlet响应。如果请求出现异常，需要将异常转换为servlet响应。</p>
 <p>Spring提供了一些将异常转化为响应的方法：</p>
 <ul>
 <li>某些Spring异常会自动的映射为特定的HTTP状态码；</li>
 <li>使用<code>@ResponseStatus</code>注解将一个异常映射为HTTP状态码；</li>
 <li>使用<code>ExceptionHandler</code>注解的方法可以用来处理异常</li>
 </ul>
-<h4 id="3-1-ResponseStatus"><a href="#3-1-ResponseStatus" class="headerlink" title="3.1 @ResponseStatus"></a>3.1 @ResponseStatus</h4><p>内置映射之外，可用<code>@ResponseStatus</code>注解将一个异常映射为HTTP状态码</p>
+<h4 id="3-1-ResponseStatus"><a class="header-anchor" href="#3-1-ResponseStatus">¶</a>3.1 @ResponseStatus</h4>
+<p>内置映射之外，可用<code>@ResponseStatus</code>注解将一个异常映射为HTTP状态码</p>
 <pre><code>@ResponseStatus(value=HttpStatus.NOT_FOUND, reason=&quot;Spittle Not Found&quot;)
 public class SpittleNotFoundException extends Exception {
-}</code></pre><h4 id="3-2-ExceptionHandler"><a href="#3-2-ExceptionHandler" class="headerlink" title="3.2 @ExceptionHandler"></a>3.2 @ExceptionHandler</h4><p>@ExceptionHandler注解的方法在有指定异常抛出时执行，在同一个controller里通用</p>
+}
+</code></pre>
+<h4 id="3-2-ExceptionHandler"><a class="header-anchor" href="#3-2-ExceptionHandler">¶</a>3.2 @ExceptionHandler</h4>
+<p>@ExceptionHandler注解的方法在有指定异常抛出时执行，在同一个controller里通用</p>
 <pre><code>@ExceptionHandler(DuplicateSpittleException.class)
 public String handleDuplicateSpittle() {
     return &quot;error/duplicate&quot;;
-}</code></pre><h4 id="3-3-ControllerAdvice"><a href="#3-3-ControllerAdvice" class="headerlink" title="3.3 @ControllerAdvice"></a>3.3 @ControllerAdvice</h4><p>控制器增强类，即使用<code>@ControllerAdvice</code>进行注解的类，由以下方法构成：</p>
+}
+</code></pre>
+<h4 id="3-3-ControllerAdvice"><a class="header-anchor" href="#3-3-ControllerAdvice">¶</a>3.3 @ControllerAdvice</h4>
+<p>控制器增强类，即使用<code>@ControllerAdvice</code>进行注解的类，由以下方法构成：</p>
 <ul>
 <li>@ExceptionHandler注解的</li>
 <li>@InitBinder注解的</li>
@@ -4484,7 +4551,7 @@ public class ControllerExceptionHandler extends ResponseEntityExceptionHandler {
     protected ResponseEntity&lt;Object&gt; handleMissingServletRequestParameter(MissingServletRequestParameterException ex, HttpHeaders headers, HttpStatus status, WebRequest request) {
         return handleExceptionInternal(ex, new ErrorResponse(ex.getMessage(), &quot;missing_request_parameter&quot;), headers, status, request);
     }
-
+    
     @JsonInclude(JsonInclude.Include.NON_NULL)
     public static class ErrorResponse {
         private final String message;
@@ -4533,7 +4600,9 @@ public class ControllerExceptionHandler extends ResponseEntityExceptionHandler {
             return errors;
         }
     }
-}</code></pre><p>BaseException</p>
+}
+</code></pre>
+<p>BaseException</p>
 <pre><code>@Data
 public abstract class BaseException extends RuntimeException {
 
@@ -4548,7 +4617,10 @@ public abstract class BaseException extends RuntimeException {
     public BaseException(String message, Throwable cause) {
         super(message, cause);
     }
-}</code></pre><h3 id="4-跨redirect传递数据"><a href="#4-跨redirect传递数据" class="headerlink" title="4 跨redirect传递数据"></a>4 跨redirect传递数据</h3><p>一般的，处理函数结束后，方法中的model数据都会作为request属性复制到request中，并且request会传递到视图中进行解析。</p>
+}
+</code></pre>
+<h3 id="4-跨redirect传递数据"><a class="header-anchor" href="#4-跨redirect传递数据">¶</a>4 跨redirect传递数据</h3>
+<p>一般的，处理函数结束后，方法中的model数据都会作为request属性复制到request中，并且request会传递到视图中进行解析。</p>
 <ul>
 <li>forward时，使用同一个request，request属性保留。</li>
 <li>redirect时，终止老request，开启新request。request属性清空。</li>
@@ -4558,15 +4630,19 @@ public abstract class BaseException extends RuntimeException {
 <li>将数据转换为路径参数或者查询参数</li>
 <li>在flash属性中发送数据</li>
 </ul>
-<h4 id="4-1-使用URL模版重定向"><a href="#4-1-使用URL模版重定向" class="headerlink" title="4.1 使用URL模版重定向"></a>4.1 使用URL模版重定向</h4><p>使用路径参数和查询参数传递简单数据</p>
+<h4 id="4-1-使用URL模版重定向"><a class="header-anchor" href="#4-1-使用URL模版重定向">¶</a>4.1 使用URL模版重定向</h4>
+<p>使用路径参数和查询参数传递简单数据</p>
 <pre><code>@PostMapping(&quot;/register&quot;)
 public String processRegistration(Spitter spitter, Model model) {
     spitterRepository.save(spitter);
     model.addAttribute(&quot;username&quot;, spitter.getUsername());
     model.addAttribute(&quot;spitterId&quot;, spitter.getId());
     return &quot;redirect:/spitter/{username}&quot;;
-}</code></pre><p>username作为路径参数，spitterId转为查询参数</p>
-<h4 id="4-2-使用flash属性"><a href="#4-2-使用flash属性" class="headerlink" title="4.2 使用flash属性"></a>4.2 使用flash属性</h4><p>Spring通过Model的子接口RedirectAttributes设置flash属性。</p>
+}
+</code></pre>
+<p>username作为路径参数，spitterId转为查询参数</p>
+<h4 id="4-2-使用flash属性"><a class="header-anchor" href="#4-2-使用flash属性">¶</a>4.2 使用flash属性</h4>
+<p>Spring通过Model的子接口RedirectAttributes设置flash属性。</p>
 <p>重定向前，所有的flash属性都会拷贝到session中</p>
 <pre><code>@PostMapping(&quot;/register&quot;)
 public String processRegistration(Spitter spitter, RedirectAttributes model) {
@@ -4574,7 +4650,9 @@ public String processRegistration(Spitter spitter, RedirectAttributes model) {
     model.addAttribute(&quot;username&quot;, spitter.getUsername());
     model.addFlashAttribute(&quot;spitter&quot;, spitter);
     return &quot;redirect:/spitter/{username}&quot;;
-}</code></pre><p>重定向后，存储在session中的flash属性会从session中移出到model中。</p>
+}
+</code></pre>
+<p>重定向后，存储在session中的flash属性会从session中移出到model中。</p>
 <pre><code>@GetMapping(&quot;/{username}&quot;)
 public String showSpitterProfile(@PathVariable(&quot;username&quot;) String username, Model model) {
     if (!model.containsAttribute(&quot;spitter&quot;)) {
@@ -4582,7 +4660,9 @@ public String showSpitterProfile(@PathVariable(&quot;username&quot;) String user
         model.addAttribute(spitter);
     }
     return &quot;profile&quot;;
-}</code></pre>
+}
+</code></pre>
+
 </div>
 
 	</div>
@@ -4591,19 +4671,23 @@ public String showSpitterProfile(@PathVariable(&quot;username&quot;) String user
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

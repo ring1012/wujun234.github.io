@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		2 HDFS | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,47 +4395,56 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:15</span>
+	<span id="post-date">2019-12-18 01:00:44</span>
 </div>
 
 
 <div id="article">
 	<p><a href="https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html" target="_blank" rel="noopener">HDFS官网</a></p>
-<h3 id="1-简介"><a href="#1-简介" class="headerlink" title="1 简介"></a>1 简介</h3><p>HDFS 是 GFS（Google File System）的克隆版本。</p>
+<h3 id="1-简介"><a class="header-anchor" href="#1-简介">¶</a>1 简介</h3>
+<p>HDFS 是 GFS（Google File System）的克隆版本。</p>
 <p>HDFS（Hadoop Distributed File System）是Hadoop项目的核心子项目，是分布式计算中数据存储管理的基础，是基于流数据模式访问和处理超大文件的需求而开发的，可以运行于廉价的商用服务器上。</p>
 <p>它所具有的高容错、高可靠性、高可扩展性、高获得性、高吞吐率等特征为海量数据提供了不怕故障的存储，为超大数据集（Large Data Set）的应用处理带来了很多便利。</p>
-<h3 id="2-HDFS架构"><a href="#2-HDFS架构" class="headerlink" title="2 HDFS架构"></a>2 HDFS架构</h3><p><img src="/images/1555664990578.png" alt=""></p>
+<h3 id="2-HDFS架构"><a class="header-anchor" href="#2-HDFS架构">¶</a>2 HDFS架构</h3>
+<p><img src="/images/1555664990578.png" alt=""></p>
 <p>HDFS具有主/从结构。</p>
-<h4 id="1）NameNode"><a href="#1）NameNode" class="headerlink" title="1）NameNode"></a>1）NameNode</h4><p>-HDFS集群包含单一的NameNode作为master服务器，用于管理文件系统命名空间，并调节客户端对文件的访问。</p>
+<h4 id="1）NameNode"><a class="header-anchor" href="#1）NameNode">¶</a>1）NameNode</h4>
+<p>-HDFS集群包含单一的NameNode作为master服务器，用于管理文件系统命名空间，并调节客户端对文件的访问。</p>
 <ul>
 <li>执行文件系统命名空间操作，如打开，关闭和重命名文件和目录。</li>
 <li>确定块到DataNodes的映射。</li>
 </ul>
-<h4 id="2）DataNode"><a href="#2）DataNode" class="headerlink" title="2）DataNode"></a>2）DataNode</h4><p>集群中每个节点一个DataNode，管理连接到运行的节点的存储。</p>
+<h4 id="2）DataNode"><a class="header-anchor" href="#2）DataNode">¶</a>2）DataNode</h4>
+<p>集群中每个节点一个DataNode，管理连接到运行的节点的存储。</p>
 <ul>
 <li>在内部，文件被分割成一个或多个块，存储在一组DataNodes中。</li>
 <li>负责从文件系统的客户端提供读取和写入请求。</li>
 <li>根据NameNode的指示执行块创建，删除和复制。</li>
 </ul>
 <p>HDFS公开了文件系统命名空间，并允许将用户数据存储在文件中。</p>
-<h3 id="3-选择HDFS的原因"><a href="#3-选择HDFS的原因" class="headerlink" title="3 选择HDFS的原因"></a>3 选择HDFS的原因</h3><ol>
-<li>高容错性<ul>
+<h3 id="3-选择HDFS的原因"><a class="header-anchor" href="#3-选择HDFS的原因">¶</a>3 选择HDFS的原因</h3>
+<ol>
+<li>高容错性
+<ul>
 <li>数据自动保存多个副本。它通过增加副本的形式，提高容错性。</li>
 <li>某一个副本丢失以后，它可以自动恢复，这是由 HDFS 内部机制实现的，我们不必关心。</li>
 </ul>
 </li>
-<li>适合大数据处理<ul>
+<li>适合大数据处理
+<ul>
 <li>处理数据达到 GB、TB、甚至PB级别的数据。</li>
 <li>能够处理百万规模以上的文件数量，数量相当之大。</li>
 <li>能够处理10K节点的规模。</li>
 </ul>
 </li>
-<li>流式文件处理<ul>
+<li>流式文件处理
+<ul>
 <li>一次写入，多次读取。文件一旦写入不能修改，只能追加。</li>
 <li>它能保证数据的一致性。</li>
 </ul>
 </li>
-<li>可构建在廉价机器上<ul>
+<li>可构建在廉价机器上
+<ul>
 <li>它通过多副本机制，提高可靠性。</li>
 <li>它提供了容错和恢复机制。比如某一个副本丢失，可以通过其它副本来恢复。</li>
 </ul>
@@ -4427,19 +4459,23 @@
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

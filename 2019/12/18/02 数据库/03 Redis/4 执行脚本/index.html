@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		4 执行脚本 | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,12 +4395,13 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:22</span>
+	<span id="post-date">2019-12-18 01:00:43</span>
 </div>
 
 
 <div id="article">
-	<h3 id="1-配置"><a href="#1-配置" class="headerlink" title="1 配置"></a>1 配置</h3><pre><code>@Configuration
+	<h3 id="1-配置"><a class="header-anchor" href="#1-配置">¶</a>1 配置</h3>
+<pre><code>@Configuration
 @EnableTransactionManagement
 public class RedisTemplateConfig {
 
@@ -4409,7 +4433,7 @@ public class RedisTemplateConfig {
         redisScript.setResultType(Boolean.class);
         return redisScript;
     }
-
+    
     @Bean(&quot;setIfLarger&quot;)
     public RedisScript&lt;Long&gt; setIfLarger(){
         DefaultRedisScript&lt;Long&gt; redisScript = new DefaultRedisScript&lt;&gt;();
@@ -4417,13 +4441,20 @@ public class RedisTemplateConfig {
         redisScript.setResultType(Long.class);
         return redisScript;
     }
-}</code></pre><h3 id="2-脚本"><a href="#2-脚本" class="headerlink" title="2 脚本"></a>2 脚本</h3><p>delLock.lua</p>
+}
+</code></pre>
+<h3 id="2-脚本"><a class="header-anchor" href="#2-脚本">¶</a>2 脚本</h3>
+<p>delLock.lua</p>
 <pre><code>if redis.call(&quot;get&quot;,KEYS[1]) == ARGV[1] then
     return redis.call(&quot;del&quot;,KEYS[1])
 else
     return 0
-end</code></pre><p>setNxEx.lua</p>
-<pre><code>return redis.call(&#39;SET&#39;, KEYS[1], ARGV[1], &#39;NX&#39;, &#39;EX&#39;, ARGV[2])</code></pre><p>setIfLarger.lua</p>
+end
+</code></pre>
+<p>setNxEx.lua</p>
+<pre><code>return redis.call('SET', KEYS[1], ARGV[1], 'NX', 'EX', ARGV[2])
+</code></pre>
+<p>setIfLarger.lua</p>
 <pre><code>local current = redis.call(&quot;get&quot;,KEYS[1])
 if(not current or current &lt; ARGV[1])
 then
@@ -4431,14 +4462,19 @@ then
     return ARGV[1]+0
 else
     return current+0
-end</code></pre><h3 id="3-使用"><a href="#3-使用" class="headerlink" title="3 使用"></a>3 使用</h3><pre><code>@Autowired
+end
+</code></pre>
+<h3 id="3-使用"><a class="header-anchor" href="#3-使用">¶</a>3 使用</h3>
+<pre><code>@Autowired
 @Qualifier(&quot;setIfLarger&quot;)
 private RedisScript&lt;String&gt; setIfLargerScript;
-
+    
 
 String key;
 Long value;
-String timeMark = redisTemplate.execute(setIfLargerScript, Arrays.asList(key), value);</code></pre>
+String timeMark = redisTemplate.execute(setIfLargerScript, Arrays.asList(key), value);
+</code></pre>
+
 </div>
 
 	</div>
@@ -4447,19 +4483,23 @@ String timeMark = redisTemplate.execute(setIfLargerScript, Arrays.asList(key), v
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

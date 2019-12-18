@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		06 重新组织函数 | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,38 +4395,43 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:39</span>
+	<span id="post-date">2019-12-18 01:00:44</span>
 </div>
 
 
 <div id="article">
 	<!-- TOC -->
 <ul>
-<li><a href="#1-extract-method-提炼函数">1 Extract Method （提炼函数）</a></li>
-<li><a href="#2-inline-method-内联函数">2 Inline Method （内联函数）</a></li>
-<li><a href="#3-inline-temp-内联临时变量">3 Inline Temp （内联临时变量）</a></li>
-<li><a href="#4-replace-temp-with-query-以查询取代临时变量">4 Replace Temp with Query （以查询取代临时变量）</a></li>
-<li><a href="#5-introduce-explaining-variable-引入解释性变量">5 Introduce Explaining Variable （引入解释性变量）</a></li>
-<li><a href="#6-split-temporary-variable-分解临时变量">6 Split Temporary Variable （分解临时变量）</a></li>
-<li><a href="#7-remove-assignments-to-parameters-移除对参数的赋值">7 Remove Assignments to Parameters （移除对参数的赋值）</a></li>
-<li><a href="#8-replace-method-with-method-object-以函数对象取代函数">8 Replace Method with Method Object （以函数对象取代函数）</a></li>
-<li><a href="#9-substitute-algorithm-替换算法">9 Substitute Algorithm （替换算法）</a><!-- /TOC -->
-
-</li>
+<li><a href="#1-extract-method-%E6%8F%90%E7%82%BC%E5%87%BD%E6%95%B0">1 Extract Method （提炼函数）</a></li>
+<li><a href="#2-inline-method-%E5%86%85%E8%81%94%E5%87%BD%E6%95%B0">2 Inline Method （内联函数）</a></li>
+<li><a href="#3-inline-temp-%E5%86%85%E8%81%94%E4%B8%B4%E6%97%B6%E5%8F%98%E9%87%8F">3 Inline Temp （内联临时变量）</a></li>
+<li><a href="#4-replace-temp-with-query-%E4%BB%A5%E6%9F%A5%E8%AF%A2%E5%8F%96%E4%BB%A3%E4%B8%B4%E6%97%B6%E5%8F%98%E9%87%8F">4 Replace Temp with Query （以查询取代临时变量）</a></li>
+<li><a href="#5-introduce-explaining-variable-%E5%BC%95%E5%85%A5%E8%A7%A3%E9%87%8A%E6%80%A7%E5%8F%98%E9%87%8F">5 Introduce Explaining Variable （引入解释性变量）</a></li>
+<li><a href="#6-split-temporary-variable-%E5%88%86%E8%A7%A3%E4%B8%B4%E6%97%B6%E5%8F%98%E9%87%8F">6 Split Temporary Variable （分解临时变量）</a></li>
+<li><a href="#7-remove-assignments-to-parameters-%E7%A7%BB%E9%99%A4%E5%AF%B9%E5%8F%82%E6%95%B0%E7%9A%84%E8%B5%8B%E5%80%BC">7 Remove Assignments to Parameters （移除对参数的赋值）</a></li>
+<li><a href="#8-replace-method-with-method-object-%E4%BB%A5%E5%87%BD%E6%95%B0%E5%AF%B9%E8%B1%A1%E5%8F%96%E4%BB%A3%E5%87%BD%E6%95%B0">8 Replace Method with Method Object （以函数对象取代函数）</a></li>
+<li><a href="#9-substitute-algorithm-%E6%9B%BF%E6%8D%A2%E7%AE%97%E6%B3%95">9 Substitute Algorithm （替换算法）</a></li>
 </ul>
-<h3 id="1-Extract-Method-（提炼函数）"><a href="#1-Extract-Method-（提炼函数）" class="headerlink" title="1 Extract Method （提炼函数）"></a>1 Extract Method （提炼函数）</h3><p>你有一段代码可以被组织在一起并独立出来。<br>将这段代码放到一个独立的函数中， 并让函数名称解释该函数的用途。</p>
-<h5 id="动机"><a href="#动机" class="headerlink" title="动机"></a>动机</h5><ul>
+<!-- /TOC -->
+<h3 id="1-Extract-Method-（提炼函数）"><a class="header-anchor" href="#1-Extract-Method-（提炼函数）">¶</a>1 Extract Method （提炼函数）</h3>
+<p>你有一段代码可以被组织在一起并独立出来。<br>
+将这段代码放到一个独立的函数中， 并让函数名称解释该函数的用途。</p>
+<h5 id="动机"><a class="header-anchor" href="#动机">¶</a>动机</h5>
+<ul>
 <li>过长函数或者需要注释才能让人理解的代码</li>
-<li>简短而命名良好的函数，有以下优点：<ul>
+<li>简短而命名良好的函数，有以下优点：
+<ul>
 <li>函数粒度小，复用机会变大。</li>
 <li>使得高层函数读起来像一系列注释 。</li>
 <li>覆写容易。</li>
 </ul>
 </li>
 </ul>
-<h5 id="做法"><a href="#做法" class="headerlink" title="做法"></a>做法</h5><ul>
-<li>函数名以”做什么”，而不是”怎么做”命名。</li>
-<li>处理局部变量<ul>
+<h5 id="做法"><a class="header-anchor" href="#做法">¶</a>做法</h5>
+<ul>
+<li>函数名以&quot;做什么&quot;，而不是&quot;怎么做&quot;命名。</li>
+<li>处理局部变量
+<ul>
 <li>可用查询消除部分局部变量</li>
 <li>可将局部变量当作参数传给目标函数</li>
 <li>可返回局部变量</li>
@@ -4411,63 +4439,91 @@
 </ul>
 </li>
 </ul>
-<h3 id="2-Inline-Method-（内联函数）"><a href="#2-Inline-Method-（内联函数）" class="headerlink" title="2 Inline Method （内联函数）"></a>2 Inline Method （内联函数）</h3><p>一个函数的本体与名称同样清楚易懂。<br>在函数调用点插入函数本体，然后移除函数</p>
-<h5 id="动机-1"><a href="#动机-1" class="headerlink" title="动机"></a>动机</h5><ul>
+<h3 id="2-Inline-Method-（内联函数）"><a class="header-anchor" href="#2-Inline-Method-（内联函数）">¶</a>2 Inline Method （内联函数）</h3>
+<p>一个函数的本体与名称同样清楚易懂。<br>
+在函数调用点插入函数本体，然后移除函数</p>
+<h5 id="动机-v2"><a class="header-anchor" href="#动机-v2">¶</a>动机</h5>
+<ul>
 <li>函数内容与名称同样清晰</li>
 <li>对于提取函数过度的情况，可将不合理的函数内联到一个大型函数中，然后可适当重新提取函数</li>
 </ul>
-<h5 id="做法-1"><a href="#做法-1" class="headerlink" title="做法"></a>做法</h5><ul>
+<h5 id="做法-v2"><a class="header-anchor" href="#做法-v2">¶</a>做法</h5>
+<ul>
 <li>检查函数，确定它不具有多态性</li>
 <li>如果内联的函数过于复杂，就不要动</li>
 </ul>
-<h3 id="3-Inline-Temp-（内联临时变量）"><a href="#3-Inline-Temp-（内联临时变量）" class="headerlink" title="3 Inline Temp （内联临时变量）"></a>3 Inline Temp （内联临时变量）</h3><p> 一个临时变量，只被一个简单表达式赋值一次，而它妨碍了其他重构手法。<br> 将所有对该变量的引用动作，替换为对它赋值的那个表达式自身</p>
-<h5 id="动机-2"><a href="#动机-2" class="headerlink" title="动机"></a>动机</h5><ul>
+<h3 id="3-Inline-Temp-（内联临时变量）"><a class="header-anchor" href="#3-Inline-Temp-（内联临时变量）">¶</a>3 Inline Temp （内联临时变量）</h3>
+<p>一个临时变量，只被一个简单表达式赋值一次，而它妨碍了其他重构手法。<br>
+将所有对该变量的引用动作，替换为对它赋值的那个表达式自身</p>
+<h5 id="动机-v3"><a class="header-anchor" href="#动机-v3">¶</a>动机</h5>
+<ul>
 <li>你发现某个临时变量被赋予某个函数调用的返回值。</li>
 </ul>
-<h5 id="做法-2"><a href="#做法-2" class="headerlink" title="做法"></a>做法</h5><ul>
+<h5 id="做法-v3"><a class="header-anchor" href="#做法-v3">¶</a>做法</h5>
+<ul>
 <li>确保赋值表达式没有副作用</li>
 <li>将变量声明为 final，检查该临时变量是否真的只被赋值一次</li>
 <li>如果对临时变量赋值的表达式计算量较大，可适当不进行此手法</li>
 </ul>
-<h3 id="4-Replace-Temp-with-Query-（以查询取代临时变量）"><a href="#4-Replace-Temp-with-Query-（以查询取代临时变量）" class="headerlink" title="4 Replace Temp with Query （以查询取代临时变量）"></a>4 Replace Temp with Query （以查询取代临时变量）</h3><p>你的程序以一个临时变量来保存一个表达式的运算结果。<br>将整个表达式提炼到一个独立的函数中。将这个变量的引用点替换为对这个新函数的调用。此后，新函数可被其它函数调用。</p>
-<h5 id="动机-3"><a href="#动机-3" class="headerlink" title="动机"></a>动机</h5><ul>
+<h3 id="4-Replace-Temp-with-Query-（以查询取代临时变量）"><a class="header-anchor" href="#4-Replace-Temp-with-Query-（以查询取代临时变量）">¶</a>4 Replace Temp with Query （以查询取代临时变量）</h3>
+<p>你的程序以一个临时变量来保存一个表达式的运算结果。<br>
+将整个表达式提炼到一个独立的函数中。将这个变量的引用点替换为对这个新函数的调用。此后，新函数可被其它函数调用。</p>
+<h5 id="动机-v4"><a class="header-anchor" href="#动机-v4">¶</a>动机</h5>
+<ul>
 <li>此手法可有效除去临时变量</li>
 </ul>
-<h5 id="做法-3"><a href="#做法-3" class="headerlink" title="做法"></a>做法</h5><ul>
+<h5 id="做法-v4"><a class="header-anchor" href="#做法-v4">¶</a>做法</h5>
+<ul>
 <li>找出只被赋值一次的临时变量。如被赋值多次，分割为多个变量</li>
 <li>将变量声明为 final，检查该临时变量是否真的只被赋值一次</li>
 <li>将复制语句提炼到独立函数</li>
 </ul>
-<h3 id="5-Introduce-Explaining-Variable-（引入解释性变量）"><a href="#5-Introduce-Explaining-Variable-（引入解释性变量）" class="headerlink" title="5 Introduce Explaining Variable （引入解释性变量）"></a>5 Introduce Explaining Variable （引入解释性变量）</h3><p>你有一个复杂的表达式。<br>将该复杂表达式（或其中一部分）的结果放进一个临时变量，以次变量名称来解释表达式的用途。</p>
-<h5 id="动机-4"><a href="#动机-4" class="headerlink" title="动机"></a>动机</h5><ul>
+<h3 id="5-Introduce-Explaining-Variable-（引入解释性变量）"><a class="header-anchor" href="#5-Introduce-Explaining-Variable-（引入解释性变量）">¶</a>5 Introduce Explaining Variable （引入解释性变量）</h3>
+<p>你有一个复杂的表达式。<br>
+将该复杂表达式（或其中一部分）的结果放进一个临时变量，以次变量名称来解释表达式的用途。</p>
+<h5 id="动机-v5"><a class="header-anchor" href="#动机-v5">¶</a>动机</h5>
+<ul>
 <li>此手法便于理解代码, 但是引入过多临时变量, 不利于后序Extract Method的使用</li>
 <li>运用此手法之前可优先尝试Extract Method手法, 相比之下引入解释性变量局限性较大, 当局部变量过多难以进行Extract Method时, 可使用此手法.</li>
 </ul>
-<h5 id="做法-4"><a href="#做法-4" class="headerlink" title="做法"></a>做法</h5><ul>
+<h5 id="做法-v5"><a class="header-anchor" href="#做法-v5">¶</a>做法</h5>
+<ul>
 <li>声明一个final临时变量，将待分解之复杂表达式中的一部分动作的运算结果复制给它。</li>
 <li>替换</li>
 </ul>
-<h3 id="6-Split-Temporary-Variable-（分解临时变量）"><a href="#6-Split-Temporary-Variable-（分解临时变量）" class="headerlink" title="6 Split Temporary Variable （分解临时变量）"></a>6 Split Temporary Variable （分解临时变量）</h3><p>某个临时变量被赋值超过一次，它既不是循环变量，也不被用于收集计算结果。<br>针对每次赋值, 创造一个独立、对应的临时变量。</p>
-<h5 id="动机-5"><a href="#动机-5" class="headerlink" title="动机"></a>动机</h5><ul>
+<h3 id="6-Split-Temporary-Variable-（分解临时变量）"><a class="header-anchor" href="#6-Split-Temporary-Variable-（分解临时变量）">¶</a>6 Split Temporary Variable （分解临时变量）</h3>
+<p>某个临时变量被赋值超过一次，它既不是循环变量，也不被用于收集计算结果。<br>
+针对每次赋值, 创造一个独立、对应的临时变量。</p>
+<h5 id="动机-v6"><a class="header-anchor" href="#动机-v6">¶</a>动机</h5>
+<ul>
 <li>解决变量被多次赋值，意义不明确的问题</li>
 </ul>
-<h5 id="做法-5"><a href="#做法-5" class="headerlink" title="做法"></a>做法</h5><ul>
+<h5 id="做法-v6"><a class="header-anchor" href="#做法-v6">¶</a>做法</h5>
+<ul>
 <li>在第二次赋值处，重新声明临时变量</li>
 </ul>
-<h3 id="7-Remove-Assignments-to-Parameters-（移除对参数的赋值）"><a href="#7-Remove-Assignments-to-Parameters-（移除对参数的赋值）" class="headerlink" title="7 Remove Assignments to Parameters （移除对参数的赋值）"></a>7 Remove Assignments to Parameters （移除对参数的赋值）</h3><p>代码对一个参数进行赋值。<br>以一个临时变量来取代改参数的位置。</p>
-<h5 id="动机-6"><a href="#动机-6" class="headerlink" title="动机"></a>动机</h5><ul>
+<h3 id="7-Remove-Assignments-to-Parameters-（移除对参数的赋值）"><a class="header-anchor" href="#7-Remove-Assignments-to-Parameters-（移除对参数的赋值）">¶</a>7 Remove Assignments to Parameters （移除对参数的赋值）</h3>
+<p>代码对一个参数进行赋值。<br>
+以一个临时变量来取代改参数的位置。</p>
+<h5 id="动机-v7"><a class="header-anchor" href="#动机-v7">¶</a>动机</h5>
+<ul>
 <li>对参数赋值降低函数清晰度，混用了按值传递和按引用传递这个两种方式。</li>
 <li>在按值传递的情况下，对参数的任何修改，都不会对调用端造成影响。</li>
 </ul>
-<h5 id="做法-6"><a href="#做法-6" class="headerlink" title="做法"></a>做法</h5><ul>
+<h5 id="做法-v7"><a class="header-anchor" href="#做法-v7">¶</a>做法</h5>
+<ul>
 <li>如果代码的语义是按引用传递，请在调用端检查调用后是否还使用了这个参数，也要检查有多少个按引用传递的参数被赋值后又被调用。请尽量只以return方式返回一个值。如果需要返回的值不止一个，看看可否封装为一个对象，或者为每个返回值设计对应的一个独立函数。</li>
 <li>如有必要，请用final修饰参数，让编译期检查函数中是否有对参数赋值的情况。</li>
 </ul>
-<h3 id="8-Replace-Method-with-Method-Object-（以函数对象取代函数）"><a href="#8-Replace-Method-with-Method-Object-（以函数对象取代函数）" class="headerlink" title="8 Replace Method with Method Object （以函数对象取代函数）"></a>8 Replace Method with Method Object （以函数对象取代函数）</h3><p>你有一个大型函数, 其中对局部变量的使用使你无法采用Extract Method。<br>将这个函数放进一个单独对象中，如此一来局部变量就成了对象内的字段。然后你可以在同一个对象中将这个大型函数分解为多个小型函数。</p>
-<h5 id="动机-7"><a href="#动机-7" class="headerlink" title="动机"></a>动机</h5><ul>
+<h3 id="8-Replace-Method-with-Method-Object-（以函数对象取代函数）"><a class="header-anchor" href="#8-Replace-Method-with-Method-Object-（以函数对象取代函数）">¶</a>8 Replace Method with Method Object （以函数对象取代函数）</h3>
+<p>你有一个大型函数, 其中对局部变量的使用使你无法采用Extract Method。<br>
+将这个函数放进一个单独对象中，如此一来局部变量就成了对象内的字段。然后你可以在同一个对象中将这个大型函数分解为多个小型函数。</p>
+<h5 id="动机-v8"><a class="header-anchor" href="#动机-v8">¶</a>动机</h5>
+<ul>
 <li>局部变量的存在会增加函数分解难度。如果查询代替局部变量不好使，就使用函数对象。</li>
 </ul>
-<h5 id="做法-7"><a href="#做法-7" class="headerlink" title="做法"></a>做法</h5><ul>
+<h5 id="做法-v8"><a class="header-anchor" href="#做法-v8">¶</a>做法</h5>
+<ul>
 <li>建立一个新类，根据待处理函数的用途，为这个类命名</li>
 <li>在新类中建立一个final字段，用以保存原先大型函数所在的对象（源对象）。同时，针对原函数的每个临时变量和每个参数，在新类中建立一个对应的字段保存之</li>
 <li>在新类中建立一个构造函数，接收源对象及原函数的所有参数作为参数</li>
@@ -4477,11 +4533,15 @@
 <li>将旧函数的函数本体替换为这样一条语句：“创建上述新类的一个新对象，而后调用其中的compute()函数”</li>
 </ul>
 <p>由于所有局部变量都变成了字段，可以任意分解这个大型函数，不用传递任何参数。</p>
-<h3 id="9-Substitute-Algorithm-（替换算法）"><a href="#9-Substitute-Algorithm-（替换算法）" class="headerlink" title="9 Substitute Algorithm （替换算法）"></a>9 Substitute Algorithm （替换算法）</h3><p>要把某个算法替换为另一个更清晰的算法。<br>将函数本体替换为另一个算法。</p>
-<h5 id="动机-8"><a href="#动机-8" class="headerlink" title="动机"></a>动机</h5><ul>
+<h3 id="9-Substitute-Algorithm-（替换算法）"><a class="header-anchor" href="#9-Substitute-Algorithm-（替换算法）">¶</a>9 Substitute Algorithm （替换算法）</h3>
+<p>要把某个算法替换为另一个更清晰的算法。<br>
+将函数本体替换为另一个算法。</p>
+<h5 id="动机-v9"><a class="header-anchor" href="#动机-v9">¶</a>动机</h5>
+<ul>
 <li>在替换之前先保证自己是否充分了解被替换的算法，若算法过大，先行拆解，增加清晰度。</li>
 </ul>
-<h5 id="做法-8"><a href="#做法-8" class="headerlink" title="做法"></a>做法</h5><ul>
+<h5 id="做法-v9"><a class="header-anchor" href="#做法-v9">¶</a>做法</h5>
+<ul>
 <li>替换后要测试</li>
 </ul>
 
@@ -4493,19 +4553,23 @@
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		3 读写二进制数据 | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,47 +4395,65 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:47</span>
+	<span id="post-date">2019-12-18 01:00:41</span>
 </div>
 
 
 <div id="article">
-	<h3 id="1-DataInput和DataOutput接口"><a href="#1-DataInput和DataOutput接口" class="headerlink" title="1 DataInput和DataOutput接口"></a>1 DataInput和DataOutput接口</h3><p><code>DataInput</code>接口 <code>write*</code> 方法写二进制格式数据，<code>DataInput</code>接口 <code>read*</code>方法读回二进制格式数据。</p>
+	<h3 id="1-DataInput和DataOutput接口"><a class="header-anchor" href="#1-DataInput和DataOutput接口">¶</a>1 DataInput和DataOutput接口</h3>
+<p><code>DataInput</code>接口 <code>write*</code> 方法写二进制格式数据，<code>DataInput</code>接口 <code>read*</code>方法读回二进制格式数据。</p>
 <p>DataInputStream类实现了DataInput接口</p>
-<pre><code>DataInputStream in = new DataInputStream(new FileInputStream(&quot;employee.txt&quot;));</code></pre><p>DataOutputStream类实现了DataOutput接口</p>
-<pre><code>DataOutputStream out = new DataOutputStream(new FileOutputStream(&quot;employee.txt&quot;));</code></pre><h3 id="2-随机访问文件"><a href="#2-随机访问文件" class="headerlink" title="2 随机访问文件"></a>2 随机访问文件</h3><p>RandomAccessFile类可以在文件中的任何位置查找或写入数据。同时实现了DataInput和DataOutput接口。</p>
+<pre><code>DataInputStream in = new DataInputStream(new FileInputStream(&quot;employee.txt&quot;));
+</code></pre>
+<p>DataOutputStream类实现了DataOutput接口</p>
+<pre><code>DataOutputStream out = new DataOutputStream(new FileOutputStream(&quot;employee.txt&quot;));
+</code></pre>
+<h3 id="2-随机访问文件"><a class="header-anchor" href="#2-随机访问文件">¶</a>2 随机访问文件</h3>
+<p>RandomAccessFile类可以在文件中的任何位置查找或写入数据。同时实现了DataInput和DataOutput接口。</p>
 <pre><code>RandomAccessFile in = new RandomAccesFiel(&quot;employee.txt&quot;,&quot;r&quot;);//读入
-RandomeAccessFile inOut = new RandomAcce(&quot;employee.txt&quot;,&quot;rw&quot;);//读入/写出</code></pre><p>RandomAccessFile有一个表示下一个将被读入或写出的字节所处位置的文件指针</p>
-<h5 id="seek-Long-pos"><a href="#seek-Long-pos" class="headerlink" title="seek(Long pos)"></a>seek(Long pos)</h5><p>将文件指针设置到距文件开头pos个字节处。</p>
-<h5 id="getFilePointer"><a href="#getFilePointer" class="headerlink" title="getFilePointer"></a>getFilePointer</h5><p>返回文件指针的当前位置。</p>
-<h3 id="3-ZIP文档"><a href="#3-ZIP文档" class="headerlink" title="3 ZIP文档"></a>3 ZIP文档</h3><p>ZipInputStream读入ZIP文档。  </p>
+RandomeAccessFile inOut = new RandomAcce(&quot;employee.txt&quot;,&quot;rw&quot;);//读入/写出
+</code></pre>
+<p>RandomAccessFile有一个表示下一个将被读入或写出的字节所处位置的文件指针</p>
+<h5 id="seek-Long-pos"><a class="header-anchor" href="#seek-Long-pos">¶</a>seek(Long pos)</h5>
+<p>将文件指针设置到距文件开头pos个字节处。</p>
+<h5 id="getFilePointer"><a class="header-anchor" href="#getFilePointer">¶</a>getFilePointer</h5>
+<p>返回文件指针的当前位置。</p>
+<h3 id="3-ZIP文档"><a class="header-anchor" href="#3-ZIP文档">¶</a>3 ZIP文档</h3>
+<p>ZipInputStream读入ZIP文档。</p>
 <ul>
-<li>getNextEntry:返回一个ZipEntry对象。  </li>
-<li>getInputStream(ZipEntry ze):获取用于读取该项的输入流。  </li>
-<li>closeEntry:读入下一项  <pre><code>ZipInputStream zin = new ZipInputStream(new FileInputStream(zipname));
+<li>getNextEntry:返回一个ZipEntry对象。</li>
+<li>getInputStream(ZipEntry ze):获取用于读取该项的输入流。</li>
+<li>closeEntry:读入下一项</li>
+</ul>
+<pre><code>ZipInputStream zin = new ZipInputStream(new FileInputStream(zipname));
 ZipEntry entry;
 while ((entry = zin.getNextEntry()) != null){
-  InputStream in = zin.getInputStream(entry);
-  //read the contents of in
-  zin.closeEntry();
+    InputStream in = zin.getInputStream(entry);
+    //read the contents of in
+    zin.closeEntry();
 }
-zin.close();</code></pre>ZipOutputStream写出到ZIP文件</li>
+zin.close();
+</code></pre>
+<p>ZipOutputStream写出到ZIP文件</p>
+<ul>
 <li>创建ZipEntry对象,设置参数</li>
 <li>putNextEntry出新文件</li>
-<li>closeEntry<pre><code>FileOutputStream fout = new FileOutputStream(&quot;test.zip&quot;);
+<li>closeEntry</li>
+</ul>
+<pre><code>FileOutputStream fout = new FileOutputStream(&quot;test.zip&quot;);
 ZipOutputStream zout = new ZipOutputStream(fout);
 //for all files
 {
-  ZipEntry ze = new ZipEntry(filename);
-  zout.putNextEntry(ze);
-  //send data to zout
-  zout.closeEntry();
+    ZipEntry ze = new ZipEntry(filename);
+    zout.putNextEntry(ze);
+    //send data to zout
+    zout.closeEntry();
 }
-zout.close();</code></pre><blockquote>
+zout.close();
+</code></pre>
+<blockquote>
 <p>JAR文件只是带一个特殊项的ZIP文件，这个项称作清单。可以使用JarInputStream和JarOutputStream类来读写清单项。</p>
 </blockquote>
-</li>
-</ul>
 
 </div>
 
@@ -4422,19 +4463,23 @@ zout.close();</code></pre><blockquote>
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

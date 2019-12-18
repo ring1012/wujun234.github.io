@@ -1,10 +1,30 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +35,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4373,8 +4394,11 @@
 				</h2>
 				<span class="post-date">2019-12-18</span>
 				<div class="article-digest">
-					Docker简介Docker是一个虚拟环境容器，可以将开发环境、代码、配置文件等一并打包到这个容器中，并发布和应用到任意平台中。
-Docker架构架构Docker使用Go语言进行开发，使用的是客户端/
+					¶Docker简介
+Docker是一个虚拟环境容器，可以将开发环境、代码、配置文件等一并打包到这个容器中，并发布和应用到任意平台中。
+¶Docker架构
+¶架构
+Docker使用Go语言进行开发，使用
 					...
 				</div>
 			</article>
@@ -4388,8 +4412,9 @@ Docker架构架构Docker使用Go语言进行开发，使用的是客户端/
 				<span class="post-date">2019-12-18</span>
 				<div class="article-digest">
 					ElasticStack 最初的核心是 ELK (Elasticsearch, Logstash, Kibana) ，后又新增了一个FileBeat。
-ELK架构
-Elasticsearch ：分布式
+¶ELK架构
+
+Elasticsearch ：分
 					...
 				</div>
 			</article>
@@ -4398,12 +4423,16 @@ Elasticsearch ：分布式
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/08%20DevOps/7%20Zabbix/1%20Zabbix%E7%AE%80%E4%BB%8B/">1 Zabbix简介</a>
+					<a class="article-title" href="/2019/12/18/08%20DevOps/7%20Zabbix/4%20Zabbix%E8%BF%81%E7%A7%BB/">4 Zabbix迁移</a>
 				</h2>
 				<span class="post-date">2019-12-18</span>
 				<div class="article-digest">
-					Zabbix 手册：https://www.zabbix.com/documentation/3.4/zh/manual
-Zabbix 3.0 从入门到精通(zabbix使用详解)：https://w
+					zabbix的前端所有的操作都存在zabbix数据库里。
+如果迁移要求历史数据不丢失，对zabbix库中相应的表进行导出导入即可。
+若是对历史数据不要求，那么只迁移配置信息即可。
+¶安装
+
+根据zab
 					...
 				</div>
 			</article>
@@ -4443,13 +4472,53 @@ Zabbix 3.0 从入门到精通(zabbix使用详解)：https://w
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/08%20DevOps/7%20Zabbix/4%20Zabbix%E8%BF%81%E7%A7%BB/">4 Zabbix迁移</a>
+					<a class="article-title" href="/2019/12/18/08%20DevOps/7%20Zabbix/1%20Zabbix%E7%AE%80%E4%BB%8B/">1 Zabbix简介</a>
 				</h2>
 				<span class="post-date">2019-12-18</span>
 				<div class="article-digest">
-					zabbix的前端所有的操作都存在zabbix数据库里。如果迁移要求历史数据不丢失，对zabbix库中相应的表进行导出导入即可。若是对历史数据不要求，那么只迁移配置信息即可。
-安装
-根据zabbix手
+					Zabbix 手册：https://www.zabbix.com/documentation/3.4/zh/manual
+Zabbix 3.0 从入门到精通(zabbix使用详解)：https://w
+					...
+				</div>
+			</article>
+			
+		
+
+			<article class="article-li">
+				<h2>
+					<a class="article-title" href="/2019/12/18/08%20DevOps/6%20Linux/3%20Shell%20%E8%84%9A%E6%9C%AC/">3 Shell 脚本</a>
+				</h2>
+				<span class="post-date">2019-12-18</span>
+				<div class="article-digest">
+					¶开始
+约定文件第一行必须以 “#!”开始，指明脚本执行的解释器
+¶运行
+chmod +x filename
+¶变量
+变量无需声明
+赋值：变量名和等号之间不能有空格
+使用：前加$符号，可选加{}帮解释
+					...
+				</div>
+			</article>
+			
+		
+
+			<article class="article-li">
+				<h2>
+					<a class="article-title" href="/2019/12/18/08%20DevOps/6%20Linux/2%20Linux%20%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">2 Linux 常用命令</a>
+				</h2>
+				<span class="post-date">2019-12-18</span>
+				<div class="article-digest">
+					¶1、文件相关
+¶1.1文件跳转
+
+pwd：打印当前目录名
+ls：列出目录内容
+-a：列出所有文件，包括“.”开头的隐藏文件
+-d：通常，指定目录名
+-F：名字后面加指示符
+-h：以人们可读的格式而非
 					...
 				</div>
 			</article>
@@ -4471,49 +4540,17 @@ Zabbix 3.0 从入门到精通(zabbix使用详解)：https://w
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/08%20DevOps/6%20Linux/2%20Linux%20%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">2 Linux 常用命令</a>
+					<a class="article-title" href="/2019/12/18/08%20DevOps/5%20Gradle/2%20maven%E8%BF%81%E7%A7%BB%E5%88%B0gradle/">2 maven迁移到gradle</a>
 				</h2>
 				<span class="post-date">2019-12-18</span>
 				<div class="article-digest">
-					1、文件相关1.1文件跳转
-pwd：打印当前目录名
-ls：列出目录内容
+					¶1 生成Maven构建图
 
--a：列出所有文件，包括“.”开头的隐藏文件-d：通常，指定目录名-F：名字后面加指示符-h：以人们可读的格式而非字节数，显示
-					...
-				</div>
-			</article>
-			
-		
+在根项目中 .mvn/extensions.xml 文件声明Gradle扩展
 
-			<article class="article-li">
-				<h2>
-					<a class="article-title" href="/2019/12/18/08%20DevOps/6%20Linux/3%20Shell%20%E8%84%9A%E6%9C%AC/">3 Shell 脚本</a>
-				</h2>
-				<span class="post-date">2019-12-18</span>
-				<div class="article-digest">
-					开始约定文件第一行必须以 “#!”开始，指明脚本执行的解释器
-运行chmod +x filename
-变量变量无需声明赋值：变量名和等号之间不能有空格使用：前加$符号，可选加{}帮解释器识别变量的边界
-					...
-				</div>
-			</article>
-			
-		
-
-			<article class="article-li">
-				<h2>
-					<a class="article-title" href="/2019/12/18/08%20DevOps/2%20SVN/3%20%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86/">3 版本管理</a>
-				</h2>
-				<span class="post-date">2019-12-18</span>
-				<div class="article-digest">
-					1 版本管理类
-创建分支/标签（Branch/tag）
-创建补丁（Create patch）
-合并文件（Merge）
-解决冲突（Resolved）
-切换工作区（Switch）
-撤销操作（Revert）
+&lt;extensions&gt;
+    &lt;extension&gt;
+    
 					...
 				</div>
 			</article>
@@ -4529,19 +4566,23 @@ ls：列出目录内容
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

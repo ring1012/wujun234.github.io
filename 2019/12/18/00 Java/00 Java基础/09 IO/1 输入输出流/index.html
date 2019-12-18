@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		1 输入输出流 | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,12 +4395,13 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:47</span>
+	<span id="post-date">2019-12-18 01:00:41</span>
 </div>
 
 
 <div id="article">
-	<h3 id="Java-的-I-O-类库的基本架构"><a href="#Java-的-I-O-类库的基本架构" class="headerlink" title="Java 的 I/O 类库的基本架构"></a>Java 的 I/O 类库的基本架构</h3><p>Java 的 I/O 操作类可以分成四组：</p>
+	<h3 id="Java-的-I-O-类库的基本架构"><a class="header-anchor" href="#Java-的-I-O-类库的基本架构">¶</a>Java 的 I/O 类库的基本架构</h3>
+<p>Java 的 I/O 操作类可以分成四组：</p>
 <ol>
 <li>基于字节操作的 I/O 接口：InputStream 和 OutputStream</li>
 <li>基于字符操作的 I/O 接口：Writer 和 Reader</li>
@@ -4385,51 +4409,76 @@
 <li>基于网络操作的 I/O 接口：Socket</li>
 </ol>
 <p>前两组根据数据格式，后两组根据传输方式。除了 Socket 类都在在 <code>java.io</code> 包下。</p>
-<h3 id="1-读写字节"><a href="#1-读写字节" class="headerlink" title="1 读写字节"></a>1 读写字节</h3><p>抽象类<code>InputStream</code>和<code>OutputStream</code>构成了基于字节的 I/O 操作接口的基础。</p>
+<h3 id="1-读写字节"><a class="header-anchor" href="#1-读写字节">¶</a>1 读写字节</h3>
+<p>抽象类<code>InputStream</code>和<code>OutputStream</code>构成了基于字节的 I/O 操作接口的基础。</p>
 <p>一般使用<code>InputStream</code>和<code>OutputStream</code>的子类来读写数字、字符串和对象，而不是直接使用字节。子类复写read()、write()。</p>
-<h5 id="read"><a href="#read" class="headerlink" title="read()"></a>read()</h5><p>InpuStream类抽象方法read()：读入一个字节，并返回读入的字节，或者在遇到输入源结尾时返回-1。<br>阻塞。</p>
-<h5 id="write-int-b"><a href="#write-int-b" class="headerlink" title="write(int b)"></a>write(int b)</h5><p>OutputStream类抽象方法：write(int b)：向某个输出位置写出一个字节。<br>阻塞。</p>
-<h5 id="available"><a href="#available" class="headerlink" title="available()"></a>available()</h5><p>InpuStream类available方法：检查当前可读入的字节数量，可避免阻塞</p>
+<h5 id="read"><a class="header-anchor" href="#read">¶</a>read()</h5>
+<p>InpuStream类抽象方法read()：读入一个字节，并返回读入的字节，或者在遇到输入源结尾时返回-1。<br>
+阻塞。</p>
+<h5 id="write-int-b"><a class="header-anchor" href="#write-int-b">¶</a>write(int b)</h5>
+<p>OutputStream类抽象方法：write(int b)：向某个输出位置写出一个字节。<br>
+阻塞。</p>
+<h5 id="available"><a class="header-anchor" href="#available">¶</a>available()</h5>
+<p>InpuStream类available方法：检查当前可读入的字节数量，可避免阻塞</p>
 <pre><code>int bytesAvailable = in.available();
 if(bytesAvailable &gt; 0){
     byte[] data = new byte[bytesAvailable];
     in.read(data);
-}</code></pre><h5 id="close"><a href="#close" class="headerlink" title="close()"></a>close()</h5><p>InpuStream、OutputStream的close()方法释放系统资源</p>
-<h3 id="2-完整的流家族"><a href="#2-完整的流家族" class="headerlink" title="2 完整的流家族"></a>2 完整的流家族</h3><p><img src="/images/1545011844341.png" alt=""></p>
+}
+</code></pre>
+<h5 id="close"><a class="header-anchor" href="#close">¶</a>close()</h5>
+<p>InpuStream、OutputStream的close()方法释放系统资源</p>
+<h3 id="2-完整的流家族"><a class="header-anchor" href="#2-完整的流家族">¶</a>2 完整的流家族</h3>
+<p><img src="/images/1545011844341.png" alt=""></p>
 <p>Java流类的家族中，除了基于字节的<code>InputStream</code>和<code>OutputStream</code>和基于字符的<code>Writer</code>和<code>Reader</code>，还有4个附加接口：<code>Closeable</code>、<code>Flushable</code>、<code>Readable</code>和<code>Appendable</code></p>
-<h4 id="Closeable"><a href="#Closeable" class="headerlink" title="Closeable"></a>Closeable</h4><p><code>Closeable</code>有<code>close()</code>方法</p>
+<h4 id="Closeable"><a class="header-anchor" href="#Closeable">¶</a>Closeable</h4>
+<p><code>Closeable</code>有<code>close()</code>方法</p>
 <blockquote>
 <p>java.io.Closeable接口扩展了java.lang.AutoCloseable接口。因此，对任何Closeable进行操作时，都可以使用try-with-resource 语句。</p>
 </blockquote>
 <p><code>InputStream</code>、<code>OutputStream</code>、<code>Reader</code>和<code>Writer</code>都实现了<code>closeable</code>接口。</p>
-<h4 id="Flushable"><a href="#Flushable" class="headerlink" title="Flushable"></a>Flushable</h4><p><code>Flushable</code>有<code>flush()</code>方法</p>
+<h4 id="Flushable"><a class="header-anchor" href="#Flushable">¶</a>Flushable</h4>
+<p><code>Flushable</code>有<code>flush()</code>方法</p>
 <p><code>OutputStream</code>和<code>Writer</code>实现了<code>Flushable</code>接口。</p>
-<h4 id="Readable"><a href="#Readable" class="headerlink" title="Readable"></a>Readable</h4><p><code>Readable</code>有<code>read(CharBuffer cb)</code>方法</p>
+<h4 id="Readable"><a class="header-anchor" href="#Readable">¶</a>Readable</h4>
+<p><code>Readable</code>有<code>read(CharBuffer cb)</code>方法</p>
 <p>CharBuffer类拥有按顺序和随机地进行读写访问的方法，它表示一个内存中的缓冲区或者一个内存映像的文件</p>
 <p><code>Reader</code>实现了<code>Readable</code>。</p>
-<h4 id="Appendable"><a href="#Appendable" class="headerlink" title="Appendable"></a>Appendable</h4><p><code>Appendable</code>接口有两个用于添加单个字符和字符序列的方法</p>
+<h4 id="Appendable"><a class="header-anchor" href="#Appendable">¶</a>Appendable</h4>
+<p><code>Appendable</code>接口有两个用于添加单个字符和字符序列的方法</p>
 <pre><code>Appendable append(char c)
-Appendable append(CharSequence s)</code></pre><p>CharSequence接口描述了一个char值序列的基本属性，String、CharBuffer、StringBuilder和StringBuffer都实现了它。</p>
+Appendable append(CharSequence s)
+</code></pre>
+<p>CharSequence接口描述了一个char值序列的基本属性，String、CharBuffer、StringBuilder和StringBuffer都实现了它。</p>
 <p><code>Writer</code>实现了<code>Appendable</code>。</p>
 <p><img src="/images/1545011844428.jpg" alt=""></p>
-<h3 id="3-组合输入-输出流过滤器"><a href="#3-组合输入-输出流过滤器" class="headerlink" title="3 组合输入/输出流过滤器"></a>3 组合输入/输出流过滤器</h3><blockquote>
+<h3 id="3-组合输入-输出流过滤器"><a class="header-anchor" href="#3-组合输入-输出流过滤器">¶</a>3 组合输入/输出流过滤器</h3>
+<blockquote>
 <p>提示：所有在java.io中的类都将相对路径名解释为以用户工作目录开始，你可以通过调用System.getProperty(“user.dir”)来获得这个信息。</p>
 </blockquote>
 <p>通过嵌套过滤器添加多重功能，灵活处理读写。</p>
 <p>从文件中读入数字</p>
 <pre><code>FileInputStream fin = new FileInputStream(&quot;employee.dat&quot;);
 DataInputStream din = new DataInputStream(fin);
-double x = din.readDouble();</code></pre><p>使用缓冲机制，从文件中读取数据</p>
+double x = din.readDouble();
+</code></pre>
+<p>使用缓冲机制，从文件中读取数据</p>
 <pre><code>DataInputStream din = new DataInputStream(
     new BufferedInputStream(
-        new FileInputStream(&quot;employee.dat&quot;)));</code></pre><p>预览下一个字节</p>
+        new FileInputStream(&quot;employee.dat&quot;)));
+</code></pre>
+<p>预览下一个字节</p>
 <pre><code>PushbackInputStream pbin = new PushbackInputStream(
     new BuffererInputStream(
         new FileInputStream(&quot;employee.dat&quot;)));
 int b = pbin.read();
-if(b != &#39;&lt;&#39;) pbin.unread(b);</code></pre><p>从ZIP压缩文件中读入数字</p>
+if(b != '&lt;') pbin.unread(b);
+</code></pre>
+<p>从ZIP压缩文件中读入数字</p>
 <pre><code>ZipInputStream zin = new ZipInputStream(FileInputStream(&quot;employee.zip&quot;));
-DataInputStream din = new DataInputStream(zin);</code></pre>
+DataInputStream din = new DataInputStream(zin);
+</code></pre>
+
 </div>
 
 	</div>
@@ -4438,19 +4487,23 @@ DataInputStream din = new DataInputStream(zin);</code></pre>
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

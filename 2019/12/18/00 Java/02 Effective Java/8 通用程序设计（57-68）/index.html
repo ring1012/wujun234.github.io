@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		8 通用程序设计（57-68） | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,20 +4395,32 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:16</span>
+	<span id="post-date">2019-12-18 01:00:42</span>
 </div>
 
 
 <div id="article">
-	<h3 id="第57条：将局部变量的作用域最小化"><a href="#第57条：将局部变量的作用域最小化" class="headerlink" title="第57条：将局部变量的作用域最小化"></a>第57条：将局部变量的作用域最小化</h3><h3 id="第58条：for-each循环优先于传统的for循环"><a href="#第58条：for-each循环优先于传统的for循环" class="headerlink" title="第58条：for-each循环优先于传统的for循环"></a>第58条：for-each循环优先于传统的for循环</h3><h3 id="第59条：了解和使用标准类库"><a href="#第59条：了解和使用标准类库" class="headerlink" title="第59条：了解和使用标准类库"></a>第59条：了解和使用标准类库</h3><h3 id="第60条：如果需要精确的答案，请避免使用float和double"><a href="#第60条：如果需要精确的答案，请避免使用float和double" class="headerlink" title="第60条：如果需要精确的答案，请避免使用float和double"></a>第60条：如果需要精确的答案，请避免使用float和double</h3><ol>
+	<h3 id="第57条：将局部变量的作用域最小化"><a class="header-anchor" href="#第57条：将局部变量的作用域最小化">¶</a>第57条：将局部变量的作用域最小化</h3>
+<h3 id="第58条：for-each循环优先于传统的for循环"><a class="header-anchor" href="#第58条：for-each循环优先于传统的for循环">¶</a>第58条：for-each循环优先于传统的for循环</h3>
+<h3 id="第59条：了解和使用标准类库"><a class="header-anchor" href="#第59条：了解和使用标准类库">¶</a>第59条：了解和使用标准类库</h3>
+<h3 id="第60条：如果需要精确的答案，请避免使用float和double"><a class="header-anchor" href="#第60条：如果需要精确的答案，请避免使用float和double">¶</a>第60条：如果需要精确的答案，请避免使用float和double</h3>
+<ol>
 <li>float和double类型尤其不适合用于货币计算</li>
 <li>可以使用bigDecimal、int或者long进行货币计算（BigDecimal不方便而且慢，如果数值范围没有超过9位十进制数字，就可以使用int；如果不超过18位数字，就可以使用long；如果可能超过18位，就必须使用BigDecimal）</li>
 </ol>
-<h3 id="第61条：基本类型优先于装箱基本类型"><a href="#第61条：基本类型优先于装箱基本类型" class="headerlink" title="第61条：基本类型优先于装箱基本类型"></a>第61条：基本类型优先于装箱基本类型</h3><h3 id="第62条：如果其他类型更适合-则尽量避免使用字符串"><a href="#第62条：如果其他类型更适合-则尽量避免使用字符串" class="headerlink" title="第62条：如果其他类型更适合,则尽量避免使用字符串"></a>第62条：如果其他类型更适合,则尽量避免使用字符串</h3><p>经常被错误的用字符来代替的类型包括基本类型、枚举类型和聚集类型。</p>
-<h3 id="第63条：当心字符串连接的性能"><a href="#第63条：当心字符串连接的性能" class="headerlink" title="第63条：当心字符串连接的性能"></a>第63条：当心字符串连接的性能</h3><p>为连接n个字符串而重复使用字符串连接符（+），需要n的平方级时间。这是由于字符串不可变，当两个字符串被连接在一起时，他们的内容都要被拷贝。</p>
-<h3 id="第64条：通过接口引用对象"><a href="#第64条：通过接口引用对象" class="headerlink" title="第64条：通过接口引用对象"></a>第64条：通过接口引用对象</h3><h3 id="第65条：接口优先于反射机制"><a href="#第65条：接口优先于反射机制" class="headerlink" title="第65条：接口优先于反射机制"></a>第65条：接口优先于反射机制</h3><p>对于有些程序，它们必须用到在编译时无法获取的类，但在编译时存在适当的接口或者超类，通过它们可以引用这个类。如果是这种情况，就可以以反射的方式创建实例，然后通过它们的接口或者超类，以正常的方式访问这些实例。如果适当的构造器不需要任何参数，那就不需要使用java.lang.reflect包，采用Class.newInstace方法就可以了。</p>
-<h3 id="第66条：谨慎地使用本地方法"><a href="#第66条：谨慎地使用本地方法" class="headerlink" title="第66条：谨慎地使用本地方法"></a>第66条：谨慎地使用本地方法</h3><h3 id="第67条：谨慎地进行优化"><a href="#第67条：谨慎地进行优化" class="headerlink" title="第67条：谨慎地进行优化"></a>第67条：谨慎地进行优化</h3><p>不用费力去编写快速的程序–应该努力编写更好的程序，速度自然会随着而来。</p>
-<h3 id="第68条：遵守普通接受的命名惯例"><a href="#第68条：遵守普通接受的命名惯例" class="headerlink" title="第68条：遵守普通接受的命名惯例"></a>第68条：遵守普通接受的命名惯例</h3>
+<h3 id="第61条：基本类型优先于装箱基本类型"><a class="header-anchor" href="#第61条：基本类型优先于装箱基本类型">¶</a>第61条：基本类型优先于装箱基本类型</h3>
+<h3 id="第62条：如果其他类型更适合-则尽量避免使用字符串"><a class="header-anchor" href="#第62条：如果其他类型更适合-则尽量避免使用字符串">¶</a>第62条：如果其他类型更适合,则尽量避免使用字符串</h3>
+<p>经常被错误的用字符来代替的类型包括基本类型、枚举类型和聚集类型。</p>
+<h3 id="第63条：当心字符串连接的性能"><a class="header-anchor" href="#第63条：当心字符串连接的性能">¶</a>第63条：当心字符串连接的性能</h3>
+<p>为连接n个字符串而重复使用字符串连接符（+），需要n的平方级时间。这是由于字符串不可变，当两个字符串被连接在一起时，他们的内容都要被拷贝。</p>
+<h3 id="第64条：通过接口引用对象"><a class="header-anchor" href="#第64条：通过接口引用对象">¶</a>第64条：通过接口引用对象</h3>
+<h3 id="第65条：接口优先于反射机制"><a class="header-anchor" href="#第65条：接口优先于反射机制">¶</a>第65条：接口优先于反射机制</h3>
+<p>对于有些程序，它们必须用到在编译时无法获取的类，但在编译时存在适当的接口或者超类，通过它们可以引用这个类。如果是这种情况，就可以以反射的方式创建实例，然后通过它们的接口或者超类，以正常的方式访问这些实例。如果适当的构造器不需要任何参数，那就不需要使用java.lang.reflect包，采用Class.newInstace方法就可以了。</p>
+<h3 id="第66条：谨慎地使用本地方法"><a class="header-anchor" href="#第66条：谨慎地使用本地方法">¶</a>第66条：谨慎地使用本地方法</h3>
+<h3 id="第67条：谨慎地进行优化"><a class="header-anchor" href="#第67条：谨慎地进行优化">¶</a>第67条：谨慎地进行优化</h3>
+<p>不用费力去编写快速的程序–应该努力编写更好的程序，速度自然会随着而来。</p>
+<h3 id="第68条：遵守普通接受的命名惯例"><a class="header-anchor" href="#第68条：遵守普通接受的命名惯例">¶</a>第68条：遵守普通接受的命名惯例</h3>
+
 </div>
 
 	</div>
@@ -4394,19 +4429,23 @@
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

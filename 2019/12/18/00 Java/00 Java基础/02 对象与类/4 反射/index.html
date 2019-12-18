@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		4 反射 | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,12 +4395,13 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:45</span>
+	<span id="post-date">2019-12-18 01:00:41</span>
 </div>
 
 
 <div id="article">
-	<p>反射 (Reflection) 是 Java 的特征之一，它允许运行中的 Java 程序获取自身的信息，并且可以操作类或对象的内部属性。<br>反射的核心是 JVM 在运行时才动态加载类或调用方法/访问属性，它不需要事先知道运行对象是谁。</p>
+	<p>反射 (Reflection) 是 Java 的特征之一，它允许运行中的 Java 程序获取自身的信息，并且可以操作类或对象的内部属性。<br>
+反射的核心是 JVM 在运行时才动态加载类或调用方法/访问属性，它不需要事先知道运行对象是谁。</p>
 <p>反射机制可以用来：</p>
 <ul>
 <li>在运行时判断任意一个对象所属的类；</li>
@@ -4385,22 +4409,37 @@
 <li>在运行时判断任意一个类所具有的成员变量和方法（通过反射甚至可以调用private方法）；</li>
 <li>在运行时调用任意一个对象的方法</li>
 </ul>
-<h4 id="不要过多地使用反射"><a href="#不要过多地使用反射" class="headerlink" title="不要过多地使用反射"></a>不要过多地使用反射</h4><p>反射机制对于编写系统程序来说极其实用，但是通常不适于编写应用程序。<br>反射是很脆弱的，即编译器很难帮助人们发现程序中的错误。任何错误只能在运行时才被发现，并导致异常。<br>由于反射会额外消耗一定的系统资源，因此如果不需要动态地创建一个对象，那么就不需要用反射。<br>另外，反射调用方法时可以忽略权限检查，因此可能会破坏封装性而导致安全问题。</p>
-<h4 id="基本运用"><a href="#基本运用" class="headerlink" title="基本运用"></a>基本运用</h4><p>反射相关的类一般都在 java.lang.relfect 包里</p>
-<h5 id="1、获得-Class-对象"><a href="#1、获得-Class-对象" class="headerlink" title="1、获得 Class 对象"></a>1、获得 Class 对象</h5><p>获得类对象的方式有三种：</p>
+<h4 id="不要过多地使用反射"><a class="header-anchor" href="#不要过多地使用反射">¶</a>不要过多地使用反射</h4>
+<p>反射机制对于编写系统程序来说极其实用，但是通常不适于编写应用程序。<br>
+反射是很脆弱的，即编译器很难帮助人们发现程序中的错误。任何错误只能在运行时才被发现，并导致异常。<br>
+由于反射会额外消耗一定的系统资源，因此如果不需要动态地创建一个对象，那么就不需要用反射。<br>
+另外，反射调用方法时可以忽略权限检查，因此可能会破坏封装性而导致安全问题。</p>
+<h4 id="基本运用"><a class="header-anchor" href="#基本运用">¶</a>基本运用</h4>
+<p>反射相关的类一般都在 java.lang.relfect 包里</p>
+<h5 id="1、获得-Class-对象"><a class="header-anchor" href="#1、获得-Class-对象">¶</a>1、获得 Class 对象</h5>
+<p>获得类对象的方式有三种：</p>
 <ol>
-<li>类型.class<br>例如：Class&lt;?&gt; class = String.class</li>
-<li>调用对象getClass()<br>例如：Class&lt;?&gt; class = “hello”.getClass()</li>
-<li>Class.forName()<br>例如：Class&lt;?&gt; class = Class.forName(“java.lang.String”)</li>
+<li>类型.class<br>
+例如：Class&lt;?&gt; class = String.class</li>
+<li>调用对象getClass()<br>
+例如：Class&lt;?&gt; class = “hello”.getClass()</li>
+<li>Class.forName()<br>
+例如：Class&lt;?&gt; class = Class.forName(“java.lang.String”)</li>
 </ol>
 <p>虚拟机为每个类管理一个Class对象。因此，可以利用==运算符实现两个类对象比较的操作。</p>
-<h5 id="2、判断是否为某个类的实例"><a href="#2、判断是否为某个类的实例" class="headerlink" title="2、判断是否为某个类的实例"></a>2、判断是否为某个类的实例</h5><ol>
-<li>一般用 instanceof 关键字来判断是否为某个类的实例。  </li>
+<h5 id="2、判断是否为某个类的实例"><a class="header-anchor" href="#2、判断是否为某个类的实例">¶</a>2、判断是否为某个类的实例</h5>
+<ol>
+<li>一般用 instanceof 关键字来判断是否为某个类的实例。</li>
 <li>同时也可用反射中 Class 对象的 isInstance() 方法来判断：class.isInstance(obj);</li>
 </ol>
-<h5 id="3、创建实例"><a href="#3、创建实例" class="headerlink" title="3、创建实例"></a>3、创建实例</h5><ol>
-<li>调用 Class 类的 newInstance()<pre><code>Class&lt;?&gt; c = String.class;
-Object str = c.newInstance();</code></pre></li>
+<h5 id="3、创建实例"><a class="header-anchor" href="#3、创建实例">¶</a>3、创建实例</h5>
+<ol>
+<li>调用 Class 类的 newInstance()</li>
+</ol>
+<pre><code>Class&lt;?&gt; c = String.class;
+Object str = c.newInstance();
+</code></pre>
+<ol start="2">
 <li>调用 Constructor 类的 newInstance()</li>
 </ol>
 <pre><code>//获取String所对应的Class对象
@@ -4409,27 +4448,45 @@ Class&lt;?&gt; c = String.class;
 Constructor constructor = c.getConstructor(String.class);
 //根据构造器创建实例
 Object obj = constructor.newInstance(&quot;23333&quot;);
-System.out.println(obj);</code></pre><h5 id="4、获取方法"><a href="#4、获取方法" class="headerlink" title="4、获取方法"></a>4、获取方法</h5><p>获取某个Class对象的方法集合</p>
+System.out.println(obj);
+</code></pre>
+<h5 id="4、获取方法"><a class="header-anchor" href="#4、获取方法">¶</a>4、获取方法</h5>
+<p>获取某个Class对象的方法集合</p>
 <ul>
-<li>getDeclaredMethods<br>返回类或接口声明的所有方法，包括公共、保护、默认（包）访问和私有方法，但不包括继承的方法。</li>
-<li>getMethods<br>返回某个类的所有公用方法，包括超类的公用方法。</li>
-<li>getMethod<br>返回一个特定的方法，其中第一个参数为方法名称，后面的参数为方法的参数对应Class的对象。</li>
+<li>getDeclaredMethods<br>
+返回类或接口声明的所有方法，包括公共、保护、默认（包）访问和私有方法，但不包括继承的方法。</li>
+<li>getMethods<br>
+返回某个类的所有公用方法，包括超类的公用方法。</li>
+<li>getMethod<br>
+返回一个特定的方法，其中第一个参数为方法名称，后面的参数为方法的参数对应Class的对象。</li>
 </ul>
-<pre><code>public Method getMethod(String name, Class&lt;?&gt;... parameterTypes)</code></pre><h5 id="5、获取构造器信息"><a href="#5、获取构造器信息" class="headerlink" title="5、获取构造器信息"></a>5、获取构造器信息</h5><p>获取某个Class对象的构造器集合,与获取方法用法相似</p>
+<pre><code>public Method getMethod(String name, Class&lt;?&gt;... parameterTypes)
+</code></pre>
+<h5 id="5、获取构造器信息"><a class="header-anchor" href="#5、获取构造器信息">¶</a>5、获取构造器信息</h5>
+<p>获取某个Class对象的构造器集合,与获取方法用法相似</p>
 <ul>
 <li>getDeclaredConstructors</li>
-<li>getConstructors<br>返回public构造器，包括超类的公有构造器</li>
+<li>getConstructors<br>
+返回public构造器，包括超类的公有构造器</li>
 <li>getConstructor</li>
 </ul>
-<h5 id="6、获取类的域"><a href="#6、获取类的域" class="headerlink" title="6、获取类的域"></a>6、获取类的域</h5><ul>
-<li>getFiled、getFileds<br>返回public域，包括超类的公有域</li>
-<li>getDeclaredField、getDeclaredFields<br>所有已声明的全部域，包括私有和受保护域，但不包括超类的域</li>
+<h5 id="6、获取类的域"><a class="header-anchor" href="#6、获取类的域">¶</a>6、获取类的域</h5>
+<ul>
+<li>getFiled、getFileds<br>
+返回public域，包括超类的公有域</li>
+<li>getDeclaredField、getDeclaredFields<br>
+所有已声明的全部域，包括私有和受保护域，但不包括超类的域</li>
 </ul>
-<h5 id="7、调用方法"><a href="#7、调用方法" class="headerlink" title="7、调用方法"></a>7、调用方法</h5><p>利用Method类中的invoke方法，调用任意方法。</p>
+<h5 id="7、调用方法"><a class="header-anchor" href="#7、调用方法">¶</a>7、调用方法</h5>
+<p>利用Method类中的invoke方法，调用任意方法。</p>
 <pre><code>public Object invoke(Object obj, Object... args)
         throws IllegalAccessException, IllegalArgumentException,
-           InvocationTargetException</code></pre><h5 id="8、获取修饰符"><a href="#8、获取修饰符" class="headerlink" title="8、获取修饰符"></a>8、获取修饰符</h5><p>Modifier类的静态方法分析getModifiers返回的整型数值，isPublish、isPrivate或isFinal判断方法或构造器是否是public、private或final。</p>
-<h5 id="9、利用反射创建数组"><a href="#9、利用反射创建数组" class="headerlink" title="9、利用反射创建数组"></a>9、利用反射创建数组</h5><p>java.lang.reflect包中的Array类允许动态地创建数组。</p>
+           InvocationTargetException
+</code></pre>
+<h5 id="8、获取修饰符"><a class="header-anchor" href="#8、获取修饰符">¶</a>8、获取修饰符</h5>
+<p>Modifier类的静态方法分析getModifiers返回的整型数值，isPublish、isPrivate或isFinal判断方法或构造器是否是public、private或final。</p>
+<h5 id="9、利用反射创建数组"><a class="header-anchor" href="#9、利用反射创建数组">¶</a>9、利用反射创建数组</h5>
+<p>java.lang.reflect包中的Array类允许动态地创建数组。</p>
 <pre><code>public static void testArray() throws ClassNotFoundException {
         Class&lt;?&gt; cls = Class.forName(&quot;java.lang.String&quot;);
         Object array = Array.newInstance(cls,25);
@@ -4438,7 +4495,9 @@ System.out.println(obj);</code></pre><h5 id="4、获取方法"><a href="#4、获
         Array.set(array,1,&quot;Java&quot;);
         //获取某一项的内容
         System.out.println(Array.get(array,0));
-    }</code></pre>
+    }
+</code></pre>
+
 </div>
 
 	</div>
@@ -4447,19 +4506,23 @@ System.out.println(obj);</code></pre><h5 id="4、获取方法"><a href="#4、获
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

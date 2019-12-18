@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		8 Callable与Future | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,30 +4395,41 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:48</span>
+	<span id="post-date">2019-12-18 01:00:41</span>
 </div>
 
 
 <div id="article">
-	<h3 id="Callable"><a href="#Callable" class="headerlink" title="Callable"></a>Callable</h3><p>Callable与Runnable类似，它们的主要区别是 Callable 的 call() 方法可以返回值和抛出异常。<br>Callable接口是一个参数化的类型，只有一个方法call。</p>
+	<h3 id="Callable"><a class="header-anchor" href="#Callable">¶</a>Callable</h3>
+<p>Callable与Runnable类似，它们的主要区别是 Callable 的 call() 方法可以返回值和抛出异常。<br>
+Callable接口是一个参数化的类型，只有一个方法call。</p>
 <pre><code>public interface Ca11able&lt;V&gt;{
     V call() throws Exception;
-}</code></pre><p>Callable 可以返回装载有计算结果的 Future 对象。<br>Thread 类只支持 Runnable。Callable 可以使用 ExecutorService</p>
-<h3 id="Future"><a href="#Future" class="headerlink" title="Future"></a>Future</h3><p>Future保存异步计算的结果。<br>可以启动一个计算，将Future对象交给某个线程，然后忘掉它。 Future对象的所有者在结果计算好之后就可以获得它。</p>
-<pre><code class="java">public interface Future&lt;V&gt;{
+}
+</code></pre>
+<p>Callable 可以返回装载有计算结果的 Future 对象。<br>
+Thread 类只支持 Runnable。Callable 可以使用 ExecutorService</p>
+<h3 id="Future"><a class="header-anchor" href="#Future">¶</a>Future</h3>
+<p>Future保存异步计算的结果。<br>
+可以启动一个计算，将Future对象交给某个线程，然后忘掉它。 Future对象的所有者在结果计算好之后就可以获得它。</p>
+<pre><code class="language-java">public interface Future&lt;V&gt;{
     V  get() throws ...;//阻塞获取结果。
     V  get(long timeout, TimeUnit unit) throws ...;//计时阻塞获取结果。
     void cancel(boolean mayInterrupt);//试图取消任务。如任务已开始，由参数决定是否取消
     boolean isCancelled();//任务是否已取消。
     boolean isDone();//任务是否已完成。
-}</code></pre>
-<h3 id="FutureTask"><a href="#FutureTask" class="headerlink" title="FutureTask"></a>FutureTask</h3><p>FutureTask 包装器是一种非常便利的机制，可将 Callable 转换成 Future 和 Runnable，它同时实现二者的接口。</p>
+}
+</code></pre>
+<h3 id="FutureTask"><a class="header-anchor" href="#FutureTask">¶</a>FutureTask</h3>
+<p>FutureTask 包装器是一种非常便利的机制，可将 Callable 转换成 Future 和 Runnable，它同时实现二者的接口。</p>
 <pre><code>Callable&lt;Integer&gt; myComputation = ...;
 FutureTask&lt;Integer&gt; task = new FutureTask&lt;Integer&gt;(myComputation);
-Thread t = new Thread(task); // it&#39;s a Runnable
+Thread t = new Thread(task); // it's a Runnable
 t.start();
 ...
-Integer result = task.get(); // It&#39;s a Future</code></pre><p>FutureTask 是为了弥补 Thread 的不足而设计的，可以准确地知道线程什么时候执行完成，并获得到线程执行完成后返回的结果。</p>
+Integer result = task.get(); // It's a Future
+</code></pre>
+<p>FutureTask 是为了弥补 Thread 的不足而设计的，可以准确地知道线程什么时候执行完成，并获得到线程执行完成后返回的结果。</p>
 <p>FutureTask 是一种可取消的异步计算任务，通过 Callable 实现，等价于可以携带结果的 Runnable，并且有三个状态：等待、运行和完成。</p>
 
 </div>
@@ -4406,19 +4440,23 @@ Integer result = task.get(); // It&#39;s a Future</code></pre><p>FutureTask 是�
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

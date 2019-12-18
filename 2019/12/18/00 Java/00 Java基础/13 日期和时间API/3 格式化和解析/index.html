@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		3 格式化和解析 | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,7 +4395,7 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:49</span>
+	<span id="post-date">2019-12-18 01:00:41</span>
 </div>
 
 
@@ -4383,16 +4406,36 @@
 <li>Locale相关格式器</li>
 <li>定制的格式器</li>
 </ul>
-<h3 id="预定义格式器"><a href="#预定义格式器" class="headerlink" title="预定义格式器"></a>预定义格式器</h3><pre><code class="java">String formatted = DateTimeFormatter.ISO_OFFSET_DATE_TIME.format(apollo11launch);
-//1969-07-16T09:32:00-04-00&quot;</code></pre>
+<h3 id="预定义格式器"><a class="header-anchor" href="#预定义格式器">¶</a>预定义格式器</h3>
+<pre><code class="language-java">String formatted = DateTimeFormatter.ISO_OFFSET_DATE_TIME.format(apollo11launch);
+//1969-07-16T09:32:00-04-00&quot;
+</code></pre>
 <p><img src="/images/1545011846757.jpg" alt=""></p>
-<h3 id="Locale相关格式器"><a href="#Locale相关格式器" class="headerlink" title="Locale相关格式器"></a>Locale相关格式器</h3><h5 id="创建格式器"><a href="#创建格式器" class="headerlink" title="创建格式器"></a>创建格式器</h5><p>ofLocalizedDate、ofLocalizedTime 和 ofLocalizedDateTime</p>
-<pre><code>DateTimeFormatter formatter = DateTimeFormatter.ofLocalizedDateTime(FormatStyle.LONG);</code></pre><h5 id="格式化"><a href="#格式化" class="headerlink" title="格式化"></a>格式化</h5><pre><code>String formatted = formatter.format(apollo11launch);
-//July 16, 1969 9:32:00 AM EDT</code></pre><h5 id="换Locale"><a href="#换Locale" class="headerlink" title="换Locale"></a>换Locale</h5><p>withLocale</p>
-<pre><code>formatted = formatter.withLocale(Locale.FRENCH).format(apollo11launch);</code></pre><p><img src="/images/1545011847089.jpg" alt=""></p>
-<h3 id="定制的格式器"><a href="#定制的格式器" class="headerlink" title="定制的格式器"></a>定制的格式器</h3><h5 id="创建格式器-1"><a href="#创建格式器-1" class="headerlink" title="创建格式器"></a>创建格式器</h5><p>ofPattern</p>
-<pre><code>DateTimeFormatter formatter = DateTimeFormatter.ofPattern(&quot;yyyy-MM-dd HH:mm:ssxx&quot;);</code></pre><h5 id="解析"><a href="#解析" class="headerlink" title="解析"></a>解析</h5><p>parse</p>
-<pre><code>ZonedDareTime.parse(&quot;1969-07-16 09:32:00-0400&quot;, formatter);</code></pre><p><img src="/images/1545011847374.jpg" alt=""><br><img src="/images/1545011847603.jpg" alt=""></p>
+<h3 id="Locale相关格式器"><a class="header-anchor" href="#Locale相关格式器">¶</a>Locale相关格式器</h3>
+<h5 id="创建格式器"><a class="header-anchor" href="#创建格式器">¶</a>创建格式器</h5>
+<p>ofLocalizedDate、ofLocalizedTime 和 ofLocalizedDateTime</p>
+<pre><code>DateTimeFormatter formatter = DateTimeFormatter.ofLocalizedDateTime(FormatStyle.LONG);
+</code></pre>
+<h5 id="格式化"><a class="header-anchor" href="#格式化">¶</a>格式化</h5>
+<pre><code>String formatted = formatter.format(apollo11launch);
+//July 16, 1969 9:32:00 AM EDT
+</code></pre>
+<h5 id="换Locale"><a class="header-anchor" href="#换Locale">¶</a>换Locale</h5>
+<p>withLocale</p>
+<pre><code>formatted = formatter.withLocale(Locale.FRENCH).format(apollo11launch);
+</code></pre>
+<p><img src="/images/1545011847089.jpg" alt=""></p>
+<h3 id="定制的格式器"><a class="header-anchor" href="#定制的格式器">¶</a>定制的格式器</h3>
+<h5 id="创建格式器-v2"><a class="header-anchor" href="#创建格式器-v2">¶</a>创建格式器</h5>
+<p>ofPattern</p>
+<pre><code>DateTimeFormatter formatter = DateTimeFormatter.ofPattern(&quot;yyyy-MM-dd HH:mm:ssxx&quot;);
+</code></pre>
+<h5 id="解析"><a class="header-anchor" href="#解析">¶</a>解析</h5>
+<p>parse</p>
+<pre><code>ZonedDareTime.parse(&quot;1969-07-16 09:32:00-0400&quot;, formatter);
+</code></pre>
+<p><img src="/images/1545011847374.jpg" alt=""><br>
+<img src="/images/1545011847603.jpg" alt=""></p>
 
 </div>
 
@@ -4402,19 +4445,23 @@
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

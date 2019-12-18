@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		05 海明距离计算 | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,13 +4395,15 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:24</span>
+	<span id="post-date">2019-12-18 01:00:43</span>
 </div>
 
 
 <div id="article">
-	<h3 id="海明距离计算"><a href="#海明距离计算" class="headerlink" title="海明距离计算"></a>海明距离计算</h3><p>Google提出的simhash去重算法里关于”汉明距离”计算最关键的步骤就是“位计数”（计算位数组中1的个数）。</p>
-<h5 id="方案A"><a href="#方案A" class="headerlink" title="方案A"></a>方案A</h5><p>最慢</p>
+	<h3 id="海明距离计算"><a class="header-anchor" href="#海明距离计算">¶</a>海明距离计算</h3>
+<p>Google提出的simhash去重算法里关于”汉明距离”计算最关键的步骤就是“位计数”（计算位数组中1的个数）。</p>
+<h5 id="方案A"><a class="header-anchor" href="#方案A">¶</a>方案A</h5>
+<p>最慢</p>
 <p>直接数</p>
 <pre><code>void count(int x){
     int count = 0;
@@ -4388,7 +4413,10 @@
             count ++;
         }
     }
-}</code></pre><h5 id="方案B"><a href="#方案B" class="headerlink" title="方案B"></a>方案B</h5><p>稍好</p>
+}
+</code></pre>
+<h5 id="方案B"><a class="header-anchor" href="#方案B">¶</a>方案B</h5>
+<p>稍好</p>
 <p>位计数算法最常见的优化方法就是基于分治策略来统计“1”的个数，先计算每两位中1的个数、然后再计算每4位中1的个数，一步一步最后计算32位中1的个数。</p>
 <pre><code>long hamming_dist(long a, long b) {
     long x = a ^ b;
@@ -4399,7 +4427,10 @@
     x = (x &amp; (0x0000ffff0000ffffL)) + ((x &gt;&gt; 16) &amp; (0x0000ffff0000ffffL));
     x = (x &amp; (0x00000000FFFFFFFFL)) + ((x &gt;&gt; 32) &amp; (0x00000000FFFFFFFFL));
     return x;
-}</code></pre><h5 id="方案C"><a href="#方案C" class="headerlink" title="方案C"></a>方案C</h5><p>最快</p>
+}
+</code></pre>
+<h5 id="方案C"><a class="header-anchor" href="#方案C">¶</a>方案C</h5>
+<p>最快</p>
 <p><a href="https://code.google.com/archive/p/deduplication-detecting/" target="_blank" rel="noopener">https://code.google.com/archive/p/deduplication-detecting/</a></p>
 <pre><code>int hamming_dist(long a1, long a2) {
     int v1 = (int) (a1 ^ a2);
@@ -4413,7 +4444,9 @@
     int c2 = (((v2 + (v2 &gt;&gt; 4)) &amp; 0x0F0F0F0F) * 0x01010101) &gt;&gt; 24;
 
     return c1 + c2;
-}</code></pre><p>SimHash 64位分4份，每份16位。</p>
+}
+</code></pre>
+<p>SimHash 64位分4份，每份16位。</p>
 <p>rowkey 18位，由2位分区标志 + 16位 SimHash 截取组成</p>
 <p>如 01_1111111111111111，01是分区标志，代表截取的第一部分，1111111111111111是16位 SimHash 截取。</p>
 <p>假定数据总量：<code>$2^{37}$</code>(1375亿数据)</p>
@@ -4422,7 +4455,8 @@
 <p>插入一行数据测试，即生成最高16位相同的 2097152 数据</p>
 <p>测试也是查一条最高16位相同的数据</p>
 <p>测试数据，存储内容：</p>
-<p>simhash：pkid<br>“1111111111111111000000000000000000000000000001101111111110101100”：”4339066868”</p>
+<p>simhash：pkid<br>
+“1111111111111111000000000000000000000000000001101111111110101100”：“4339066868”</p>
 <pre><code>//hdfs
 hadoop fs -put /opt/wujun_apps/hbase.jar /wujun_apps/hbase_coprocessor_v17.jar
 
@@ -4435,36 +4469,38 @@ cd /data/apps/hbase-1.2.0/bin/
 hadoop fs -du -h /hbase-1.2.0/data/default/test_sim
 
 //Coprocessor
-disable &#39;test_sim&#39;
+disable 'test_sim'
 
-alter &#39;test_sim&#39;, METHOD =&gt; &#39;table_att_unset&#39;, NAME =&gt; &#39;coprocessor$1&#39;
+alter 'test_sim', METHOD =&gt; 'table_att_unset', NAME =&gt; 'coprocessor$1'
 
-alter &#39;test_sim&#39;, METHOD =&gt; &#39;table_att&#39;, &#39;Coprocessor&#39;=&gt;&#39;hdfs://satest-hadoop/wujun_apps/hbase_coprocessor_v20.jar|com.test.hbase.HBaseSimHashPreGetOpV20||&#39;
+alter 'test_sim', METHOD =&gt; 'table_att', 'Coprocessor'=&gt;'hdfs://satest-hadoop/wujun_apps/hbase_coprocessor_v20.jar|com.test.hbase.HBaseSimHashPreGetOpV20||'
 
-enable &#39;test_sim&#39;
+enable 'test_sim'
 
-desc &#39;test_sim&#39;
+desc 'test_sim'
 
 //操作hbase
-get &#39;test_sim&#39;,&#39;01_1111111111111111&#39;,{COLUMN =&gt; &#39;f:s0&#39;}
+get 'test_sim','01_1111111111111111',{COLUMN =&gt; 'f:s0'}
 
 //加上 LZO 压缩
-alter &#39;test_sim&#39;, NAME =&gt; &#39;f&#39;, COMPRESSION =&gt; &#39;LZO&#39;
+alter 'test_sim', NAME =&gt; 'f', COMPRESSION =&gt; 'LZO'
 
-major_compact &#39;test_sim&#39;
+major_compact 'test_sim'
 
 //加上 Fast-Diff 编码
-alter &#39;test_sim&#39;,{NAME =&gt; &#39;f&#39;, DATA_BLOCK_ENCODING =&gt; &#39;FAST_DIFF&#39;}
+alter 'test_sim',{NAME =&gt; 'f', DATA_BLOCK_ENCODING =&gt; 'FAST_DIFF'}
 
-alter &#39;test_sim&#39;,{NAME =&gt; &#39;f&#39;, DATA_BLOCK_ENCODING =&gt; &#39;NONE&#39;}
+alter 'test_sim',{NAME =&gt; 'f', DATA_BLOCK_ENCODING =&gt; 'NONE'}
 
 删除列族
-alter &#39;test_sim&#39;, {NAME=&gt;&#39;f&#39;, METHOD=&gt;&#39;delete&#39;}
+alter 'test_sim', {NAME=&gt;'f', METHOD=&gt;'delete'}
 
 删除行
-deleteall &#39;test_sim&#39;,&#39;01_1111111111111111&#39;
+deleteall 'test_sim','01_1111111111111111'
 
-/data/apps/hbase-1.2.0/bin/hbase-daemon.sh restart regionserver</code></pre><pre><code>i:1111111111111111111111111111111111111111111111111111111111111111
+/data/apps/hbase-1.2.0/bin/hbase-daemon.sh restart regionserver
+</code></pre>
+<pre><code>i:1111111111111111111111111111111111111111111111111111111111111111
 
 i &gt;&gt;&gt; 1:111111111111111111111111111111111111111111111111111111111111111
 
@@ -4494,20 +4530,22 @@ i + (i &gt;&gt;&gt; 4:1001000100010001000100010001000100010001000100010001000100
 i &gt;&gt;&gt; 8:1000000010000000100000001000000010000000100000001000
 
  i + (i &gt;&gt;&gt; 8):100000010000000100000001000000010000000100000001000000010000
-
+ 
 i &gt;&gt;&gt; 16:10000001000000010000000100000001000000010000
 
  i + (i &gt;&gt;&gt; 16):100000010000000110000010000000100000001000000010000000100000
-
+ 
 i &gt;&gt;&gt; 32:1000000100000001100000100000
 
  i + (i &gt;&gt;&gt; 32):100000010000000110000010000000101000001100000011100001000000
-
+ 
 0x7f:‭01111111‬
 
 i &amp; 0x7f:1000000
 
-1000000b = 64</code></pre>
+1000000b = 64
+</code></pre>
+
 </div>
 
 	</div>
@@ -4516,19 +4554,23 @@ i &amp; 0x7f:1000000
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		1 AOP简介 | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,36 +4395,51 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:17</span>
+	<span id="post-date">2019-12-18 01:00:42</span>
 </div>
 
 
 <div id="article">
 	<p>把通用功能集中模块化到某个特定的类，并规定怎么用，这个类就称为切面（aspects），关注点分离，业务模块清晰。AOP即Aspect Oriented Programming。</p>
-<h3 id="AOP术语"><a href="#AOP术语" class="headerlink" title="AOP术语"></a>AOP术语</h3><p><img src="/images/1545011850041.png" alt=""></p>
+<h3 id="AOP术语"><a class="header-anchor" href="#AOP术语">¶</a>AOP术语</h3>
+<p><img src="/images/1545011850041.png" alt=""></p>
 <ul>
-<li><strong>通知（Advice）</strong><br>切面真正要做的工作称之为通知（advice）。通知负责定义切面的<strong>what和when</strong>。</li>
-<li><strong>连接点（JointPoint）</strong><br>应用中可以应用通知的机会，就叫做连接点。</li>
-<li><strong>切点（Pointcut）</strong><br>切点定义了<strong>where</strong>。切点指定一个或者多个连接点，而通知通过切点接入。</li>
-<li><strong>切面（ Aspect）</strong><br>切面 = 通知+切点：what、when和where。</li>
-<li><strong>引入（Introduction）</strong><br>引入允许向现有类添加新方法或属性。类似于设计模式中的装饰者模式——在不改变现有类的基础上为之增加属性和方法。</li>
-<li><strong>织入（Weaving）</strong><br>织入是把切面应用到目标对象并创建新的代理对象的过程。 切面在指定的连接点被织入到目标对象中。在目标对象的生命周期里有多个点可以进行织入：编译期（AspectJ）、类加载期（LTW）、运行期（Spring AOP）</li>
+<li><strong>通知（Advice）</strong><br>
+切面真正要做的工作称之为通知（advice）。通知负责定义切面的<strong>what和when</strong>。</li>
+<li><strong>连接点（JointPoint）</strong><br>
+应用中可以应用通知的机会，就叫做连接点。</li>
+<li><strong>切点（Pointcut）</strong><br>
+切点定义了<strong>where</strong>。切点指定一个或者多个连接点，而通知通过切点接入。</li>
+<li><strong>切面（ Aspect）</strong><br>
+切面 = 通知+切点：what、when和where。</li>
+<li><strong>引入（Introduction）</strong><br>
+引入允许向现有类添加新方法或属性。类似于设计模式中的装饰者模式——在不改变现有类的基础上为之增加属性和方法。</li>
+<li><strong>织入（Weaving）</strong><br>
+织入是把切面应用到目标对象并创建新的代理对象的过程。 切面在指定的连接点被织入到目标对象中。在目标对象的生命周期里有多个点可以进行织入：编译期（AspectJ）、类加载期（LTW）、运行期（Spring AOP）</li>
 </ul>
-<h3 id="Spring的AOP支持"><a href="#Spring的AOP支持" class="headerlink" title="Spring的AOP支持"></a>Spring的AOP支持</h3><p>Spring对AOP有以下四种支持：</p>
+<h3 id="Spring的AOP支持"><a class="header-anchor" href="#Spring的AOP支持">¶</a>Spring的AOP支持</h3>
+<p>Spring对AOP有以下四种支持：</p>
 <ul>
 <li>基于代理的Spring AOP</li>
 <li>Pure-POJO aspects</li>
 <li>基于@AspectJ注解的aspects</li>
 <li>注入AspectJ aspects（所有版本的Spring都支持）</li>
 </ul>
-<p>前三种属于Spring AOP框架，基于动态代理机制构建，<strong>仅支持函数级别的拦截</strong>。如果需要实现更复杂的AOP功能，则应使用<strong><em>AspectJ框架</em></strong>。<br>在Spring AOP框架中，通过在beans的外围包含一个代理类来将切面织入到这些beans。调用者跟代理类直接联系，代理类拦截函数调用，然后执行切面逻辑之后再调用真正的目标对象的方法。<br><img src="/images/1545011850875.png" alt=""></p>
-<p>虽然Spring AOP能够满足许多应用的切面需求， 但是与AspectJ相比， Spring AOP 是一个功能<br>比较弱的AOP解决方案。 AspectJ提供了Spring AOP所不能支持的许多类型的切点。</p>
-<h3 id="AspectJ"><a href="#AspectJ" class="headerlink" title="AspectJ"></a>AspectJ</h3><p><strong>AspectJ注解生效</strong><br>通过类级别的@EnableAspectJAutoProxy注解开启自动代理机制</p>
+<p>前三种属于Spring AOP框架，基于动态代理机制构建，<strong>仅支持函数级别的拦截</strong>。如果需要实现更复杂的AOP功能，则应使用<em><strong>AspectJ框架</strong></em>。<br>
+在Spring AOP框架中，通过在beans的外围包含一个代理类来将切面织入到这些beans。调用者跟代理类直接联系，代理类拦截函数调用，然后执行切面逻辑之后再调用真正的目标对象的方法。<br>
+<img src="/images/1545011850875.png" alt=""></p>
+<p>虽然Spring AOP能够满足许多应用的切面需求， 但是与AspectJ相比， Spring AOP 是一个功能<br>
+比较弱的AOP解决方案。 AspectJ提供了Spring AOP所不能支持的许多类型的切点。</p>
+<h3 id="AspectJ"><a class="header-anchor" href="#AspectJ">¶</a>AspectJ</h3>
+<p><strong>AspectJ注解生效</strong><br>
+通过类级别的@EnableAspectJAutoProxy注解开启自动代理机制</p>
 <pre><code>@Configuration
 @EnableAspectJAutoProxy //开启AspectJ的自动代理机制
 @ComponentScan
 public class ConcertConfig {
-}</code></pre>
+}
+</code></pre>
+
 </div>
 
 	</div>
@@ -4410,19 +4448,23 @@ public class ConcertConfig {
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

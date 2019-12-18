@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		5 加密 | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,29 +4395,40 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:50</span>
+	<span id="post-date">2019-12-18 01:00:42</span>
 </div>
 
 
 <div id="article">
-	<h3 id="1-对称密码"><a href="#1-对称密码" class="headerlink" title="1 对称密码"></a>1 对称密码</h3><p>“Java密码扩展”包含所有加密算法的超类： Cipher 类。</p>
+	<h3 id="1-对称密码"><a class="header-anchor" href="#1-对称密码">¶</a>1 对称密码</h3>
+<p>“Java密码扩展”包含所有加密算法的超类： Cipher 类。</p>
 <pre><code>Cipher cipher = Cipher.getInstance(algorithName);
-Cipher cipher = Cipher.getInstance(algorithName, providerName);</code></pre><p>DES，数据加密标准，已经过时，可被穷举法破解。<br>推荐使用AES，高级加密标准。</p>
+Cipher cipher = Cipher.getInstance(algorithName, providerName);
+</code></pre>
+<p>DES，数据加密标准，已经过时，可被穷举法破解。<br>
+推荐使用AES，高级加密标准。</p>
 <p>初始化密码对象</p>
 <pre><code>int mode = ...;//设置模式
 Key key = ...;//密钥
-cipher.init(mode, key);</code></pre><p>update加密</p>
+cipher.init(mode, key);
+</code></pre>
+<p>update加密</p>
 <pre><code>int blockSize = cipher.getBlockSize();
 byte[] intBytes = new byte[blockSize];
 ...//read inBytes
 int outputSize = cipher.getOutputSize(blockSize);
 byte[] outBytes = new byte[outputSize];
 int outLength = cipher.update(inBytes, 0, outputSize, outBytes);
-...//write outBytes</code></pre><p>最后 doFinal</p>
+...//write outBytes
+</code></pre>
+<p>最后 doFinal</p>
 <pre><code>//未完
 outBytes = cipher.doFinal(inByte, 0, inLength);
 //已完
-outBytes = cipher.doFinal();</code></pre><h3 id="2-密钥生成"><a href="#2-密钥生成" class="headerlink" title="2 密钥生成"></a>2 密钥生成</h3><ol>
+outBytes = cipher.doFinal();
+</code></pre>
+<h3 id="2-密钥生成"><a class="header-anchor" href="#2-密钥生成">¶</a>2 密钥生成</h3>
+<ol>
 <li>为加密算法获取 KeyGenerator</li>
 <li>用随机源来初始化密钥发生器。指定密码块长度</li>
 <li>调用 generateKey 方法</li>
@@ -4402,7 +4436,11 @@ outBytes = cipher.doFinal();</code></pre><h3 id="2-密钥生成"><a href="#2-密
 <pre><code>KeyGenerator keygen = KeyGenerator.getInstance(&quot;AES&quot;);
 SecureRandom random = new SecureRandom();
 keygen.init(random);
-Key key = keygen.generateKey();</code></pre><h3 id="3-密码流"><a href="#3-密码流" class="headerlink" title="3 密码流"></a>3 密码流</h3><p>JCE 库提供了便捷的流类，能对数据流自动加密解密。<br>使用 CiperInputStream 和 CiperOutputStream 可以屏蔽 update 和 doFinal 等细节；</p>
+Key key = keygen.generateKey();
+</code></pre>
+<h3 id="3-密码流"><a class="header-anchor" href="#3-密码流">¶</a>3 密码流</h3>
+<p>JCE 库提供了便捷的流类，能对数据流自动加密解密。<br>
+使用 CiperInputStream 和 CiperOutputStream 可以屏蔽 update 和 doFinal 等细节；</p>
 <pre><code>Cipher cipher = ...;
 cipher.init(Supher.ENCRYPT_MODE, key);
 CiperOutputStream out = new CiperOutputStream(new FileOutputStream(outputFileName), cipher);
@@ -4412,7 +4450,10 @@ while(inLength != -1){
     out.write(bytes, 0, inLength);
     inLength = getData(bytes);
 }
-out.flush();</code></pre><h3 id="4-公共密钥密码"><a href="#4-公共密钥密码" class="headerlink" title="4 公共密钥密码"></a>4 公共密钥密码</h3><p>对称密码，加密解密都是用相同密钥，缺点在于密码的分发。</p>
+out.flush();
+</code></pre>
+<h3 id="4-公共密钥密码"><a class="header-anchor" href="#4-公共密钥密码">¶</a>4 公共密钥密码</h3>
+<p>对称密码，加密解密都是用相同密钥，缺点在于密码的分发。</p>
 <p>公共密钥算法RSA，有一对公共/私有密钥</p>
 <ol>
 <li>A生成一个随机对称加密密钥，用该密钥对明文进行加密</li>
@@ -4430,19 +4471,23 @@ out.flush();</code></pre><h3 id="4-公共密钥密码"><a href="#4-公共密钥�
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

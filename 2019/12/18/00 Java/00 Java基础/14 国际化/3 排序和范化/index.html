@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		3 排序和范化 | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,13 +4395,16 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:49</span>
+	<span id="post-date">2019-12-18 01:00:41</span>
 </div>
 
 
 <div id="article">
 	<p><strong>Collator</strong> 类实现了Comparator接口，Locale敏感，可以设置不同语言的排序</p>
-<pre><code>Collator coll = Collator.getInstance(Locale.US);</code></pre><h5 id="字符差别强度"><a href="#字符差别强度" class="headerlink" title="字符差别强度"></a>字符差别强度</h5><p>排序器有字符差别强度设置：</p>
+<pre><code>Collator coll = Collator.getInstance(Locale.US);
+</code></pre>
+<h5 id="字符差别强度"><a class="header-anchor" href="#字符差别强度">¶</a>字符差别强度</h5>
+<p>排序器有字符差别强度设置：</p>
 <ul>
 <li>Collator.PRIMARY：首要的</li>
 <li>Collator.SECONDARY：其次的</li>
@@ -4386,10 +4412,12 @@
 <li>Collator.IDENTICAL：不允许任何差异</li>
 </ul>
 <p>例如，英语中<code>A</code>和<code>Z</code>的差别是首要的，<code>A``Å</code>的差别是其次的，<code>A</code>和<code>a</code>的差别是再次的。</p>
-<pre><code class="java">Collator coll = Collator.getInstance();
+<pre><code class="language-java">Collator coll = Collator.getInstance();
 coll.setStrength(Collator.PRIMARY);
-word.sort(coll);</code></pre>
-<h5 id="分解模式"><a href="#分解模式" class="headerlink" title="分解模式"></a>分解模式</h5><p>一个字符在描述成Unicode时，可能有多种方式，如<code>Å</code>可以是Unicode字符U+00C5，或分解为<code>A</code>（U+0065）和上方组合环<code>̊</code>（U+030A）。</p>
+word.sort(coll);
+</code></pre>
+<h5 id="分解模式"><a class="header-anchor" href="#分解模式">¶</a>分解模式</h5>
+<p>一个字符在描述成Unicode时，可能有多种方式，如<code>Å</code>可以是Unicode字符U+00C5，或分解为<code>A</code>（U+0065）和上方组合环<code>̊ </code>（U+030A）。</p>
 <p>对此，Unicode对字符串定义了四种范化形式：D、KD、C和KC。</p>
 <ul>
 <li>范化形式C：重音符号组合<code>Å</code></li>
@@ -4405,7 +4433,9 @@ word.sort(coll);</code></pre>
 </ul>
 <p>Normalizer实现了对范化的处理</p>
 <pre><code>String name = &quot;ÅBC&quot;;
-String normalized = Normalizer.normalize(name, Normalize.Form.NFD);//&quot;A°BC&quot;</code></pre>
+String normalized = Normalizer.normalize(name, Normalize.Form.NFD);//&quot;A°BC&quot;
+</code></pre>
+
 </div>
 
 	</div>
@@ -4414,19 +4444,23 @@ String normalized = Normalizer.normalize(name, Normalize.Form.NFD);//&quot;A°BC
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

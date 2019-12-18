@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		6 IPv6 | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,46 +4395,58 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:45</span>
+	<span id="post-date">2019-12-18 01:00:41</span>
 </div>
 
 
 <div id="article">
-	<h3 id="1-IPv6的基本首部"><a href="#1-IPv6的基本首部" class="headerlink" title="1 IPv6的基本首部"></a>1 IPv6的基本首部</h3><p>IPv6 的协议数据单元 PDU 称为分组，而不是IPv4的数据报。</p>
+	<h3 id="1-IPv6的基本首部"><a class="header-anchor" href="#1-IPv6的基本首部">¶</a>1 IPv6的基本首部</h3>
+<p>IPv6 的协议数据单元 PDU 称为分组，而不是IPv4的数据报。</p>
 <p>IPv6 从32位增大到128位，首部由是4字节对齐改为8字节对齐。</p>
 <p>IPv6 数据报由两大部分组成，即基本首部和有效载荷（净负荷）。有效载荷允许有零个或多个扩展首部，再后面是数据部分。</p>
-<h3 id="2-IPv6的地址"><a href="#2-IPv6的地址" class="headerlink" title="2 IPv6的地址"></a>2 IPv6的地址</h3><ul>
+<h3 id="2-IPv6的地址"><a class="header-anchor" href="#2-IPv6的地址">¶</a>2 IPv6的地址</h3>
+<ul>
 <li>单播：单播就是传统的点对点通信。</li>
 <li>多播：多播是一点对多点的通信，数据报发送到一组计算机中的每一个。</li>
 <li>任播：这是IPv6增加的一种类型。任播的终点是一组计算机，但数据报只交付其中的一个，通常是距离最近的一个。</li>
 </ul>
-<h5 id="冒号十六进制记法"><a href="#冒号十六进制记法" class="headerlink" title="冒号十六进制记法"></a>冒号十六进制记法</h5><ul>
+<h5 id="冒号十六进制记法"><a class="header-anchor" href="#冒号十六进制记法">¶</a>冒号十六进制记法</h5>
+<ul>
 <li>它把每个16位的值用十六进制值表示，各值之间用冒号分隔。</li>
-<li>允许把数字前面的0省略；<ul>
+<li>允许把数字前面的0省略；
+<ul>
 <li>68E6:8C64:FFFF:FFFF:0:1180:960A:FFFF</li>
 </ul>
 </li>
-<li>允许零压缩：即一连串连续的零可以为一对冒号所取代<ul>
+<li>允许零压缩：即一连串连续的零可以为一对冒号所取代
+<ul>
 <li>FF05:0:0:0:0:0:0:B3 ==》 FF05::B3</li>
 <li>在任一地址中只能使用一次零压缩</li>
 </ul>
 </li>
-<li>可结合使用点分十进制记法的后缀<ul>
+<li>可结合使用点分十进制记法的后缀
+<ul>
 <li>::128.10.2.1</li>
 </ul>
 </li>
 <li>CIDR的斜线表示法仍然可用</li>
 </ul>
-<h5 id="地址分类"><a href="#地址分类" class="headerlink" title="地址分类"></a>地址分类</h5><ul>
+<h5 id="地址分类"><a class="header-anchor" href="#地址分类">¶</a>地址分类</h5>
+<ul>
 <li><strong>未指明地址</strong>：这是16字节的全0地址，可缩写为两个冒号“::”。这个地址不能用作目的地址，而只能为某台主机当作源地址使用。这类地址仅此一个。</li>
 <li><strong>环回地址</strong>：IPv6的环回地址是0:0:0:0:0:0:0:1，可缩写为::1。作用和IPv4的环回地址一样。这类地址也是仅此一个。</li>
 <li><strong>多播地址</strong>：功能和IPv4的一样。这类地址占IPv6地址总数的1 /256。</li>
 <li><strong>本地链路单播地址</strong>：有些单位的网络使用TCP/IP协议，但并没有连接到互联网上。这类地址占IPv6地址总数的1/1024。</li>
-<li><strong>全球单播地址</strong>：IPv6的这一类单播地址是使用得最多的一类。<br>  <img src="/images/1568973876108.jpg" alt="image"></li>
+<li><strong>全球单播地址</strong>：IPv6的这一类单播地址是使用得最多的一类。<br>
+<img src="/images/1568973876108.jpg" alt="image"></li>
 </ul>
-<h3 id="3-从IPv4向IPv6过渡"><a href="#3-从IPv4向IPv6过渡" class="headerlink" title="3 从IPv4向IPv6过渡"></a>3 从IPv4向IPv6过渡</h3><h5 id="双协议栈"><a href="#双协议栈" class="headerlink" title="双协议栈"></a>双协议栈</h5><p>主机（或路由器）装有双协议栈：一个IPv4和一个IPv6</p>
-<h5 id="隧道技术"><a href="#隧道技术" class="headerlink" title="隧道技术"></a>隧道技术</h5><p>在IPv6数据报要进入IPv4网络时，把IPv6数据报封装成为IPv4 数据报。现在整个的IPv6数据报变成了IPv4数据报的数据部分。当IPv4数据报离开IPv4网络中的隧道时，再把数据部分（即原来的 IPv6数据报）交给主机的IPv6协议栈。</p>
-<h3 id="4-ICMPv6"><a href="#4-ICMPv6" class="headerlink" title="4 ICMPv6"></a>4 ICMPv6</h3><p>地址解析协议ARP和网际组管理协议的功能都己被合并到ICMPv6 中</p>
+<h3 id="3-从IPv4向IPv6过渡"><a class="header-anchor" href="#3-从IPv4向IPv6过渡">¶</a>3 从IPv4向IPv6过渡</h3>
+<h5 id="双协议栈"><a class="header-anchor" href="#双协议栈">¶</a>双协议栈</h5>
+<p>主机（或路由器）装有双协议栈：一个IPv4和一个IPv6</p>
+<h5 id="隧道技术"><a class="header-anchor" href="#隧道技术">¶</a>隧道技术</h5>
+<p>在IPv6数据报要进入IPv4网络时，把IPv6数据报封装成为IPv4 数据报。现在整个的IPv6数据报变成了IPv4数据报的数据部分。当IPv4数据报离开IPv4网络中的隧道时，再把数据部分（即原来的 IPv6数据报）交给主机的IPv6协议栈。</p>
+<h3 id="4-ICMPv6"><a class="header-anchor" href="#4-ICMPv6">¶</a>4 ICMPv6</h3>
+<p>地址解析协议ARP和网际组管理协议的功能都己被合并到ICMPv6 中</p>
 <p><img src="/images/1568973877603.jpg" alt="image"></p>
 
 </div>
@@ -4422,19 +4457,23 @@
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		8 Transaction | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,14 +4395,16 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:17</span>
+	<span id="post-date">2019-12-18 01:00:43</span>
 </div>
 
 
 <div id="article">
 	<p>Spring事务的本质是数据库对事务的支持。</p>
 <p><code>@EnableTransactionManagement</code> 开启对事务注解的解析</p>
-<h3 id="声明式事务"><a href="#声明式事务" class="headerlink" title="声明式事务"></a>声明式事务</h3><h5 id="Transactional注解"><a href="#Transactional注解" class="headerlink" title="@Transactional注解"></a>@Transactional注解</h5><table>
+<h3 id="声明式事务"><a class="header-anchor" href="#声明式事务">¶</a>声明式事务</h3>
+<h5 id="Transactional注解"><a class="header-anchor" href="#Transactional注解">¶</a>@Transactional注解</h5>
+<table>
 <thead>
 <tr>
 <th>属性</th>
@@ -4387,7 +4412,8 @@
 <th>描述</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>value</td>
 <td>String</td>
 <td>事务管理器</td>
@@ -4422,30 +4448,48 @@
 <td>Class</td>
 <td>设置不需要进行回滚的异常类数组</td>
 </tr>
-</tbody></table>
-<h5 id="Transactional特性"><a href="#Transactional特性" class="headerlink" title="Transactional特性"></a>Transactional特性</h5><ul>
+</tbody>
+</table>
+<h5 id="Transactional特性"><a class="header-anchor" href="#Transactional特性">¶</a>Transactional特性</h5>
+<ul>
 <li>类上添加@Transactional，在每个方法单开一个事务，管理方式相同。</li>
 <li>@Transactional 注解只在 public 方法上起作用。</li>
 <li>默认只对未检查异常回滚</li>
-<li>只读事务只在事务启动时应用，否则即使配置也会被忽略。 </li>
+<li>只读事务只在事务启动时应用，否则即使配置也会被忽略。</li>
 </ul>
-<h5 id="传播级别"><a href="#传播级别" class="headerlink" title="传播级别"></a>传播级别</h5><ul>
-<li>PROPAGATION_REQUIRED<br>（默认设置）存在则加入，没有则创建</li>
-<li>PROPAGATION_REQUIRES_NEW<br>创建新事务，如当前事务存在，则挂起当前事务</li>
-<li>PROPAGATION_SUPPORTS<br>存在则加入；没有则以非事务的方式运行</li>
-<li>PROPAGATION_NOT_SUPPORTED<br>以非事务方式运行，如果当前存在事务，则把当前事务挂起。</li>
-<li>PROPAGATION_MANDATORY<br>如果当前存在事务，则加入该事务；如果当前没有事务，则抛出异常。</li>
-<li>PROPAGATION_NEVER<br>以非事务方式运行，如果当前存在事务，则抛出异常</li>
-<li>PROPAGATION_NESTED<br>存在则创建嵌套事务；没有则创建</li>
+<h5 id="传播级别"><a class="header-anchor" href="#传播级别">¶</a>传播级别</h5>
+<ul>
+<li>PROPAGATION_REQUIRED<br>
+（默认设置）存在则加入，没有则创建</li>
+<li>PROPAGATION_REQUIRES_NEW<br>
+创建新事务，如当前事务存在，则挂起当前事务</li>
+<li>PROPAGATION_SUPPORTS<br>
+存在则加入；没有则以非事务的方式运行</li>
+<li>PROPAGATION_NOT_SUPPORTED<br>
+以非事务方式运行，如果当前存在事务，则把当前事务挂起。</li>
+<li>PROPAGATION_MANDATORY<br>
+如果当前存在事务，则加入该事务；如果当前没有事务，则抛出异常。</li>
+<li>PROPAGATION_NEVER<br>
+以非事务方式运行，如果当前存在事务，则抛出异常</li>
+<li>PROPAGATION_NESTED<br>
+存在则创建嵌套事务；没有则创建</li>
 </ul>
-<h4 id="隔离级别"><a href="#隔离级别" class="headerlink" title="隔离级别"></a>隔离级别</h4><ul>
-<li>ISOLATION_DEFAULT<br>（默认设置）使用底层数据库的默认隔离级别。</li>
-<li>ISOLATION_READ_UNCOMMITTED<br>可读取修改还没有提交的数据</li>
-<li>ISOLATION_READ_COMMITTED<br>只能读取已经提交的数据。推荐。</li>
-<li>ISOLATION_REPEATABLE_READ<br>可重复读，每次返回相同。</li>
-<li>ISOLATION_SERIALIZABLE<br>逐个执行事务，性能低。</li>
+<h4 id="隔离级别"><a class="header-anchor" href="#隔离级别">¶</a>隔离级别</h4>
+<ul>
+<li>ISOLATION_DEFAULT<br>
+（默认设置）使用底层数据库的默认隔离级别。</li>
+<li>ISOLATION_READ_UNCOMMITTED<br>
+可读取修改还没有提交的数据</li>
+<li>ISOLATION_READ_COMMITTED<br>
+只能读取已经提交的数据。推荐。</li>
+<li>ISOLATION_REPEATABLE_READ<br>
+可重复读，每次返回相同。</li>
+<li>ISOLATION_SERIALIZABLE<br>
+逐个执行事务，性能低。</li>
 </ul>
-<h3 id="编程式事务"><a href="#编程式事务" class="headerlink" title="编程式事务"></a>编程式事务</h3><h4 id="TransactionTemplate"><a href="#TransactionTemplate" class="headerlink" title="TransactionTemplate"></a>TransactionTemplate</h4><p>在doIntransaction里处理逻辑。如果出异常了，就执行isRollbackOnly方法进行回滚。</p>
+<h3 id="编程式事务"><a class="header-anchor" href="#编程式事务">¶</a>编程式事务</h3>
+<h4 id="TransactionTemplate"><a class="header-anchor" href="#TransactionTemplate">¶</a>TransactionTemplate</h4>
+<p>在doIntransaction里处理逻辑。如果出异常了，就执行isRollbackOnly方法进行回滚。</p>
 <pre><code>@Autowired
 TransactionTemplate transactionTemplate;
 
@@ -4457,7 +4501,10 @@ transactionTemplate.execute((TransactionStatus transactionStatus) -&gt; {
         throw e;
     }
     return null;
-});</code></pre><h4 id="TransactionManager"><a href="#TransactionManager" class="headerlink" title="TransactionManager"></a>TransactionManager</h4><p>手动commit，异常就rollback</p>
+});
+</code></pre>
+<h4 id="TransactionManager"><a class="header-anchor" href="#TransactionManager">¶</a>TransactionManager</h4>
+<p>手动commit，异常就rollback</p>
 <pre><code>TransactionStatus status = transactionManager.getTransaction(new DefaultTransactionDefinition());
 try {
     userRepository.save(user);
@@ -4465,7 +4512,9 @@ try {
 } catch (Exception e) {
     transactionManager.rollback(status);
     e.printStackTrace();
-}</code></pre>
+}
+</code></pre>
+
 </div>
 
 	</div>
@@ -4474,19 +4523,23 @@ try {
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

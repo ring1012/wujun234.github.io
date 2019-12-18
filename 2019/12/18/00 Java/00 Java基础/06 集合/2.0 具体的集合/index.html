@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		2.0 具体的集合 | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,12 +4395,13 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:47</span>
+	<span id="post-date">2019-12-18 01:00:41</span>
 </div>
 
 
 <div id="article">
-	<h5 id="Java库中的具体集合"><a href="#Java库中的具体集合" class="headerlink" title="Java库中的具体集合"></a>Java库中的具体集合</h5><table>
+	<h5 id="Java库中的具体集合"><a class="header-anchor" href="#Java库中的具体集合">¶</a>Java库中的具体集合</h5>
+<table>
 <thead>
 <tr>
 <th>集合类型</th>
@@ -4387,7 +4411,8 @@
 <th>描述</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>ArrayList</td>
 <td>否</td>
 <td>是</td>
@@ -4548,17 +4573,29 @@
 <td>-</td>
 <td>一种用==，而不是用equals比较键值的映射表</td>
 </tr>
-</tbody></table>
-<h4 id="1-链表"><a href="#1-链表" class="headerlink" title="1 链表"></a>1 链表</h4><p>LinkedList</p>
-<h4 id="2-动态数组列表"><a href="#2-动态数组列表" class="headerlink" title="2 动态数组列表"></a>2 动态数组列表</h4><p>ArrayList</p>
+</tbody>
+</table>
+<h4 id="1-链表"><a class="header-anchor" href="#1-链表">¶</a>1 链表</h4>
+<p>LinkedList</p>
+<h4 id="2-动态数组列表"><a class="header-anchor" href="#2-动态数组列表">¶</a>2 动态数组列表</h4>
+<p>ArrayList</p>
 <p>vector是同步安全的，效率低下，这是ArrayList取代它的原因。在不需要同步的时候使用ArrayList。</p>
-<h4 id="3-散列集"><a href="#3-散列集" class="headerlink" title="3 散列集"></a>3 散列集</h4><p>Hashtable<br>HashSet</p>
-<h4 id="4-树集"><a href="#4-树集" class="headerlink" title="4 树集"></a>4 树集</h4><p>TreeSet与散列集相比，更加有序，树集是一个有序集合，该有序是指插入元素具备的自然顺序，不是插入顺序。将一个元素添加到树集比添加到散列表中要慢，但是，与数组和链表相比还是快很多。由于是二叉树，呈现对数级的消耗。树集相对于散列表的优点是遍历时是有序遍历的。</p>
+<h4 id="3-散列集"><a class="header-anchor" href="#3-散列集">¶</a>3 散列集</h4>
+<p>Hashtable<br>
+HashSet</p>
+<h4 id="4-树集"><a class="header-anchor" href="#4-树集">¶</a>4 树集</h4>
+<p>TreeSet与散列集相比，更加有序，树集是一个有序集合，该有序是指插入元素具备的自然顺序，不是插入顺序。将一个元素添加到树集比添加到散列表中要慢，但是，与数组和链表相比还是快很多。由于是二叉树，呈现对数级的消耗。树集相对于散列表的优点是遍历时是有序遍历的。</p>
 <p>与TreeSet一样，一个优先队列即可以保存实现了COmparable接口的对象，也可以保存在构造器中提供比较器的对象。</p>
 <p>HashSet与TreeSet选择时，如果不需要对数据进行排序，就没必要选用TreeSet</p>
-<h4 id="5-对象的比较"><a href="#5-对象的比较" class="headerlink" title="5 对象的比较"></a>5 对象的比较</h4><h5 id="Comparable"><a href="#Comparable" class="headerlink" title="Comparable"></a>Comparable</h5><p>Comparable接口定义了compareTo方法</p>
-<p>如果a与b相等，调用a.compareTo(b)一定返回0；如果排序后a位于b之前，则返回负值；如<br>果a位于b之后，则返回正值。</p>
-<h5 id="Comparator"><a href="#Comparator" class="headerlink" title="Comparator"></a>Comparator</h5><p>Comparator接口声明了一个带有两个显式参数的compare(a,b)方法<br>与compareTo方法一样，如果a位于b之前compare方法则返回负值；如果a和b相等则返回0，<br>否则返回正值</p>
+<h4 id="5-对象的比较"><a class="header-anchor" href="#5-对象的比较">¶</a>5 对象的比较</h4>
+<h5 id="Comparable"><a class="header-anchor" href="#Comparable">¶</a>Comparable</h5>
+<p>Comparable接口定义了compareTo方法</p>
+<p>如果a与b相等，调用a.compareTo(b)一定返回0；如果排序后a位于b之前，则返回负值；如<br>
+果a位于b之后，则返回正值。</p>
+<h5 id="Comparator"><a class="header-anchor" href="#Comparator">¶</a>Comparator</h5>
+<p>Comparator接口声明了一个带有两个显式参数的compare(a,b)方法<br>
+与compareTo方法一样，如果a位于b之前compare方法则返回负值；如果a和b相等则返回0，<br>
+否则返回正值</p>
 <p>匿名内部类</p>
 <pre><code>Collections.sort(persons,new 
     Comparator&lt;Person&gt;() {
@@ -4568,9 +4605,14 @@
             else if (p1.age == p2.age) return 0;
             else return -1;
         }
-    });</code></pre><h4 id="6-队列与双端队列"><a href="#6-队列与双端队列" class="headerlink" title="6 队列与双端队列"></a>6 队列与双端队列</h4><p>Deque接口,ArrayDeque和LinkedList都实现了双端队列结构，并且在必要时候可以进行扩容。</p>
-<h4 id="7-优先级队列"><a href="#7-优先级队列" class="headerlink" title="7 优先级队列"></a>7 优先级队列</h4><p>优先级队列 PriorityQueue 中的元素可以按照任意的顺序插入，却总按照排序的顺序进行检索。采用的二叉堆（binary heap）的数据结构，堆是一个可以自我调整的二叉树，对树执行添加和删除操作，可以让最小的元素移动到根，而不必花费必要的时间进行排序。</p>
-<h4 id="8-映射表"><a href="#8-映射表" class="headerlink" title="8 映射表"></a>8 映射表</h4><p>HashMap和TreeMap 类比于HashSet和TreeSet，TreeMap键有序，但是插入效率低于HashMap。</p>
+    });
+</code></pre>
+<h4 id="6-队列与双端队列"><a class="header-anchor" href="#6-队列与双端队列">¶</a>6 队列与双端队列</h4>
+<p>Deque接口,ArrayDeque和LinkedList都实现了双端队列结构，并且在必要时候可以进行扩容。</p>
+<h4 id="7-优先级队列"><a class="header-anchor" href="#7-优先级队列">¶</a>7 优先级队列</h4>
+<p>优先级队列 PriorityQueue 中的元素可以按照任意的顺序插入，却总按照排序的顺序进行检索。采用的二叉堆（binary heap）的数据结构，堆是一个可以自我调整的二叉树，对树执行添加和删除操作，可以让最小的元素移动到根，而不必花费必要的时间进行排序。</p>
+<h4 id="8-映射表"><a class="header-anchor" href="#8-映射表">¶</a>8 映射表</h4>
+<p>HashMap和TreeMap 类比于HashSet和TreeSet，TreeMap键有序，但是插入效率低于HashMap。</p>
 <p>集合框架没有包括映射表，Map和Collection是一级。但是可以通过entrySet()获取映射表的视图，即Set&lt;Map.Entry&lt;K,V&gt;&gt;。</p>
 
 </div>
@@ -4581,19 +4623,23 @@
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

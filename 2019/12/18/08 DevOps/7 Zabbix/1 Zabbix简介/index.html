@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		1 Zabbix简介 | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,100 +4395,181 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:41</span>
+	<span id="post-date">2019-12-18 01:00:44</span>
 </div>
 
 
 <div id="article">
 	<p>Zabbix 手册：<a href="https://www.zabbix.com/documentation/3.4/zh/manual" target="_blank" rel="noopener">https://www.zabbix.com/documentation/3.4/zh/manual</a></p>
 <p>Zabbix 3.0 从入门到精通(zabbix使用详解)：<a href="https://www.cnblogs.com/clsn/p/7885990.html" target="_blank" rel="noopener">https://www.cnblogs.com/clsn/p/7885990.html</a></p>
-<h3 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h3><p>Zabbix能监控各种网络参数，以及服务器健康性和完整性。提供了灵活的通知机制，以快速反馈服务器的问题。提供了Web的前端页面，以访问报告、统计信息和配置参数。</p>
-<h4 id="1、组成结构"><a href="#1、组成结构" class="headerlink" title="1、组成结构"></a>1、组成结构</h4><p>zabbix由Zabbix server、Zabbix proxy和Zabbix agent组成</p>
-<h5 id="Zabbix-server"><a href="#Zabbix-server" class="headerlink" title="Zabbix server"></a>Zabbix server</h5><p>核心程序，通过主动轮询和被动捕获数据，计算是否满足触发器条件，向用户发送通知。<br>分三个不同组件：Zabbix服务器、Web前端和数据库存储。 </p>
-<h5 id="Zabbix-proxy"><a href="#Zabbix-proxy" class="headerlink" title="Zabbix proxy"></a>Zabbix proxy</h5><p>可选部署，替Zabbix Server收集数据，分担负载压力。<br>所有收集的数据都在本地进行缓存，然后传送到proxy所属的Zabbix sever。需要使用独立的数据库。 </p>
-<h5 id="Zabbix-agent"><a href="#Zabbix-agent" class="headerlink" title="Zabbix agent"></a>Zabbix agent</h5><p>部署在监控目标，调用本地系统监控性能，收集数据，报告给Zabbix Server。<br>可以执行被动和主动两种检查方式。 </p>
-<h4 id="2、工作原理"><a href="#2、工作原理" class="headerlink" title="2、工作原理"></a>2、工作原理</h4><p>zabbix agent需要安装到被监控的主机上，它负责定期收集各项数据，并发送到zabbix server端，zabbix server将数据存储到数据库中，zabbix web 根据数据在前端进行展现和绘图。</p>
+<h3 id="一、概述"><a class="header-anchor" href="#一、概述">¶</a>一、概述</h3>
+<p>Zabbix能监控各种网络参数，以及服务器健康性和完整性。提供了灵活的通知机制，以快速反馈服务器的问题。提供了Web的前端页面，以访问报告、统计信息和配置参数。</p>
+<h4 id="1、组成结构"><a class="header-anchor" href="#1、组成结构">¶</a>1、组成结构</h4>
+<p>zabbix由Zabbix server、Zabbix proxy和Zabbix agent组成</p>
+<h5 id="Zabbix-server"><a class="header-anchor" href="#Zabbix-server">¶</a>Zabbix server</h5>
+<p>核心程序，通过主动轮询和被动捕获数据，计算是否满足触发器条件，向用户发送通知。<br>
+分三个不同组件：Zabbix服务器、Web前端和数据库存储。</p>
+<h5 id="Zabbix-proxy"><a class="header-anchor" href="#Zabbix-proxy">¶</a>Zabbix proxy</h5>
+<p>可选部署，替Zabbix Server收集数据，分担负载压力。<br>
+所有收集的数据都在本地进行缓存，然后传送到proxy所属的Zabbix sever。需要使用独立的数据库。</p>
+<h5 id="Zabbix-agent"><a class="header-anchor" href="#Zabbix-agent">¶</a>Zabbix agent</h5>
+<p>部署在监控目标，调用本地系统监控性能，收集数据，报告给Zabbix Server。<br>
+可以执行被动和主动两种检查方式。</p>
+<h4 id="2、工作原理"><a class="header-anchor" href="#2、工作原理">¶</a>2、工作原理</h4>
+<p>zabbix agent需要安装到被监控的主机上，它负责定期收集各项数据，并发送到zabbix server端，zabbix server将数据存储到数据库中，zabbix web 根据数据在前端进行展现和绘图。</p>
 <p>agent收集数据分为两种模式：</p>
-<h5 id="被动模式"><a href="#被动模式" class="headerlink" title="被动模式"></a>被动模式</h5><p>server/proxy向agent请求获取监控项的数据，agent应答数据请求，回送结果。<br>默认采用，客户端量大之后，pull任务会出现积压，出现延迟和卡顿。<br>被动模式端口不可用时，也可选用主动模式</p>
-<h5 id="主动模式"><a href="#主动模式" class="headerlink" title="主动模式"></a>主动模式</h5><p>agent先请求server获取主动的监控项列表，再主动将收集数据周期性提交给server/proxy。<br>更改为主动模式后，监控项也要选择主动模式。</p>
-<h4 id="3、常用架构"><a href="#3、常用架构" class="headerlink" title="3、常用架构"></a>3、常用架构</h4><p>在实际监控架构中，zabbix根据网络环境、监控规模等分了三种架构：</p>
-<h5 id="server-client架构"><a href="#server-client架构" class="headerlink" title="server-client架构"></a>server-client架构</h5><p>最简单的架构，监控机和被监控机之间不经过任何代理，直接由zabbix server和zabbix agentd之间进行数据交互。<br>适用于网络比较简单，设备比较少的监控环境。</p>
-<h5 id="server-proxy-client架构"><a href="#server-proxy-client架构" class="headerlink" title="server-proxy-client架构"></a>server-proxy-client架构</h5><p>proxy沟通server、client，分担负载压力，没有前端，缓存agentd数据，再提交给server。<br>适用于跨机房、跨网络的中型网络架构的监控。</p>
-<h5 id="master-node-client架构"><a href="#master-node-client架构" class="headerlink" title="master-node-client架构"></a>master-node-client架构</h5><p>每个node同时也是一个server端，node下面可以接proxy，也可以直接接client 。node有自已的配置文件和数据库，其要做的是将配置信息和监控数据向master同步，master的故障或损坏对node其下架构的完整性。<br>适用于跨网络、跨机房、设备较多的大型环境。</p>
+<h5 id="被动模式"><a class="header-anchor" href="#被动模式">¶</a>被动模式</h5>
+<p>server/proxy向agent请求获取监控项的数据，agent应答数据请求，回送结果。<br>
+默认采用，客户端量大之后，pull任务会出现积压，出现延迟和卡顿。<br>
+被动模式端口不可用时，也可选用主动模式</p>
+<h5 id="主动模式"><a class="header-anchor" href="#主动模式">¶</a>主动模式</h5>
+<p>agent先请求server获取主动的监控项列表，再主动将收集数据周期性提交给server/proxy。<br>
+更改为主动模式后，监控项也要选择主动模式。</p>
+<h4 id="3、常用架构"><a class="header-anchor" href="#3、常用架构">¶</a>3、常用架构</h4>
+<p>在实际监控架构中，zabbix根据网络环境、监控规模等分了三种架构：</p>
+<h5 id="server-client架构"><a class="header-anchor" href="#server-client架构">¶</a>server-client架构</h5>
+<p>最简单的架构，监控机和被监控机之间不经过任何代理，直接由zabbix server和zabbix agentd之间进行数据交互。<br>
+适用于网络比较简单，设备比较少的监控环境。</p>
+<h5 id="server-proxy-client架构"><a class="header-anchor" href="#server-proxy-client架构">¶</a>server-proxy-client架构</h5>
+<p>proxy沟通server、client，分担负载压力，没有前端，缓存agentd数据，再提交给server。<br>
+适用于跨机房、跨网络的中型网络架构的监控。</p>
+<h5 id="master-node-client架构"><a class="header-anchor" href="#master-node-client架构">¶</a>master-node-client架构</h5>
+<p>每个node同时也是一个server端，node下面可以接proxy，也可以直接接client 。node有自已的配置文件和数据库，其要做的是将配置信息和监控数据向master同步，master的故障或损坏对node其下架构的完整性。<br>
+适用于跨网络、跨机房、设备较多的大型环境。</p>
 <p><img src="/images/1545712504937.jpg" alt=""></p>
-<h3 id="二、安装"><a href="#二、安装" class="headerlink" title="二、安装"></a>二、安装</h3><h4 id="Zabbix-server-1"><a href="#Zabbix-server-1" class="headerlink" title="Zabbix server"></a>Zabbix server</h4><h5 id="依赖"><a href="#依赖" class="headerlink" title="依赖"></a>依赖</h5><p>依赖Apache、MySQL、PHP，需事先装好LAMP环境。</p>
-<h5 id="从部署包安装"><a href="#从部署包安装" class="headerlink" title="从部署包安装"></a>从部署包安装</h5><p>以CentOS 7 、zabbix3.2为例</p>
+<h3 id="二、安装"><a class="header-anchor" href="#二、安装">¶</a>二、安装</h3>
+<h4 id="Zabbix-server-v2"><a class="header-anchor" href="#Zabbix-server-v2">¶</a>Zabbix server</h4>
+<h5 id="依赖"><a class="header-anchor" href="#依赖">¶</a>依赖</h5>
+<p>依赖Apache、MySQL、PHP，需事先装好LAMP环境。</p>
+<h5 id="从部署包安装"><a class="header-anchor" href="#从部署包安装">¶</a>从部署包安装</h5>
+<p>以CentOS 7 、zabbix3.2为例</p>
 <ol>
-<li>安装源码库配置部署包。<pre><code>rpm -ivh http://repo.zabbix.com/zabbix/3.2/rhel/7/x86_64/zabbix-release-3.2-1.el7.noarch.rpm</code></pre></li>
-<li>安装Zabbix部署包。<pre><code>yum install zabbix-server-mysql zabbix-web-mysql</code></pre></li>
-<li>安装初始化数据库<pre><code>shell&gt; mysql -uroot -p&lt;password&gt;
+<li>安装源码库配置部署包。</li>
+</ol>
+<pre><code>rpm -ivh http://repo.zabbix.com/zabbix/3.2/rhel/7/x86_64/zabbix-release-3.2-1.el7.noarch.rpm
+</code></pre>
+<ol start="2">
+<li>安装Zabbix部署包。</li>
+</ol>
+<pre><code>yum install zabbix-server-mysql zabbix-web-mysql
+</code></pre>
+<ol start="3">
+<li>安装初始化数据库</li>
+</ol>
+<pre><code>shell&gt; mysql -uroot -p&lt;password&gt;
 mysql&gt; create database zabbix character set utf8 collate utf8_bin;
-mysql&gt; grant all privileges on zabbix.* to zabbix@localhost identified by &#39;&lt;password&gt;&#39;;
-mysql&gt; quit;</code></pre></li>
-<li>导入初始架构和数据。<pre><code>cd /usr/share/doc/zabbix-server-mysql-3.2.11
-zcat create.sql.gz | mysql -uroot zabbix</code></pre></li>
+mysql&gt; grant all privileges on zabbix.* to zabbix@localhost identified by '&lt;password&gt;';
+mysql&gt; quit;
+</code></pre>
+<ol start="4">
+<li>导入初始架构和数据。</li>
+</ol>
+<pre><code>cd /usr/share/doc/zabbix-server-mysql-3.2.11
+zcat create.sql.gz | mysql -uroot zabbix
+</code></pre>
+<ol start="5">
 <li>修改Zabbix前端的Apache配置文件</li>
 </ol>
 <p>更改时区</p>
 <pre><code>vi /etc/httpd/conf.d/zabbix.conf
-php_value date.timezone Asia/Shanghai</code></pre><ol start="6">
-<li>启动Zabbix Server进程 <pre><code>systemctl start zabbix-server</code></pre></li>
-<li>重启Apache Web服务器<pre><code>systemctl start httpd</code></pre></li>
+php_value date.timezone Asia/Shanghai
+</code></pre>
+<ol start="6">
+<li>启动Zabbix Server进程</li>
+</ol>
+<pre><code>systemctl start zabbix-server
+</code></pre>
+<ol start="7">
+<li>重启Apache Web服务器</li>
+</ol>
+<pre><code>systemctl start httpd
+</code></pre>
+<ol start="8">
 <li>访问/setup.php初始化</li>
 </ol>
-<p>访问<a href="http://zabbix-frontend-hostname/zabbix/setup.php，配置数据库等信息。" target="_blank" rel="noopener">http://zabbix-frontend-hostname/zabbix/setup.php，配置数据库等信息。</a></p>
-<p>默认的用户名／密码为 Admin/zabbix。 </p>
-<h5 id="配置通知脚本"><a href="#配置通知脚本" class="headerlink" title="配置通知脚本"></a>配置通知脚本</h5><ol>
+<p>访问http://zabbix-frontend-hostname/zabbix/setup.php，配置数据库等信息。</p>
+<p>默认的用户名／密码为 Admin/zabbix。</p>
+<h5 id="配置通知脚本"><a class="header-anchor" href="#配置通知脚本">¶</a>配置通知脚本</h5>
+<ol>
 <li>将通知脚本放入默认路径：/usr/lib/zabbix/alertscripts。</li>
 <li>在“报警媒介类型”添加通知脚本。</li>
 </ol>
-<h4 id="Zabbix-Agent"><a href="#Zabbix-Agent" class="headerlink" title="Zabbix Agent"></a>Zabbix Agent</h4><pre><code>yum install zabbix-agent</code></pre><h5 id="被动模式配置"><a href="#被动模式配置" class="headerlink" title="被动模式配置"></a>被动模式配置</h5><p>1、agent端</p>
+<h4 id="Zabbix-Agent"><a class="header-anchor" href="#Zabbix-Agent">¶</a>Zabbix Agent</h4>
+<pre><code>yum install zabbix-agent
+</code></pre>
+<h5 id="被动模式配置"><a class="header-anchor" href="#被动模式配置">¶</a>被动模式配置</h5>
+<p>1、agent端</p>
 <pre><code>StartAgents=3//被动模式，启动客户端数不为0
 Server=x.x.x.x//允许获取数据的地址，可配置0.0.0.0/0允许任意ip获取数据
-Hostname=zabbix_client//与服务端设置的名字相同</code></pre><p>2、zabbix-server端<br>zabbix监控模板默认使用的就是被动模式，直接添加就好</p>
-<h5 id="主动模式配置"><a href="#主动模式配置" class="headerlink" title="主动模式配置"></a>主动模式配置</h5><p>1、agent端</p>
+Hostname=zabbix_client//与服务端设置的名字相同
+</code></pre>
+<p>2、zabbix-server端<br>
+zabbix监控模板默认使用的就是被动模式，直接添加就好</p>
+<h5 id="主动模式配置"><a class="header-anchor" href="#主动模式配置">¶</a>主动模式配置</h5>
+<p>1、agent端</p>
 <pre><code>StartAgents=0//主动模式，不启动客户端
 ServerActive=x.x.x.x//配置服务器地址，可配置域名，域名如用nginx需要tcp转发10051端口
-Hostname=zabbix_master//与服务端设置的名字相同</code></pre><p>2、zabbix-server端<br>克隆默认的模板，将配置项和自动发现改为主动模式，主机连接主动模式模板</p>
-<h3 id="三、迁移"><a href="#三、迁移" class="headerlink" title="三、迁移"></a>三、迁移</h3><p>在新服务器上安装好相同版本Zabbix server。</p>
-<h5 id="不保留历史数据"><a href="#不保留历史数据" class="headerlink" title="不保留历史数据"></a>不保留历史数据</h5><p>只需迁移配置文件。</p>
+Hostname=zabbix_master//与服务端设置的名字相同
+</code></pre>
+<p>2、zabbix-server端<br>
+克隆默认的模板，将配置项和自动发现改为主动模式，主机连接主动模式模板</p>
+<h3 id="三、迁移"><a class="header-anchor" href="#三、迁移">¶</a>三、迁移</h3>
+<p>在新服务器上安装好相同版本Zabbix server。</p>
+<h5 id="不保留历史数据"><a class="header-anchor" href="#不保留历史数据">¶</a>不保留历史数据</h5>
+<p>只需迁移配置文件。</p>
 <blockquote>
-<p>Zabbix server配置文件：/etc/zabbix/zabbix_server.conf<br>Zabbix web配置文件：/etc/httpd/conf.d/zabbix.conf<br>通知脚本：/usr/lib/zabbix/alertscripts</p>
+<p>Zabbix server配置文件：/etc/zabbix/zabbix_server.conf<br>
+Zabbix web配置文件：/etc/httpd/conf.d/zabbix.conf<br>
+通知脚本：/usr/lib/zabbix/alertscripts</p>
 </blockquote>
-<h5 id="保留历史数据"><a href="#保留历史数据" class="headerlink" title="保留历史数据"></a>保留历史数据</h5><p>还需迁移数据库。</p>
+<h5 id="保留历史数据"><a class="header-anchor" href="#保留历史数据">¶</a>保留历史数据</h5>
+<p>还需迁移数据库。</p>
 <p>1.导出zabbix数据库</p>
-<pre><code>mysqldump -uroot -p --opt  zabbix &gt; zabbix.sql</code></pre><p>2.传送sql文件到新的服务器上（新服务器上基本环境应搭建好）</p>
-<pre><code>scp zabbix.sql root@x.x.x.x:/tmp</code></pre><p>3.在新服务器上导入sql文件</p>
-<pre><code>mysql -uroot -p zabbix &lt; zabbix.sql</code></pre><h3 id="四、使用"><a href="#四、使用" class="headerlink" title="四、使用"></a>四、使用</h3><p>为了创建一个监控项(item)用于采集数据，必须先创建一个主机（host）。告警方面，在监控项里创建触发器（trigger），通过触发器（trigger）来触发告警动作（action）。 </p>
-<p>或者对主机使用模板。 </p>
-<h5 id="添加用户"><a href="#添加用户" class="headerlink" title="添加用户"></a>添加用户</h5><ol>
+<pre><code>mysqldump -uroot -p --opt  zabbix &gt; zabbix.sql
+</code></pre>
+<p>2.传送sql文件到新的服务器上（新服务器上基本环境应搭建好）</p>
+<pre><code>scp zabbix.sql root@x.x.x.x:/tmp
+</code></pre>
+<p>3.在新服务器上导入sql文件</p>
+<pre><code>mysql -uroot -p zabbix &lt; zabbix.sql
+</code></pre>
+<h3 id="四、使用"><a class="header-anchor" href="#四、使用">¶</a>四、使用</h3>
+<p>为了创建一个监控项(item)用于采集数据，必须先创建一个主机（host）。告警方面，在监控项里创建触发器（trigger），通过触发器（trigger）来触发告警动作（action）。</p>
+<p>或者对主机使用模板。</p>
+<h5 id="添加用户"><a class="header-anchor" href="#添加用户">¶</a>添加用户</h5>
+<ol>
 <li>以具有“超级管理员”权限的用户登陆。</li>
 <li>在“管理”→“用户”页面下，点击“创建用户”以增加用户。</li>
 <li>填写基本信息，选择用户组，</li>
 <li>在“报警媒介”标签下，添加邮箱和微信报警</li>
 <li>在“权限”标签下，选择用户类型</li>
 </ol>
-<h5 id="添加主机"><a href="#添加主机" class="headerlink" title="添加主机"></a>添加主机</h5><ol>
+<h5 id="添加主机"><a class="header-anchor" href="#添加主机">¶</a>添加主机</h5>
+<ol>
 <li>以具有“超级管理员”权限的用户登陆。</li>
 <li>在“配置”→“主机”页面下，点击“创建主机”以新增主机。</li>
 <li>主机名称和IP地址都填写IP地址，选择主机组。</li>
 </ol>
-<h5 id="添加监控项"><a href="#添加监控项" class="headerlink" title="添加监控项"></a>添加监控项</h5><ol>
+<h5 id="添加监控项"><a class="header-anchor" href="#添加监控项">¶</a>添加监控项</h5>
+<ol>
 <li>在“主机”→“监控项”页面下，点击“创建监控项”以新增监控项。</li>
 <li>类型根据客户端选择“Zabbix客户端”或“Zabbix客户端（主动式）”</li>
 <li>键值填写 Zabbix Agent<a href="https://www.zabbix.com/documentation/3.4/manual/config/items/itemtypes/zabbix_agent" target="_blank" rel="noopener">预定义值</a> 中的一种。</li>
 <li>“历史数据保留时长”填写7天。</li>
 </ol>
-<h5 id="添加触发器"><a href="#添加触发器" class="headerlink" title="添加触发器"></a>添加触发器</h5><ol>
+<h5 id="添加触发器"><a class="header-anchor" href="#添加触发器">¶</a>添加触发器</h5>
+<ol>
 <li>在“主机”→“触发器”页面下，点击“创建触发器”以新增触发器。</li>
 <li>填写名称、选择表达式</li>
 </ol>
-<h5 id="添加报警媒介"><a href="#添加报警媒介" class="headerlink" title="添加报警媒介"></a>添加报警媒介</h5><ol>
+<h5 id="添加报警媒介"><a class="header-anchor" href="#添加报警媒介">¶</a>添加报警媒介</h5>
+<ol>
 <li>在“管理”→“报警媒介类型”页面下，点击“创建报警媒介”以新增报警媒介。</li>
 <li>添加类型为脚本，名称为/usr/lib/zabbix/alertscripts下通知脚本的报警媒介</li>
 <li>在“配置”→“动作”页面下，点击“创建动作”以新增报警媒介的动作。</li>
 </ol>
-<h5 id="添加模版"><a href="#添加模版" class="headerlink" title="添加模版"></a>添加模版</h5><ol>
+<h5 id="添加模版"><a class="header-anchor" href="#添加模版">¶</a>添加模版</h5>
+<ol>
 <li>在“配置”→“模版”页面下，点击“创建模版”以新增模版。</li>
 <li>为模板添加监控项，之后就可给主机链接模板，复用监控项</li>
 </ol>
@@ -4478,19 +4582,23 @@ Hostname=zabbix_master//与服务端设置的名字相同</code></pre><p>2、zab
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

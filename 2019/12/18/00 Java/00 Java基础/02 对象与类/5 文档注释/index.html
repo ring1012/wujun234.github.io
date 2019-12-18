@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		5 文档注释 | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,34 +4395,46 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:45</span>
+	<span id="post-date">2019-12-18 01:00:41</span>
 </div>
 
 
 <div id="article">
-	<h5 id="1、注释方法"><a href="#1、注释方法" class="headerlink" title="1、注释方法"></a>1、注释方法</h5><p>三种注释方法，注释不会出现在可执行文件中</p>
+	<h5 id="1、注释方法"><a class="header-anchor" href="#1、注释方法">¶</a>1、注释方法</h5>
+<p>三种注释方法，注释不会出现在可执行文件中</p>
 <ol>
 <li>//</li>
 <li>/*   */</li>
 <li>/**  */自动生成文档</li>
 </ol>
-<h5 id="2、注释的插入"><a href="#2、注释的插入" class="headerlink" title="2、注释的插入"></a>2、注释的插入</h5><p>javadoc 从下面几个特性中抽取信息：</p>
+<h5 id="2、注释的插入"><a class="header-anchor" href="#2、注释的插入">¶</a>2、注释的插入</h5>
+<p>javadoc 从下面几个特性中抽取信息：</p>
 <ul>
 <li>包</li>
 <li>公有类与接口</li>
 <li>公有的和受保护的构造器和方法</li>
 <li>公有的和受保护的域</li>
 </ul>
-<h5 id="3、类注释"><a href="#3、类注释" class="headerlink" title="3、类注释"></a>3、类注释</h5><p>类注释必须在 import 语句之后，在类定义之前。  </p>
-<h5 id="4、方法注释"><a href="#4、方法注释" class="headerlink" title="4、方法注释"></a>4、方法注释</h5><p>方法注释必须放在方法之前，除了通用标记之外，还可以使用 @param ，@return ，@throws 等描述：</p>
-<h5 id="5、域注释"><a href="#5、域注释" class="headerlink" title="5、域注释"></a>5、域注释</h5><p>只需要对公共域（常指静态常量）建议注释文档，其他域建立了文档会暴露信息。</p>
-<h5 id="6、通用注释"><a href="#6、通用注释" class="headerlink" title="6、通用注释"></a>6、通用注释</h5><p>@author<br>@version<br>@since  始于<br>@deprecated 不再使用，给出取代建议<br>@see reference</p>
-<h5 id="7、包与概述注释"><a href="#7、包与概述注释" class="headerlink" title="7、包与概述注释"></a>7、包与概述注释</h5><p>要想产生包注释，需要在每个包目录中添加一个单独的文件。两种方法：</p>
+<h5 id="3、类注释"><a class="header-anchor" href="#3、类注释">¶</a>3、类注释</h5>
+<p>类注释必须在 import 语句之后，在类定义之前。</p>
+<h5 id="4、方法注释"><a class="header-anchor" href="#4、方法注释">¶</a>4、方法注释</h5>
+<p>方法注释必须放在方法之前，除了通用标记之外，还可以使用 @param ，@return ，@throws 等描述：</p>
+<h5 id="5、域注释"><a class="header-anchor" href="#5、域注释">¶</a>5、域注释</h5>
+<p>只需要对公共域（常指静态常量）建议注释文档，其他域建立了文档会暴露信息。</p>
+<h5 id="6、通用注释"><a class="header-anchor" href="#6、通用注释">¶</a>6、通用注释</h5>
+<p>@author<br>
+@version<br>
+@since  始于<br>
+@deprecated 不再使用，给出取代建议<br>
+@see reference</p>
+<h5 id="7、包与概述注释"><a class="header-anchor" href="#7、包与概述注释">¶</a>7、包与概述注释</h5>
+<p>要想产生包注释，需要在每个包目录中添加一个单独的文件。两种方法：</p>
 <ol>
 <li>package.html 文件， body 中的内容会全部被提取出来。</li>
 <li>package-info.java 文件，使用 /* 和 / ，界定外不可以有其他代码。</li>
 </ol>
-<h5 id="8-注释的抽取"><a href="#8-注释的抽取" class="headerlink" title="8 注释的抽取"></a>8 注释的抽取</h5><p>javadoc -d 目录 包名</p>
+<h5 id="8-注释的抽取"><a class="header-anchor" href="#8-注释的抽取">¶</a>8 注释的抽取</h5>
+<p>javadoc -d 目录 包名</p>
 
 </div>
 
@@ -4409,19 +4444,23 @@
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

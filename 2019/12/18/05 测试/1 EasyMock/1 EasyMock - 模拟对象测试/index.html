@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		1 EasyMock - 模拟对象测试 | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,29 +4395,52 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:38</span>
+	<span id="post-date">2019-12-18 01:00:43</span>
 </div>
 
 
 <div id="article">
 	<p><a href="http://easymock.org" target="_blank" rel="noopener">easymock官网</a></p>
-<h2 id="一、Mock对象"><a href="#一、Mock对象" class="headerlink" title="一、Mock对象"></a>一、Mock对象</h2><hr>
-<p>测试是个好习惯，然而当你想测试自己的代码，而依赖的其他类或方法又还没实现。或者你在实践TDD（测试驱动开发），还没完成你的实现，而又想先测试。该怎么办呢？<br>简单情况可以手动编写mock类，复杂情况可以借助EasyMock等Mock框架来模拟这些类和方法。<br>mock 测试只是在无法使用真实类时的聊胜于无，如果能够使用真实的依赖项，就不要使用mock。  </p>
-<h2 id="二、应用场景"><a href="#二、应用场景" class="headerlink" title="二、应用场景"></a>二、应用场景</h2><hr>
-<p>1、要测试的模块依赖于不受控的第三方服务或其它组员未完成的服务。<br>2、涉及到数据库操作，连接不了数据库或不想测试结果改动到数据库时。<br>3、模块依赖于spring容器注入其它服务实例，但又不想启动spring容器。<br>4、测试异常。例如创建模拟网络故障的mock。<br>……</p>
-<h2 id="三、具体使用方法"><a href="#三、具体使用方法" class="headerlink" title="三、具体使用方法"></a>三、具体使用方法</h2><h5 id="1、创建mock对象"><a href="#1、创建mock对象" class="headerlink" title="1、创建mock对象"></a>1、创建mock对象</h5><p>EasyMock实例化的对象基于接口或者类</p>
+<h2 id="一、Mock对象"><a class="header-anchor" href="#一、Mock对象">¶</a>一、Mock对象</h2>
+<hr>
+<p>测试是个好习惯，然而当你想测试自己的代码，而依赖的其他类或方法又还没实现。或者你在实践TDD（测试驱动开发），还没完成你的实现，而又想先测试。该怎么办呢？<br>
+简单情况可以手动编写mock类，复杂情况可以借助EasyMock等Mock框架来模拟这些类和方法。<br>
+mock 测试只是在无法使用真实类时的聊胜于无，如果能够使用真实的依赖项，就不要使用mock。</p>
+<h2 id="二、应用场景"><a class="header-anchor" href="#二、应用场景">¶</a>二、应用场景</h2>
+<hr>
+<p>1、要测试的模块依赖于不受控的第三方服务或其它组员未完成的服务。<br>
+2、涉及到数据库操作，连接不了数据库或不想测试结果改动到数据库时。<br>
+3、模块依赖于spring容器注入其它服务实例，但又不想启动spring容器。<br>
+4、测试异常。例如创建模拟网络故障的mock。<br>
+……</p>
+<h2 id="三、具体使用方法"><a class="header-anchor" href="#三、具体使用方法">¶</a>三、具体使用方法</h2>
+<h5 id="1、创建mock对象"><a class="header-anchor" href="#1、创建mock对象">¶</a>1、创建mock对象</h5>
+<p>EasyMock实例化的对象基于接口或者类</p>
 <pre><code>EasyMock.createMock(要模拟的成员变量类型);
 // ICalcMethod 是一个要mock的对象
-ICalcMethod calcMethod = EasyMock.createMock(ICalcMethod.class); </code></pre><h5 id="2、定义mock行为"><a href="#2、定义mock行为" class="headerlink" title="2、定义mock行为"></a>2、定义mock行为</h5><p>1)有返回值<br>expect()方法指定要模拟方法的方法和参数，andReturn()方法定义方法的返回值，times()方法定义mock对象可以调用多少次。</p>
+ICalcMethod calcMethod = EasyMock.createMock(ICalcMethod.class); 
+</code></pre>
+<h5 id="2、定义mock行为"><a class="header-anchor" href="#2、定义mock行为">¶</a>2、定义mock行为</h5>
+<p>1)有返回值<br>
+expect()方法指定要模拟方法的方法和参数，andReturn()方法定义方法的返回值，times()方法定义mock对象可以调用多少次。</p>
 <pre><code>Easymock.expect(模拟成员的某个要模拟的函数).andReturn(期待的返回值)
 // 定义mock的期望
 EasyMock.expect(calcMethod.calc(Position.BOSS)).andReturn(70000.0).times(2);
-EasyMock.expect(calcMethod.calc(Position.PROGRAMMER)).andReturn(50000.0);</code></pre><p>2）没返回值<br>首先模拟成员调用要模拟的函数，然后在后面跟上一句：EasyMock.expectLastCall()</p>
-<h5 id="3、模糊参数"><a href="#3、模糊参数" class="headerlink" title="3、模糊参数"></a>3、模糊参数</h5><p>有时候要模拟的函数的参数是在程序运行过程中调用的，参数值来自于程序执行结果，这时可以用模糊参数来解决，模糊参数有：<br>isA、isNull、anyInt等</p>
-<h5 id="4、开始测试"><a href="#4、开始测试" class="headerlink" title="4、开始测试"></a>4、开始测试</h5><p> 在使用mock对象之前需要调用replay()方法使之激活。</p>
+EasyMock.expect(calcMethod.calc(Position.PROGRAMMER)).andReturn(50000.0);
+</code></pre>
+<p>2）没返回值<br>
+首先模拟成员调用要模拟的函数，然后在后面跟上一句：EasyMock.expectLastCall()</p>
+<h5 id="3、模糊参数"><a class="header-anchor" href="#3、模糊参数">¶</a>3、模糊参数</h5>
+<p>有时候要模拟的函数的参数是在程序运行过程中调用的，参数值来自于程序执行结果，这时可以用模糊参数来解决，模糊参数有：<br>
+isA、isNull、anyInt等</p>
+<h5 id="4、开始测试"><a class="header-anchor" href="#4、开始测试">¶</a>4、开始测试</h5>
+<p>在使用mock对象之前需要调用replay()方法使之激活。</p>
 <pre><code>EasyMock.replay(模拟成员);
 // 激活mock对象
-replay(calcMethod); </code></pre><h2 id="四、实例"><a href="#四、实例" class="headerlink" title="四、实例"></a>四、实例</h2><p>1、要测试的类</p>
+replay(calcMethod); 
+</code></pre>
+<h2 id="四、实例"><a class="header-anchor" href="#四、实例">¶</a>四、实例</h2>
+<p>1、要测试的类</p>
 <pre><code>public class UserServiceImpl{
 　　private UserDao dao;
 　　public List&lt;String&gt; queryNames(String[] ids) throws Exception{
@@ -4405,10 +4451,13 @@ replay(calcMethod); </code></pre><h2 id="四、实例"><a href="#四、实例" c
 　　　　}
 　　　　return null;
 　　}
-}</code></pre><p>该类依赖UserDao，但UserDao可能还没实现，或要靠spring容器来注入<br>2、测试代码</p>
+}
+</code></pre>
+<p>该类依赖UserDao，但UserDao可能还没实现，或要靠spring容器来注入<br>
+2、测试代码</p>
 <pre><code>@Test
 public void test() {
-　　String[] ids = {&#39;1&#39;,&#39;2&#39;,&#39;3&#39;};
+　　String[] ids = {'1','2','3'};
 　　List&lt;String&gt; returnNams = Arrays.asList(&quot;a,b,c&quot;.split(&quot;,&quot;));
 　　UserDao userDaoMock = EasyMock.createMock(UserDao.class);//创建模拟成员
 　　EasyMock.expect(userDaoMock.getNames(ids )).andReturn(returnNams);
@@ -4416,7 +4465,12 @@ public void test() {
 　　UserServiceImpl userServiceImpl = new UserServiceImpl();
 　　userServiceImpl .queryNames(ids);//目标类调用目标方法
 　　EasyMock.verify(userDaoMock );//验证Mock对象       
-}</code></pre><h5 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h5><p> <a href="http://www.cnblogs.com/xyd51cto/p/8003856.html" target="_blank" rel="noopener">EasyMock 模拟对象测试</a><br><a href="https://www.ibm.com/developerworks/cn/java/j-easymock.html" target="_blank" rel="noopener">使用 EasyMock 更轻松地进行测试</a><br><a href="http://outofmemory.cn/code-snippet/2693/EasyMock-jUnit-unit-test-course" target="_blank" rel="noopener">EasyMock jUnit单元测试教程</a></p>
+}
+</code></pre>
+<h5 id="参考"><a class="header-anchor" href="#参考">¶</a>参考</h5>
+<p><a href="http://www.cnblogs.com/xyd51cto/p/8003856.html" target="_blank" rel="noopener">EasyMock 模拟对象测试</a><br>
+<a href="https://www.ibm.com/developerworks/cn/java/j-easymock.html" target="_blank" rel="noopener">使用 EasyMock 更轻松地进行测试</a><br>
+<a href="http://outofmemory.cn/code-snippet/2693/EasyMock-jUnit-unit-test-course" target="_blank" rel="noopener">EasyMock jUnit单元测试教程</a></p>
 
 </div>
 
@@ -4426,19 +4480,23 @@ public void test() {
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

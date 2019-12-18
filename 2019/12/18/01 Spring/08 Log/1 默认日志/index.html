@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		1 默认日志 | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,13 +4395,16 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:21</span>
+	<span id="post-date">2019-12-18 01:00:43</span>
 </div>
 
 
 <div id="article">
 	<p>Spring Boot在所有内部日志中使用Commons Logging，但是默认配置也提供了对常用日志的支持</p>
-<h3 id="格式化日志"><a href="#格式化日志" class="headerlink" title="格式化日志"></a>格式化日志</h3><pre><code>2016-04-13 08:23:50.120  INFO 37397 --- [main] org.hibernate.Version: HHH000412: Hibernate Core {4.3.11.Final}</code></pre><ul>
+<h3 id="格式化日志"><a class="header-anchor" href="#格式化日志">¶</a>格式化日志</h3>
+<pre><code>2016-04-13 08:23:50.120  INFO 37397 --- [main] org.hibernate.Version: HHH000412: Hibernate Core {4.3.11.Final}
+</code></pre>
+<ul>
 <li>时间日期 — 精确到毫秒</li>
 <li>日志级别 — ERROR, WARN, INFO, DEBUG or TRACE</li>
 <li>进程ID</li>
@@ -4387,29 +4413,42 @@
 <li>Logger名 — 通常使用源代码的类名</li>
 <li>日志内容</li>
 </ul>
-<h3 id="控制台输出"><a href="#控制台输出" class="headerlink" title="控制台输出"></a>控制台输出</h3><h5 id="切换级别"><a href="#切换级别" class="headerlink" title="切换级别"></a>切换级别</h5><ul>
-<li>运行命令<br>在运行命令后加入<code>--级别</code>标志，如：<code>$ java -jar myapp.jar --debug</code></li>
-<li>配置文件<br>在application.properties中配置<code>debug=true</code></li>
+<h3 id="控制台输出"><a class="header-anchor" href="#控制台输出">¶</a>控制台输出</h3>
+<h5 id="切换级别"><a class="header-anchor" href="#切换级别">¶</a>切换级别</h5>
+<ul>
+<li>运行命令<br>
+在运行命令后加入<code>--级别</code>标志，如：<code>$ java -jar myapp.jar --debug</code></li>
+<li>配置文件<br>
+在application.properties中配置<code>debug=true</code></li>
 </ul>
-<h5 id="多彩输出"><a href="#多彩输出" class="headerlink" title="多彩输出"></a>多彩输出</h5><p>在application.properties中设置<code>spring.output.ansi.enabled</code>参数来支持多彩输出</p>
+<h5 id="多彩输出"><a class="header-anchor" href="#多彩输出">¶</a>多彩输出</h5>
+<p>在application.properties中设置<code>spring.output.ansi.enabled</code>参数来支持多彩输出</p>
 <ul>
 <li>NEVER：禁用ANSI-colored输出（默认项）</li>
 <li>DETECT：会检查终端是否支持ANSI，是的话就采用彩色输出（推荐项）</li>
 <li>ALWAYS：总是使用ANSI-colored格式输出，若终端不支持的时候，会有很多干扰信息，不推荐使用</li>
 </ul>
-<h3 id="文件输出"><a href="#文件输出" class="headerlink" title="文件输出"></a>文件输出</h3><h4 id="文件路径"><a href="#文件路径" class="headerlink" title="文件路径"></a>文件路径</h4><p>在application.properties中配置<code>logging.file</code>或<code>logging.path</code>属性</p>
+<h3 id="文件输出"><a class="header-anchor" href="#文件输出">¶</a>文件输出</h3>
+<h4 id="文件路径"><a class="header-anchor" href="#文件路径">¶</a>文件路径</h4>
+<p>在application.properties中配置<code>logging.file</code>或<code>logging.path</code>属性</p>
 <ul>
-<li>logging.file<br>设置文件，可以是绝对路径，也可以是相对路径。如：logging.file=my.log</li>
-<li>logging.path<br>设置目录，会在该目录下创建spring.log文件，并写入日志内容，如：logging.path=/var/log</li>
+<li>logging.file<br>
+设置文件，可以是绝对路径，也可以是相对路径。如：logging.file=my.log</li>
+<li>logging.path<br>
+设置目录，会在该目录下创建spring.log文件，并写入日志内容，如：logging.path=/var/log</li>
 </ul>
-<p>日志文件会在10Mb大小的时候被截断，产生新的日志文件，默认级别为：ERROR、WARN、INFO </p>
-<h4 id="级别控制"><a href="#级别控制" class="headerlink" title="级别控制"></a>级别控制</h4><p>在application.properties中进行配置<code>logging.level.*=LEVEL</code></p>
+<p>日志文件会在10Mb大小的时候被截断，产生新的日志文件，默认级别为：ERROR、WARN、INFO</p>
+<h4 id="级别控制"><a class="header-anchor" href="#级别控制">¶</a>级别控制</h4>
+<p>在application.properties中进行配置<code>logging.level.*=LEVEL</code></p>
 <ul>
 <li>logging.level：日志级别控制前缀，<code>*</code>为包名或Logger名</li>
 <li>LEVEL：选项TRACE, DEBUG, INFO, WARN, ERROR, FATAL, OFF</li>
 </ul>
 <pre><code>logging.level.com.didispace=DEBUG//com.didispace包下所有class以DEBUG级别输出
-logging.level.root=WARN//root日志以WARN级别输出</code></pre><h3 id="自定义日志配置"><a href="#自定义日志配置" class="headerlink" title="自定义日志配置"></a>自定义日志配置</h3><p>日志服务一般在ApplicationContext创建前就初始化了，并不是必须通过Spring的配置文件控制。因此通过系统属性和传统的Spring Boot外部配置文件依然可以很好的支持日志控制和管理。</p>
+logging.level.root=WARN//root日志以WARN级别输出
+</code></pre>
+<h3 id="自定义日志配置"><a class="header-anchor" href="#自定义日志配置">¶</a>自定义日志配置</h3>
+<p>日志服务一般在ApplicationContext创建前就初始化了，并不是必须通过Spring的配置文件控制。因此通过系统属性和传统的Spring Boot外部配置文件依然可以很好的支持日志控制和管理。</p>
 <ul>
 <li>Logback：logback-spring.xml, logback-spring.groovy</li>
 <li>Log4j：log4j-spring.properties, log4j-spring.xml</li>
@@ -4417,7 +4456,8 @@ logging.level.root=WARN//root日志以WARN级别输出</code></pre><h3 id="自�
 <li>JDK (Java Util Logging)：logging.properties</li>
 </ul>
 <p>Spring Boot官方推荐优先使用带有-spring的文件名作为你的日志配置</p>
-<h3 id="自定义输出格式"><a href="#自定义输出格式" class="headerlink" title="自定义输出格式"></a>自定义输出格式</h3><p>在application.properties配置如下参数控制输出格式</p>
+<h3 id="自定义输出格式"><a class="header-anchor" href="#自定义输出格式">¶</a>自定义输出格式</h3>
+<p>在application.properties配置如下参数控制输出格式</p>
 <ul>
 <li>logging.pattern.console：定义输出到控制台的样式（不支持JDK Logger）</li>
 <li>logging.pattern.file：定义输出到文件的样式（不支持JDK Logger）</li>
@@ -4431,19 +4471,23 @@ logging.level.root=WARN//root日志以WARN级别输出</code></pre><h3 id="自�
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

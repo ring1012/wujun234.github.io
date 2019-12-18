@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		NoSQL | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,13 +4395,14 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:05</span>
+	<span id="post-date">2019-12-18 01:00:43</span>
 </div>
 
 
 <div id="article">
 	<p>todo：hibernate、Hbase、Neo4J</p>
-<h3 id="CAP定理"><a href="#CAP定理" class="headerlink" title="CAP定理"></a>CAP定理</h3><p>CAP定理指出对于一个分布式计算系统来说，不可能同时满足以下三点:</p>
+<h3 id="CAP定理"><a class="header-anchor" href="#CAP定理">¶</a>CAP定理</h3>
+<p>CAP定理指出对于一个分布式计算系统来说，不可能同时满足以下三点:</p>
 <ul>
 <li>一致性(Consistency) (所有节点在同一时间具有相同的数据)</li>
 <li>可用性(Availability) (保证每个请求不管成功或者失败都有响应)</li>
@@ -4391,13 +4415,15 @@
 <li>AP - 满足可用性，分区容忍性的系统，通常可能对一致性要求低一些。</li>
 </ul>
 <p><img src="/images/1545270179125.png" alt="image"></p>
-<h3 id="BASE"><a href="#BASE" class="headerlink" title="BASE"></a>BASE</h3><p>BASE是NoSQL数据库通常对可用性及一致性的弱要求原则:</p>
+<h3 id="BASE"><a class="header-anchor" href="#BASE">¶</a>BASE</h3>
+<p>BASE是NoSQL数据库通常对可用性及一致性的弱要求原则:</p>
 <ul>
-<li>Basically Availble –基本可用</li>
-<li>Soft-state –软状态/柔性事务。 “Soft state” 可以理解为”无连接”的, 而 “Hard state” 是”面向连接”的</li>
+<li>Basically Availble --基本可用</li>
+<li>Soft-state --软状态/柔性事务。 “Soft state” 可以理解为&quot;无连接&quot;的, 而 “Hard state” 是&quot;面向连接&quot;的</li>
 <li>Eventual Consistency – 最终一致性， 也是是 ACID 的最终目的。</li>
 </ul>
-<h3 id="NoSQL-数据库分类"><a href="#NoSQL-数据库分类" class="headerlink" title="NoSQL 数据库分类"></a>NoSQL 数据库分类</h3><table>
+<h3 id="NoSQL-数据库分类"><a class="header-anchor" href="#NoSQL-数据库分类">¶</a>NoSQL 数据库分类</h3>
+<table>
 <thead>
 <tr>
 <th>类型</th>
@@ -4405,7 +4431,8 @@
 <th>特点</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>列存储</td>
 <td>Hbase</td>
 <td>按列存储数据的。最大的特点是方便存储结构化和半结构化数据，方便做数据压缩，对针对某一列或者某几列的查询有非常大的IO优势。</td>
@@ -4425,7 +4452,8 @@
 <td>Neo4J</td>
 <td>图形关系的最佳存储</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 
 </div>
 
@@ -4435,19 +4463,23 @@
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		1 Lombok消除Java冗长 | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,33 +4395,51 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:15</span>
+	<span id="post-date">2019-12-18 01:00:44</span>
 </div>
 
 
 <div id="article">
-	<p><a href="https://www.projectlombok.org/" target="_blank" rel="noopener">官方网址</a>、<br><a href="https://github.com/rzwitserloot/lombok" target="_blank" rel="noopener">github地址</a></p>
-<h4 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h4><p>Lombok采取注解声明方法，注解后经编译，会自动生成注解声明的方法，减少很多重复代码的书写。比如说getter/setter/toString等方法。</p>
-<h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><h5 id="添加依赖"><a href="#添加依赖" class="headerlink" title="添加依赖"></a>添加依赖</h5><pre><code>&lt;dependency&gt;
+	<p><a href="https://www.projectlombok.org/" target="_blank" rel="noopener">官方网址</a>、<br>
+<a href="https://github.com/rzwitserloot/lombok" target="_blank" rel="noopener">github地址</a></p>
+<h4 id="简介"><a class="header-anchor" href="#简介">¶</a>简介</h4>
+<p>Lombok采取注解声明方法，注解后经编译，会自动生成注解声明的方法，减少很多重复代码的书写。比如说getter/setter/toString等方法。</p>
+<h4 id="安装"><a class="header-anchor" href="#安装">¶</a>安装</h4>
+<h5 id="添加依赖"><a class="header-anchor" href="#添加依赖">¶</a>添加依赖</h5>
+<pre><code>&lt;dependency&gt;
     &lt;groupId&gt;org.projectlombok&lt;/groupId&gt;
     &lt;artifactId&gt;lombok&lt;/artifactId&gt;
     &lt;version&gt;1.16.20&lt;/version&gt;
     &lt;scope&gt;provided&lt;/scope&gt;
-&lt;/dependency&gt;</code></pre><h5 id="安装插件"><a href="#安装插件" class="headerlink" title="安装插件"></a>安装插件</h5><p>为让IDE解读注解方法不报错，需要下载支持插件。</p>
+&lt;/dependency&gt;
+</code></pre>
+<h5 id="安装插件"><a class="header-anchor" href="#安装插件">¶</a>安装插件</h5>
+<p>为让IDE解读注解方法不报错，需要下载支持插件。</p>
 <p>以 idea 为例：打开IDEA的Setting –&gt; 选择Plugins选项 –&gt; 选择Browse repositories –&gt; 搜索lombok –&gt; 点击安装 –&gt; 安装完成重启IDEA –&gt; 安装成功</p>
-<h4 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h4><p>常用注解：</p>
-<h5 id="log"><a href="#log" class="headerlink" title="@log"></a>@log</h5><p>注解在类上。可选用@CommonsLog、@JBossLog、@Log、@Log4j、@Log4j2、@Slf4j、@XSlf4j，使用时直接调用 log 即可</p>
-<h5 id="Getter和-Setter"><a href="#Getter和-Setter" class="headerlink" title="@Getter和@Setter"></a>@Getter和@Setter</h5><p>注解在类或属性上。会默认生成一个无参构造。</p>
-<h5 id="NonNull"><a href="#NonNull" class="headerlink" title="@NonNull"></a>@NonNull</h5><p>注解在属性上，用于非空检查。如果为空，则抛出NullPointerException。 </p>
-<h5 id="EqualsAndHashCode"><a href="#EqualsAndHashCode" class="headerlink" title="@EqualsAndHashCode"></a>@EqualsAndHashCode</h5><p>注解在类上，同时生成equals和hashCode。存在继承关系时需要设置callSuper参数为true。</p>
-<h5 id="Data"><a href="#Data" class="headerlink" title="@Data"></a>@Data</h5><p>注解在类上。包含了@ToString，@EqualsAndHashCode， @Getter，@Setter和@NoArgsConstructor。</p>
+<h4 id="使用"><a class="header-anchor" href="#使用">¶</a>使用</h4>
+<p>常用注解：</p>
+<h5 id="log"><a class="header-anchor" href="#log">¶</a>@log</h5>
+<p>注解在类上。可选用@CommonsLog、@JBossLog、@Log、@Log4j、@Log4j2、@Slf4j、@XSlf4j，使用时直接调用 log 即可</p>
+<h5 id="Getter和-Setter"><a class="header-anchor" href="#Getter和-Setter">¶</a>@Getter和@Setter</h5>
+<p>注解在类或属性上。会默认生成一个无参构造。</p>
+<h5 id="NonNull"><a class="header-anchor" href="#NonNull">¶</a>@NonNull</h5>
+<p>注解在属性上，用于非空检查。如果为空，则抛出NullPointerException。</p>
+<h5 id="EqualsAndHashCode"><a class="header-anchor" href="#EqualsAndHashCode">¶</a>@EqualsAndHashCode</h5>
+<p>注解在类上，同时生成equals和hashCode。存在继承关系时需要设置callSuper参数为true。</p>
+<h5 id="Data"><a class="header-anchor" href="#Data">¶</a>@Data</h5>
+<p>注解在类上。包含了@ToString，@EqualsAndHashCode， @Getter，@Setter和@NoArgsConstructor。</p>
 <blockquote>
 <p>同时使用@Data 和 @AllArgsConstructor 后 ，默认的无参构造函数失效，如果需要它，要重新设置 @NoArgsConstructor</p>
 </blockquote>
-<h5 id="AllArgsConstructor"><a href="#AllArgsConstructor" class="headerlink" title="@AllArgsConstructor"></a>@AllArgsConstructor</h5><p>注解在类上，提供一个全参数的构造方法，默认不提供无参构造</p>
-<h5 id="NoArgsConstructor"><a href="#NoArgsConstructor" class="headerlink" title="@NoArgsConstructor"></a>@NoArgsConstructor</h5><p>注解在类上，提供一个无参构造 </p>
-<h5 id="Value"><a href="#Value" class="headerlink" title="@Value"></a>@Value</h5><p>注解在类上，包含了@ToString，@EqualsAndHashCode， @Getter，@AllArgsConstructor。没有@Setter。</p>
-<h5 id="Cleanup"><a href="#Cleanup" class="headerlink" title="@Cleanup"></a>@Cleanup</h5><p>注解在属性前，用来保证分配的资源被释放。<br>在本地变量上使用该注解，任何后续代码都将封装在try/finally中，确保当前作用于中的资源被释放。默认@Cleanup清理的方法为close，可以使用value指定不同的方法名称。 </p>
+<h5 id="AllArgsConstructor"><a class="header-anchor" href="#AllArgsConstructor">¶</a>@AllArgsConstructor</h5>
+<p>注解在类上，提供一个全参数的构造方法，默认不提供无参构造</p>
+<h5 id="NoArgsConstructor"><a class="header-anchor" href="#NoArgsConstructor">¶</a>@NoArgsConstructor</h5>
+<p>注解在类上，提供一个无参构造</p>
+<h5 id="Value"><a class="header-anchor" href="#Value">¶</a>@Value</h5>
+<p>注解在类上，包含了@ToString，@EqualsAndHashCode， @Getter，@AllArgsConstructor。没有@Setter。</p>
+<h5 id="Cleanup"><a class="header-anchor" href="#Cleanup">¶</a>@Cleanup</h5>
+<p>注解在属性前，用来保证分配的资源被释放。<br>
+在本地变量上使用该注解，任何后续代码都将封装在try/finally中，确保当前作用于中的资源被释放。默认@Cleanup清理的方法为close，可以使用value指定不同的方法名称。</p>
 
 </div>
 
@@ -4408,19 +4449,23 @@
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

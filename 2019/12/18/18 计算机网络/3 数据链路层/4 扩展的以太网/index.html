@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		4 扩展的以太网 | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,36 +4395,43 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:44</span>
+	<span id="post-date">2019-12-18 01:00:41</span>
 </div>
 
 
 <div id="article">
-	<h2 id="1-在物理层扩展以太网"><a href="#1-在物理层扩展以太网" class="headerlink" title="1. 在物理层扩展以太网"></a>1. 在物理层扩展以太网</h2><ul>
+	<h2 id="1-在物理层扩展以太网"><a class="header-anchor" href="#1-在物理层扩展以太网">¶</a>1. 在物理层扩展以太网</h2>
+<ul>
 <li>使用光纤扩展主机和集线器之间的距离</li>
-<li>通过一个主干集线器把各级系以太网连接起来，实现覆盖更大范围的多级星型结构的以太网<ul>
+<li>通过一个主干集线器把各级系以太网连接起来，实现覆盖更大范围的多级星型结构的以太网
+<ul>
 <li>由于碰撞域合并，最大吞吐量仍然是其中一级的最大吞吐量</li>
 <li>不能用集线器将使用不同的以太网技术的系互连起来</li>
 </ul>
 </li>
 </ul>
-<h2 id="2-在数据链路层扩展以太网"><a href="#2-在数据链路层扩展以太网" class="headerlink" title="2. 在数据链路层扩展以太网"></a>2. 在数据链路层扩展以太网</h2><p>最初使用网桥(bridge)，后来交换式集线器淘汰了网桥。</p>
+<h2 id="2-在数据链路层扩展以太网"><a class="header-anchor" href="#2-在数据链路层扩展以太网">¶</a>2. 在数据链路层扩展以太网</h2>
+<p>最初使用网桥(bridge)，后来交换式集线器淘汰了网桥。</p>
 <ul>
 <li><strong>网桥</strong>：网桥根据 MAC 帧的目的地址对收到的帧进行转发和过滤</li>
 <li>交换式集线器：常称为<strong>以太网交换机</strong>(switch)或第二层交换机(L2 switch)，强调这种交换机工作在数据链路层。</li>
 </ul>
-<h4 id="以太网交换机的特点"><a href="#以太网交换机的特点" class="headerlink" title="以太网交换机的特点"></a>以太网交换机的特点</h4><ul>
+<h4 id="以太网交换机的特点"><a class="header-anchor" href="#以太网交换机的特点">¶</a>以太网交换机的特点</h4>
+<ul>
 <li>以太网交换机实质上是一个多接口的网桥。相互通信的主机都是独占传输媒体，无碰撞地传输数据</li>
 <li>以太网交换机是一直即插即用设备，内部的帧交换表是通过自学习算法自动地逐渐建立起来的。</li>
 <li>以太网交换机的性能好价格不贵，逐渐淘汰了工作在物理层的集线器</li>
 </ul>
-<h4 id="以太网交换机的自学习功能"><a href="#以太网交换机的自学习功能" class="headerlink" title="以太网交换机的自学习功能"></a>以太网交换机的自学习功能</h4><ol>
+<h4 id="以太网交换机的自学习功能"><a class="header-anchor" href="#以太网交换机的自学习功能">¶</a>以太网交换机的自学习功能</h4>
+<ol>
 <li>网桥收到一个帧之后先进行自学习，查找转发表中与收到帧的源地址有无相匹配的项目，若没有，则在转发表中增加一个项目，若有，则更新原项目</li>
 <li>查找转发表中与收到的帧的目的地址有无相匹配的项目，若没有，则通过所有其他接口进行转发，若有，则按转发表给出的接口进行转发</li>
 <li>使用生成树算法，即互连在一起的网桥在进行彼此通信后，就能找出原来的网络拓扑的一个子集，在这个子集中，整个连通的网络中不存在回路</li>
 </ol>
-<h4 id="从总线以太网到星形以太网"><a href="#从总线以太网到星形以太网" class="headerlink" title="从总线以太网到星形以太网"></a>从总线以太网到星形以太网</h4><p>以太网的重要协议 CSMA/CD 不使用了，但还是叫做以太网，原因：它的帧结构未改变，仍然采用以太网的帧结构。</p>
-<h2 id="3-虚拟局域网"><a href="#3-虚拟局域网" class="headerlink" title="3. 虚拟局域网"></a>3. 虚拟局域网</h2><ul>
+<h4 id="从总线以太网到星形以太网"><a class="header-anchor" href="#从总线以太网到星形以太网">¶</a>从总线以太网到星形以太网</h4>
+<p>以太网的重要协议 CSMA/CD 不使用了，但还是叫做以太网，原因：它的帧结构未改变，仍然采用以太网的帧结构。</p>
+<h2 id="3-虚拟局域网"><a class="header-anchor" href="#3-虚拟局域网">¶</a>3. 虚拟局域网</h2>
+<ul>
 <li>虚拟局域网VLAN：是由一些局域网网段构成的与物理位置无关的逻辑组，而这些网段具有某些共同的需求。</li>
 <li>每一个VLAN的帧都有一个明确的标识符，指明发送这个帧的计算机属于哪一个VLAN</li>
 <li>虚拟局域网其实只是局域网给用户提供的一种服务，而并不是一种新型局域网</li>
@@ -4417,19 +4447,23 @@
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

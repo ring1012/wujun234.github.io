@@ -1,10 +1,30 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +35,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4369,12 +4390,17 @@
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/08%20Java%20SE%208%E7%9A%84%E6%B5%81%E5%BA%93/1%20Stream/">1 Stream</a>
+					<a class="article-title" href="/2019/12/18/03%20%E5%BE%AE%E6%9C%8D%E5%8A%A1/3%20API%E7%BD%91%E5%85%B3/01%20Spring%20Cloud%20Zuul/">01 Spring Cloud Zuul</a>
 				</h2>
 				<span class="post-date">2019-12-18</span>
 				<div class="article-digest">
-					Java 8 中的 Stream 是对集合对象功能的增强，像一个高级版本的Iterator，专注于对集合对象进行各种非常便利、高效的聚合操作，或者大批量数据操作。
-Stream 单向，不可往复，数据源
+					Spring Cloud Zuul是提供负载均衡、反向代理、权限认证的一个API gateway。
+¶简单路由
+
+添加依赖
+引入 spring-cloud-starter-zuul 包
+
+&lt;de
 					...
 				</div>
 			</article>
@@ -4383,13 +4409,15 @@ Stream 单向，不可往复，数据源
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/08%20Java%20SE%208%E7%9A%84%E6%B5%81%E5%BA%93/2%20Optional/">2 Optional</a>
+					<a class="article-title" href="/2019/12/18/03%20%E5%BE%AE%E6%9C%8D%E5%8A%A1/2%20%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83/02%20Apollo/">02 Apollo</a>
 				</h2>
 				<span class="post-date">2019-12-18</span>
 				<div class="article-digest">
-					@since 1.8
-为了解决空指针异常，受到Google Guava的启发，Optional类已经成为Java 8类库的一部分。
-Optional实际上是个容器：它可以保存类型T的值，或者仅仅保存n
+					携程Apollo分布式配置中心，官方文档已经够成熟了：
+Wiki
+源码解析
+使用场景
+
 					...
 				</div>
 			</article>
@@ -4398,11 +4426,13 @@ Optional实际上是个容器：它可以保存类型T的值，或者仅仅保�
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/06%20%E9%9B%86%E5%90%88/1%20%E9%9B%86%E5%90%88%E6%8E%A5%E5%8F%A3/">1 集合接口</a>
+					<a class="article-title" href="/2019/12/18/03%20%E5%BE%AE%E6%9C%8D%E5%8A%A1/2%20%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83/01%20Spring%20Cloud%20Config/">01 Spring Cloud Config</a>
 				</h2>
 				<span class="post-date">2019-12-18</span>
 				<div class="article-digest">
-					框架，是一个类的集。容器，是可以容纳其他Java对象的对象。JDK 1.2开始，Java集合框架(JCF)提供了通用的容器。JDK 1.5开始，集合类是带有类型参数的泛型类。Java容器里只能放对象，
+					Spring Cloud Config老版采用git或svn存储配置文件，默认情况下使用git。从Edgware版本开始新增的一种配置方式：采用数据库存储配置信息。
+结构与原理
+Spring Clou
 					...
 				</div>
 			</article>
@@ -4411,36 +4441,12 @@ Optional实际上是个容器：它可以保存类型T的值，或者仅仅保�
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/06%20%E9%9B%86%E5%90%88/2.0%20%E5%85%B7%E4%BD%93%E7%9A%84%E9%9B%86%E5%90%88/">2.0 具体的集合</a>
+					<a class="article-title" href="/2019/12/18/03%20%E5%BE%AE%E6%9C%8D%E5%8A%A1/1%20%E6%9C%8D%E5%8A%A1%E8%B0%83%E7%94%A8/04%20Resilience4j/">04 Resilience4j</a>
 				</h2>
 				<span class="post-date">2019-12-18</span>
 				<div class="article-digest">
-					Java库中的具体集合
-
-
-集合类型
-同步
-可null
-有序
-描述
-
-
-
-ArrayList
-否
-是
-是
-动态增缩的索引序列
-
-
-Vector
-是
-是
-是
-过时，同步的ArrayList
-
-
-Link
+					【todo】
+Hystrix官方已经停止开发了，Hystrix官方推荐使用新一代熔断器作为Resilience4j。作为新一代的熔断器，Resilience4j有很多优势，比如依赖少，模块化程度较好等
 					...
 				</div>
 			</article>
@@ -4449,13 +4455,11 @@ Link
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/06%20%E9%9B%86%E5%90%88/2.1%20ArrayList%E3%80%81Vector/">2.1 ArrayList、Vector</a>
+					<a class="article-title" href="/2019/12/18/03%20%E5%BE%AE%E6%9C%8D%E5%8A%A1/1%20%E6%9C%8D%E5%8A%A1%E8%B0%83%E7%94%A8/03%20Spring%20Cloud%20Feign/">03 Spring Cloud Feign</a>
 				</h2>
 				<span class="post-date">2019-12-18</span>
 				<div class="article-digest">
-					前言ArrayList除未实现同步外，跟Vector大致相同。同步效率低，在不需要同步的时候使用ArrayList。
-ArrayList
-总体介绍ArrayList 实现了 List、RandomAc
+					Spring Cloud Feign是一套基于Netflix Feign实现的声明式服务调用客户端，目的是让Web Service调用更加简单，使用HTTP请求远程服务时能与调用本地方法一样的编码体验
 					...
 				</div>
 			</article>
@@ -4464,15 +4468,14 @@ ArrayList
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/06%20%E9%9B%86%E5%90%88/2.2%20LinkedList/">2.2 LinkedList</a>
+					<a class="article-title" href="/2019/12/18/03%20%E5%BE%AE%E6%9C%8D%E5%8A%A1/1%20%E6%9C%8D%E5%8A%A1%E8%B0%83%E7%94%A8/02%20Spring%20Cloud%20Hystrix/">02 Spring Cloud Hystrix</a>
 				</h2>
 				<span class="post-date">2019-12-18</span>
 				<div class="article-digest">
-					前言现在栈或者队列的首选是ArrayDeque。
-总体介绍
-LinkedList同时实现了List接口和Deque接口，允许null元素。  
-
-LinkedList底层通过双向链表实现。节点用内部类
+					Hystrix提供了熔断、隔离、Fallback、cache、监控等功能，能够在一个、或多个依赖同时出现问题时保证系统依然可用。
+¶一 熔断
+¶断路器
+失败次数达到阈值后， 断路器会切换到开路状态。 
 					...
 				</div>
 			</article>
@@ -4481,13 +4484,15 @@ LinkedList底层通过双向链表实现。节点用内部类
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/06%20%E9%9B%86%E5%90%88/2.3%20ArrayDeque/">2.3 ArrayDeque</a>
+					<a class="article-title" href="/2019/12/18/03%20%E5%BE%AE%E6%9C%8D%E5%8A%A1/1%20%E6%9C%8D%E5%8A%A1%E8%B0%83%E7%94%A8/01%20Spring%20Cloud%20Ribbon/">01 Spring Cloud Ribbon</a>
 				</h2>
 				<span class="post-date">2019-12-18</span>
 				<div class="article-digest">
-					前言栈Stack已过时，队列LinkedList效率不高，栈和队列首选ArrayDeque。
-总体介绍
-Deque接口ArrayDeque实现了Deque接口，Deque继承Queue实现了Stack
+					Spring Cloud Ribbon封装了Netflix Ribbon，是基于HTTP和TCP的客户端负载均衡器。
+它主要包括六个组件：
+
+ServerList：负载均衡使用的服务器列表。
+Serv
 					...
 				</div>
 			</article>
@@ -4496,13 +4501,18 @@ Deque接口ArrayDeque实现了Deque接口，Deque继承Queue实现了Stack
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/06%20%E9%9B%86%E5%90%88/2.4%20treemap%E3%80%81treeset/">2.4 treemap、treeset</a>
+					<a class="article-title" href="/2019/12/18/03%20%E5%BE%AE%E6%9C%8D%E5%8A%A1/0%20%E6%9C%8D%E5%8A%A1%E6%B3%A8%E5%86%8C%E4%B8%8E%E5%8F%91%E7%8E%B0/02%20Spring%20Cloud%20Consul/">02 Spring Cloud Consul</a>
 				</h2>
 				<span class="post-date">2019-12-18</span>
 				<div class="article-digest">
-					前言TreeSet仅对TreeMap做了一层包装，实现相同。TreeSet里面有一个TreeMap（适配器模式）。
-TreeMap总体介绍TreeMap实现了SortedMap接口，有序。非同步。
-底
+					Spring Cloud Consul是针对Consul的服务治理实现，提供服务发现和服务配置。包含了下面几个特性：
+
+服务发现
+健康检查
+Key/Value存储
+多数据中心
+
+Consul自身提供了
 					...
 				</div>
 			</article>
@@ -4511,12 +4521,12 @@ TreeMap总体介绍TreeMap实现了SortedMap接口，有序。非同步。
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/06%20%E9%9B%86%E5%90%88/4%20%E8%A7%86%E5%9B%BE%E4%B8%8E%E5%8C%85%E8%A3%85%E5%99%A8/">4 视图与包装器</a>
+					<a class="article-title" href="/2019/12/18/03%20%E5%BE%AE%E6%9C%8D%E5%8A%A1/0%20%E6%9C%8D%E5%8A%A1%E6%B3%A8%E5%86%8C%E4%B8%8E%E5%8F%91%E7%8E%B0/01%20Spring%20Cloud%20Eureka/">01 Spring Cloud Eureka</a>
 				</h2>
 				<span class="post-date">2019-12-18</span>
 				<div class="article-digest">
-					视图：保持对原集合的控制。只用来展示集合中的元素。视图是不可修改的，任何改变视图size的操作都会影响到原集合。抛出异常。
-1、轻量级集包装器Arrays.asList方法Arrays.asList方
+					简介
+Spring Cloud针对服务注册与发现，进行了一层抽象，并提供了三种实现：Eureka、Consul、Zookeeper。目前支持得最好的就是Eureka，其次是Consul，最后是Zook
 					...
 				</div>
 			</article>
@@ -4525,12 +4535,14 @@ TreeMap总体介绍TreeMap实现了SortedMap接口，有序。非同步。
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/06%20%E9%9B%86%E5%90%88/2.5%20hashmap%E3%80%81hashset%E3%80%81hashtable/">2.5 hashmap、hashset、hashtable</a>
+					<a class="article-title" href="/2019/12/18/02%20%E6%95%B0%E6%8D%AE%E5%BA%93/06%20Cassandra/6%20Cassandra%20vs.%20HBase/">6 Cassandra vs. HBase</a>
 				</h2>
 				<span class="post-date">2019-12-18</span>
 				<div class="article-digest">
-					前言HashSet仅对HashMap做了一层包装，实现相同。HashSet里面有一个HashMap（适配器模式）。
-Hashtable与HashMap大致相同，但Hashtable是同步的，并且不允许
+					参考：
+
+Cassandra vs. HBase: twins or just strangers with similar looks?[Jun 19, 2018]
+HBase vs Cassand
 					...
 				</div>
 			</article>
@@ -4546,19 +4558,23 @@ Hashtable与HashMap大致相同，但Hashtable是同步的，并且不允许
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

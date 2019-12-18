@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		6 Cassandra vs. HBase | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,7 +4395,7 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:22</span>
+	<span id="post-date">2019-12-18 01:00:43</span>
 </div>
 
 
@@ -4382,15 +4405,18 @@
 <li><a href="https://www.scnsoft.com/blog/cassandra-vs-hbase" target="_blank" rel="noopener">Cassandra vs. HBase: twins or just strangers with similar looks?</a>[Jun 19, 2018]</li>
 <li><a href="https://www.educba.com/hbase-vs-cassandra/" target="_blank" rel="noopener">HBase vs Cassandra – Which One Is Better (Infographics)</a>[Feb 16, 2018]</li>
 </ul>
-<h3 id="一、对比总结"><a href="#一、对比总结" class="headerlink" title="一、对比总结"></a>一、对比总结</h3><ul>
+<h3 id="一、对比总结"><a class="header-anchor" href="#一、对比总结">¶</a>一、对比总结</h3>
+<ul>
 <li>Cassandra的弱点是数据一致性，而HBase的弱点是数据可用性。</li>
 <li>都擅长处理时间序列数据，都具有线性可伸缩性。</li>
 <li>都不适用于经常进行数据删除和更新。</li>
 </ul>
-<h4 id="1）HBase"><a href="#1）HBase" class="headerlink" title="1）HBase"></a>1）HBase</h4><p>HBase 设计目的是处理数据湖、数据仓库中的冷数据</p>
+<h4 id="1）HBase"><a class="header-anchor" href="#1）HBase">¶</a>1）HBase</h4>
+<p>HBase 设计目的是处理数据湖、数据仓库中的冷数据</p>
 <ul>
 <li>擅长处理文本分析和基本数据分析（通过协处理器）</li>
-<li>Base只提供数据管理，不负责存储，有外部依赖。查询语言需重新学习。<ul>
+<li>Base只提供数据管理，不负责存储，有外部依赖。查询语言需重新学习。
+<ul>
 <li>所有数据都存储在HDFS。</li>
 <li>使用Zookeeper管理服务器状态，元数据的位置。</li>
 <li>适合已经投资了Hadoop基础设施和技能时使用。</li>
@@ -4398,15 +4424,17 @@
 </li>
 <li>擅长读（因为其没有数据重复）</li>
 </ul>
-<h4 id="2）Cassandra"><a href="#2）Cassandra" class="headerlink" title="2）Cassandra"></a>2）Cassandra</h4><p>Cassandra 设计目的是支持“always-on”的在线Web和移动应用程序</p>
+<h4 id="2）Cassandra"><a class="header-anchor" href="#2）Cassandra">¶</a>2）Cassandra</h4>
+<p>Cassandra 设计目的是支持“always-on”的在线Web和移动应用程序</p>
 <ul>
-<li>擅长处理复杂分析、实时分析。 </li>
+<li>擅长处理复杂分析、实时分析。</li>
 <li>Cassandra是数据存储和数据管理工具，“自给自足”。有类似SQL的CQL。</li>
 <li>擅长写（直接hash，不需要经过Zookeeper）</li>
 <li>能够在不同国家/地区创建数据中心并使其保持同步运行。</li>
 <li>如果将 Cassandra 与 Spark 结合使用，也可以获得良好的扫描性能。</li>
 </ul>
-<h4 id="3）特性对比"><a href="#3）特性对比" class="headerlink" title="3）特性对比"></a>3）特性对比</h4><table>
+<h4 id="3）特性对比"><a class="header-anchor" href="#3）特性对比">¶</a>3）特性对比</h4>
+<table>
 <thead>
 <tr>
 <th>特性</th>
@@ -4414,7 +4442,8 @@
 <th>Cassandra</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>CAP</td>
 <td>CA，一致性&amp;可用性</td>
 <td>AP，可用性&amp;分区容错性</td>
@@ -4459,8 +4488,11 @@
 <td>强一致性</td>
 <td>弱一致性</td>
 </tr>
-</tbody></table>
-<h3 id="二、数据模型"><a href="#二、数据模型" class="headerlink" title="二、数据模型"></a>二、数据模型</h3><h4 id="1）HBase-1"><a href="#1）HBase-1" class="headerlink" title="1）HBase"></a>1）HBase</h4><p><img src="/images/1555585394001.png" alt=""></p>
+</tbody>
+</table>
+<h3 id="二、数据模型"><a class="header-anchor" href="#二、数据模型">¶</a>二、数据模型</h3>
+<h4 id="1）HBase-v2"><a class="header-anchor" href="#1）HBase-v2">¶</a>1）HBase</h4>
+<p><img src="/images/1555585394001.png" alt=""></p>
 <ul>
 <li>cell：数据存储基本单位。包含 value 和 timestamp。</li>
 <li>column：cell的集合。在 column family 和 column qualifier 之下。</li>
@@ -4470,7 +4502,8 @@
 <li>table：column family的集合</li>
 </ul>
 <p>在 table 中，数据按一列行键字典顺序分区。行键的设计至关重要，用以确保高效的数据查找。</p>
-<h4 id="2）Cassandra-1"><a href="#2）Cassandra-1" class="headerlink" title="2）Cassandra"></a>2）Cassandra</h4><p><img src="/images/1555585394002.png" alt=""></p>
+<h4 id="2）Cassandra-v2"><a class="header-anchor" href="#2）Cassandra-v2">¶</a>2）Cassandra</h4>
+<p><img src="/images/1555585394002.png" alt=""></p>
 <ul>
 <li>column family：按行储存column</li>
 <li>row key：主键</li>
@@ -4478,53 +4511,67 @@
 <li>super column：特殊列，value可包含多个子列</li>
 </ul>
 <p>在 cluster 中，数据按多列主键的hash值分区，并被分配到 token 比其hash值大的结点，再根据复制因子备份到相应结点。</p>
-<h4 id="3）数据模型对比"><a href="#3）数据模型对比" class="headerlink" title="3）数据模型对比"></a>3）数据模型对比</h4><p>术语相同，含义不同。</p>
+<h4 id="3）数据模型对比"><a class="header-anchor" href="#3）数据模型对比">¶</a>3）数据模型对比</h4>
+<p>术语相同，含义不同。</p>
 <ul>
 <li>Cassandra 的<code>column</code>类似 HBase 的<code>cell</code>。</li>
 <li>Cassandra 的<code>column family</code>类似 HBase 的<code>table</code>。</li>
 <li>Cassandra 的<code>super column</code>类似 HBase 的<code>column qualifier</code>，但前者最少2个子列，后者只能一个。</li>
 </ul>
-<p>//todo<br>另外，Cassandra 允许一个主键包含多列，而 HBase 只有单列行键，并让开发者设计行键。同时，Cassandra 的主键包括分区键和聚类列，分区键里仍能包含多列。</p>
-<h3 id="三、架构"><a href="#三、架构" class="headerlink" title="三、架构"></a>三、架构</h3><h5 id="1）单点失败"><a href="#1）单点失败" class="headerlink" title="1）单点失败"></a>1）单点失败</h5><ul>
+<p>//todo<br>
+另外，Cassandra 允许一个主键包含多列，而 HBase 只有单列行键，并让开发者设计行键。同时，Cassandra 的主键包括分区键和聚类列，分区键里仍能包含多列。</p>
+<h3 id="三、架构"><a class="header-anchor" href="#三、架构">¶</a>三、架构</h3>
+<h5 id="1）单点失败"><a class="header-anchor" href="#1）单点失败">¶</a>1）单点失败</h5>
+<ul>
 <li>Cassandra 是去中心架构，没有单点失败。</li>
 <li>HBase 是中心化架构，存在单点失败。</li>
 </ul>
-<h5 id="2）可用性"><a href="#2）可用性" class="headerlink" title="2）可用性"></a>2）可用性</h5><ul>
-<li>Cassandra 始终可用。<ul>
+<h5 id="2）可用性"><a class="header-anchor" href="#2）可用性">¶</a>2）可用性</h5>
+<ul>
+<li>Cassandra 始终可用。
+<ul>
 <li>通过群集中标识的多个种子节点互相通信，确保高可伸缩性和可用性</li>
 </ul>
 </li>
-<li>HBase 客户端可以不经主节点与从节点直接联系，在主节点挂掉之后集群还能工作一段时间。<ul>
+<li>HBase 客户端可以不经主节点与从节点直接联系，在主节点挂掉之后集群还能工作一段时间。
+<ul>
 <li>通过备用主节点取代故障的主节点，确保高可伸缩性和可用性</li>
 </ul>
 </li>
 </ul>
-<h5 id="3）一致性"><a href="#3）一致性" class="headerlink" title="3）一致性"></a>3）一致性</h5><ul>
+<h5 id="3）一致性"><a class="header-anchor" href="#3）一致性">¶</a>3）一致性</h5>
+<ul>
 <li>Cassandra具有一致性问题：为确保可用性，Cassandra 会复制数据</li>
 <li>HBase具有强一致性：只将数据写入一个地方并且始终知道在哪里找到它（数据复制在HDFS中“外部”完成）。</li>
 </ul>
-<h5 id="4）节间通信"><a href="#4）节间通信" class="headerlink" title="4）节间通信"></a>4）节间通信</h5><ul>
-<li>Cassandra集成Gossip协议。数据在节点间复制。 </li>
+<h5 id="4）节间通信"><a class="header-anchor" href="#4）节间通信">¶</a>4）节间通信</h5>
+<ul>
+<li>Cassandra集成Gossip协议。数据在节点间复制。</li>
 <li>HBase依赖于外部Zookeeper。一个节点作为主节点，所有其他节点通过其获取数据。</li>
 </ul>
-<h5 id="5）事务"><a href="#5）事务" class="headerlink" title="5）事务"></a>5）事务</h5><p>支持轻量级事务</p>
+<h5 id="5）事务"><a class="header-anchor" href="#5）事务">¶</a>5）事务</h5>
+<p>支持轻量级事务</p>
 <ul>
-<li>Cassandra事务机制：“Compare and Set”和“行级写隔离”。 </li>
+<li>Cassandra事务机制：“Compare and Set”和“行级写隔离”。</li>
 <li>HBase事务机制：“Check and Put”和“Read-Check-Delete”。</li>
 </ul>
-<h5 id="6）查询语言"><a href="#6）查询语言" class="headerlink" title="6）查询语言"></a>6）查询语言</h5><p>HBase shell 和 Cassandra shell都基于JRuby Shell。</p>
+<h5 id="6）查询语言"><a class="header-anchor" href="#6）查询语言">¶</a>6）查询语言</h5>
+<p>HBase shell 和 Cassandra shell都基于JRuby Shell。</p>
 <ul>
-<li>Cassandra有一个类似SQL的特定查询语言CQL。比HBase具有更多功能。 </li>
+<li>Cassandra有一个类似SQL的特定查询语言CQL。比HBase具有更多功能。</li>
 <li>HBase查询语言是一种需要学习的自定义语言</li>
 </ul>
-<h5 id="7）功能"><a href="#7）功能" class="headerlink" title="7）功能"></a>7）功能</h5><ul>
-<li>Cassandra 的架构支持数据管理和存储。<ul>
+<h5 id="7）功能"><a class="header-anchor" href="#7）功能">¶</a>7）功能</h5>
+<ul>
+<li>Cassandra 的架构支持数据管理和存储。
+<ul>
 <li>没有协处理器</li>
 <li>支持有序分区</li>
 <li>不支持基于范围的行扫描</li>
 </ul>
 </li>
-<li>HBase的架构仅用于数据管理。 <ul>
+<li>HBase的架构仅用于数据管理。
+<ul>
 <li>有协处理器，用于执行用户代码。</li>
 <li>不支持有序分区</li>
 <li>支持触发器</li>
@@ -4532,28 +4579,34 @@
 </ul>
 </li>
 </ul>
-<h3 id="四、性能"><a href="#四、性能" class="headerlink" title="四、性能"></a>四、性能</h3><h4 id="1）写"><a href="#1）写" class="headerlink" title="1）写"></a>1）写</h4><p>Cassandra 更擅长写。</p>
+<h3 id="四、性能"><a class="header-anchor" href="#四、性能">¶</a>四、性能</h3>
+<h4 id="1）写"><a class="header-anchor" href="#1）写">¶</a>1）写</h4>
+<p>Cassandra 更擅长写。</p>
 <p>Cassandra 基于一致性hash，HBase 依赖Zookeeper</p>
 <ul>
-<li>HBase 写入流程：<ol>
+<li>HBase 写入流程：
+<ol>
 <li>首先，客户端向Zookeeper“询问”具有meta表的服务器（meta表包含有关集群中所有表位置的信息）。</li>
 <li>然后，客户端“询问”meta表服务器，“谁”存储它需要写入的实际表。</li>
-<li>最后，客户端才会将数据写入所需的位置。 </li>
+<li>最后，客户端才会将数据写入所需的位置。</li>
 </ol>
 </li>
-<li>如果相同写入、读取经常发生，信息会缓存。但是如果将表移动了，则需再次执行完整轮次。 </li>
+<li>如果相同写入、读取经常发生，信息会缓存。但是如果将表移动了，则需再次执行完整轮次。</li>
 <li>在 HBase 内部写入结束后（缓存的数据被刷新到磁盘），HDFS 也需要时间来存储数据。</li>
 </ul>
 <p><img src="/images/1555585394003.png" alt=""></p>
-<h4 id="2）读"><a href="#2）读" class="headerlink" title="2）读"></a>2）读</h4><p>HBase 更擅长读。</p>
+<h4 id="2）读"><a class="header-anchor" href="#2）读">¶</a>2）读</h4>
+<p>HBase 更擅长读。</p>
 <ul>
-<li>HBase 擅长大量快速一致的读取<ul>
+<li>HBase 擅长大量快速一致的读取
+<ul>
 <li>只在一台服务器上写入，读取时无需比较不同节点的数据版本。</li>
 <li>HBase需要从HDFS取数据。但对于所有频繁访问的HDFS数据都有缓存，对所有其他数据的近似“地址”还应用了布隆过滤器，可加速数据检索。</li>
 <li>HBase和HDFS的索引系统是多层的，比Cassandra的索引更有效。</li>
 </ul>
 </li>
-<li>Cassandra 只擅长主键已知的针对读取，不保证一致。<ul>
+<li>Cassandra 只擅长主键已知的针对读取，不保证一致。
+<ul>
 <li>在要求扫描和一致性时，Cassandra 比 HBase 慢。</li>
 </ul>
 </li>
@@ -4568,19 +4621,23 @@
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

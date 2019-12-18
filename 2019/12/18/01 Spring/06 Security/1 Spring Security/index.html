@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		1 Spring Security | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,12 +4395,13 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:21</span>
+	<span id="post-date">2019-12-18 01:00:43</span>
 </div>
 
 
 <div id="article">
-	<h3 id="1-保护Web"><a href="#1-保护Web" class="headerlink" title="1 保护Web"></a>1 保护Web</h3><p>配置Spring Security，在扩展WebSecurityConfigurerAdapter的bean上，添加@EnableWebSecurity注解，启用Web安全功能，并在类中重写configure的3个方法。</p>
+	<h3 id="1-保护Web"><a class="header-anchor" href="#1-保护Web">¶</a>1 保护Web</h3>
+<p>配置Spring Security，在扩展WebSecurityConfigurerAdapter的bean上，添加@EnableWebSecurity注解，启用Web安全功能，并在类中重写configure的3个方法。</p>
 <pre><code>@EnableWebSecurity
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
       //配置用户存储
@@ -4395,40 +4419,71 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
        protected void configure(WebSecurity web){
             super.configure(web);
        }
-｝</code></pre><h4 id="1-1-配置用户存储"><a href="#1-1-配置用户存储" class="headerlink" title="1.1 配置用户存储"></a>1.1 配置用户存储</h4><h5 id="1）基于内存"><a href="#1）基于内存" class="headerlink" title="1）基于内存"></a>1）基于内存</h5><p>调用AuthenticationManagerBuilder类的inMemoryAuthentication()方法启用内存用户存储。 withUser()方法为内存用户存储添加新的用户，返回UserDetailsBuilder。</p>
-<pre><code>auth.inMemoryAuthentication().withUser(&quot;user&quot;).password(&quot;user&quot;).authorities(&quot;ROLE_USER&quot;);</code></pre><h5 id="2）基于数据库"><a href="#2）基于数据库" class="headerlink" title="2）基于数据库"></a>2）基于数据库</h5><p>passwordEncoder()方法指定一个密码转码器（encoder） ，接受PasswordEncoder接口的任意实现。 </p>
-<pre><code>auth.jdbcAuthentication().dataSource(dataSource).usersByUsernameQuery(...).PasswordEncoder(...);</code></pre><h5 id="3）基于LDAP"><a href="#3）基于LDAP" class="headerlink" title="3）基于LDAP"></a>3）基于LDAP</h5><pre><code>auth.ldapAuthentication().userSearchFilter(&quot;{uid={0}}&quot;).groupSearchFilter(&quot;member={0}&quot;).contextSource().url(...);</code></pre><h5 id="4）自定义"><a href="#4）自定义" class="headerlink" title="4）自定义"></a>4）自定义</h5><p>如用户存储在非关系型数据库中，需要提供一个自定义的UserDetailsService接口实现。</p>
-<h4 id="1-2-拦截请求"><a href="#1-2-拦截请求" class="headerlink" title="1.2 拦截请求"></a>1.2 拦截请求</h4><p>http.authorizeRequests()方法有多个子节点，每个macher按照他们的声明顺序执行。.permitAll()都可以访问，.hasRole()按角色，.access(“hasRole(‘’) and hasRole(‘’)”)满足条件，.hasAnyRole(“”, “”)</p>
+｝
+</code></pre>
+<h4 id="1-1-配置用户存储"><a class="header-anchor" href="#1-1-配置用户存储">¶</a>1.1 配置用户存储</h4>
+<h5 id="1）基于内存"><a class="header-anchor" href="#1）基于内存">¶</a>1）基于内存</h5>
+<p>调用AuthenticationManagerBuilder类的inMemoryAuthentication()方法启用内存用户存储。 withUser()方法为内存用户存储添加新的用户，返回UserDetailsBuilder。</p>
+<pre><code>auth.inMemoryAuthentication().withUser(&quot;user&quot;).password(&quot;user&quot;).authorities(&quot;ROLE_USER&quot;);
+</code></pre>
+<h5 id="2）基于数据库"><a class="header-anchor" href="#2）基于数据库">¶</a>2）基于数据库</h5>
+<p>passwordEncoder()方法指定一个密码转码器（encoder） ，接受PasswordEncoder接口的任意实现。</p>
+<pre><code>auth.jdbcAuthentication().dataSource(dataSource).usersByUsernameQuery(...).PasswordEncoder(...);
+</code></pre>
+<h5 id="3）基于LDAP"><a class="header-anchor" href="#3）基于LDAP">¶</a>3）基于LDAP</h5>
+<pre><code>auth.ldapAuthentication().userSearchFilter(&quot;{uid={0}}&quot;).groupSearchFilter(&quot;member={0}&quot;).contextSource().url(...);
+</code></pre>
+<h5 id="4）自定义"><a class="header-anchor" href="#4）自定义">¶</a>4）自定义</h5>
+<p>如用户存储在非关系型数据库中，需要提供一个自定义的UserDetailsService接口实现。</p>
+<h4 id="1-2-拦截请求"><a class="header-anchor" href="#1-2-拦截请求">¶</a>1.2 拦截请求</h4>
+<p>http.authorizeRequests()方法有多个子节点，每个macher按照他们的声明顺序执行。.permitAll()都可以访问，.hasRole()按角色，.access(“hasRole(’’) and hasRole(’’)”)满足条件，.hasAnyRole(&quot;&quot;, “”)</p>
 <pre><code>        http.authorizeRequests()
                 .antMatchers(&quot;/resources/**&quot;, &quot;/signup&quot;, &quot;/about&quot;).permitAll()
                 .antMatchers(&quot;/admin/**&quot;).hasRole(&quot;ADMIN&quot;)
-                .antMatchers(&quot;/db/**&quot;).access(&quot;hasRole(&#39;ADMIN&#39;) and hasRole(&#39;DBA&#39;)&quot;)
+                .antMatchers(&quot;/db/**&quot;).access(&quot;hasRole('ADMIN') and hasRole('DBA')&quot;)
                 .antMatchers(&quot;/db/**&quot;).hasAnyRole(&quot;ADMIN&quot;, &quot;DBA&quot;)
                 .anyRequest().authenticated().and()
-                .formLogin();</code></pre><h4 id="1-3-认证用户"><a href="#1-3-认证用户" class="headerlink" title="1.3 认证用户"></a>1.3 认证用户</h4><h5 id="1）认证"><a href="#1）认证" class="headerlink" title="1）认证"></a>1）认证</h5><p>HttpSecurity对象上调用formLogin()或httpBasic()</p>
-<h5 id="2）Remember-me"><a href="#2）Remember-me" class="headerlink" title="2）Remember-me"></a>2）Remember-me</h5><p>HttpSecurity对象上调用rememberMe()，可指定cookie中token有效期</p>
-<h5 id="3）退出"><a href="#3）退出" class="headerlink" title="3）退出"></a>3）退出</h5><p>HttpSecurity对象上，loginPage()指定退出连接，再调用logout()，并可调用logoutSuccessUrl()表明在退出成功之后， 重定向到地址</p>
-<h3 id="2-保护方法"><a href="#2-保护方法" class="headerlink" title="2 保护方法"></a>2 保护方法</h3><h4 id="2-1-使用注解保护方法"><a href="#2-1-使用注解保护方法" class="headerlink" title="2.1 使用注解保护方法"></a>2.1 使用注解保护方法</h4><p>Spring Security提供了三种不同的安全注解：</p>
+                .formLogin();
+</code></pre>
+<h4 id="1-3-认证用户"><a class="header-anchor" href="#1-3-认证用户">¶</a>1.3 认证用户</h4>
+<h5 id="1）认证"><a class="header-anchor" href="#1）认证">¶</a>1）认证</h5>
+<p>HttpSecurity对象上调用formLogin()或httpBasic()</p>
+<h5 id="2）Remember-me"><a class="header-anchor" href="#2）Remember-me">¶</a>2）Remember-me</h5>
+<p>HttpSecurity对象上调用rememberMe()，可指定cookie中token有效期</p>
+<h5 id="3）退出"><a class="header-anchor" href="#3）退出">¶</a>3）退出</h5>
+<p>HttpSecurity对象上，loginPage()指定退出连接，再调用logout()，并可调用logoutSuccessUrl()表明在退出成功之后， 重定向到地址</p>
+<h3 id="2-保护方法"><a class="header-anchor" href="#2-保护方法">¶</a>2 保护方法</h3>
+<h4 id="2-1-使用注解保护方法"><a class="header-anchor" href="#2-1-使用注解保护方法">¶</a>2.1 使用注解保护方法</h4>
+<p>Spring Security提供了三种不同的安全注解：</p>
 <ul>
 <li>Spring Security自带的@Secured注解；</li>
 <li>JSR-250的@RolesAllowed注解；</li>
 <li>表达式驱动的注解， 包括@PreAuthorize、 @PostAuthorize、 @PreFilter 和 @PostFilter。</li>
 </ul>
-<h5 id="1）使用-Secured注解"><a href="#1）使用-Secured注解" class="headerlink" title="1）使用@Secured注解"></a>1）使用@Secured注解</h5><p>在配置类上使用@EnableGlobalMethodSecurity启用基于注解的方法安全性</p>
+<h5 id="1）使用-Secured注解"><a class="header-anchor" href="#1）使用-Secured注解">¶</a>1）使用@Secured注解</h5>
+<p>在配置类上使用@EnableGlobalMethodSecurity启用基于注解的方法安全性</p>
 <pre><code>@Configuration
 @EnableGlobalMethodSecurity(securedEnabled=true)
 public class MethodSecurityConfig extends GlobalMethodSecurityConfiguration {
-}</code></pre><p>如果securedEnabled属性的值为true的话， 将会创建一个切点， 这样的话Spring Security切面就会包装带有@Secured注解的方法。 </p>
+}
+</code></pre>
+<p>如果securedEnabled属性的值为true的话， 将会创建一个切点， 这样的话Spring Security切面就会包装带有@Secured注解的方法。</p>
 <pre><code>@Secured(&quot;ROLE_SPITTER&quot;)
 public void addSpittle(Spittle spittle) {
     // ...
-}</code></pre><p>@Secured注解会使用一个String数组作为参数。 每个String值是一个权限， 调用这个方法至少需要具备其中的一个权限。 </p>
-<h5 id="2）-使用-RolesAllowed注解"><a href="#2）-使用-RolesAllowed注解" class="headerlink" title="2） 使用@RolesAllowed注解"></a>2） 使用@RolesAllowed注解</h5><p>@RolesAllowed注解和@Secured注解在各个方面基本上都是一致的。 唯一显著的区别在于@RolesAllowed是Java标准注解，@Secured是Spring注解。</p>
+}
+</code></pre>
+<p>@Secured注解会使用一个String数组作为参数。 每个String值是一个权限， 调用这个方法至少需要具备其中的一个权限。</p>
+<h5 id="2）-使用-RolesAllowed注解"><a class="header-anchor" href="#2）-使用-RolesAllowed注解">¶</a>2） 使用@RolesAllowed注解</h5>
+<p>@RolesAllowed注解和@Secured注解在各个方面基本上都是一致的。 唯一显著的区别在于@RolesAllowed是Java标准注解，@Secured是Spring注解。</p>
 <p>将@EnableGlobalMethodSecurity的jsr250Enabled属性设置为true， 以开启@RolesAllowed</p>
 <pre><code>@Configuration
 @EnableGlobalMethodSecurity(jsr250Enabled=true)
 public class MethodSecurityConfig extends GlobalMethodSecurityConfiguration {
-}</code></pre><h4 id="2-2-使用表达式实现方法级别的安全性"><a href="#2-2-使用表达式实现方法级别的安全性" class="headerlink" title="2.2 使用表达式实现方法级别的安全性"></a>2.2 使用表达式实现方法级别的安全性</h4><p>安全性约束不仅仅涉及用户是否有权限。下面几个注解使用SpEL在方法调用上实现更有意思的安全性约束。 </p>
+}
+</code></pre>
+<h4 id="2-2-使用表达式实现方法级别的安全性"><a class="header-anchor" href="#2-2-使用表达式实现方法级别的安全性">¶</a>2.2 使用表达式实现方法级别的安全性</h4>
+<p>安全性约束不仅仅涉及用户是否有权限。下面几个注解使用SpEL在方法调用上实现更有意思的安全性约束。</p>
 <table>
 <thead>
 <tr>
@@ -4436,7 +4491,8 @@ public class MethodSecurityConfig extends GlobalMethodSecurityConfiguration {
 <th>描 述</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>@PreAuthorize</td>
 <td>在方法调用前验证权限</td>
 </tr>
@@ -4452,11 +4508,14 @@ public class MethodSecurityConfig extends GlobalMethodSecurityConfiguration {
 <td>@PreFilter</td>
 <td>允许方法调用， 事先对方法的参数进行过滤</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 <p>将@EnableGlobalMethodSecurity注解的prePostEnabled属性设置为true， 以启用：</p>
 <pre><code>@Configuration
 public class MethodSecurityConfig extends GlobalMethodSecurityConfiguration {
-}</code></pre>
+}
+</code></pre>
+
 </div>
 
 	</div>
@@ -4465,19 +4524,23 @@ public class MethodSecurityConfig extends GlobalMethodSecurityConfiguration {
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

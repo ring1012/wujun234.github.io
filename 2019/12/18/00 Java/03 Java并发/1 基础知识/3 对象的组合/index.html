@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		3 对象的组合 | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,77 +4395,91 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:53</span>
+	<span id="post-date">2019-12-18 01:00:42</span>
 </div>
 
 
 <div id="article">
-	<h3 id="1-设计线程安全的类"><a href="#1-设计线程安全的类" class="headerlink" title="1 设计线程安全的类"></a>1 设计线程安全的类</h3><p>设计线程安全类的过程中,需要包含以下三个基本要素：</p>
+	<h3 id="1-设计线程安全的类"><a class="header-anchor" href="#1-设计线程安全的类">¶</a>1 设计线程安全的类</h3>
+<p>设计线程安全类的过程中,需要包含以下三个基本要素：</p>
 <ul>
 <li>找出构成对象状态的所有变量</li>
 <li>找出约束状态变量的<code>不变性条件</code></li>
 <li>建立对象状态的<code>并发访问管理策略</code></li>
 </ul>
-<h5 id="1-1-收集同步需求"><a href="#1-1-收集同步需求" class="headerlink" title="1.1 收集同步需求"></a>1.1 收集同步需求</h5><ul>
+<h5 id="1-1-收集同步需求"><a class="header-anchor" href="#1-1-收集同步需求">¶</a>1.1 收集同步需求</h5>
+<ul>
 <li>要确保类的线程安全性，就需要确保它的<code>不变性条件</code>不会在并发访问的情况下被破坏,这就需要对其状态进行推断</li>
 <li>许多类中都定义了一些不<code>可变条件</code>，用于判断状态是否有效；在操作中还会包含一些<code>后验条件</code>来判断<code>状态迁移</code>是否有效</li>
 <li>如果不了解对象的<code>不变性条件</code>与<code>后验条件</code>，那么就不能确保线程安全性。要满足在状态变量的有<code>效状态转换上</code>的各种约束条件，就需要借助与<code>原子性</code>与<code>封装性</code></li>
 </ul>
-<h5 id="1-2-依赖状态的操作"><a href="#1-2-依赖状态的操作" class="headerlink" title="1.2 依赖状态的操作"></a>1.2 依赖状态的操作</h5><ul>
+<h5 id="1-2-依赖状态的操作"><a class="header-anchor" href="#1-2-依赖状态的操作">¶</a>1.2 依赖状态的操作</h5>
+<ul>
 <li>类的<code>不变性条件</code>与<code>后验条件</code>约束了在对象上有哪些状态和状态转换是有效的。在某些对象的方法中还包含一些基于状态的<code>先验条件</code>。如果在某个操作中包含基于状态的<code>先验条件</code>，那么这个操作就称为<code>依赖状态的操作</code></li>
 <li>在并发程序中要一直等到<code>先验条件</code>为真，然后才执行该操作。更简单的方法是通过现有库中的类（例如阻塞类、信号量）</li>
 </ul>
-<h5 id="1-3-状态的所有权"><a href="#1-3-状态的所有权" class="headerlink" title="1.3 状态的所有权"></a>1.3 状态的所有权</h5><ul>
-<li>所有权与封装性总是相互关联的:<br>  对象封装它拥有的状态，拥有它封装的状态所有权；<br>  状态变量的所有者将决定采用何种加锁协议来维持变量状态的完整性</li>
+<h5 id="1-3-状态的所有权"><a class="header-anchor" href="#1-3-状态的所有权">¶</a>1.3 状态的所有权</h5>
+<ul>
+<li>所有权与封装性总是相互关联的:<br>
+对象封装它拥有的状态，拥有它封装的状态所有权；<br>
+状态变量的所有者将决定采用何种加锁协议来维持变量状态的完整性</li>
 <li>如果发布了某个可变对象的引用，那么就不再拥有对其独占的控制权，最多是<code>共享控制权</code></li>
-<li>容器类通常表现出一种”所有权分离”的形式，容器类拥有其自身的状态，客户端代码则拥有容器中各个对象的状态。</li>
+<li>容器类通常表现出一种&quot;所有权分离&quot;的形式，容器类拥有其自身的状态，客户端代码则拥有容器中各个对象的状态。</li>
 </ul>
-<h3 id="2-实例封闭"><a href="#2-实例封闭" class="headerlink" title="2 实例封闭"></a>2 实例封闭</h3><ul>
+<h3 id="2-实例封闭"><a class="header-anchor" href="#2-实例封闭">¶</a>2 实例封闭</h3>
+<ul>
 <li>封装简化了线程安全类的实现过程，它提供了一种<code>实例封闭机制(Instance Confinement)</code>，也称为“封闭”</li>
 <li>将数据封装在对象内部，可以将数据的访问限制在对象的方法上，从而更容易确保线程在访问数据时总能持有正确的锁</li>
 <li><code>封闭机制</code>更易于构造线程安全的类，因为当封闭类的状态时，在分析类的<code>线程安全性</code>时就无须检查整个程序</li>
 </ul>
-<h5 id="2-1-Java监视器模式"><a href="#2-1-Java监视器模式" class="headerlink" title="2.1 Java监视器模式"></a>2.1 Java监视器模式</h5><ul>
-<li><p>遵循<code>Java监视器模式</code>的对象会把对象的所有可变状态都封装起来，并由对象自己的内置锁来保护。</p>
-</li>
-<li><p><code>Java监视器模式</code>仅仅是一种编写代码的约定，对于任何一种锁对象，只要自始至终都使用该锁对象，都可以用来保护对象的状态。</p>
-<pre><code>  //通过一个私有锁来保护状态
-  public class PrivateLock{
-      private final Object myLock = new Object();
-      Widget widget;
+<h5 id="2-1-Java监视器模式"><a class="header-anchor" href="#2-1-Java监视器模式">¶</a>2.1 Java监视器模式</h5>
+<ul>
+<li>遵循<code>Java监视器模式</code>的对象会把对象的所有可变状态都封装起来，并由对象自己的内置锁来保护。</li>
+<li><code>Java监视器模式</code>仅仅是一种编写代码的约定，对于任何一种锁对象，只要自始至终都使用该锁对象，都可以用来保护对象的状态。<pre><code>//通过一个私有锁来保护状态
+public class PrivateLock{
+    private final Object myLock = new Object();
+    Widget widget;
 
-      void someMethod(){
-          synchronized(myLock){
-              //访问或修改Widget的状态
-          }
-      }
-  }</code></pre></li>
-<li><p>使用私有锁对象的好处：  </p>
+    void someMethod(){
+        synchronized(myLock){
+            //访问或修改Widget的状态
+        }
+    }
+}
+</code></pre>
+</li>
+<li>使用私有锁对象的好处：
 <ul>
 <li>私有的锁对象可以将锁封装起来，使客户端代码无法得到锁，但客户端代码可以通过方法来访问锁，以便(正确或不正确)参与到它的同步策略中</li>
 <li>如果客户端代码错误地获取到另一个对象的锁，那么可能产生<code>活跃性问题</code></li>
 </ul>
 </li>
 </ul>
-<h3 id="3-线程安全性的委托"><a href="#3-线程安全性的委托" class="headerlink" title="3 线程安全性的委托"></a>3 线程安全性的委托</h3><ul>
+<h3 id="3-线程安全性的委托"><a class="header-anchor" href="#3-线程安全性的委托">¶</a>3 线程安全性的委托</h3>
+<ul>
 <li>在某些情况下,通过多个线程安全类组合而成的类是线程安全的；而在某些情况下,这仅仅是一个好的开端.</li>
 <li>不可变的值可以被自由地共享与发布</li>
 </ul>
-<h5 id="3-1-独立的状态变量"><a href="#3-1-独立的状态变量" class="headerlink" title="3.1 独立的状态变量"></a>3.1 独立的状态变量</h5><ul>
+<h5 id="3-1-独立的状态变量"><a class="header-anchor" href="#3-1-独立的状态变量">¶</a>3.1 独立的状态变量</h5>
+<ul>
 <li>可以将线程安全性委托给多个状态变量，只要这些变量是彼此独立的，即组合而成的类并不会在其包含的多个状态变量上增加任何不变性条件</li>
 </ul>
-<h5 id="3-2-当委托失效时"><a href="#3-2-当委托失效时" class="headerlink" title="3.2 当委托失效时"></a>3.2 当委托失效时</h5><ul>
+<h5 id="3-2-当委托失效时"><a class="header-anchor" href="#3-2-当委托失效时">¶</a>3.2 当委托失效时</h5>
+<ul>
 <li>如果组合对象的状态变量之间存在着某些不变性条件(复合操作)，那么仅靠<code>委托</code>并不足以实现线程安全性；这种情况下,这个类必须提供自己的加锁机制以保证这些<code>复合操作</code>都是<code>原子操作</code>，除非整个<code>复合操作</code>都可以<code>委托</code>给状态变量</li>
 <li>如果一个类是由多个独立且线程安全的状态变量组成，并且在所有的操作中都不包含无效状态转换，那么可以将线程安全性<code>委托</code>给底层状态变量</li>
 </ul>
-<h5 id="3-3-发布底层的状态变量"><a href="#3-3-发布底层的状态变量" class="headerlink" title="3.3 发布底层的状态变量"></a>3.3 发布底层的状态变量</h5><ul>
+<h5 id="3-3-发布底层的状态变量"><a class="header-anchor" href="#3-3-发布底层的状态变量">¶</a>3.3 发布底层的状态变量</h5>
+<ul>
 <li>如果一个状态变量是线程安全的，并且没有任何不变性条件来约束它的值，在变量的操作上也不存在任何不允许的状态转换，那么就可以安全地发布这个变量</li>
 </ul>
-<h3 id="4-现有的线程安全类中添加功能"><a href="#4-现有的线程安全类中添加功能" class="headerlink" title="4 现有的线程安全类中添加功能"></a>4 现有的线程安全类中添加功能</h3><ul>
+<h3 id="4-现有的线程安全类中添加功能"><a class="header-anchor" href="#4-现有的线程安全类中添加功能">¶</a>4 现有的线程安全类中添加功能</h3>
+<ul>
 <li>修改原始的类：最安全的方法，但通常不可实现</li>
 <li>扩展这个类：比修改原始类更加脆弱，因为同步策略实现被分不到多个单独维护的源代码文件中了</li>
 </ul>
-<h5 id="4-1-客户端加锁机制"><a href="#4-1-客户端加锁机制" class="headerlink" title="4.1 客户端加锁机制"></a>4.1 客户端加锁机制</h5><p>扩展类的功能（并不是扩展类本身，而是将扩展代码放入”辅助类”中）</p>
+<h5 id="4-1-客户端加锁机制"><a class="header-anchor" href="#4-1-客户端加锁机制">¶</a>4.1 客户端加锁机制</h5>
+<p>扩展类的功能（并不是扩展类本身，而是将扩展代码放入&quot;辅助类&quot;中）</p>
 <pre><code>//通过客户端代码加锁
 public class ListHelper&lt;E&gt;{
     public List&lt;E&gt; list = Collections.synchronizedList(new ArrayList&lt;E&gt;());
@@ -4455,8 +4492,11 @@ public class ListHelper&lt;E&gt;{
             return absent;
         }
     }
-}</code></pre><p>通过<code>客户端加锁</code>比扩展类本身更加脆弱，因为它将一个类的加锁代码放到与这个类完全无关的其他类中。</p>
-<h5 id="4-2-组合"><a href="#4-2-组合" class="headerlink" title="4.2 组合"></a>4.2 组合</h5><p>通过将List对象的操作<code>委托</code>给底层List对象实例来实现List的操作，同时添加新的<code>原子操作</code> </p>
+}
+</code></pre>
+<p>通过<code>客户端加锁</code>比扩展类本身更加脆弱，因为它将一个类的加锁代码放到与这个类完全无关的其他类中。</p>
+<h5 id="4-2-组合"><a class="header-anchor" href="#4-2-组合">¶</a>4.2 组合</h5>
+<p>通过将List对象的操作<code>委托</code>给底层List对象实例来实现List的操作，同时添加新的<code>原子操作</code></p>
 <pre><code>public class ImprovedList&lt;T&gt; implements List&lt;T&gt;{
     private final List&lt;T&gt; list;
 
@@ -4475,8 +4515,11 @@ public class ListHelper&lt;E&gt;{
         list.clear();
     } 
     //.... 按照类似操作委托List的其他方法
-}</code></pre><p>虽然额外的同步可能导致轻微的<code>性能损失</code>，但与模拟另一个对象的<code>加锁策略</code>相比，组合更为健壮</p>
-<h3 id="5-将同步策略文档化"><a href="#5-将同步策略文档化" class="headerlink" title="5 将同步策略文档化"></a>5 将同步策略文档化</h3><p>在文档中说明客户代码需要了解的线程安全性保证,以及代码维护人员需要了解的同步策略</p>
+}
+</code></pre>
+<p>虽然额外的同步可能导致轻微的<code>性能损失</code>，但与模拟另一个对象的<code>加锁策略</code>相比，组合更为健壮</p>
+<h3 id="5-将同步策略文档化"><a class="header-anchor" href="#5-将同步策略文档化">¶</a>5 将同步策略文档化</h3>
+<p>在文档中说明客户代码需要了解的线程安全性保证,以及代码维护人员需要了解的同步策略</p>
 
 </div>
 
@@ -4486,19 +4529,23 @@ public class ListHelper&lt;E&gt;{
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

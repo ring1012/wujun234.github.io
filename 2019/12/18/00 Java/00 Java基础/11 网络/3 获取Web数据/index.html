@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		3 获取Web数据 | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,63 +4395,116 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:49</span>
+	<span id="post-date">2019-12-18 01:00:41</span>
 </div>
 
 
 <div id="article">
 	<p>Java库支持更高级别处理，而不只是创建套接字连接发送HTTP请求。</p>
 <p>Java库与网页交互并不是特别方便，可以考虑使用其他库，如HttpClient、Feign、RestTemple</p>
-<h3 id="1-URL和URI"><a href="#1-URL和URI" class="headerlink" title="1 URL和URI"></a>1 URL和URI</h3><h4 id="1-1-URL"><a href="#1-1-URL" class="headerlink" title="1.1 URL"></a>1.1 URL</h4><p>URL和URLConnection封装了大量实现细节。</p>
+<h3 id="1-URL和URI"><a class="header-anchor" href="#1-URL和URI">¶</a>1 URL和URI</h3>
+<h4 id="1-1-URL"><a class="header-anchor" href="#1-1-URL">¶</a>1.1 URL</h4>
+<p>URL和URLConnection封装了大量实现细节。</p>
 <p>创建URL</p>
-<pre><code>URL url = new URL(urlString);</code></pre><p>获取资源</p>
+<pre><code>URL url = new URL(urlString);
+</code></pre>
+<p>获取资源</p>
 <pre><code>InputStream inStream = url.openStream();
-Scanner in = new Scanner(inStream, &quot;UTF-8&quot;);</code></pre><h4 id="1-2-URI"><a href="#1-2-URI" class="headerlink" title="1.2 URI"></a>1.2 URI</h4><p>URL是URI的一个特例，在Java中，URI类唯一作用是解析。</p>
-<h4 id="1-2-1-解析标识符"><a href="#1-2-1-解析标识符" class="headerlink" title="1.2.1 解析标识符"></a>1.2.1 解析标识符</h4><p>URI的作用之一是解析标识符，并将它分解成不同组成部分，并提供方法读取这些部分。</p>
-<h5 id="URI句法"><a href="#URI句法" class="headerlink" title="URI句法"></a>URI句法</h5><p>一个URI具有以下句法，<code>[...]</code>表示可选部分</p>
-<pre><code>[scheme:]schemeSpecificPart[#fragment]</code></pre><ul>
-<li>绝对URI<br>包含<code>[scheme:]</code><ul>
-<li>透明的<br><code>schemeSpecificPart</code>以<code>/</code>开头</li>
-<li>不透明的<br><code>schemeSpecificPart</code>不以<code>/</code>开头</li>
+Scanner in = new Scanner(inStream, &quot;UTF-8&quot;);
+</code></pre>
+<h4 id="1-2-URI"><a class="header-anchor" href="#1-2-URI">¶</a>1.2 URI</h4>
+<p>URL是URI的一个特例，在Java中，URI类唯一作用是解析。</p>
+<h4 id="1-2-1-解析标识符"><a class="header-anchor" href="#1-2-1-解析标识符">¶</a>1.2.1 解析标识符</h4>
+<p>URI的作用之一是解析标识符，并将它分解成不同组成部分，并提供方法读取这些部分。</p>
+<h5 id="URI句法"><a class="header-anchor" href="#URI句法">¶</a>URI句法</h5>
+<p>一个URI具有以下句法，<code>[...]</code>表示可选部分</p>
+<pre><code>[scheme:]schemeSpecificPart[#fragment]
+</code></pre>
+<ul>
+<li>绝对URI<br>
+包含<code>[scheme:]</code>
+<ul>
+<li>透明的<br>
+<code>schemeSpecificPart</code>以<code>/</code>开头</li>
+<li>不透明的<br>
+<code>schemeSpecificPart</code>不以<code>/</code>开头</li>
 </ul>
 </li>
-<li>相对URI<br>不包含<code>[scheme:]</code></li>
+<li>相对URI<br>
+不包含<code>[scheme:]</code></li>
 </ul>
-<h5 id="分层"><a href="#分层" class="headerlink" title="分层"></a>分层</h5><p>所有<code>绝对的透明的URI</code>和所有<code>相对URI</code>都是分层的。<br>分层URI的<code>schemeSpecificPart</code>部分具有以下结构</p>
-<pre><code>[//authority][path][?query]</code></pre><p>对于基于服务器的URI，authority具有以下形式</p>
-<pre><code>[uer-info@]host[:port]</code></pre><h4 id="1-2-2-处理标识符"><a href="#1-2-2-处理标识符" class="headerlink" title="1.2.2 处理标识符"></a>1.2.2 处理标识符</h4><h5 id="解析相对URL"><a href="#解析相对URL" class="headerlink" title="解析相对URL"></a>解析相对URL</h5><pre><code>URI base = new URI(&quot;http://docs.mycompany.com/api/java/lang/Integer.html&quot;);
+<h5 id="分层"><a class="header-anchor" href="#分层">¶</a>分层</h5>
+<p>所有<code>绝对的透明的URI</code>和所有<code>相对URI</code>都是分层的。<br>
+分层URI的<code>schemeSpecificPart</code>部分具有以下结构</p>
+<pre><code>[//authority][path][?query]
+</code></pre>
+<p>对于基于服务器的URI，authority具有以下形式</p>
+<pre><code>[uer-info@]host[:port]
+</code></pre>
+<h4 id="1-2-2-处理标识符"><a class="header-anchor" href="#1-2-2-处理标识符">¶</a>1.2.2 处理标识符</h4>
+<h5 id="解析相对URL"><a class="header-anchor" href="#解析相对URL">¶</a>解析相对URL</h5>
+<pre><code>URI base = new URI(&quot;http://docs.mycompany.com/api/java/lang/Integer.html&quot;);
 URI relative = new URI(&quot;.../java/lang/String.html&quot;);
 URI combined = base.resolve(relative);
-//combined ==&gt; &quot;http://docs.mycompany.com/api/java/lang/String.html&quot;</code></pre><h5 id="相对化"><a href="#相对化" class="headerlink" title="相对化"></a>相对化</h5><pre><code class="java">URI base = new URI(&quot;http://docs.mycompany.com/api&quot;);
+//combined ==&gt; &quot;http://docs.mycompany.com/api/java/lang/String.html&quot;
+</code></pre>
+<h5 id="相对化"><a class="header-anchor" href="#相对化">¶</a>相对化</h5>
+<pre><code class="language-java">URI base = new URI(&quot;http://docs.mycompany.com/api&quot;);
 URI combined = new URI(&quot;http://docs.mycompany.com/api/java/lang/String.html&quot;);
 URI relative = base.relativize(combined);
-//relative ==&gt; &quot;/java/lang/String.html&quot;</code></pre>
-<h3 id="2-使用URLConnection获取信息"><a href="#2-使用URLConnection获取信息" class="headerlink" title="2 使用URLConnection获取信息"></a>2 使用URLConnection获取信息</h3><p>URLConnection 类比URL类功能更多。</p>
+//relative ==&gt; &quot;/java/lang/String.html&quot;
+</code></pre>
+<h3 id="2-使用URLConnection获取信息"><a class="header-anchor" href="#2-使用URLConnection获取信息">¶</a>2 使用URLConnection获取信息</h3>
+<p>URLConnection 类比URL类功能更多。</p>
 <ol>
-<li>获取连接对象<pre><code>URLConnection connection = url.openConnection();</code></pre></li>
-<li>设置请求属性<pre><code>connection.setConnectTimeout(1000);
+<li>获取连接对象</li>
+</ol>
+<pre><code>URLConnection connection = url.openConnection();
+</code></pre>
+<ol start="2">
+<li>设置请求属性</li>
+</ol>
+<pre><code>connection.setConnectTimeout(1000);
 //默认连接只产生从服务器获取信息的输入流，如想获得输出流，得设置
 connection.setDoOutput(true);
 //使用缓存
 connection.setUseCaches(true);
 //设置header
 connection.setRequestProperty(&quot;&quot;,&quot;&quot;);
-...</code></pre></li>
-<li>建立连接<pre><code>connection.connect();</code></pre></li>
-<li>建立连接后可以查询头信息<pre><code>getHeaderFields
+...
+</code></pre>
+<ol start="3">
+<li>建立连接</li>
+</ol>
+<pre><code>connection.connect();
+</code></pre>
+<ol start="4">
+<li>建立连接后可以查询头信息</li>
+</ol>
+<pre><code>getHeaderFields
 getHeaderField
 getDate
-...</code></pre></li>
-<li>访问资源<pre><code>connection.getInputStream();</code></pre></li>
+...
+</code></pre>
+<ol start="5">
+<li>访问资源</li>
 </ol>
-<h3 id="3-提交表单数据"><a href="#3-提交表单数据" class="headerlink" title="3 提交表单数据"></a>3 提交表单数据</h3><h4 id="GET"><a href="#GET" class="headerlink" title="GET"></a>GET</h4><p>参数直接跟在URL结尾</p>
-<h5 id="参数编码"><a href="#参数编码" class="headerlink" title="参数编码"></a>参数编码</h5><ul>
+<pre><code>connection.getInputStream();
+</code></pre>
+<h3 id="3-提交表单数据"><a class="header-anchor" href="#3-提交表单数据">¶</a>3 提交表单数据</h3>
+<h4 id="GET"><a class="header-anchor" href="#GET">¶</a>GET</h4>
+<p>参数直接跟在URL结尾</p>
+<h5 id="参数编码"><a class="header-anchor" href="#参数编码">¶</a>参数编码</h5>
+<ul>
 <li>保留字符<code>A-z</code>,<code>0-9</code>,以及<code>.-~_</code>。</li>
 <li>用<code>+</code>替换所有空格</li>
-<li>将其他所有字符编码为UTF-8，并将每个字节都编码为<code>%</code>后面紧跟一个2位十六进制数字<br>例如：San Francisco, CA ==&gt; San+Francisco%2c+CA</li>
+<li>将其他所有字符编码为UTF-8，并将每个字节都编码为<code>%</code>后面紧跟一个2位十六进制数字<br>
+例如：San Francisco, CA ==&gt; San+Francisco%2c+CA</li>
 </ul>
-<h4 id="POST"><a href="#POST" class="headerlink" title="POST"></a>POST</h4><h5 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h5><p>从URLConnection获取输出流，并将参数写入该输出流。仍需URL编码</p>
-<pre><code class="java">URL url = new URL(&quot;http://host/path&quot;);
+<h4 id="POST"><a class="header-anchor" href="#POST">¶</a>POST</h4>
+<h5 id="参数"><a class="header-anchor" href="#参数">¶</a>参数</h5>
+<p>从URLConnection获取输出流，并将参数写入该输出流。仍需URL编码</p>
+<pre><code class="language-java">URL url = new URL(&quot;http://host/path&quot;);
 URLConnection connection = url.openConnection();
 //获取输出流
 connection.setDoOutput(true);
@@ -4439,21 +4515,42 @@ out.print(name2 + &quot;=&quot; + URLEncoder.encode(value2, &quot;UTF-8&quot;));
 //关闭输出流
 out.close();
 //读取服务器响应
-connection.getInputStream();</code></pre>
-<h5 id="捕捉错误页"><a href="#捕捉错误页" class="headerlink" title="捕捉错误页"></a>捕捉错误页</h5><pre><code>InputStream err = ((HttpURLConnection)connection).getErrorStream();</code></pre><h5 id="cookie"><a href="#cookie" class="headerlink" title="cookie"></a>cookie</h5><p>配置全局处理器</p>
-<pre><code>CookieHandler.setDefault(new CookieManager(null, CookiePolicy.ACCEPT_ALL));</code></pre><h5 id="人工重定向"><a href="#人工重定向" class="headerlink" title="人工重定向"></a>人工重定向</h5><p>自动重定向不会使用最初请求中的用户代理设置，可人工处理</p>
+connection.getInputStream();
+</code></pre>
+<h5 id="捕捉错误页"><a class="header-anchor" href="#捕捉错误页">¶</a>捕捉错误页</h5>
+<pre><code>InputStream err = ((HttpURLConnection)connection).getErrorStream();
+</code></pre>
+<h5 id="cookie"><a class="header-anchor" href="#cookie">¶</a>cookie</h5>
+<p>配置全局处理器</p>
+<pre><code>CookieHandler.setDefault(new CookieManager(null, CookiePolicy.ACCEPT_ALL));
+</code></pre>
+<h5 id="人工重定向"><a class="header-anchor" href="#人工重定向">¶</a>人工重定向</h5>
+<p>自动重定向不会使用最初请求中的用户代理设置，可人工处理</p>
 <ol>
-<li>关闭自动重定向<pre><code>connection.setInstanceFollowRedirects(false);</code></pre></li>
-<li>发送请求后，获取响应码  <pre><code>int responseCode = connection.getResponseCode();</code></pre>如果响应值属于301、302、303则是重定向<pre><code>HttpURLConnection.HTTP_MOVED_PERM;//301
-HttpURLConnection.HTTP_MOVED_TEMP;//302
-HttpURLConnection.HTTP_SEE_OTHER;//303</code></pre></li>
-<li>获取重定向URL，断开原有连接，创建到新URL的连接<pre><code>String location = connection.getHeaderField(&quot;Location&quot;);
-if(location != null){
- URL base = connection.getURL();
- connection.disconnect();
- connection = (HttpURLConnection) new URL(base, location).openConnection();
-}</code></pre></li>
+<li>关闭自动重定向</li>
 </ol>
+<pre><code>connection.setInstanceFollowRedirects(false);
+</code></pre>
+<ol start="2">
+<li>发送请求后，获取响应码</li>
+</ol>
+<pre><code>int responseCode = connection.getResponseCode();
+</code></pre>
+<p>如果响应值属于301、302、303则是重定向</p>
+<pre><code>HttpURLConnection.HTTP_MOVED_PERM;//301
+HttpURLConnection.HTTP_MOVED_TEMP;//302
+HttpURLConnection.HTTP_SEE_OTHER;//303
+</code></pre>
+<ol start="3">
+<li>获取重定向URL，断开原有连接，创建到新URL的连接</li>
+</ol>
+<pre><code>String location = connection.getHeaderField(&quot;Location&quot;);
+if(location != null){
+    URL base = connection.getURL();
+    connection.disconnect();
+    connection = (HttpURLConnection) new URL(base, location).openConnection();
+}
+</code></pre>
 
 </div>
 
@@ -4463,19 +4560,23 @@ if(location != null){
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

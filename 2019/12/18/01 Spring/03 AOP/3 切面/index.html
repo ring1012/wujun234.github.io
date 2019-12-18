@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		3 切面 | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,12 +4395,13 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:17</span>
+	<span id="post-date">2019-12-18 01:00:42</span>
 </div>
 
 
 <div id="article">
-	<h3 id="1-创建切面"><a href="#1-创建切面" class="headerlink" title="1 创建切面"></a>1 创建切面</h3><p>使用@Aspect注解创建切面</p>
+	<h3 id="1-创建切面"><a class="header-anchor" href="#1-创建切面">¶</a>1 创建切面</h3>
+<p>使用@Aspect注解创建切面</p>
 <pre><code>@Aspect
 @Component
 public class LogAspect {
@@ -4396,14 +4420,18 @@ public class LogAspect {
     @AfterThrowing(value = &quot;printLog()&quot;, throwing = &quot;e&quot;)
     public void afterThrow(JoinPoint jp, Throwable e) {
     }
-}</code></pre><h3 id="2-通知注解"><a href="#2-通知注解" class="headerlink" title="2 通知注解"></a>2 通知注解</h3><ul>
+}
+</code></pre>
+<h3 id="2-通知注解"><a class="header-anchor" href="#2-通知注解">¶</a>2 通知注解</h3>
+<ul>
 <li>@After 通知方法会在目标方法返回或抛出异常后调用</li>
 <li>@AfterReturning 通知方法会在目标方法返回后调用</li>
 <li>@AfterThrowing 通知方法会在目标方法抛出异常后调用</li>
 <li>@Around 通知方法会将目标方法封装起来</li>
 <li>@Before 通知方法会在目标方法调用之前执行</li>
 </ul>
-<h3 id="3-JoinPoint"><a href="#3-JoinPoint" class="headerlink" title="3 JoinPoint"></a>3 JoinPoint</h3><p>常用的方法</p>
+<h3 id="3-JoinPoint"><a class="header-anchor" href="#3-JoinPoint">¶</a>3 JoinPoint</h3>
+<p>常用的方法</p>
 <ul>
 <li>Object[] getArgs：返回目标方法的参数</li>
 <li>Signature getSignature：返回目标方法的签名</li>
@@ -4411,10 +4439,17 @@ public class LogAspect {
 <li>Object getThis：返回AOP框架为目标对象生成的代理对象</li>
 </ul>
 <p>当使用@Around处理时，需要将第一个参数定义为ProceedingJoinPoint类型，该类是JoinPoint的子类。</p>
-<h3 id="4-切面执行顺序"><a href="#4-切面执行顺序" class="headerlink" title="4 切面执行顺序"></a>4 切面执行顺序</h3><h4 id="5-1-被一个Aspect类拦截"><a href="#5-1-被一个Aspect类拦截" class="headerlink" title="5.1 被一个Aspect类拦截"></a>5.1 被一个Aspect类拦截</h4><p>正常：<br><img src="/images/1545011851419.jpg" alt=""></p>
-<p>异常：<br><img src="/images/1545011851515.jpg" alt=""></p>
-<h4 id="5-2-被多个Aspect类拦截"><a href="#5-2-被多个Aspect类拦截" class="headerlink" title="5.2 被多个Aspect类拦截"></a>5.2 被多个Aspect类拦截</h4><h5 id="执行顺序"><a href="#执行顺序" class="headerlink" title="执行顺序"></a>执行顺序</h5><p>优先级高的切面先执行，同一切面增强类型优先的先执行，增强类型相同的随机执行</p>
-<h5 id="指定优先级"><a href="#指定优先级" class="headerlink" title="指定优先级"></a>指定优先级</h5><ol>
+<h3 id="4-切面执行顺序"><a class="header-anchor" href="#4-切面执行顺序">¶</a>4 切面执行顺序</h3>
+<h4 id="5-1-被一个Aspect类拦截"><a class="header-anchor" href="#5-1-被一个Aspect类拦截">¶</a>5.1 被一个Aspect类拦截</h4>
+<p>正常：<br>
+<img src="/images/1545011851419.jpg" alt=""></p>
+<p>异常：<br>
+<img src="/images/1545011851515.jpg" alt=""></p>
+<h4 id="5-2-被多个Aspect类拦截"><a class="header-anchor" href="#5-2-被多个Aspect类拦截">¶</a>5.2 被多个Aspect类拦截</h4>
+<h5 id="执行顺序"><a class="header-anchor" href="#执行顺序">¶</a>执行顺序</h5>
+<p>优先级高的切面先执行，同一切面增强类型优先的先执行，增强类型相同的随机执行</p>
+<h5 id="指定优先级"><a class="header-anchor" href="#指定优先级">¶</a>指定优先级</h5>
+<ol>
 <li>让切面类实现org.springframework.core.Ordered接口：实现该接口的int getOrder()方法，该方法返回值越小，优先级越高</li>
 <li>直接使用@Order注解来修饰一个切面类：使用这个注解时可以配置一个int类型的value属性，该属性值越小，优先级越高</li>
 </ol>
@@ -4427,19 +4462,23 @@ public class LogAspect {
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

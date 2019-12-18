@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		1 Centos 7配置LAMP | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,36 +4395,61 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:41</span>
+	<span id="post-date">2019-12-18 01:00:44</span>
 </div>
 
 
 <div id="article">
 	<p>LAMP是Linux、Apache HTTP，MySQL（或MariaDB）和PHP（或Perl、Python）的首字母缩写，下面讨论如何在RHEL/CentOS/Scientific Linux 7上搭建LAMP环境。</p>
-<h3 id="一、Install-Apache-HTTP-Server"><a href="#一、Install-Apache-HTTP-Server" class="headerlink" title="一、Install Apache HTTP Server"></a>一、Install Apache HTTP Server</h3><p>在终端以root权限运行以下命令:</p>
-<pre><code>yum install httpd -y</code></pre><p>启动Apache</p>
-<pre><code>systemctl start httpd</code></pre><p>设置开机启动</p>
-<pre><code>systemctl enable httpd</code></pre><p>firewall设置允许远程登录:</p>
+<h3 id="一、Install-Apache-HTTP-Server"><a class="header-anchor" href="#一、Install-Apache-HTTP-Server">¶</a>一、Install Apache HTTP Server</h3>
+<p>在终端以root权限运行以下命令:</p>
+<pre><code>yum install httpd -y
+</code></pre>
+<p>启动Apache</p>
+<pre><code>systemctl start httpd
+</code></pre>
+<p>设置开机启动</p>
+<pre><code>systemctl enable httpd
+</code></pre>
+<p>firewall设置允许远程登录:</p>
 <pre><code>firewall-cmd --permanent --add-service=http
 
-systemctl restart firewalld</code></pre><p>测试Apache</p>
+systemctl restart firewalld
+</code></pre>
+<p>测试Apache</p>
 <p>浏览器访问 <a href="http://localhost/" target="_blank" rel="noopener">http://localhost/</a> or <a href="http://server-ip-address/" target="_blank" rel="noopener">http://server-ip-address/</a></p>
-<h3 id="二、Install-MariaDB"><a href="#二、Install-MariaDB" class="headerlink" title="二、Install MariaDB"></a>二、Install MariaDB</h3><p>安装MariaDB</p>
-<pre><code>yum install mariadb-server mariadb -y</code></pre><p>启动MariaDB</p>
-<pre><code>systemctl start mariadb</code></pre><p>设置开机启动</p>
-<pre><code>systemctl enable mariadb</code></pre><p>设置root密码</p>
-<pre><code>mysql_secure_installation</code></pre><h3 id="三、Install-PHP"><a href="#三、Install-PHP" class="headerlink" title="三、Install PHP"></a>三、Install PHP</h3><p>使用以下的命令安装php</p>
+<h3 id="二、Install-MariaDB"><a class="header-anchor" href="#二、Install-MariaDB">¶</a>二、Install MariaDB</h3>
+<p>安装MariaDB</p>
+<pre><code>yum install mariadb-server mariadb -y
+</code></pre>
+<p>启动MariaDB</p>
+<pre><code>systemctl start mariadb
+</code></pre>
+<p>设置开机启动</p>
+<pre><code>systemctl enable mariadb
+</code></pre>
+<p>设置root密码</p>
+<pre><code>mysql_secure_installation
+</code></pre>
+<h3 id="三、Install-PHP"><a class="header-anchor" href="#三、Install-PHP">¶</a>三、Install PHP</h3>
+<p>使用以下的命令安装php</p>
 <pre><code>yum install php php-mysql php-gd php-pear -y
 //或安装所有php modules
-yum install php* -y</code></pre><p>测试PHP:</p>
+yum install php* -y
+</code></pre>
+<p>测试PHP:</p>
 <pre><code>//在Apache文档根目录创建“testphp.php”
 vi /var/www/html/testphp.php
 
 //编辑内容如下
 &lt;?php
 phpinfo();
-?&gt;</code></pre><p>重启 httpd 服务:</p>
-<pre><code>systemctl restart httpd</code></pre><p>浏览器访问 <a href="http://server-ip-address/testphp.php。" target="_blank" rel="noopener">http://server-ip-address/testphp.php。</a></p>
+?&gt;
+</code></pre>
+<p>重启 httpd 服务:</p>
+<pre><code>systemctl restart httpd
+</code></pre>
+<p>浏览器访问 <a href="http://server-ip-address/testphp.php%E3%80%82" target="_blank" rel="noopener">http://server-ip-address/testphp.php。</a></p>
 
 </div>
 
@@ -4411,19 +4459,23 @@ phpinfo();
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

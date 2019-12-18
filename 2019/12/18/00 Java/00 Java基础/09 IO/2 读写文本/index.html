@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		2 读写文本 | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,47 +4395,79 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:47</span>
+	<span id="post-date">2019-12-18 01:00:41</span>
 </div>
 
 
 <div id="article">
 	<p>存储文本字符串时，需要考虑字符编码方式。</p>
-<p>OutputStreamWriter类将使用选定的字符编码方式，把Unicode码元的输出流转换为字节流。<br>InputStreamReader类将包含字节的输入流转换为可以产生Unicode码元的读入器。</p>
-<h3 id="1-文本输出"><a href="#1-文本输出" class="headerlink" title="1 文本输出"></a>1 文本输出</h3><p>文本输出使用PrintWriter，拥有以文本格式打印字符串和数字的方法</p>
+<p>OutputStreamWriter类将使用选定的字符编码方式，把Unicode码元的输出流转换为字节流。<br>
+InputStreamReader类将包含字节的输入流转换为可以产生Unicode码元的读入器。</p>
+<h3 id="1-文本输出"><a class="header-anchor" href="#1-文本输出">¶</a>1 文本输出</h3>
+<p>文本输出使用PrintWriter，拥有以文本格式打印字符串和数字的方法</p>
 <pre><code>PrintWriter out = new PrintWriter(&quot;employee.txt&quot;,&quot;UTF-8&quot;);
 //等同于
-PrintWriter out = new PrintWriter(new FileOutStream(&quot;employee.txt&quot;),&quot;UTF-8&quot;);</code></pre><p>使用print,println和printf等方法，写入employee.txt中</p>
-<h3 id="2-文本输入"><a href="#2-文本输入" class="headerlink" title="2 文本输入"></a>2 文本输入</h3><h5 id="处理任意文本"><a href="#处理任意文本" class="headerlink" title="处理任意文本"></a>处理任意文本</h5><p>Scanner类，可以从任何输入流中构建Scanner对象。</p>
-<h5 id="短小文本读入字符串"><a href="#短小文本读入字符串" class="headerlink" title="短小文本读入字符串"></a>短小文本读入字符串</h5><pre><code>String content = new String(Files.readAllBytes(path),charset);</code></pre><h5 id="按地读入"><a href="#按地读入" class="headerlink" title="按地读入"></a>按地读入</h5><pre><code>List&lt;String&gt; lines = Files.readAllLiines(path,charset);</code></pre><h5 id="大文件惰性处理行"><a href="#大文件惰性处理行" class="headerlink" title="大文件惰性处理行"></a>大文件惰性处理行</h5><pre><code>try (Stream&lt;String&gt; lines = Files.lines(path,charset)){...}</code></pre><h5 id="早期BufferedReader"><a href="#早期BufferedReader" class="headerlink" title="早期BufferedReader"></a>早期BufferedReader</h5><p>readLine方法按行读入，无法获得更多的输入时返回null。</p>
+PrintWriter out = new PrintWriter(new FileOutStream(&quot;employee.txt&quot;),&quot;UTF-8&quot;);
+</code></pre>
+<p>使用print,println和printf等方法，写入employee.txt中</p>
+<h3 id="2-文本输入"><a class="header-anchor" href="#2-文本输入">¶</a>2 文本输入</h3>
+<h5 id="处理任意文本"><a class="header-anchor" href="#处理任意文本">¶</a>处理任意文本</h5>
+<p>Scanner类，可以从任何输入流中构建Scanner对象。</p>
+<h5 id="短小文本读入字符串"><a class="header-anchor" href="#短小文本读入字符串">¶</a>短小文本读入字符串</h5>
+<pre><code>String content = new String(Files.readAllBytes(path),charset);
+</code></pre>
+<h5 id="按地读入"><a class="header-anchor" href="#按地读入">¶</a>按地读入</h5>
+<pre><code>List&lt;String&gt; lines = Files.readAllLiines(path,charset);
+</code></pre>
+<h5 id="大文件惰性处理行"><a class="header-anchor" href="#大文件惰性处理行">¶</a>大文件惰性处理行</h5>
+<pre><code>try (Stream&lt;String&gt; lines = Files.lines(path,charset)){...}
+</code></pre>
+<h5 id="早期BufferedReader"><a class="header-anchor" href="#早期BufferedReader">¶</a>早期BufferedReader</h5>
+<p>readLine方法按行读入，无法获得更多的输入时返回null。</p>
 <pre><code>InputStream inputStream = ...;
 try (BufferedReader in = new BufferedReader(new InputStreamReader(inputStream,StandardCharset.UTF_8))){
     String line;
     while((line = in.readLine()) != null)){
         do Something
     }
-}</code></pre><p>lines方法产生Stream对象。</p>
-<h3 id="3-字符编码方式"><a href="#3-字符编码方式" class="headerlink" title="3 字符编码方式"></a>3 字符编码方式</h3><p>Java针对字符使用的是Unicode标准，每个编码点21位整数，有多种不同的字符编码方式。</p>
+}
+</code></pre>
+<p>lines方法产生Stream对象。</p>
+<h3 id="3-字符编码方式"><a class="header-anchor" href="#3-字符编码方式">¶</a>3 字符编码方式</h3>
+<p>Java针对字符使用的是Unicode标准，每个编码点21位整数，有多种不同的字符编码方式。</p>
 <p>最常见的编码方式有UTF-8、UTF-16、GBK字符集。</p>
-<h5 id="UTF-8"><a href="#UTF-8" class="headerlink" title="UTF-8"></a>UTF-8</h5><p>将每个Unicode编码点编码为1到4个字节的序列</p>
-<h5 id="UTF-16"><a href="#UTF-16" class="headerlink" title="UTF-16"></a>UTF-16</h5><p>将每个Unicode编码点编码为1个或2个16位值。</p>
+<h5 id="UTF-8"><a class="header-anchor" href="#UTF-8">¶</a>UTF-8</h5>
+<p>将每个Unicode编码点编码为1到4个字节的序列</p>
+<h5 id="UTF-16"><a class="header-anchor" href="#UTF-16">¶</a>UTF-16</h5>
+<p>将每个Unicode编码点编码为1个或2个16位值。</p>
 <p>有两种形式的UTF-16，被称为“高位优先”和“低位优先”，也被称为“大小端模式”。</p>
 <p>考虑一下16位值0x2122</p>
 <ul>
-<li>低位优先，0x22 0x21。<br>大端模式。数据的高字节保存在内存的低地址中，而数据的低字节保存在内存的高地址中：地址由小向大增加，而数据从高位往低位放；<br>Mac OS是大端模式。</li>
-<li>高位优先，0x21 0x22。<br>小端模式。数据的高字节保存在内存的高地址中，而数据的低字节保存在内存的低地址中，和我们的逻辑方法一致。<br>x86和一般的OS（如windows，FreeBSD,Linux）使用的是小端模式。</li>
+<li>低位优先，0x22 0x21。<br>
+大端模式。数据的高字节保存在内存的低地址中，而数据的低字节保存在内存的高地址中：地址由小向大增加，而数据从高位往低位放；<br>
+Mac OS是大端模式。</li>
+<li>高位优先，0x21 0x22。<br>
+小端模式。数据的高字节保存在内存的高地址中，而数据的低字节保存在内存的低地址中，和我们的逻辑方法一致。<br>
+x86和一般的OS（如windows，FreeBSD,Linux）使用的是小端模式。</li>
 </ul>
 <p>Jjava由于虚拟机的关系,屏蔽了大小端问题,都是按照“高位在前”大端模式写出</p>
 <p>为了表示使用的是哪一种格式，文件可以以“字节顺序标记”开头，这个标记为16位数值0xFEFF。读入器可以使用这个值来确定字节顺序，然后丢弃它。</p>
-<h5 id="明确指定编码方式"><a href="#明确指定编码方式" class="headerlink" title="明确指定编码方式"></a>明确指定编码方式</h5><p>StandardCharsets类具有类型为Charset的静态变量，用于表示每种Java虚拟机都必须支持的字符编码方式：</p>
+<h5 id="明确指定编码方式"><a class="header-anchor" href="#明确指定编码方式">¶</a>明确指定编码方式</h5>
+<p>StandardCharsets类具有类型为Charset的静态变量，用于表示每种Java虚拟机都必须支持的字符编码方式：</p>
 <pre><code>StandardCharsets.UTF_8
 StandardCharsets.UTF_16
 StandardCharsets.UTF_16BE
 StandardCharsets.UTF_16LE
 StandardCharsets.UTF_8859_1
-StandardCharsets.UTF_US_ASCII</code></pre><p>获得另一种编码方式的Charset：</p>
-<pre><code>Charset shiftJIS = Charset.forName(&quot;Sift-JIS&quot;);</code></pre><p>在读入或写出文本时，应该使用Charset对象。</p>
-<pre><code>String str = new String(bytes,StandardCharsets.UTF_8);</code></pre>
+StandardCharsets.UTF_US_ASCII
+</code></pre>
+<p>获得另一种编码方式的Charset：</p>
+<pre><code>Charset shiftJIS = Charset.forName(&quot;Sift-JIS&quot;);
+</code></pre>
+<p>在读入或写出文本时，应该使用Charset对象。</p>
+<pre><code>String str = new String(bytes,StandardCharsets.UTF_8);
+</code></pre>
+
 </div>
 
 	</div>
@@ -4421,19 +4476,23 @@ StandardCharsets.UTF_US_ASCII</code></pre><p>获得另一种编码方式的Chars
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

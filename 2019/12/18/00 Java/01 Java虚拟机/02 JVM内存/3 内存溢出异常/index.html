@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		3 内存溢出异常 | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,37 +4395,61 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:51</span>
+	<span id="post-date">2019-12-18 01:00:42</span>
 </div>
 
 
 <div id="article">
-	<h3 id="1-堆溢出"><a href="#1-堆溢出" class="headerlink" title="1 堆溢出"></a>1 堆溢出</h3><h5 id="1-异常报错"><a href="#1-异常报错" class="headerlink" title="1) 异常报错"></a>1) 异常报错</h5><p>在JVM中如果98％的时间是用于GC且可用的Heap size 不足2％的时候将抛出此异常信息</p>
-<pre><code>java.lang.OutOfMemoryError: Java heap space </code></pre><h5 id="2-堆参数"><a href="#2-堆参数" class="headerlink" title="2) 堆参数"></a>2) 堆参数</h5><ul>
+	<h3 id="1-堆溢出"><a class="header-anchor" href="#1-堆溢出">¶</a>1 堆溢出</h3>
+<h5 id="1-异常报错"><a class="header-anchor" href="#1-异常报错">¶</a>1) 异常报错</h5>
+<p>在JVM中如果98％的时间是用于GC且可用的Heap size 不足2％的时候将抛出此异常信息</p>
+<pre><code>java.lang.OutOfMemoryError: Java heap space 
+</code></pre>
+<h5 id="2-堆参数"><a class="header-anchor" href="#2-堆参数">¶</a>2) 堆参数</h5>
+<ul>
 <li>-Xms(初始空间)：推荐物理内存的1/64</li>
-<li>-Xmx(最大空间)：推荐物理内存的1/4。<br>一般的要将-Xms和-Xmx选项设置为相同，以避免每次垃圾回收完成后JVM重新分配内存。</li>
+<li>-Xmx(最大空间)：推荐物理内存的1/4。<br>
+一般的要将-Xms和-Xmx选项设置为相同，以避免每次垃圾回收完成后JVM重新分配内存。</li>
 <li>-Xmn(年轻代大小)：推荐配置为整个堆（-Xmx）的3/8。</li>
 </ul>
-<p>Heap size大小 = 年轻代大小 + 年老代大小 + 持久代大小。<br>持久代一般固定大小为64m，所以增大年轻代后，将会减小年老代大小。  </p>
+<p>Heap size大小 = 年轻代大小 + 年老代大小 + 持久代大小。<br>
+持久代一般固定大小为64m，所以增大年轻代后，将会减小年老代大小。</p>
 <p>提示：Heap Size 最大不要超过可用物理内存的80％</p>
-<h5 id="3-解决思路"><a href="#3-解决思路" class="headerlink" title="3) 解决思路"></a>3) 解决思路</h5><p>先通过内存映像分析工具对dump出来的堆转储快照进行分析，先分清楚是内存泄漏还是内存溢出：</p>
+<h5 id="3-解决思路"><a class="header-anchor" href="#3-解决思路">¶</a>3) 解决思路</h5>
+<p>先通过内存映像分析工具对dump出来的堆转储快照进行分析，先分清楚是内存泄漏还是内存溢出：</p>
 <ul>
 <li>内存泄漏：进一步查看泄漏对象到GC Roots的引用链，从而确认为什么无法回收；</li>
 <li>内存溢出：则应当检查虚拟机堆参数或检查是否存在对象生命周期过长、持有状态时间过长的情况；</li>
 </ul>
-<h3 id="2-栈溢出"><a href="#2-栈溢出" class="headerlink" title="2 栈溢出"></a>2 栈溢出</h3><h5 id="1-异常报错-1"><a href="#1-异常报错-1" class="headerlink" title="1) 异常报错"></a>1) 异常报错</h5><p>HotSpot不区分虚拟机栈和本地方法栈</p>
+<h3 id="2-栈溢出"><a class="header-anchor" href="#2-栈溢出">¶</a>2 栈溢出</h3>
+<h5 id="1-异常报错-v2"><a class="header-anchor" href="#1-异常报错-v2">¶</a>1) 异常报错</h5>
+<p>HotSpot不区分虚拟机栈和本地方法栈</p>
 <ul>
-<li>线程请求的栈深度大于虚拟机所允许的长度<pre><code>StackOverflowError</code></pre></li>
-<li>虚拟机在扩展栈时无法申请到足够的内存空间<pre><code>OutOfMemoryError</code></pre><code>StackOverflowError</code>和<code>OutOfMemoryError</code>存在互相重叠的地方</li>
+<li>线程请求的栈深度大于虚拟机所允许的长度</li>
 </ul>
-<h5 id="2-栈参数"><a href="#2-栈参数" class="headerlink" title="2) 栈参数"></a>2) 栈参数</h5><ul>
+<pre><code>StackOverflowError
+</code></pre>
+<ul>
+<li>虚拟机在扩展栈时无法申请到足够的内存空间</li>
+</ul>
+<pre><code>OutOfMemoryError
+</code></pre>
+<p><code>StackOverflowError</code>和<code>OutOfMemoryError</code>存在互相重叠的地方</p>
+<h5 id="2-栈参数"><a class="header-anchor" href="#2-栈参数">¶</a>2) 栈参数</h5>
+<ul>
 <li>-Xss（每个线程的栈容量）</li>
 </ul>
-<h5 id="3-解决思路-1"><a href="#3-解决思路-1" class="headerlink" title="3) 解决思路"></a>3) 解决思路</h5><p>虚拟机的默认参数对于通常的方法调用（1000~2000层）完全够用，通常根据异常的堆栈日志就可以很容易定位问题。</p>
+<h5 id="3-解决思路-v2"><a class="header-anchor" href="#3-解决思路-v2">¶</a>3) 解决思路</h5>
+<p>虚拟机的默认参数对于通常的方法调用（1000~2000层）完全够用，通常根据异常的堆栈日志就可以很容易定位问题。</p>
 <p>如果建立过多线程导致内存溢出，在不能减少线程数的情况下，只能通过减少最大堆和减少栈容量来换取更多线程。</p>
-<h3 id="3-方法区溢出"><a href="#3-方法区溢出" class="headerlink" title="3 方法区溢出"></a>3 方法区溢出</h3><h5 id="1-异常报错-2"><a href="#1-异常报错-2" class="headerlink" title="1) 异常报错"></a>1) 异常报错</h5><p>若 Class 加载过多就可能报 PermGen space 。</p>
-<pre><code>java.lang.OutOfMemoryError: PermGen space </code></pre><p>常见于引用了大量的第三方jar,对JSP进行pre compile时。</p>
-<h5 id="2-栈参数-1"><a href="#2-栈参数-1" class="headerlink" title="2) 栈参数"></a>2) 栈参数</h5><p>1.8之前</p>
+<h3 id="3-方法区溢出"><a class="header-anchor" href="#3-方法区溢出">¶</a>3 方法区溢出</h3>
+<h5 id="1-异常报错-v3"><a class="header-anchor" href="#1-异常报错-v3">¶</a>1) 异常报错</h5>
+<p>若 Class 加载过多就可能报 PermGen space 。</p>
+<pre><code>java.lang.OutOfMemoryError: PermGen space 
+</code></pre>
+<p>常见于引用了大量的第三方jar,对JSP进行pre compile时。</p>
+<h5 id="2-栈参数-v2"><a class="header-anchor" href="#2-栈参数-v2">¶</a>2) 栈参数</h5>
+<p>1.8之前</p>
 <ul>
 <li>-XX:PermSize 设置方法区大小</li>
 <li>-XX:MaxPermSize 限制方法区大小</li>
@@ -4412,9 +4459,13 @@
 <li>-XX:MetaSpaceSize 初始空间大小，触发GC调整，多退少补</li>
 <li>-XX:MaxMetaspaceSize 最大空间，默认没有限制</li>
 </ul>
-<h3 id="4-直接内存溢出"><a href="#4-直接内存溢出" class="headerlink" title="4 直接内存溢出"></a>4 直接内存溢出</h3><h5 id="1-异常报错-3"><a href="#1-异常报错-3" class="headerlink" title="1) 异常报错"></a>1) 异常报错</h5><p>DirectMemory导致的内存溢出，在Heap Dump里不会看见明显的异常。</p>
-<h5 id="2-直接内存参数"><a href="#2-直接内存参数" class="headerlink" title="2) 直接内存参数"></a>2) 直接内存参数</h5><p>-XX:MaxDirectMemorySize ，如不指定，默认与堆最大值一样</p>
-<h5 id="3-解决思路-2"><a href="#3-解决思路-2" class="headerlink" title="3) 解决思路"></a>3) 解决思路</h5><p>如果发现OouOfMemory之后Dump文件很小，程序又使用了NIO，那就可以检查下是否这方面的原因。</p>
+<h3 id="4-直接内存溢出"><a class="header-anchor" href="#4-直接内存溢出">¶</a>4 直接内存溢出</h3>
+<h5 id="1-异常报错-v4"><a class="header-anchor" href="#1-异常报错-v4">¶</a>1) 异常报错</h5>
+<p>DirectMemory导致的内存溢出，在Heap Dump里不会看见明显的异常。</p>
+<h5 id="2-直接内存参数"><a class="header-anchor" href="#2-直接内存参数">¶</a>2) 直接内存参数</h5>
+<p>-XX:MaxDirectMemorySize ，如不指定，默认与堆最大值一样</p>
+<h5 id="3-解决思路-v3"><a class="header-anchor" href="#3-解决思路-v3">¶</a>3) 解决思路</h5>
+<p>如果发现OouOfMemory之后Dump文件很小，程序又使用了NIO，那就可以检查下是否这方面的原因。</p>
 
 </div>
 
@@ -4424,19 +4475,23 @@
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

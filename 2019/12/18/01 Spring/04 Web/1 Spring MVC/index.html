@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		1 Spring MVC | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,12 +4395,14 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:17</span>
+	<span id="post-date">2019-12-18 01:00:42</span>
 </div>
 
 
 <div id="article">
-	<h3 id="5-1-Spring-MVC概览"><a href="#5-1-Spring-MVC概览" class="headerlink" title="5.1 Spring MVC概览"></a>5.1 Spring MVC概览</h3><h4 id="5-1-1-Spring-MVC-运行原理"><a href="#5-1-1-Spring-MVC-运行原理" class="headerlink" title="5.1.1 Spring MVC 运行原理"></a>5.1.1 Spring MVC 运行原理</h4><p><img src="/images/1545011851570.png" alt=""></p>
+	<h3 id="5-1-Spring-MVC概览"><a class="header-anchor" href="#5-1-Spring-MVC概览">¶</a>5.1 Spring MVC概览</h3>
+<h4 id="5-1-1-Spring-MVC-运行原理"><a class="header-anchor" href="#5-1-1-Spring-MVC-运行原理">¶</a>5.1.1 Spring MVC 运行原理</h4>
+<p><img src="/images/1545011851570.png" alt=""></p>
 <ol>
 <li>Spring MVC通过一个单独的前端控制器（DispatcherServlet）过滤分发请求。</li>
 <li>DispatcherServlet根据处理器映射（HandlerMapping）和请求携带的URL决定将请求发送给某个控制器（Controller）。</li>
@@ -4385,7 +4410,9 @@
 <li>DispatcherServlet用视图名称查找对应的视图解析器（ViewResolver），负责将逻辑名称转换成对应的页面实现。</li>
 <li>最后一步就是视图的实现。视图会使用模型数据填充到视图实现中，然后将结果放在HTTP响应对象中。</li>
 </ol>
-<h4 id="5-1-2-Spring-MVC-配置"><a href="#5-1-2-Spring-MVC-配置" class="headerlink" title="5.1.2 Spring MVC 配置"></a>5.1.2 Spring MVC 配置</h4><h5 id="配置前端控制器"><a href="#配置前端控制器" class="headerlink" title="配置前端控制器"></a>配置前端控制器</h5><p>继承了AbstractAnnotationConfigDispatcherServletInitializer，会在项目运行初始化被自动发现并加载。</p>
+<h4 id="5-1-2-Spring-MVC-配置"><a class="header-anchor" href="#5-1-2-Spring-MVC-配置">¶</a>5.1.2 Spring MVC 配置</h4>
+<h5 id="配置前端控制器"><a class="header-anchor" href="#配置前端控制器">¶</a>配置前端控制器</h5>
+<p>继承了AbstractAnnotationConfigDispatcherServletInitializer，会在项目运行初始化被自动发现并加载。</p>
 <pre><code>public class AppInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
        // 根容器
        @Override
@@ -4402,41 +4429,51 @@
        protected String[] getServletMappings() { 
              return new String[] { &quot;/&quot; };
        }
-}</code></pre><p>AppInitializer类需要实现三个方法，RootConfig和WebConfig是两个关键配置类，而getServletMappings只需要返回一个string的列表，{“/”}的意思是监听访问url下所有的请求。</p>
-<h5 id="配置视图解析器"><a href="#配置视图解析器" class="headerlink" title="配置视图解析器"></a>配置视图解析器</h5><p>@EnableWebMvc：启动Spring MVC特性<br>configer.enable()：静态资源的请求将转交给servlert容器的default servlet处理。</p>
+}
+</code></pre>
+<p>AppInitializer类需要实现三个方法，RootConfig和WebConfig是两个关键配置类，而getServletMappings只需要返回一个string的列表，{“/”}的意思是监听访问url下所有的请求。</p>
+<h5 id="配置视图解析器"><a class="header-anchor" href="#配置视图解析器">¶</a>配置视图解析器</h5>
+<p>@EnableWebMvc：启动Spring MVC特性<br>
+configer.enable()：静态资源的请求将转交给servlert容器的default servlet处理。</p>
 <ul>
-<li><p>setPrefix()方法用于设置视图路径的前缀；</p>
-</li>
-<li><p>setSuffix()用于设置视图路径的后缀；</p>
-</li>
-<li><p>setExposeContextBeansAsAttributes(true)使得可以在JSP页面中通过${ }访问容器中的bean</p>
+<li>setPrefix()方法用于设置视图路径的前缀；</li>
+<li>setSuffix()用于设置视图路径的后缀；</li>
+<li>setExposeContextBeansAsAttributes(true)使得可以在JSP页面中通过${ }访问容器中的bean</li>
+</ul>
 <pre><code>@Configuration
 @EnableWebMvc//启动Spring MVC
 @ComponentScan(&quot;org.test.spittr.web&quot;)//启动组件扫描
 public class WebConfig extends WebMvcConfigurerAdapter {
-     @Bean
-     public ViewResolver viewResolver() { 
-           // 配置JSP视图解析器
-           InternalResourceViewResolver resolver = new InternalResourceViewResolver();
-           resolver.setPrefix(&quot;/WEB-INF/views/&quot;);
-           resolver.setSuffix(&quot;.jsp&quot;);
-           // 可以在JSP页面中通过${}访问beans
-           resolver.setExposeContextBeansAsAttributes(true);
-           return resolver;
-     }
+       @Bean
+       public ViewResolver viewResolver() { 
+             // 配置JSP视图解析器
+             InternalResourceViewResolver resolver = new InternalResourceViewResolver();
+             resolver.setPrefix(&quot;/WEB-INF/views/&quot;);
+             resolver.setSuffix(&quot;.jsp&quot;);
+             // 可以在JSP页面中通过${}访问beans
+             resolver.setExposeContextBeansAsAttributes(true);
+             return resolver;
+       }
 
-  @Override
-  public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
-      configurer.enable(); //配置静态文件处理
-  }
-}</code></pre></li>
-</ul>
-<h5 id="配置Bean"><a href="#配置Bean" class="headerlink" title="配置Bean"></a>配置Bean</h5><p>RootConfig在设置扫描机制的时候，将之前WebConfig设置过的那个包排除了。</p>
+    @Override
+    public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
+        configurer.enable(); //配置静态文件处理
+    }
+}
+</code></pre>
+<h5 id="配置Bean"><a class="header-anchor" href="#配置Bean">¶</a>配置Bean</h5>
+<p>RootConfig在设置扫描机制的时候，将之前WebConfig设置过的那个包排除了。</p>
 <pre><code>@Configuration
 @ComponentScan(basePackages = { &quot;org.test.spittr.controller&quot; }, excludeFilters = {
              @ComponentScan.Filter(type = FilterType.ANNOTATION, value = EnableWebMvc.class) })
 public class RootConfig {
-}</code></pre><h3 id="5-2-编写Controller"><a href="#5-2-编写Controller" class="headerlink" title="5.2 编写Controller"></a>5.2 编写Controller</h3><h4 id="控制器类"><a href="#控制器类" class="headerlink" title="控制器类"></a>控制器类</h4><h5 id="RequestMapping"><a href="#RequestMapping" class="headerlink" title="@RequestMapping"></a>@RequestMapping</h5><p>控制器类就是含有被@RequestMapping注解修饰的方法的类。@Controller是@Component的别名，返回一个视图逻辑名称。<br>@RequestMapping可加在类上和方法上，可同时映射多个路径</p>
+}
+</code></pre>
+<h3 id="5-2-编写Controller"><a class="header-anchor" href="#5-2-编写Controller">¶</a>5.2 编写Controller</h3>
+<h4 id="控制器类"><a class="header-anchor" href="#控制器类">¶</a>控制器类</h4>
+<h5 id="RequestMapping"><a class="header-anchor" href="#RequestMapping">¶</a>@RequestMapping</h5>
+<p>控制器类就是含有被@RequestMapping注解修饰的方法的类。@Controller是@Component的别名，返回一个视图逻辑名称。<br>
+@RequestMapping可加在类上和方法上，可同时映射多个路径</p>
 <pre><code>@Controller
 @RequestMapping(value = &quot;/&quot;)
 public class HomeController {
@@ -4444,25 +4481,43 @@ public class HomeController {
      public String home() {
           return &quot;home&quot;;
      }
-}</code></pre><h4 id="请求参数"><a href="#请求参数" class="headerlink" title="请求参数"></a>请求参数</h4><p>Spring MVC提供了三种方式，可以让客户端给控制器的handler传入参数：</p>
+}
+</code></pre>
+<h4 id="请求参数"><a class="header-anchor" href="#请求参数">¶</a>请求参数</h4>
+<p>Spring MVC提供了三种方式，可以让客户端给控制器的handler传入参数：</p>
 <ul>
-<li>查询参数<br>@RequestParam，可设默认和非必填<pre><code>@RequestMapping(method = RequestMethod.GET)
+<li>查询参数<br>
+@RequestParam，可设默认和非必填</li>
+</ul>
+<pre><code>@RequestMapping(method = RequestMethod.GET)
 public List&lt;Spittle&gt; spittles(@RequestParam(&quot;max&quot;) long max, 
-                            @RequestParam(value = &quot;count&quot;, defaultValue = &quot;20&quot;) int count) {
-  return spittleRepository.findSpittles(max, count);
-}</code></pre></li>
-<li>表单参数  <ul>
-<li>“redirect:”前缀：解析为重定向的规则， 而不是视图的名称。  </li>
-<li>“forward:”前缀：请求将会前往（forward） 指定的URL路径， 而不再是重定向。<pre><code>@RequestMapping(value = &quot;/register&quot;, method = RequestMethod.POST)
-public String processRegistration(Spitter spitter) {
-return &quot;redirect:/spitter/&quot; + spitter.getUsername();
-}</code></pre></li>
+                              @RequestParam(value = &quot;count&quot;, defaultValue = &quot;20&quot;) int count) {
+    return spittleRepository.findSpittles(max, count);
+}
+</code></pre>
+<ul>
+<li>表单参数
+<ul>
+<li>“redirect:”前缀：解析为重定向的规则， 而不是视图的名称。</li>
+<li>“forward:”前缀：请求将会前往（forward） 指定的URL路径， 而不再是重定向。</li>
 </ul>
 </li>
-<li>路径参数<br>@PathVariable，如果函数参数和占位符名称相同，可省略注解的参数<pre><code>@RequestMapping(value = &quot;abc/{spittleId}&quot;, method = RequestMethod.GET)
-public String showSpittle(@PathVariable(&quot;spittleId&quot;) long spittleId,Model model) {
-}</code></pre><h4 id="校验参数"><a href="#校验参数" class="headerlink" title="校验参数"></a>校验参数</h4>Java Validation API定义了多个注解， 这些注解可以放到属性上，从而限制这些属性的值。</li>
 </ul>
+<pre><code>@RequestMapping(value = &quot;/register&quot;, method = RequestMethod.POST)
+public String processRegistration(Spitter spitter) {
+    return &quot;redirect:/spitter/&quot; + spitter.getUsername();
+}
+</code></pre>
+<ul>
+<li>路径参数<br>
+@PathVariable，如果函数参数和占位符名称相同，可省略注解的参数</li>
+</ul>
+<pre><code>@RequestMapping(value = &quot;abc/{spittleId}&quot;, method = RequestMethod.GET)
+public String showSpittle(@PathVariable(&quot;spittleId&quot;) long spittleId,Model model) {
+}
+</code></pre>
+<h4 id="校验参数"><a class="header-anchor" href="#校验参数">¶</a>校验参数</h4>
+<p>Java Validation API定义了多个注解， 这些注解可以放到属性上，从而限制这些属性的值。</p>
 <table>
 <thead>
 <tr>
@@ -4470,7 +4525,8 @@ public String showSpittle(@PathVariable(&quot;spittleId&quot;) long spittleId,Mo
 <th>描 述</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>@AssertFalse</td>
 <td>所注解的元素必须是Boolean类型， 并且值为false</td>
 </tr>
@@ -4522,22 +4578,27 @@ public String showSpittle(@PathVariable(&quot;spittleId&quot;) long spittleId,Mo
 <td>@Size</td>
 <td>所注解的元素的值必须是String、 集合或数组， 并且它的长度要符合给定的范围</td>
 </tr>
-</tbody></table>
-<h5 id="校验bean对象"><a href="#校验bean对象" class="headerlink" title="校验bean对象"></a>校验bean对象</h5><p>@Valid注解标注要检验的参数，Errors 参数要紧跟其后面</p>
+</tbody>
+</table>
+<h5 id="校验bean对象"><a class="header-anchor" href="#校验bean对象">¶</a>校验bean对象</h5>
+<p>@Valid注解标注要检验的参数，Errors 参数要紧跟其后面</p>
 <pre><code>@RequestMapping(value = &quot;/register&quot;, method = RequestMethod.POST)
 public String processRegistration(@Valid Spitter spitter, Errors errors) {
     if(errors.hasErrors()){
         ...
     }
     return &quot;redirect:/spitter/&quot; + spitter.getUsername();
-}</code></pre><h4 id="其他注解"><a href="#其他注解" class="headerlink" title="其他注解"></a>其他注解</h4><ul>
+}
+</code></pre>
+<h4 id="其他注解"><a class="header-anchor" href="#其他注解">¶</a>其他注解</h4>
+<ul>
 <li>@RequestBody：将方法参数直接绑定到HTTP请求Body上</li>
 <li>@ResponseBody：将返回值作为响应体</li>
 <li>@RestController：避免重复写@ResponseBody</li>
 <li>@CookieValue</li>
 <li>@RequestHeader</li>
 </ul>
-<p>Spring4.3中引进了｛@GetMapping、@PostMapping、@PutMapping、@DeleteMapping、@PatchMapping｝ 来帮助简化常用的HTTP方法的映射 并更好地表达被注解方法的语义 </p>
+<p>Spring4.3中引进了｛@GetMapping、@PostMapping、@PutMapping、@DeleteMapping、@PatchMapping｝ 来帮助简化常用的HTTP方法的映射 并更好地表达被注解方法的语义</p>
 <ul>
 <li>@GetMapping是一个组合注解 是@RequestMapping(method = RequestMethod.GET)的缩写</li>
 <li>@PostMapping是一个组合注解 是@RequestMapping(method = RequestMethod.POST)的缩写</li>
@@ -4551,19 +4612,23 @@ public String processRegistration(@Valid Spitter spitter, Errors errors) {
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

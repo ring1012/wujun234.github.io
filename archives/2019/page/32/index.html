@@ -1,10 +1,30 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +35,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4369,14 +4390,12 @@
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/02%20%E6%95%B0%E6%8D%AE%E5%BA%93/06%20Cassandra/2%20Cassandra%20%E6%9E%B6%E6%9E%84/">2 Cassandra 架构</a>
+					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/09%20IO/6%20NIO%EF%BC%88%E5%86%85%E5%AD%98%E6%98%A0%E5%B0%84%E6%96%87%E4%BB%B6%EF%BC%89/">6 NIO（内存映射文件）</a>
 				</h2>
 				<span class="post-date">2019-12-18</span>
 				<div class="article-digest">
-					1 核心架构1）Node节点，存放数据的地方，Cassandra的基础设施。
-2）datacenter
-数据中心，关联节点的集合。可以是物理或虚拟的。
-复制策略由datacenter设置。数据通过复制
+					JDK 1.4中引入java.nio，全称java non-blocking IO，为所有的原始类型（boolean类型除外）提供缓存支持的数据容器，使用它可以提供非阻塞式的高伸缩性网络。
+原来的 I
 					...
 				</div>
 			</article>
@@ -4385,11 +4404,13 @@
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/02%20%E6%95%B0%E6%8D%AE%E5%BA%93/06%20Cassandra/3%20Cassandra%20%E6%95%B0%E6%8D%AE%E6%A8%A1%E5%9E%8B/">3 Cassandra 数据模型</a>
+					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/09%20IO/5%20%E6%93%8D%E4%BD%9C%E6%96%87%E4%BB%B6/">5 操作文件</a>
 				</h2>
 				<span class="post-date">2019-12-18</span>
 				<div class="article-digest">
-					Cassandra 的数据模型是基于列族（Column Family）的四维或五维模型。它借鉴了 Amazon 的 Dynamo 和 Google’s BigTable 的数据结构和功能特点，采用 M
+					Path接口和Files类封装了在用户机器上处理文件系统所需的所有功能，他们是在JavaSE7中新添加进来的，比自JDK1.0以来一直使用的File类方便很多。
+¶1 Path
+Path表示的是一个目
 					...
 				</div>
 			</article>
@@ -4398,15 +4419,13 @@
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/02%20%E6%95%B0%E6%8D%AE%E5%BA%93/06%20Cassandra/4%20%E8%BF%81%E7%A7%BB%E6%A1%88%E4%BE%8B%E7%A4%BA%E4%BE%8B/">4 迁移案例示例</a>
+					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/09%20IO/4%20%E5%BA%8F%E5%88%97%E5%8C%96/">4 序列化</a>
 				</h2>
 				<span class="post-date">2019-12-18</span>
 				<div class="article-digest">
-					1 关系型数据库的设计用户信息 E-R 图
-
-2 Cassandra 设计1）归一化到自定义索引的规范化实体最佳选择，但是设计时应该增加时间戳 column。
-
-2）部分去规范化实体采用 Super 
+					Java 提供了一种对象序列化的机制，该机制中，一个对象可以被表示为一个字节序列，写出到输出流中，并在之后将其读回。整个过程都是 Java 虚拟机独立的。
+¶1 保存和加载序列化对象
+类 Object
 					...
 				</div>
 			</article>
@@ -4415,14 +4434,13 @@
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/02%20%E6%95%B0%E6%8D%AE%E5%BA%93/06%20Cassandra/5%20Gossip%20%E5%8D%8F%E8%AE%AE/">5 Gossip 协议</a>
+					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/09%20IO/3%20%E8%AF%BB%E5%86%99%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%95%B0%E6%8D%AE/">3 读写二进制数据</a>
 				</h2>
 				<span class="post-date">2019-12-18</span>
 				<div class="article-digest">
-					Gossip的原始论文：《Efficient Reconciliation and Flow Control for Anti-Entropy Protocols》
-
-1 概述1）特点
-最终一致性：在
+					¶1 DataInput和DataOutput接口
+DataInput接口 write* 方法写二进制格式数据，DataInput接口 read*方法读回二进制格式数据。
+DataInputStrea
 					...
 				</div>
 			</article>
@@ -4431,14 +4449,13 @@
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/02%20%E6%95%B0%E6%8D%AE%E5%BA%93/06%20Cassandra/6%20Cassandra%20vs.%20HBase/">6 Cassandra vs. HBase</a>
+					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/09%20IO/2%20%E8%AF%BB%E5%86%99%E6%96%87%E6%9C%AC/">2 读写文本</a>
 				</h2>
 				<span class="post-date">2019-12-18</span>
 				<div class="article-digest">
-					参考：
-
-Cassandra vs. HBase: twins or just strangers with similar looks?[Jun 19, 2018]
-HBase vs Cassand
+					存储文本字符串时，需要考虑字符编码方式。
+OutputStreamWriter类将使用选定的字符编码方式，把Unicode码元的输出流转换为字节流。
+InputStreamReader类将包含字节的输
 					...
 				</div>
 			</article>
@@ -4447,12 +4464,15 @@ HBase vs Cassand
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/02%20%E6%95%B0%E6%8D%AE%E5%BA%93/04%20Memcached/02%20%E4%B8%80%E8%87%B4%E6%80%A7hash/">02 一致性hash</a>
+					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/09%20IO/1%20%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E6%B5%81/">1 输入输出流</a>
 				</h2>
 				<span class="post-date">2019-12-18</span>
 				<div class="article-digest">
-					一致性hash算法解决了分布式环境下机器增加或者减少时，简单的取模运算无法获取较高命中率的问题。通过虚拟节点的使用，一致性hash算法可以均匀分担机器的负载，使得这一算法更具现实的意义。
-一致性Has
+					¶Java 的 I/O 类库的基本架构
+Java 的 I/O 操作类可以分成四组：
+
+基于字节操作的 I/O 接口：InputStream 和 OutputStream
+基于字符操作的 I/O 接口：
 					...
 				</div>
 			</article>
@@ -4461,12 +4481,13 @@ HBase vs Cassand
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/02%20%E6%95%B0%E6%8D%AE%E5%BA%93/04%20Memcached/01%20Memcached%E7%AC%94%E8%AE%B0/">01 Memcached笔记</a>
+					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/08%20Java%20SE%208%E7%9A%84%E6%B5%81%E5%BA%93/2%20Optional/">2 Optional</a>
 				</h2>
 				<span class="post-date">2019-12-18</span>
 				<div class="article-digest">
-					Memcached是高性能，分布式内存对象key-value缓存系统。一般使用目的是，通过缓存数据库查询结果，减少数据库访问次数，以提高动态Web应用的速度、提高可扩展性。 
-连接通过 telnet 
+					@since 1.8
+为了解决空指针异常，受到Google Guava的启发，Optional类已经成为Java 8类库的一部分。
+Optional实际上是个容器：它可以保存类型T的值，或者仅仅保存n
 					...
 				</div>
 			</article>
@@ -4475,13 +4496,12 @@ HBase vs Cassand
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/02%20%E6%95%B0%E6%8D%AE%E5%BA%93/03%20Redis/1%20Redis%20%E7%AE%80%E4%BB%8B/">1 Redis 简介</a>
+					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/08%20Java%20SE%208%E7%9A%84%E6%B5%81%E5%BA%93/1%20Stream/">1 Stream</a>
 				</h2>
 				<span class="post-date">2019-12-18</span>
 				<div class="article-digest">
-					1 Redis 简介高性能key-value数据库，支持数据的持久化、备份，数据类型丰富，支持事物、发布/订阅、通知、key过期等特性。
-2 Redis 安装2.1 单机安装
-Window下载zip，
+					Java 8 中的 Stream 是对集合对象功能的增强，像一个高级版本的Iterator，专注于对集合对象进行各种非常便利、高效的聚合操作，或者大批量数据操作。
+Stream 单向，不可往复，数据源
 					...
 				</div>
 			</article>
@@ -4490,13 +4510,25 @@ Window下载zip，
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/02%20%E6%95%B0%E6%8D%AE%E5%BA%93/03%20Redis/2%20%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81/">2 分布式锁</a>
+					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/07%20%E5%B9%B6%E5%8F%91/9%20%E6%89%A7%E8%A1%8C%E5%99%A8Executor/">9 执行器Executor</a>
 				</h2>
 				<span class="post-date">2019-12-18</span>
 				<div class="article-digest">
-					1 Redisson直接上官方推荐Redisson
-&lt;!-- https://mvnrepository.com/artifact/org.redisson/redisson --&gt;
-&l
+					执行器（Executor）类有许多静态工厂方法用来构建线程池。
+
+
+
+方法
+描述
+
+
+
+
+newCachedThreadPool
+必要时创建新线程；空闲线程会被保留 60 秒
+
+
+newFixedTh
 					...
 				</div>
 			</article>
@@ -4505,17 +4537,13 @@ Window下载zip，
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/02%20%E6%95%B0%E6%8D%AE%E5%BA%93/03%20Redis/3%20%E8%87%AA%E5%AE%9A%E4%B9%89%E5%BA%8F%E5%88%97%E5%8C%96/">3 自定义序列化</a>
+					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/07%20%E5%B9%B6%E5%8F%91/8%20Callable%E4%B8%8EFuture/">8 Callable与Future</a>
 				</h2>
 				<span class="post-date">2019-12-18</span>
 				<div class="article-digest">
-					/**
- * @author wujun
- * @date 2018-10-30 16:25
- */
-@Configuration
-public class RedisConfig {
-    /**
+					¶Callable
+Callable与Runnable类似，它们的主要区别是 Callable 的 call() 方法可以返回值和抛出异常。
+Callable接口是一个参数化的类型，只有一个方法cal
 					...
 				</div>
 			</article>
@@ -4531,19 +4559,23 @@ public class RedisConfig {
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

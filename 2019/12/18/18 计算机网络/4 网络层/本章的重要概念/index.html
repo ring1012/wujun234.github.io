@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		本章的重要概念 | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,7 +4395,7 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:44</span>
+	<span id="post-date">2019-12-18 01:00:41</span>
 </div>
 
 
@@ -4391,14 +4414,14 @@
 <li>IP首部中的生存时间字段给出了IP数据报在互联网中所能经过的最大路由器数，可防止IP数据报在互联网中无限制地兜圈子。</li>
 <li>地址解析协议 ARP 把 IP 地址解析为硬件地址，它解决同一个局域网上的主机或路由器的IP地址和硬件地址的映射问题。ARP的高速缓存可以大大减少网络上的通信量。</li>
 <li>在互联网中，我们无法仅根据硬件地址寻找到在某个网络上的某台主机。因此，从 IP地址到硬件地址的解析是非常必要的。</li>
-<li>无分类域间路由选择 CIDR 是解决目前IP地址紧缺的一个好方法。CIDR记法把 IP地址后面加上斜线“/”，然后写上前缀所占的位数。前缀用来指明网络，后缀用来指明主机。CIDR把前缀都相同的连续的IP地址组成一个”CIDR地址块”。IP地址的分配都以CIDR地址块为单位。</li>
+<li>无分类域间路由选择 CIDR 是解决目前IP地址紧缺的一个好方法。CIDR记法把 IP地址后面加上斜线“/”，然后写上前缀所占的位数。前缀用来指明网络，后缀用来指明主机。CIDR把前缀都相同的连续的IP地址组成一个&quot;CIDR地址块”。IP地址的分配都以CIDR地址块为单位。</li>
 <li>CIDR的32位地址掩码（或子网掩码）由一串1和一串0组成，而1的个数就是前缀的长度。只要把IP地址和地址掩码逐位进行“逻辑与(AND)”运算，就很容易得出网络地址。A类地址的默认地址掩码是255.0.0.0。B类地址的默认地址掩码是255.255.0.0。C类地址的默认地址掩码是255.255.255.0。</li>
 <li>路由聚合（把许多前缀相同的地址用一个来代替）有利于减少路由表中的项目，减少路由器之间的路由选择信息的交换，从而提高了整个互联网的性能。</li>
 <li>“转发”和“路由选择”有区别。“转发”是单个路由器的动作。“路由选择”是许多路由器共同协作的过程，这些路由器相互交换信息，目的是生成路由表，再从路由表导出转发表。若采用自适应路由选择算法，则当网络拓扑变化时，路由表和转发表都能够自动更新。在许多情况下，可以不考虑转发表和路由表的区别，而都使用路由表这一名词。</li>
 <li>自治系统（AS）就是在单一的技术管理下的一组路由器。一个自治系统对其他自治系统表现出的是一个单一的和一致的路由选择策略。</li>
 <li>路由选择协议有两大类：内部网关协议，如 RIP和OSPF；外部网关协议，如BGP-4。</li>
 <li>RIP是分布式的基于距离向量的路由选择协议，只适用于小型互联网。RIP按固定的时间间隔与相邻路由器交换信息。交换的信息是自己当前的路由表，即到达本自治系统中所有网络的（最短）距离，以及到每个网络应经过的下一跳路由器。</li>
-<li>OSPF是分布式的链路状态协议，适用于大型互联网。OSPF只在链路状态发生变化时，才向本自治系统中的所有路由器，用洪泛法发送与本路由器相邻的所有路由器的链路状态信息。“链路状态”指明本路由器都和哪些路由器相邻，以及该链路的“度量”。“度量”可表示费用、距离、时延、带宽等，可统称为“代价”。所有的路由器最终都能建立一个全网的拓扑结构图。</li>
+<li>OSPF是分布式的链路状态协议，适用于大型互联网。OSPF只在链路状态发生变化时，才向本自治系统中的所有路由器，用洪泛法发送与本路由器相邻的所有路由器的链路状态信息。“链路状态&quot;指明本路由器都和哪些路由器相邻，以及该链路的“度量&quot;。“度量&quot;可表示费用、距离、时延、带宽等，可统称为“代价&quot;。所有的路由器最终都能建立一个全网的拓扑结构图。</li>
 <li>BGP-4是不同AS的路由器之间交换路由信息的协议，是一种路径向量路由选择协议。BGP力求寻找一条能够到达目的网络（可达）且比较好的路由（不兜圈子），而并非要寻找一条最佳路由。</li>
 <li>网际控制报文协议ICMP是IP层的协议。ICMP报文作为IP数据报的数据，加上首部后组成IP数据报发送出去。使用ICMP并非为了实现可靠传输。ICMP允许主机或路由器报告差错情况和提供有关异常情况的报告。ICMP报文的种类有两种，即ICMP差错报告报文和ICMP询问报文。</li>
 <li>ICMP的一个重要应用就是分组网间探测 PING,用来测试两台主机之间的连通性。PING 使用了 ICMP 回送请求与回送回答报文。</li>
@@ -4412,7 +4435,7 @@
 <li>虚拟专用网VPN利用公用的互联网作为本机构各专用网之间的通信载体。VPN内部使用互联网的专用地址。一个VPN至少要有一个路由器具有合法的全球IP地址，这样才能和本系统的另一个VPN通过互联网进行通信。所有通过互联网传送的数据都必须加密。</li>
 <li>使用网络地址转换NAT技术，可以在专用网络内部使用专用IP地址，而仅在连接到互联网的路由器使用全球IP地址。这样就大大节约了宝贵的IP地址。</li>
 <li>MPLS的特点：(1)支持面向连接的服务质量；（2）支持流量工程，平衡网络负载；（3）有效地支持虚拟专用网VPNO</li>
-<li>MPLS在入口结点给每一个IP数据报打上固定长度的“标记”，然后根据标记在第二层（链路层）用硬件进行转发（在标记交换路由器中进行标记对换），因而转发速率大大加快。</li>
+<li>MPLS在入口结点给每一个IP数据报打上固定长度的“标记&quot;，然后根据标记在第二层（链路层）用硬件进行转发（在标记交换路由器中进行标记对换），因而转发速率大大加快。</li>
 </ul>
 
 </div>
@@ -4423,19 +4446,23 @@
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

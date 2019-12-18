@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		2 有序表查找 | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,18 +4395,23 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:43</span>
+	<span id="post-date">2019-12-18 01:00:44</span>
 </div>
 
 
 <div id="article">
-	<h3 id="1-折半查找-二分查找"><a href="#1-折半查找-二分查找" class="headerlink" title="1 折半查找(二分查找)"></a>1 折半查找(二分查找)</h3><p>折半查找：又称为二分查找。在有序顺序存储的线性表中，取中间记录作为比较对象，若相等,则成功；若给小于，则在左半区继续查找；若给大于，则在右半区继续查找。</p>
+	<h3 id="1-折半查找-二分查找"><a class="header-anchor" href="#1-折半查找-二分查找">¶</a>1 折半查找(二分查找)</h3>
+<p>折半查找：又称为二分查找。在有序顺序存储的线性表中，取中间记录作为比较对象，若相等,则成功；若给小于，则在左半区继续查找；若给大于，则在右半区继续查找。</p>
 <p><code>$mid = \frac{low+high}{2}= low+\frac{1}{2}(high-low)$</code></p>
-<p>适合有序，静态查找表。<br>不适合动态查找表。</p>
-<h3 id="2-插值查找"><a href="#2-插值查找" class="headerlink" title="2 插值查找"></a>2 插值查找</h3><p>插值查找：是根据要查找的关键字 key 与查找表中最大最小记录的关键字比较后的查找方法，不直接一半</p>
+<p>适合有序，静态查找表。<br>
+不适合动态查找表。</p>
+<h3 id="2-插值查找"><a class="header-anchor" href="#2-插值查找">¶</a>2 插值查找</h3>
+<p>插值查找：是根据要查找的关键字 key 与查找表中最大最小记录的关键字比较后的查找方法，不直接一半</p>
 <p><code>$mid = low+\frac{key-a[low]}{a[high]-a[low]}(high-low)$</code></p>
-<p>适合表长较大，而关键字分布又比较均匀的查找表。<br>不适合极端不均匀的数据。</p>
-<h3 id="3-斐波那契查找"><a href="#3-斐波那契查找" class="headerlink" title="3 斐波那契查找"></a>3 斐波那契查找</h3><p>假设有待查找数组 array[n] 和斐波那契数组 F[k]，n 不大于 F[k]-1，若 n 小于F[k]-1，array[n+i] 补足到 array[F[k]-1]，值都为array[n]。</p>
+<p>适合表长较大，而关键字分布又比较均匀的查找表。<br>
+不适合极端不均匀的数据。</p>
+<h3 id="3-斐波那契查找"><a class="header-anchor" href="#3-斐波那契查找">¶</a>3 斐波那契查找</h3>
+<p>假设有待查找数组 array[n] 和斐波那契数组 F[k]，n 不大于 F[k]-1，若 n 小于F[k]-1，array[n+i] 补足到 array[F[k]-1]，值都为array[n]。</p>
 <p><code>$mid = low + F[k-1]-1$</code></p>
 <p>平均性能优于折半查找</p>
 
@@ -4395,19 +4423,23 @@
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

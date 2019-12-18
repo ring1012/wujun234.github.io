@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		03 事务 | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,40 +4395,50 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:22</span>
+	<span id="post-date">2019-12-18 01:00:43</span>
 </div>
 
 
 <div id="article">
 	<p>事务指的是满足 ACID 特性的一组操作，用START TRANSACTION语句开始一个事务，通过 Commit 提交一个事务，使用 Rollback 进行回滚。</p>
-<h3 id="ACID"><a href="#ACID" class="headerlink" title="ACID"></a>ACID</h3><ul>
-<li><strong>原子性</strong>（Atomicity）<br>事务被视为不可分割的最小单元，事务的所有操作要么全部提交成功，要么全部失败回滚。  </li>
-</ul>
-<p><em>回滚日志</em>(undo log)记录着事务所执行的修改操作，在回滚时反向执行这些修改操作即可。</p>
+<h3 id="ACID"><a class="header-anchor" href="#ACID">¶</a>ACID</h3>
 <ul>
-<li><strong>一致性</strong>（Consistency）<br>数据库在事务执行前后都保持一致性状态。</li>
-<li><strong>隔离性</strong>（Isolation）<br>一个事务所做的修改在最终提交以前，对其它事务是不可见的。</li>
-<li><strong>持久性</strong>（Durability）<br>一旦事务提交，则其所做的修改将会永远保存到数据库中。分级别。<br>使用<em>重做日志</em>(redo log)来保证持久性。</li>
+<li><strong>原子性</strong>（Atomicity）<br>
+事务被视为不可分割的最小单元，事务的所有操作要么全部提交成功，要么全部失败回滚。<br>
+<em>回滚日志</em>(undo log)记录着事务所执行的修改操作，在回滚时反向执行这些修改操作即可。</li>
+<li><strong>一致性</strong>（Consistency）<br>
+数据库在事务执行前后都保持一致性状态。</li>
+<li><strong>隔离性</strong>（Isolation）<br>
+一个事务所做的修改在最终提交以前，对其它事务是不可见的。</li>
+<li><strong>持久性</strong>（Durability）<br>
+一旦事务提交，则其所做的修改将会永远保存到数据库中。分级别。<br>
+使用<em>重做日志</em>(redo log)来保证持久性。</li>
 </ul>
-<h3 id="隔离级别"><a href="#隔离级别" class="headerlink" title="隔离级别"></a>隔离级别</h3><ul>
-<li><strong>未提交读</strong>（READ UNCOMMITTED）<br>事务中的修改，即使没有提交，对其它事务也是可见的。  </li>
-</ul>
-<p><em>脏读</em>：事务可以读取未提交的数据</p>
+<h3 id="隔离级别"><a class="header-anchor" href="#隔离级别">¶</a>隔离级别</h3>
 <ul>
-<li><strong>提交读</strong>（READ COMMITTED）<br>一个事务只能读取已经提交的事务所做的修改。  </li>
+<li><strong>未提交读</strong>（READ UNCOMMITTED）<br>
+事务中的修改，即使没有提交，对其它事务也是可见的。<br>
+<em>脏读</em>：事务可以读取未提交的数据</li>
+<li><strong>提交读</strong>（READ COMMITTED）<br>
+一个事务只能读取已经提交的事务所做的修改。<br>
+<em>不可重复读</em>：两次执行同样的查询，可能会得到不一样的结果（update和delete）。</li>
+<li><strong>可重复读</strong>（REPEATABLE READ）<br>
+(默认级别)<br>
+保证在同一个事务中多次读取同样数据的结果是一样的。<br>
+<em>幻读</em>：读取某个<em>范围</em>记录时，其他事务插入了新记录，再读时，会产生幻行（insert）。<br>
+MVCC + 间隙锁 解决了幻读的问题。</li>
+<li><strong>可串行化</strong>（SERIALIZABLE）<br>
+强制事务串行执行。</li>
 </ul>
-<p><em>不可重复读</em>：两次执行同样的查询，可能会得到不一样的结果（update和delete）。</p>
-<ul>
-<li><strong>可重复读</strong>（REPEATABLE READ）<br>(默认级别)<br>保证在同一个事务中多次读取同样数据的结果是一样的。  </li>
-</ul>
-<p><em>幻读</em>：读取某个<em>范围</em>记录时，其他事务插入了新记录，再读时，会产生幻行（insert）。<br>MVCC + 间隙锁 解决了幻读的问题。</p>
-<ul>
-<li><strong>可串行化</strong>（SERIALIZABLE）<br>强制事务串行执行。</li>
-</ul>
-<h3 id="MySQL中的事务"><a href="#MySQL中的事务" class="headerlink" title="MySQL中的事务"></a>MySQL中的事务</h3><h5 id="AUTOCOMMIT"><a href="#AUTOCOMMIT" class="headerlink" title="AUTOCOMMIT"></a>AUTOCOMMIT</h5><p>MySQL 默认采用自动提交模式。也就是说，如果不是显式地开始一个事务，那么每个查询都会被当做一个事务自动提交。</p>
+<h3 id="MySQL中的事务"><a class="header-anchor" href="#MySQL中的事务">¶</a>MySQL中的事务</h3>
+<h5 id="AUTOCOMMIT"><a class="header-anchor" href="#AUTOCOMMIT">¶</a>AUTOCOMMIT</h5>
+<p>MySQL 默认采用自动提交模式。也就是说，如果不是显式地开始一个事务，那么每个查询都会被当做一个事务自动提交。</p>
 <p>1或者ON表示启用，0或者OFF表示禁用。</p>
-<pre><code>mysql&gt; SHOW VARIABLES LIKE &#39;AUTOCOMMIT&#39;;
-mysql&gt; SET AUTOCOMMIT = 1;</code></pre><h5 id="设置隔离级别"><a href="#设置隔离级别" class="headerlink" title="设置隔离级别"></a>设置隔离级别</h5><p>MySQL可以通过执行<code>SET TRANSACTION ISOLATION LEVEL</code>命令来设置隔离级别。</p>
+<pre><code>mysql&gt; SHOW VARIABLES LIKE 'AUTOCOMMIT';
+mysql&gt; SET AUTOCOMMIT = 1;
+</code></pre>
+<h5 id="设置隔离级别"><a class="header-anchor" href="#设置隔离级别">¶</a>设置隔离级别</h5>
+<p>MySQL可以通过执行<code>SET TRANSACTION ISOLATION LEVEL</code>命令来设置隔离级别。</p>
 
 </div>
 
@@ -4415,19 +4448,23 @@ mysql&gt; SET AUTOCOMMIT = 1;</code></pre><h5 id="设置隔离级别"><a href="#
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		5 文本文件和字符集 | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,20 +4395,35 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:49</span>
+	<span id="post-date">2019-12-18 01:00:41</span>
 </div>
 
 
 <div id="article">
-	<h3 id="1-文本文件"><a href="#1-文本文件" class="headerlink" title="1 文本文件"></a>1 文本文件</h3><p>获取平台的编码机制</p>
-<pre><code>Charset platformEncoding = Charset.defalutCharset();</code></pre><h3 id="2-行结束符"><a href="#2-行结束符" class="headerlink" title="2 行结束符"></a>2 行结束符</h3><p>Window中，文本文件希望每行末尾使用“\r\n”，UNIX只需“\n”。</p>
+	<h3 id="1-文本文件"><a class="header-anchor" href="#1-文本文件">¶</a>1 文本文件</h3>
+<p>获取平台的编码机制</p>
+<pre><code>Charset platformEncoding = Charset.defalutCharset();
+</code></pre>
+<h3 id="2-行结束符"><a class="header-anchor" href="#2-行结束符">¶</a>2 行结束符</h3>
+<p>Window中，文本文件希望每行末尾使用“\r\n”，UNIX只需“\n”。</p>
 <p>可使用 printf 和 %n 来产生平台相关的行结束符</p>
-<pre><code class="java">out.printf(&quot;Hello%nWorld%n&quot;);</code></pre>
-<h3 id="3-控制台"><a href="#3-控制台" class="headerlink" title="3 控制台"></a>3 控制台</h3><p>切换控制台字符集</p>
-<pre><code>java -Dfile.encoding=UTF-8 MyProg</code></pre><p>shell</p>
-<pre><code>chcp 65001</code></pre><h3 id="4-日志文件"><a href="#4-日志文件" class="headerlink" title="4 日志文件"></a>4 日志文件</h3><p>java.unit.logging库的日志消息会使用 FileHandler 处理，配置文件</p>
-<pre><code>java.unit.logging.FileHandler.encoding=UTF-8</code></pre><h3 id="5-UTF-8字节顺序标志"><a href="#5-UTF-8字节顺序标志" class="headerlink" title="5 UTF-8字节顺序标志"></a>5 UTF-8字节顺序标志</h3><p>可在文件第一个字符添加“文件字节顺序标志”U+FEFF，如果读入文本文件时，开头碰到了U+FEFF，就忽略它。</p>
-<h3 id="6-源文件的字符编码"><a href="#6-源文件的字符编码" class="headerlink" title="6 源文件的字符编码"></a>6 源文件的字符编码</h3><p>JDK工具 native2ascii 可将非ASCII字符转为ASCII码</p>
+<pre><code class="language-java">out.printf(&quot;Hello%nWorld%n&quot;);
+</code></pre>
+<h3 id="3-控制台"><a class="header-anchor" href="#3-控制台">¶</a>3 控制台</h3>
+<p>切换控制台字符集</p>
+<pre><code>java -Dfile.encoding=UTF-8 MyProg
+</code></pre>
+<p>shell</p>
+<pre><code>chcp 65001
+</code></pre>
+<h3 id="4-日志文件"><a class="header-anchor" href="#4-日志文件">¶</a>4 日志文件</h3>
+<p>java.unit.logging库的日志消息会使用 FileHandler 处理，配置文件</p>
+<pre><code>java.unit.logging.FileHandler.encoding=UTF-8
+</code></pre>
+<h3 id="5-UTF-8字节顺序标志"><a class="header-anchor" href="#5-UTF-8字节顺序标志">¶</a>5 UTF-8字节顺序标志</h3>
+<p>可在文件第一个字符添加“文件字节顺序标志”U+FEFF，如果读入文本文件时，开头碰到了U+FEFF，就忽略它。</p>
+<h3 id="6-源文件的字符编码"><a class="header-anchor" href="#6-源文件的字符编码">¶</a>6 源文件的字符编码</h3>
+<p>JDK工具 native2ascii 可将非ASCII字符转为ASCII码</p>
 
 </div>
 
@@ -4395,19 +4433,23 @@
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>

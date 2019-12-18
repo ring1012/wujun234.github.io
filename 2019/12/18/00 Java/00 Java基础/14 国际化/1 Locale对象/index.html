@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-	<link rel="shortcut icon" href="/images/favicon.ico">
-	<title>吴俊的博客</title>
+	
+	<!-- title -->
+	
+	<title>
+	
+		1 Locale对象 | 
+	 
+	吴俊的博客
+	</title>
+	
+	<!-- keywords,description -->
+	
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+	 
+		<meta name="description" content="吴俊的博客,wujun234" />
+	
+
+	<!-- favicon -->
+	
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+  
+
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
@@ -15,6 +37,7 @@
 	<script src="/js/main.js"></script>
 	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
+
 <body>
 	<header id="header">
     <a id="title" href="/" class="logo">吴俊的博客</a>
@@ -4372,30 +4395,42 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 00:40:49</span>
+	<span id="post-date">2019-12-18 01:00:41</span>
 </div>
 
 
 <div id="article">
 	<p>java.util.Locale是表示语言和国家/地区信息的本地化类，它是创建国际化应用的基础。</p>
-<h5 id="组成"><a href="#组成" class="headerlink" title="组成"></a>组成</h5><p>Locale由5个元素组成，语言必选，其他可选：</p>
+<h5 id="组成"><a class="header-anchor" href="#组成">¶</a>组成</h5>
+<p>Locale由5个元素组成，语言必选，其他可选：</p>
 <ul>
-<li>语言<br>2到3个小写字母。例如en、zh</li>
-<li>字符脚本<br>首字母大写的四个字母。例如Hant繁体中文字符。</li>
-<li>国家/地区<br>2个大写字幕或3个数字</li>
-<li>变体<br>指定各种杂项特性</li>
-<li>扩展<br>描述日历和数字等内容的本地偏好。</li>
+<li>语言<br>
+2到3个小写字母。例如en、zh</li>
+<li>字符脚本<br>
+首字母大写的四个字母。例如Hant繁体中文字符。</li>
+<li>国家/地区<br>
+2个大写字幕或3个数字</li>
+<li>变体<br>
+指定各种杂项特性</li>
+<li>扩展<br>
+描述日历和数字等内容的本地偏好。</li>
 </ul>
 <p>Locale是标签描述的，标签是由各个元素通过<code>-</code>链接起来的字符串。</p>
-<h5 id="构造"><a href="#构造" class="headerlink" title="构造"></a>构造</h5><pre><code>Locale locale = Locale.getDefault();
+<h5 id="构造"><a class="header-anchor" href="#构造">¶</a>构造</h5>
+<pre><code>Locale locale = Locale.getDefault();
 Locale locale = Locale.SIMPLIFIED_CHINESE;
 Locale locale = Locale.forLanguageTag(&quot;zh-CN&quot;);
-Locale local = new Locale(&quot;zh&quot;, &quot;CN&quot;);</code></pre><h5 id="交互"><a href="#交互" class="headerlink" title="交互"></a>交互</h5><p>展示getXXX();</p>
-<pre><code class="java">//返回适合向用户显示的语言环境国家/地区名。 
+Locale local = new Locale(&quot;zh&quot;, &quot;CN&quot;);
+</code></pre>
+<h5 id="交互"><a class="header-anchor" href="#交互">¶</a>交互</h5>
+<p>展示getXXX();</p>
+<pre><code class="language-java">//返回适合向用户显示的语言环境国家/地区名。 
 getDisplayCountry(Locale inLocale) 
-...</code></pre>
+...
+</code></pre>
 <p>相关类获取支持的Locale</p>
-<pre><code class="java">getAvailableLocales()</code></pre>
+<pre><code class="language-java">getAvailableLocales()
+</code></pre>
 
 </div>
 
@@ -4405,19 +4440,23 @@ getDisplayCountry(Locale inLocale)
 	<a href="/">Wu Jun</a> 
 	|
 	<span id="busuanzi_container_site_pv">
-		本站总访问量
+		pv
 		<span id="busuanzi_value_site_pv"></span>
-		次
 	</span>
 	|
 	<span id="busuanzi_container_site_uv"> 
-	  本站访客数
-	  <span id="busuanzi_value_site_uv"></span>
-	  人次
+		uv
+		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
+	<div id="to_top">
+	<div id="totop">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+</div>
 </body>
 </html>
