@@ -4,6 +4,10 @@
 	padding: 0;
 	border: 0;
 }
+a {
+    color: #069;
+    text-decoration: none;
+}
 
 html,body{
   height: 100%;
@@ -12,37 +16,56 @@ html,body{
   font-family: microsoft yahei,helvetica,simhei,simsun,sans-serif;
 }
 
-.footer{
+#header {
+	width: 100%;
 	height: 50px;
-	background-color: #3a9;
+	position:fixed;
+	background: #1b926c;
+	z-index: 100;
+}
+
+#footer{
+	height: 30px;
+	background-color: #6c7989;
+	color: #ccc;
+	text-align: center;
+}
+#footer a {
+    color: #fff;
+    font-style: italic;
 }
 
 #content{
 	/* flex: 1; */
+	max-width: 830px;
+	top: 50px;
+	height: 100%;
 	flex-grow:1;
 	flex-shrink:1;
 	flex-basis: 0;
-	overflow: scroll;
-	padding-left: 300px;
+	/* overflow: scroll; */
+	margin: 50px 0px 30px 300px;
 }
 
-aside {
-	width: 300px;
-	position:absolute;
+#sidebar {
+	flex-grow:1;
+	flex-shrink:1;
+	flex-basis: 0;
+	max-width: 300px;
+	min-width: 250px;
+	height: 100%;
+	position:fixed;
 	top: 50px;
-	bottom: 50px;
 	background: #262a30;
 }
 
-#header {
-	width: 100%;
-	height: 50px;
-	background: #1b926c;
-}
-
-
 /* #################### 全局 #################### */
+/* #################### 分页 #################### */
 
+.page-number{
+	
+}
+/* #################### 分页 #################### */
 /* #################### 导航 #################### */
 #header{
     display: flex;
@@ -52,7 +75,6 @@ aside {
 
 #title {
 	font-size: 20px;
-	text-decoration: none;
 	color: #fff;
 	padding: 10px 15px;
 }
@@ -68,7 +90,6 @@ aside {
 #header .menu-item-link{
 	font-size: 12px;
 	color: #b0ddce;
-	text-decoration: none;
 }
 #header .menu-item-link:hover {
 	border-bottom: 1px solid;
@@ -77,7 +98,7 @@ aside {
 
 /* #################### 侧边栏 #################### */
 /* 搜索框 */
-aside input {
+#sidebar input {
 	width: 290px;
 	height: 50px;
 	margin: 0;
@@ -93,7 +114,7 @@ aside input {
 }
 
 /* 搜索图标 */
-aside #search #search-icon {
+#search-icon {
 	position: absolute;
 	top: 0;
 	right: 0;
@@ -104,9 +125,8 @@ aside #search #search-icon {
 	background: #131417;
 	text-align: center;
 	line-height: 2.5;
-	text-decoration: none
 }
-aside #search #search-icon:hover {
+#search-icon:hover {
 	cursor: pointer;
 	color: #87daff;
 	-webkit-user-select: none;
@@ -115,41 +135,39 @@ aside #search #search-icon:hover {
 	-o-user-select: none;
 }
 
-aside #search .icon-active{
+#search .icon-active{
 	color: #e06c75;
 }
 
 /* 滚动条 */
-aside {
+#sidebar {
 	overflow: auto;
 }
 
 /* 树目录位置 */
-aside #tree {
+#tree {
 	padding-top: 55px
 }
 
 /* 树目录 */
-aside ul {
+#sidebar ul {
 	padding: 0px 5px 5px 20px;
 }
-aside ul li {
+#sidebar ul li {
 	list-style: none;
 	line-height: 25px;
 }
-aside ul li a {
+#sidebar ul li a {
 	color: #999;
 	font-size: 14px;
-	text-decoration: none
-
 }
-aside ul li a:hover {
+#sidebar ul li a:hover {
 	color: #ccc;
 	border-bottom: 1px solid #ccc;
 	cursor:pointer;
 }
-aside #tree .active a,
-aside #tree .active a:hover {
+#tree .active a,
+#tree .active a:hover {
 	color: #87daff;
 	border-bottom: 1px solid #87daff;
 }
@@ -222,7 +240,6 @@ aside #tree .active a:hover {
 
 #article a {
 	color: #e06c75;
-	text-decoration: none;
 }
 
 #article a:hover {
@@ -309,18 +326,18 @@ aside #tree .active a:hover {
 /* #################### 文章 #################### */
 
 /* #################### 点击目录动画 #################### */
-aside #tree ul ul {
+#tree ul ul {
 	display: none;
 }
 /* #################### 点击目录动画 #################### */
 
 /* #################### 文章索引 #################### */
 
-aside #toc {
+#toc {
 	padding-top: 55px;
 }
 
-aside #toc a.read{
+#toc a.read{
 	/*color: #e06c75;*/
 	color: #87daff;
 	border-bottom: 0;
@@ -330,7 +347,7 @@ aside #toc a.read{
 	-o-transition: 0.5s;
 }
 
-aside #toc a{
+#toc a{
 	color: #999;
 	border-bottom: 0;
 	-webkit-transition: 0.2s;
@@ -339,7 +356,7 @@ aside #toc a{
 	-o-transition: 0.2s;
 }
 
-aside #toc a:hover{
+#toc a:hover{
 	/*color: #87daff;*/
 	color: #e5c07b;
 	padding-left: 20px;
@@ -354,7 +371,6 @@ aside #toc a:hover{
 /* #################### 主页 #################### */
 
 #articleList .article-li {
-	height: 150px;
 	margin: 20px;
 	list-style: none;
 	border-bottom: 1px solid #eee;
@@ -365,7 +381,6 @@ aside #toc a:hover{
 	display: inline;
 	font-size: 12px;
 	color: #555;
-	text-decoration: none;
 	cursor:auto;
 	border-radius: none;
 	box-shadow: none;
@@ -379,7 +394,6 @@ aside #toc a:hover{
 #articleList .article-title {
 	position: relative;
 	color: #555;
-	text-decoration: none;
 	font-size: 24px;
 	font-weight: bold;
 }
@@ -404,12 +418,12 @@ canvas#live2dcanvas {
 /* 当浏览器窗口不超过最大800px时(意思就是小于800px时) */
 
 @media screen and (max-width: 800px) {
-	aside {
+	#sidebar {
 		display: none;
 	}
 
 	#content {
-		padding-left: 0;
+		margin: 50px 0px 30px 0px;
 	}
 
 	canvas#live2dcanvas {
@@ -420,7 +434,7 @@ canvas#live2dcanvas {
 /*竖屏*/
 @media all and (orientation : portrait) {
 
-	aside {
+	#sidebar {
 		display: none;
 	}
 

@@ -53,8 +53,8 @@ function showArticleIndex() {
 	}
 
 	// 最后组合成 div 方便 css 设计样式，添加到指定位置
-	$("aside #toc").empty();
-	$("aside #toc").append(show(h1List));
+	$("#toc").empty();
+	$("#toc").append(show(h1List));
 
 	// 点击目录索引链接，动画跳转过去，不是默认闪现过去
 	$("#toc a").on("click", function(e){
