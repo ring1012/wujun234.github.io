@@ -58,7 +58,9 @@
 	</ul>
 </header>
 
-	<div id="sidebar">
+	
+<button id="sidebar-toggle" class="toggle" ><i class="fa fa-bars" aria-hidden="true"></i></button>
+<div id="sidebar">
 	<!-- 搜索栏 -->
 	<div id="search">
 		<input class="search-input" type="text" placeholder="search">
@@ -4390,16 +4392,15 @@
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/11%20%E7%BD%91%E7%BB%9C/1%20%E8%BF%9E%E6%8E%A5%E5%88%B0%E6%9C%8D%E5%8A%A1%E5%99%A8/">1 连接到服务器</a>
+					<a class="article-title" href="/2019/12/18/03%20%E5%BE%AE%E6%9C%8D%E5%8A%A1/2%20%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83/02%20Apollo/">02 Apollo</a>
 				</h2>
-				<span class="post-date">2019-12-18</span>
+				<span class="post-date">2019-12-19</span>
 				<div class="article-digest">
-					¶1 使用telnet
-telnet是用于网络编程的强大调试工具，可远程连接和服务通信。windows的telnet需要单独激活
-telnet time-a.nist.gov 13
+					携程Apollo分布式配置中心，官方文档已经够成熟了：
+Wiki
+源码解析
+使用场景
 
-获取标准时间
-¶
 					...
 				</div>
 			</article>
@@ -4408,14 +4409,15 @@ telnet time-a.nist.gov 13
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/10%20XML/8%20XSL%E8%BD%AC%E6%8D%A2/">8 XSL转换</a>
+					<a class="article-title" href="/2019/12/18/03%20%E5%BE%AE%E6%9C%8D%E5%8A%A1/1%20%E6%9C%8D%E5%8A%A1%E8%B0%83%E7%94%A8/01%20Spring%20Cloud%20Ribbon/">01 Spring Cloud Ribbon</a>
 				</h2>
-				<span class="post-date">2019-12-18</span>
+				<span class="post-date">2019-12-19</span>
 				<div class="article-digest">
-					XSL 指扩展样式表语言（EXtensible Stylesheet Language），可描述如何来显示 XML 文档。
-XSL 包括三部分：XSLT、XPath、XSL-FO
-¶XSLT
-XSLT
+					Spring Cloud Ribbon封装了Netflix Ribbon，是基于HTTP和TCP的客户端负载均衡器。
+它主要包括六个组件：
+
+ServerList：负载均衡使用的服务器列表。
+Serv
 					...
 				</div>
 			</article>
@@ -4424,16 +4426,14 @@ XSLT
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/10%20XML/7%20%E7%94%9F%E6%88%90XML%E6%96%87%E6%A1%A3/">7 生成XML文档</a>
+					<a class="article-title" href="/2019/12/18/03%20%E5%BE%AE%E6%9C%8D%E5%8A%A1/1%20%E6%9C%8D%E5%8A%A1%E8%B0%83%E7%94%A8/02%20Spring%20Cloud%20Hystrix/">02 Spring Cloud Hystrix</a>
 				</h2>
-				<span class="post-date">2019-12-18</span>
+				<span class="post-date">2019-12-19</span>
 				<div class="article-digest">
-					¶1 不带命名空间的文档
-创建空文档
-Document doc = builder.newDocument();
-
-构建元素
-Element rootElement = doc.createEleme
+					Hystrix提供了熔断、隔离、Fallback、cache、监控等功能，能够在一个、或多个依赖同时出现问题时保证系统依然可用。
+¶一 熔断
+¶断路器
+失败次数达到阈值后， 断路器会切换到开路状态。 
 					...
 				</div>
 			</article>
@@ -4442,14 +4442,11 @@ Element rootElement = doc.createEleme
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/10%20XML/6%20%E9%AA%8C%E8%AF%81XML%E6%96%87%E6%A1%A3/">6 验证XML文档</a>
+					<a class="article-title" href="/2019/12/18/03%20%E5%BE%AE%E6%9C%8D%E5%8A%A1/1%20%E6%9C%8D%E5%8A%A1%E8%B0%83%E7%94%A8/03%20Spring%20Cloud%20Feign/">03 Spring Cloud Feign</a>
 				</h2>
-				<span class="post-date">2019-12-18</span>
+				<span class="post-date">2019-12-19</span>
 				<div class="article-digest">
-					如果要指定文档结构，可以提供一个文档类型定义（DTD）或一个XML Schema定义。
-¶1 DTD
-文档类型定义（DTD）可定义合法的XML文档构建模块。它使用一系列合法的元素来定义文档的结构。
-¶
+					Spring Cloud Feign是一套基于Netflix Feign实现的声明式服务调用客户端，目的是让Web Service调用更加简单，使用HTTP请求远程服务时能与调用本地方法一样的编码体验
 					...
 				</div>
 			</article>
@@ -4458,12 +4455,12 @@ Element rootElement = doc.createEleme
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/10%20XML/5%20XML%E8%A7%A3%E6%9E%90-%E6%B5%81%E6%9C%BA%E5%88%B6/">5 XML解析-流机制</a>
+					<a class="article-title" href="/2019/12/18/03%20%E5%BE%AE%E6%9C%8D%E5%8A%A1/1%20%E6%9C%8D%E5%8A%A1%E8%B0%83%E7%94%A8/04%20Resilience4j/">04 Resilience4j</a>
 				</h2>
-				<span class="post-date">2019-12-18</span>
+				<span class="post-date">2019-12-19</span>
 				<div class="article-digest">
-					如果文档很大，并且处理算法又非常简单，可以在运行时解析节点，而不必看到完整的树形结构，应该使用流机制解析器（streaming parser）。
-Java类库提供的流机制解析器：老而弥坚的SAX解析器
+					【todo】
+Hystrix官方已经停止开发了，Hystrix官方推荐使用新一代熔断器作为Resilience4j。作为新一代的熔断器，Resilience4j有很多优势，比如依赖少，模块化程度较好等
 					...
 				</div>
 			</article>
@@ -4472,15 +4469,13 @@ Java类库提供的流机制解析器：老而弥坚的SAX解析器
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/10%20XML/4%20XML%E8%A7%A3%E6%9E%90-%E6%A0%91%E5%9E%8B/">4 XML解析-树型</a>
+					<a class="article-title" href="/2019/12/18/02%20%E6%95%B0%E6%8D%AE%E5%BA%93/05%20MongoDB/02%20MongoDB%20%E6%93%8D%E4%BD%9C/">02 MongoDB 操作</a>
 				</h2>
-				<span class="post-date">2019-12-18</span>
+				<span class="post-date">2019-12-19</span>
 				<div class="article-digest">
-					xml文件除了给开发者看，更多的情况使用程序读取xml文件的内容。读取xml文档的过程就是xml解析
-¶1 XML解析方式
-Java库提供了两种XML解析器：
-¶树型解析器：DOM解析
-DOM解析器一
+					¶1 连接
+标准 URI 连接语法：
+mongodb://[username:password@]host1[:port1][,host2[:port2],...[,hostN[:portN]]][/
 					...
 				</div>
 			</article>
@@ -4489,13 +4484,22 @@ DOM解析器一
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/10%20XML/3%20XPath/">3 XPath</a>
+					<a class="article-title" href="/2019/12/18/02%20%E6%95%B0%E6%8D%AE%E5%BA%93/05%20MongoDB/01%20MongoDB%20%E6%A6%82%E5%BF%B5/">01 MongoDB 概念</a>
 				</h2>
-				<span class="post-date">2019-12-18</span>
+				<span class="post-date">2019-12-19</span>
 				<div class="article-digest">
-					XPath 是一种用于在 XML 文档中进行导航的语言。
-XPath 使用路径表达式来选取 XML 文档中的节点或者节点集。节点是通过沿着路径 (path) 或者步 (steps) 来选取的。
-¶XP
+					MongoDB是一款面向文档的NoSQL数据库，具备较好的扩展性以及高可用性，目标是提供海量数据的存储以及管理能力。
+¶1 概念解析
+
+
+
+RDBMS术语/概念
+MongoDB术语/概念
+
+
+
+
+数据
 					...
 				</div>
 			</article>
@@ -4504,16 +4508,13 @@ XPath 使用路径表达式来选取 XML 文档中的节点或者节点集。节
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/10%20XML/2%20%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4/">2 命名空间</a>
+					<a class="article-title" href="/2019/12/18/02%20%E6%95%B0%E6%8D%AE%E5%BA%93/05%20MongoDB/03%20MongoDB%20%E7%AE%A1%E7%90%86/">03 MongoDB 管理</a>
 				</h2>
-				<span class="post-date">2019-12-18</span>
+				<span class="post-date">2019-12-19</span>
 				<div class="article-digest">
-					¶使用前缀
-来避免命名冲突
-&lt;h:table&gt;
-   &lt;h:tr&gt;
-       &lt;h:td&gt;Apples&lt;/h:td&gt;
-       &lt;h:td
+					¶1 复制（副本集）
+复制提供了数据的冗余备份，并在多个服务器上存储数据副本，提高了数据的可用性， 并可以保证数据的安全性。
+至少需要两个节点。主节点，负责处理客户端请求；从节点，负责复制主节点上的数
 					...
 				</div>
 			</article>
@@ -4522,17 +4523,14 @@ XPath 使用路径表达式来选取 XML 文档中的节点或者节点集。节
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/10%20XML/1%20XML%E6%A6%82%E8%BF%B0/">1 XML概述</a>
+					<a class="article-title" href="/2019/12/18/02%20%E6%95%B0%E6%8D%AE%E5%BA%93/05%20MongoDB/04%20Java%E4%B8%AD%E4%BD%BF%E7%94%A8/">04 Java中使用</a>
 				</h2>
-				<span class="post-date">2019-12-18</span>
+				<span class="post-date">2019-12-19</span>
 				<div class="article-digest">
-					XML 指可扩展标记语言（eXtensible Markup Language），标签自定义，作用是：
-
-程序之间的数据传输通讯
-配置文件
-存储数据，充当小型数据库
-
-与HTML一样从标准通用标记语言
+					Maven 引入
+&lt;dependencies&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;org.mongodb&lt;/groupId&
 					...
 				</div>
 			</article>
@@ -4541,15 +4539,17 @@ XPath 使用路径表达式来选取 XML 文档中的节点或者节点集。节
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/09%20IO/7%20%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">7 正则表达式</a>
+					<a class="article-title" href="/2019/12/18/02%20%E6%95%B0%E6%8D%AE%E5%BA%93/06%20Cassandra/1%20Cassandra%20%E7%AE%80%E4%BB%8B/">1 Cassandra 简介</a>
 				</h2>
-				<span class="post-date">2019-12-18</span>
+				<span class="post-date">2019-12-19</span>
 				<div class="article-digest">
-					¶语法
-在使用正则表达式的各种程序和类库之间，表达式语法并未完全标准化。
-¶字符
+					官方文档
+（不完整，很多todo）
+Datastax
+CQL语法
+¶1 Cassandra简介
 
-字符类是一个括在括号中的可选择的字符集，例如，[Jj]、[0-9]、[A-Za-z]或1。这里“-”表示是一个范围，
+Cassandra 是一种分布式非关系型数据库，具有高性能、可扩展、无中心化、高可用性、无单点故障等特
 					...
 				</div>
 			</article>
@@ -4578,10 +4578,6 @@ XPath 使用路径表达式来选取 XML 文档中的节点或者节点集。节
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
-	<div id="to_top">
-	<div id="totop">
-		<i class="fa fa-angle-double-up"></i>
-	</div>
-</div>
+	<button id="totop" class="toggle"><i class="fa fa-angle-double-up" aria-hidden="true"></i></button>
 </body>
 </html>

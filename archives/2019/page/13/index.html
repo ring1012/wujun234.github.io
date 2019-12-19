@@ -58,7 +58,9 @@
 	</ul>
 </header>
 
-	<div id="sidebar">
+	
+<button id="sidebar-toggle" class="toggle" ><i class="fa fa-bars" aria-hidden="true"></i></button>
+<div id="sidebar">
 	<!-- 搜索栏 -->
 	<div id="search">
 		<input class="search-input" type="text" placeholder="search">
@@ -4390,15 +4392,16 @@
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/04%20%E8%AE%BE%E8%AE%A1/3%20%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/2-%E7%BB%93%E6%9E%84%E5%9E%8B%E6%A8%A1%E5%BC%8F/1.Adapter%EF%BC%88%E9%80%82%E9%85%8D%E5%99%A8%EF%BC%89/">1.Adapter（适配器）</a>
+					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/10%20XML/7%20%E7%94%9F%E6%88%90XML%E6%96%87%E6%A1%A3/">7 生成XML文档</a>
 				</h2>
-				<span class="post-date">2019-12-18</span>
+				<span class="post-date">2019-12-19</span>
 				<div class="article-digest">
-					将一个接口转换成客户希望的另一个接口，适配器模式使接口不兼容的那些类可以一起工作，别名包装器(Wrapper)。
-如非必要，可以重构
-¶模式应用
+					¶1 不带命名空间的文档
+创建空文档
+Document doc = builder.newDocument();
 
-Enumeration 接口转化为 Iterator
+构建元素
+Element rootElement = doc.createEleme
 					...
 				</div>
 			</article>
@@ -4407,11 +4410,14 @@ Enumeration 接口转化为 Iterator
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/04%20%E8%AE%BE%E8%AE%A1/3%20%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/1-%E5%88%9B%E5%BB%BA%E5%9E%8B%E6%A8%A1%E5%BC%8F/4.Singleton%EF%BC%88%E5%8D%95%E4%BE%8B%EF%BC%89/">4.Singleton（单例）</a>
+					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/07%20%E5%B9%B6%E5%8F%91/11%20%E6%89%B9%E9%87%8F%E8%8E%B7%E5%8F%96%E5%A4%9A%E6%9D%A1%E7%BA%BF%E7%A8%8B%E7%9A%84%E6%89%A7%E8%A1%8C%E7%BB%93%E6%9E%9C/">11 批量获取多条线程的执行结果</a>
 				</h2>
-				<span class="post-date">2019-12-18</span>
+				<span class="post-date">2019-12-19</span>
 				<div class="article-digest">
-					
+					当向线程池提交callable任务后，我们可能需要一次性获取所有返回结果，有三种处理方法。
+¶方法一：自己维护返回结果
+// 创建一个线程池
+ExecutorService executorServi
 					...
 				</div>
 			</article>
@@ -4420,13 +4426,12 @@ Enumeration 接口转化为 Iterator
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/04%20%E8%AE%BE%E8%AE%A1/3%20%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/1-%E5%88%9B%E5%BB%BA%E5%9E%8B%E6%A8%A1%E5%BC%8F/3.Prototype%EF%BC%88%E5%8E%9F%E5%9E%8B%EF%BC%89/">3.Prototype（原型）</a>
+					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/07%20%E5%B9%B6%E5%8F%91/2%20%E4%B8%AD%E6%96%AD%E7%BA%BF%E7%A8%8B/">2 中断线程</a>
 				</h2>
-				<span class="post-date">2019-12-18</span>
+				<span class="post-date">2019-12-19</span>
 				<div class="article-digest">
-					当直接创建对象的代价比较大时，创建当前对象的克隆
-原型模式很少单独出现，一般是和工厂方法模式一起出现，通过 clone 的方法创建一个对象，然后由工厂方法提供给调用者。
-//原型角色：定义用于复制现有
+					当线程的run方法执行方法体中最后一条语句并经由return返回时。或出现了在方法中没有捕获的异常时，线程终止。
+没有可以强制线程终止的方法，interrupt方法可以用来请求终止线程。isInter
 					...
 				</div>
 			</article>
@@ -4435,14 +4440,18 @@ Enumeration 接口转化为 Iterator
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/04%20%E8%AE%BE%E8%AE%A1/3%20%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/1-%E5%88%9B%E5%BB%BA%E5%9E%8B%E6%A8%A1%E5%BC%8F/2.Builder%EF%BC%88%E5%BB%BA%E9%80%A0%E8%80%85%EF%BC%89/">2.Builder（建造者）</a>
+					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/07%20%E5%B9%B6%E5%8F%91/1%20%E4%BB%80%E4%B9%88%E6%98%AF%E7%BA%BF%E7%A8%8B/">1 什么是线程</a>
 				</h2>
-				<span class="post-date">2019-12-18</span>
+				<span class="post-date">2019-12-19</span>
 				<div class="article-digest">
-					使用多个简单的对象一步一步构建成一个复杂的对象。
-工厂模式关注的是创建单个产品，而建造者模式则关注创建符合对象，多个部分
+					¶并发和并行的区别
 
-MealBuilder mealBuilder = new MealBuil
+并发:单核处理多个任务
+并行:多核同时处理多个任
+
+¶进程和线程的区别
+
+进程：每个进程都有独立的代码和数据空间（进程上下文），进程间的切换会有较大的开销，一个进程包含1–n个线
 					...
 				</div>
 			</article>
@@ -4451,16 +4460,11 @@ MealBuilder mealBuilder = new MealBuil
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/04%20%E8%AE%BE%E8%AE%A1/3%20%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/1-%E5%88%9B%E5%BB%BA%E5%9E%8B%E6%A8%A1%E5%BC%8F/1.Factory%EF%BC%88%E5%B7%A5%E5%8E%82%EF%BC%89/">1.Factory（工厂）</a>
+					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/07%20%E5%B9%B6%E5%8F%91/10%20%E5%90%8C%E6%AD%A5%E5%99%A8/">10 同步器</a>
 				</h2>
-				<span class="post-date">2019-12-18</span>
+				<span class="post-date">2019-12-19</span>
 				<div class="article-digest">
-					¶1 简单工厂（Simple Factory）
-根据参数的不同返回不同类的实例。
-
-¶模式应用
-java.text.DateFormat
-public final static DateFormat 
+					java.util.concurrent 包包含了几个能帮助人们管理相互合作的线程集的类。这些机制具有为线程之间的共用集结点模式提供的“预置功能”。如果有一个相互合作的线程集满足这些行为模式之一，那么
 					...
 				</div>
 			</article>
@@ -4469,16 +4473,19 @@ public final static DateFormat
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/04%20%E8%AE%BE%E8%AE%A1/2%20%E4%B8%9A%E5%8A%A1%E8%AE%BE%E8%AE%A1/03%20%E5%85%B3%E6%B3%A8%E6%B5%81%E8%AE%BE%E8%AE%A1/">03 关注流设计</a>
+					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/07%20%E5%B9%B6%E5%8F%91/3%20%E7%BA%BF%E7%A8%8B%E7%8A%B6%E6%80%81/">3 线程状态</a>
 				</h2>
-				<span class="post-date">2019-12-18</span>
+				<span class="post-date">2019-12-19</span>
 				<div class="article-digest">
-					一、需求分析
-¶1.1、数据现状
+					¶线程状态
+线程可以有如下 6 种状态：
 
-每个media可发布不同类型（微头条、文章、视频）的状态。
-每种类型都是从独立的系统发布，数据存在不同的数据库，且都未分表分库。
-当前media主页只展示了微头条动
+New(新建)
+创建后，尚未启动的线程
+Runable(可运行)
+
+正在JVM中执行的线程处于这种状态（注意不是在CPU中执行，见2）
+Runable对应了
 					...
 				</div>
 			</article>
@@ -4487,22 +4494,16 @@ public final static DateFormat
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/04%20%E8%AE%BE%E8%AE%A1/2%20%E4%B8%9A%E5%8A%A1%E8%AE%BE%E8%AE%A1/02%20%E6%B6%88%E6%81%AF%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/">02 消息系统设计</a>
+					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/07%20%E5%B9%B6%E5%8F%91/4%20%E7%BA%BF%E7%A8%8B%E5%B1%9E%E6%80%A7/">4 线程属性</a>
 				</h2>
-				<span class="post-date">2019-12-18</span>
+				<span class="post-date">2019-12-19</span>
 				<div class="article-digest">
-					¶一、消息类型
+					¶1 线程优先级
+不要将程序构建为功能的正确性依赖于优先级。
+Linux上线程不具有优先级。
 
-分析需求，将消息分为三类
-¶1.提醒(Remind)
-
-谁对一样属于谁的事物做了什么操作
-
-
-sender：触发者
-target：事物
-action：触发操作
-targetOwner
+void setPriority(fnt newPriority)：设置线程的优先级。
+static v
 					...
 				</div>
 			</article>
@@ -4511,16 +4512,13 @@ targetOwner
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/04%20%E8%AE%BE%E8%AE%A1/2%20%E4%B8%9A%E5%8A%A1%E8%AE%BE%E8%AE%A1/01%20%E5%8D%B3%E5%88%BB-%E9%93%BE%E6%8E%A5%E8%A7%A3%E6%9E%90-%E5%88%86%E6%9E%90/">01 即刻-链接解析-分析</a>
+					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/07%20%E5%B9%B6%E5%8F%91/5%20%E5%90%8C%E6%AD%A5/">5 同步</a>
 				</h2>
-				<span class="post-date">2019-12-18</span>
+				<span class="post-date">2019-12-19</span>
 				<div class="article-digest">
-					¶一、结果分析
-¶1 判断
-添加链接时，客户端本地判断，是否为合法链接
-¶2 解析
-添加链接之后请求后台解析
-POST https://app.jike.ruguoapp.com/1.0/readab
+					有两种机制防止代码块受并发访问的干扰。synchronized关键字,ReentrantLock类。
+¶1 可重入锁（ReentrantLock）
+可重入锁（ReentrantLock）锁是可重入的，
 					...
 				</div>
 			</article>
@@ -4529,17 +4527,13 @@ POST https://app.jike.ruguoapp.com/1.0/readab
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/04%20%E8%AE%BE%E8%AE%A1/1%20%E9%80%9A%E7%94%A8%E8%AE%BE%E8%AE%A1/05%20%E6%B5%B7%E6%98%8E%E8%B7%9D%E7%A6%BB%E8%AE%A1%E7%AE%97/">05 海明距离计算</a>
+					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/07%20%E5%B9%B6%E5%8F%91/6%20%E9%98%BB%E5%A1%9E%E9%98%9F%E5%88%97/">6 阻塞队列</a>
 				</h2>
-				<span class="post-date">2019-12-18</span>
+				<span class="post-date">2019-12-19</span>
 				<div class="article-digest">
-					¶海明距离计算
-Google提出的simhash去重算法里关于”汉明距离”计算最关键的步骤就是“位计数”（计算位数组中1的个数）。
-¶方案A
-最慢
-直接数
-void count(int x){
-   
+					对于许多线程问题，可以通过使用一个或多个队列以优雅且安全的方式将其形式化。
+使用队列，可以安全地从一个线程向另一个线程传递数据。
+使用通知模式实现线程的同步。当试图向队列添加元素而队列已满，或是想从队
 					...
 				</div>
 			</article>
@@ -4548,12 +4542,13 @@ void count(int x){
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/04%20%E8%AE%BE%E8%AE%A1/1%20%E9%80%9A%E7%94%A8%E8%AE%BE%E8%AE%A1/04%20%E7%9B%B8%E4%BC%BC%E5%9B%BE%E7%89%87%E8%B0%83%E7%A0%94/">04 相似图片调研</a>
+					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/07%20%E5%B9%B6%E5%8F%91/8%20Callable%E4%B8%8EFuture/">8 Callable与Future</a>
 				</h2>
-				<span class="post-date">2019-12-18</span>
+				<span class="post-date">2019-12-19</span>
 				<div class="article-digest">
-					通过调研，相似图片判断领域使用较多的算法有“感知哈希”算法（谷歌、360），“直方图”算法（阿里）和“特征提取”算法（百度），下面对这些算法进行了测试与对比，实现上可能还有进一步改进的地方。
-测试用的
+					¶Callable
+Callable与Runnable类似，它们的主要区别是 Callable 的 call() 方法可以返回值和抛出异常。
+Callable接口是一个参数化的类型，只有一个方法cal
 					...
 				</div>
 			</article>
@@ -4582,10 +4577,6 @@ void count(int x){
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
-	<div id="to_top">
-	<div id="totop">
-		<i class="fa fa-angle-double-up"></i>
-	</div>
-</div>
+	<button id="totop" class="toggle"><i class="fa fa-angle-double-up" aria-hidden="true"></i></button>
 </body>
 </html>

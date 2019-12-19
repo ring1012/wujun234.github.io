@@ -58,7 +58,9 @@
 	</ul>
 </header>
 
-	<div id="sidebar">
+	
+<button id="sidebar-toggle" class="toggle" ><i class="fa fa-bars" aria-hidden="true"></i></button>
+<div id="sidebar">
 	<!-- 搜索栏 -->
 	<div id="search">
 		<input class="search-input" type="text" placeholder="search">
@@ -4390,61 +4392,9 @@
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/00%20Java/01%20Java%E8%99%9A%E6%8B%9F%E6%9C%BA/01%20%E8%B5%B0%E8%BF%9BJava/5%20%E5%B1%95%E6%9C%9BJava%E6%8A%80%E6%9C%AF%E7%9A%84%E6%9C%AA%E6%9D%A5/">5 展望Java技术的未来</a>
-				</h2>
-				<span class="post-date">2019-12-18</span>
-				<div class="article-digest">
-					
-模块化
-混合语言
-多核并行
-进一步丰富语法
-64位虚拟机
-
-
-					...
-				</div>
-			</article>
-			
-		
-
-			<article class="article-li">
-				<h2>
-					<a class="article-title" href="/2019/12/18/00%20Java/01%20Java%E8%99%9A%E6%8B%9F%E6%9C%BA/01%20%E8%B5%B0%E8%BF%9BJava/4%20Java%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%8F%91%E5%B1%95%E5%8F%B2/">4 Java虚拟机发展史</a>
-				</h2>
-				<span class="post-date">2019-12-18</span>
-				<div class="article-digest">
-					
-Sun Classic/Exact VM
-Classic VM是第一款商用虚拟机，纯解析器方式来执行Java代码，如果要使用JIT编译器就必须进行外挂，解析器和编译器不能配合工作，编译器执行效率非常
-					...
-				</div>
-			</article>
-			
-		
-
-			<article class="article-li">
-				<h2>
-					<a class="article-title" href="/2019/12/18/00%20Java/01%20Java%E8%99%9A%E6%8B%9F%E6%9C%BA/01%20%E8%B5%B0%E8%BF%9BJava/3%20Java%E5%8F%91%E5%B1%95%E5%8F%B2/">3 Java发展史</a>
-				</h2>
-				<span class="post-date">2019-12-18</span>
-				<div class="article-digest">
-					
-
-JDK 1.0: Java虚拟机、Applet、AWT等；
-JDK 1.1：JAR文件格式、JDBC、JavaBeans、RMI、内部类、反射；
-JDK 1.2：拆分为J2SE/J2EE/J2ME
-					...
-				</div>
-			</article>
-			
-		
-
-			<article class="article-li">
-				<h2>
 					<a class="article-title" href="/2019/12/18/00%20Java/01%20Java%E8%99%9A%E6%8B%9F%E6%9C%BA/01%20%E8%B5%B0%E8%BF%9BJava/2%20Java%E6%8A%80%E6%9C%AF%E4%BD%93%E7%B3%BB/">2 Java技术体系</a>
 				</h2>
-				<span class="post-date">2019-12-18</span>
+				<span class="post-date">2019-12-19</span>
 				<div class="article-digest">
 					Sun官方所定义的Java技术体系包括：
 
@@ -4463,19 +4413,67 @@ JDK是用于支
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/00%20Java/01%20Java%E8%99%9A%E6%8B%9F%E6%9C%BA/01%20%E8%B5%B0%E8%BF%9BJava/1%20%E6%A6%82%E8%BF%B0/">1 概述</a>
+					<a class="article-title" href="/2019/12/18/00%20Java/01%20Java%E8%99%9A%E6%8B%9F%E6%9C%BA/01%20%E8%B5%B0%E8%BF%9BJava/3%20Java%E5%8F%91%E5%B1%95%E5%8F%B2/">3 Java发展史</a>
 				</h2>
-				<span class="post-date">2019-12-18</span>
+				<span class="post-date">2019-12-19</span>
 				<div class="article-digest">
-					Java的优点
+					
 
-结构严谨、面向对象
-摆脱平台的束缚，一次编写到处运行
-提供了相对安全的内存管理和访问机制
-实现了热点代码检测和运行时编译及优化
-一套完善的应用程序接口以及无数的第三方类库
+JDK 1.0: Java虚拟机、Applet、AWT等；
+JDK 1.1：JAR文件格式、JDBC、JavaBeans、RMI、内部类、反射；
+JDK 1.2：拆分为J2SE/J2EE/J2ME
+					...
+				</div>
+			</article>
+			
+		
+
+			<article class="article-li">
+				<h2>
+					<a class="article-title" href="/2019/12/18/00%20Java/01%20Java%E8%99%9A%E6%8B%9F%E6%9C%BA/01%20%E8%B5%B0%E8%BF%9BJava/4%20Java%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%8F%91%E5%B1%95%E5%8F%B2/">4 Java虚拟机发展史</a>
+				</h2>
+				<span class="post-date">2019-12-19</span>
+				<div class="article-digest">
+					
+Sun Classic/Exact VM
+Classic VM是第一款商用虚拟机，纯解析器方式来执行Java代码，如果要使用JIT编译器就必须进行外挂，解析器和编译器不能配合工作，编译器执行效率非常
+					...
+				</div>
+			</article>
+			
+		
+
+			<article class="article-li">
+				<h2>
+					<a class="article-title" href="/2019/12/18/00%20Java/01%20Java%E8%99%9A%E6%8B%9F%E6%9C%BA/01%20%E8%B5%B0%E8%BF%9BJava/5%20%E5%B1%95%E6%9C%9BJava%E6%8A%80%E6%9C%AF%E7%9A%84%E6%9C%AA%E6%9D%A5/">5 展望Java技术的未来</a>
+				</h2>
+				<span class="post-date">2019-12-19</span>
+				<div class="article-digest">
+					
+模块化
+混合语言
+多核并行
+进一步丰富语法
+64位虚拟机
 
 
+					...
+				</div>
+			</article>
+			
+		
+
+			<article class="article-li">
+				<h2>
+					<a class="article-title" href="/2019/12/18/00%20Java/01%20Java%E8%99%9A%E6%8B%9F%E6%9C%BA/01%20%E8%B5%B0%E8%BF%9BJava/6%20%E5%AE%9E%E6%88%98%EF%BC%9A%E8%87%AA%E5%B7%B1%E7%BC%96%E8%AF%91JDK/">6 实战：自己编译JDK</a>
+				</h2>
+				<span class="post-date">2019-12-19</span>
+				<div class="article-digest">
+					¶实战：自己编译JDK
+
+下载OpenJDK：https://jdk7.java.net/source.html
+系统需求：Ubuntu 64位、5GB的磁盘、1G内存；
+构建编译环境：需要Boots
 					...
 				</div>
 			</article>
@@ -4504,10 +4502,6 @@ JDK是用于支
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
-	<div id="to_top">
-	<div id="totop">
-		<i class="fa fa-angle-double-up"></i>
-	</div>
-</div>
+	<button id="totop" class="toggle"><i class="fa fa-angle-double-up" aria-hidden="true"></i></button>
 </body>
 </html>

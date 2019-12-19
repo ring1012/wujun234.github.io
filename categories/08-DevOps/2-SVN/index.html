@@ -58,7 +58,9 @@
 	</ul>
 </header>
 
-	<div id="sidebar">
+	
+<button id="sidebar-toggle" class="toggle" ><i class="fa fa-bars" aria-hidden="true"></i></button>
+<div id="sidebar">
 	<!-- 搜索栏 -->
 	<div id="search">
 		<input class="search-input" type="text" placeholder="search">
@@ -4390,42 +4392,9 @@
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/08%20DevOps/2%20SVN/5%20%E5%BC%80%E5%8F%91%E5%91%A8%E6%9C%9F/">5 开发周期</a>
-				</h2>
-				<span class="post-date">2019-12-18</span>
-				<div class="article-digest">
-					
-truck：是用来做主方向开发的，新功能的开发应放在主线中，当模块开发完成后，需要修改，就用branch。
-branch：分支开发和主线开发是可以同时进行的，也就是并行开发，分支通常用于修复bug时
-					...
-				</div>
-			</article>
-			
-		
-
-			<article class="article-li">
-				<h2>
-					<a class="article-title" href="/2019/12/18/08%20DevOps/2%20SVN/4%20%E5%86%B2%E7%AA%81%E5%8F%8A%E8%A7%A3%E5%86%B3/">4 冲突及解决</a>
-				</h2>
-				<span class="post-date">2019-12-18</span>
-				<div class="article-digest">
-					¶1 SVN两种工作模式
-¶1.1 锁定-修改-锁定模型：
-一个时间段里版本库的一个文件只允许被一个用户修改。
-适用于二进制格式文件，内部结构复杂，不容易理解更改处的上下文，采用该方案较好。
-
-Get
-					...
-				</div>
-			</article>
-			
-		
-
-			<article class="article-li">
-				<h2>
 					<a class="article-title" href="/2019/12/18/08%20DevOps/2%20SVN/3%20%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86/">3 版本管理</a>
 				</h2>
-				<span class="post-date">2019-12-18</span>
+				<span class="post-date">2019-12-19</span>
 				<div class="article-digest">
 					¶1 版本管理类
 
@@ -4445,7 +4414,7 @@ Get
 				<h2>
 					<a class="article-title" href="/2019/12/18/08%20DevOps/2%20SVN/2%20%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/">2 基本操作</a>
 				</h2>
-				<span class="post-date">2019-12-18</span>
+				<span class="post-date">2019-12-19</span>
 				<div class="article-digest">
 					¶1 TortoiseSVN 基本操作
 
@@ -4465,7 +4434,7 @@ Get
 				<h2>
 					<a class="article-title" href="/2019/12/18/08%20DevOps/2%20SVN/1%20%E5%9F%BA%E7%A1%80%E4%BB%8B%E7%BB%8D/">1 基础介绍</a>
 				</h2>
-				<span class="post-date">2019-12-18</span>
+				<span class="post-date">2019-12-19</span>
 				<div class="article-digest">
 					¶工作副本
 check out-在本地创建特定版本的工作副本
@@ -4476,6 +4445,39 @@ check out-在本地创建特定版本的工作副本
 ¶TortoiseSVN 图标
 
 
+					...
+				</div>
+			</article>
+			
+		
+
+			<article class="article-li">
+				<h2>
+					<a class="article-title" href="/2019/12/18/08%20DevOps/2%20SVN/5%20%E5%BC%80%E5%8F%91%E5%91%A8%E6%9C%9F/">5 开发周期</a>
+				</h2>
+				<span class="post-date">2019-12-19</span>
+				<div class="article-digest">
+					
+truck：是用来做主方向开发的，新功能的开发应放在主线中，当模块开发完成后，需要修改，就用branch。
+branch：分支开发和主线开发是可以同时进行的，也就是并行开发，分支通常用于修复bug时
+					...
+				</div>
+			</article>
+			
+		
+
+			<article class="article-li">
+				<h2>
+					<a class="article-title" href="/2019/12/18/08%20DevOps/2%20SVN/4%20%E5%86%B2%E7%AA%81%E5%8F%8A%E8%A7%A3%E5%86%B3/">4 冲突及解决</a>
+				</h2>
+				<span class="post-date">2019-12-19</span>
+				<div class="article-digest">
+					¶1 SVN两种工作模式
+¶1.1 锁定-修改-锁定模型：
+一个时间段里版本库的一个文件只允许被一个用户修改。
+适用于二进制格式文件，内部结构复杂，不容易理解更改处的上下文，采用该方案较好。
+
+Get
 					...
 				</div>
 			</article>
@@ -4502,10 +4504,6 @@ check out-在本地创建特定版本的工作副本
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
-	<div id="to_top">
-	<div id="totop">
-		<i class="fa fa-angle-double-up"></i>
-	</div>
-</div>
+	<button id="totop" class="toggle"><i class="fa fa-angle-double-up" aria-hidden="true"></i></button>
 </body>
 </html>

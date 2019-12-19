@@ -58,7 +58,9 @@
 	</ul>
 </header>
 
-	<div id="sidebar">
+	
+<button id="sidebar-toggle" class="toggle" ><i class="fa fa-bars" aria-hidden="true"></i></button>
+<div id="sidebar">
 	<!-- 搜索栏 -->
 	<div id="search">
 		<input class="search-input" type="text" placeholder="search">
@@ -4390,15 +4392,27 @@
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/13%20%E6%97%A5%E6%9C%9F%E5%92%8C%E6%97%B6%E9%97%B4API/4%20%E4%B8%8E%E9%81%97%E7%95%99%E4%BB%A3%E7%A0%81%E7%9A%84%E4%BA%92%E6%93%8D%E4%BD%9C/">4 与遗留代码的互操作</a>
+					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/13%20%E6%97%A5%E6%9C%9F%E5%92%8C%E6%97%B6%E9%97%B4API/2%20%E4%BA%BA%E7%B1%BB%E6%97%B6%E9%97%B4/">2 人类时间</a>
 				</h2>
-				<span class="post-date">2019-12-18</span>
+				<span class="post-date">2019-12-19</span>
 				<div class="article-digest">
-					¶JDBC
-最新JDBC映射将把数据库的日期类型和Java 8的新类型关联起来：
-SQL -&gt; Java
---------------------------
-date -&gt; LocalD
+					Java API 中有两种人类时间，本地日期/时间和时区时间。本地日期/时间无时区，而时区常常造成困扰，除非确实想要表示绝对时间的实例，最好都使用本地日期/时间。
+¶本地日期/时间
+¶1. Local
+					...
+				</div>
+			</article>
+			
+		
+
+			<article class="article-li">
+				<h2>
+					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/13%20%E6%97%A5%E6%9C%9F%E5%92%8C%E6%97%B6%E9%97%B4API/1%20%E7%BB%9D%E5%AF%B9%E6%97%B6%E9%97%B4/">1 绝对时间</a>
+				</h2>
+				<span class="post-date">2019-12-19</span>
+				<div class="article-digest">
+					Java 8新的Date-Time API 吸取了Joda-Time的精髓，所有类不可修改。
+新的java.time包涵盖了所有处理日期，时间，日期/时间，时区，时刻（instants），过程（dur
 					...
 				</div>
 			</article>
@@ -4409,7 +4423,7 @@ date -&gt; LocalD
 				<h2>
 					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/13%20%E6%97%A5%E6%9C%9F%E5%92%8C%E6%97%B6%E9%97%B4API/3%20%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%92%8C%E8%A7%A3%E6%9E%90/">3 格式化和解析</a>
 				</h2>
-				<span class="post-date">2019-12-18</span>
+				<span class="post-date">2019-12-19</span>
 				<div class="article-digest">
 					DateTimeFormatter类提供了三种打印日期/时间值的格式器
 
@@ -4427,27 +4441,15 @@ String formatted = DateTimeF
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/13%20%E6%97%A5%E6%9C%9F%E5%92%8C%E6%97%B6%E9%97%B4API/2%20%E4%BA%BA%E7%B1%BB%E6%97%B6%E9%97%B4/">2 人类时间</a>
+					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/13%20%E6%97%A5%E6%9C%9F%E5%92%8C%E6%97%B6%E9%97%B4API/4%20%E4%B8%8E%E9%81%97%E7%95%99%E4%BB%A3%E7%A0%81%E7%9A%84%E4%BA%92%E6%93%8D%E4%BD%9C/">4 与遗留代码的互操作</a>
 				</h2>
-				<span class="post-date">2019-12-18</span>
+				<span class="post-date">2019-12-19</span>
 				<div class="article-digest">
-					Java API 中有两种人类时间，本地日期/时间和时区时间。本地日期/时间无时区，而时区常常造成困扰，除非确实想要表示绝对时间的实例，最好都使用本地日期/时间。
-¶本地日期/时间
-¶1. Local
-					...
-				</div>
-			</article>
-			
-		
-
-			<article class="article-li">
-				<h2>
-					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/13%20%E6%97%A5%E6%9C%9F%E5%92%8C%E6%97%B6%E9%97%B4API/1%20%E7%BB%9D%E5%AF%B9%E6%97%B6%E9%97%B4/">1 绝对时间</a>
-				</h2>
-				<span class="post-date">2019-12-18</span>
-				<div class="article-digest">
-					Java 8新的Date-Time API 吸取了Joda-Time的精髓，所有类不可修改。
-新的java.time包涵盖了所有处理日期，时间，日期/时间，时区，时刻（instants），过程（dur
+					¶JDBC
+最新JDBC映射将把数据库的日期类型和Java 8的新类型关联起来：
+SQL -&gt; Java
+--------------------------
+date -&gt; LocalD
 					...
 				</div>
 			</article>
@@ -4474,10 +4476,6 @@ String formatted = DateTimeF
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
-	<div id="to_top">
-	<div id="totop">
-		<i class="fa fa-angle-double-up"></i>
-	</div>
-</div>
+	<button id="totop" class="toggle"><i class="fa fa-angle-double-up" aria-hidden="true"></i></button>
 </body>
 </html>

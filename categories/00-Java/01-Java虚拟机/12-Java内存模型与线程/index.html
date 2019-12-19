@@ -58,7 +58,9 @@
 	</ul>
 </header>
 
-	<div id="sidebar">
+	
+<button id="sidebar-toggle" class="toggle" ><i class="fa fa-bars" aria-hidden="true"></i></button>
+<div id="sidebar">
 	<!-- 搜索栏 -->
 	<div id="search">
 		<input class="search-input" type="text" placeholder="search">
@@ -4390,25 +4392,9 @@
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/00%20Java/01%20Java%E8%99%9A%E6%8B%9F%E6%9C%BA/12%20Java%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B/3%20Java%E4%B8%8E%E7%BA%BF%E7%A8%8B/">3 Java与线程</a>
-				</h2>
-				<span class="post-date">2019-12-18</span>
-				<div class="article-digest">
-					¶1 线程的实现
-线程是比进程更轻量级的调度执行单位，线程的引入可以把一个进程的资源分配和执行调度分开，各个线程既可以共享进程资源又可以独立调度；
-¶Thread类
-Thread类与大部分的Java 
-					...
-				</div>
-			</article>
-			
-		
-
-			<article class="article-li">
-				<h2>
 					<a class="article-title" href="/2019/12/18/00%20Java/01%20Java%E8%99%9A%E6%8B%9F%E6%9C%BA/12%20Java%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B/2%20Java%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/">2 Java内存模型</a>
 				</h2>
-				<span class="post-date">2019-12-18</span>
+				<span class="post-date">2019-12-19</span>
 				<div class="article-digest">
 					Java虚拟机规范中试图定义一种Java内存模型（JMM）来屏蔽掉各种硬件和操作系统的内存访问差异，以实现让Java程序在各种平台下都能达到一致的内存访问效果。
 主内存、工作内存与JVM内存不是同一个
@@ -4422,10 +4408,26 @@ Thread类与大部分的Java
 				<h2>
 					<a class="article-title" href="/2019/12/18/00%20Java/01%20Java%E8%99%9A%E6%8B%9F%E6%9C%BA/12%20Java%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B/1%20%E7%A1%AC%E4%BB%B6%E7%9A%84%E6%95%88%E7%8E%87%E4%B8%8E%E4%B8%80%E8%87%B4%E6%80%A7/">1 硬件的效率与一致性</a>
 				</h2>
-				<span class="post-date">2019-12-18</span>
+				<span class="post-date">2019-12-19</span>
 				<div class="article-digest">
 					¶高速缓存
 绝大多数的运算任务不可能只靠处理器计算就能完成，处理器至少要与内存交互，所以现代计算机系统都不得不加入一层读写速度尽可能接近处理器运算速度的高速缓存来作为内存与处理器之间的缓冲：将运算需要
+					...
+				</div>
+			</article>
+			
+		
+
+			<article class="article-li">
+				<h2>
+					<a class="article-title" href="/2019/12/18/00%20Java/01%20Java%E8%99%9A%E6%8B%9F%E6%9C%BA/12%20Java%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B/3%20Java%E4%B8%8E%E7%BA%BF%E7%A8%8B/">3 Java与线程</a>
+				</h2>
+				<span class="post-date">2019-12-19</span>
+				<div class="article-digest">
+					¶1 线程的实现
+线程是比进程更轻量级的调度执行单位，线程的引入可以把一个进程的资源分配和执行调度分开，各个线程既可以共享进程资源又可以独立调度；
+¶Thread类
+Thread类与大部分的Java 
 					...
 				</div>
 			</article>
@@ -4452,10 +4454,6 @@ Thread类与大部分的Java
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
-	<div id="to_top">
-	<div id="totop">
-		<i class="fa fa-angle-double-up"></i>
-	</div>
-</div>
+	<button id="totop" class="toggle"><i class="fa fa-angle-double-up" aria-hidden="true"></i></button>
 </body>
 </html>

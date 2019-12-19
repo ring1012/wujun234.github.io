@@ -58,7 +58,9 @@
 	</ul>
 </header>
 
-	<div id="sidebar">
+	
+<button id="sidebar-toggle" class="toggle" ><i class="fa fa-bars" aria-hidden="true"></i></button>
+<div id="sidebar">
 	<!-- 搜索栏 -->
 	<div id="search">
 		<input class="search-input" type="text" placeholder="search">
@@ -4390,15 +4392,16 @@
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/03%20%E6%8E%A5%E5%8F%A3%E3%80%81lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F%E4%B8%8E%E5%86%85%E9%83%A8%E7%B1%BB/4%20%E4%BB%A3%E7%90%86/">4 代理</a>
+					<a class="article-title" href="/2019/12/18/01%20Spring/04%20Web/1%20Spring%20MVC/">1 Spring MVC</a>
 				</h2>
-				<span class="post-date">2019-12-18</span>
+				<span class="post-date">2019-12-19</span>
 				<div class="article-digest">
-					代理模式：就是为其他对象提供一种代理以控制对这个对象的访问。
-代理可以在不改动目标对象的基础上，增加其他额外的功能（扩展功能）。
-¶1 静态代理
-代理对象和目标对象实现了相同的接口。
-目标对象作为代理
+					¶5.1 Spring MVC概览
+¶5.1.1 Spring MVC 运行原理
+
+
+Spring MVC通过一个单独的前端控制器（DispatcherServlet）过滤分发请求。
+Dispatch
 					...
 				</div>
 			</article>
@@ -4407,16 +4410,13 @@
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/03%20%E6%8E%A5%E5%8F%A3%E3%80%81lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F%E4%B8%8E%E5%86%85%E9%83%A8%E7%B1%BB/3%20%E5%86%85%E9%83%A8%E7%B1%BB/">3 内部类</a>
+					<a class="article-title" href="/2019/12/18/01%20Spring/04%20Web/2%20Spring%20MVC%E8%BF%9B%E9%98%B6/">2 Spring MVC进阶</a>
 				</h2>
-				<span class="post-date">2019-12-18</span>
+				<span class="post-date">2019-12-19</span>
 				<div class="article-digest">
-					内部类（ inner class）是定义在另一个类中的类。
-为什么需要使用内部类：
-
-内部类方法可以访问该类定义所在的作用域中的数据，包括私有数据
-内部类可以对同一个包中的其他类隐藏起来
-当想要定义一
+					¶1 替代配置
+¶1.1 自定义DispatcherServlet
+除了三个必须重载的抽象方法，AbstractAnnotationConfigDispatcherServletInitializer
 					...
 				</div>
 			</article>
@@ -4425,14 +4425,12 @@
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/03%20%E6%8E%A5%E5%8F%A3%E3%80%81lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F%E4%B8%8E%E5%86%85%E9%83%A8%E7%B1%BB/2%20lambda/">2 lambda</a>
+					<a class="article-title" href="/2019/12/18/01%20Spring/04%20Web/3%20Spring%20RestTemplate/">3 Spring RestTemplate</a>
 				</h2>
-				<span class="post-date">2019-12-18</span>
+				<span class="post-date">2019-12-19</span>
 				<div class="article-digest">
-					@since 1.8
-¶1 语法
-参数，箭头（-&gt;）以及一个表达式。
-(String first, String second) -&gt;first.length() - second.len
+					RestTemplate属于Spring-Web，是Spring的同步客户端HTTP访问的中心类。简化了与HTTP服务器的通信，并应用了RESTful原则。
+RestTemplate默认依赖JDK的H
 					...
 				</div>
 			</article>
@@ -4441,16 +4439,12 @@
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/03%20%E6%8E%A5%E5%8F%A3%E3%80%81lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F%E4%B8%8E%E5%86%85%E9%83%A8%E7%B1%BB/1%20%E6%8E%A5%E5%8F%A3/">1 接口</a>
+					<a class="article-title" href="/2019/12/18/01%20Spring/04%20Web/4%20Jsonp/">4 Jsonp</a>
 				</h2>
-				<span class="post-date">2019-12-18</span>
+				<span class="post-date">2019-12-19</span>
 				<div class="article-digest">
-					¶1 概念与特性
-
-成员默认public
-常量必须赋初值，内部类自动成为static类。
-不能含有实例域，不能实现方法。（JDK 8之后允许提供静态方法、默认方法）
-可以声明接口变量，不能使用new实
+					通过jsonp调用，对格式重新封装，解决前端跨域。
+如：请求http://xxxx?&amp;callback=exec, 那么返回的jsonp格式为exec({&quot;code&quot;:0,
 					...
 				</div>
 			</article>
@@ -4459,23 +4453,15 @@
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/02%20%E5%AF%B9%E8%B1%A1%E4%B8%8E%E7%B1%BB/5%20%E6%96%87%E6%A1%A3%E6%B3%A8%E9%87%8A/">5 文档注释</a>
+					<a class="article-title" href="/2019/12/18/01%20Spring/03%20AOP/1%20AOP%E7%AE%80%E4%BB%8B/">1 AOP简介</a>
 				</h2>
-				<span class="post-date">2019-12-18</span>
+				<span class="post-date">2019-12-19</span>
 				<div class="article-digest">
-					¶1、注释方法
-三种注释方法，注释不会出现在可执行文件中
+					把通用功能集中模块化到某个特定的类，并规定怎么用，这个类就称为切面（aspects），关注点分离，业务模块清晰。AOP即Aspect Oriented Programming。
+¶AOP术语
 
-//
-/*   */
-/**  */自动生成文档
 
-¶2、注释的插入
-javadoc 从下面几个特性中抽取信息：
-
-包
-公有类与接口
-公有的
+通知
 					...
 				</div>
 			</article>
@@ -4484,12 +4470,14 @@ javadoc 从下面几个特性中抽取信息：
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/02%20%E5%AF%B9%E8%B1%A1%E4%B8%8E%E7%B1%BB/4%20%E5%8F%8D%E5%B0%84/">4 反射</a>
+					<a class="article-title" href="/2019/12/18/01%20Spring/03%20AOP/2%20%E5%88%87%E7%82%B9/">2 切点</a>
 				</h2>
-				<span class="post-date">2019-12-18</span>
+				<span class="post-date">2019-12-19</span>
 				<div class="article-digest">
-					反射 (Reflection) 是 Java 的特征之一，它允许运行中的 Java 程序获取自身的信息，并且可以操作类或对象的内部属性。
-反射的核心是 JVM 在运行时才动态加载类或调用方法/访问属性
+					¶1 编写切点
+@Pointcut 定义可重复使用的切点
+@Pointcut(&quot;execution(public * com.xxx.mapper.*.*(..))&quot;)
+publi
 					...
 				</div>
 			</article>
@@ -4498,18 +4486,16 @@ javadoc 从下面几个特性中抽取信息：
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/02%20%E5%AF%B9%E8%B1%A1%E4%B8%8E%E7%B1%BB/3%20%E7%B1%BB/">3 类</a>
+					<a class="article-title" href="/2019/12/18/01%20Spring/03%20AOP/3%20%E5%88%87%E9%9D%A2/">3 切面</a>
 				</h2>
-				<span class="post-date">2019-12-18</span>
+				<span class="post-date">2019-12-19</span>
 				<div class="article-digest">
-					¶1 类
-类是构造对象的模板。
-由类构造对象的过程称为创建类的实例。
-一个源文件中，只能有一个公共类，类名必须与文件名相同。
-¶1.1 类之间的关系
-最常见的关系有：
-
-==依赖==（”uses-a”
+					¶1 创建切面
+使用@Aspect注解创建切面
+@Aspect
+@Component
+public class LogAspect {
+    @Pointcut(&quot;execution(* 
 					...
 				</div>
 			</article>
@@ -4518,19 +4504,13 @@ javadoc 从下面几个特性中抽取信息：
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/02%20%E5%AF%B9%E8%B1%A1%E4%B8%8E%E7%B1%BB/2%20%E4%BF%AE%E9%A5%B0%E7%AC%A6/">2 修饰符</a>
+					<a class="article-title" href="/2019/12/18/01%20Spring/02%20IoC/1%20%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5/">1 依赖注入</a>
 				</h2>
-				<span class="post-date">2019-12-18</span>
+				<span class="post-date">2019-12-19</span>
 				<div class="article-digest">
-					¶访问修饰符
+					IoC容器负责装配Bean，即创建应用对象之间协作关系，是依赖注入(Dependency injection)的本质。
+装配方式优先级：自动装配 &gt; Java配置文件 &gt; XML配置文件
 
-private——仅对本类可见
-public——对所有类可见
-接口里方法默认public
-protected——对本包和所有子类可见
-default——对本包可见
-
-一个方法可以访问所
 					...
 				</div>
 			</article>
@@ -4539,14 +4519,16 @@ default——对本包可见
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/02%20%E5%AF%B9%E8%B1%A1%E4%B8%8E%E7%B1%BB/1%20%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/">1 面向对象</a>
+					<a class="article-title" href="/2019/12/18/01%20Spring/02%20IoC/2%20%E9%AB%98%E7%BA%A7%E8%A3%85%E9%85%8D/">2 高级装配</a>
 				</h2>
-				<span class="post-date">2019-12-18</span>
+				<span class="post-date">2019-12-19</span>
 				<div class="article-digest">
-					¶1 抽象
-抽象是将一类对象的共同特征总结出来构造类的过程，包括数据抽象和行为抽象两方面。抽象只关注对象有哪些属性和行为，并不关注这些行为的细节是什么。
-¶2 封装
-把数据和行为隐藏，只能通过暴露的接
+					¶3.1 环境与profile
+¶配置profile
+
+@Profile注解
+指定某个bean属于哪一个profile，运行时做出环境决策。
+没有指定profile的bean始终都会被创建， 与激活哪
 					...
 				</div>
 			</article>
@@ -4555,16 +4537,15 @@ default——对本包可见
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/01%20%E5%9F%BA%E6%9C%AC%E8%AE%BE%E8%AE%A1/6%20%E6%8E%A7%E5%88%B6%E6%B5%81%E7%A8%8B/">6 控制流程</a>
+					<a class="article-title" href="/2019/12/18/01%20Spring/02%20IoC/3%20%E5%8A%A8%E6%80%81%E6%B3%A8%E5%86%8CBean/">3 动态注册Bean</a>
 				</h2>
-				<span class="post-date">2019-12-18</span>
+				<span class="post-date">2019-12-19</span>
 				<div class="article-digest">
-					Java 使用条件语句和循环语句控制流程。
-¶1 块作用域
-块（block、复合语句），由一对花括号括起来，确定了变量的作用域。
-不能在嵌套的块中声明同名的变量。
-¶2 条件语句
-if else if
+					¶1 注册接口
+有两种接口可动态注册bean
+
+BeanDefinitionRegistry
+注册Bean定义，使用BeanDefinitionRegistry 接口 registerBeanDefi
 					...
 				</div>
 			</article>
@@ -4593,10 +4574,6 @@ if else if
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
-	<div id="to_top">
-	<div id="totop">
-		<i class="fa fa-angle-double-up"></i>
-	</div>
-</div>
+	<button id="totop" class="toggle"><i class="fa fa-angle-double-up" aria-hidden="true"></i></button>
 </body>
 </html>

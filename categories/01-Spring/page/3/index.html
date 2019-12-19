@@ -58,7 +58,9 @@
 	</ul>
 </header>
 
-	<div id="sidebar">
+	
+<button id="sidebar-toggle" class="toggle" ><i class="fa fa-bars" aria-hidden="true"></i></button>
+<div id="sidebar">
 	<!-- 搜索栏 -->
 	<div id="search">
 		<input class="search-input" type="text" placeholder="search">
@@ -4390,15 +4392,16 @@
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/01%20Spring/03%20AOP/1%20AOP%E7%AE%80%E4%BB%8B/">1 AOP简介</a>
+					<a class="article-title" href="/2019/12/18/01%20Spring/03%20AOP/3%20%E5%88%87%E9%9D%A2/">3 切面</a>
 				</h2>
-				<span class="post-date">2019-12-18</span>
+				<span class="post-date">2019-12-19</span>
 				<div class="article-digest">
-					把通用功能集中模块化到某个特定的类，并规定怎么用，这个类就称为切面（aspects），关注点分离，业务模块清晰。AOP即Aspect Oriented Programming。
-¶AOP术语
-
-
-通知
+					¶1 创建切面
+使用@Aspect注解创建切面
+@Aspect
+@Component
+public class LogAspect {
+    @Pointcut(&quot;execution(* 
 					...
 				</div>
 			</article>
@@ -4407,15 +4410,13 @@
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/01%20Spring/02%20IoC/3%20%E5%8A%A8%E6%80%81%E6%B3%A8%E5%86%8CBean/">3 动态注册Bean</a>
+					<a class="article-title" href="/2019/12/18/01%20Spring/02%20IoC/1%20%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5/">1 依赖注入</a>
 				</h2>
-				<span class="post-date">2019-12-18</span>
+				<span class="post-date">2019-12-19</span>
 				<div class="article-digest">
-					¶1 注册接口
-有两种接口可动态注册bean
+					IoC容器负责装配Bean，即创建应用对象之间协作关系，是依赖注入(Dependency injection)的本质。
+装配方式优先级：自动装配 &gt; Java配置文件 &gt; XML配置文件
 
-BeanDefinitionRegistry
-注册Bean定义，使用BeanDefinitionRegistry 接口 registerBeanDefi
 					...
 				</div>
 			</article>
@@ -4426,7 +4427,7 @@ BeanDefinitionRegistry
 				<h2>
 					<a class="article-title" href="/2019/12/18/01%20Spring/02%20IoC/2%20%E9%AB%98%E7%BA%A7%E8%A3%85%E9%85%8D/">2 高级装配</a>
 				</h2>
-				<span class="post-date">2019-12-18</span>
+				<span class="post-date">2019-12-19</span>
 				<div class="article-digest">
 					¶3.1 环境与profile
 ¶配置profile
@@ -4442,13 +4443,36 @@ BeanDefinitionRegistry
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/01%20Spring/02%20IoC/1%20%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5/">1 依赖注入</a>
+					<a class="article-title" href="/2019/12/18/01%20Spring/02%20IoC/3%20%E5%8A%A8%E6%80%81%E6%B3%A8%E5%86%8CBean/">3 动态注册Bean</a>
 				</h2>
-				<span class="post-date">2019-12-18</span>
+				<span class="post-date">2019-12-19</span>
 				<div class="article-digest">
-					IoC容器负责装配Bean，即创建应用对象之间协作关系，是依赖注入(Dependency injection)的本质。
-装配方式优先级：自动装配 &gt; Java配置文件 &gt; XML配置文件
+					¶1 注册接口
+有两种接口可动态注册bean
 
+BeanDefinitionRegistry
+注册Bean定义，使用BeanDefinitionRegistry 接口 registerBeanDefi
+					...
+				</div>
+			</article>
+			
+		
+
+			<article class="article-li">
+				<h2>
+					<a class="article-title" href="/2019/12/18/01%20Spring/01%20Core/1%20%E5%9F%BA%E6%9C%AC%E7%90%86%E5%BF%B5/">1 基本理念</a>
+				</h2>
+				<span class="post-date">2019-12-19</span>
+				<div class="article-digest">
+					Spring 基本理念：简化Java开发
+
+最小侵入：基于POJO的轻量级、最小侵入式开发；
+依赖注入：松耦合
+面向接口：松耦合
+面向切面：声明式编程，消除样板式代码
+使用模板：消除样板式代码
+
+¶s
 					...
 				</div>
 			</article>
@@ -4459,7 +4483,7 @@ BeanDefinitionRegistry
 				<h2>
 					<a class="article-title" href="/2019/12/18/01%20Spring/01%20Core/3%20%E6%95%B4%E4%BD%93%E6%9E%B6%E6%9E%84/">3 整体架构</a>
 				</h2>
-				<span class="post-date">2019-12-18</span>
+				<span class="post-date">2019-12-19</span>
 				<div class="article-digest">
 					¶1 Spring模块
 Spring 4.0有20个模块，这些模块依据其所属的功能可以划分为6类不同的功能
@@ -4478,32 +4502,11 @@ Spring核心容器
 				<h2>
 					<a class="article-title" href="/2019/12/18/01%20Spring/01%20Core/2%20%E6%A1%86%E6%9E%B6%E6%A0%B8%E5%BF%83/">2 框架核心</a>
 				</h2>
-				<span class="post-date">2019-12-18</span>
+				<span class="post-date">2019-12-19</span>
 				<div class="article-digest">
 					¶1 容器
 容器（container）是Spring框架的核心，它管理着Spring应用中bean的创建、 配置和管理，负责对象的整个生命周期。
 IoC（Inversion of Control，控制
-					...
-				</div>
-			</article>
-			
-		
-
-			<article class="article-li">
-				<h2>
-					<a class="article-title" href="/2019/12/18/01%20Spring/01%20Core/1%20%E5%9F%BA%E6%9C%AC%E7%90%86%E5%BF%B5/">1 基本理念</a>
-				</h2>
-				<span class="post-date">2019-12-18</span>
-				<div class="article-digest">
-					Spring 基本理念：简化Java开发
-
-最小侵入：基于POJO的轻量级、最小侵入式开发；
-依赖注入：松耦合
-面向接口：松耦合
-面向切面：声明式编程，消除样板式代码
-使用模板：消除样板式代码
-
-¶s
 					...
 				</div>
 			</article>
@@ -4532,10 +4535,6 @@ IoC（Inversion of Control，控制
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
-	<div id="to_top">
-	<div id="totop">
-		<i class="fa fa-angle-double-up"></i>
-	</div>
-</div>
+	<button id="totop" class="toggle"><i class="fa fa-angle-double-up" aria-hidden="true"></i></button>
 </body>
 </html>

@@ -58,7 +58,9 @@
 	</ul>
 </header>
 
-	<div id="sidebar">
+	
+<button id="sidebar-toggle" class="toggle" ><i class="fa fa-bars" aria-hidden="true"></i></button>
+<div id="sidebar">
 	<!-- 搜索栏 -->
 	<div id="search">
 		<input class="search-input" type="text" placeholder="search">
@@ -4392,7 +4394,7 @@
 				<h2>
 					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/17%20%E6%9C%AC%E5%9C%B0%E6%96%B9%E6%B3%95/3%20todo/">3 todo</a>
 				</h2>
-				<span class="post-date">2019-12-18</span>
+				<span class="post-date">2019-12-19</span>
 				<div class="article-digest">
 					
 12.4　访问域
@@ -4416,25 +4418,9 @@
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/17%20%E6%9C%AC%E5%9C%B0%E6%96%B9%E6%B3%95/2%20%E5%8F%82%E6%95%B0%E4%B8%8E%E8%BF%94%E5%9B%9E/">2 参数与返回</a>
-				</h2>
-				<span class="post-date">2019-12-18</span>
-				<div class="article-digest">
-					¶1 数值参数与返回
-为了对应 c 和 Java 的数据类型，Java 本地接口定义了 jint、jlong 等类型，在头文件中被 typedef 语句声明为等价类型。
-¶2 字符串参数
-JNI 有两
-					...
-				</div>
-			</article>
-			
-		
-
-			<article class="article-li">
-				<h2>
 					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/17%20%E6%9C%AC%E5%9C%B0%E6%96%B9%E6%B3%95/1%20%E8%B0%83%E7%94%A8%20C%20%E5%87%BD%E6%95%B0/">1 调用 C 函数</a>
 				</h2>
-				<span class="post-date">2019-12-18</span>
+				<span class="post-date">2019-12-19</span>
 				<div class="article-digest">
 					建议只在必需的时候才使用本地代码
 
@@ -4449,9 +4435,76 @@ JNI 有两
 
 			<article class="article-li">
 				<h2>
+					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/17%20%E6%9C%AC%E5%9C%B0%E6%96%B9%E6%B3%95/2%20%E5%8F%82%E6%95%B0%E4%B8%8E%E8%BF%94%E5%9B%9E/">2 参数与返回</a>
+				</h2>
+				<span class="post-date">2019-12-19</span>
+				<div class="article-digest">
+					¶1 数值参数与返回
+为了对应 c 和 Java 的数据类型，Java 本地接口定义了 jint、jlong 等类型，在头文件中被 typedef 语句声明为等价类型。
+¶2 字符串参数
+JNI 有两
+					...
+				</div>
+			</article>
+			
+		
+
+			<article class="article-li">
+				<h2>
+					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/16%20%E5%AE%89%E5%85%A8/3%20%E7%94%A8%E6%88%B7%E8%AE%A4%E8%AF%81/">3 用户认证</a>
+				</h2>
+				<span class="post-date">2019-12-19</span>
+				<div class="article-digest">
+					认证负责确认使用者身份。
+¶1 JAAS 框架
+Java 认证和授权服务，是一个可插拔的API。
+com.sun.security包下。
+¶2 JAAS 登陆模块
+…
+
+					...
+				</div>
+			</article>
+			
+		
+
+			<article class="article-li">
+				<h2>
+					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/16%20%E5%AE%89%E5%85%A8/1%20%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%99%A8/">1 类加载器</a>
+				</h2>
+				<span class="post-date">2019-12-19</span>
+				<div class="article-digest">
+					¶1 类加载过程
+虚拟机只加载程序执行时所需要的类文件。假设程序从MyProgram.class开始运行，下面是虚拟机执行的步骤：
+
+虚拟机有一个用于加载类文件的机制。
+如果类拥有类型为另一个类的域，
+					...
+				</div>
+			</article>
+			
+		
+
+			<article class="article-li">
+				<h2>
+					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/16%20%E5%AE%89%E5%85%A8/2%20%E5%AE%89%E5%85%A8%E7%AE%A1%E7%90%86%E5%99%A8%E4%B8%8E%E8%AE%BF%E9%97%AE%E6%9D%83%E9%99%90/">2 安全管理器与访问权限</a>
+				</h2>
+				<span class="post-date">2019-12-19</span>
+				<div class="article-digest">
+					一旦某个类被加载到虚拟机中，并由校验器检查过后，java平台的第二种安全机制就会启动，这个机制就是安全管理器
+¶1 权限检查
+SecurityManager 安全管理器是一个负责控制具体操作是否允许执
+					...
+				</div>
+			</article>
+			
+		
+
+			<article class="article-li">
+				<h2>
 					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/16%20%E5%AE%89%E5%85%A8/5%20%E5%8A%A0%E5%AF%86/">5 加密</a>
 				</h2>
-				<span class="post-date">2019-12-18</span>
+				<span class="post-date">2019-12-19</span>
 				<div class="article-digest">
 					¶1 对称密码
 “Java密码扩展”包含所有加密算法的超类： Cipher 类。
@@ -4467,7 +4520,7 @@ Cipher ci
 				<h2>
 					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/16%20%E5%AE%89%E5%85%A8/4%20%E6%95%B0%E6%8D%AE%E7%AD%BE%E5%90%8D/">4 数据签名</a>
 				</h2>
-				<span class="post-date">2019-12-18</span>
+				<span class="post-date">2019-12-19</span>
 				<div class="article-digest">
 					要确定一份代码是否安全，首先要搞清楚两个问题：
 
@@ -4485,17 +4538,29 @@ ava.security包提供了很多成熟算法。
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/16%20%E5%AE%89%E5%85%A8/3%20%E7%94%A8%E6%88%B7%E8%AE%A4%E8%AF%81/">3 用户认证</a>
+					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/15%20%E8%84%9A%E6%9C%AC%E3%80%81%E7%BC%96%E8%AF%91%E4%B8%8E%E6%B3%A8%E8%A7%A3%E5%A4%84%E7%90%86/1%20Java%E5%B9%B3%E5%8F%B0%E7%9A%84%E8%84%9A%E6%9C%AC/">1 Java平台的脚本</a>
 				</h2>
-				<span class="post-date">2019-12-18</span>
+				<span class="post-date">2019-12-19</span>
 				<div class="article-digest">
-					认证负责确认使用者身份。
-¶1 JAAS 框架
-Java 认证和授权服务，是一个可插拔的API。
-com.sun.security包下。
-¶2 JAAS 登陆模块
-…
+					
+脚本 API ：允许调用脚本语言代码
+编译器 API ：应用程序内编译Java代码
+注解处理器 ：操作注解
 
+¶1 获取脚本引擎
+常用引擎
+
+
+
+引擎
+名字
+MIME类型
+文件扩展
+
+
+
+
+Nash
 					...
 				</div>
 			</article>
@@ -4504,60 +4569,13 @@ com.sun.security包下。
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/16%20%E5%AE%89%E5%85%A8/2%20%E5%AE%89%E5%85%A8%E7%AE%A1%E7%90%86%E5%99%A8%E4%B8%8E%E8%AE%BF%E9%97%AE%E6%9D%83%E9%99%90/">2 安全管理器与访问权限</a>
+					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/15%20%E8%84%9A%E6%9C%AC%E3%80%81%E7%BC%96%E8%AF%91%E4%B8%8E%E6%B3%A8%E8%A7%A3%E5%A4%84%E7%90%86/3%20%E4%BD%BF%E7%94%A8%E6%B3%A8%E8%A7%A3/">3 使用注解</a>
 				</h2>
-				<span class="post-date">2019-12-18</span>
+				<span class="post-date">2019-12-19</span>
 				<div class="article-digest">
-					一旦某个类被加载到虚拟机中，并由校验器检查过后，java平台的第二种安全机制就会启动，这个机制就是安全管理器
-¶1 权限检查
-SecurityManager 安全管理器是一个负责控制具体操作是否允许执
-					...
-				</div>
-			</article>
-			
-		
-
-			<article class="article-li">
-				<h2>
-					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/16%20%E5%AE%89%E5%85%A8/1%20%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%99%A8/">1 类加载器</a>
-				</h2>
-				<span class="post-date">2019-12-18</span>
-				<div class="article-digest">
-					¶1 类加载过程
-虚拟机只加载程序执行时所需要的类文件。假设程序从MyProgram.class开始运行，下面是虚拟机执行的步骤：
-
-虚拟机有一个用于加载类文件的机制。
-如果类拥有类型为另一个类的域，
-					...
-				</div>
-			</article>
-			
-		
-
-			<article class="article-li">
-				<h2>
-					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/15%20%E8%84%9A%E6%9C%AC%E3%80%81%E7%BC%96%E8%AF%91%E4%B8%8E%E6%B3%A8%E8%A7%A3%E5%A4%84%E7%90%86/7%20%E5%AD%97%E8%8A%82%E7%A0%81%E5%B7%A5%E7%A8%8B/">7 字节码工程</a>
-				</h2>
-				<span class="post-date">2019-12-18</span>
-				<div class="article-digest">
-					¶1 修改类文件
-¶2 在加载时修改字节码
-
-					...
-				</div>
-			</article>
-			
-		
-
-			<article class="article-li">
-				<h2>
-					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/15%20%E8%84%9A%E6%9C%AC%E3%80%81%E7%BC%96%E8%AF%91%E4%B8%8E%E6%B3%A8%E8%A7%A3%E5%A4%84%E7%90%86/6%20%E6%BA%90%E7%A0%81%E7%BA%A7%E6%B3%A8%E8%A7%A3%E5%A4%84%E7%90%86/">6 源码级注解处理</a>
-				</h2>
-				<span class="post-date">2019-12-18</span>
-				<div class="article-digest">
-					¶1 注解处理
-编译器会定位源文件中的注解。每个注解处理器会依次执行。如果某个注解处理器产生了新的源文件，则重复处理。没有新文件产生后，就编译所有源文件。
-注解处理器通常扩展 AbstractProc
+					注解是插入到源代码的标签，由其他工具对其进行处理，不会改变程序的编译方式
+¶注解位置
+在Java中，注解是当作一个修饰符来使用的。它被置于被注解项之前，中间没有分号。每一个注解的名称前面都加上了@符号
 					...
 				</div>
 			</article>
@@ -4586,10 +4604,6 @@ SecurityManager 安全管理器是一个负责控制具体操作是否允许执
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
-	<div id="to_top">
-	<div id="totop">
-		<i class="fa fa-angle-double-up"></i>
-	</div>
-</div>
+	<button id="totop" class="toggle"><i class="fa fa-angle-double-up" aria-hidden="true"></i></button>
 </body>
 </html>

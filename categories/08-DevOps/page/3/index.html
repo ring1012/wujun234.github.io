@@ -58,7 +58,9 @@
 	</ul>
 </header>
 
-	<div id="sidebar">
+	
+<button id="sidebar-toggle" class="toggle" ><i class="fa fa-bars" aria-hidden="true"></i></button>
+<div id="sidebar">
 	<!-- 搜索栏 -->
 	<div id="search">
 		<input class="search-input" type="text" placeholder="search">
@@ -4390,50 +4392,13 @@
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/08%20DevOps/1%20Git/5%20%E6%A0%87%E7%AD%BE%E7%AE%A1%E7%90%86/">5 标签管理</a>
+					<a class="article-title" href="/2019/12/18/08%20DevOps/1%20Git/1%20%E5%88%9B%E5%BB%BA%E7%89%88%E6%9C%AC%E5%BA%93/">1 创建版本库</a>
 				</h2>
-				<span class="post-date">2019-12-18</span>
+				<span class="post-date">2019-12-19</span>
 				<div class="article-digest">
-					tag就是一个让人容易记住的有意义的名字，它跟某个commit绑在一起。
-¶创建标签
-
-git tag ：新建一个标签，默认为HEAD，也可以指定一个commit id
-git tag -a  -m 
-					...
-				</div>
-			</article>
-			
-		
-
-			<article class="article-li">
-				<h2>
-					<a class="article-title" href="/2019/12/18/08%20DevOps/1%20Git/4%20%E5%88%86%E6%94%AF%E7%AE%A1%E7%90%86/">4 分支管理</a>
-				</h2>
-				<span class="post-date">2019-12-18</span>
-				<div class="article-digest">
-					¶创建与合并分支
-Git鼓励大量使用分支：
-
-git branch：查看分支
-git branch ：创建分支
-git checkout ：切换分支
-git checkout -b ：创建+切换分支
-
-					...
-				</div>
-			</article>
-			
-		
-
-			<article class="article-li">
-				<h2>
-					<a class="article-title" href="/2019/12/18/08%20DevOps/1%20Git/3%20%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93/">3 远程仓库</a>
-				</h2>
-				<span class="post-date">2019-12-18</span>
-				<div class="article-digest">
-					¶创建SSH Key
-在用户主目录看看.ssh目录下有没有id_rsa和id_rsa.pub这两个文件，如果没有，打开Shell（Windows下打开Git Bash），创建SSH Key：
-$ ss
+					¶Git全局设置
+git config --global user.name &quot;wujun234&quot;
+git config --global user.email &quot;wuj
 					...
 				</div>
 			</article>
@@ -4444,7 +4409,7 @@ $ ss
 				<h2>
 					<a class="article-title" href="/2019/12/18/08%20DevOps/1%20Git/2%20%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86/">2 版本管理</a>
 				</h2>
-				<span class="post-date">2019-12-18</span>
+				<span class="post-date">2019-12-19</span>
 				<div class="article-digest">
 					¶状态查看
 
@@ -4466,13 +4431,15 @@ HEAD：指向当前版本
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/08%20DevOps/1%20Git/1%20%E5%88%9B%E5%BB%BA%E7%89%88%E6%9C%AC%E5%BA%93/">1 创建版本库</a>
+					<a class="article-title" href="/2019/12/18/08%20DevOps/1%20Git/5%20%E6%A0%87%E7%AD%BE%E7%AE%A1%E7%90%86/">5 标签管理</a>
 				</h2>
-				<span class="post-date">2019-12-18</span>
+				<span class="post-date">2019-12-19</span>
 				<div class="article-digest">
-					¶Git全局设置
-git config --global user.name &quot;wujun234&quot;
-git config --global user.email &quot;wuj
+					tag就是一个让人容易记住的有意义的名字，它跟某个commit绑在一起。
+¶创建标签
+
+git tag ：新建一个标签，默认为HEAD，也可以指定一个commit id
+git tag -a  -m 
 					...
 				</div>
 			</article>
@@ -4481,17 +4448,51 @@ git config --global user.email &quot;wuj
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/08%20DevOps/1%20Git/0%20%E6%90%AD%E5%BB%BAGit%E6%9C%8D%E5%8A%A1%E5%99%A8/">0 搭建Git服务器</a>
+					<a class="article-title" href="/2019/12/18/08%20DevOps/1%20Git/3%20%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93/">3 远程仓库</a>
 				</h2>
-				<span class="post-date">2019-12-18</span>
+				<span class="post-date">2019-12-19</span>
 				<div class="article-digest">
-					原文
+					¶创建SSH Key
+在用户主目录看看.ssh目录下有没有id_rsa和id_rsa.pub这两个文件，如果没有，打开Shell（Windows下打开Git Bash），创建SSH Key：
+$ ss
+					...
+				</div>
+			</article>
+			
+		
 
-搭建Git服务器非常简单，通常10分钟即可完成；
-要方便管理公钥，用Gitosis；
-要像SVN那样变态地控制权限，用Gitolite。
+			<article class="article-li">
+				<h2>
+					<a class="article-title" href="/2019/12/18/08%20DevOps/1%20Git/4%20%E5%88%86%E6%94%AF%E7%AE%A1%E7%90%86/">4 分支管理</a>
+				</h2>
+				<span class="post-date">2019-12-19</span>
+				<div class="article-digest">
+					¶创建与合并分支
+Git鼓励大量使用分支：
 
-假设你已经有sudo权限的用户账号，下面，正式开始安
+git branch：查看分支
+git branch ：创建分支
+git checkout ：切换分支
+git checkout -b ：创建+切换分支
+
+					...
+				</div>
+			</article>
+			
+		
+
+			<article class="article-li">
+				<h2>
+					<a class="article-title" href="/2019/12/18/08%20DevOps/1%20Git/6%20%E5%85%B6%E4%BB%96/">6 其他</a>
+				</h2>
+				<span class="post-date">2019-12-19</span>
+				<div class="article-digest">
+					¶忽略特殊文件
+
+忽略某些文件时，需要编写.gitignore；
+.gitignore文件本身要放到版本库里，并且可以对.gitignore做版本管理！
+
+GitHub已经为我们准备了各种.gitig
 					...
 				</div>
 			</article>
@@ -4520,10 +4521,6 @@ git config --global user.email &quot;wuj
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
-	<div id="to_top">
-	<div id="totop">
-		<i class="fa fa-angle-double-up"></i>
-	</div>
-</div>
+	<button id="totop" class="toggle"><i class="fa fa-angle-double-up" aria-hidden="true"></i></button>
 </body>
 </html>

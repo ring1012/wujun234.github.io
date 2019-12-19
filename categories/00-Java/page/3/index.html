@@ -58,7 +58,9 @@
 	</ul>
 </header>
 
-	<div id="sidebar">
+	
+<button id="sidebar-toggle" class="toggle" ><i class="fa fa-bars" aria-hidden="true"></i></button>
+<div id="sidebar">
 	<!-- 搜索栏 -->
 	<div id="search">
 		<input class="search-input" type="text" placeholder="search">
@@ -4390,119 +4392,9 @@
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/00%20Java/02%20Effective%20Java/3%20%E7%B1%BB%E5%92%8C%E6%8E%A5%E5%8F%A3%EF%BC%8815-25%EF%BC%89/">3 类和接口（15-25）</a>
+					<a class="article-title" href="/2019/12/18/00%20Java/01%20Java%E8%99%9A%E6%8B%9F%E6%9C%BA/09%20%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%A1%88%E4%BE%8B%E4%B8%8E%E5%AE%9E%E6%88%98/2%20%E5%AE%9E%E6%88%98%EF%BC%9A%E8%87%AA%E5%B7%B1%E5%8A%A8%E6%89%8B%E5%AE%9E%E7%8E%B0%E8%BF%9C%E7%A8%8B%E6%89%A7%E8%A1%8C%E5%8A%9F%E8%83%BD/">2 实战：自己动手实现远程执行功能</a>
 				</h2>
-				<span class="post-date">2019-12-18</span>
-				<div class="article-digest">
-					¶第15条：使类和成员的可访问性最小化
-公有静态final域暴露常量，要么包含基本类型值，要么包含指向不可变对象的引用
-¶第16条：在公有类中使用访问方法而非公有域
-
-公有类不应该暴露可变域，因为其客
-					...
-				</div>
-			</article>
-			
-		
-
-			<article class="article-li">
-				<h2>
-					<a class="article-title" href="/2019/12/18/00%20Java/02%20Effective%20Java/2%20%E5%AF%B9%E4%BA%8E%E6%89%80%E6%9C%89%E5%AF%B9%E8%B1%A1%E9%83%BD%E9%80%9A%E7%94%A8%E7%9A%84%E6%96%B9%E6%B3%95%EF%BC%8810-14%EF%BC%89/">2 对于所有对象都通用的方法（10-14）</a>
-				</h2>
-				<span class="post-date">2019-12-18</span>
-				<div class="article-digest">
-					¶第10条：覆盖equals时请遵守通用约定
-
-自反性 - 对象必须等于其自身
-对称性 - 任何两个对象对于它们是否相等的问题都必须保持一致，Timestamp违反了，不值得效仿
-传递性 - 如果对象
-					...
-				</div>
-			</article>
-			
-		
-
-			<article class="article-li">
-				<h2>
-					<a class="article-title" href="/2019/12/18/00%20Java/02%20Effective%20Java/11%20%E5%BA%8F%E5%88%97%E5%8C%96%EF%BC%8885-90%EF%BC%89/">11 序列化（85-90）</a>
-				</h2>
-				<span class="post-date">2019-12-18</span>
-				<div class="article-digest">
-					¶第85条: 首选Java序列化的替代品
-序列化是危险的，反序列化有漏洞，应该避免。
-使用跨平台的结构化数据替代，例如JSON或protobuf。
-或者不反序列化不受信任的数据。
-如果必须反序列化，使
-					...
-				</div>
-			</article>
-			
-		
-
-			<article class="article-li">
-				<h2>
-					<a class="article-title" href="/2019/12/18/00%20Java/02%20Effective%20Java/10%20%E5%B9%B6%E5%8F%91%EF%BC%8878-84%EF%BC%89/">10 并发（78-84）</a>
-				</h2>
-				<span class="post-date">2019-12-18</span>
-				<div class="article-digest">
-					¶第78条：同步访问共享的可变数据
-¶第79条：避免过度同步
-¶第80条：executor和task优先于线程
-
-Executor.newCachedThreadPool：小程序，轻载的服务器
-Exe
-					...
-				</div>
-			</article>
-			
-		
-
-			<article class="article-li">
-				<h2>
-					<a class="article-title" href="/2019/12/18/00%20Java/02%20Effective%20Java/1%20%E5%88%9B%E5%BB%BA%E5%92%8C%E9%94%80%E6%AF%81%E5%AF%B9%E8%B1%A1%EF%BC%881-9%EF%BC%89/">1 创建和销毁对象（1-9）</a>
-				</h2>
-				<span class="post-date">2019-12-18</span>
-				<div class="article-digest">
-					¶第1条：考虑用静态工厂方法代替构造器
-工厂方法优势：
-
-有名称，更易读
-可选，不必每次创建新对象
-可以返回子类型
-创建参数化类型实例时，更简洁
-可以返回非公有类
-
-工厂方法缺点：
-
-类如果不含有他的
-					...
-				</div>
-			</article>
-			
-		
-
-			<article class="article-li">
-				<h2>
-					<a class="article-title" href="/2019/12/18/00%20Java/01%20Java%E8%99%9A%E6%8B%9F%E6%9C%BA/13%20%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8%E4%B8%8E%E9%94%81%E4%BC%98%E5%8C%96/2%20%E9%94%81%E4%BC%98%E5%8C%96/">2 锁优化</a>
-				</h2>
-				<span class="post-date">2019-12-18</span>
-				<div class="article-digest">
-					¶1 自旋锁与自适应自旋
-
-自旋锁，让后面请求锁的那个线程等待，执行一个忙循环；
-在JDK 1.6已经默认开启自旋锁；如果锁被占用的时间很短自旋等待的效果就会非常好，反之则会白白消耗处理器资源；
-在J
-					...
-				</div>
-			</article>
-			
-		
-
-			<article class="article-li">
-				<h2>
-					<a class="article-title" href="/2019/12/18/00%20Java/01%20Java%E8%99%9A%E6%8B%9F%E6%9C%BA/13%20%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8%E4%B8%8E%E9%94%81%E4%BC%98%E5%8C%96/1%20%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8/">1 线程安全</a>
-				</h2>
-				<span class="post-date">2019-12-18</span>
+				<span class="post-date">2019-12-19</span>
 				<div class="article-digest">
 					
 					...
@@ -4513,14 +4405,14 @@ Exe
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/00%20Java/01%20Java%E8%99%9A%E6%8B%9F%E6%9C%BA/12%20Java%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B/3%20Java%E4%B8%8E%E7%BA%BF%E7%A8%8B/">3 Java与线程</a>
+					<a class="article-title" href="/2019/12/18/00%20Java/01%20Java%E8%99%9A%E6%8B%9F%E6%9C%BA/09%20%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%A1%88%E4%BE%8B%E4%B8%8E%E5%AE%9E%E6%88%98/1%20%E6%A1%88%E4%BE%8B%E5%88%86%E6%9E%90/">1 案例分析</a>
 				</h2>
-				<span class="post-date">2019-12-18</span>
+				<span class="post-date">2019-12-19</span>
 				<div class="article-digest">
-					¶1 线程的实现
-线程是比进程更轻量级的调度执行单位，线程的引入可以把一个进程的资源分配和执行调度分开，各个线程既可以共享进程资源又可以独立调度；
-¶Thread类
-Thread类与大部分的Java 
+					¶1 Tomcat：正统的类加载器架构
+
+
+Java Web服务器：部署在同一个服务器上的两个Web应用程序所使用的Java类库可以实现相互隔离又要可以互相共享；尽可能保证自身的安全不受部署的Web应
 					...
 				</div>
 			</article>
@@ -4529,12 +4421,15 @@ Thread类与大部分的Java
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/00%20Java/01%20Java%E8%99%9A%E6%8B%9F%E6%9C%BA/12%20Java%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B/2%20Java%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/">2 Java内存模型</a>
+					<a class="article-title" href="/2019/12/18/00%20Java/01%20Java%E8%99%9A%E6%8B%9F%E6%9C%BA/08%20%E5%AD%97%E8%8A%82%E7%A0%81%E6%89%A7%E8%A1%8C%E5%BC%95%E6%93%8E/1%20%E8%BF%90%E8%A1%8C%E6%97%B6%E6%A0%88%E5%B8%A7%E7%BB%93%E6%9E%84/">1 运行时栈帧结构</a>
 				</h2>
-				<span class="post-date">2019-12-18</span>
+				<span class="post-date">2019-12-19</span>
 				<div class="article-digest">
-					Java虚拟机规范中试图定义一种Java内存模型（JMM）来屏蔽掉各种硬件和操作系统的内存访问差异，以实现让Java程序在各种平台下都能达到一致的内存访问效果。
-主内存、工作内存与JVM内存不是同一个
+					
+
+栈帧是虚拟机栈的栈元素，存储了方法的局部变量表、操作数栈、动态连接和方法返回地址等信息
+每一个方法从调用开始至执行完成的过程，都对应着一个栈帧在虚拟机里面从入栈到出栈的过程；
+栈帧需要分配多少内存
 					...
 				</div>
 			</article>
@@ -4543,12 +4438,111 @@ Thread类与大部分的Java
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/00%20Java/01%20Java%E8%99%9A%E6%8B%9F%E6%9C%BA/12%20Java%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B/1%20%E7%A1%AC%E4%BB%B6%E7%9A%84%E6%95%88%E7%8E%87%E4%B8%8E%E4%B8%80%E8%87%B4%E6%80%A7/">1 硬件的效率与一致性</a>
+					<a class="article-title" href="/2019/12/18/00%20Java/01%20Java%E8%99%9A%E6%8B%9F%E6%9C%BA/08%20%E5%AD%97%E8%8A%82%E7%A0%81%E6%89%A7%E8%A1%8C%E5%BC%95%E6%93%8E/2%20%E6%96%B9%E6%B3%95%E8%B0%83%E7%94%A8/">2 方法调用</a>
 				</h2>
-				<span class="post-date">2019-12-18</span>
+				<span class="post-date">2019-12-19</span>
 				<div class="article-digest">
-					¶高速缓存
-绝大多数的运算任务不可能只靠处理器计算就能完成，处理器至少要与内存交互，所以现代计算机系统都不得不加入一层读写速度尽可能接近处理器运算速度的高速缓存来作为内存与处理器之间的缓冲：将运算需要
+					
+方法调用并不等同于方法执行，方法调用阶段唯一的任务就是确定被调用方法的版本即调用哪一个方法，暂时还不涉及方法内部的具体运行过程；
+Class文件的编译过程中不报警传统编译的连接步骤，一切方法调用在C
+					...
+				</div>
+			</article>
+			
+		
+
+			<article class="article-li">
+				<h2>
+					<a class="article-title" href="/2019/12/18/00%20Java/01%20Java%E8%99%9A%E6%8B%9F%E6%9C%BA/08%20%E5%AD%97%E8%8A%82%E7%A0%81%E6%89%A7%E8%A1%8C%E5%BC%95%E6%93%8E/3%20%E5%9F%BA%E4%BA%8E%E6%A0%88%E7%9A%84%E5%AD%97%E8%8A%82%E7%A0%81%E8%A7%A3%E9%87%8A%E6%89%A7%E8%A1%8C%E5%BC%95%E6%93%8E/">3 基于栈的字节码解释执行引擎</a>
+				</h2>
+				<span class="post-date">2019-12-19</span>
+				<div class="article-digest">
+					¶1 解释执行
+
+只有确定了谈论对象是某种具体的Java实现版本和执行引擎运行模式时，谈解释执行还是编译执行才比较确切；
+Java语言中，javac编译器完成了程序代码经过词法分析、语法分析到抽象语法
+					...
+				</div>
+			</article>
+			
+		
+
+			<article class="article-li">
+				<h2>
+					<a class="article-title" href="/2019/12/18/00%20Java/01%20Java%E8%99%9A%E6%8B%9F%E6%9C%BA/07%20%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/2%20%E7%B1%BB%E5%8A%A0%E8%BD%BD%E8%BF%87%E7%A8%8B/">2 类加载过程</a>
+				</h2>
+				<span class="post-date">2019-12-19</span>
+				<div class="article-digest">
+					加载、连接（验证、准备、解析）、初始化
+¶1 加载
+
+通过一个类的全限定名来获取定义此类的二进制流
+将这个字节流转化为方法区的运行时数据结构
+在内存中生成一个代表这个类的java.lang.Class
+					...
+				</div>
+			</article>
+			
+		
+
+			<article class="article-li">
+				<h2>
+					<a class="article-title" href="/2019/12/18/00%20Java/01%20Java%E8%99%9A%E6%8B%9F%E6%9C%BA/07%20%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/1%20%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%97%B6%E6%9C%BA/">1 类加载时机</a>
+				</h2>
+				<span class="post-date">2019-12-19</span>
+				<div class="article-digest">
+					¶1 生命周期
+类从被虚拟机加载到内存，到卸载出内存为止，类的整个生命周期：加载、连接（验证、准备、解析）、初始化、使用和卸载；
+
+¶2 加载时机
+虚拟机规范没有强制约束类加载的时机，但严格规定了有且
+					...
+				</div>
+			</article>
+			
+		
+
+			<article class="article-li">
+				<h2>
+					<a class="article-title" href="/2019/12/18/00%20Java/01%20Java%E8%99%9A%E6%8B%9F%E6%9C%BA/07%20%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/3%20%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%99%A8/">3 类加载器</a>
+				</h2>
+				<span class="post-date">2019-12-19</span>
+				<div class="article-digest">
+					
+					...
+				</div>
+			</article>
+			
+		
+
+			<article class="article-li">
+				<h2>
+					<a class="article-title" href="/2019/12/18/00%20Java/01%20Java%E8%99%9A%E6%8B%9F%E6%9C%BA/06%20%E7%B1%BB%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84/1%20%E6%97%A0%E5%85%B3%E6%80%A7%E7%9A%84%E5%9F%BA%E7%9F%B3/">1 无关性的基石</a>
+				</h2>
+				<span class="post-date">2019-12-19</span>
+				<div class="article-digest">
+					
+平台无关性的基石：各种不同平台的虚拟机与所有平台都统一使用的程序存储格式——字节码（ByteCode）
+语言无关性的基石：虚拟机和字节码存储格式。
+
+
+
+					...
+				</div>
+			</article>
+			
+		
+
+			<article class="article-li">
+				<h2>
+					<a class="article-title" href="/2019/12/18/00%20Java/01%20Java%E8%99%9A%E6%8B%9F%E6%9C%BA/06%20%E7%B1%BB%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84/2%20Class%E7%B1%BB%E6%96%87%E4%BB%B6%E7%9A%84%E7%BB%93%E6%9E%84/">2 Class类文件的结构</a>
+				</h2>
+				<span class="post-date">2019-12-19</span>
+				<div class="article-digest">
+					
+Class文件是一组以8位字节为基础单位的二进制流；8位字节以上以高位在前分割
+只有两种数据类型：无符号数和表;
+无符号数属于基本的数据类型，以u1、u2、u4、u8来分别代表1个字节、2个字节、4
 					...
 				</div>
 			</article>
@@ -4577,10 +4571,6 @@ Thread类与大部分的Java
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
-	<div id="to_top">
-	<div id="totop">
-		<i class="fa fa-angle-double-up"></i>
-	</div>
-</div>
+	<button id="totop" class="toggle"><i class="fa fa-angle-double-up" aria-hidden="true"></i></button>
 </body>
 </html>

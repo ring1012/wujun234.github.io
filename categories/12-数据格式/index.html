@@ -58,7 +58,9 @@
 	</ul>
 </header>
 
-	<div id="sidebar">
+	
+<button id="sidebar-toggle" class="toggle" ><i class="fa fa-bars" aria-hidden="true"></i></button>
+<div id="sidebar">
 	<!-- 搜索栏 -->
 	<div id="search">
 		<input class="search-input" type="text" placeholder="search">
@@ -4390,12 +4392,16 @@
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/12%20%E6%95%B0%E6%8D%AE%E6%A0%BC%E5%BC%8F/2%20MapStruct%E5%AE%9E%E4%BD%93%E9%97%B4%E8%BD%AC%E6%8D%A2/">2 MapStruct实体间转换</a>
+					<a class="article-title" href="/2019/12/18/12%20%E6%95%B0%E6%8D%AE%E6%A0%BC%E5%BC%8F/1%20Lombok%E6%B6%88%E9%99%A4Java%E5%86%97%E9%95%BF/">1 Lombok消除Java冗长</a>
 				</h2>
-				<span class="post-date">2019-12-18</span>
+				<span class="post-date">2019-12-19</span>
 				<div class="article-digest">
-					¶1 简介
-MapStruct是一个代码生成器的工具类，简化了不同的Java Bean之间映射的处理，所以映射指的就是从一个实体变化成一个实体。在实际项目中，我们经常会将PO转DTO、DTO转PO等一
+					官方网址、
+github地址
+¶简介
+Lombok采取注解声明方法，注解后经编译，会自动生成注解声明的方法，减少很多重复代码的书写。比如说getter/setter/toString等方法。
+¶安装
+
 					...
 				</div>
 			</article>
@@ -4404,16 +4410,12 @@ MapStruct是一个代码生成器的工具类，简化了不同的Java Bean之�
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/12%20%E6%95%B0%E6%8D%AE%E6%A0%BC%E5%BC%8F/1%20Lombok%E6%B6%88%E9%99%A4Java%E5%86%97%E9%95%BF/">1 Lombok消除Java冗长</a>
+					<a class="article-title" href="/2019/12/18/12%20%E6%95%B0%E6%8D%AE%E6%A0%BC%E5%BC%8F/2%20MapStruct%E5%AE%9E%E4%BD%93%E9%97%B4%E8%BD%AC%E6%8D%A2/">2 MapStruct实体间转换</a>
 				</h2>
-				<span class="post-date">2019-12-18</span>
+				<span class="post-date">2019-12-19</span>
 				<div class="article-digest">
-					官方网址、
-github地址
-¶简介
-Lombok采取注解声明方法，注解后经编译，会自动生成注解声明的方法，减少很多重复代码的书写。比如说getter/setter/toString等方法。
-¶安装
-
+					¶1 简介
+MapStruct是一个代码生成器的工具类，简化了不同的Java Bean之间映射的处理，所以映射指的就是从一个实体变化成一个实体。在实际项目中，我们经常会将PO转DTO、DTO转PO等一
 					...
 				</div>
 			</article>
@@ -4440,10 +4442,6 @@ Lombok采取注解声明方法，注解后经编译，会自动生成注解声�
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
-	<div id="to_top">
-	<div id="totop">
-		<i class="fa fa-angle-double-up"></i>
-	</div>
-</div>
+	<button id="totop" class="toggle"><i class="fa fa-angle-double-up" aria-hidden="true"></i></button>
 </body>
 </html>

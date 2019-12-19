@@ -58,7 +58,9 @@
 	</ul>
 </header>
 
-	<div id="sidebar">
+	
+<button id="sidebar-toggle" class="toggle" ><i class="fa fa-bars" aria-hidden="true"></i></button>
+<div id="sidebar">
 	<!-- 搜索栏 -->
 	<div id="search">
 		<input class="search-input" type="text" placeholder="search">
@@ -4390,14 +4392,17 @@
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/00%20Java/01%20Java%E8%99%9A%E6%8B%9F%E6%9C%BA/02%20JVM%E5%86%85%E5%AD%98/3%20%E5%86%85%E5%AD%98%E6%BA%A2%E5%87%BA%E5%BC%82%E5%B8%B8/">3 内存溢出异常</a>
+					<a class="article-title" href="/2019/12/18/00%20Java/01%20Java%E8%99%9A%E6%8B%9F%E6%9C%BA/02%20JVM%E5%86%85%E5%AD%98/1%20%E5%86%85%E5%AD%98%E5%88%86%E5%8C%BA/">1 内存分区</a>
 				</h2>
-				<span class="post-date">2019-12-18</span>
+				<span class="post-date">2019-12-19</span>
 				<div class="article-digest">
-					¶1 堆溢出
-¶1) 异常报错
-在JVM中如果98％的时间是用于GC且可用的Heap size 不足2％的时候将抛出此异常信息
-java.lang.OutOfMemoryError: Java hea
+					JVM所管理的内存分为以下几个区域
+
+¶1 程序计数器
+
+线程私有，是当前线程所执行字节码的行号指示器。
+执行java方法，记录正在执行的虚拟机字节码指令的地址；执行native方法，计数器为空。
+J
 					...
 				</div>
 			</article>
@@ -4408,7 +4413,7 @@ java.lang.OutOfMemoryError: Java hea
 				<h2>
 					<a class="article-title" href="/2019/12/18/00%20Java/01%20Java%E8%99%9A%E6%8B%9F%E6%9C%BA/02%20JVM%E5%86%85%E5%AD%98/2%20%E5%A0%86%E4%B8%AD%E5%AF%B9%E8%B1%A1/">2 堆中对象</a>
 				</h2>
-				<span class="post-date">2019-12-18</span>
+				<span class="post-date">2019-12-19</span>
 				<div class="article-digest">
 					HotSpot虚拟机在Java堆中对象分配、布局和访问的全过程。
 ¶1 对象的创建
@@ -4425,17 +4430,14 @@ java.lang.OutOfMemoryError: Java hea
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/00%20Java/01%20Java%E8%99%9A%E6%8B%9F%E6%9C%BA/02%20JVM%E5%86%85%E5%AD%98/1%20%E5%86%85%E5%AD%98%E5%88%86%E5%8C%BA/">1 内存分区</a>
+					<a class="article-title" href="/2019/12/18/00%20Java/01%20Java%E8%99%9A%E6%8B%9F%E6%9C%BA/02%20JVM%E5%86%85%E5%AD%98/3%20%E5%86%85%E5%AD%98%E6%BA%A2%E5%87%BA%E5%BC%82%E5%B8%B8/">3 内存溢出异常</a>
 				</h2>
-				<span class="post-date">2019-12-18</span>
+				<span class="post-date">2019-12-19</span>
 				<div class="article-digest">
-					JVM所管理的内存分为以下几个区域
-
-¶1 程序计数器
-
-线程私有，是当前线程所执行字节码的行号指示器。
-执行java方法，记录正在执行的虚拟机字节码指令的地址；执行native方法，计数器为空。
-J
+					¶1 堆溢出
+¶1) 异常报错
+在JVM中如果98％的时间是用于GC且可用的Heap size 不足2％的时候将抛出此异常信息
+java.lang.OutOfMemoryError: Java hea
 					...
 				</div>
 			</article>
@@ -4462,10 +4464,6 @@ J
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
-	<div id="to_top">
-	<div id="totop">
-		<i class="fa fa-angle-double-up"></i>
-	</div>
-</div>
+	<button id="totop" class="toggle"><i class="fa fa-angle-double-up" aria-hidden="true"></i></button>
 </body>
 </html>

@@ -58,7 +58,9 @@
 	</ul>
 </header>
 
-	<div id="sidebar">
+	
+<button id="sidebar-toggle" class="toggle" ><i class="fa fa-bars" aria-hidden="true"></i></button>
+<div id="sidebar">
 	<!-- 搜索栏 -->
 	<div id="search">
 		<input class="search-input" type="text" placeholder="search">
@@ -4390,13 +4392,14 @@
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/08%20DevOps/5%20Gradle/1%20Gradle%20%E6%A6%82%E8%BF%B0/">1 Gradle 概述</a>
+					<a class="article-title" href="/2019/12/18/00%20Java/01%20Java%E8%99%9A%E6%8B%9F%E6%9C%BA/12%20Java%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B/3%20Java%E4%B8%8E%E7%BA%BF%E7%A8%8B/">3 Java与线程</a>
 				</h2>
-				<span class="post-date">2019-12-18</span>
+				<span class="post-date">2019-12-19</span>
 				<div class="article-digest">
-					Gradle 用户指南：https://docs.gradle.org/current/userguide/userguide.html
-
-Gradle 同时拥有 Ant 和 Maven 的优点，具有
+					¶1 线程的实现
+线程是比进程更轻量级的调度执行单位，线程的引入可以把一个进程的资源分配和执行调度分开，各个线程既可以共享进程资源又可以独立调度；
+¶Thread类
+Thread类与大部分的Java 
 					...
 				</div>
 			</article>
@@ -4405,14 +4408,15 @@ Gradle 同时拥有 Ant 和 Maven 的优点，具有
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/08%20DevOps/4%20Maven/2%20maven%E5%86%B2%E7%AA%81%E8%A7%A3%E5%86%B3/">2 maven冲突解决</a>
+					<a class="article-title" href="/2019/12/18/00%20Java/01%20Java%E8%99%9A%E6%8B%9F%E6%9C%BA/11%20%E6%99%9A%E6%9C%9F%EF%BC%88%E8%BF%90%E8%A1%8C%E6%9C%9F%EF%BC%89%E4%BC%98%E5%8C%96/2%20%E7%BC%96%E8%AF%91%E4%BC%98%E5%8C%96%E6%8A%80%E6%9C%AF/">2 编译优化技术</a>
 				</h2>
-				<span class="post-date">2019-12-18</span>
+				<span class="post-date">2019-12-19</span>
 				<div class="article-digest">
-					原文地址：https://www.jianshu.com/p/bbd5b0abcad1
-主要目的是升级现有的jar包，排除传递依赖引起的冲突
-¶1 maven 命令
-¶1.1 mvn dependen
+					¶1 优化技术概览
+
+
+¶2 公共子表达式消除
+如果一个表达式E已经计算过了，并且从先前的计算到现在E中所有变量的值都没有发生变化，那么E的这次出现就成为了公共子表达式，只需要直接用前面计算过的表达式
 					...
 				</div>
 			</article>
@@ -4421,52 +4425,11 @@ Gradle 同时拥有 Ant 和 Maven 的优点，具有
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/08%20DevOps/4%20Maven/1%20Maven%E7%AC%94%E8%AE%B0/">1 Maven笔记</a>
+					<a class="article-title" href="/2019/12/18/00%20Java/01%20Java%E8%99%9A%E6%8B%9F%E6%9C%BA/09%20%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%A1%88%E4%BE%8B%E4%B8%8E%E5%AE%9E%E6%88%98/2%20%E5%AE%9E%E6%88%98%EF%BC%9A%E8%87%AA%E5%B7%B1%E5%8A%A8%E6%89%8B%E5%AE%9E%E7%8E%B0%E8%BF%9C%E7%A8%8B%E6%89%A7%E8%A1%8C%E5%8A%9F%E8%83%BD/">2 实战：自己动手实现远程执行功能</a>
 				</h2>
-				<span class="post-date">2019-12-18</span>
-				<div class="article-digest">
-					一、安装和配置
-¶安装
-
-准备JDK环境
-下载Maven ，解压
-配置环境变量
-3.1 添加 M2_HOME 和 MAVEN_HOME 到环境变量，指向 Maven 文件夹
-3.2 添加 Maven 
-					...
-				</div>
-			</article>
-			
-		
-
-			<article class="article-li">
-				<h2>
-					<a class="article-title" href="/2019/12/18/08%20DevOps/3%20IDEA/1%20IDEA%20%E5%BF%AB%E6%8D%B7%E9%94%AE/">1 IDEA 快捷键</a>
-				</h2>
-				<span class="post-date">2019-12-18</span>
-				<div class="article-digest">
-					可以在Settrings–Keymaps中修改快捷键
-¶快捷操作
-
-psvm：快捷创建main函数
-fori：快捷创建for循环
-sout：快速打出System.out.println()
-St：快速
-					...
-				</div>
-			</article>
-			
-		
-
-			<article class="article-li">
-				<h2>
-					<a class="article-title" href="/2019/12/18/08%20DevOps/2%20SVN/5%20%E5%BC%80%E5%8F%91%E5%91%A8%E6%9C%9F/">5 开发周期</a>
-				</h2>
-				<span class="post-date">2019-12-18</span>
+				<span class="post-date">2019-12-19</span>
 				<div class="article-digest">
 					
-truck：是用来做主方向开发的，新功能的开发应放在主线中，当模块开发完成后，需要修改，就用branch。
-branch：分支开发和主线开发是可以同时进行的，也就是并行开发，分支通常用于修复bug时
 					...
 				</div>
 			</article>
@@ -4475,16 +4438,14 @@ branch：分支开发和主线开发是可以同时进行的，也就是并行�
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/08%20DevOps/2%20SVN/4%20%E5%86%B2%E7%AA%81%E5%8F%8A%E8%A7%A3%E5%86%B3/">4 冲突及解决</a>
+					<a class="article-title" href="/2019/12/18/00%20Java/01%20Java%E8%99%9A%E6%8B%9F%E6%9C%BA/09%20%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%A1%88%E4%BE%8B%E4%B8%8E%E5%AE%9E%E6%88%98/1%20%E6%A1%88%E4%BE%8B%E5%88%86%E6%9E%90/">1 案例分析</a>
 				</h2>
-				<span class="post-date">2019-12-18</span>
+				<span class="post-date">2019-12-19</span>
 				<div class="article-digest">
-					¶1 SVN两种工作模式
-¶1.1 锁定-修改-锁定模型：
-一个时间段里版本库的一个文件只允许被一个用户修改。
-适用于二进制格式文件，内部结构复杂，不容易理解更改处的上下文，采用该方案较好。
+					¶1 Tomcat：正统的类加载器架构
 
-Get
+
+Java Web服务器：部署在同一个服务器上的两个Web应用程序所使用的Java类库可以实现相互隔离又要可以互相共享；尽可能保证自身的安全不受部署的Web应
 					...
 				</div>
 			</article>
@@ -4493,18 +4454,15 @@ Get
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/08%20DevOps/2%20SVN/3%20%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86/">3 版本管理</a>
+					<a class="article-title" href="/2019/12/18/00%20Java/01%20Java%E8%99%9A%E6%8B%9F%E6%9C%BA/08%20%E5%AD%97%E8%8A%82%E7%A0%81%E6%89%A7%E8%A1%8C%E5%BC%95%E6%93%8E/1%20%E8%BF%90%E8%A1%8C%E6%97%B6%E6%A0%88%E5%B8%A7%E7%BB%93%E6%9E%84/">1 运行时栈帧结构</a>
 				</h2>
-				<span class="post-date">2019-12-18</span>
+				<span class="post-date">2019-12-19</span>
 				<div class="article-digest">
-					¶1 版本管理类
+					
 
-创建分支/标签（Branch/tag）
-创建补丁（Create patch）
-合并文件（Merge）
-解决冲突（Resolved）
-切换工作区（Switch）
-撤销操作（Rever
+栈帧是虚拟机栈的栈元素，存储了方法的局部变量表、操作数栈、动态连接和方法返回地址等信息
+每一个方法从调用开始至执行完成的过程，都对应着一个栈帧在虚拟机里面从入栈到出栈的过程；
+栈帧需要分配多少内存
 					...
 				</div>
 			</article>
@@ -4513,18 +4471,13 @@ Get
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/08%20DevOps/2%20SVN/2%20%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/">2 基本操作</a>
+					<a class="article-title" href="/2019/12/18/00%20Java/01%20Java%E8%99%9A%E6%8B%9F%E6%9C%BA/08%20%E5%AD%97%E8%8A%82%E7%A0%81%E6%89%A7%E8%A1%8C%E5%BC%95%E6%93%8E/2%20%E6%96%B9%E6%B3%95%E8%B0%83%E7%94%A8/">2 方法调用</a>
 				</h2>
-				<span class="post-date">2019-12-18</span>
+				<span class="post-date">2019-12-19</span>
 				<div class="article-digest">
-					¶1 TortoiseSVN 基本操作
-
-浏览版本库（ Repo-browser ）
-检出文件（Checkout）
-更新最新文件（Update）
-增加文件（Add）
-删除文件（Delete）
-提交文件
+					
+方法调用并不等同于方法执行，方法调用阶段唯一的任务就是确定被调用方法的版本即调用哪一个方法，暂时还不涉及方法内部的具体运行过程；
+Class文件的编译过程中不报警传统编译的连接步骤，一切方法调用在C
 					...
 				</div>
 			</article>
@@ -4533,19 +4486,14 @@ Get
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/08%20DevOps/2%20SVN/1%20%E5%9F%BA%E7%A1%80%E4%BB%8B%E7%BB%8D/">1 基础介绍</a>
+					<a class="article-title" href="/2019/12/18/00%20Java/01%20Java%E8%99%9A%E6%8B%9F%E6%9C%BA/08%20%E5%AD%97%E8%8A%82%E7%A0%81%E6%89%A7%E8%A1%8C%E5%BC%95%E6%93%8E/3%20%E5%9F%BA%E4%BA%8E%E6%A0%88%E7%9A%84%E5%AD%97%E8%8A%82%E7%A0%81%E8%A7%A3%E9%87%8A%E6%89%A7%E8%A1%8C%E5%BC%95%E6%93%8E/">3 基于栈的字节码解释执行引擎</a>
 				</h2>
-				<span class="post-date">2019-12-18</span>
+				<span class="post-date">2019-12-19</span>
 				<div class="article-digest">
-					¶工作副本
-check out-在本地创建特定版本的工作副本
+					¶1 解释执行
 
-¶SVN版本号
-全局版本号
-每提交一次就会产生一个唯一的版本号
-¶TortoiseSVN 图标
-
-
+只有确定了谈论对象是某种具体的Java实现版本和执行引擎运行模式时，谈解释执行还是编译执行才比较确切；
+Java语言中，javac编译器完成了程序代码经过词法分析、语法分析到抽象语法
 					...
 				</div>
 			</article>
@@ -4554,16 +4502,46 @@ check out-在本地创建特定版本的工作副本
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/08%20DevOps/1%20Git/6%20%E5%85%B6%E4%BB%96/">6 其他</a>
+					<a class="article-title" href="/2019/12/18/00%20Java/01%20Java%E8%99%9A%E6%8B%9F%E6%9C%BA/07%20%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/2%20%E7%B1%BB%E5%8A%A0%E8%BD%BD%E8%BF%87%E7%A8%8B/">2 类加载过程</a>
 				</h2>
-				<span class="post-date">2019-12-18</span>
+				<span class="post-date">2019-12-19</span>
 				<div class="article-digest">
-					¶忽略特殊文件
+					加载、连接（验证、准备、解析）、初始化
+¶1 加载
 
-忽略某些文件时，需要编写.gitignore；
-.gitignore文件本身要放到版本库里，并且可以对.gitignore做版本管理！
+通过一个类的全限定名来获取定义此类的二进制流
+将这个字节流转化为方法区的运行时数据结构
+在内存中生成一个代表这个类的java.lang.Class
+					...
+				</div>
+			</article>
+			
+		
 
-GitHub已经为我们准备了各种.gitig
+			<article class="article-li">
+				<h2>
+					<a class="article-title" href="/2019/12/18/00%20Java/01%20Java%E8%99%9A%E6%8B%9F%E6%9C%BA/07%20%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/1%20%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%97%B6%E6%9C%BA/">1 类加载时机</a>
+				</h2>
+				<span class="post-date">2019-12-19</span>
+				<div class="article-digest">
+					¶1 生命周期
+类从被虚拟机加载到内存，到卸载出内存为止，类的整个生命周期：加载、连接（验证、准备、解析）、初始化、使用和卸载；
+
+¶2 加载时机
+虚拟机规范没有强制约束类加载的时机，但严格规定了有且
+					...
+				</div>
+			</article>
+			
+		
+
+			<article class="article-li">
+				<h2>
+					<a class="article-title" href="/2019/12/18/00%20Java/01%20Java%E8%99%9A%E6%8B%9F%E6%9C%BA/07%20%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/3%20%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%99%A8/">3 类加载器</a>
+				</h2>
+				<span class="post-date">2019-12-19</span>
+				<div class="article-digest">
+					
 					...
 				</div>
 			</article>
@@ -4592,10 +4570,6 @@ GitHub已经为我们准备了各种.gitig
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
-	<div id="to_top">
-	<div id="totop">
-		<i class="fa fa-angle-double-up"></i>
-	</div>
-</div>
+	<button id="totop" class="toggle"><i class="fa fa-angle-double-up" aria-hidden="true"></i></button>
 </body>
 </html>

@@ -4,22 +4,21 @@
 	padding: 0;
 	border: 0;
 }
+
+html{
+	font-family: microsoft yahei,helvetica,simhei,simsun,sans-serif;
+}
+
 a {
     color: #069;
     text-decoration: none;
 }
 
-html,body{
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  font-family: microsoft yahei,helvetica,simhei,simsun,sans-serif;
-}
-
 #header {
+	position:fixed;
+	top: 0px;
 	width: 100%;
 	height: 50px;
-	position:fixed;
 	background: #1b926c;
 	z-index: 100;
 }
@@ -47,15 +46,16 @@ html,body{
 }
 
 #sidebar {
+	position: fixed;
 	flex-grow:1;
 	flex-shrink:1;
 	flex-basis: 0;
-	max-width: 300px;
-	min-width: 250px;
+	width: 250px;
+	left: -250px;
 	height: 100%;
-	position:fixed;
 	top: 50px;
 	background: #262a30;
+	z-index: 99;
 }
 
 /* #################### 全局 #################### */
@@ -94,10 +94,45 @@ html,body{
 	border-bottom: 1px solid;
 }
 /* #################### 导航 #################### */
+/* #################### toggle #################### */
+.toggle {
+	border: none;
+	height: 45px;
+	width: 45px;
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+	border-radius: 50%;
+	background-color: rgba(0,0,0,0.5);
+	color: #fff;
+	transition: all 0.3s ease-in-out;
+	opacity: 0.5;
+}
+.toggle:hover {
+	opacity: 1;
+}
 
+#sidebar-toggle{
+	position: fixed;
+}
+#totop{
+	position: fixed;
+    bottom: 80px;
+    right: 50px;
+}
+
+/* #################### toggle #################### */
 /* #################### 侧边栏 #################### */
+#sidebar.on {
+  left: 0;
+}
+#sidebar-toggle.on{
+  left: 250px;
+}
+
+
 /* 搜索框 */
 #sidebar input {
+	position: absolute;
 	width: 290px;
 	height: 50px;
 	margin: 0;
@@ -109,7 +144,6 @@ html,body{
 	text-indent: 20px;
 	outline: none;
 	color: #87daff;
-	position: absolute;
 }
 
 /* 搜索图标 */
@@ -418,24 +452,26 @@ canvas#live2dcanvas {
 
 @media screen and (max-width: 800px) {
 	#sidebar {
-		display: none;
+		opacity: 0.95;
 	}
 
 	#content {
 		margin: 50px 0px 30px 0px;
 	}
 
+	#sidebar-toggle {
+		transform: scale(1.1);
+	}
+	
 	canvas#live2dcanvas {
 		display: none;
 	}
 }
 
+
 /*竖屏*/
 @media all and (orientation : portrait) {
 
-	#sidebar {
-		display: none;
-	}
 
 	#content {
 		padding-left: 0;
@@ -449,30 +485,3 @@ canvas#live2dcanvas {
 
 /* #################### 自适应 #################### */
 
-
-/* #################### rocket #################### */
-
-#to_top{
-    position: fixed;
-    bottom: 80px;
-    right: 50px;
-	width: 40px;
-	height: 40px;
-	border-radius:50%;
-	background:#f4f4f4;
-    z-index: 9;
-    text-align: center;
-    transform: scale(1.2);
-}
-
-#totop{
-  position: relative;
-  display: inline-block;
-  overflow: hidden;
-  cursor: pointer;
-  line-height: 40px;
-	width: 40px;
-	height: 40px;
-}
-
-/* #################### rocket #################### */

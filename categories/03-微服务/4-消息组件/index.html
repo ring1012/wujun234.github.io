@@ -58,7 +58,9 @@
 	</ul>
 </header>
 
-	<div id="sidebar">
+	
+<button id="sidebar-toggle" class="toggle" ><i class="fa fa-bars" aria-hidden="true"></i></button>
+<div id="sidebar">
 	<!-- 搜索栏 -->
 	<div id="search">
 		<input class="search-input" type="text" placeholder="search">
@@ -4390,11 +4392,13 @@
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/03%20%E5%BE%AE%E6%9C%8D%E5%8A%A1/4%20%E6%B6%88%E6%81%AF%E7%BB%84%E4%BB%B6/02%20Spring%20Cloud%20Stream/">02 Spring Cloud Stream</a>
+					<a class="article-title" href="/2019/12/18/03%20%E5%BE%AE%E6%9C%8D%E5%8A%A1/4%20%E6%B6%88%E6%81%AF%E7%BB%84%E4%BB%B6/01%20Spring%20Cloud%20Bus/">01 Spring Cloud Bus</a>
 				</h2>
-				<span class="post-date">2019-12-18</span>
+				<span class="post-date">2019-12-19</span>
 				<div class="article-digest">
-					Spring Cloud Stream整合了Spring Boot和Spring Integration，实现了一套轻量级的消息驱动的微服务框架。目前为止只支持RabbitMQ和Kafka的自动化配置
+					消息总线是一种通信工具，可以在机器之间互相传输消息、文件等。消息总线扮演着一种消息路由的角色，拥有一套完备的路由机制来决定消息传输方向。发送段只需要向消息总线发出消息而不用管消息被如何转发。
+¶原理
+
 					...
 				</div>
 			</article>
@@ -4403,13 +4407,11 @@
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/03%20%E5%BE%AE%E6%9C%8D%E5%8A%A1/4%20%E6%B6%88%E6%81%AF%E7%BB%84%E4%BB%B6/01%20Spring%20Cloud%20Bus/">01 Spring Cloud Bus</a>
+					<a class="article-title" href="/2019/12/18/03%20%E5%BE%AE%E6%9C%8D%E5%8A%A1/4%20%E6%B6%88%E6%81%AF%E7%BB%84%E4%BB%B6/02%20Spring%20Cloud%20Stream/">02 Spring Cloud Stream</a>
 				</h2>
-				<span class="post-date">2019-12-18</span>
+				<span class="post-date">2019-12-19</span>
 				<div class="article-digest">
-					消息总线是一种通信工具，可以在机器之间互相传输消息、文件等。消息总线扮演着一种消息路由的角色，拥有一套完备的路由机制来决定消息传输方向。发送段只需要向消息总线发出消息而不用管消息被如何转发。
-¶原理
-
+					Spring Cloud Stream整合了Spring Boot和Spring Integration，实现了一套轻量级的消息驱动的微服务框架。目前为止只支持RabbitMQ和Kafka的自动化配置
 					...
 				</div>
 			</article>
@@ -4436,10 +4438,6 @@
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
-	<div id="to_top">
-	<div id="totop">
-		<i class="fa fa-angle-double-up"></i>
-	</div>
-</div>
+	<button id="totop" class="toggle"><i class="fa fa-angle-double-up" aria-hidden="true"></i></button>
 </body>
 </html>

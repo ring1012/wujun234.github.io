@@ -58,7 +58,9 @@
 	</ul>
 </header>
 
-	<div id="sidebar">
+	
+<button id="sidebar-toggle" class="toggle" ><i class="fa fa-bars" aria-hidden="true"></i></button>
+<div id="sidebar">
 	<!-- 搜索栏 -->
 	<div id="search">
 		<input class="search-input" type="text" placeholder="search">
@@ -4390,18 +4392,18 @@
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/13%20%E6%97%A5%E6%9C%9F%E5%92%8C%E6%97%B6%E9%97%B4API/3%20%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%92%8C%E8%A7%A3%E6%9E%90/">3 格式化和解析</a>
+					<a class="article-title" href="/2019/12/18/03%20%E5%BE%AE%E6%9C%8D%E5%8A%A1/0%20%E6%9C%8D%E5%8A%A1%E6%B3%A8%E5%86%8C%E4%B8%8E%E5%8F%91%E7%8E%B0/02%20Spring%20Cloud%20Consul/">02 Spring Cloud Consul</a>
 				</h2>
-				<span class="post-date">2019-12-18</span>
+				<span class="post-date">2019-12-19</span>
 				<div class="article-digest">
-					DateTimeFormatter类提供了三种打印日期/时间值的格式器
+					Spring Cloud Consul是针对Consul的服务治理实现，提供服务发现和服务配置。包含了下面几个特性：
 
-预定义格式器
-Locale相关格式器
-定制的格式器
+服务发现
+健康检查
+Key/Value存储
+多数据中心
 
-¶预定义格式器
-String formatted = DateTimeF
+Consul自身提供了
 					...
 				</div>
 			</article>
@@ -4410,42 +4412,15 @@ String formatted = DateTimeF
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/13%20%E6%97%A5%E6%9C%9F%E5%92%8C%E6%97%B6%E9%97%B4API/2%20%E4%BA%BA%E7%B1%BB%E6%97%B6%E9%97%B4/">2 人类时间</a>
+					<a class="article-title" href="/2019/12/18/03%20%E5%BE%AE%E6%9C%8D%E5%8A%A1/Dubbo/00%20%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3/">00 官方文档</a>
 				</h2>
-				<span class="post-date">2019-12-18</span>
-				<div class="article-digest">
-					Java API 中有两种人类时间，本地日期/时间和时区时间。本地日期/时间无时区，而时区常常造成困扰，除非确实想要表示绝对时间的实例，最好都使用本地日期/时间。
-¶本地日期/时间
-¶1. Local
-					...
-				</div>
-			</article>
-			
-		
-
-			<article class="article-li">
-				<h2>
-					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/13%20%E6%97%A5%E6%9C%9F%E5%92%8C%E6%97%B6%E9%97%B4API/1%20%E7%BB%9D%E5%AF%B9%E6%97%B6%E9%97%B4/">1 绝对时间</a>
-				</h2>
-				<span class="post-date">2019-12-18</span>
-				<div class="article-digest">
-					Java 8新的Date-Time API 吸取了Joda-Time的精髓，所有类不可修改。
-新的java.time包涵盖了所有处理日期，时间，日期/时间，时区，时刻（instants），过程（dur
-					...
-				</div>
-			</article>
-			
-		
-
-			<article class="article-li">
-				<h2>
-					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/12%20JDBC/4%20JDBC%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/">4 JDBC最佳实践</a>
-				</h2>
-				<span class="post-date">2019-12-18</span>
+				<span class="post-date">2019-12-19</span>
 				<div class="article-digest">
 					
-数据库资源是非常昂贵的，用完了应该尽快关闭它。Connection, Statement, ResultSet等JDBC对象都有close方法，调用它就好了。
-养成在代码中显式关闭掉ResultSe
+Apache文档
+第一个 Dubbo 应用
+
+
 					...
 				</div>
 			</article>
@@ -4454,15 +4429,19 @@ String formatted = DateTimeF
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/12%20JDBC/3%20javax.sql%E5%8C%85%E7%AE%80/">3 javax.sql包简</a>
+					<a class="article-title" href="/2019/12/18/03%20%E5%BE%AE%E6%9C%8D%E5%8A%A1/Service%20Mesh/00%20%E7%9B%B8%E5%85%B3%E8%B5%84%E6%96%99/">00 相关资料</a>
 				</h2>
-				<span class="post-date">2019-12-18</span>
+				<span class="post-date">2019-12-19</span>
 				<div class="article-digest">
-					补充java.sql包，提供Java服务器端数据源访问和处理的API。
-javax.sql包提供了以下内容：
+					【todo】
+¶概念好文
 
-DataSource接口，DriverManager的替代品，用于与数据源建立连接
-连接
+浅谈Service Mesh体系中的Envoy
+Service Mesh解读：新一代微服务技术新秀
+Service Mesh：下一代微服务
+
+¶实战好文
+Istio Ser
 					...
 				</div>
 			</article>
@@ -4471,14 +4450,12 @@ DataSource接口，DriverManager的替代品，用于与数据源建立连接
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/12%20JDBC/2%20java.sql%E5%8C%85%E7%AE%80%E4%BB%8B/">2 java.sql包简介</a>
+					<a class="article-title" href="/2019/12/18/03%20%E5%BE%AE%E6%9C%8D%E5%8A%A1/5%20%E9%93%BE%E8%B7%AF%E8%BF%BD%E8%B8%AA/02%20CAT/">02 CAT</a>
 				</h2>
-				<span class="post-date">2019-12-18</span>
+				<span class="post-date">2019-12-19</span>
 				<div class="article-digest">
-					¶常用接口与类
-常用接口与类主要有DriverManager、Connection、Statement和ResultSet。
-¶DriverManager
-注册数据库驱动，创建数据库连接。Driver
+					【todo】
+
 					...
 				</div>
 			</article>
@@ -4487,12 +4464,17 @@ DataSource接口，DriverManager的替代品，用于与数据源建立连接
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/12%20JDBC/1%20JDBC%E7%AE%80%E4%BB%8B/">1 JDBC简介</a>
+					<a class="article-title" href="/2019/12/18/03%20%E5%BE%AE%E6%9C%8D%E5%8A%A1/5%20%E9%93%BE%E8%B7%AF%E8%BF%BD%E8%B8%AA/01%20Spring%20Cloud%20Sleuth/">01 Spring Cloud Sleuth</a>
 				</h2>
-				<span class="post-date">2019-12-18</span>
+				<span class="post-date">2019-12-19</span>
 				<div class="article-digest">
-					¶一、JDBC 简介
-Java数据库连接（JDBC）API提供了来自Java的通用数据访问。   该API包含一个框架，可以动态安装不同的驱动程序来访问不同的数据源。JDBC API 允许用户访问任何
+					Spring Cloud Sleuth分布式服务跟踪
+¶快速入门
+
+pom依赖
+
+&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework.c
 					...
 				</div>
 			</article>
@@ -4501,14 +4483,13 @@ Java数据库连接（JDBC）API提供了来自Java的通用数据访问。   �
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/11%20%E7%BD%91%E7%BB%9C/4%20%E5%8F%91%E9%80%81E-mail/">4 发送E-mail</a>
+					<a class="article-title" href="/2019/12/18/03%20%E5%BE%AE%E6%9C%8D%E5%8A%A1/4%20%E6%B6%88%E6%81%AF%E7%BB%84%E4%BB%B6/01%20Spring%20Cloud%20Bus/">01 Spring Cloud Bus</a>
 				</h2>
-				<span class="post-date">2019-12-18</span>
+				<span class="post-date">2019-12-19</span>
 				<div class="article-digest">
-					¶原始
-过去发邮件到SMTP专用的25端口很简单，因为没有安全校验
-//打开到主机的套接字
-Socket s = new Socket(&quot;mail.server.com&quot;,25);
+					消息总线是一种通信工具，可以在机器之间互相传输消息、文件等。消息总线扮演着一种消息路由的角色，拥有一套完备的路由机制来决定消息传输方向。发送段只需要向消息总线发出消息而不用管消息被如何转发。
+¶原理
+
 					...
 				</div>
 			</article>
@@ -4517,13 +4498,11 @@ Socket s = new Socket(&quot;mail.server.com&quot;,25);
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/11%20%E7%BD%91%E7%BB%9C/3%20%E8%8E%B7%E5%8F%96Web%E6%95%B0%E6%8D%AE/">3 获取Web数据</a>
+					<a class="article-title" href="/2019/12/18/03%20%E5%BE%AE%E6%9C%8D%E5%8A%A1/4%20%E6%B6%88%E6%81%AF%E7%BB%84%E4%BB%B6/02%20Spring%20Cloud%20Stream/">02 Spring Cloud Stream</a>
 				</h2>
-				<span class="post-date">2019-12-18</span>
+				<span class="post-date">2019-12-19</span>
 				<div class="article-digest">
-					Java库支持更高级别处理，而不只是创建套接字连接发送HTTP请求。
-Java库与网页交互并不是特别方便，可以考虑使用其他库，如HttpClient、Feign、RestTemple
-¶1 URL和U
+					Spring Cloud Stream整合了Spring Boot和Spring Integration，实现了一套轻量级的消息驱动的微服务框架。目前为止只支持RabbitMQ和Kafka的自动化配置
 					...
 				</div>
 			</article>
@@ -4532,16 +4511,46 @@ Java库与网页交互并不是特别方便，可以考虑使用其他库，如H
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/11%20%E7%BD%91%E7%BB%9C/2%20%E5%AE%9E%E7%8E%B0%E6%9C%8D%E5%8A%A1%E5%99%A8/">2 实现服务器</a>
+					<a class="article-title" href="/2019/12/18/03%20%E5%BE%AE%E6%9C%8D%E5%8A%A1/3%20API%E7%BD%91%E5%85%B3/01%20Spring%20Cloud%20Zuul/">01 Spring Cloud Zuul</a>
 				</h2>
-				<span class="post-date">2019-12-18</span>
+				<span class="post-date">2019-12-19</span>
 				<div class="article-digest">
-					¶1 服务器套接字
-ServerSocket类用于建立套接字
-ServerSocket s = new ServerSocket(8189);
+					Spring Cloud Zuul是提供负载均衡、反向代理、权限认证的一个API gateway。
+¶简单路由
 
-不停等待，直到建立连接
-Socket incoming
+添加依赖
+引入 spring-cloud-starter-zuul 包
+
+&lt;de
+					...
+				</div>
+			</article>
+			
+		
+
+			<article class="article-li">
+				<h2>
+					<a class="article-title" href="/2019/12/18/03%20%E5%BE%AE%E6%9C%8D%E5%8A%A1/3%20API%E7%BD%91%E5%85%B3/02%20Spring%20Cloud%20Gateway/">02 Spring Cloud Gateway</a>
+				</h2>
+				<span class="post-date">2019-12-19</span>
+				<div class="article-digest">
+					【todo】
+
+					...
+				</div>
+			</article>
+			
+		
+
+			<article class="article-li">
+				<h2>
+					<a class="article-title" href="/2019/12/18/03%20%E5%BE%AE%E6%9C%8D%E5%8A%A1/2%20%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83/01%20Spring%20Cloud%20Config/">01 Spring Cloud Config</a>
+				</h2>
+				<span class="post-date">2019-12-19</span>
+				<div class="article-digest">
+					Spring Cloud Config老版采用git或svn存储配置文件，默认情况下使用git。从Edgware版本开始新增的一种配置方式：采用数据库存储配置信息。
+结构与原理
+Spring Clou
 					...
 				</div>
 			</article>
@@ -4570,10 +4579,6 @@ Socket incoming
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
-	<div id="to_top">
-	<div id="totop">
-		<i class="fa fa-angle-double-up"></i>
-	</div>
-</div>
+	<button id="totop" class="toggle"><i class="fa fa-angle-double-up" aria-hidden="true"></i></button>
 </body>
 </html>

@@ -58,7 +58,9 @@
 	</ul>
 </header>
 
-	<div id="sidebar">
+	
+<button id="sidebar-toggle" class="toggle" ><i class="fa fa-bars" aria-hidden="true"></i></button>
+<div id="sidebar">
 	<!-- 搜索栏 -->
 	<div id="search">
 		<input class="search-input" type="text" placeholder="search">
@@ -4390,16 +4392,32 @@
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/02%20%E6%95%B0%E6%8D%AE%E5%BA%93/03%20Redis/4%20%E6%89%A7%E8%A1%8C%E8%84%9A%E6%9C%AC/">4 执行脚本</a>
+					<a class="article-title" href="/2019/12/18/02%20%E6%95%B0%E6%8D%AE%E5%BA%93/03%20Redis/1%20Redis%20%E7%AE%80%E4%BB%8B/">1 Redis 简介</a>
 				</h2>
-				<span class="post-date">2019-12-18</span>
+				<span class="post-date">2019-12-19</span>
 				<div class="article-digest">
-					¶1 配置
-@Configuration
-@EnableTransactionManagement
-public class RedisTemplateConfig {
+					¶1 Redis 简介
+高性能key-value数据库，支持数据的持久化、备份，数据类型丰富，支持事物、发布/订阅、通知、key过期等特性。
+¶2 Redis 安装
+¶2.1 单机安装
 
-    @Bean(&quo
+Window
+					...
+				</div>
+			</article>
+			
+		
+
+			<article class="article-li">
+				<h2>
+					<a class="article-title" href="/2019/12/18/02%20%E6%95%B0%E6%8D%AE%E5%BA%93/03%20Redis/2%20%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81/">2 分布式锁</a>
+				</h2>
+				<span class="post-date">2019-12-19</span>
+				<div class="article-digest">
+					¶1 Redisson
+直接上官方推荐Redisson
+&lt;!-- https://mvnrepository.com/artifact/org.redisson/redisson --&gt;
+
 					...
 				</div>
 			</article>
@@ -4410,7 +4428,7 @@ public class RedisTemplateConfig {
 				<h2>
 					<a class="article-title" href="/2019/12/18/02%20%E6%95%B0%E6%8D%AE%E5%BA%93/03%20Redis/3%20%E8%87%AA%E5%AE%9A%E4%B9%89%E5%BA%8F%E5%88%97%E5%8C%96/">3 自定义序列化</a>
 				</h2>
-				<span class="post-date">2019-12-18</span>
+				<span class="post-date">2019-12-19</span>
 				<div class="article-digest">
 					/**
  * @author wujun
@@ -4427,32 +4445,16 @@ public class RedisConfig {
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/02%20%E6%95%B0%E6%8D%AE%E5%BA%93/03%20Redis/2%20%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81/">2 分布式锁</a>
+					<a class="article-title" href="/2019/12/18/02%20%E6%95%B0%E6%8D%AE%E5%BA%93/03%20Redis/4%20%E6%89%A7%E8%A1%8C%E8%84%9A%E6%9C%AC/">4 执行脚本</a>
 				</h2>
-				<span class="post-date">2019-12-18</span>
+				<span class="post-date">2019-12-19</span>
 				<div class="article-digest">
-					¶1 Redisson
-直接上官方推荐Redisson
-&lt;!-- https://mvnrepository.com/artifact/org.redisson/redisson --&gt;
+					¶1 配置
+@Configuration
+@EnableTransactionManagement
+public class RedisTemplateConfig {
 
-					...
-				</div>
-			</article>
-			
-		
-
-			<article class="article-li">
-				<h2>
-					<a class="article-title" href="/2019/12/18/02%20%E6%95%B0%E6%8D%AE%E5%BA%93/03%20Redis/1%20Redis%20%E7%AE%80%E4%BB%8B/">1 Redis 简介</a>
-				</h2>
-				<span class="post-date">2019-12-18</span>
-				<div class="article-digest">
-					¶1 Redis 简介
-高性能key-value数据库，支持数据的持久化、备份，数据类型丰富，支持事物、发布/订阅、通知、key过期等特性。
-¶2 Redis 安装
-¶2.1 单机安装
-
-Window
+    @Bean(&quo
 					...
 				</div>
 			</article>
@@ -4479,10 +4481,6 @@ Window
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
-	<div id="to_top">
-	<div id="totop">
-		<i class="fa fa-angle-double-up"></i>
-	</div>
-</div>
+	<button id="totop" class="toggle"><i class="fa fa-angle-double-up" aria-hidden="true"></i></button>
 </body>
 </html>

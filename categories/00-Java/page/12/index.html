@@ -58,7 +58,9 @@
 	</ul>
 </header>
 
-	<div id="sidebar">
+	
+<button id="sidebar-toggle" class="toggle" ><i class="fa fa-bars" aria-hidden="true"></i></button>
+<div id="sidebar">
 	<!-- 搜索栏 -->
 	<div id="search">
 		<input class="search-input" type="text" placeholder="search">
@@ -4390,25 +4392,55 @@
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/07%20%E5%B9%B6%E5%8F%91/9%20%E6%89%A7%E8%A1%8C%E5%99%A8Executor/">9 执行器Executor</a>
+					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/06%20%E9%9B%86%E5%90%88/1%20%E9%9B%86%E5%90%88%E6%8E%A5%E5%8F%A3/">1 集合接口</a>
 				</h2>
-				<span class="post-date">2019-12-18</span>
+				<span class="post-date">2019-12-19</span>
 				<div class="article-digest">
-					执行器（Executor）类有许多静态工厂方法用来构建线程池。
+					框架，是一个类的集。
+容器，是可以容纳其他Java对象的对象。
+JDK 1.2开始，Java集合框架(JCF)提供了通用的容器。
+JDK 1.5开始，集合类是带有类型参数的泛型类。
+Java容器里只能
+					...
+				</div>
+			</article>
+			
+		
+
+			<article class="article-li">
+				<h2>
+					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/06%20%E9%9B%86%E5%90%88/2.0%20%E5%85%B7%E4%BD%93%E7%9A%84%E9%9B%86%E5%90%88/">2.0 具体的集合</a>
+				</h2>
+				<span class="post-date">2019-12-19</span>
+				<div class="article-digest">
+					¶Java库中的具体集合
 
 
 
-方法
+集合类型
+同步
+可null
+有序
 描述
 
 
 
 
-newCachedThreadPool
-必要时创建新线程；空闲线程会被保留 60 秒
+ArrayList
+否
+是
+是
+动态增缩的索引序列
 
 
-newFixedTh
+Vector
+是
+是
+是
+过时，同步的ArrayList
+
+
+L
 					...
 				</div>
 			</article>
@@ -4417,13 +4449,16 @@ newFixedTh
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/07%20%E5%B9%B6%E5%8F%91/8%20Callable%E4%B8%8EFuture/">8 Callable与Future</a>
+					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/06%20%E9%9B%86%E5%90%88/2.1%20ArrayList%E3%80%81Vector/">2.1 ArrayList、Vector</a>
 				</h2>
-				<span class="post-date">2019-12-18</span>
+				<span class="post-date">2019-12-19</span>
 				<div class="article-digest">
-					¶Callable
-Callable与Runnable类似，它们的主要区别是 Callable 的 call() 方法可以返回值和抛出异常。
-Callable接口是一个参数化的类型，只有一个方法cal
+					¶前言
+ArrayList除未实现同步外，跟Vector大致相同。同步效率低，在不需要同步的时候使用ArrayList。
+¶ArrayList
+
+¶总体介绍
+ArrayList 实现了 List、Ra
 					...
 				</div>
 			</article>
@@ -4432,12 +4467,17 @@ Callable接口是一个参数化的类型，只有一个方法cal
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/07%20%E5%B9%B6%E5%8F%91/7%20%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8%E7%9A%84%E9%9B%86%E5%90%88/">7 线程安全的集合</a>
+					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/06%20%E9%9B%86%E5%90%88/2.2%20LinkedList/">2.2 LinkedList</a>
 				</h2>
-				<span class="post-date">2019-12-18</span>
+				<span class="post-date">2019-12-19</span>
 				<div class="article-digest">
-					¶1 Concurrent集合
-java.util.concurrent包中 ConcurrentHashMap、ConcurrentSkipListMap、ConcurrentSkipListSet
+					¶前言
+现在栈或者队列的首选是ArrayDeque。
+¶总体介绍
+
+LinkedList同时实现了List接口和Deque接口，允许null元素。
+
+LinkedList底层通过双向链表实现。节点用内
 					...
 				</div>
 			</article>
@@ -4446,13 +4486,16 @@ java.util.concurrent包中 ConcurrentHashMap、ConcurrentSkipListMap、Concurren
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/07%20%E5%B9%B6%E5%8F%91/6%20%E9%98%BB%E5%A1%9E%E9%98%9F%E5%88%97/">6 阻塞队列</a>
+					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/06%20%E9%9B%86%E5%90%88/2.3%20ArrayDeque/">2.3 ArrayDeque</a>
 				</h2>
-				<span class="post-date">2019-12-18</span>
+				<span class="post-date">2019-12-19</span>
 				<div class="article-digest">
-					对于许多线程问题，可以通过使用一个或多个队列以优雅且安全的方式将其形式化。
-使用队列，可以安全地从一个线程向另一个线程传递数据。
-使用通知模式实现线程的同步。当试图向队列添加元素而队列已满，或是想从队
+					¶前言
+栈Stack已过时，队列LinkedList效率不高，栈和队列首选ArrayDeque。
+¶总体介绍
+
+¶Deque接口
+ArrayDeque实现了Deque接口，Deque继承Queue实现
 					...
 				</div>
 			</article>
@@ -4461,13 +4504,15 @@ java.util.concurrent包中 ConcurrentHashMap、ConcurrentSkipListMap、Concurren
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/07%20%E5%B9%B6%E5%8F%91/5%20%E5%90%8C%E6%AD%A5/">5 同步</a>
+					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/06%20%E9%9B%86%E5%90%88/2.4%20treemap%E3%80%81treeset/">2.4 treemap、treeset</a>
 				</h2>
-				<span class="post-date">2019-12-18</span>
+				<span class="post-date">2019-12-19</span>
 				<div class="article-digest">
-					有两种机制防止代码块受并发访问的干扰。synchronized关键字,ReentrantLock类。
-¶1 可重入锁（ReentrantLock）
-可重入锁（ReentrantLock）锁是可重入的，
+					¶前言
+TreeSet仅对TreeMap做了一层包装，实现相同。TreeSet里面有一个TreeMap（适配器模式）。
+¶TreeMap
+¶总体介绍
+TreeMap实现了SortedMap接口，有序。
 					...
 				</div>
 			</article>
@@ -4476,16 +4521,15 @@ java.util.concurrent包中 ConcurrentHashMap、ConcurrentSkipListMap、Concurren
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/07%20%E5%B9%B6%E5%8F%91/4%20%E7%BA%BF%E7%A8%8B%E5%B1%9E%E6%80%A7/">4 线程属性</a>
+					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/06%20%E9%9B%86%E5%90%88/4%20%E8%A7%86%E5%9B%BE%E4%B8%8E%E5%8C%85%E8%A3%85%E5%99%A8/">4 视图与包装器</a>
 				</h2>
-				<span class="post-date">2019-12-18</span>
+				<span class="post-date">2019-12-19</span>
 				<div class="article-digest">
-					¶1 线程优先级
-不要将程序构建为功能的正确性依赖于优先级。
-Linux上线程不具有优先级。
-
-void setPriority(fnt newPriority)：设置线程的优先级。
-static v
+					视图：保持对原集合的控制。只用来展示集合中的元素。
+视图是不可修改的，任何改变视图size的操作都会影响到原集合。抛出异常。
+¶1、轻量级集包装器
+¶Arrays.asList方法
+Arrays.as
 					...
 				</div>
 			</article>
@@ -4494,19 +4538,13 @@ static v
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/07%20%E5%B9%B6%E5%8F%91/3%20%E7%BA%BF%E7%A8%8B%E7%8A%B6%E6%80%81/">3 线程状态</a>
+					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/06%20%E9%9B%86%E5%90%88/2.5%20hashmap%E3%80%81hashset%E3%80%81hashtable/">2.5 hashmap、hashset、hashtable</a>
 				</h2>
-				<span class="post-date">2019-12-18</span>
+				<span class="post-date">2019-12-19</span>
 				<div class="article-digest">
-					¶线程状态
-线程可以有如下 6 种状态：
-
-New(新建)
-创建后，尚未启动的线程
-Runable(可运行)
-
-正在JVM中执行的线程处于这种状态（注意不是在CPU中执行，见2）
-Runable对应了
+					¶前言
+HashSet仅对HashMap做了一层包装，实现相同。HashSet里面有一个HashMap（适配器模式）。
+Hashtable与HashMap大致相同，但Hashtable是同步的，并且不
 					...
 				</div>
 			</article>
@@ -4515,12 +4553,14 @@ Runable对应了
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/07%20%E5%B9%B6%E5%8F%91/2%20%E4%B8%AD%E6%96%AD%E7%BA%BF%E7%A8%8B/">2 中断线程</a>
+					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/06%20%E9%9B%86%E5%90%88/2.6%20linkedhashmap%E3%80%81linkedhashset/">2.6 linkedhashmap、linkedhashset</a>
 				</h2>
-				<span class="post-date">2019-12-18</span>
+				<span class="post-date">2019-12-19</span>
 				<div class="article-digest">
-					当线程的run方法执行方法体中最后一条语句并经由return返回时。或出现了在方法中没有捕获的异常时，线程终止。
-没有可以强制线程终止的方法，interrupt方法可以用来请求终止线程。isInter
+					¶前言
+LinkedHashSet仅对LinkedHashMap做了一层包装，实现相同。LinkedHashSet里面有一个LinkedHashMap（适配器模式）。
+¶总体介绍
+LinkedHash
 					...
 				</div>
 			</article>
@@ -4529,27 +4569,17 @@ Runable对应了
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/07%20%E5%B9%B6%E5%8F%91/11%20%E6%89%B9%E9%87%8F%E8%8E%B7%E5%8F%96%E5%A4%9A%E6%9D%A1%E7%BA%BF%E7%A8%8B%E7%9A%84%E6%89%A7%E8%A1%8C%E7%BB%93%E6%9E%9C/">11 批量获取多条线程的执行结果</a>
+					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/06%20%E9%9B%86%E5%90%88/2.7%20priorityqueue/">2.7 priorityqueue</a>
 				</h2>
-				<span class="post-date">2019-12-18</span>
+				<span class="post-date">2019-12-19</span>
 				<div class="article-digest">
-					当向线程池提交callable任务后，我们可能需要一次性获取所有返回结果，有三种处理方法。
-¶方法一：自己维护返回结果
-// 创建一个线程池
-ExecutorService executorServi
-					...
-				</div>
-			</article>
-			
-		
+					¶总体介绍
+优先队列的作用是能保证每次取出的元素都是队列中权值最小的。
+实现了Queue接口，不允许null，通过数组实现的小顶堆。
 
-			<article class="article-li">
-				<h2>
-					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/07%20%E5%B9%B6%E5%8F%91/10%20%E5%90%8C%E6%AD%A5%E5%99%A8/">10 同步器</a>
-				</h2>
-				<span class="post-date">2019-12-18</span>
-				<div class="article-digest">
-					java.util.concurrent 包包含了几个能帮助人们管理相互合作的线程集的类。这些机制具有为线程之间的共用集结点模式提供的“预置功能”。如果有一个相互合作的线程集满足这些行为模式之一，那么
+父子节点的编号之间有如下关系：
+
+leftNo = parent
 					...
 				</div>
 			</article>
@@ -4578,10 +4608,6 @@ ExecutorService executorServi
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
-	<div id="to_top">
-	<div id="totop">
-		<i class="fa fa-angle-double-up"></i>
-	</div>
-</div>
+	<button id="totop" class="toggle"><i class="fa fa-angle-double-up" aria-hidden="true"></i></button>
 </body>
 </html>

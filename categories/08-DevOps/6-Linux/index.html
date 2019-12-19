@@ -58,7 +58,9 @@
 	</ul>
 </header>
 
-	<div id="sidebar">
+	
+<button id="sidebar-toggle" class="toggle" ><i class="fa fa-bars" aria-hidden="true"></i></button>
+<div id="sidebar">
 	<!-- 搜索栏 -->
 	<div id="search">
 		<input class="search-input" type="text" placeholder="search">
@@ -4390,18 +4392,11 @@
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/08%20DevOps/6%20Linux/3%20Shell%20%E8%84%9A%E6%9C%AC/">3 Shell 脚本</a>
+					<a class="article-title" href="/2019/12/18/08%20DevOps/6%20Linux/1%20Centos%207%E9%85%8D%E7%BD%AELAMP/">1 Centos 7配置LAMP</a>
 				</h2>
-				<span class="post-date">2019-12-18</span>
+				<span class="post-date">2019-12-19</span>
 				<div class="article-digest">
-					¶开始
-约定文件第一行必须以 “#!”开始，指明脚本执行的解释器
-¶运行
-chmod +x filename
-¶变量
-变量无需声明
-赋值：变量名和等号之间不能有空格
-使用：前加$符号，可选加{}帮解释
+					LAMP是Linux、Apache HTTP，MySQL（或MariaDB）和PHP（或Perl、Python）的首字母缩写，下面讨论如何在RHEL/CentOS/Scientific Linux 7
 					...
 				</div>
 			</article>
@@ -4412,7 +4407,7 @@ chmod +x filename
 				<h2>
 					<a class="article-title" href="/2019/12/18/08%20DevOps/6%20Linux/2%20Linux%20%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">2 Linux 常用命令</a>
 				</h2>
-				<span class="post-date">2019-12-18</span>
+				<span class="post-date">2019-12-19</span>
 				<div class="article-digest">
 					¶1、文件相关
 ¶1.1文件跳转
@@ -4431,11 +4426,18 @@ ls：列出目录内容
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/08%20DevOps/6%20Linux/1%20Centos%207%E9%85%8D%E7%BD%AELAMP/">1 Centos 7配置LAMP</a>
+					<a class="article-title" href="/2019/12/18/08%20DevOps/6%20Linux/3%20Shell%20%E8%84%9A%E6%9C%AC/">3 Shell 脚本</a>
 				</h2>
-				<span class="post-date">2019-12-18</span>
+				<span class="post-date">2019-12-19</span>
 				<div class="article-digest">
-					LAMP是Linux、Apache HTTP，MySQL（或MariaDB）和PHP（或Perl、Python）的首字母缩写，下面讨论如何在RHEL/CentOS/Scientific Linux 7
+					¶开始
+约定文件第一行必须以 “#!”开始，指明脚本执行的解释器
+¶运行
+chmod +x filename
+¶变量
+变量无需声明
+赋值：变量名和等号之间不能有空格
+使用：前加$符号，可选加{}帮解释
 					...
 				</div>
 			</article>
@@ -4462,10 +4464,6 @@ ls：列出目录内容
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
-	<div id="to_top">
-	<div id="totop">
-		<i class="fa fa-angle-double-up"></i>
-	</div>
-</div>
+	<button id="totop" class="toggle"><i class="fa fa-angle-double-up" aria-hidden="true"></i></button>
 </body>
 </html>

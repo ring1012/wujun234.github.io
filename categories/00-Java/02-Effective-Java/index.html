@@ -58,7 +58,9 @@
 	</ul>
 </header>
 
-	<div id="sidebar">
+	
+<button id="sidebar-toggle" class="toggle" ><i class="fa fa-bars" aria-hidden="true"></i></button>
+<div id="sidebar">
 	<!-- 搜索栏 -->
 	<div id="search">
 		<input class="search-input" type="text" placeholder="search">
@@ -4390,13 +4392,138 @@
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/00%20Java/02%20Effective%20Java/9%20%E5%BC%82%E5%B8%B8%EF%BC%8869-77%EF%BC%89/">9 异常（69-77）</a>
+					<a class="article-title" href="/2019/12/18/00%20Java/02%20Effective%20Java/1%20%E5%88%9B%E5%BB%BA%E5%92%8C%E9%94%80%E6%AF%81%E5%AF%B9%E8%B1%A1%EF%BC%881-9%EF%BC%89/">1 创建和销毁对象（1-9）</a>
 				</h2>
-				<span class="post-date">2019-12-18</span>
+				<span class="post-date">2019-12-19</span>
 				<div class="article-digest">
-					¶第69条：只针对异常的情况才使用异常
-如果在try、catch、finally块中都抛出了异常，只是只有一个异常可被传播到外界。
-请不要在try块中发出对return、break或continue的
+					¶第1条：考虑用静态工厂方法代替构造器
+工厂方法优势：
+
+有名称，更易读
+可选，不必每次创建新对象
+可以返回子类型
+创建参数化类型实例时，更简洁
+可以返回非公有类
+
+工厂方法缺点：
+
+类如果不含有他的
+					...
+				</div>
+			</article>
+			
+		
+
+			<article class="article-li">
+				<h2>
+					<a class="article-title" href="/2019/12/18/00%20Java/02%20Effective%20Java/10%20%E5%B9%B6%E5%8F%91%EF%BC%8878-84%EF%BC%89/">10 并发（78-84）</a>
+				</h2>
+				<span class="post-date">2019-12-19</span>
+				<div class="article-digest">
+					¶第78条：同步访问共享的可变数据
+¶第79条：避免过度同步
+¶第80条：executor和task优先于线程
+
+Executor.newCachedThreadPool：小程序，轻载的服务器
+Exe
+					...
+				</div>
+			</article>
+			
+		
+
+			<article class="article-li">
+				<h2>
+					<a class="article-title" href="/2019/12/18/00%20Java/02%20Effective%20Java/11%20%E5%BA%8F%E5%88%97%E5%8C%96%EF%BC%8885-90%EF%BC%89/">11 序列化（85-90）</a>
+				</h2>
+				<span class="post-date">2019-12-19</span>
+				<div class="article-digest">
+					¶第85条: 首选Java序列化的替代品
+序列化是危险的，反序列化有漏洞，应该避免。
+使用跨平台的结构化数据替代，例如JSON或protobuf。
+或者不反序列化不受信任的数据。
+如果必须反序列化，使
+					...
+				</div>
+			</article>
+			
+		
+
+			<article class="article-li">
+				<h2>
+					<a class="article-title" href="/2019/12/18/00%20Java/02%20Effective%20Java/2%20%E5%AF%B9%E4%BA%8E%E6%89%80%E6%9C%89%E5%AF%B9%E8%B1%A1%E9%83%BD%E9%80%9A%E7%94%A8%E7%9A%84%E6%96%B9%E6%B3%95%EF%BC%8810-14%EF%BC%89/">2 对于所有对象都通用的方法（10-14）</a>
+				</h2>
+				<span class="post-date">2019-12-19</span>
+				<div class="article-digest">
+					¶第10条：覆盖equals时请遵守通用约定
+
+自反性 - 对象必须等于其自身
+对称性 - 任何两个对象对于它们是否相等的问题都必须保持一致，Timestamp违反了，不值得效仿
+传递性 - 如果对象
+					...
+				</div>
+			</article>
+			
+		
+
+			<article class="article-li">
+				<h2>
+					<a class="article-title" href="/2019/12/18/00%20Java/02%20Effective%20Java/3%20%E7%B1%BB%E5%92%8C%E6%8E%A5%E5%8F%A3%EF%BC%8815-25%EF%BC%89/">3 类和接口（15-25）</a>
+				</h2>
+				<span class="post-date">2019-12-19</span>
+				<div class="article-digest">
+					¶第15条：使类和成员的可访问性最小化
+公有静态final域暴露常量，要么包含基本类型值，要么包含指向不可变对象的引用
+¶第16条：在公有类中使用访问方法而非公有域
+
+公有类不应该暴露可变域，因为其客
+					...
+				</div>
+			</article>
+			
+		
+
+			<article class="article-li">
+				<h2>
+					<a class="article-title" href="/2019/12/18/00%20Java/02%20Effective%20Java/4%20%E6%B3%9B%E5%9E%8B%EF%BC%8826-33%EF%BC%89/">4 泛型（26-33）</a>
+				</h2>
+				<span class="post-date">2019-12-19</span>
+				<div class="article-digest">
+					¶第26条：请不要在新代码中使用原生态类型
+原生态类型只为了与引入泛型之前的遗留代码进行兼容和互用而提供的。
+¶第27条：消除非受检警告
+如果无法消除警告，同时可以证明引起警告的代码是类型安全的，只有
+					...
+				</div>
+			</article>
+			
+		
+
+			<article class="article-li">
+				<h2>
+					<a class="article-title" href="/2019/12/18/00%20Java/02%20Effective%20Java/5%20%E6%9E%9A%E4%B8%BE%E5%92%8C%E6%B3%A8%E8%A7%A3%EF%BC%8834-41%EF%BC%89/">5 枚举和注解（34-41）</a>
+				</h2>
+				<span class="post-date">2019-12-19</span>
+				<div class="article-digest">
+					¶第34条：用enum代替int常量
+当需要一组固定常量的时候，应该使用enum代替int常量。
+¶第35条：用实例域代替序数
+应该给enum添加int域，而不是使用ordinal()方法来导出与枚举
+					...
+				</div>
+			</article>
+			
+		
+
+			<article class="article-li">
+				<h2>
+					<a class="article-title" href="/2019/12/18/00%20Java/02%20Effective%20Java/6%20Lambdas%E4%B8%8EStreams%EF%BC%8842-48%EF%BC%89/">6 Lambdas与Streams（42-48）</a>
+				</h2>
+				<span class="post-date">2019-12-19</span>
+				<div class="article-digest">
+					¶第42条：lambdas优于匿名类
+从Java 8开始，lambda是迄今为止表示小函数对象的最佳方式。 除非必须创建非函数式接口类型的实例，否则不要使用匿名类作为函数对象。
+lambda没有名称和
 					...
 				</div>
 			</article>
@@ -4407,7 +4534,7 @@
 				<h2>
 					<a class="article-title" href="/2019/12/18/00%20Java/02%20Effective%20Java/8%20%E9%80%9A%E7%94%A8%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%EF%BC%8857-68%EF%BC%89/">8 通用程序设计（57-68）</a>
 				</h2>
-				<span class="post-date">2019-12-18</span>
+				<span class="post-date">2019-12-19</span>
 				<div class="article-digest">
 					¶第57条：将局部变量的作用域最小化
 ¶第58条：for-each循环优先于传统的for循环
@@ -4425,128 +4552,12 @@ fl
 				<h2>
 					<a class="article-title" href="/2019/12/18/00%20Java/02%20Effective%20Java/7%20%E6%96%B9%E6%B3%95%EF%BC%8849-56%EF%BC%89/">7 方法（49-56）</a>
 				</h2>
-				<span class="post-date">2019-12-18</span>
+				<span class="post-date">2019-12-19</span>
 				<div class="article-digest">
 					¶第49条：检查参数的有效性
 不仅需要检查参数的有效性，还需要在函数的文档中给予明确的说明，如在参数非法的情况下，会抛出哪些异常，或导致函数返回哪些错误值等
 ¶第50条：必要时进行保护性拷贝
 如果不能
-					...
-				</div>
-			</article>
-			
-		
-
-			<article class="article-li">
-				<h2>
-					<a class="article-title" href="/2019/12/18/00%20Java/02%20Effective%20Java/6%20Lambdas%E4%B8%8EStreams%EF%BC%8842-48%EF%BC%89/">6 Lambdas与Streams（42-48）</a>
-				</h2>
-				<span class="post-date">2019-12-18</span>
-				<div class="article-digest">
-					¶第42条：lambdas优于匿名类
-从Java 8开始，lambda是迄今为止表示小函数对象的最佳方式。 除非必须创建非函数式接口类型的实例，否则不要使用匿名类作为函数对象。
-lambda没有名称和
-					...
-				</div>
-			</article>
-			
-		
-
-			<article class="article-li">
-				<h2>
-					<a class="article-title" href="/2019/12/18/00%20Java/02%20Effective%20Java/5%20%E6%9E%9A%E4%B8%BE%E5%92%8C%E6%B3%A8%E8%A7%A3%EF%BC%8834-41%EF%BC%89/">5 枚举和注解（34-41）</a>
-				</h2>
-				<span class="post-date">2019-12-18</span>
-				<div class="article-digest">
-					¶第34条：用enum代替int常量
-当需要一组固定常量的时候，应该使用enum代替int常量。
-¶第35条：用实例域代替序数
-应该给enum添加int域，而不是使用ordinal()方法来导出与枚举
-					...
-				</div>
-			</article>
-			
-		
-
-			<article class="article-li">
-				<h2>
-					<a class="article-title" href="/2019/12/18/00%20Java/02%20Effective%20Java/4%20%E6%B3%9B%E5%9E%8B%EF%BC%8826-33%EF%BC%89/">4 泛型（26-33）</a>
-				</h2>
-				<span class="post-date">2019-12-18</span>
-				<div class="article-digest">
-					¶第26条：请不要在新代码中使用原生态类型
-原生态类型只为了与引入泛型之前的遗留代码进行兼容和互用而提供的。
-¶第27条：消除非受检警告
-如果无法消除警告，同时可以证明引起警告的代码是类型安全的，只有
-					...
-				</div>
-			</article>
-			
-		
-
-			<article class="article-li">
-				<h2>
-					<a class="article-title" href="/2019/12/18/00%20Java/02%20Effective%20Java/3%20%E7%B1%BB%E5%92%8C%E6%8E%A5%E5%8F%A3%EF%BC%8815-25%EF%BC%89/">3 类和接口（15-25）</a>
-				</h2>
-				<span class="post-date">2019-12-18</span>
-				<div class="article-digest">
-					¶第15条：使类和成员的可访问性最小化
-公有静态final域暴露常量，要么包含基本类型值，要么包含指向不可变对象的引用
-¶第16条：在公有类中使用访问方法而非公有域
-
-公有类不应该暴露可变域，因为其客
-					...
-				</div>
-			</article>
-			
-		
-
-			<article class="article-li">
-				<h2>
-					<a class="article-title" href="/2019/12/18/00%20Java/02%20Effective%20Java/2%20%E5%AF%B9%E4%BA%8E%E6%89%80%E6%9C%89%E5%AF%B9%E8%B1%A1%E9%83%BD%E9%80%9A%E7%94%A8%E7%9A%84%E6%96%B9%E6%B3%95%EF%BC%8810-14%EF%BC%89/">2 对于所有对象都通用的方法（10-14）</a>
-				</h2>
-				<span class="post-date">2019-12-18</span>
-				<div class="article-digest">
-					¶第10条：覆盖equals时请遵守通用约定
-
-自反性 - 对象必须等于其自身
-对称性 - 任何两个对象对于它们是否相等的问题都必须保持一致，Timestamp违反了，不值得效仿
-传递性 - 如果对象
-					...
-				</div>
-			</article>
-			
-		
-
-			<article class="article-li">
-				<h2>
-					<a class="article-title" href="/2019/12/18/00%20Java/02%20Effective%20Java/11%20%E5%BA%8F%E5%88%97%E5%8C%96%EF%BC%8885-90%EF%BC%89/">11 序列化（85-90）</a>
-				</h2>
-				<span class="post-date">2019-12-18</span>
-				<div class="article-digest">
-					¶第85条: 首选Java序列化的替代品
-序列化是危险的，反序列化有漏洞，应该避免。
-使用跨平台的结构化数据替代，例如JSON或protobuf。
-或者不反序列化不受信任的数据。
-如果必须反序列化，使
-					...
-				</div>
-			</article>
-			
-		
-
-			<article class="article-li">
-				<h2>
-					<a class="article-title" href="/2019/12/18/00%20Java/02%20Effective%20Java/10%20%E5%B9%B6%E5%8F%91%EF%BC%8878-84%EF%BC%89/">10 并发（78-84）</a>
-				</h2>
-				<span class="post-date">2019-12-18</span>
-				<div class="article-digest">
-					¶第78条：同步访问共享的可变数据
-¶第79条：避免过度同步
-¶第80条：executor和task优先于线程
-
-Executor.newCachedThreadPool：小程序，轻载的服务器
-Exe
 					...
 				</div>
 			</article>
@@ -4575,10 +4586,6 @@ Exe
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
-	<div id="to_top">
-	<div id="totop">
-		<i class="fa fa-angle-double-up"></i>
-	</div>
-</div>
+	<button id="totop" class="toggle"><i class="fa fa-angle-double-up" aria-hidden="true"></i></button>
 </body>
 </html>

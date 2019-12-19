@@ -58,7 +58,9 @@
 	</ul>
 </header>
 
-	<div id="sidebar">
+	
+<button id="sidebar-toggle" class="toggle" ><i class="fa fa-bars" aria-hidden="true"></i></button>
+<div id="sidebar">
 	<!-- 搜索栏 -->
 	<div id="search">
 		<input class="search-input" type="text" placeholder="search">
@@ -4390,12 +4392,13 @@
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/03%20%E5%BE%AE%E6%9C%8D%E5%8A%A1/1%20%E6%9C%8D%E5%8A%A1%E8%B0%83%E7%94%A8/04%20Resilience4j/">04 Resilience4j</a>
+					<a class="article-title" href="/2019/12/18/03%20%E5%BE%AE%E6%9C%8D%E5%8A%A1/2%20%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83/01%20Spring%20Cloud%20Config/">01 Spring Cloud Config</a>
 				</h2>
-				<span class="post-date">2019-12-18</span>
+				<span class="post-date">2019-12-19</span>
 				<div class="article-digest">
-					【todo】
-Hystrix官方已经停止开发了，Hystrix官方推荐使用新一代熔断器作为Resilience4j。作为新一代的熔断器，Resilience4j有很多优势，比如依赖少，模块化程度较好等
+					Spring Cloud Config老版采用git或svn存储配置文件，默认情况下使用git。从Edgware版本开始新增的一种配置方式：采用数据库存储配置信息。
+结构与原理
+Spring Clou
 					...
 				</div>
 			</article>
@@ -4404,27 +4407,15 @@ Hystrix官方已经停止开发了，Hystrix官方推荐使用新一代熔断器
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/03%20%E5%BE%AE%E6%9C%8D%E5%8A%A1/1%20%E6%9C%8D%E5%8A%A1%E8%B0%83%E7%94%A8/03%20Spring%20Cloud%20Feign/">03 Spring Cloud Feign</a>
+					<a class="article-title" href="/2019/12/18/03%20%E5%BE%AE%E6%9C%8D%E5%8A%A1/2%20%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83/02%20Apollo/">02 Apollo</a>
 				</h2>
-				<span class="post-date">2019-12-18</span>
+				<span class="post-date">2019-12-19</span>
 				<div class="article-digest">
-					Spring Cloud Feign是一套基于Netflix Feign实现的声明式服务调用客户端，目的是让Web Service调用更加简单，使用HTTP请求远程服务时能与调用本地方法一样的编码体验
-					...
-				</div>
-			</article>
-			
-		
+					携程Apollo分布式配置中心，官方文档已经够成熟了：
+Wiki
+源码解析
+使用场景
 
-			<article class="article-li">
-				<h2>
-					<a class="article-title" href="/2019/12/18/03%20%E5%BE%AE%E6%9C%8D%E5%8A%A1/1%20%E6%9C%8D%E5%8A%A1%E8%B0%83%E7%94%A8/02%20Spring%20Cloud%20Hystrix/">02 Spring Cloud Hystrix</a>
-				</h2>
-				<span class="post-date">2019-12-18</span>
-				<div class="article-digest">
-					Hystrix提供了熔断、隔离、Fallback、cache、监控等功能，能够在一个、或多个依赖同时出现问题时保证系统依然可用。
-¶一 熔断
-¶断路器
-失败次数达到阈值后， 断路器会切换到开路状态。 
 					...
 				</div>
 			</article>
@@ -4435,7 +4426,7 @@ Hystrix官方已经停止开发了，Hystrix官方推荐使用新一代熔断器
 				<h2>
 					<a class="article-title" href="/2019/12/18/03%20%E5%BE%AE%E6%9C%8D%E5%8A%A1/1%20%E6%9C%8D%E5%8A%A1%E8%B0%83%E7%94%A8/01%20Spring%20Cloud%20Ribbon/">01 Spring Cloud Ribbon</a>
 				</h2>
-				<span class="post-date">2019-12-18</span>
+				<span class="post-date">2019-12-19</span>
 				<div class="article-digest">
 					Spring Cloud Ribbon封装了Netflix Ribbon，是基于HTTP和TCP的客户端负载均衡器。
 它主要包括六个组件：
@@ -4450,18 +4441,14 @@ Serv
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/03%20%E5%BE%AE%E6%9C%8D%E5%8A%A1/0%20%E6%9C%8D%E5%8A%A1%E6%B3%A8%E5%86%8C%E4%B8%8E%E5%8F%91%E7%8E%B0/02%20Spring%20Cloud%20Consul/">02 Spring Cloud Consul</a>
+					<a class="article-title" href="/2019/12/18/03%20%E5%BE%AE%E6%9C%8D%E5%8A%A1/1%20%E6%9C%8D%E5%8A%A1%E8%B0%83%E7%94%A8/02%20Spring%20Cloud%20Hystrix/">02 Spring Cloud Hystrix</a>
 				</h2>
-				<span class="post-date">2019-12-18</span>
+				<span class="post-date">2019-12-19</span>
 				<div class="article-digest">
-					Spring Cloud Consul是针对Consul的服务治理实现，提供服务发现和服务配置。包含了下面几个特性：
-
-服务发现
-健康检查
-Key/Value存储
-多数据中心
-
-Consul自身提供了
+					Hystrix提供了熔断、隔离、Fallback、cache、监控等功能，能够在一个、或多个依赖同时出现问题时保证系统依然可用。
+¶一 熔断
+¶断路器
+失败次数达到阈值后， 断路器会切换到开路状态。 
 					...
 				</div>
 			</article>
@@ -4470,12 +4457,25 @@ Consul自身提供了
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/03%20%E5%BE%AE%E6%9C%8D%E5%8A%A1/0%20%E6%9C%8D%E5%8A%A1%E6%B3%A8%E5%86%8C%E4%B8%8E%E5%8F%91%E7%8E%B0/01%20Spring%20Cloud%20Eureka/">01 Spring Cloud Eureka</a>
+					<a class="article-title" href="/2019/12/18/03%20%E5%BE%AE%E6%9C%8D%E5%8A%A1/1%20%E6%9C%8D%E5%8A%A1%E8%B0%83%E7%94%A8/03%20Spring%20Cloud%20Feign/">03 Spring Cloud Feign</a>
 				</h2>
-				<span class="post-date">2019-12-18</span>
+				<span class="post-date">2019-12-19</span>
 				<div class="article-digest">
-					简介
-Spring Cloud针对服务注册与发现，进行了一层抽象，并提供了三种实现：Eureka、Consul、Zookeeper。目前支持得最好的就是Eureka，其次是Consul，最后是Zook
+					Spring Cloud Feign是一套基于Netflix Feign实现的声明式服务调用客户端，目的是让Web Service调用更加简单，使用HTTP请求远程服务时能与调用本地方法一样的编码体验
+					...
+				</div>
+			</article>
+			
+		
+
+			<article class="article-li">
+				<h2>
+					<a class="article-title" href="/2019/12/18/03%20%E5%BE%AE%E6%9C%8D%E5%8A%A1/1%20%E6%9C%8D%E5%8A%A1%E8%B0%83%E7%94%A8/04%20Resilience4j/">04 Resilience4j</a>
+				</h2>
+				<span class="post-date">2019-12-19</span>
+				<div class="article-digest">
+					【todo】
+Hystrix官方已经停止开发了，Hystrix官方推荐使用新一代熔断器作为Resilience4j。作为新一代的熔断器，Resilience4j有很多优势，比如依赖少，模块化程度较好等
 					...
 				</div>
 			</article>
@@ -4504,10 +4504,6 @@ Spring Cloud针对服务注册与发现，进行了一层抽象，并提供了�
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
-	<div id="to_top">
-	<div id="totop">
-		<i class="fa fa-angle-double-up"></i>
-	</div>
-</div>
+	<button id="totop" class="toggle"><i class="fa fa-angle-double-up" aria-hidden="true"></i></button>
 </body>
 </html>

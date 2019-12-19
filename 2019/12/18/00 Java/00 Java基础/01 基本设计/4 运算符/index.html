@@ -60,7 +60,9 @@
 	</ul>
 </header>
 
-	<div id="sidebar">
+	
+<button id="sidebar-toggle" class="toggle" ><i class="fa fa-bars" aria-hidden="true"></i></button>
+<div id="sidebar">
 	<!-- 搜索栏 -->
 	<div id="search">
 		<input class="search-input" type="text" placeholder="search">
@@ -4395,15 +4397,15 @@
 <HR />
 <div>
 	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 01:00:41</span>
+	<span id="post-date">2019-12-18 00:40:45</span>
 </div>
 
 
 <div id="article">
 	<h4 id="1-数学函数与常量"><a class="header-anchor" href="#1-数学函数与常量">¶</a>1 数学函数与常量</h4>
-<p>Math.sqrt(x) 平方根<br>
-Math.pow(x,y) 幂运算，x的y次幂<br>
-Math.floorMod(x,y) 求余</p>
+<p>Math.sqrt(x) 平方根</p>
+<p>Math.pow(x,y) 幂运算，x的y次幂</p>
+<p>Math.floorMod(x,y) 求余</p>
 <h4 id="2-自增与自减运算符"><a class="header-anchor" href="#2-自增与自减运算符">¶</a>2 自增与自减运算符</h4>
 <p>建议不要在表达式中使用++，容易带来疑惑和bug</p>
 <h4 id="3-关系和boolean运算符"><a class="header-anchor" href="#3-关系和boolean运算符">¶</a>3 关系和boolean运算符</h4>
@@ -4451,10 +4453,6 @@ Math.floorMod(x,y) 求余</p>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
-	<div id="to_top">
-	<div id="totop">
-		<i class="fa fa-angle-double-up"></i>
-	</div>
-</div>
+	<button id="totop" class="toggle"><i class="fa fa-angle-double-up" aria-hidden="true"></i></button>
 </body>
 </html>

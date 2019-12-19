@@ -58,7 +58,9 @@
 	</ul>
 </header>
 
-	<div id="sidebar">
+	
+<button id="sidebar-toggle" class="toggle" ><i class="fa fa-bars" aria-hidden="true"></i></button>
+<div id="sidebar">
 	<!-- 搜索栏 -->
 	<div id="search">
 		<input class="search-input" type="text" placeholder="search">
@@ -4390,15 +4392,29 @@
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/00%20Java/03%20Java%E5%B9%B6%E5%8F%91/1%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/4%20%E5%9F%BA%E7%A1%80%E6%9E%84%E5%BB%BA%E6%A8%A1%E5%9D%97/">4 基础构建模块</a>
+					<a class="article-title" href="/2019/12/18/00%20Java/03%20Java%E5%B9%B6%E5%8F%91/1%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/1%20%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8%E6%80%A7/">1 线程安全性</a>
 				</h2>
-				<span class="post-date">2019-12-18</span>
+				<span class="post-date">2019-12-19</span>
 				<div class="article-digest">
-					¶1 同步容器类
-同步容器类实现线程安全的方式是： 将他们的状态封装起来,并对每个公有方法都进行同步，使得每次只有一个线程能访问容器的状态。
-¶1.1 同步容器类的问题
+					¶1 什么是线程安全
+¶1.1 线程安全的类
+当多个线程访问某个类时，不管运行时环境采用何种调度方式或者这些线程将如何交替执行，并且在主调代码中不需要额外的同步，这个类都能表现正确的行为
+¶1.2 无
+					...
+				</div>
+			</article>
+			
+		
 
-同步容器类都是线程安全的，但
+			<article class="article-li">
+				<h2>
+					<a class="article-title" href="/2019/12/18/00%20Java/03%20Java%E5%B9%B6%E5%8F%91/1%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/2%20%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%85%B1%E4%BA%AB/">2 对象的共享</a>
+				</h2>
+				<span class="post-date">2019-12-19</span>
+				<div class="article-digest">
+					一种常见的误解是, 认为关键字synchronized只能用于实现原子性或者确定临界区, 同步还有一个重要的方面: 内存可见性.
+¶1 可见性
+在没有同步的情况下, 编译器, 处理器, 运行时等可能对
 					...
 				</div>
 			</article>
@@ -4409,7 +4425,7 @@
 				<h2>
 					<a class="article-title" href="/2019/12/18/00%20Java/03%20Java%E5%B9%B6%E5%8F%91/1%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/3%20%E5%AF%B9%E8%B1%A1%E7%9A%84%E7%BB%84%E5%90%88/">3 对象的组合</a>
 				</h2>
-				<span class="post-date">2019-12-18</span>
+				<span class="post-date">2019-12-19</span>
 				<div class="article-digest">
 					¶1 设计线程安全的类
 设计线程安全类的过程中,需要包含以下三个基本要素：
@@ -4429,29 +4445,15 @@
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/00%20Java/03%20Java%E5%B9%B6%E5%8F%91/1%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/2%20%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%85%B1%E4%BA%AB/">2 对象的共享</a>
+					<a class="article-title" href="/2019/12/18/00%20Java/03%20Java%E5%B9%B6%E5%8F%91/1%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/4%20%E5%9F%BA%E7%A1%80%E6%9E%84%E5%BB%BA%E6%A8%A1%E5%9D%97/">4 基础构建模块</a>
 				</h2>
-				<span class="post-date">2019-12-18</span>
+				<span class="post-date">2019-12-19</span>
 				<div class="article-digest">
-					一种常见的误解是, 认为关键字synchronized只能用于实现原子性或者确定临界区, 同步还有一个重要的方面: 内存可见性.
-¶1 可见性
-在没有同步的情况下, 编译器, 处理器, 运行时等可能对
-					...
-				</div>
-			</article>
-			
-		
+					¶1 同步容器类
+同步容器类实现线程安全的方式是： 将他们的状态封装起来,并对每个公有方法都进行同步，使得每次只有一个线程能访问容器的状态。
+¶1.1 同步容器类的问题
 
-			<article class="article-li">
-				<h2>
-					<a class="article-title" href="/2019/12/18/00%20Java/03%20Java%E5%B9%B6%E5%8F%91/1%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/1%20%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8%E6%80%A7/">1 线程安全性</a>
-				</h2>
-				<span class="post-date">2019-12-18</span>
-				<div class="article-digest">
-					¶1 什么是线程安全
-¶1.1 线程安全的类
-当多个线程访问某个类时，不管运行时环境采用何种调度方式或者这些线程将如何交替执行，并且在主调代码中不需要额外的同步，这个类都能表现正确的行为
-¶1.2 无
+同步容器类都是线程安全的，但
 					...
 				</div>
 			</article>
@@ -4480,10 +4482,6 @@
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
-	<div id="to_top">
-	<div id="totop">
-		<i class="fa fa-angle-double-up"></i>
-	</div>
-</div>
+	<button id="totop" class="toggle"><i class="fa fa-angle-double-up" aria-hidden="true"></i></button>
 </body>
 </html>

@@ -58,7 +58,9 @@
 	</ul>
 </header>
 
-	<div id="sidebar">
+	
+<button id="sidebar-toggle" class="toggle" ><i class="fa fa-bars" aria-hidden="true"></i></button>
+<div id="sidebar">
 	<!-- 搜索栏 -->
 	<div id="search">
 		<input class="search-input" type="text" placeholder="search">
@@ -4390,45 +4392,9 @@
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/16%20%E5%AE%89%E5%85%A8/5%20%E5%8A%A0%E5%AF%86/">5 加密</a>
-				</h2>
-				<span class="post-date">2019-12-18</span>
-				<div class="article-digest">
-					¶1 对称密码
-“Java密码扩展”包含所有加密算法的超类： Cipher 类。
-Cipher cipher = Cipher.getInstance(algorithName);
-Cipher ci
-					...
-				</div>
-			</article>
-			
-		
-
-			<article class="article-li">
-				<h2>
-					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/16%20%E5%AE%89%E5%85%A8/4%20%E6%95%B0%E6%8D%AE%E7%AD%BE%E5%90%8D/">4 数据签名</a>
-				</h2>
-				<span class="post-date">2019-12-18</span>
-				<div class="article-digest">
-					要确定一份代码是否安全，首先要搞清楚两个问题：
-
-这份代码来自哪里
-这份代码是否被篡改过
-
-ava.security包提供了很多成熟算法。
-¶1 消息摘要
-消息摘要(Message Digest)是数
-					...
-				</div>
-			</article>
-			
-		
-
-			<article class="article-li">
-				<h2>
 					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/16%20%E5%AE%89%E5%85%A8/3%20%E7%94%A8%E6%88%B7%E8%AE%A4%E8%AF%81/">3 用户认证</a>
 				</h2>
-				<span class="post-date">2019-12-18</span>
+				<span class="post-date">2019-12-19</span>
 				<div class="article-digest">
 					认证负责确认使用者身份。
 ¶1 JAAS 框架
@@ -4445,9 +4411,26 @@ com.sun.security包下。
 
 			<article class="article-li">
 				<h2>
+					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/16%20%E5%AE%89%E5%85%A8/1%20%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%99%A8/">1 类加载器</a>
+				</h2>
+				<span class="post-date">2019-12-19</span>
+				<div class="article-digest">
+					¶1 类加载过程
+虚拟机只加载程序执行时所需要的类文件。假设程序从MyProgram.class开始运行，下面是虚拟机执行的步骤：
+
+虚拟机有一个用于加载类文件的机制。
+如果类拥有类型为另一个类的域，
+					...
+				</div>
+			</article>
+			
+		
+
+			<article class="article-li">
+				<h2>
 					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/16%20%E5%AE%89%E5%85%A8/2%20%E5%AE%89%E5%85%A8%E7%AE%A1%E7%90%86%E5%99%A8%E4%B8%8E%E8%AE%BF%E9%97%AE%E6%9D%83%E9%99%90/">2 安全管理器与访问权限</a>
 				</h2>
-				<span class="post-date">2019-12-18</span>
+				<span class="post-date">2019-12-19</span>
 				<div class="article-digest">
 					一旦某个类被加载到虚拟机中，并由校验器检查过后，java平台的第二种安全机制就会启动，这个机制就是安全管理器
 ¶1 权限检查
@@ -4460,15 +4443,34 @@ SecurityManager 安全管理器是一个负责控制具体操作是否允许执
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/16%20%E5%AE%89%E5%85%A8/1%20%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%99%A8/">1 类加载器</a>
+					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/16%20%E5%AE%89%E5%85%A8/5%20%E5%8A%A0%E5%AF%86/">5 加密</a>
 				</h2>
-				<span class="post-date">2019-12-18</span>
+				<span class="post-date">2019-12-19</span>
 				<div class="article-digest">
-					¶1 类加载过程
-虚拟机只加载程序执行时所需要的类文件。假设程序从MyProgram.class开始运行，下面是虚拟机执行的步骤：
+					¶1 对称密码
+“Java密码扩展”包含所有加密算法的超类： Cipher 类。
+Cipher cipher = Cipher.getInstance(algorithName);
+Cipher ci
+					...
+				</div>
+			</article>
+			
+		
 
-虚拟机有一个用于加载类文件的机制。
-如果类拥有类型为另一个类的域，
+			<article class="article-li">
+				<h2>
+					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/16%20%E5%AE%89%E5%85%A8/4%20%E6%95%B0%E6%8D%AE%E7%AD%BE%E5%90%8D/">4 数据签名</a>
+				</h2>
+				<span class="post-date">2019-12-19</span>
+				<div class="article-digest">
+					要确定一份代码是否安全，首先要搞清楚两个问题：
+
+这份代码来自哪里
+这份代码是否被篡改过
+
+ava.security包提供了很多成熟算法。
+¶1 消息摘要
+消息摘要(Message Digest)是数
 					...
 				</div>
 			</article>
@@ -4495,10 +4497,6 @@ SecurityManager 安全管理器是一个负责控制具体操作是否允许执
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
-	<div id="to_top">
-	<div id="totop">
-		<i class="fa fa-angle-double-up"></i>
-	</div>
-</div>
+	<button id="totop" class="toggle"><i class="fa fa-angle-double-up" aria-hidden="true"></i></button>
 </body>
 </html>

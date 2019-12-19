@@ -58,7 +58,9 @@
 	</ul>
 </header>
 
-	<div id="sidebar">
+	
+<button id="sidebar-toggle" class="toggle" ><i class="fa fa-bars" aria-hidden="true"></i></button>
+<div id="sidebar">
 	<!-- 搜索栏 -->
 	<div id="search">
 		<input class="search-input" type="text" placeholder="search">
@@ -4390,15 +4392,15 @@
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/06%20%E9%9B%86%E5%90%88/6%20%E9%81%97%E7%95%99%E7%9A%84%E9%9B%86%E5%90%88/">6 遗留的集合</a>
+					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/06%20%E9%9B%86%E5%90%88/1%20%E9%9B%86%E5%90%88%E6%8E%A5%E5%8F%A3/">1 集合接口</a>
 				</h2>
-				<span class="post-date">2019-12-18</span>
+				<span class="post-date">2019-12-19</span>
 				<div class="article-digest">
-					¶1 Hashtable
-与HashMap的作用是一样的，但是Hashtable是线程同步的。
-如果同步性没有要求，应该尽量使用HashMap。
-¶2 枚举
-遗留集合使用Enumeration接口对元
+					框架，是一个类的集。
+容器，是可以容纳其他Java对象的对象。
+JDK 1.2开始，Java集合框架(JCF)提供了通用的容器。
+JDK 1.5开始，集合类是带有类型参数的泛型类。
+Java容器里只能
 					...
 				</div>
 			</article>
@@ -4407,16 +4409,110 @@
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/06%20%E9%9B%86%E5%90%88/5%20%E7%AE%97%E6%B3%95/">5 算法</a>
+					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/06%20%E9%9B%86%E5%90%88/2.0%20%E5%85%B7%E4%BD%93%E7%9A%84%E9%9B%86%E5%90%88/">2.0 具体的集合</a>
 				</h2>
-				<span class="post-date">2019-12-18</span>
+				<span class="post-date">2019-12-19</span>
 				<div class="article-digest">
-					泛型集合接口有一个很大的优点，即算法只需要实现一次。
-¶1 排序与混排
-¶排序
-Collections.sort()
-底层使用了数组的归并排序。即先转化集合为数组，排好序以后在复制回以前的集合。
-归并
+					¶Java库中的具体集合
+
+
+
+集合类型
+同步
+可null
+有序
+描述
+
+
+
+
+ArrayList
+否
+是
+是
+动态增缩的索引序列
+
+
+Vector
+是
+是
+是
+过时，同步的ArrayList
+
+
+L
+					...
+				</div>
+			</article>
+			
+		
+
+			<article class="article-li">
+				<h2>
+					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/06%20%E9%9B%86%E5%90%88/2.1%20ArrayList%E3%80%81Vector/">2.1 ArrayList、Vector</a>
+				</h2>
+				<span class="post-date">2019-12-19</span>
+				<div class="article-digest">
+					¶前言
+ArrayList除未实现同步外，跟Vector大致相同。同步效率低，在不需要同步的时候使用ArrayList。
+¶ArrayList
+
+¶总体介绍
+ArrayList 实现了 List、Ra
+					...
+				</div>
+			</article>
+			
+		
+
+			<article class="article-li">
+				<h2>
+					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/06%20%E9%9B%86%E5%90%88/2.2%20LinkedList/">2.2 LinkedList</a>
+				</h2>
+				<span class="post-date">2019-12-19</span>
+				<div class="article-digest">
+					¶前言
+现在栈或者队列的首选是ArrayDeque。
+¶总体介绍
+
+LinkedList同时实现了List接口和Deque接口，允许null元素。
+
+LinkedList底层通过双向链表实现。节点用内
+					...
+				</div>
+			</article>
+			
+		
+
+			<article class="article-li">
+				<h2>
+					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/06%20%E9%9B%86%E5%90%88/2.3%20ArrayDeque/">2.3 ArrayDeque</a>
+				</h2>
+				<span class="post-date">2019-12-19</span>
+				<div class="article-digest">
+					¶前言
+栈Stack已过时，队列LinkedList效率不高，栈和队列首选ArrayDeque。
+¶总体介绍
+
+¶Deque接口
+ArrayDeque实现了Deque接口，Deque继承Queue实现
+					...
+				</div>
+			</article>
+			
+		
+
+			<article class="article-li">
+				<h2>
+					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/06%20%E9%9B%86%E5%90%88/2.4%20treemap%E3%80%81treeset/">2.4 treemap、treeset</a>
+				</h2>
+				<span class="post-date">2019-12-19</span>
+				<div class="article-digest">
+					¶前言
+TreeSet仅对TreeMap做了一层包装，实现相同。TreeSet里面有一个TreeMap（适配器模式）。
+¶TreeMap
+¶总体介绍
+TreeMap实现了SortedMap接口，有序。
 					...
 				</div>
 			</article>
@@ -4427,7 +4523,7 @@ Collections.sort()
 				<h2>
 					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/06%20%E9%9B%86%E5%90%88/4%20%E8%A7%86%E5%9B%BE%E4%B8%8E%E5%8C%85%E8%A3%85%E5%99%A8/">4 视图与包装器</a>
 				</h2>
-				<span class="post-date">2019-12-18</span>
+				<span class="post-date">2019-12-19</span>
 				<div class="article-digest">
 					视图：保持对原集合的控制。只用来展示集合中的元素。
 视图是不可修改的，任何改变视图size的操作都会影响到原集合。抛出异常。
@@ -4442,64 +4538,13 @@ Arrays.as
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/06%20%E9%9B%86%E5%90%88/3%20%E6%98%A0%E5%B0%84/">3 映射</a>
+					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/06%20%E9%9B%86%E5%90%88/2.5%20hashmap%E3%80%81hashset%E3%80%81hashtable/">2.5 hashmap、hashset、hashtable</a>
 				</h2>
-				<span class="post-date">2019-12-18</span>
+				<span class="post-date">2019-12-19</span>
 				<div class="article-digest">
-					映射(map) 用来存放键 / 值对。如
-果提供了键， 就能够查找到值。
-¶1　基本映射操作
-Java 类库为映射提供了两个通用的实现： HashMap 和 TreeMap 。这两个类都实现了 Map
-					...
-				</div>
-			</article>
-			
-		
-
-			<article class="article-li">
-				<h2>
-					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/06%20%E9%9B%86%E5%90%88/2.9%20ConcurrentSkipListMap/">2.9 ConcurrentSkipListMap</a>
-				</h2>
-				<span class="post-date">2019-12-18</span>
-				<div class="article-digest">
-					
-
-					...
-				</div>
-			</article>
-			
-		
-
-			<article class="article-li">
-				<h2>
-					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/06%20%E9%9B%86%E5%90%88/2.9%20concurrenthashmap/">2.9 concurrenthashmap</a>
-				</h2>
-				<span class="post-date">2019-12-18</span>
-				<div class="article-digest">
-					JDK1.5起，java.util.concurrent包
-¶JDK1.7
-¶总体介绍
-ConcurrentHashMap采用了分段锁技术，效率较Hashtable高，不允许空值null。
-Concu
-					...
-				</div>
-			</article>
-			
-		
-
-			<article class="article-li">
-				<h2>
-					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/06%20%E9%9B%86%E5%90%88/2.7%20priorityqueue/">2.7 priorityqueue</a>
-				</h2>
-				<span class="post-date">2019-12-18</span>
-				<div class="article-digest">
-					¶总体介绍
-优先队列的作用是能保证每次取出的元素都是队列中权值最小的。
-实现了Queue接口，不允许null，通过数组实现的小顶堆。
-
-父子节点的编号之间有如下关系：
-
-leftNo = parent
+					¶前言
+HashSet仅对HashMap做了一层包装，实现相同。HashSet里面有一个HashMap（适配器模式）。
+Hashtable与HashMap大致相同，但Hashtable是同步的，并且不
 					...
 				</div>
 			</article>
@@ -4510,7 +4555,7 @@ leftNo = parent
 				<h2>
 					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/06%20%E9%9B%86%E5%90%88/2.6%20linkedhashmap%E3%80%81linkedhashset/">2.6 linkedhashmap、linkedhashset</a>
 				</h2>
-				<span class="post-date">2019-12-18</span>
+				<span class="post-date">2019-12-19</span>
 				<div class="article-digest">
 					¶前言
 LinkedHashSet仅对LinkedHashMap做了一层包装，实现相同。LinkedHashSet里面有一个LinkedHashMap（适配器模式）。
@@ -4524,30 +4569,17 @@ LinkedHash
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/06%20%E9%9B%86%E5%90%88/2.5%20hashmap%E3%80%81hashset%E3%80%81hashtable/">2.5 hashmap、hashset、hashtable</a>
+					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/06%20%E9%9B%86%E5%90%88/2.7%20priorityqueue/">2.7 priorityqueue</a>
 				</h2>
-				<span class="post-date">2019-12-18</span>
+				<span class="post-date">2019-12-19</span>
 				<div class="article-digest">
-					¶前言
-HashSet仅对HashMap做了一层包装，实现相同。HashSet里面有一个HashMap（适配器模式）。
-Hashtable与HashMap大致相同，但Hashtable是同步的，并且不
-					...
-				</div>
-			</article>
-			
-		
+					¶总体介绍
+优先队列的作用是能保证每次取出的元素都是队列中权值最小的。
+实现了Queue接口，不允许null，通过数组实现的小顶堆。
 
-			<article class="article-li">
-				<h2>
-					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/06%20%E9%9B%86%E5%90%88/2.4%20treemap%E3%80%81treeset/">2.4 treemap、treeset</a>
-				</h2>
-				<span class="post-date">2019-12-18</span>
-				<div class="article-digest">
-					¶前言
-TreeSet仅对TreeMap做了一层包装，实现相同。TreeSet里面有一个TreeMap（适配器模式）。
-¶TreeMap
-¶总体介绍
-TreeMap实现了SortedMap接口，有序。
+父子节点的编号之间有如下关系：
+
+leftNo = parent
 					...
 				</div>
 			</article>
@@ -4576,10 +4608,6 @@ TreeMap实现了SortedMap接口，有序。
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
-	<div id="to_top">
-	<div id="totop">
-		<i class="fa fa-angle-double-up"></i>
-	</div>
-</div>
+	<button id="totop" class="toggle"><i class="fa fa-angle-double-up" aria-hidden="true"></i></button>
 </body>
 </html>

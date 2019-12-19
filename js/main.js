@@ -8,11 +8,45 @@ $(document).ready(function () {
 	scrollToTop();
 });
 
-// 点击搜索旁的按钮，切换目录与索引
+// 回到顶部
 function scrollToTop(){
-	$("#to_top").on("click", function(e){
+	$("#totop").on("click", function(e){
 		$("html").animate({scrollTop:0},1000);
 	});
+	  // Mobile nav
+	var $content = $('#sidebar-toggle'),
+		$sidebar = $('#sidebar'),
+		isMobileNavAnim = false,
+		mobileNavAnimDuration = 200;
+
+	var startMobileNavAnim = function () {
+		isMobileNavAnim = true;
+	};
+	
+	var stopMobileNavAnim = function () {
+		setTimeout(function () {
+			isMobileNavAnim = false;
+		}, mobileNavAnimDuration);
+	};
+  
+	$('#sidebar-toggle').on('click', function () {
+		if (isMobileNavAnim) return;
+		startMobileNavAnim();
+		$content.toggleClass('on');
+		$sidebar.toggleClass('on');
+		stopMobileNavAnim();
+	});
+	
+	$($content).on('click', function () {
+		if (isMobileNavAnim || !$content.hasClass('on')) return;
+		$content.removeClass('on');
+		$sidebar.removeClass('on');
+	});
+
+	if (window.matchMedia("(min-width: 768px)").matches) {
+		$content.addClass('on');
+		$sidebar.addClass('on');
+	}
 }
 // 点击搜索旁的按钮，切换目录与索引
 function switchTreeOrIndex(){

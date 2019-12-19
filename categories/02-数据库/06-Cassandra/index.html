@@ -58,7 +58,9 @@
 	</ul>
 </header>
 
-	<div id="sidebar">
+	
+<button id="sidebar-toggle" class="toggle" ><i class="fa fa-bars" aria-hidden="true"></i></button>
+<div id="sidebar">
 	<!-- 搜索栏 -->
 	<div id="search">
 		<input class="search-input" type="text" placeholder="search">
@@ -4390,14 +4392,17 @@
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/02%20%E6%95%B0%E6%8D%AE%E5%BA%93/06%20Cassandra/6%20Cassandra%20vs.%20HBase/">6 Cassandra vs. HBase</a>
+					<a class="article-title" href="/2019/12/18/02%20%E6%95%B0%E6%8D%AE%E5%BA%93/06%20Cassandra/1%20Cassandra%20%E7%AE%80%E4%BB%8B/">1 Cassandra 简介</a>
 				</h2>
-				<span class="post-date">2019-12-18</span>
+				<span class="post-date">2019-12-19</span>
 				<div class="article-digest">
-					参考：
+					官方文档
+（不完整，很多todo）
+Datastax
+CQL语法
+¶1 Cassandra简介
 
-Cassandra vs. HBase: twins or just strangers with similar looks?[Jun 19, 2018]
-HBase vs Cassand
+Cassandra 是一种分布式非关系型数据库，具有高性能、可扩展、无中心化、高可用性、无单点故障等特
 					...
 				</div>
 			</article>
@@ -4406,16 +4411,30 @@ HBase vs Cassand
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/02%20%E6%95%B0%E6%8D%AE%E5%BA%93/06%20Cassandra/5%20Gossip%20%E5%8D%8F%E8%AE%AE/">5 Gossip 协议</a>
+					<a class="article-title" href="/2019/12/18/02%20%E6%95%B0%E6%8D%AE%E5%BA%93/06%20Cassandra/2%20Cassandra%20%E6%9E%B6%E6%9E%84/">2 Cassandra 架构</a>
 				</h2>
-				<span class="post-date">2019-12-18</span>
+				<span class="post-date">2019-12-19</span>
 				<div class="article-digest">
-					Gossip的原始论文：《Efficient Reconciliation and Flow Control for Anti-Entropy Protocols》
+					¶1 核心架构
+¶1）Node
+节点，存放数据的地方，Cassandra的基础设施。
+¶2）datacenter
 
-¶1 概述
-¶1）特点
+数据中心，关联节点的集合。可以是物理或虚拟的。
+复制策略由datacenter设置。
+					...
+				</div>
+			</article>
+			
+		
 
-最终一
+			<article class="article-li">
+				<h2>
+					<a class="article-title" href="/2019/12/18/02%20%E6%95%B0%E6%8D%AE%E5%BA%93/06%20Cassandra/3%20Cassandra%20%E6%95%B0%E6%8D%AE%E6%A8%A1%E5%9E%8B/">3 Cassandra 数据模型</a>
+				</h2>
+				<span class="post-date">2019-12-19</span>
+				<div class="article-digest">
+					Cassandra 的数据模型是基于列族（Column Family）的四维或五维模型。它借鉴了 Amazon 的 Dynamo 和 Google’s BigTable 的数据结构和功能特点，采用 M
 					...
 				</div>
 			</article>
@@ -4426,7 +4445,7 @@ HBase vs Cassand
 				<h2>
 					<a class="article-title" href="/2019/12/18/02%20%E6%95%B0%E6%8D%AE%E5%BA%93/06%20Cassandra/4%20%E8%BF%81%E7%A7%BB%E6%A1%88%E4%BE%8B%E7%A4%BA%E4%BE%8B/">4 迁移案例示例</a>
 				</h2>
-				<span class="post-date">2019-12-18</span>
+				<span class="post-date">2019-12-19</span>
 				<div class="article-digest">
 					¶1 关系型数据库的设计
 用户信息 E-R 图
@@ -4445,11 +4464,16 @@ HBase vs Cassand
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/02%20%E6%95%B0%E6%8D%AE%E5%BA%93/06%20Cassandra/3%20Cassandra%20%E6%95%B0%E6%8D%AE%E6%A8%A1%E5%9E%8B/">3 Cassandra 数据模型</a>
+					<a class="article-title" href="/2019/12/18/02%20%E6%95%B0%E6%8D%AE%E5%BA%93/06%20Cassandra/5%20Gossip%20%E5%8D%8F%E8%AE%AE/">5 Gossip 协议</a>
 				</h2>
-				<span class="post-date">2019-12-18</span>
+				<span class="post-date">2019-12-19</span>
 				<div class="article-digest">
-					Cassandra 的数据模型是基于列族（Column Family）的四维或五维模型。它借鉴了 Amazon 的 Dynamo 和 Google’s BigTable 的数据结构和功能特点，采用 M
+					Gossip的原始论文：《Efficient Reconciliation and Flow Control for Anti-Entropy Protocols》
+
+¶1 概述
+¶1）特点
+
+最终一
 					...
 				</div>
 			</article>
@@ -4458,36 +4482,14 @@ HBase vs Cassand
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/02%20%E6%95%B0%E6%8D%AE%E5%BA%93/06%20Cassandra/2%20Cassandra%20%E6%9E%B6%E6%9E%84/">2 Cassandra 架构</a>
+					<a class="article-title" href="/2019/12/18/02%20%E6%95%B0%E6%8D%AE%E5%BA%93/06%20Cassandra/6%20Cassandra%20vs.%20HBase/">6 Cassandra vs. HBase</a>
 				</h2>
-				<span class="post-date">2019-12-18</span>
+				<span class="post-date">2019-12-19</span>
 				<div class="article-digest">
-					¶1 核心架构
-¶1）Node
-节点，存放数据的地方，Cassandra的基础设施。
-¶2）datacenter
+					参考：
 
-数据中心，关联节点的集合。可以是物理或虚拟的。
-复制策略由datacenter设置。
-					...
-				</div>
-			</article>
-			
-		
-
-			<article class="article-li">
-				<h2>
-					<a class="article-title" href="/2019/12/18/02%20%E6%95%B0%E6%8D%AE%E5%BA%93/06%20Cassandra/1%20Cassandra%20%E7%AE%80%E4%BB%8B/">1 Cassandra 简介</a>
-				</h2>
-				<span class="post-date">2019-12-18</span>
-				<div class="article-digest">
-					官方文档
-（不完整，很多todo）
-Datastax
-CQL语法
-¶1 Cassandra简介
-
-Cassandra 是一种分布式非关系型数据库，具有高性能、可扩展、无中心化、高可用性、无单点故障等特
+Cassandra vs. HBase: twins or just strangers with similar looks?[Jun 19, 2018]
+HBase vs Cassand
 					...
 				</div>
 			</article>
@@ -4514,10 +4516,6 @@ Cassandra 是一种分布式非关系型数据库，具有高性能、可扩展�
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
-	<div id="to_top">
-	<div id="totop">
-		<i class="fa fa-angle-double-up"></i>
-	</div>
-</div>
+	<button id="totop" class="toggle"><i class="fa fa-angle-double-up" aria-hidden="true"></i></button>
 </body>
 </html>

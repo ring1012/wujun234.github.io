@@ -58,7 +58,9 @@
 	</ul>
 </header>
 
-	<div id="sidebar">
+	
+<button id="sidebar-toggle" class="toggle" ><i class="fa fa-bars" aria-hidden="true"></i></button>
+<div id="sidebar">
 	<!-- 搜索栏 -->
 	<div id="search">
 		<input class="search-input" type="text" placeholder="search">
@@ -4392,7 +4394,7 @@
 				<h2>
 					<a class="article-title" href="/2019/12/18/02%20%E6%95%B0%E6%8D%AE%E5%BA%93/04%20Memcached/02%20%E4%B8%80%E8%87%B4%E6%80%A7hash/">02 一致性hash</a>
 				</h2>
-				<span class="post-date">2019-12-18</span>
+				<span class="post-date">2019-12-19</span>
 				<div class="article-digest">
 					一致性hash算法解决了分布式环境下机器增加或者减少时，简单的取模运算无法获取较高命中率的问题。通过虚拟节点的使用，一致性hash算法可以均匀分担机器的负载，使得这一算法更具现实的意义。
 一致性Has
@@ -4406,7 +4408,7 @@
 				<h2>
 					<a class="article-title" href="/2019/12/18/02%20%E6%95%B0%E6%8D%AE%E5%BA%93/04%20Memcached/01%20Memcached%E7%AC%94%E8%AE%B0/">01 Memcached笔记</a>
 				</h2>
-				<span class="post-date">2019-12-18</span>
+				<span class="post-date">2019-12-19</span>
 				<div class="article-digest">
 					Memcached是高性能，分布式内存对象key-value缓存系统。一般使用目的是，通过缓存数据库查询结果，减少数据库访问次数，以提高动态Web应用的速度、提高可扩展性。
 连接
@@ -4437,10 +4439,6 @@
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
-	<div id="to_top">
-	<div id="totop">
-		<i class="fa fa-angle-double-up"></i>
-	</div>
-</div>
+	<button id="totop" class="toggle"><i class="fa fa-angle-double-up" aria-hidden="true"></i></button>
 </body>
 </html>

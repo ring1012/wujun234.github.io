@@ -58,7 +58,9 @@
 	</ul>
 </header>
 
-	<div id="sidebar">
+	
+<button id="sidebar-toggle" class="toggle" ><i class="fa fa-bars" aria-hidden="true"></i></button>
+<div id="sidebar">
 	<!-- 搜索栏 -->
 	<div id="search">
 		<input class="search-input" type="text" placeholder="search">
@@ -4390,12 +4392,16 @@
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/00%20Java/01%20Java%E8%99%9A%E6%8B%9F%E6%9C%BA/06%20%E7%B1%BB%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84/3%20%E5%AD%97%E8%8A%82%E7%A0%81%E6%8C%87%E4%BB%A4%E7%AE%80%E4%BB%8B/">3 字节码指令简介</a>
+					<a class="article-title" href="/2019/12/18/00%20Java/01%20Java%E8%99%9A%E6%8B%9F%E6%9C%BA/06%20%E7%B1%BB%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84/1%20%E6%97%A0%E5%85%B3%E6%80%A7%E7%9A%84%E5%9F%BA%E7%9F%B3/">1 无关性的基石</a>
 				</h2>
-				<span class="post-date">2019-12-18</span>
+				<span class="post-date">2019-12-19</span>
 				<div class="article-digest">
-					Java虚拟机的指令由一个字节长度的、代表着特定操作含义的数字（操作码）以及跟随其后的零至多个代表此操作所需参数（称为操作数）而构成。
-由于Java虚拟机采用面向操作数栈而不是寄存器的架构，所以大多数
+					
+平台无关性的基石：各种不同平台的虚拟机与所有平台都统一使用的程序存储格式——字节码（ByteCode）
+语言无关性的基石：虚拟机和字节码存储格式。
+
+
+
 					...
 				</div>
 			</article>
@@ -4406,7 +4412,7 @@
 				<h2>
 					<a class="article-title" href="/2019/12/18/00%20Java/01%20Java%E8%99%9A%E6%8B%9F%E6%9C%BA/06%20%E7%B1%BB%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84/2%20Class%E7%B1%BB%E6%96%87%E4%BB%B6%E7%9A%84%E7%BB%93%E6%9E%84/">2 Class类文件的结构</a>
 				</h2>
-				<span class="post-date">2019-12-18</span>
+				<span class="post-date">2019-12-19</span>
 				<div class="article-digest">
 					
 Class文件是一组以8位字节为基础单位的二进制流；8位字节以上以高位在前分割
@@ -4420,16 +4426,12 @@ Class文件是一组以8位字节为基础单位的二进制流；8位字节以�
 
 			<article class="article-li">
 				<h2>
-					<a class="article-title" href="/2019/12/18/00%20Java/01%20Java%E8%99%9A%E6%8B%9F%E6%9C%BA/06%20%E7%B1%BB%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84/1%20%E6%97%A0%E5%85%B3%E6%80%A7%E7%9A%84%E5%9F%BA%E7%9F%B3/">1 无关性的基石</a>
+					<a class="article-title" href="/2019/12/18/00%20Java/01%20Java%E8%99%9A%E6%8B%9F%E6%9C%BA/06%20%E7%B1%BB%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84/3%20%E5%AD%97%E8%8A%82%E7%A0%81%E6%8C%87%E4%BB%A4%E7%AE%80%E4%BB%8B/">3 字节码指令简介</a>
 				</h2>
-				<span class="post-date">2019-12-18</span>
+				<span class="post-date">2019-12-19</span>
 				<div class="article-digest">
-					
-平台无关性的基石：各种不同平台的虚拟机与所有平台都统一使用的程序存储格式——字节码（ByteCode）
-语言无关性的基石：虚拟机和字节码存储格式。
-
-
-
+					Java虚拟机的指令由一个字节长度的、代表着特定操作含义的数字（操作码）以及跟随其后的零至多个代表此操作所需参数（称为操作数）而构成。
+由于Java虚拟机采用面向操作数栈而不是寄存器的架构，所以大多数
 					...
 				</div>
 			</article>
@@ -4456,10 +4458,6 @@ Class文件是一组以8位字节为基础单位的二进制流；8位字节以�
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
-	<div id="to_top">
-	<div id="totop">
-		<i class="fa fa-angle-double-up"></i>
-	</div>
-</div>
+	<button id="totop" class="toggle"><i class="fa fa-angle-double-up" aria-hidden="true"></i></button>
 </body>
 </html>
