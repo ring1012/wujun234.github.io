@@ -11,10 +11,10 @@ $(document).ready(function () {
 // 回到顶部
 function scrollToTop(){
 	$("#totop").on("click", function(e){
-		$("html").animate({scrollTop:0},1000);
+		$("html").animate({scrollTop:0},100);
 	});
 	  // Mobile nav
-	var $content = $('#sidebar-toggle'),
+	var $toggle = $('#sidebar-toggle'),
 		$sidebar = $('#sidebar'),
 		isMobileNavAnim = false,
 		mobileNavAnimDuration = 200;
@@ -32,34 +32,40 @@ function scrollToTop(){
 	$('#sidebar-toggle').on('click', function () {
 		if (isMobileNavAnim) return;
 		startMobileNavAnim();
-		$content.toggleClass('on');
+		$toggle.toggleClass('on');
 		$sidebar.toggleClass('on');
 		stopMobileNavAnim();
 	});
 	
-	$($content).on('click', function () {
-		if (isMobileNavAnim || !$content.hasClass('on')) return;
-		$content.removeClass('on');
+	$($toggle).on('click', function () {
+		if (isMobileNavAnim || !$toggle.hasClass('on')) return;
+		$toggle.removeClass('on');
 		$sidebar.removeClass('on');
 	});
 
-	if (window.matchMedia("(min-width: 768px)").matches) {
-		$content.addClass('on');
+	if (window.matchMedia("(min-width: 1350px)").matches) {
+		$toggle.addClass('on');
 		$sidebar.addClass('on');
 	}
 }
-// 点击搜索旁的按钮，切换目录与索引
+// 切换目录与索引
 function switchTreeOrIndex(){
-	$("#search-icon").on("click", function(e){
-		$("#tree").animate({height:'toggle'},0);
-		$("#toc").animate({height:'toggle'},0);
+	$("#sidebar-site").on("click", function(e){
+		$("#site-toc").show();
+		$("#sidebar-site").addClass('toc-active');
+		$("#article-toc").hide();
+		$("#sidebar-article").removeClass('toc-active');
+	});
+	$("#sidebar-article").on("click", function(e){
+		$("#article-toc").show();
+		$("#sidebar-article").addClass('toc-active');
+		$("#site-toc").hide();
+		$("#sidebar-site").removeClass('toc-active');
 	});
 }
 
 function showArticleIndex() {
-	// 先刷一遍文章有哪些节点，把 h1 h2 h3 加入列表，等下循环进行处理。
-	// 如果不够，可以加上 h4 ,只是我个人觉得，前 3 个就够了，出现第 4 层就目录就太长了，太细节了。
-	var h1List = h2List = h3List = [];
+	var h1List = h2List = h3List = h4List = h5List = [];
 	var labelList = $("#article").children();
 	for ( var i=0; i<labelList.length; i++ ) {
 		if ( $(labelList[i]).is("h1") ) {
@@ -73,7 +79,17 @@ function showArticleIndex() {
 		}
 
 		if ( $(labelList[i]).is("h3") ) {
-			h3List.push({node: $(labelList[i]), id: i, children: []});
+			h4List = new Array();
+			h3List.push({node: $(labelList[i]), id: i, children: h4List});
+		}
+		
+		if ( $(labelList[i]).is("h4") ) {
+			h5List = new Array();
+			h4List.push({node: $(labelList[i]), id: i, children: h5List});
+		}
+		
+		if ( $(labelList[i]).is("h5") ) {
+			h5List.push({node: $(labelList[i]), id: i, children: []});
 		}
 	}
 
@@ -94,11 +110,11 @@ function showArticleIndex() {
 	}
 
 	// 最后组合成 div 方便 css 设计样式，添加到指定位置
-	$("#toc").empty();
-	$("#toc").append(show(h1List));
+	$("#article-toc").empty();
+	$("#article-toc").append(show(h1List));
 
 	// 点击目录索引链接，动画跳转过去，不是默认闪现过去
-	$("#toc a").on("click", function(e){
+	$("#article-toc a").on("click", function(e){
 		e.preventDefault();
 		// 获取当前点击的 a 标签，并前触发滚动动画往对应的位置
 		var target = $(this.hash);
@@ -112,7 +128,7 @@ function showArticleIndex() {
 	$(window).on("scroll", function(e){
 		var anchorList = $(".anchor");
 		anchorList.each(function(){
-			var tocLink = $('#toc a[href="#'+$(this).attr("id")+'"]');
+			var tocLink = $('#article-toc a[href="#'+$(this).attr("id")+'"]');
 			var anchorTop = $(this).offset().top;
 			var windowTop = $(window).scrollTop();
 			if ( anchorTop <= windowTop+50 ) {
@@ -151,7 +167,7 @@ function serachTree() {
 		return jQuery(a).text().toUpperCase().indexOf(m[3].toUpperCase()) >= 0;
 	};
 
-	$("#search input").on("input", function(e){
+	$("#search-input").on("input", function(e){
 		e.preventDefault();
 
 		// 获取 inpiut 输入框的内容
