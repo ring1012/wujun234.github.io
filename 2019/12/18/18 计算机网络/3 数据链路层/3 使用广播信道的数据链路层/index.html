@@ -11,14 +11,14 @@
 	
 		3 使用广播信道的数据链路层 | 
 	 
-	吴俊的博客
+	WuJun Blog
 	</title>
 	
 	<!-- keywords,description -->
 	
 		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
 	 
-		<meta name="description" content="吴俊的博客,wujun234" />
+		<meta name="description" content="吴俊,wujun234,wujun,wu jun" />
 	
 
 	<!-- favicon -->
@@ -29,7 +29,7 @@
 
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
-	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
+	<link rel="stylesheet" href="/lib/highlight/darcula.css">
 
 	<script src="/lib/highlight/highlight.pack.js"></script>
 	<script src="/lib/jquery-3.4.1.min.js"></script>
@@ -40,16 +40,19 @@
 
 <body>
 	<header id="header">
-    <a id="title" href="/" class="logo">吴俊的博客</a>
+    <a id="title" href="/" class="logo">WuJun Blog</a>
 
 	<ul id="menu">
 		<li class="menu-item">
-			<a href="/about" class="menu-item-link">关于</a>
+			<a href="/" class="menu-item-link">HOME</a>
+		</li>
+		<li class="menu-item">
+			<a href="/about" class="menu-item-link">ABOUT</a>
 		</li>
 		
 		<li class="menu-item">
 			<a href="https://github.com/wujun234/uid-generator-spring-boot-starter" class="menu-item-link" target="_blank">
-				uid-generator
+				UidGenerator
 			</a>
 		</li>
 		<li class="menu-item">
@@ -60,10 +63,11 @@
 	</ul>
 </header>
 
-	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-bars" aria-hidden="true"></i></button>
+	
 <div id="sidebar">
-	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">站点目录</a>
-	<a herf="#" id="sidebar-article" class="sidebar-toc">文章目录</a>
+	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-arrow-right " aria-hidden="true"></i></button>
+	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">SITE MENU</a>
+	<a herf="#" id="sidebar-article" class="sidebar-toc">ARTICLE MENU</a>
 
 	<!-- 侧边目录栏 -->
 	<div id="site-toc">
@@ -1892,8 +1896,8 @@
 			
 							<ul>
 								<li class="file">
-									<a href="/2019/12/18/01%20Spring/04%20Web/4%20Jsonp/">
-										4 Jsonp
+									<a href="/2019/12/18/01%20Spring/04%20Web/4%20%E8%B7%A8%E5%9F%9F/">
+										4 跨域
 									</a>
 								</li>
 							</ul>
@@ -4400,15 +4404,15 @@
 
 <div id="article">
 	<p>广播信道可以实现一对多的通信，<strong>局域网</strong>使用的是广播信道</p>
-<h2 id="1-局域网的数据链路层"><a class="header-anchor" href="#1-局域网的数据链路层">¶</a>1. 局域网的数据链路层</h2>
-<h4 id="1）-按网络拓扑分类"><a class="header-anchor" href="#1）-按网络拓扑分类">¶</a>1） 按网络拓扑分类</h4>
+<h2 id="1-局域网的数据链路层"><a class="header-anchor" href="#1-局域网的数据链路层"></a>1. 局域网的数据链路层</h2>
+<h4 id="1）-按网络拓扑分类"><a class="header-anchor" href="#1）-按网络拓扑分类"></a>1） 按网络拓扑分类</h4>
 <ul>
 <li>星型网：常见的是星型以太网</li>
 <li>环形网：最典型的是令牌环形网</li>
 <li>总线网：各站直接连在总线上，常见的总线网使用传统以太网使用的 CSMA/CD 协议</li>
 <li>树形网：是总线网的变型，主要用于频分复用的宽带局域网</li>
 </ul>
-<h4 id="2）-共享信道的实现"><a class="header-anchor" href="#2）-共享信道的实现">¶</a>2） 共享信道的实现</h4>
+<h4 id="2）-共享信道的实现"><a class="header-anchor" href="#2）-共享信道的实现"></a>2） 共享信道的实现</h4>
 <ul>
 <li>静态划分信道：用户只要分配到了信道就不会和其他用户发生冲突。</li>
 <li>动态媒体接入控制（多点接入）：特点是信道并非在用户通信时固定分配给用户
@@ -4419,14 +4423,14 @@
 </li>
 </ul>
 <p>局域网使用较多的是<strong>随机接入</strong>。</p>
-<h4 id="3）-以太网的两个标准"><a class="header-anchor" href="#3）-以太网的两个标准">¶</a>3） 以太网的两个标准</h4>
+<h4 id="3）-以太网的两个标准"><a class="header-anchor" href="#3）-以太网的两个标准"></a>3） 以太网的两个标准</h4>
 <p>局域网的数据链路层拆成两个子层</p>
 <ul>
 <li>LLC：逻辑链路控制（Logical Link Control）。与接入媒体无关。</li>
 <li>MAC：媒体接入控制（Medium Access Control）。负责与接入到传输媒体有关的内容。</li>
 </ul>
 <p>目前实际使用中，LLC 子层已消失，只有 MAC 子层</p>
-<h4 id="4）-适配器的作用"><a class="header-anchor" href="#4）-适配器的作用">¶</a>4） 适配器的作用</h4>
+<h4 id="4）-适配器的作用"><a class="header-anchor" href="#4）-适配器的作用"></a>4） 适配器的作用</h4>
 <p>计算机与外界局域网的连接是通过通信<strong>适配器</strong>（网卡，网络接口卡）进行的。</p>
 <ul>
 <li>适配器和局域网直接的通信是通过电缆或双绞线以串行传输方式进行的</li>
@@ -4434,13 +4438,13 @@
 </ul>
 <p>适配器的一个重要功能就是进行数据串行传输和并行传输的转换。包含数据链路层和物理层两个层次的功能</p>
 <p>当适配器收到正确的帧时，交付给网络层。当计算机要发送 IP 数据报时，下交给适配器，发送到局域网。</p>
-<h2 id="2-CSMA-CD-协议"><a class="header-anchor" href="#2-CSMA-CD-协议">¶</a>2. CSMA/CD 协议</h2>
-<h4 id="1）总线"><a class="header-anchor" href="#1）总线">¶</a>1）总线</h4>
+<h2 id="2-CSMA-CD-协议"><a class="header-anchor" href="#2-CSMA-CD-协议"></a>2. CSMA/CD 协议</h2>
+<h4 id="1）总线"><a class="header-anchor" href="#1）总线"></a>1）总线</h4>
 <ul>
 <li>总线：早期以太网使用总线，广播通信。</li>
 <li>总线一对一：每个适配器分配唯一地址，在发送数据帧时指定接收地址</li>
 </ul>
-<h4 id="2）简便措施"><a class="header-anchor" href="#2）简便措施">¶</a>2）简便措施</h4>
+<h4 id="2）简便措施"><a class="header-anchor" href="#2）简便措施"></a>2）简便措施</h4>
 <p>为了通信简便，以太网采取了两种措施</p>
 <ul>
 <li><strong>无连接</strong>：提供不可靠交付，不必先建立连接，数据帧不编号，也不要求确认，丢弃有差错的数据帧，由高层决定是否重传
@@ -4450,26 +4454,26 @@
 </li>
 <li><strong>曼彻斯特码</strong>：使用曼彻斯特编码发送数据</li>
 </ul>
-<h4 id="3）CSMA-CD-协议要点"><a class="header-anchor" href="#3）CSMA-CD-协议要点">¶</a>3）CSMA/CD 协议要点</h4>
+<h4 id="3）CSMA-CD-协议要点"><a class="header-anchor" href="#3）CSMA-CD-协议要点"></a>3）CSMA/CD 协议要点</h4>
 <p>CSMA/CD，即载波监听多点接入/碰撞检测，是以太网采用的协调方法</p>
 <ul>
 <li><strong>多点接入</strong>：总线型网络，多个计算机以多点接入的方式接在一根总线上</li>
 <li><strong>载波监听</strong>：发送前先监听，总线上是否有其他站在发送数据，如果有，则不发送数据</li>
 <li><strong>碰撞检测</strong>：边发送边监听，当信道上的信号电压的超过阈值，即判断有其他站也在发送数据，要立即停止发送，等待随机一段时间后再次发送</li>
 </ul>
-<h5 id="发送的不确定性"><a class="header-anchor" href="#发送的不确定性">¶</a>发送的不确定性</h5>
+<h5 id="发送的不确定性"><a class="header-anchor" href="#发送的不确定性"></a>发送的不确定性</h5>
 <p>由于电磁波在总线上的传播存在传播时延，以太网不能保证某一时间内一定可以成功发送数据帧，可能产生碰撞</p>
-<h5 id="争用期"><a class="header-anchor" href="#争用期">¶</a>争用期</h5>
+<h5 id="争用期"><a class="header-anchor" href="#争用期"></a>争用期</h5>
 <p>端到端传播的往返时间称为争用期，又称为碰撞窗口，只有经过争用期这段时间还没有检测到碰撞，才能肯定这次发送不会发生碰撞</p>
 <p>争用期能至少能发送<strong>最短帧长</strong>（64 字节），若接收到小于最短帧长的数据，都是冲突异常中止的无效帧，应该丢弃</p>
-<h5 id="解决碰撞问题"><a class="header-anchor" href="#解决碰撞问题">¶</a>解决碰撞问题</h5>
+<h5 id="解决碰撞问题"><a class="header-anchor" href="#解决碰撞问题"></a>解决碰撞问题</h5>
 <p>使用<strong>截断二进制指数退避</strong>算法：让发生碰撞的站在停止发送数据后，推迟一个随机的时间再发送数据，能够减小再次发生碰撞的概率</p>
 <ol>
 <li>确认基本退避时间，即争用期</li>
 <li>从定义好的一个离散整数集合里随机取出一个数r，则重传应推迟的时间为r倍的争用期</li>
 <li>当重传达16次仍不能成功时，则丢弃该数据帧</li>
 </ol>
-<h5 id="要点总结"><a class="header-anchor" href="#要点总结">¶</a>要点总结</h5>
+<h5 id="要点总结"><a class="header-anchor" href="#要点总结"></a>要点总结</h5>
 <ol>
 <li>准备发送：适配器从网络层获得一个分组，加上以太网的首部和尾部，组成以太网帧，放入适配器的缓存中，准备发送</li>
 <li>检测信道：若适配器检测到信道空闲，即在帧最小间隔（96比特）时间内没有检测到信道上有信号，就发送这个帧，若检测到信道被占用，则继续检测并等待信道转为空闲</li>
@@ -4480,7 +4484,7 @@
 </ul>
 </li>
 </ol>
-<h2 id="3-使用集线器的星型拓扑"><a class="header-anchor" href="#3-使用集线器的星型拓扑">¶</a>3. 使用集线器的星型拓扑</h2>
+<h2 id="3-使用集线器的星型拓扑"><a class="header-anchor" href="#3-使用集线器的星型拓扑"></a>3. 使用集线器的星型拓扑</h2>
 <p>以太网使用双绞线和星型拓扑，在星形的中心使用集线器(hub)</p>
 <p>集线器的特点：</p>
 <ul>
@@ -4489,16 +4493,16 @@
 <li>集线器工作在物理层，每个接口只转发比特，不进行碰撞检测</li>
 <li>集线器使用专门的芯片，进行自适应串音回拨抵消，即转发的强信号不会影响接收的弱信</li>
 </ul>
-<h2 id="4-以太网的信道利用率"><a class="header-anchor" href="#4-以太网的信道利用率">¶</a>4. 以太网的信道利用率</h2>
+<h2 id="4-以太网的信道利用率"><a class="header-anchor" href="#4-以太网的信道利用率"></a>4. 以太网的信道利用率</h2>
 <p>据统计，当以太网的利用率达到30%时就己经处于重载的情况。很多的网络容量被网上的碰撞消耗掉了。</p>
-<h2 id="5-以太网的MAC层"><a class="header-anchor" href="#5-以太网的MAC层">¶</a>5. 以太网的MAC层</h2>
-<h4 id="1-MAC层的硬件地址"><a class="header-anchor" href="#1-MAC层的硬件地址">¶</a>1) MAC层的硬件地址</h4>
+<h2 id="5-以太网的MAC层"><a class="header-anchor" href="#5-以太网的MAC层"></a>5. 以太网的MAC层</h2>
+<h4 id="1-MAC层的硬件地址"><a class="header-anchor" href="#1-MAC层的硬件地址"></a>1) MAC层的硬件地址</h4>
 <ul>
 <li>又称为物理地址或MAC地址</li>
 <li>就是固化在适配器的ROM中的，适配器地址或适配器标识符 EUI-48</li>
 </ul>
 <p>嗅探器：设置为混杂方式的网络适配器。只要听到有帧在以太网上传输就悄悄接收下来。</p>
-<h4 id="2-MAC帧的格式"><a class="header-anchor" href="#2-MAC帧的格式">¶</a>2) MAC帧的格式</h4>
+<h4 id="2-MAC帧的格式"><a class="header-anchor" href="#2-MAC帧的格式"></a>2) MAC帧的格式</h4>
 <p>常用以太网V2标准的MAC帧格式</p>
 <p>由五个字段组成：目的地址、源地址、类型字段、数据字段和帧检验序列</p>
 <p><img src="/images/1568971328511.jpg" alt="image"></p>
@@ -4507,6 +4511,7 @@
 
 	</div>
 	<div id="footer">
+	<p>
 	©2019-<span id="footerYear"></span> 
 	<a href="/">Wu Jun</a> 
 	|
@@ -4519,7 +4524,9 @@
 		uv
 		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	<br>
 	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
+	</p>
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';

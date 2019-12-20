@@ -11,14 +11,14 @@
 	
 		01 即刻-链接解析-分析 | 
 	 
-	吴俊的博客
+	WuJun Blog
 	</title>
 	
 	<!-- keywords,description -->
 	
 		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
 	 
-		<meta name="description" content="吴俊的博客,wujun234" />
+		<meta name="description" content="吴俊,wujun234,wujun,wu jun" />
 	
 
 	<!-- favicon -->
@@ -29,7 +29,7 @@
 
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
-	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
+	<link rel="stylesheet" href="/lib/highlight/darcula.css">
 
 	<script src="/lib/highlight/highlight.pack.js"></script>
 	<script src="/lib/jquery-3.4.1.min.js"></script>
@@ -40,16 +40,19 @@
 
 <body>
 	<header id="header">
-    <a id="title" href="/" class="logo">吴俊的博客</a>
+    <a id="title" href="/" class="logo">WuJun Blog</a>
 
 	<ul id="menu">
 		<li class="menu-item">
-			<a href="/about" class="menu-item-link">关于</a>
+			<a href="/" class="menu-item-link">HOME</a>
+		</li>
+		<li class="menu-item">
+			<a href="/about" class="menu-item-link">ABOUT</a>
 		</li>
 		
 		<li class="menu-item">
 			<a href="https://github.com/wujun234/uid-generator-spring-boot-starter" class="menu-item-link" target="_blank">
-				uid-generator
+				UidGenerator
 			</a>
 		</li>
 		<li class="menu-item">
@@ -60,10 +63,11 @@
 	</ul>
 </header>
 
-	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-bars" aria-hidden="true"></i></button>
+	
 <div id="sidebar">
-	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">站点目录</a>
-	<a herf="#" id="sidebar-article" class="sidebar-toc">文章目录</a>
+	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-arrow-right " aria-hidden="true"></i></button>
+	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">SITE MENU</a>
+	<a herf="#" id="sidebar-article" class="sidebar-toc">ARTICLE MENU</a>
 
 	<!-- 侧边目录栏 -->
 	<div id="site-toc">
@@ -1892,8 +1896,8 @@
 			
 							<ul>
 								<li class="file">
-									<a href="/2019/12/18/01%20Spring/04%20Web/4%20Jsonp/">
-										4 Jsonp
+									<a href="/2019/12/18/01%20Spring/04%20Web/4%20%E8%B7%A8%E5%9F%9F/">
+										4 跨域
 									</a>
 								</li>
 							</ul>
@@ -4399,13 +4403,13 @@
 
 
 <div id="article">
-	<h3 id="一、结果分析"><a class="header-anchor" href="#一、结果分析">¶</a>一、结果分析</h3>
-<h4 id="1-判断"><a class="header-anchor" href="#1-判断">¶</a>1 判断</h4>
+	<h3 id="一、结果分析"><a class="header-anchor" href="#一、结果分析"></a>一、结果分析</h3>
+<h4 id="1-判断"><a class="header-anchor" href="#1-判断"></a>1 判断</h4>
 <p>添加链接时，客户端本地判断，是否为合法链接</p>
-<h4 id="2-解析"><a class="header-anchor" href="#2-解析">¶</a>2 解析</h4>
+<h4 id="2-解析"><a class="header-anchor" href="#2-解析"></a>2 解析</h4>
 <p>添加链接之后请求后台解析</p>
 <p>POST <a href="https://app.jike.ruguoapp.com/1.0/readability/extract" target="_blank" rel="noopener">https://app.jike.ruguoapp.com/1.0/readability/extract</a></p>
-<h5 id="参数"><a class="header-anchor" href="#参数">¶</a>参数</h5>
+<h5 id="参数"><a class="header-anchor" href="#参数"></a>参数</h5>
 <table>
 <thead>
 <tr>
@@ -4422,7 +4426,7 @@
 </tr>
 </tbody>
 </table>
-<h5 id="返回"><a class="header-anchor" href="#返回">¶</a>返回</h5>
+<h5 id="返回"><a class="header-anchor" href="#返回"></a>返回</h5>
 <table>
 <thead>
 <tr>
@@ -4475,9 +4479,9 @@
 <li>不知道linkUrl是否有特殊情况处理</li>
 <li>pictureUrl是转存在自己系统的url，相同链接多次解析返回的图片url相同</li>
 </ul>
-<h4 id="3-发布"><a class="header-anchor" href="#3-发布">¶</a>3 发布</h4>
+<h4 id="3-发布"><a class="header-anchor" href="#3-发布"></a>3 发布</h4>
 <p>POST <a href="https://app.jike.ruguoapp.com/1.0/originalPosts/create" target="_blank" rel="noopener">https://app.jike.ruguoapp.com/1.0/originalPosts/create</a></p>
-<h5 id="参数-v2"><a class="header-anchor" href="#参数-v2">¶</a>参数</h5>
+<h5 id="参数-v2"><a class="header-anchor" href="#参数-v2"></a>参数</h5>
 <table>
 <thead>
 <tr>
@@ -4509,7 +4513,7 @@
 </tr>
 </tbody>
 </table>
-<h5 id="返回-v2"><a class="header-anchor" href="#返回-v2">¶</a>返回</h5>
+<h5 id="返回-v2"><a class="header-anchor" href="#返回-v2"></a>返回</h5>
 <table>
 <thead>
 <tr>
@@ -4545,26 +4549,26 @@
 <li>无图的返回默认图片url</li>
 <li>source提取linkUrl中域名作为来源</li>
 </ul>
-<h4 id="4-浏览"><a class="header-anchor" href="#4-浏览">¶</a>4 浏览</h4>
+<h4 id="4-浏览"><a class="header-anchor" href="#4-浏览"></a>4 浏览</h4>
 <p>POST <a href="https://app.jike.ruguoapp.com/1.0/personalUpdate/followingUpdates" target="_blank" rel="noopener">https://app.jike.ruguoapp.com/1.0/personalUpdate/followingUpdates</a></p>
 <p>“浏览”返回值中链接相关部分，与“发布”返回值相同</p>
-<h4 id="5-总结"><a class="header-anchor" href="#5-总结">¶</a>5 总结</h4>
+<h4 id="5-总结"><a class="header-anchor" href="#5-总结"></a>5 总结</h4>
 <ol>
 <li>解析前先校验链接合法性</li>
 <li>链接请求超时和解析失败做相同处理，返回默认值</li>
 <li>解析到的图片先上传到本地系统，返回给前端本地url，无图则不返回</li>
 <li>信息流请求里若无图，会返回给前端默认图片</li>
 </ol>
-<h3 id="二、原始数据"><a class="header-anchor" href="#二、原始数据">¶</a>二、原始数据</h3>
-<h4 id="1-解析链接"><a class="header-anchor" href="#1-解析链接">¶</a>1 解析链接</h4>
+<h3 id="二、原始数据"><a class="header-anchor" href="#二、原始数据"></a>二、原始数据</h3>
+<h4 id="1-解析链接"><a class="header-anchor" href="#1-解析链接"></a>1 解析链接</h4>
 <p>POST <a href="https://app.jike.ruguoapp.com/1.0/readability/extract" target="_blank" rel="noopener">https://app.jike.ruguoapp.com/1.0/readability/extract</a></p>
-<h5 id="1-1-测试1——解析结果有图"><a class="header-anchor" href="#1-1-测试1——解析结果有图">¶</a>1.1 测试1——解析结果有图</h5>
-<h6 id="参数-v3"><a class="header-anchor" href="#参数-v3">¶</a>参数</h6>
+<h5 id="1-1-测试1——解析结果有图"><a class="header-anchor" href="#1-1-测试1——解析结果有图"></a>1.1 测试1——解析结果有图</h5>
+<h6 id="参数-v3"><a class="header-anchor" href="#参数-v3"></a>参数</h6>
 <pre><code>{
   &quot;link&quot;: &quot;https://www.zhihu.com/question/293392735/answer/488108615&quot;
 }
 </code></pre>
-<h6 id="返回-v3"><a class="header-anchor" href="#返回-v3">¶</a>返回</h6>
+<h6 id="返回-v3"><a class="header-anchor" href="#返回-v3"></a>返回</h6>
 <pre><code>{
     &quot;success&quot;: true, 
     &quot;data&quot;: {
@@ -4577,13 +4581,13 @@
     }
 }
 </code></pre>
-<h5 id="1-2-测试2——解析结果无图"><a class="header-anchor" href="#1-2-测试2——解析结果无图">¶</a>1.2 测试2——解析结果无图</h5>
-<h6 id="参数-v4"><a class="header-anchor" href="#参数-v4">¶</a>参数</h6>
+<h5 id="1-2-测试2——解析结果无图"><a class="header-anchor" href="#1-2-测试2——解析结果无图"></a>1.2 测试2——解析结果无图</h5>
+<h6 id="参数-v4"><a class="header-anchor" href="#参数-v4"></a>参数</h6>
 <pre><code>{
     &quot;link&quot;: &quot;http://zhihu.com&quot;
 }
 </code></pre>
-<h6 id="返回-v4"><a class="header-anchor" href="#返回-v4">¶</a>返回</h6>
+<h6 id="返回-v4"><a class="header-anchor" href="#返回-v4"></a>返回</h6>
 <pre><code>{
     &quot;success&quot;: true, 
     &quot;data&quot;: {
@@ -4595,13 +4599,13 @@
     }
 }
 </code></pre>
-<h5 id="1-3-测试3——解析无效链接"><a class="header-anchor" href="#1-3-测试3——解析无效链接">¶</a>1.3 测试3——解析无效链接</h5>
-<h6 id="参数-v5"><a class="header-anchor" href="#参数-v5">¶</a>参数</h6>
+<h5 id="1-3-测试3——解析无效链接"><a class="header-anchor" href="#1-3-测试3——解析无效链接"></a>1.3 测试3——解析无效链接</h5>
+<h6 id="参数-v5"><a class="header-anchor" href="#参数-v5"></a>参数</h6>
 <pre><code>{
     &quot;link&quot;: &quot;http://afsdgsdfhhsdf.cc&quot;
 }
 </code></pre>
-<h6 id="返回-v5"><a class="header-anchor" href="#返回-v5">¶</a>返回</h6>
+<h6 id="返回-v5"><a class="header-anchor" href="#返回-v5"></a>返回</h6>
 <pre><code>{
     &quot;success&quot;: true, 
     &quot;data&quot;: {
@@ -4613,10 +4617,10 @@
     }
 }
 </code></pre>
-<h4 id="2-发布动态"><a class="header-anchor" href="#2-发布动态">¶</a>2 发布动态</h4>
-<h5 id="2-1-测试1——解析结果有图"><a class="header-anchor" href="#2-1-测试1——解析结果有图">¶</a>2.1 测试1——解析结果有图</h5>
+<h4 id="2-发布动态"><a class="header-anchor" href="#2-发布动态"></a>2 发布动态</h4>
+<h5 id="2-1-测试1——解析结果有图"><a class="header-anchor" href="#2-1-测试1——解析结果有图"></a>2.1 测试1——解析结果有图</h5>
 <p>POST <a href="https://app.jike.ruguoapp.com/1.0/originalPosts/create" target="_blank" rel="noopener">https://app.jike.ruguoapp.com/1.0/originalPosts/create</a></p>
-<h6 id="参数-v6"><a class="header-anchor" href="#参数-v6">¶</a>参数</h6>
+<h6 id="参数-v6"><a class="header-anchor" href="#参数-v6"></a>参数</h6>
 <pre><code>{
     &quot;coord&quot;: {
         &quot;lat&quot;: &quot;39.98205780548341&quot;, 
@@ -4637,7 +4641,7 @@
     }
 }
 </code></pre>
-<h6 id="返回-v6"><a class="header-anchor" href="#返回-v6">¶</a>返回</h6>
+<h6 id="返回-v6"><a class="header-anchor" href="#返回-v6"></a>返回</h6>
 <pre><code>{
     &quot;success&quot;: true, 
     &quot;toast&quot;: &quot;发送成功&quot;, 
@@ -4695,8 +4699,8 @@
     }
 }
 </code></pre>
-<h5 id="2-2-测试2——解析结果无图"><a class="header-anchor" href="#2-2-测试2——解析结果无图">¶</a>2.2 测试2——解析结果无图</h5>
-<h6 id="参数-v7"><a class="header-anchor" href="#参数-v7">¶</a>参数</h6>
+<h5 id="2-2-测试2——解析结果无图"><a class="header-anchor" href="#2-2-测试2——解析结果无图"></a>2.2 测试2——解析结果无图</h5>
+<h6 id="参数-v7"><a class="header-anchor" href="#参数-v7"></a>参数</h6>
 <pre><code>{
     &quot;coord&quot;: {
         &quot;lat&quot;: &quot;39.98207405382589&quot;, 
@@ -4718,7 +4722,7 @@
 
 
 </code></pre>
-<h6 id="返回-v7"><a class="header-anchor" href="#返回-v7">¶</a>返回</h6>
+<h6 id="返回-v7"><a class="header-anchor" href="#返回-v7"></a>返回</h6>
 <pre><code>{
     &quot;success&quot;: true, 
     &quot;toast&quot;: &quot;发送成功&quot;, 
@@ -4776,8 +4780,8 @@
     }
 }
 </code></pre>
-<h5 id="2-3-测试3——解析无效链接"><a class="header-anchor" href="#2-3-测试3——解析无效链接">¶</a>2.3 测试3——解析无效链接</h5>
-<h6 id="参数-v8"><a class="header-anchor" href="#参数-v8">¶</a>参数</h6>
+<h5 id="2-3-测试3——解析无效链接"><a class="header-anchor" href="#2-3-测试3——解析无效链接"></a>2.3 测试3——解析无效链接</h5>
+<h6 id="参数-v8"><a class="header-anchor" href="#参数-v8"></a>参数</h6>
 <pre><code>{
     &quot;coord&quot;: {
         &quot;lat&quot;: &quot;39.98205708164765&quot;, 
@@ -4797,7 +4801,7 @@
     }
 }
 </code></pre>
-<h6 id="返回-v8"><a class="header-anchor" href="#返回-v8">¶</a>返回</h6>
+<h6 id="返回-v8"><a class="header-anchor" href="#返回-v8"></a>返回</h6>
 <pre><code>{
     &quot;success&quot;: true, 
     &quot;toast&quot;: &quot;发送成功&quot;, 
@@ -4855,9 +4859,9 @@
     }
 }
 </code></pre>
-<h4 id="3-信息流"><a class="header-anchor" href="#3-信息流">¶</a>3 信息流</h4>
+<h4 id="3-信息流"><a class="header-anchor" href="#3-信息流"></a>3 信息流</h4>
 <p>POST <a href="https://app.jike.ruguoapp.com/1.0/personalUpdate/followingUpdates" target="_blank" rel="noopener">https://app.jike.ruguoapp.com/1.0/personalUpdate/followingUpdates</a></p>
-<h5 id="3-1-—解析结果有图"><a class="header-anchor" href="#3-1-—解析结果有图">¶</a>3.1 —解析结果有图</h5>
+<h5 id="3-1-—解析结果有图"><a class="header-anchor" href="#3-1-—解析结果有图"></a>3.1 —解析结果有图</h5>
 <pre><code>{
     &quot;actionTime&quot;: &quot;2019-02-21T09:18:15.000Z&quot;, 
     &quot;id&quot;: &quot;5c6e6cd7e044ba00117d161c&quot;, 
@@ -4916,7 +4920,7 @@
     }
 }
 </code></pre>
-<h5 id="3-2-—解析结果无图"><a class="header-anchor" href="#3-2-—解析结果无图">¶</a>3.2 —解析结果无图</h5>
+<h5 id="3-2-—解析结果无图"><a class="header-anchor" href="#3-2-—解析结果无图"></a>3.2 —解析结果无图</h5>
 <pre><code> {
     &quot;actionTime&quot;: &quot;2019-02-21T09:52:32.000Z&quot;, 
     &quot;id&quot;: &quot;5c6e74e07eb3e20012c052eb&quot;, 
@@ -4975,7 +4979,7 @@
     }
 },
 </code></pre>
-<h5 id="3-3-—解析无效参数"><a class="header-anchor" href="#3-3-—解析无效参数">¶</a>3.3 —解析无效参数</h5>
+<h5 id="3-3-—解析无效参数"><a class="header-anchor" href="#3-3-—解析无效参数"></a>3.3 —解析无效参数</h5>
 <pre><code>{
     &quot;actionTime&quot;: &quot;2019-02-21T09:40:39.000Z&quot;, 
     &quot;id&quot;: &quot;5c6e7217bfc3a20011aa2d9b&quot;, 
@@ -5040,6 +5044,7 @@
 
 	</div>
 	<div id="footer">
+	<p>
 	©2019-<span id="footerYear"></span> 
 	<a href="/">Wu Jun</a> 
 	|
@@ -5052,7 +5057,9 @@
 		uv
 		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	<br>
 	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
+	</p>
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';

@@ -11,42 +11,66 @@ $(document).ready(function () {
 // 回到顶部
 function scrollToTop(){
 	$("#totop").on("click", function(e){
-		$("html").animate({scrollTop:0},100);
+		$("html").animate({scrollTop:0},200);
 	});
-	  // Mobile nav
-	var $toggle = $('#sidebar-toggle'),
-		$sidebar = $('#sidebar'),
-		isMobileNavAnim = false,
-		mobileNavAnimDuration = 200;
-
-	var startMobileNavAnim = function () {
-		isMobileNavAnim = true;
-	};
 	
-	var stopMobileNavAnim = function () {
-		setTimeout(function () {
-			isMobileNavAnim = false;
-		}, mobileNavAnimDuration);
-	};
-  
+	// Mobile nav
 	$('#sidebar-toggle').on('click', function () {
-		if (isMobileNavAnim) return;
-		startMobileNavAnim();
-		$toggle.toggleClass('on');
-		$sidebar.toggleClass('on');
-		stopMobileNavAnim();
-	});
-	
-	$($toggle).on('click', function () {
-		if (isMobileNavAnim || !$toggle.hasClass('on')) return;
-		$toggle.removeClass('on');
-		$sidebar.removeClass('on');
+		if ($('#sidebar').hasClass('on')){
+			scrollOff();
+		}else{
+			scrollOn();
+		}
 	});
 
-	if (window.matchMedia("(min-width: 1350px)").matches) {
-		$toggle.addClass('on');
-		$sidebar.addClass('on');
+	if (window.matchMedia("(min-width: 1100px)").matches) {
+		scrollOn();
+	}else{
+		scrollOff();
 	}
+}
+
+function scrollOn(){
+var $toggle = $('#sidebar-toggle'),
+		$sidebar = $('#sidebar'),
+		$content = $('#content'),
+		$header = $('#header'),
+		$footer = $('#footer'),
+		$togglei = $('#sidebar-toggle i');
+		
+	$togglei.toggleClass('fa-close');
+	$togglei.removeClass('fa-arrow-right');
+	$sidebar.toggleClass('on');
+	$sidebar.removeClass('off');
+	
+	if (window.matchMedia("(min-width: 1100px)").matches) {
+		$content.toggleClass('content-on');
+		$content.removeClass('content-off');
+		$header.toggleClass('header-on');
+		$header.removeClass('off');
+		$footer.toggleClass('header-on');
+		$footer.removeClass('off');
+	}
+}
+function scrollOff(){
+var $toggle = $('#sidebar-toggle'),
+		$sidebar = $('#sidebar'),
+		$content = $('#content'),
+		$header = $('#header'),
+		$footer = $('#footer'),
+		$togglei = $('#sidebar-toggle i');
+		
+	$togglei.toggleClass('fa-arrow-right');
+	$togglei.removeClass('fa-close');
+	$sidebar.toggleClass('off');
+	$sidebar.removeClass('on');
+	
+	$content.toggleClass('off');
+	$content.removeClass('content-on');
+	$header.toggleClass('off');
+	$header.removeClass('header-on');
+	$footer.toggleClass('off');
+	$footer.removeClass('header-on');
 }
 // 切换目录与索引
 function switchTreeOrIndex(){
@@ -144,7 +168,7 @@ function showArticleIndex() {
 function pjaxLoad(){
 	$(document).pjax('#tree a', '#content', {fragment:'#content', timeout:8000});
 	$(document).pjax('#menu a', '#content', {fragment:'#content', timeout:8000});
-	$(document).pjax('#articleList a', '#content', {fragment:'#content', timeout:8000});
+	$(document).pjax('#index-list a', '#content', {fragment:'#content', timeout:8000});
 	$(document).on({
 		"pjax:complete": function(e) {
 			$("pre code").each(function (i, block){

@@ -11,14 +11,14 @@
 	
 		1 绝对时间 | 
 	 
-	吴俊的博客
+	WuJun Blog
 	</title>
 	
 	<!-- keywords,description -->
 	
 		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
 	 
-		<meta name="description" content="吴俊的博客,wujun234" />
+		<meta name="description" content="吴俊,wujun234,wujun,wu jun" />
 	
 
 	<!-- favicon -->
@@ -29,7 +29,7 @@
 
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
-	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
+	<link rel="stylesheet" href="/lib/highlight/darcula.css">
 
 	<script src="/lib/highlight/highlight.pack.js"></script>
 	<script src="/lib/jquery-3.4.1.min.js"></script>
@@ -40,16 +40,19 @@
 
 <body>
 	<header id="header">
-    <a id="title" href="/" class="logo">吴俊的博客</a>
+    <a id="title" href="/" class="logo">WuJun Blog</a>
 
 	<ul id="menu">
 		<li class="menu-item">
-			<a href="/about" class="menu-item-link">关于</a>
+			<a href="/" class="menu-item-link">HOME</a>
+		</li>
+		<li class="menu-item">
+			<a href="/about" class="menu-item-link">ABOUT</a>
 		</li>
 		
 		<li class="menu-item">
 			<a href="https://github.com/wujun234/uid-generator-spring-boot-starter" class="menu-item-link" target="_blank">
-				uid-generator
+				UidGenerator
 			</a>
 		</li>
 		<li class="menu-item">
@@ -60,10 +63,11 @@
 	</ul>
 </header>
 
-	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-bars" aria-hidden="true"></i></button>
+	
 <div id="sidebar">
-	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">站点目录</a>
-	<a herf="#" id="sidebar-article" class="sidebar-toc">文章目录</a>
+	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-arrow-right " aria-hidden="true"></i></button>
+	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">SITE MENU</a>
+	<a herf="#" id="sidebar-article" class="sidebar-toc">ARTICLE MENU</a>
 
 	<!-- 侧边目录栏 -->
 	<div id="site-toc">
@@ -1892,8 +1896,8 @@
 			
 							<ul>
 								<li class="file">
-									<a href="/2019/12/18/01%20Spring/04%20Web/4%20Jsonp/">
-										4 Jsonp
+									<a href="/2019/12/18/01%20Spring/04%20Web/4%20%E8%B7%A8%E5%9F%9F/">
+										4 跨域
 									</a>
 								</li>
 							</ul>
@@ -4407,17 +4411,17 @@
 <li>每天正午与官方时间精确匹配</li>
 <li>在其他时间点上，以精确定义的方式与官方时间接近匹配</li>
 </ul>
-<h3 id="1-Instants"><a class="header-anchor" href="#1-Instants">¶</a>1. Instants</h3>
+<h3 id="1-Instants"><a class="header-anchor" href="#1-Instants"></a>1. Instants</h3>
 <p>Instants（时刻，时间点）表示时间线上的某个点，时间线的原点被设为“新纪元”——本初子午线的1970年1月1日午夜。</p>
 <p>精确到纳秒，Instants.MIN可追溯10亿年，Instants.MAX是公元10亿年的12月31日。</p>
-<h5 id="1-1-当前时刻"><a class="header-anchor" href="#1-1-当前时刻">¶</a>1.1 当前时刻</h5>
+<h5 id="1-1-当前时刻"><a class="header-anchor" href="#1-1-当前时刻"></a>1.1 当前时刻</h5>
 <p>Instants.now()获取当前时刻，可做时间戳</p>
-<h3 id="2-Duration"><a class="header-anchor" href="#2-Duration">¶</a>2. Duration</h3>
+<h3 id="2-Duration"><a class="header-anchor" href="#2-Duration"></a>2. Duration</h3>
 <p>Duration（时间区间）是两个时刻之间的时间量。</p>
 <p>因为纳秒级别超出一个long型长度，秒数存在一个 long 中，纳秒数存在一个 int 中。</p>
-<h5 id="2-1-传统度量"><a class="header-anchor" href="#2-1-传统度量">¶</a>2.1 传统度量</h5>
+<h5 id="2-1-传统度量"><a class="header-anchor" href="#2-1-传统度量"></a>2.1 传统度量</h5>
 <p>可以使用toNanos、toMillis、getSeconds、toMinutes、toHours和toDays转换为传统时间度量单位。</p>
-<h5 id="2-2-时间差"><a class="header-anchor" href="#2-2-时间差">¶</a>2.2 时间差</h5>
+<h5 id="2-2-时间差"><a class="header-anchor" href="#2-2-时间差"></a>2.2 时间差</h5>
 <p>between(start,end) 获取两时刻的时间差</p>
 <pre><code>Instant start = Instant.now();
 runAlgorithm();
@@ -4425,7 +4429,7 @@ Instant end = Instant.now();
 Duration timeElapsed = Duration.between(start, end);
 long millis = timeElapsed.toMillis();
 </code></pre>
-<h5 id="2-3-计算"><a class="header-anchor" href="#2-3-计算">¶</a>2.3 计算</h5>
+<h5 id="2-3-计算"><a class="header-anchor" href="#2-3-计算"></a>2.3 计算</h5>
 <p>如果要计算精确到纳秒级，需要整个Duration的存储内容</p>
 <table>
 <thead>
@@ -4462,6 +4466,7 @@ long millis = timeElapsed.toMillis();
 
 	</div>
 	<div id="footer">
+	<p>
 	©2019-<span id="footerYear"></span> 
 	<a href="/">Wu Jun</a> 
 	|
@@ -4474,7 +4479,9 @@ long millis = timeElapsed.toMillis();
 		uv
 		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	<br>
 	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
+	</p>
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';

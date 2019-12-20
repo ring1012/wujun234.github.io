@@ -11,14 +11,14 @@
 	
 		1 EasyMock - 模拟对象测试 | 
 	 
-	吴俊的博客
+	WuJun Blog
 	</title>
 	
 	<!-- keywords,description -->
 	
 		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
 	 
-		<meta name="description" content="吴俊的博客,wujun234" />
+		<meta name="description" content="吴俊,wujun234,wujun,wu jun" />
 	
 
 	<!-- favicon -->
@@ -29,7 +29,7 @@
 
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
-	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
+	<link rel="stylesheet" href="/lib/highlight/darcula.css">
 
 	<script src="/lib/highlight/highlight.pack.js"></script>
 	<script src="/lib/jquery-3.4.1.min.js"></script>
@@ -40,16 +40,19 @@
 
 <body>
 	<header id="header">
-    <a id="title" href="/" class="logo">吴俊的博客</a>
+    <a id="title" href="/" class="logo">WuJun Blog</a>
 
 	<ul id="menu">
 		<li class="menu-item">
-			<a href="/about" class="menu-item-link">关于</a>
+			<a href="/" class="menu-item-link">HOME</a>
+		</li>
+		<li class="menu-item">
+			<a href="/about" class="menu-item-link">ABOUT</a>
 		</li>
 		
 		<li class="menu-item">
 			<a href="https://github.com/wujun234/uid-generator-spring-boot-starter" class="menu-item-link" target="_blank">
-				uid-generator
+				UidGenerator
 			</a>
 		</li>
 		<li class="menu-item">
@@ -60,10 +63,11 @@
 	</ul>
 </header>
 
-	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-bars" aria-hidden="true"></i></button>
+	
 <div id="sidebar">
-	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">站点目录</a>
-	<a herf="#" id="sidebar-article" class="sidebar-toc">文章目录</a>
+	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-arrow-right " aria-hidden="true"></i></button>
+	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">SITE MENU</a>
+	<a herf="#" id="sidebar-article" class="sidebar-toc">ARTICLE MENU</a>
 
 	<!-- 侧边目录栏 -->
 	<div id="site-toc">
@@ -1892,8 +1896,8 @@
 			
 							<ul>
 								<li class="file">
-									<a href="/2019/12/18/01%20Spring/04%20Web/4%20Jsonp/">
-										4 Jsonp
+									<a href="/2019/12/18/01%20Spring/04%20Web/4%20%E8%B7%A8%E5%9F%9F/">
+										4 跨域
 									</a>
 								</li>
 							</ul>
@@ -4400,26 +4404,26 @@
 
 <div id="article">
 	<p><a href="http://easymock.org" target="_blank" rel="noopener">easymock官网</a></p>
-<h2 id="一、Mock对象"><a class="header-anchor" href="#一、Mock对象">¶</a>一、Mock对象</h2>
+<h2 id="一、Mock对象"><a class="header-anchor" href="#一、Mock对象"></a>一、Mock对象</h2>
 <hr>
 <p>测试是个好习惯，然而当你想测试自己的代码，而依赖的其他类或方法又还没实现。或者你在实践TDD（测试驱动开发），还没完成你的实现，而又想先测试。该怎么办呢？<br>
 简单情况可以手动编写mock类，复杂情况可以借助EasyMock等Mock框架来模拟这些类和方法。<br>
 mock 测试只是在无法使用真实类时的聊胜于无，如果能够使用真实的依赖项，就不要使用mock。</p>
-<h2 id="二、应用场景"><a class="header-anchor" href="#二、应用场景">¶</a>二、应用场景</h2>
+<h2 id="二、应用场景"><a class="header-anchor" href="#二、应用场景"></a>二、应用场景</h2>
 <hr>
 <p>1、要测试的模块依赖于不受控的第三方服务或其它组员未完成的服务。<br>
 2、涉及到数据库操作，连接不了数据库或不想测试结果改动到数据库时。<br>
 3、模块依赖于spring容器注入其它服务实例，但又不想启动spring容器。<br>
 4、测试异常。例如创建模拟网络故障的mock。<br>
 ……</p>
-<h2 id="三、具体使用方法"><a class="header-anchor" href="#三、具体使用方法">¶</a>三、具体使用方法</h2>
-<h5 id="1、创建mock对象"><a class="header-anchor" href="#1、创建mock对象">¶</a>1、创建mock对象</h5>
+<h2 id="三、具体使用方法"><a class="header-anchor" href="#三、具体使用方法"></a>三、具体使用方法</h2>
+<h5 id="1、创建mock对象"><a class="header-anchor" href="#1、创建mock对象"></a>1、创建mock对象</h5>
 <p>EasyMock实例化的对象基于接口或者类</p>
 <pre><code>EasyMock.createMock(要模拟的成员变量类型);
 // ICalcMethod 是一个要mock的对象
 ICalcMethod calcMethod = EasyMock.createMock(ICalcMethod.class); 
 </code></pre>
-<h5 id="2、定义mock行为"><a class="header-anchor" href="#2、定义mock行为">¶</a>2、定义mock行为</h5>
+<h5 id="2、定义mock行为"><a class="header-anchor" href="#2、定义mock行为"></a>2、定义mock行为</h5>
 <p>1)有返回值<br>
 expect()方法指定要模拟方法的方法和参数，andReturn()方法定义方法的返回值，times()方法定义mock对象可以调用多少次。</p>
 <pre><code>Easymock.expect(模拟成员的某个要模拟的函数).andReturn(期待的返回值)
@@ -4429,16 +4433,16 @@ EasyMock.expect(calcMethod.calc(Position.PROGRAMMER)).andReturn(50000.0);
 </code></pre>
 <p>2）没返回值<br>
 首先模拟成员调用要模拟的函数，然后在后面跟上一句：EasyMock.expectLastCall()</p>
-<h5 id="3、模糊参数"><a class="header-anchor" href="#3、模糊参数">¶</a>3、模糊参数</h5>
+<h5 id="3、模糊参数"><a class="header-anchor" href="#3、模糊参数"></a>3、模糊参数</h5>
 <p>有时候要模拟的函数的参数是在程序运行过程中调用的，参数值来自于程序执行结果，这时可以用模糊参数来解决，模糊参数有：<br>
 isA、isNull、anyInt等</p>
-<h5 id="4、开始测试"><a class="header-anchor" href="#4、开始测试">¶</a>4、开始测试</h5>
+<h5 id="4、开始测试"><a class="header-anchor" href="#4、开始测试"></a>4、开始测试</h5>
 <p>在使用mock对象之前需要调用replay()方法使之激活。</p>
 <pre><code>EasyMock.replay(模拟成员);
 // 激活mock对象
 replay(calcMethod); 
 </code></pre>
-<h2 id="四、实例"><a class="header-anchor" href="#四、实例">¶</a>四、实例</h2>
+<h2 id="四、实例"><a class="header-anchor" href="#四、实例"></a>四、实例</h2>
 <p>1、要测试的类</p>
 <pre><code>public class UserServiceImpl{
 　　private UserDao dao;
@@ -4466,7 +4470,7 @@ public void test() {
 　　EasyMock.verify(userDaoMock );//验证Mock对象       
 }
 </code></pre>
-<h5 id="参考"><a class="header-anchor" href="#参考">¶</a>参考</h5>
+<h5 id="参考"><a class="header-anchor" href="#参考"></a>参考</h5>
 <p><a href="http://www.cnblogs.com/xyd51cto/p/8003856.html" target="_blank" rel="noopener">EasyMock 模拟对象测试</a>
 <a href="https://www.ibm.com/developerworks/cn/java/j-easymock.html" target="_blank" rel="noopener">使用 EasyMock 更轻松地进行测试</a>
 <a href="http://outofmemory.cn/code-snippet/2693/EasyMock-jUnit-unit-test-course" target="_blank" rel="noopener">EasyMock jUnit单元测试教程</a></p>
@@ -4475,6 +4479,7 @@ public void test() {
 
 	</div>
 	<div id="footer">
+	<p>
 	©2019-<span id="footerYear"></span> 
 	<a href="/">Wu Jun</a> 
 	|
@@ -4487,7 +4492,9 @@ public void test() {
 		uv
 		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	<br>
 	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
+	</p>
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';

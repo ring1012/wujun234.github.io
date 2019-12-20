@@ -11,14 +11,14 @@
 	
 		9 异常（69-77） | 
 	 
-	吴俊的博客
+	WuJun Blog
 	</title>
 	
 	<!-- keywords,description -->
 	
 		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
 	 
-		<meta name="description" content="吴俊的博客,wujun234" />
+		<meta name="description" content="吴俊,wujun234,wujun,wu jun" />
 	
 
 	<!-- favicon -->
@@ -29,7 +29,7 @@
 
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
-	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
+	<link rel="stylesheet" href="/lib/highlight/darcula.css">
 
 	<script src="/lib/highlight/highlight.pack.js"></script>
 	<script src="/lib/jquery-3.4.1.min.js"></script>
@@ -40,16 +40,19 @@
 
 <body>
 	<header id="header">
-    <a id="title" href="/" class="logo">吴俊的博客</a>
+    <a id="title" href="/" class="logo">WuJun Blog</a>
 
 	<ul id="menu">
 		<li class="menu-item">
-			<a href="/about" class="menu-item-link">关于</a>
+			<a href="/" class="menu-item-link">HOME</a>
+		</li>
+		<li class="menu-item">
+			<a href="/about" class="menu-item-link">ABOUT</a>
 		</li>
 		
 		<li class="menu-item">
 			<a href="https://github.com/wujun234/uid-generator-spring-boot-starter" class="menu-item-link" target="_blank">
-				uid-generator
+				UidGenerator
 			</a>
 		</li>
 		<li class="menu-item">
@@ -60,10 +63,11 @@
 	</ul>
 </header>
 
-	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-bars" aria-hidden="true"></i></button>
+	
 <div id="sidebar">
-	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">站点目录</a>
-	<a herf="#" id="sidebar-article" class="sidebar-toc">文章目录</a>
+	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-arrow-right " aria-hidden="true"></i></button>
+	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">SITE MENU</a>
+	<a herf="#" id="sidebar-article" class="sidebar-toc">ARTICLE MENU</a>
 
 	<!-- 侧边目录栏 -->
 	<div id="site-toc">
@@ -1892,8 +1896,8 @@
 			
 							<ul>
 								<li class="file">
-									<a href="/2019/12/18/01%20Spring/04%20Web/4%20Jsonp/">
-										4 Jsonp
+									<a href="/2019/12/18/01%20Spring/04%20Web/4%20%E8%B7%A8%E5%9F%9F/">
+										4 跨域
 									</a>
 								</li>
 							</ul>
@@ -4399,28 +4403,29 @@
 
 
 <div id="article">
-	<h3 id="第69条：只针对异常的情况才使用异常"><a class="header-anchor" href="#第69条：只针对异常的情况才使用异常">¶</a>第69条：只针对异常的情况才使用异常</h3>
+	<h3 id="第69条：只针对异常的情况才使用异常"><a class="header-anchor" href="#第69条：只针对异常的情况才使用异常"></a>第69条：只针对异常的情况才使用异常</h3>
 <p>如果在try、catch、finally块中都抛出了异常，只是只有一个异常可被传播到外界。</p>
 <p>请不要在try块中发出对return、break或continue的调用，万一无法避免，一定要确保finally的存在不会改变函数的返回值（比如说抛异常啊、return啊以及其他任何引起程序退出的调用）。因为那样会引起流程混乱或返回值不确定，如果有返回值最好在try与finally外返回。</p>
 <p>如果构造器调用的代码需要抛出异常，就不要在构造器处理它，而是直接在构造器声明上throws出来</p>
-<h3 id="第70条：对可恢复的情况使用受检异常-对编程错误使用运用时异常"><a class="header-anchor" href="#第70条：对可恢复的情况使用受检异常-对编程错误使用运用时异常">¶</a>第70条：对可恢复的情况使用受检异常,对编程错误使用运用时异常</h3>
-<h3 id="第71条：避免不必要地使用受检异常"><a class="header-anchor" href="#第71条：避免不必要地使用受检异常">¶</a>第71条：避免不必要地使用受检异常</h3>
-<h3 id="第72条：优先使用标准异常"><a class="header-anchor" href="#第72条：优先使用标准异常">¶</a>第72条：优先使用标准异常</h3>
-<h3 id="第73条：抛出与抽象对象相对应的异常"><a class="header-anchor" href="#第73条：抛出与抽象对象相对应的异常">¶</a>第73条：抛出与抽象对象相对应的异常</h3>
+<h3 id="第70条：对可恢复的情况使用受检异常-对编程错误使用运用时异常"><a class="header-anchor" href="#第70条：对可恢复的情况使用受检异常-对编程错误使用运用时异常"></a>第70条：对可恢复的情况使用受检异常,对编程错误使用运用时异常</h3>
+<h3 id="第71条：避免不必要地使用受检异常"><a class="header-anchor" href="#第71条：避免不必要地使用受检异常"></a>第71条：避免不必要地使用受检异常</h3>
+<h3 id="第72条：优先使用标准异常"><a class="header-anchor" href="#第72条：优先使用标准异常"></a>第72条：优先使用标准异常</h3>
+<h3 id="第73条：抛出与抽象对象相对应的异常"><a class="header-anchor" href="#第73条：抛出与抽象对象相对应的异常"></a>第73条：抛出与抽象对象相对应的异常</h3>
 <p>处理底层异常最好的方法首选是阻止底层异常的发生，如果不能阻止或者处理底层异常时，一般的做法是使用异常转换（包括异常链转换），除非底层方法碰巧可以保证抛出的异常对高层也合适才可以将底层异常直接从底层传播到高层。</p>
-<h3 id="第74条：每个方法抛出的异常都要有文档描述"><a class="header-anchor" href="#第74条：每个方法抛出的异常都要有文档描述">¶</a>第74条：每个方法抛出的异常都要有文档描述</h3>
+<h3 id="第74条：每个方法抛出的异常都要有文档描述"><a class="header-anchor" href="#第74条：每个方法抛出的异常都要有文档描述"></a>第74条：每个方法抛出的异常都要有文档描述</h3>
 <p>如果一个方法可能抛出多个异常类，则不要使用“快捷方式”声明它会抛出这此异常类的某个超类。永远不要声明一个方法“throws Exception”，或者更糟的是声明“throws Throwable”。</p>
 <p>要为你编写的每个方法所能摆好出的每个异常建立文档，对于未受检和受检异常，以及对于抽象的和具体的方法也都一样。</p>
-<h3 id="第75条：异常信息中要包含足够详细的异常细节消息"><a class="header-anchor" href="#第75条：异常信息中要包含足够详细的异常细节消息">¶</a>第75条：异常信息中要包含足够详细的异常细节消息</h3>
-<h3 id="第76条：努力使失败保持原子性"><a class="header-anchor" href="#第76条：努力使失败保持原子性">¶</a>第76条：努力使失败保持原子性</h3>
+<h3 id="第75条：异常信息中要包含足够详细的异常细节消息"><a class="header-anchor" href="#第75条：异常信息中要包含足够详细的异常细节消息"></a>第75条：异常信息中要包含足够详细的异常细节消息</h3>
+<h3 id="第76条：努力使失败保持原子性"><a class="header-anchor" href="#第76条：努力使失败保持原子性"></a>第76条：努力使失败保持原子性</h3>
 <p>作为方法规范的一部分，任何一个异常都不应该改变对象调用该方法之前的状态，如果这条规则被违反，则API文档中应该清楚的指明对象将会处于什么样的状态。</p>
-<h3 id="第77条：不要忽略异常"><a class="header-anchor" href="#第77条：不要忽略异常">¶</a>第77条：不要忽略异常</h3>
+<h3 id="第77条：不要忽略异常"><a class="header-anchor" href="#第77条：不要忽略异常"></a>第77条：不要忽略异常</h3>
 <p>空的catch块至少应该包含一条说明，用来解释为什么忽略这个异常是合适的。</p>
 
 </div>
 
 	</div>
 	<div id="footer">
+	<p>
 	©2019-<span id="footerYear"></span> 
 	<a href="/">Wu Jun</a> 
 	|
@@ -4433,7 +4438,9 @@
 		uv
 		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	<br>
 	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
+	</p>
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';

@@ -11,14 +11,14 @@
 	
 		6 Spring Cache | 
 	 
-	吴俊的博客
+	WuJun Blog
 	</title>
 	
 	<!-- keywords,description -->
 	
 		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
 	 
-		<meta name="description" content="吴俊的博客,wujun234" />
+		<meta name="description" content="吴俊,wujun234,wujun,wu jun" />
 	
 
 	<!-- favicon -->
@@ -29,7 +29,7 @@
 
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
-	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
+	<link rel="stylesheet" href="/lib/highlight/darcula.css">
 
 	<script src="/lib/highlight/highlight.pack.js"></script>
 	<script src="/lib/jquery-3.4.1.min.js"></script>
@@ -40,16 +40,19 @@
 
 <body>
 	<header id="header">
-    <a id="title" href="/" class="logo">吴俊的博客</a>
+    <a id="title" href="/" class="logo">WuJun Blog</a>
 
 	<ul id="menu">
 		<li class="menu-item">
-			<a href="/about" class="menu-item-link">关于</a>
+			<a href="/" class="menu-item-link">HOME</a>
+		</li>
+		<li class="menu-item">
+			<a href="/about" class="menu-item-link">ABOUT</a>
 		</li>
 		
 		<li class="menu-item">
 			<a href="https://github.com/wujun234/uid-generator-spring-boot-starter" class="menu-item-link" target="_blank">
-				uid-generator
+				UidGenerator
 			</a>
 		</li>
 		<li class="menu-item">
@@ -60,10 +63,11 @@
 	</ul>
 </header>
 
-	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-bars" aria-hidden="true"></i></button>
+	
 <div id="sidebar">
-	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">站点目录</a>
-	<a herf="#" id="sidebar-article" class="sidebar-toc">文章目录</a>
+	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-arrow-right " aria-hidden="true"></i></button>
+	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">SITE MENU</a>
+	<a herf="#" id="sidebar-article" class="sidebar-toc">ARTICLE MENU</a>
 
 	<!-- 侧边目录栏 -->
 	<div id="site-toc">
@@ -1892,8 +1896,8 @@
 			
 							<ul>
 								<li class="file">
-									<a href="/2019/12/18/01%20Spring/04%20Web/4%20Jsonp/">
-										4 Jsonp
+									<a href="/2019/12/18/01%20Spring/04%20Web/4%20%E8%B7%A8%E5%9F%9F/">
+										4 跨域
 									</a>
 								</li>
 							</ul>
@@ -4401,7 +4405,7 @@
 <div id="article">
 	<p>Spring自身并没有实现缓存解决方案， 但是它对缓存功能提供了声明式的支持， 能够与多种流行的缓存实现进行集成。</p>
 <p>Spring的缓存抽象在很大程度上是围绕切面构建的。 在Spring中启用缓存时，会创建一个切面， 它触发一个或更多的Spring的缓存注解。</p>
-<h3 id="1-启用对缓存的支持"><a class="header-anchor" href="#1-启用对缓存的支持">¶</a>1 启用对缓存的支持</h3>
+<h3 id="1-启用对缓存的支持"><a class="header-anchor" href="#1-启用对缓存的支持"></a>1 启用对缓存的支持</h3>
 <p>配置类上添加<code>@EnableCaching</code>启用Spring对注解驱动缓存的支持。</p>
 <p>在方法上添加<code>@Cacheable</code>和<code>@CacheEvict</code>注解使用Spring的缓存抽象。</p>
 <pre><code>@Configuration
@@ -4413,7 +4417,7 @@ public class CachingConfig {
     }
 }
 </code></pre>
-<h4 id="1-1-配置缓存管理器"><a class="header-anchor" href="#1-1-配置缓存管理器">¶</a>1.1 配置缓存管理器</h4>
+<h4 id="1-1-配置缓存管理器"><a class="header-anchor" href="#1-1-配置缓存管理器"></a>1.1 配置缓存管理器</h4>
 <p>缓存管理器是Spring缓存抽象的核心， 它能够与多个流行的缓存实现进行集成。</p>
 <p>Spring 3.1内置五个缓存管理器实现</p>
 <ul>
@@ -4428,7 +4432,7 @@ public class CachingConfig {
 <li>RedisCacheManager（来自于Spring Data Redis项目）</li>
 <li>GemfireCacheManager（来自于Spring Data GemFire项目）</li>
 </ul>
-<h5 id="使用单个"><a class="header-anchor" href="#使用单个">¶</a>使用单个</h5>
+<h5 id="使用单个"><a class="header-anchor" href="#使用单个"></a>使用单个</h5>
 <p>Redis可以用来为Spring缓存抽象机制存储缓存条目， Spring Data Redis提供了RedisCacheManager， 这是CacheManager的一个实现。</p>
 <pre><code>@Configuration
 @EnableCaching
@@ -4452,7 +4456,7 @@ public class CachingConfig {
     }
 }
 </code></pre>
-<h5 id="使用多个"><a class="header-anchor" href="#使用多个">¶</a>使用多个</h5>
+<h5 id="使用多个"><a class="header-anchor" href="#使用多个"></a>使用多个</h5>
 <p>CompositeCacheManager要通过一个或更多的缓存管理器来进行配置， 它会迭代这些缓存管理器， 以查找之前所缓存的值。</p>
 <pre><code>@Bean
 public CacheManager cacheManager(
@@ -4467,7 +4471,7 @@ public CacheManager cacheManager(
     return cacheManager;
 }
 </code></pre>
-<h3 id="2-为方法添加注解以支持缓存"><a class="header-anchor" href="#2-为方法添加注解以支持缓存">¶</a>2 为方法添加注解以支持缓存</h3>
+<h3 id="2-为方法添加注解以支持缓存"><a class="header-anchor" href="#2-为方法添加注解以支持缓存"></a>2 为方法添加注解以支持缓存</h3>
 <p>所有注解都能运用在方法或类上。 放在类上时， 缓存行为会应用到这个类的所有方法上。</p>
 <table>
 <thead>
@@ -4495,7 +4499,7 @@ public CacheManager cacheManager(
 </tr>
 </tbody>
 </table>
-<h4 id="2-1-填充缓存"><a class="header-anchor" href="#2-1-填充缓存">¶</a>2.1 填充缓存</h4>
+<h4 id="2-1-填充缓存"><a class="header-anchor" href="#2-1-填充缓存"></a>2.1 填充缓存</h4>
 <p>@Cacheable和@CachePut都有一个名value属性，缓存名称</p>
 <pre><code>@Cacheable(&quot;spittleCache&quot;)
 public Spittle findOne(long id) {
@@ -4509,10 +4513,10 @@ public Spittle findOne(long id) {
     }
 }
 </code></pre>
-<h5 id="将值放到缓存之中"><a class="header-anchor" href="#将值放到缓存之中">¶</a>将值放到缓存之中</h5>
+<h5 id="将值放到缓存之中"><a class="header-anchor" href="#将值放到缓存之中"></a>将值放到缓存之中</h5>
 <p>有@CachePut注解的方法始终都会被调用， 而且它的返回值也会放到缓存中。</p>
 <p>适合用在保存、修改操作上，即刻缓存。</p>
-<h5 id="自定义缓存key"><a class="header-anchor" href="#自定义缓存key">¶</a>自定义缓存key</h5>
+<h5 id="自定义缓存key"><a class="header-anchor" href="#自定义缓存key"></a>自定义缓存key</h5>
 <p>@Cacheable和@CachePut都有一个名为key属性， 这个属性能够替换默认的key， 它是通过一个SpEL表达式计算得到的。</p>
 <p>在为缓存编写SpEL表达式的时候， Spring暴露了一些很有用的元数据。</p>
 <table>
@@ -4556,13 +4560,13 @@ public Spittle findOne(long id) {
 <pre><code>@CachePut(value=&quot;spittleCache&quot;, key=&quot;#result.id&quot;)
 Spittle save(Spittle spittle);
 </code></pre>
-<h5 id="条件化缓存"><a class="header-anchor" href="#条件化缓存">¶</a>条件化缓存</h5>
+<h5 id="条件化缓存"><a class="header-anchor" href="#条件化缓存"></a>条件化缓存</h5>
 <p>@Cacheable和@CachePut提供了两个属性用以实现条件化缓存： unless和condition。</p>
 <p>unless为true阻止添加到缓存中，condition为false缓存被禁用。</p>
 <pre><code>@Cacheable(value=&quot;spittleCache&quot; unless=&quot;#result.message.contains('NoCache')&quot;)
 Spittle findOne(long id);
 </code></pre>
-<h4 id="2-2-移除缓存条目"><a class="header-anchor" href="#2-2-移除缓存条目">¶</a>2.2 移除缓存条目</h4>
+<h4 id="2-2-移除缓存条目"><a class="header-anchor" href="#2-2-移除缓存条目"></a>2.2 移除缓存条目</h4>
 <p>带有@CacheEvict注解的方法被调用，在缓存中移除。</p>
 <p>适用于删除操作。</p>
 <pre><code>@CacheEvict(&quot;spittleCache&quot;)
@@ -4573,6 +4577,7 @@ void remove(long spittleId);
 
 	</div>
 	<div id="footer">
+	<p>
 	©2019-<span id="footerYear"></span> 
 	<a href="/">Wu Jun</a> 
 	|
@@ -4585,7 +4590,9 @@ void remove(long spittleId);
 		uv
 		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	<br>
 	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
+	</p>
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';

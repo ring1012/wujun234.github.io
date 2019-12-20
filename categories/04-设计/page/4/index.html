@@ -9,14 +9,14 @@
 	
 	<title>
 	 
-	吴俊的博客
+	WuJun Blog
 	</title>
 	
 	<!-- keywords,description -->
 	
 		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
 	 
-		<meta name="description" content="吴俊的博客,wujun234" />
+		<meta name="description" content="吴俊,wujun234,wujun,wu jun" />
 	
 
 	<!-- favicon -->
@@ -27,7 +27,7 @@
 
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
-	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
+	<link rel="stylesheet" href="/lib/highlight/darcula.css">
 
 	<script src="/lib/highlight/highlight.pack.js"></script>
 	<script src="/lib/jquery-3.4.1.min.js"></script>
@@ -38,16 +38,19 @@
 
 <body>
 	<header id="header">
-    <a id="title" href="/" class="logo">吴俊的博客</a>
+    <a id="title" href="/" class="logo">WuJun Blog</a>
 
 	<ul id="menu">
 		<li class="menu-item">
-			<a href="/about" class="menu-item-link">关于</a>
+			<a href="/" class="menu-item-link">HOME</a>
+		</li>
+		<li class="menu-item">
+			<a href="/about" class="menu-item-link">ABOUT</a>
 		</li>
 		
 		<li class="menu-item">
 			<a href="https://github.com/wujun234/uid-generator-spring-boot-starter" class="menu-item-link" target="_blank">
-				uid-generator
+				UidGenerator
 			</a>
 		</li>
 		<li class="menu-item">
@@ -58,10 +61,11 @@
 	</ul>
 </header>
 
-	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-bars" aria-hidden="true"></i></button>
+	
 <div id="sidebar">
-	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">站点目录</a>
-	<a herf="#" id="sidebar-article" class="sidebar-toc">文章目录</a>
+	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-arrow-right " aria-hidden="true"></i></button>
+	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">SITE MENU</a>
+	<a herf="#" id="sidebar-article" class="sidebar-toc">ARTICLE MENU</a>
 
 	<!-- 侧边目录栏 -->
 	<div id="site-toc">
@@ -1890,8 +1894,8 @@
 			
 							<ul>
 								<li class="file">
-									<a href="/2019/12/18/01%20Spring/04%20Web/4%20Jsonp/">
-										4 Jsonp
+									<a href="/2019/12/18/01%20Spring/04%20Web/4%20%E8%B7%A8%E5%9F%9F/">
+										4 跨域
 									</a>
 								</li>
 							</ul>
@@ -4384,87 +4388,109 @@
 
 	<!-- 引入正文 -->
 	<div id="content">
-		<section id="articleList">
-		
-
-			<article class="article-li">
-				<h2>
-					<a class="article-title" href="/2019/12/18/04%20%E8%AE%BE%E8%AE%A1/3%20%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/2-%E7%BB%93%E6%9E%84%E5%9E%8B%E6%A8%A1%E5%BC%8F/6.Flyweight%EF%BC%88%E4%BA%AB%E5%85%83%EF%BC%89/">6.Flyweight（享元）</a>
+		<div id="index-list">
+	
+		<div class="index-li">
+			<a href="/2019/12/18/04%20%E8%AE%BE%E8%AE%A1/3%20%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/2-%E7%BB%93%E6%9E%84%E5%9E%8B%E6%A8%A1%E5%BC%8F/6.Flyweight%EF%BC%88%E4%BA%AB%E5%85%83%EF%BC%89/">
+				<h2 class="index-title">
+					6.Flyweight（享元）
 				</h2>
-				<span class="post-date">2019-12-19</span>
-				<div class="article-digest">
+				<div class="index-brief">
 					运用共享技术有效地支持大量细粒度的对象。
-¶工厂类、享元池
-享元模式的核心在于享元工厂类，享元工厂类的作用在于提供一个用于存储享元对象的享元池，用户需要对象时，首先从享元池中获取，如果享元池中不存在，
+工厂类、享元池
+享元模式的核心在于享元工厂类，享元工厂类的作用在于提供一个用于存储享元对象的享元池，用户需要对象时，首先从享元池中获取，如果享元池中不存在，则创建一个新的享元对象返回给用户，并在享元池中保存该新增对象。
+区分内部状态和外部状态
+
+内部状态：存
 					...
 				</div>
-			</article>
-			
-		
-
-			<article class="article-li">
-				<h2>
-					<a class="article-title" href="/2019/12/18/04%20%E8%AE%BE%E8%AE%A1/3%20%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/2-%E7%BB%93%E6%9E%84%E5%9E%8B%E6%A8%A1%E5%BC%8F/8.Filter%EF%BC%88%E8%BF%87%E6%BB%A4%E5%99%A8%EF%BC%89/">8.Filter（过滤器）</a>
+				<p class="index-date">2019-12-20</p>
+			</a>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2019/12/18/04%20%E8%AE%BE%E8%AE%A1/3%20%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/2-%E7%BB%93%E6%9E%84%E5%9E%8B%E6%A8%A1%E5%BC%8F/8.Filter%EF%BC%88%E8%BF%87%E6%BB%A4%E5%99%A8%EF%BC%89/">
+				<h2 class="index-title">
+					8.Filter（过滤器）
 				</h2>
-				<span class="post-date">2019-12-19</span>
-				<div class="article-digest">
+				<div class="index-brief">
 					允许开发人员使用不同的标准来过滤一组对象，通过逻辑运算以解耦的方式把它们连接起来。
 
-¶模式应用
+模式应用
 java8的stream分组操作
-Map&lt;Integer, List&lt;Person &gt
+Map&lt;Integer, List&lt;Person &gt;&gt; groupMap = persons.stream().collect(Collector
 					...
 				</div>
-			</article>
-			
-		
-
-			<article class="article-li">
-				<h2>
-					<a class="article-title" href="/2019/12/18/04%20%E8%AE%BE%E8%AE%A1/2%20%E4%B8%9A%E5%8A%A1%E8%AE%BE%E8%AE%A1/03%20%E5%85%B3%E6%B3%A8%E6%B5%81%E8%AE%BE%E8%AE%A1/">03 关注流设计</a>
+				<p class="index-date">2019-12-20</p>
+			</a>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2019/12/18/04%20%E8%AE%BE%E8%AE%A1/2%20%E4%B8%9A%E5%8A%A1%E8%AE%BE%E8%AE%A1/03%20%E5%85%B3%E6%B3%A8%E6%B5%81%E8%AE%BE%E8%AE%A1/">
+				<h2 class="index-title">
+					03 关注流设计
 				</h2>
-				<span class="post-date">2019-12-19</span>
-				<div class="article-digest">
+				<div class="index-brief">
 					一、需求分析
-¶1.1、数据现状
+1.1、数据现状
 
 每个media可发布不同类型（微头条、文章、视频）的状态。
 每种类型都是从独立的系统发布，数据存在不同的数据库，且都未分表分库。
-当前media主页只展示了微头条动
+当前media主页只展示了微头条动态。用户关注feed也只加载了media的微头条动态。
+media共有12.6w 个，其中有 297 
 					...
 				</div>
-			</article>
-			
-		
-
-			<article class="article-li">
-				<h2>
-					<a class="article-title" href="/2019/12/18/04%20%E8%AE%BE%E8%AE%A1/2%20%E4%B8%9A%E5%8A%A1%E8%AE%BE%E8%AE%A1/01%20%E5%8D%B3%E5%88%BB-%E9%93%BE%E6%8E%A5%E8%A7%A3%E6%9E%90-%E5%88%86%E6%9E%90/">01 即刻-链接解析-分析</a>
+				<p class="index-date">2019-12-20</p>
+			</a>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2019/12/18/04%20%E8%AE%BE%E8%AE%A1/2%20%E4%B8%9A%E5%8A%A1%E8%AE%BE%E8%AE%A1/01%20%E5%8D%B3%E5%88%BB-%E9%93%BE%E6%8E%A5%E8%A7%A3%E6%9E%90-%E5%88%86%E6%9E%90/">
+				<h2 class="index-title">
+					01 即刻-链接解析-分析
 				</h2>
-				<span class="post-date">2019-12-19</span>
-				<div class="article-digest">
-					¶一、结果分析
-¶1 判断
+				<div class="index-brief">
+					一、结果分析
+1 判断
 添加链接时，客户端本地判断，是否为合法链接
-¶2 解析
+2 解析
 添加链接之后请求后台解析
-POST https://app.jike.ruguoapp.com/1.0/readab
+POST https://app.jike.ruguoapp.com/1.0/readability/extract
+参数
+
+
+
+字段
+含义
+必传
+
+
+
+
+link
+请求解析链接
+√
+
+
+
+返回
+
 					...
 				</div>
-			</article>
-			
-		
-
-			<article class="article-li">
-				<h2>
-					<a class="article-title" href="/2019/12/18/04%20%E8%AE%BE%E8%AE%A1/2%20%E4%B8%9A%E5%8A%A1%E8%AE%BE%E8%AE%A1/02%20%E6%B6%88%E6%81%AF%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/">02 消息系统设计</a>
+				<p class="index-date">2019-12-20</p>
+			</a>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2019/12/18/04%20%E8%AE%BE%E8%AE%A1/2%20%E4%B8%9A%E5%8A%A1%E8%AE%BE%E8%AE%A1/02%20%E6%B6%88%E6%81%AF%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/">
+				<h2 class="index-title">
+					02 消息系统设计
 				</h2>
-				<span class="post-date">2019-12-19</span>
-				<div class="article-digest">
-					¶一、消息类型
+				<div class="index-brief">
+					一、消息类型
 
 分析需求，将消息分为三类
-¶1.提醒(Remind)
+1.提醒(Remind)
 
 谁对一样属于谁的事物做了什么操作
 
@@ -4472,25 +4498,30 @@ POST https://app.jike.ruguoapp.com/1.0/readab
 sender：触发者
 target：事物
 action：触发操作
-targetOwner
+targetOwner：事物所有者（通过订阅维护）
+
+节省资源，适合Pull
+2.私信(Message)
+
+谁对谁发送什么内容
 					...
 				</div>
-			</article>
-			
-		
-
-			<article class="article-li">
-				<h2>
-					<a class="article-title" href="/2019/12/18/04%20%E8%AE%BE%E8%AE%A1/1%20%E9%80%9A%E7%94%A8%E8%AE%BE%E8%AE%A1/01%20%E5%88%86%E5%B8%83%E5%BC%8F%E7%BB%9F%E4%B8%80id%E8%AE%BE%E8%AE%A1/">01 分布式统一id设计</a>
+				<p class="index-date">2019-12-20</p>
+			</a>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2019/12/18/04%20%E8%AE%BE%E8%AE%A1/1%20%E9%80%9A%E7%94%A8%E8%AE%BE%E8%AE%A1/01%20%E5%88%86%E5%B8%83%E5%BC%8F%E7%BB%9F%E4%B8%80id%E8%AE%BE%E8%AE%A1/">
+				<h2 class="index-title">
+					01 分布式统一id设计
 				</h2>
-				<span class="post-date">2019-12-19</span>
-				<div class="article-digest">
-					¶一、业界现状
-¶1 汽车之家
-¶1）id方案
+				<div class="index-brief">
+					一、业界现状
+1 汽车之家
+1）id方案
 自增id
 现有数据从4位到6位，目前最大320w+
-¶2）实例
+2）实例
 
 
 
@@ -4502,86 +4533,103 @@ URL
 
 
 3200292
-https://chejiahao
+https://chejiahao.autohome.com.cn/info/3200292
+轻文
+
+
+3200293
+https://che
 					...
 				</div>
-			</article>
-			
-		
-
-			<article class="article-li">
-				<h2>
-					<a class="article-title" href="/2019/12/18/04%20%E8%AE%BE%E8%AE%A1/1%20%E9%80%9A%E7%94%A8%E8%AE%BE%E8%AE%A1/02%20%E8%B7%A8%E5%BA%93%E5%88%86%E9%A1%B5/">02 跨库分页</a>
+				<p class="index-date">2019-12-20</p>
+			</a>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2019/12/18/04%20%E8%AE%BE%E8%AE%A1/1%20%E9%80%9A%E7%94%A8%E8%AE%BE%E8%AE%A1/02%20%E8%B7%A8%E5%BA%93%E5%88%86%E9%A1%B5/">
+				<h2 class="index-title">
+					02 跨库分页
 				</h2>
-				<span class="post-date">2019-12-19</span>
-				<div class="article-digest">
+				<div class="index-brief">
 					原文：https://mp.weixin.qq.com/s/cMAXYBxmevFV_fwysZqP8w
-¶需求缘起
-¶分页需求
+需求缘起
+分页需求
 分页拉取需求有这样一些特点：
 
 有一个业务主键id
-分页排序是按照非业
+分页排序是按照非业务主键id来排序的，业务中经常按照时间time来排序order by
+
+在数据量不大时，可以通过在排序字
 					...
 				</div>
-			</article>
-			
-		
-
-			<article class="article-li">
-				<h2>
-					<a class="article-title" href="/2019/12/18/04%20%E8%AE%BE%E8%AE%A1/1%20%E9%80%9A%E7%94%A8%E8%AE%BE%E8%AE%A1/03%20%E7%9F%AD%E9%93%BE%E6%8E%A5/">03 短链接</a>
+				<p class="index-date">2019-12-20</p>
+			</a>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2019/12/18/04%20%E8%AE%BE%E8%AE%A1/1%20%E9%80%9A%E7%94%A8%E8%AE%BE%E8%AE%A1/03%20%E7%9F%AD%E9%93%BE%E6%8E%A5/">
+				<h2 class="index-title">
+					03 短链接
 				</h2>
-				<span class="post-date">2019-12-19</span>
-				<div class="article-digest">
+				<div class="index-brief">
 					短链接URL系统是怎么设计的？
 实现一个自增发号器，每个长地址，发个短号，存储长短关系，请求短号时返回对应长号。
 在[0-9]的10进制与[0-9a-zA-Z]的62进制之间转换。可以使号码很小。
-¶
+大并发高可用？
+并发量大还可以搞分布式。类似 snowflake。
+一长对多短？还是一对一？
+如有需要
 					...
 				</div>
-			</article>
-			
-		
-
-			<article class="article-li">
-				<h2>
-					<a class="article-title" href="/2019/12/18/04%20%E8%AE%BE%E8%AE%A1/1%20%E9%80%9A%E7%94%A8%E8%AE%BE%E8%AE%A1/04%20%E7%9B%B8%E4%BC%BC%E5%9B%BE%E7%89%87%E8%B0%83%E7%A0%94/">04 相似图片调研</a>
+				<p class="index-date">2019-12-20</p>
+			</a>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2019/12/18/04%20%E8%AE%BE%E8%AE%A1/1%20%E9%80%9A%E7%94%A8%E8%AE%BE%E8%AE%A1/04%20%E7%9B%B8%E4%BC%BC%E5%9B%BE%E7%89%87%E8%B0%83%E7%A0%94/">
+				<h2 class="index-title">
+					04 相似图片调研
 				</h2>
-				<span class="post-date">2019-12-19</span>
-				<div class="article-digest">
+				<div class="index-brief">
 					通过调研，相似图片判断领域使用较多的算法有“感知哈希”算法（谷歌、360），“直方图”算法（阿里）和“特征提取”算法（百度），下面对这些算法进行了测试与对比，实现上可能还有进一步改进的地方。
-测试用的
+测试用的图片附在文末的 附1。
+之前未能成功安装的， postgresql 的 imgsmlr 插件，将它的
 					...
 				</div>
-			</article>
-			
-		
-
-			<article class="article-li">
-				<h2>
-					<a class="article-title" href="/2019/12/18/04%20%E8%AE%BE%E8%AE%A1/1%20%E9%80%9A%E7%94%A8%E8%AE%BE%E8%AE%A1/05%20%E6%B5%B7%E6%98%8E%E8%B7%9D%E7%A6%BB%E8%AE%A1%E7%AE%97/">05 海明距离计算</a>
+				<p class="index-date">2019-12-20</p>
+			</a>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2019/12/18/04%20%E8%AE%BE%E8%AE%A1/1%20%E9%80%9A%E7%94%A8%E8%AE%BE%E8%AE%A1/05%20%E6%B5%B7%E6%98%8E%E8%B7%9D%E7%A6%BB%E8%AE%A1%E7%AE%97/">
+				<h2 class="index-title">
+					05 海明距离计算
 				</h2>
-				<span class="post-date">2019-12-19</span>
-				<div class="article-digest">
-					¶海明距离计算
+				<div class="index-brief">
+					海明距离计算
 Google提出的simhash去重算法里关于”汉明距离”计算最关键的步骤就是“位计数”（计算位数组中1的个数）。
-¶方案A
+方案A
 最慢
 直接数
 void count(int x){
-   
+    int count = 0;
+    for (int i = 0; i &lt; 32; i++) 
 					...
 				</div>
-			</article>
-			
-		
-</section>
-
-	<a class="extend prev" rel="prev" href="/categories/04-%E8%AE%BE%E8%AE%A1/page/3/">&lt;</a><a class="page-number" href="/categories/04-%E8%AE%BE%E8%AE%A1/">1</a><a class="page-number" href="/categories/04-%E8%AE%BE%E8%AE%A1/page/2/">2</a><a class="page-number" href="/categories/04-%E8%AE%BE%E8%AE%A1/page/3/">3</a><span class="page-number current">4</span>
+				<p class="index-date">2019-12-20</p>
+			</a>
+		</div>	
+	
+</div>
+<div id="index-paginator">
+	
+		<a class="extend prev" rel="prev" href="/categories/04-%E8%AE%BE%E8%AE%A1/page/3/">&lt;</a><a class="page-number" href="/categories/04-%E8%AE%BE%E8%AE%A1/">1</a><a class="page-number" href="/categories/04-%E8%AE%BE%E8%AE%A1/page/2/">2</a><a class="page-number" href="/categories/04-%E8%AE%BE%E8%AE%A1/page/3/">3</a><span class="page-number current">4</span>
+	
+</div>
 
 	</div>
 	<div id="footer">
+	<p>
 	©2019-<span id="footerYear"></span> 
 	<a href="/">Wu Jun</a> 
 	|
@@ -4594,7 +4642,9 @@ void count(int x){
 		uv
 		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	<br>
 	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
+	</p>
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';

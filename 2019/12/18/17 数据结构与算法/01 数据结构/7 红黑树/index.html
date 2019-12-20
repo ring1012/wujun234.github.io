@@ -11,14 +11,14 @@
 	
 		7 红黑树 | 
 	 
-	吴俊的博客
+	WuJun Blog
 	</title>
 	
 	<!-- keywords,description -->
 	
 		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
 	 
-		<meta name="description" content="吴俊的博客,wujun234" />
+		<meta name="description" content="吴俊,wujun234,wujun,wu jun" />
 	
 
 	<!-- favicon -->
@@ -29,7 +29,7 @@
 
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
-	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
+	<link rel="stylesheet" href="/lib/highlight/darcula.css">
 
 	<script src="/lib/highlight/highlight.pack.js"></script>
 	<script src="/lib/jquery-3.4.1.min.js"></script>
@@ -40,16 +40,19 @@
 
 <body>
 	<header id="header">
-    <a id="title" href="/" class="logo">吴俊的博客</a>
+    <a id="title" href="/" class="logo">WuJun Blog</a>
 
 	<ul id="menu">
 		<li class="menu-item">
-			<a href="/about" class="menu-item-link">关于</a>
+			<a href="/" class="menu-item-link">HOME</a>
+		</li>
+		<li class="menu-item">
+			<a href="/about" class="menu-item-link">ABOUT</a>
 		</li>
 		
 		<li class="menu-item">
 			<a href="https://github.com/wujun234/uid-generator-spring-boot-starter" class="menu-item-link" target="_blank">
-				uid-generator
+				UidGenerator
 			</a>
 		</li>
 		<li class="menu-item">
@@ -60,10 +63,11 @@
 	</ul>
 </header>
 
-	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-bars" aria-hidden="true"></i></button>
+	
 <div id="sidebar">
-	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">站点目录</a>
-	<a herf="#" id="sidebar-article" class="sidebar-toc">文章目录</a>
+	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-arrow-right " aria-hidden="true"></i></button>
+	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">SITE MENU</a>
+	<a herf="#" id="sidebar-article" class="sidebar-toc">ARTICLE MENU</a>
 
 	<!-- 侧边目录栏 -->
 	<div id="site-toc">
@@ -1892,8 +1896,8 @@
 			
 							<ul>
 								<li class="file">
-									<a href="/2019/12/18/01%20Spring/04%20Web/4%20Jsonp/">
-										4 Jsonp
+									<a href="/2019/12/18/01%20Spring/04%20Web/4%20%E8%B7%A8%E5%9F%9F/">
+										4 跨域
 									</a>
 								</li>
 							</ul>
@@ -4399,7 +4403,7 @@
 
 
 <div id="article">
-	<h3 id="1、红黑树定义"><a class="header-anchor" href="#1、红黑树定义">¶</a>1、红黑树定义</h3>
+	<h3 id="1、红黑树定义"><a class="header-anchor" href="#1、红黑树定义"></a>1、红黑树定义</h3>
 <p><strong>红黑树是一种近似平衡的二叉查找树，它能够确保任何一个节点的左右子树的高度差不会超过二者中较低那个的一陪</strong>。可以在 O(logn) 时间内做查找，插入和删除。红黑树相对于AVL树来说，牺牲了部分平衡性以换取插入/删除操作时少量的旋转操作，整体来说性能要优于AVL树。</p>
 <p>满足如下条件：</p>
 <ol>
@@ -4409,7 +4413,7 @@
 <li>红色节点不能连续（红色节点的孩子和父亲都不能是红色）。</li>
 <li>从任意一个节点到叶子节点，经过的黑色节点是一样的。</li>
 </ol>
-<h3 id="1、红黑树与2-3树的等价性"><a class="header-anchor" href="#1、红黑树与2-3树的等价性">¶</a>1、红黑树与2-3树的等价性</h3>
+<h3 id="1、红黑树与2-3树的等价性"><a class="header-anchor" href="#1、红黑树与2-3树的等价性"></a>1、红黑树与2-3树的等价性</h3>
 <p>参考下图，再红黑树中使用两个节点来模拟 2-3 树中的 3-节点，使用红色来表示 b 与 c 是并列的关系，如果来表示这条红色的边呢，其实就是让 b 这个节点变为红色，而 b 只有一个父节点，所以其与父节点的连线也就是红色，本质上就是把并列关系存储在子节点中。</p>
 <p><img src="/images/1558610875365.png" alt=""></p>
 <ul>
@@ -4432,7 +4436,7 @@
 <li>查找来讲：虽然 AVL 和红黑树都是 O(logn)级别的，但是 AVL 要快。</li>
 <li>添加和删除来讲，红黑树要比 AVL 快。</li>
 </ul>
-<h3 id="2、红黑树实现"><a class="header-anchor" href="#2、红黑树实现">¶</a>2、红黑树实现</h3>
+<h3 id="2、红黑树实现"><a class="header-anchor" href="#2、红黑树实现"></a>2、红黑树实现</h3>
 <p>在树的结构发生改变时（插入或者删除操作），往往会破坏上述条件3或条件4，需要通过调整使得查找树重新满足红黑树的约束条件。</p>
 <pre><code>private static final boolean RED = true;
 private static final boolean BLACK = false;
@@ -4467,7 +4471,7 @@ private static final boolean BLACK = false;
     root.color = BLACK;//保持根节点为黑色
 }
 </code></pre>
-<h4 id="插入新节点过程："><a class="header-anchor" href="#插入新节点过程：">¶</a>插入新节点过程：</h4>
+<h4 id="插入新节点过程："><a class="header-anchor" href="#插入新节点过程："></a>插入新节点过程：</h4>
 <ul>
 <li>情况1：当插入第一个节点时，设置其颜色为黑色。</li>
 </ul>
@@ -4488,7 +4492,7 @@ node.color = RED;//旋转之后，node 和 x 组成 3-节点，所以 node 在�
 </code></pre>
 <p>最后，上面情况，node 是黑色的，如果当前树的没有这么简单，则在插入前 node 也可能是红色，情况就变成了在一个红色节点的右侧插入节点，则 x.color 也是红色了，左旋转导致了两个连续的红色节点，但在这种情况下，此时左旋转是一个子过程，会继续把 x 递归回去进行旋转。最终还是能满足红黑树的性质。</p>
 <p>情况 2 和 3 就类似在2-3树中，向2-节点插入一个新的元素，形3-节点。</p>
-<h4 id="颜色翻转和右旋转"><a class="header-anchor" href="#颜色翻转和右旋转">¶</a>颜色翻转和右旋转</h4>
+<h4 id="颜色翻转和右旋转"><a class="header-anchor" href="#颜色翻转和右旋转"></a>颜色翻转和右旋转</h4>
 <p>向红黑树中的 3-节点 中添加节点：</p>
 <ul>
 <li>情况1：在黑色节点的右侧插入节点，相当于在 2-3树中的 3-节点的右侧插入节点，会形成临时的 4-节点，之后需要节点进行拆分，拆分成两个独立的 2-节点，这相当于要把红黑树中两个红色节点改为黑色，最后，拆分形成的根节点需要继续向上与它的父亲节点融合，红黑树中只有红色节点才表示它要与它的父节点进行融合，这意味着新形成的根节点需要变为红色。这个过程看似三个节点的颜色都变了，称为<strong>颜色翻转</strong>。</li>
@@ -4515,7 +4519,7 @@ node.color = RED;//本质上还是 12 42 37 三个节点组成的临时的 4-节
 <p><img src="/images/1558610881686.png" alt=""></p>
 <p>变成情况2，再按情况2 的方式处理。即再右旋转+颜色翻转，整个过程如下：</p>
 <p><img src="/images/1558610881904.png" alt=""></p>
-<h4 id="维护红黑树的时机"><a class="header-anchor" href="#维护红黑树的时机">¶</a>维护红黑树的时机</h4>
+<h4 id="维护红黑树的时机"><a class="header-anchor" href="#维护红黑树的时机"></a>维护红黑树的时机</h4>
 <p>先把节点按照 BST 的逻辑添加到树种，再回溯向上维护，与 AVL 一致。插入节点后，红黑树的性质维护是一个叠加的过程，而且有些情况属于另一些情况的子过程，参考下面箭头方向：</p>
 <p><img src="/images/1558610882217.png" alt=""></p>
 <ul>
@@ -4553,6 +4557,7 @@ if(isRed(node.right) &amp;&amp; isRed(node.left)){
 
 	</div>
 	<div id="footer">
+	<p>
 	©2019-<span id="footerYear"></span> 
 	<a href="/">Wu Jun</a> 
 	|
@@ -4565,7 +4570,9 @@ if(isRed(node.right) &amp;&amp; isRed(node.left)){
 		uv
 		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	<br>
 	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
+	</p>
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';

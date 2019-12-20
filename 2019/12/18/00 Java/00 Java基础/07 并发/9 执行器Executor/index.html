@@ -11,14 +11,14 @@
 	
 		9 执行器Executor | 
 	 
-	吴俊的博客
+	WuJun Blog
 	</title>
 	
 	<!-- keywords,description -->
 	
 		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
 	 
-		<meta name="description" content="吴俊的博客,wujun234" />
+		<meta name="description" content="吴俊,wujun234,wujun,wu jun" />
 	
 
 	<!-- favicon -->
@@ -29,7 +29,7 @@
 
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
-	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
+	<link rel="stylesheet" href="/lib/highlight/darcula.css">
 
 	<script src="/lib/highlight/highlight.pack.js"></script>
 	<script src="/lib/jquery-3.4.1.min.js"></script>
@@ -40,16 +40,19 @@
 
 <body>
 	<header id="header">
-    <a id="title" href="/" class="logo">吴俊的博客</a>
+    <a id="title" href="/" class="logo">WuJun Blog</a>
 
 	<ul id="menu">
 		<li class="menu-item">
-			<a href="/about" class="menu-item-link">关于</a>
+			<a href="/" class="menu-item-link">HOME</a>
+		</li>
+		<li class="menu-item">
+			<a href="/about" class="menu-item-link">ABOUT</a>
 		</li>
 		
 		<li class="menu-item">
 			<a href="https://github.com/wujun234/uid-generator-spring-boot-starter" class="menu-item-link" target="_blank">
-				uid-generator
+				UidGenerator
 			</a>
 		</li>
 		<li class="menu-item">
@@ -60,10 +63,11 @@
 	</ul>
 </header>
 
-	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-bars" aria-hidden="true"></i></button>
+	
 <div id="sidebar">
-	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">站点目录</a>
-	<a herf="#" id="sidebar-article" class="sidebar-toc">文章目录</a>
+	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-arrow-right " aria-hidden="true"></i></button>
+	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">SITE MENU</a>
+	<a herf="#" id="sidebar-article" class="sidebar-toc">ARTICLE MENU</a>
 
 	<!-- 侧边目录栏 -->
 	<div id="site-toc">
@@ -1892,8 +1896,8 @@
 			
 							<ul>
 								<li class="file">
-									<a href="/2019/12/18/01%20Spring/04%20Web/4%20Jsonp/">
-										4 Jsonp
+									<a href="/2019/12/18/01%20Spring/04%20Web/4%20%E8%B7%A8%E5%9F%9F/">
+										4 跨域
 									</a>
 								</li>
 							</ul>
@@ -4430,12 +4434,12 @@
 </tr>
 </tbody>
 </table>
-<h3 id="1-线程池"><a class="header-anchor" href="#1-线程池">¶</a>1 线程池</h3>
-<h5 id="submit"><a class="header-anchor" href="#submit">¶</a>submit</h5>
+<h3 id="1-线程池"><a class="header-anchor" href="#1-线程池"></a>1 线程池</h3>
+<h5 id="submit"><a class="header-anchor" href="#submit"></a>submit</h5>
 <p>调用submit将一个 Runnable 对象或 Callable 对象提交给 ExecutorService，会得到一个Future对象，可用来査询该任务的状态。</p>
-<h5 id="shutdown"><a class="header-anchor" href="#shutdown">¶</a>shutdown</h5>
+<h5 id="shutdown"><a class="header-anchor" href="#shutdown"></a>shutdown</h5>
 <p>当用完一个线程池的时候，调用shutdown。该方法启动该池的关闭序列。被关闭的执行器不再接受新的任务。当所有任务都完成以后，线程池中的线程死亡。</p>
-<h5 id="shutdownNow"><a class="header-anchor" href="#shutdownNow">¶</a>shutdownNow</h5>
+<h5 id="shutdownNow"><a class="header-anchor" href="#shutdownNow"></a>shutdownNow</h5>
 <p>该池取消尚未开始的所有任务并试图中断正在运行的线程。</p>
 <p>使用连接池时应该做的事：</p>
 <ol>
@@ -4444,7 +4448,7 @@
 <li>如果想要取消一个任务，或如果提交 Callable 对象，那就要保存好返回的 Future 对象。</li>
 <li>当不再提交任何任务时，调用 shutdown。</li>
 </ol>
-<h5 id="线程池的简单实现"><a class="header-anchor" href="#线程池的简单实现">¶</a>线程池的简单实现</h5>
+<h5 id="线程池的简单实现"><a class="header-anchor" href="#线程池的简单实现"></a>线程池的简单实现</h5>
 <p>一般一个简单线程池至少包含下列组成部分。</p>
 <ol>
 <li>线程池管理器（ThreadPoolManager）：用于创建并管理线程池</li>
@@ -4462,7 +4466,7 @@ ExecutorService newFixedThreadPool(int threads)
 ExecutorService newSingleThreadExecutor()
 //返回一个执行器，它在一个单个的线程中依次执行各个任务。
 </code></pre>
-<h3 id="2-预定执行"><a class="header-anchor" href="#2-预定执行">¶</a>2 预定执行</h3>
+<h3 id="2-预定执行"><a class="header-anchor" href="#2-预定执行"></a>2 预定执行</h3>
 <p>ScheduledExecutorService 接口具有为预定执行（Scheduled Execution）或重复执行任务而设计的方法。它是一种允许使用线程池机制的 java.util.Timer 的泛化。</p>
 <p>可以预定 Runnable 或 Callable 在初始的延迟之后只运行依次。也可以预定一个 Runnable 对象周期性地运行。</p>
 <pre><code>ScheduledExecutorService newScheduledThreadPool(int threads)
@@ -4471,7 +4475,7 @@ ExecutorService newSingleThreadExecutor()
 ScheduledExecutorService newSingleThreadScheduledExecutor()
 //返回一个执行器，它在一个单独线程中调度任务。
 </code></pre>
-<h3 id="3-控制任务组"><a class="header-anchor" href="#3-控制任务组">¶</a>3 控制任务组</h3>
+<h3 id="3-控制任务组"><a class="header-anchor" href="#3-控制任务组"></a>3 控制任务组</h3>
 <p>使用执行器有更有意义的原因，控制一组相关任务。</p>
 <ul>
 <li>shutdownNow方法：取消所有的任务。</li>
@@ -4492,7 +4496,7 @@ for (int i = 0; i &lt; tasks.size(); i++) {
     processFurther(service.take().get());
 }
 </code></pre>
-<h3 id="4-Fork-Join框架"><a class="header-anchor" href="#4-Fork-Join框架">¶</a>4 Fork-Join框架</h3>
+<h3 id="4-Fork-Join框架"><a class="header-anchor" href="#4-Fork-Join框架"></a>4 Fork-Join框架</h3>
 <p>有些应用使用了大量线程， 但其中大多数都是空闲的。另外一些应用可能对每个处理器内核分别使用一个线程，来完成计算密集型任务。</p>
 <p>Java SE 7 中引入 fork-join 框架，专门用来支持后一类应用。</p>
 <p>Fork就是把一个大任务切分为若干子任务并行的执行，Join就是合并这些子任务的执行结果，最后得到这个大任务的结果。</p>
@@ -4513,7 +4517,7 @@ for (int i = 0; i &lt; tasks.size(); i++) {
 }
 </code></pre>
 <p>invokeAll 方法接收到很多任务并阻塞，直到所有这些任务都已经完成。join 方法将生成结果。对每个子任务应用了 join，并返回其总和。</p>
-<h5 id="工作窃取"><a class="header-anchor" href="#工作窃取">¶</a>工作窃取</h5>
+<h5 id="工作窃取"><a class="header-anchor" href="#工作窃取"></a>工作窃取</h5>
 <p>工作窃取（work-stealing）算法是指某个线程从其他队列里窃取任务来执行。使用双端队列减少线程竞争，被窃取任务的线程从头部拿任务，窃取任务的线程从尾部拿。</p>
 <p>一个工作线程空闲时，它会从一个双端队列的尾部“窃取”一个任务。</p>
 <pre><code>public static void main(String[] args) {
@@ -4525,7 +4529,7 @@ for (int i = 0; i &lt; tasks.size(); i++) {
     System.out.printf(&quot;count: %d, time: %d\n&quot;, counter.join(), end - mid);
 }
 </code></pre>
-<h3 id="5-可完成Future"><a class="header-anchor" href="#5-可完成Future">¶</a>5 可完成Future</h3>
+<h3 id="5-可完成Future"><a class="header-anchor" href="#5-可完成Future"></a>5 可完成Future</h3>
 <p>Future调用get()获取值会阻塞住调用线程，为了解决这个问题，1.8加入了 CompletableFuture 类。与事件处理器不同，CompletableFuture 可以“组合”（composed）。</p>
 <pre><code>CompletableFuture&lt;String&gt; contents = readPage(url);
 CompletableFuture&lt;List&lt;URL&gt;&gt; links = contents.thenApply(Parse::getLinks);
@@ -4538,6 +4542,7 @@ CompletableFuture&lt;List&lt;URL&gt;&gt; links = contents.thenApply(Parse::getLi
 
 	</div>
 	<div id="footer">
+	<p>
 	©2019-<span id="footerYear"></span> 
 	<a href="/">Wu Jun</a> 
 	|
@@ -4550,7 +4555,9 @@ CompletableFuture&lt;List&lt;URL&gt;&gt; links = contents.thenApply(Parse::getLi
 		uv
 		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	<br>
 	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
+	</p>
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';

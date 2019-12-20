@@ -9,14 +9,14 @@
 	
 	<title>
 	 
-	吴俊的博客
+	WuJun Blog
 	</title>
 	
 	<!-- keywords,description -->
 	
 		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
 	 
-		<meta name="description" content="吴俊的博客,wujun234" />
+		<meta name="description" content="吴俊,wujun234,wujun,wu jun" />
 	
 
 	<!-- favicon -->
@@ -27,7 +27,7 @@
 
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
-	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
+	<link rel="stylesheet" href="/lib/highlight/darcula.css">
 
 	<script src="/lib/highlight/highlight.pack.js"></script>
 	<script src="/lib/jquery-3.4.1.min.js"></script>
@@ -38,16 +38,19 @@
 
 <body>
 	<header id="header">
-    <a id="title" href="/" class="logo">吴俊的博客</a>
+    <a id="title" href="/" class="logo">WuJun Blog</a>
 
 	<ul id="menu">
 		<li class="menu-item">
-			<a href="/about" class="menu-item-link">关于</a>
+			<a href="/" class="menu-item-link">HOME</a>
+		</li>
+		<li class="menu-item">
+			<a href="/about" class="menu-item-link">ABOUT</a>
 		</li>
 		
 		<li class="menu-item">
 			<a href="https://github.com/wujun234/uid-generator-spring-boot-starter" class="menu-item-link" target="_blank">
-				uid-generator
+				UidGenerator
 			</a>
 		</li>
 		<li class="menu-item">
@@ -58,10 +61,11 @@
 	</ul>
 </header>
 
-	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-bars" aria-hidden="true"></i></button>
+	
 <div id="sidebar">
-	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">站点目录</a>
-	<a herf="#" id="sidebar-article" class="sidebar-toc">文章目录</a>
+	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-arrow-right " aria-hidden="true"></i></button>
+	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">SITE MENU</a>
+	<a herf="#" id="sidebar-article" class="sidebar-toc">ARTICLE MENU</a>
 
 	<!-- 侧边目录栏 -->
 	<div id="site-toc">
@@ -1890,8 +1894,8 @@
 			
 							<ul>
 								<li class="file">
-									<a href="/2019/12/18/01%20Spring/04%20Web/4%20Jsonp/">
-										4 Jsonp
+									<a href="/2019/12/18/01%20Spring/04%20Web/4%20%E8%B7%A8%E5%9F%9F/">
+										4 跨域
 									</a>
 								</li>
 							</ul>
@@ -4384,97 +4388,113 @@
 
 	<!-- 引入正文 -->
 	<div id="content">
-		<section id="articleList">
-		
-
-			<article class="article-li">
-				<h2>
-					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/10%20XML/7%20%E7%94%9F%E6%88%90XML%E6%96%87%E6%A1%A3/">7 生成XML文档</a>
+		<div id="index-list">
+	
+		<div class="index-li">
+			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/10%20XML/7%20%E7%94%9F%E6%88%90XML%E6%96%87%E6%A1%A3/">
+				<h2 class="index-title">
+					7 生成XML文档
 				</h2>
-				<span class="post-date">2019-12-19</span>
-				<div class="article-digest">
-					¶1 不带命名空间的文档
+				<div class="index-brief">
+					1 不带命名空间的文档
 创建空文档
 Document doc = builder.newDocument();
 
 构建元素
-Element rootElement = doc.createEleme
+Element rootElement = doc.createElement(rootName);
+Element childElement = doc.createElem
 					...
 				</div>
-			</article>
-			
-		
-
-			<article class="article-li">
-				<h2>
-					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/07%20%E5%B9%B6%E5%8F%91/11%20%E6%89%B9%E9%87%8F%E8%8E%B7%E5%8F%96%E5%A4%9A%E6%9D%A1%E7%BA%BF%E7%A8%8B%E7%9A%84%E6%89%A7%E8%A1%8C%E7%BB%93%E6%9E%9C/">11 批量获取多条线程的执行结果</a>
+				<p class="index-date">2019-12-20</p>
+			</a>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/07%20%E5%B9%B6%E5%8F%91/11%20%E6%89%B9%E9%87%8F%E8%8E%B7%E5%8F%96%E5%A4%9A%E6%9D%A1%E7%BA%BF%E7%A8%8B%E7%9A%84%E6%89%A7%E8%A1%8C%E7%BB%93%E6%9E%9C/">
+				<h2 class="index-title">
+					11 批量获取多条线程的执行结果
 				</h2>
-				<span class="post-date">2019-12-19</span>
-				<div class="article-digest">
+				<div class="index-brief">
 					当向线程池提交callable任务后，我们可能需要一次性获取所有返回结果，有三种处理方法。
-¶方法一：自己维护返回结果
+方法一：自己维护返回结果
 // 创建一个线程池
-ExecutorService executorServi
+ExecutorService executorService = Executors.newFixedThreadPool(10);
+
+// 存储执行结果的L
 					...
 				</div>
-			</article>
-			
-		
-
-			<article class="article-li">
-				<h2>
-					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/07%20%E5%B9%B6%E5%8F%91/2%20%E4%B8%AD%E6%96%AD%E7%BA%BF%E7%A8%8B/">2 中断线程</a>
+				<p class="index-date">2019-12-20</p>
+			</a>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/07%20%E5%B9%B6%E5%8F%91/2%20%E4%B8%AD%E6%96%AD%E7%BA%BF%E7%A8%8B/">
+				<h2 class="index-title">
+					2 中断线程
 				</h2>
-				<span class="post-date">2019-12-19</span>
-				<div class="article-digest">
+				<div class="index-brief">
 					当线程的run方法执行方法体中最后一条语句并经由return返回时。或出现了在方法中没有捕获的异常时，线程终止。
-没有可以强制线程终止的方法，interrupt方法可以用来请求终止线程。isInter
+没有可以强制线程终止的方法，interrupt方法可以用来请求终止线程。isInterrupted()可以检测线程是否被中断。
+如果要安全有效地终止一个线程，应该采用以下这些方法：
+1.
 					...
 				</div>
-			</article>
-			
-		
-
-			<article class="article-li">
-				<h2>
-					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/07%20%E5%B9%B6%E5%8F%91/1%20%E4%BB%80%E4%B9%88%E6%98%AF%E7%BA%BF%E7%A8%8B/">1 什么是线程</a>
+				<p class="index-date">2019-12-20</p>
+			</a>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/07%20%E5%B9%B6%E5%8F%91/1%20%E4%BB%80%E4%B9%88%E6%98%AF%E7%BA%BF%E7%A8%8B/">
+				<h2 class="index-title">
+					1 什么是线程
 				</h2>
-				<span class="post-date">2019-12-19</span>
-				<div class="article-digest">
-					¶并发和并行的区别
+				<div class="index-brief">
+					并发和并行的区别
 
 并发:单核处理多个任务
 并行:多核同时处理多个任
 
-¶进程和线程的区别
+进程和线程的区别
 
-进程：每个进程都有独立的代码和数据空间（进程上下文），进程间的切换会有较大的开销，一个进程包含1–n个线
+进程：每个进程都有独立的代码和数据空间（进程上下文），进程间的切换会有较大的开销，一个进程包含1–n个线程。
+线程：同一类线程共享代码和数据空间，每个线程有独立的运行栈和程序计数器(PC)，线程切换开销小。
+
 					...
 				</div>
-			</article>
-			
-		
-
-			<article class="article-li">
-				<h2>
-					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/07%20%E5%B9%B6%E5%8F%91/10%20%E5%90%8C%E6%AD%A5%E5%99%A8/">10 同步器</a>
+				<p class="index-date">2019-12-20</p>
+			</a>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/07%20%E5%B9%B6%E5%8F%91/10%20%E5%90%8C%E6%AD%A5%E5%99%A8/">
+				<h2 class="index-title">
+					10 同步器
 				</h2>
-				<span class="post-date">2019-12-19</span>
-				<div class="article-digest">
-					java.util.concurrent 包包含了几个能帮助人们管理相互合作的线程集的类。这些机制具有为线程之间的共用集结点模式提供的“预置功能”。如果有一个相互合作的线程集满足这些行为模式之一，那么
+				<div class="index-brief">
+					java.util.concurrent 包包含了几个能帮助人们管理相互合作的线程集的类。这些机制具有为线程之间的共用集结点模式提供的“预置功能”。如果有一个相互合作的线程集满足这些行为模式之一，那么应该直接重用合适的库类而不要试图提供手工的锁与条件的集合。
+同步器
+
+
+
+类
+它能做什么
+说明
+
+
+
 					...
 				</div>
-			</article>
-			
-		
-
-			<article class="article-li">
-				<h2>
-					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/07%20%E5%B9%B6%E5%8F%91/3%20%E7%BA%BF%E7%A8%8B%E7%8A%B6%E6%80%81/">3 线程状态</a>
+				<p class="index-date">2019-12-20</p>
+			</a>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/07%20%E5%B9%B6%E5%8F%91/3%20%E7%BA%BF%E7%A8%8B%E7%8A%B6%E6%80%81/">
+				<h2 class="index-title">
+					3 线程状态
 				</h2>
-				<span class="post-date">2019-12-19</span>
-				<div class="article-digest">
-					¶线程状态
+				<div class="index-brief">
+					线程状态
 线程可以有如下 6 种状态：
 
 New(新建)
@@ -4482,81 +4502,93 @@ New(新建)
 Runable(可运行)
 
 正在JVM中执行的线程处于这种状态（注意不是在CPU中执行，见2）
-Runable对应了
+Runable对应了两种OS线程状态Running和Ready，也就说Runable状态的Java线程有可能正在执行，也有
 					...
 				</div>
-			</article>
-			
-		
-
-			<article class="article-li">
-				<h2>
-					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/07%20%E5%B9%B6%E5%8F%91/4%20%E7%BA%BF%E7%A8%8B%E5%B1%9E%E6%80%A7/">4 线程属性</a>
+				<p class="index-date">2019-12-20</p>
+			</a>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/07%20%E5%B9%B6%E5%8F%91/4%20%E7%BA%BF%E7%A8%8B%E5%B1%9E%E6%80%A7/">
+				<h2 class="index-title">
+					4 线程属性
 				</h2>
-				<span class="post-date">2019-12-19</span>
-				<div class="article-digest">
-					¶1 线程优先级
+				<div class="index-brief">
+					1 线程优先级
 不要将程序构建为功能的正确性依赖于优先级。
 Linux上线程不具有优先级。
 
 void setPriority(fnt newPriority)：设置线程的优先级。
-static v
+static void yield()：让步，不休眠，只暂停。让步于其他优先级不小于次线程的的可运行线程。
+
+2 守护
 					...
 				</div>
-			</article>
-			
-		
-
-			<article class="article-li">
-				<h2>
-					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/07%20%E5%B9%B6%E5%8F%91/5%20%E5%90%8C%E6%AD%A5/">5 同步</a>
+				<p class="index-date">2019-12-20</p>
+			</a>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/07%20%E5%B9%B6%E5%8F%91/5%20%E5%90%8C%E6%AD%A5/">
+				<h2 class="index-title">
+					5 同步
 				</h2>
-				<span class="post-date">2019-12-19</span>
-				<div class="article-digest">
+				<div class="index-brief">
 					有两种机制防止代码块受并发访问的干扰。synchronized关键字,ReentrantLock类。
-¶1 可重入锁（ReentrantLock）
-可重入锁（ReentrantLock）锁是可重入的，
+1 可重入锁（ReentrantLock）
+可重入锁（ReentrantLock）锁是可重入的，因为线程可以重复地获得已经持有的锁。锁保持一个持有计数来跟踪对lock方法的嵌套调用。线程在每一次调用
 					...
 				</div>
-			</article>
-			
-		
-
-			<article class="article-li">
-				<h2>
-					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/07%20%E5%B9%B6%E5%8F%91/6%20%E9%98%BB%E5%A1%9E%E9%98%9F%E5%88%97/">6 阻塞队列</a>
+				<p class="index-date">2019-12-20</p>
+			</a>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/07%20%E5%B9%B6%E5%8F%91/6%20%E9%98%BB%E5%A1%9E%E9%98%9F%E5%88%97/">
+				<h2 class="index-title">
+					6 阻塞队列
 				</h2>
-				<span class="post-date">2019-12-19</span>
-				<div class="article-digest">
+				<div class="index-brief">
 					对于许多线程问题，可以通过使用一个或多个队列以优雅且安全的方式将其形式化。
 使用队列，可以安全地从一个线程向另一个线程传递数据。
-使用通知模式实现线程的同步。当试图向队列添加元素而队列已满，或是想从队
+使用通知模式实现线程的同步。当试图向队列添加元素而队列已满，或是想从队列移出元素而队列为空的时候，阻塞队列（blocking queue）导致线程阻塞。
+队列方法
+
+ad
 					...
 				</div>
-			</article>
-			
-		
-
-			<article class="article-li">
-				<h2>
-					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/07%20%E5%B9%B6%E5%8F%91/8%20Callable%E4%B8%8EFuture/">8 Callable与Future</a>
+				<p class="index-date">2019-12-20</p>
+			</a>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/07%20%E5%B9%B6%E5%8F%91/8%20Callable%E4%B8%8EFuture/">
+				<h2 class="index-title">
+					8 Callable与Future
 				</h2>
-				<span class="post-date">2019-12-19</span>
-				<div class="article-digest">
-					¶Callable
+				<div class="index-brief">
+					Callable
 Callable与Runnable类似，它们的主要区别是 Callable 的 call() 方法可以返回值和抛出异常。
-Callable接口是一个参数化的类型，只有一个方法cal
+Callable接口是一个参数化的类型，只有一个方法call。
+public interface Ca11able&lt;V&gt;{
+    V call()
 					...
 				</div>
-			</article>
-			
-		
-</section>
-
-	<a class="extend prev" rel="prev" href="/page/12/">&lt;</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="page-number" href="/page/12/">12</a><span class="page-number current">13</span><a class="page-number" href="/page/14/">14</a><a class="page-number" href="/page/15/">15</a><span class="space">&hellip;</span><a class="page-number" href="/page/39/">39</a><a class="extend next" rel="next" href="/page/14/">&gt;</a>
+				<p class="index-date">2019-12-20</p>
+			</a>
+		</div>	
+	
+</div>
+<div id="index-paginator">
+	
+		<a class="extend prev" rel="prev" href="/page/12/">&lt;</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="page-number" href="/page/12/">12</a><span class="page-number current">13</span><a class="page-number" href="/page/14/">14</a><a class="page-number" href="/page/15/">15</a><span class="space">&hellip;</span><a class="page-number" href="/page/39/">39</a><a class="extend next" rel="next" href="/page/14/">&gt;</a>
+	
+</div>
 
 	</div>
 	<div id="footer">
+	<p>
 	©2019-<span id="footerYear"></span> 
 	<a href="/">Wu Jun</a> 
 	|
@@ -4569,7 +4601,9 @@ Callable接口是一个参数化的类型，只有一个方法cal
 		uv
 		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	<br>
 	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
+	</p>
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';

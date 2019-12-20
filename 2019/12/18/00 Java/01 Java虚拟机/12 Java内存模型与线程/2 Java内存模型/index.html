@@ -11,14 +11,14 @@
 	
 		2 Java内存模型 | 
 	 
-	吴俊的博客
+	WuJun Blog
 	</title>
 	
 	<!-- keywords,description -->
 	
 		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
 	 
-		<meta name="description" content="吴俊的博客,wujun234" />
+		<meta name="description" content="吴俊,wujun234,wujun,wu jun" />
 	
 
 	<!-- favicon -->
@@ -29,7 +29,7 @@
 
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
-	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
+	<link rel="stylesheet" href="/lib/highlight/darcula.css">
 
 	<script src="/lib/highlight/highlight.pack.js"></script>
 	<script src="/lib/jquery-3.4.1.min.js"></script>
@@ -40,16 +40,19 @@
 
 <body>
 	<header id="header">
-    <a id="title" href="/" class="logo">吴俊的博客</a>
+    <a id="title" href="/" class="logo">WuJun Blog</a>
 
 	<ul id="menu">
 		<li class="menu-item">
-			<a href="/about" class="menu-item-link">关于</a>
+			<a href="/" class="menu-item-link">HOME</a>
+		</li>
+		<li class="menu-item">
+			<a href="/about" class="menu-item-link">ABOUT</a>
 		</li>
 		
 		<li class="menu-item">
 			<a href="https://github.com/wujun234/uid-generator-spring-boot-starter" class="menu-item-link" target="_blank">
-				uid-generator
+				UidGenerator
 			</a>
 		</li>
 		<li class="menu-item">
@@ -60,10 +63,11 @@
 	</ul>
 </header>
 
-	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-bars" aria-hidden="true"></i></button>
+	
 <div id="sidebar">
-	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">站点目录</a>
-	<a herf="#" id="sidebar-article" class="sidebar-toc">文章目录</a>
+	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-arrow-right " aria-hidden="true"></i></button>
+	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">SITE MENU</a>
+	<a herf="#" id="sidebar-article" class="sidebar-toc">ARTICLE MENU</a>
 
 	<!-- 侧边目录栏 -->
 	<div id="site-toc">
@@ -1892,8 +1896,8 @@
 			
 							<ul>
 								<li class="file">
-									<a href="/2019/12/18/01%20Spring/04%20Web/4%20Jsonp/">
-										4 Jsonp
+									<a href="/2019/12/18/01%20Spring/04%20Web/4%20%E8%B7%A8%E5%9F%9F/">
+										4 跨域
 									</a>
 								</li>
 							</ul>
@@ -4401,51 +4405,51 @@
 <div id="article">
 	<p>Java虚拟机规范中试图定义一种Java内存模型（JMM）来屏蔽掉各种硬件和操作系统的内存访问差异，以实现让Java程序在各种平台下都能达到一致的内存访问效果。</p>
 <p>主内存、工作内存与JVM内存不是同一个层次的内存划分，没有关联</p>
-<h3 id="1-主内存与工作内存"><a class="header-anchor" href="#1-主内存与工作内存">¶</a>1 主内存与工作内存</h3>
+<h3 id="1-主内存与工作内存"><a class="header-anchor" href="#1-主内存与工作内存"></a>1 主内存与工作内存</h3>
 <p>Java内存模型的主要目标是定义程序中各个线程共享变量的访问规则</p>
-<h5 id="主内存"><a class="header-anchor" href="#主内存">¶</a>主内存</h5>
+<h5 id="主内存"><a class="header-anchor" href="#主内存"></a>主内存</h5>
 <p>Java内存模型规定了所有的变量都存储在主内存中，线程不能直接读写主内存中的变量；</p>
-<h5 id="工作内存"><a class="header-anchor" href="#工作内存">¶</a>工作内存</h5>
+<h5 id="工作内存"><a class="header-anchor" href="#工作内存"></a>工作内存</h5>
 <p>线程有自己的工作内存，保存了被该线程使用到的变量的主内存副本拷贝，线程对变量的所有操作都必须在工作内存中进行</p>
-<h5 id="内存栅栏"><a class="header-anchor" href="#内存栅栏">¶</a>内存栅栏</h5>
+<h5 id="内存栅栏"><a class="header-anchor" href="#内存栅栏"></a>内存栅栏</h5>
 <p>内存栅栏（Memory Barrier）就是从本地或工作内存到主存之间的拷贝动作：Java并发API中很多操作都隐含有跨越内存栅栏的含义：volatile、synchronized、Thread中的函数如start()和interrupt()、ExecutorService中的函数以及像CountDownLatch这样的同步工具类等。</p>
 <p>线程、主内存和工作内存的关系如下所示：
 <img src="/images/1545648768929.jpg" alt="image"></p>
-<h3 id="2-内存间交互操作"><a class="header-anchor" href="#2-内存间交互操作">¶</a>2 内存间交互操作</h3>
+<h3 id="2-内存间交互操作"><a class="header-anchor" href="#2-内存间交互操作"></a>2 内存间交互操作</h3>
 <p>Java内存模型中定义了以下八种操作来完成主内存与工作内存之间具体的交互协议，虚拟机实现时必须保证下面提及的每一种操作都是原子的、不可再分的（对于double和long类型的变量的某些操作在某些平台允许有例外）：</p>
 <p>lock、unlock、read、load、use、assign、store、write</p>
 <p>基于理解难度和严谨性考虑，最新的JSR-133文档中，已经<strong>放弃采用</strong>这八种操作去定义Java内存模型的访问协议了，后面将会介绍一个等效判断原则 – <strong>先行发生原则</strong>，用来确定一个访问在并发环境下是否安全；</p>
-<h3 id="3-volatile变量的特殊规则"><a class="header-anchor" href="#3-volatile变量的特殊规则">¶</a>3 volatile变量的特殊规则</h3>
+<h3 id="3-volatile变量的特殊规则"><a class="header-anchor" href="#3-volatile变量的特殊规则"></a>3 volatile变量的特殊规则</h3>
 <p>关键字volatile是JVM提供的最轻量级的同步机制；</p>
-<h5 id="两种特性"><a class="header-anchor" href="#两种特性">¶</a>两种特性</h5>
+<h5 id="两种特性"><a class="header-anchor" href="#两种特性"></a>两种特性</h5>
 <p>volatile变量具备两种特性：</p>
 <ul>
 <li><strong>可见性</strong>：当一个线程修改了这个变量的值，新的值对于其他线程来说是可以立即得知的，而普通的变量的值在线程间传递均需要通过主内存来完成；</li>
 <li><strong>有序性</strong>：禁止指令重排序优化,普通的变量仅仅会保证在该方法的执行过程中所有依赖赋值结果的地方都能获取到正确的结果，而不能保证变量赋值操作的顺序与程序代码中的执行顺序一致；</li>
 </ul>
-<h5 id="非线程安全"><a class="header-anchor" href="#非线程安全">¶</a>非线程安全</h5>
+<h5 id="非线程安全"><a class="header-anchor" href="#非线程安全"></a>非线程安全</h5>
 <p>volatile变量在各个线程的工作内存中不存在一致性问题，但是Java里面的运算并非原子操作，导致volatile变量的运算在并发下一样是不安全的；</p>
 <p>在不符合以下两条规则的运算场景中，我们仍然要通过加锁来保证原子性：</p>
 <ul>
 <li>运算结果并不依赖变量的当前值或者能够确保只有单一的线程修改变量的值</li>
 <li>变量不需要与其他的状态变量共同参与不变约束；</li>
 </ul>
-<h5 id="性能"><a class="header-anchor" href="#性能">¶</a>性能</h5>
+<h5 id="性能"><a class="header-anchor" href="#性能"></a>性能</h5>
 <p>volatile变量读操作没差别，写操作慢一些；大多数场景下总开销比锁低</p>
 <p>在volatile与锁之中选择的唯一依据仅仅是volatile的语义能否满足使用场景的需求；</p>
-<h3 id="4-long和double型变量的特殊规则"><a class="header-anchor" href="#4-long和double型变量的特殊规则">¶</a>4 long和double型变量的特殊规则</h3>
-<h5 id="非原子性协定"><a class="header-anchor" href="#非原子性协定">¶</a>非原子性协定</h5>
+<h3 id="4-long和double型变量的特殊规则"><a class="header-anchor" href="#4-long和double型变量的特殊规则"></a>4 long和double型变量的特殊规则</h3>
+<h5 id="非原子性协定"><a class="header-anchor" href="#非原子性协定"></a>非原子性协定</h5>
 <p>允许虚拟机将没有被volatile修饰的64位数据的读写操作划分为两次32位的操作来进行，即允许虚拟机实现选择可以不保证64位数据类型的load、store、read和write这4个操作的原子性，这点就是所谓的long和double的非原子性协定；</p>
-<h5 id="原子性的操作"><a class="header-anchor" href="#原子性的操作">¶</a>原子性的操作</h5>
+<h5 id="原子性的操作"><a class="header-anchor" href="#原子性的操作"></a>原子性的操作</h5>
 <p>但允许虚拟机选择把这些操作实现为具有原子性的操作，目前各种平台下的商用虚拟机几乎都选择把64位数据的读写操作作为原子操作来对待；</p>
-<h3 id="5-原子性、可见性与有序性"><a class="header-anchor" href="#5-原子性、可见性与有序性">¶</a>5 原子性、可见性与有序性</h3>
-<h5 id="原子性（Atomicity）"><a class="header-anchor" href="#原子性（Atomicity）">¶</a>原子性（Atomicity）</h5>
+<h3 id="5-原子性、可见性与有序性"><a class="header-anchor" href="#5-原子性、可见性与有序性"></a>5 原子性、可见性与有序性</h3>
+<h5 id="原子性（Atomicity）"><a class="header-anchor" href="#原子性（Atomicity）"></a>原子性（Atomicity）</h5>
 <p>由Java内存模型来直接保证的原子性变量操作包括read、load、assign、use、store和write；在synchronized块之间的操作也具备原子性；</p>
-<h5 id="可见性（Visibility）"><a class="header-anchor" href="#可见性（Visibility）">¶</a>可见性（Visibility）</h5>
+<h5 id="可见性（Visibility）"><a class="header-anchor" href="#可见性（Visibility）"></a>可见性（Visibility）</h5>
 <p>当一个线程修改了共享变量的值，其他线程能够立即得知这个修改；除了volatile之外，Java还有synchronized和final关键字能实现可见性；</p>
-<h5 id="有序性（Ordering）"><a class="header-anchor" href="#有序性（Ordering）">¶</a>有序性（Ordering）</h5>
+<h5 id="有序性（Ordering）"><a class="header-anchor" href="#有序性（Ordering）"></a>有序性（Ordering）</h5>
 <p>如果在本线程内观察，所有的操作都是有序的；如果在一个线程中观察另一个线程，所有的操作都是无序的；Java语言提供了volatile和synchronized两个关键字来保证线程之间操作的有序性；</p>
-<h3 id="6-先行发生原则"><a class="header-anchor" href="#6-先行发生原则">¶</a>6 先行发生原则</h3>
+<h3 id="6-先行发生原则"><a class="header-anchor" href="#6-先行发生原则"></a>6 先行发生原则</h3>
 <p>如果说操作A发生操作B之前，操作A产生的影响能被操作B观察到，影响包括了修改了内存中共享变量的值、发送了消息、调用了方法等</p>
 <p>Java内存模型下一些天然的先行发生关系：程序次序规则、管程锁定规则、volatile变量规则、线程启动规则、线程终止规则、线程中断规则、对象终结规则、传递性；</p>
 <p>时间先后顺序与先行发生原则之间基本没有太大的关系，所以我们衡量并发安全问题的时候不要受到时间顺序的干扰，一切必须以先行发生原则为准；</p>
@@ -4454,6 +4458,7 @@
 
 	</div>
 	<div id="footer">
+	<p>
 	©2019-<span id="footerYear"></span> 
 	<a href="/">Wu Jun</a> 
 	|
@@ -4466,7 +4471,9 @@
 		uv
 		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	<br>
 	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
+	</p>
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';

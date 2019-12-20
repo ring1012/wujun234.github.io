@@ -11,14 +11,14 @@
 	
 		2 Spring Data JPA | 
 	 
-	吴俊的博客
+	WuJun Blog
 	</title>
 	
 	<!-- keywords,description -->
 	
 		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
 	 
-		<meta name="description" content="吴俊的博客,wujun234" />
+		<meta name="description" content="吴俊,wujun234,wujun,wu jun" />
 	
 
 	<!-- favicon -->
@@ -29,7 +29,7 @@
 
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
-	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
+	<link rel="stylesheet" href="/lib/highlight/darcula.css">
 
 	<script src="/lib/highlight/highlight.pack.js"></script>
 	<script src="/lib/jquery-3.4.1.min.js"></script>
@@ -40,16 +40,19 @@
 
 <body>
 	<header id="header">
-    <a id="title" href="/" class="logo">吴俊的博客</a>
+    <a id="title" href="/" class="logo">WuJun Blog</a>
 
 	<ul id="menu">
 		<li class="menu-item">
-			<a href="/about" class="menu-item-link">关于</a>
+			<a href="/" class="menu-item-link">HOME</a>
+		</li>
+		<li class="menu-item">
+			<a href="/about" class="menu-item-link">ABOUT</a>
 		</li>
 		
 		<li class="menu-item">
 			<a href="https://github.com/wujun234/uid-generator-spring-boot-starter" class="menu-item-link" target="_blank">
-				uid-generator
+				UidGenerator
 			</a>
 		</li>
 		<li class="menu-item">
@@ -60,10 +63,11 @@
 	</ul>
 </header>
 
-	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-bars" aria-hidden="true"></i></button>
+	
 <div id="sidebar">
-	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">站点目录</a>
-	<a herf="#" id="sidebar-article" class="sidebar-toc">文章目录</a>
+	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-arrow-right " aria-hidden="true"></i></button>
+	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">SITE MENU</a>
+	<a herf="#" id="sidebar-article" class="sidebar-toc">ARTICLE MENU</a>
 
 	<!-- 侧边目录栏 -->
 	<div id="site-toc">
@@ -1892,8 +1896,8 @@
 			
 							<ul>
 								<li class="file">
-									<a href="/2019/12/18/01%20Spring/04%20Web/4%20Jsonp/">
-										4 Jsonp
+									<a href="/2019/12/18/01%20Spring/04%20Web/4%20%E8%B7%A8%E5%9F%9F/">
+										4 跨域
 									</a>
 								</li>
 							</ul>
@@ -4402,7 +4406,7 @@
 	<p>Java持久化API（Java Persistence API， JPA）基于POJO的持久化机制，制定了规范，具体由厂商实现。</p>
 <p>只需按照约定好的【方法命名规则】编写Repository接口，不需要实现类，就可实现对数据库的访问和操作。</p>
 <p>hibernate实现了JPA规范，Spring Data JPA 进一步封装了 Hibernate。</p>
-<h3 id="配置"><a class="header-anchor" href="#配置">¶</a>配置</h3>
+<h3 id="配置"><a class="header-anchor" href="#配置"></a>配置</h3>
 <p>maven</p>
 <pre><code>&lt;dependency&gt;
     &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
@@ -4422,8 +4426,8 @@ spring.jpa.show-sql = true
 <li>validate：每次加载验证数据表结构，只会和已经存在的数据表进行比较，根据model修改表结构，但不会创建新表。</li>
 </ul>
 <p>不配置此项，表示禁用自动建表功能</p>
-<h3 id="简单使用"><a class="header-anchor" href="#简单使用">¶</a>简单使用</h3>
-<h5 id="建立-entity"><a class="header-anchor" href="#建立-entity">¶</a>建立 entity</h5>
+<h3 id="简单使用"><a class="header-anchor" href="#简单使用"></a>简单使用</h3>
+<h5 id="建立-entity"><a class="header-anchor" href="#建立-entity"></a>建立 entity</h5>
 <pre><code>@Entity
 @Data
 public class User {
@@ -4436,13 +4440,13 @@ public class User {
     private int age;
 }
 </code></pre>
-<h5 id="扩展Repository接口"><a class="header-anchor" href="#扩展Repository接口">¶</a>扩展Repository接口</h5>
+<h5 id="扩展Repository接口"><a class="header-anchor" href="#扩展Repository接口"></a>扩展Repository接口</h5>
 <p>扩展Repository接口或其子接口JpaRepository、 PagingAndSortingRepository和CrudRepository</p>
 <p>应用启动后自动生成接口的实现，提供默认通用方法。</p>
 <pre><code>public interface UserRepository extends JpaRepository&lt;User, Long&gt; {
 }
 </code></pre>
-<h5 id="启用Spring-Data-JPA"><a class="header-anchor" href="#启用Spring-Data-JPA">¶</a>启用Spring Data JPA</h5>
+<h5 id="启用Spring-Data-JPA"><a class="header-anchor" href="#启用Spring-Data-JPA"></a>启用Spring Data JPA</h5>
 <p>@EnableJpaRepositories注解，扫描查找扩展自Spring Data JPA Repository接口的所有接口。</p>
 <pre><code>@Configuration
 @EnableJpaRepositories{basePackages=&quot;com.xxx.xxx&quot;}
@@ -4450,34 +4454,35 @@ public class JpaConfiguration{
     ...
 }
 </code></pre>
-<h3 id="1-定义查询方法"><a class="header-anchor" href="#1-定义查询方法">¶</a>1 定义查询方法</h3>
+<h3 id="1-定义查询方法"><a class="header-anchor" href="#1-定义查询方法"></a>1 定义查询方法</h3>
 <p>只需使用属性名和关键字构建Repository方法签名， 就能让Spring Data JPA生成方法实现</p>
 <p>当创建Repository实现的时候， Spring Data会检查Repository接口的所有方法， 解析方法的名称， 并基于被持久化的对象来试图推测方法的目的。</p>
-<h5 id="方法组成"><a class="header-anchor" href="#方法组成">¶</a>方法组成</h5>
+<h5 id="方法组成"><a class="header-anchor" href="#方法组成"></a>方法组成</h5>
 <p>Repository方法是由一个动词、 一个可选的主题、 关键词By以及一个断言所组成。</p>
 <pre><code>User findByUsername(String userName);
 </code></pre>
 <p>findByUsername()这个样例中， 动词是find， 断言是Username， 主题并没有指
 定， 暗含的主题是User。</p>
-<h5 id="比较操作"><a class="header-anchor" href="#比较操作">¶</a>比较操作</h5>
+<h5 id="比较操作"><a class="header-anchor" href="#比较操作"></a>比较操作</h5>
 <p>断言中的多个限制条件可以进行比较操作</p>
 <ul>
 <li>IsAfter、 After、 IsGreaterThan、 GreaterThan</li>
 <li>IsGreaterThanEqual、 GreaterThanEqual</li>
 <li>…</li>
 </ul>
-<h3 id="2-声明自定义查询"><a class="header-anchor" href="#2-声明自定义查询">¶</a>2 声明自定义查询</h3>
+<h3 id="2-声明自定义查询"><a class="header-anchor" href="#2-声明自定义查询"></a>2 声明自定义查询</h3>
 <p>如果Spring Data的这个小型的DSL无法满足需求，还可以通过@Query注解来解决问题。</p>
 <pre><code>Query(&quot;select * from User where username like '%abc'&quot;)
 List&lt;User&gt; findByAllAbcUser();
 </code></pre>
-<h3 id="3-混合自定义的功能"><a class="header-anchor" href="#3-混合自定义的功能">¶</a>3 混合自定义的功能</h3>
+<h3 id="3-混合自定义的功能"><a class="header-anchor" href="#3-混合自定义的功能"></a>3 混合自定义的功能</h3>
 <p>当Spring Data JPA为Repository接口生成实现的时候， 它还会查找名字与接口相同， 并且添加了Impl后缀的一个类。 如果这个类存在的话， Spring Data JPA将会把它的方法与Spring DataJPA所生成的方法合并在一起。</p>
 
 </div>
 
 	</div>
 	<div id="footer">
+	<p>
 	©2019-<span id="footerYear"></span> 
 	<a href="/">Wu Jun</a> 
 	|
@@ -4490,7 +4495,9 @@ List&lt;User&gt; findByAllAbcUser();
 		uv
 		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	<br>
 	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
+	</p>
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';

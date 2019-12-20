@@ -11,14 +11,14 @@
 	
 		4 基础构建模块 | 
 	 
-	吴俊的博客
+	WuJun Blog
 	</title>
 	
 	<!-- keywords,description -->
 	
 		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
 	 
-		<meta name="description" content="吴俊的博客,wujun234" />
+		<meta name="description" content="吴俊,wujun234,wujun,wu jun" />
 	
 
 	<!-- favicon -->
@@ -29,7 +29,7 @@
 
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
-	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
+	<link rel="stylesheet" href="/lib/highlight/darcula.css">
 
 	<script src="/lib/highlight/highlight.pack.js"></script>
 	<script src="/lib/jquery-3.4.1.min.js"></script>
@@ -40,16 +40,19 @@
 
 <body>
 	<header id="header">
-    <a id="title" href="/" class="logo">吴俊的博客</a>
+    <a id="title" href="/" class="logo">WuJun Blog</a>
 
 	<ul id="menu">
 		<li class="menu-item">
-			<a href="/about" class="menu-item-link">关于</a>
+			<a href="/" class="menu-item-link">HOME</a>
+		</li>
+		<li class="menu-item">
+			<a href="/about" class="menu-item-link">ABOUT</a>
 		</li>
 		
 		<li class="menu-item">
 			<a href="https://github.com/wujun234/uid-generator-spring-boot-starter" class="menu-item-link" target="_blank">
-				uid-generator
+				UidGenerator
 			</a>
 		</li>
 		<li class="menu-item">
@@ -60,10 +63,11 @@
 	</ul>
 </header>
 
-	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-bars" aria-hidden="true"></i></button>
+	
 <div id="sidebar">
-	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">站点目录</a>
-	<a herf="#" id="sidebar-article" class="sidebar-toc">文章目录</a>
+	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-arrow-right " aria-hidden="true"></i></button>
+	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">SITE MENU</a>
+	<a herf="#" id="sidebar-article" class="sidebar-toc">ARTICLE MENU</a>
 
 	<!-- 侧边目录栏 -->
 	<div id="site-toc">
@@ -1892,8 +1896,8 @@
 			
 							<ul>
 								<li class="file">
-									<a href="/2019/12/18/01%20Spring/04%20Web/4%20Jsonp/">
-										4 Jsonp
+									<a href="/2019/12/18/01%20Spring/04%20Web/4%20%E8%B7%A8%E5%9F%9F/">
+										4 跨域
 									</a>
 								</li>
 							</ul>
@@ -4399,14 +4403,14 @@
 
 
 <div id="article">
-	<h3 id="1-同步容器类"><a class="header-anchor" href="#1-同步容器类">¶</a>1 同步容器类</h3>
+	<h3 id="1-同步容器类"><a class="header-anchor" href="#1-同步容器类"></a>1 同步容器类</h3>
 <p>同步容器类实现线程安全的方式是： 将他们的状态封装起来,并对每个公有方法都进行同步，使得每次只有一个线程能访问容器的状态。</p>
-<h5 id="1-1-同步容器类的问题"><a class="header-anchor" href="#1-1-同步容器类的问题">¶</a>1.1 同步容器类的问题</h5>
+<h5 id="1-1-同步容器类的问题"><a class="header-anchor" href="#1-1-同步容器类的问题"></a>1.1 同步容器类的问题</h5>
 <ul>
 <li>同步容器类都是线程安全的，但在某些情况下可能需要额外的客户端加锁来保护复合操作。</li>
 <li>由于同步容器类要遵守<code>同步策略</code>(支持客户端加锁)，因此可能会创建一些新的操作，只要我们知道应该使用哪一个锁，那么这些新操作就与容器的其他操作一样是<code>原子操作</code>。</li>
 </ul>
-<h5 id="1-2-迭代器与ConcurrentModificationException"><a class="header-anchor" href="#1-2-迭代器与ConcurrentModificationException">¶</a>1.2 迭代器与ConcurrentModificationException</h5>
+<h5 id="1-2-迭代器与ConcurrentModificationException"><a class="header-anchor" href="#1-2-迭代器与ConcurrentModificationException"></a>1.2 迭代器与ConcurrentModificationException</h5>
 <ul>
 <li>及时失败(fail-fast)：在设计同步容器类的迭代器时并没有考虑到并发修改的问题，当发现容器在迭代过程中被修改时（通过计数器），就会抛出<code>ConcurrentModificationException</code>异常</li>
 <li>避免出现<code>ConcurrentModificationException</code>的方法:
@@ -4416,37 +4420,37 @@
 </ol>
 </li>
 </ul>
-<h5 id="1-3-隐藏迭代器"><a class="header-anchor" href="#1-3-隐藏迭代器">¶</a>1.3 隐藏迭代器</h5>
+<h5 id="1-3-隐藏迭代器"><a class="header-anchor" href="#1-3-隐藏迭代器"></a>1.3 隐藏迭代器</h5>
 <p>封装对象的<code>同步机制</code>(同步代码)有助于确保实施<code>同步策略</code>(eg:用<code>synchronizedSet</code>包装<code>HashSet</code>)</p>
 <ul>
 <li>标准容器的<code>toString</code>方法将<code>隐式</code>迭代容器，并在每个元素上调用<code>toString</code>来生成容器内容的格式化表示</li>
 <li>容器的<code>containsAll</code>，<code>hashCode</code>和<code>equals</code>等方法也会间接地执行迭代操作</li>
 </ul>
-<h3 id="2-并发容器"><a class="header-anchor" href="#2-并发容器">¶</a>2 并发容器</h3>
+<h3 id="2-并发容器"><a class="header-anchor" href="#2-并发容器"></a>2 并发容器</h3>
 <ul>
 <li>同步容器将所有对容器的状态访问都串行化，严重降低并发性，当多个线程访问锁时，吞吐量将严重降低</li>
 <li>同步容器是<code>synchronizedXXX</code>这类，仅仅给容器提供同步，效率很低</li>
 <li>并发容器是针对多个线程并发访问设计的，<code>ConcurrentMap</code>，<code>CopyOnWriteList</code>(遍历操作较多的情况下代理同步的<code>List</code>)，<code>ConcurrentQueue</code>(传统先进先出队列)，<code>BlockingQueue</code>(扩展<code>Queue</code>,提供可阻塞操作)，<code>BlockingDeque</code>(可阻塞双端队列)</li>
 </ul>
 <p>用并发容器来代替同步容器，可以极大地提高伸缩性并降低风险</p>
-<h5 id="2-1-ConcurrentHashMap"><a class="header-anchor" href="#2-1-ConcurrentHashMap">¶</a>2.1 ConcurrentHashMap</h5>
+<h5 id="2-1-ConcurrentHashMap"><a class="header-anchor" href="#2-1-ConcurrentHashMap"></a>2.1 ConcurrentHashMap</h5>
 <ul>
 <li><code>ConcurrentHashMap</code>使用<code>分段锁(Lock Strip)</code>来实现更大程度的共享，写锁读不锁</li>
 <li><code>ConcurrentHashMap</code>带来的结果是，在并发访问的环境下实现更高的<code>吞吐量</code>，而在单线程环境中值损失非常小的性能</li>
 <li><code>ConcurrentHashMap</code>返回的迭代器具有弱一致性(Weakly Consistent)</li>
 <li>用<code>ConcurrentHashMap</code>代替同步Map能进一步提高代码的<code>可伸缩性</code>，只有当应用程序需要加锁Map进行<code>独占访问</code>时，才应放弃使用<code>ConcurrentHashMap</code></li>
 </ul>
-<h5 id="2-2-额外的原子Map操作"><a class="header-anchor" href="#2-2-额外的原子Map操作">¶</a>2.2 额外的原子Map操作</h5>
+<h5 id="2-2-额外的原子Map操作"><a class="header-anchor" href="#2-2-额外的原子Map操作"></a>2.2 额外的原子Map操作</h5>
 <ul>
 <li>“若没有则添加”,&quot;若相等则移除&quot;和&quot;若相等则替换&quot;等，都已经实现为<code>原子操作</code>并且在<code>ConcurrentMap</code>的接口中声明</li>
 </ul>
-<h5 id="2-3-CopyOnWriteArrayList"><a class="header-anchor" href="#2-3-CopyOnWriteArrayList">¶</a>2.3 CopyOnWriteArrayList</h5>
+<h5 id="2-3-CopyOnWriteArrayList"><a class="header-anchor" href="#2-3-CopyOnWriteArrayList"></a>2.3 CopyOnWriteArrayList</h5>
 <ul>
 <li><code>CopyOnWriteArrayList</code>用于替代同步<code>List</code>，在某些情况下它提供了更好的并发性能，并且在迭代期间不需要对容器进行加锁或复制</li>
 <li>在每次修改时，它都会创建并重新发布一个<code>新的容器副本</code>，从而实现<code>可变性</code></li>
 <li>仅当迭代操作远远多于修改操作时，才应该使用&quot;写入时复制&quot;容器</li>
 </ul>
-<h3 id="3-阻塞队列和生产者——消费者模式"><a class="header-anchor" href="#3-阻塞队列和生产者——消费者模式">¶</a>3 阻塞队列和生产者——消费者模式</h3>
+<h3 id="3-阻塞队列和生产者——消费者模式"><a class="header-anchor" href="#3-阻塞队列和生产者——消费者模式"></a>3 阻塞队列和生产者——消费者模式</h3>
 <ul>
 <li>阻塞队列（BlockingQueue）提供了可阻塞的<code>put</code>和<code>take</code>方法，以及支持定时的<code>offer</code>和<code>poll</code>方法</li>
 <li>类库中包含了<code>BlockingQueue</code>的多种实现:
@@ -4462,19 +4466,19 @@
 </ul>
 </li>
 </ul>
-<h5 id="3-1-串行线程封闭"><a class="header-anchor" href="#3-1-串行线程封闭">¶</a>3.1 串行线程封闭</h5>
+<h5 id="3-1-串行线程封闭"><a class="header-anchor" href="#3-1-串行线程封闭"></a>3.1 串行线程封闭</h5>
 <ul>
 <li><code>可变对象</code>，<code>生产者——消费者</code>与<code>阻塞队列</code>一起，促进了串行线程封闭，将对象所有权从<code>生产者</code>交付给<code>消费者</code></li>
 <li><code>封闭对象</code>只能由单个线程拥有，但可以通过安全地发布对象来&quot;转移&quot;所有权，在转移后，另一个线程独占该对象访问权限</li>
 <li>例如线程池</li>
 </ul>
-<h5 id="3-2-双端队列与工作密取"><a class="header-anchor" href="#3-2-双端队列与工作密取">¶</a>3.2 双端队列与工作密取</h5>
+<h5 id="3-2-双端队列与工作密取"><a class="header-anchor" href="#3-2-双端队列与工作密取"></a>3.2 双端队列与工作密取</h5>
 <ul>
 <li><code>Deque</code>是一个<code>双端队列</code>，实现了在队列头和队列尾的高效插入和移除。具体实现包括<code>ArrayDeque</code>和<code>LinkedBlockingDeque</code></li>
 <li>工作密取(Work Stealing)：每个<code>消费者</code>都有各自的<code>双端队列</code>。如果一个<code>消费者</code>完成了自己<code>双端队列</code>中的全部工作，那它就可以从其他<code>消费者</code>的<code>双端队列</code>末尾秘密地获取工作</li>
 <li>密取模式比传统的<code>生产者——消费者</code>模式具有更高的<code>可伸缩性</code>，因为工作者线程不会在单个共享的任务队列上发生竞争</li>
 </ul>
-<h3 id="4-阻塞方法和中断方法"><a class="header-anchor" href="#4-阻塞方法和中断方法">¶</a>4 阻塞方法和中断方法</h3>
+<h3 id="4-阻塞方法和中断方法"><a class="header-anchor" href="#4-阻塞方法和中断方法"></a>4 阻塞方法和中断方法</h3>
 <ul>
 <li>当线程阻塞时，它通常被挂起，并处于某种阻塞状态。<br>
 阻塞操作与执行时间长的差别在于，被阻塞的线程必须等待某个不受它控制的事件发生后才能继续执行</li>
@@ -4489,7 +4493,7 @@
 </li>
 <li>在出现<code>InterruptException</code>时最不应该做的是，捕获它但不作出任何响应</li>
 </ul>
-<h3 id="5-同步工具类"><a class="header-anchor" href="#5-同步工具类">¶</a>5 同步工具类</h3>
+<h3 id="5-同步工具类"><a class="header-anchor" href="#5-同步工具类"></a>5 同步工具类</h3>
 <ul>
 <li>同步工具类可以是任何一个对象，只要它根据自身的状态来协调线程的控制流<br>
 <code>阻塞队列</code>可以作为同步工具类，其他类型的同步工具还有<code>信号量(Semaphore)</code>，<code>栅栏(Barrier)</code>以及<code>闭锁(Latch)</code></li>
@@ -4501,7 +4505,7 @@
 </ol>
 </li>
 </ul>
-<h5 id="5-1-闭锁"><a class="header-anchor" href="#5-1-闭锁">¶</a>5.1 闭锁</h5>
+<h5 id="5-1-闭锁"><a class="header-anchor" href="#5-1-闭锁"></a>5.1 闭锁</h5>
 <ul>
 <li>闭锁相当于一扇门:
 <ul>
@@ -4519,7 +4523,7 @@
 </ul>
 </li>
 </ul>
-<h5 id="5-2-FutureTask"><a class="header-anchor" href="#5-2-FutureTask">¶</a>5.2 FutureTask</h5>
+<h5 id="5-2-FutureTask"><a class="header-anchor" href="#5-2-FutureTask"></a>5.2 FutureTask</h5>
 <ul>
 <li><code>FutureTask</code>表示的计算是通过<code>Callable</code>来实现的，相当于一种可生成结果的<code>Runnable</code>
 <ul>
@@ -4534,7 +4538,7 @@
 </ul>
 </li>
 </ul>
-<h5 id="5-3-信号量"><a class="header-anchor" href="#5-3-信号量">¶</a>5.3 信号量</h5>
+<h5 id="5-3-信号量"><a class="header-anchor" href="#5-3-信号量"></a>5.3 信号量</h5>
 <ul>
 <li><code>计数信号量(Counting Semaphore)</code>用来控制同时访问某个特点资源的操作数量，或者同时执行某个指定操作的数量</li>
 <li><code>Semaphore</code>中管理着一组虚拟的许可，许可的初始数量可通过构造函数来指定<br>
@@ -4542,7 +4546,7 @@
 如果没有许可，那么<code>acquire</code>将阻塞直到有许可</li>
 <li><code>Sequence</code>可以用于实现资源池，也可以将任何一种容器变成有界阻塞容器</li>
 </ul>
-<h5 id="5-4-栅栏"><a class="header-anchor" href="#5-4-栅栏">¶</a>5.4 栅栏</h5>
+<h5 id="5-4-栅栏"><a class="header-anchor" href="#5-4-栅栏"></a>5.4 栅栏</h5>
 <ul>
 <li><code>栅栏</code>与<code>闭锁</code>的关键区别在于，所有线程必须都到达栅栏位置才能继续执行<br>
 <ul>
@@ -4554,8 +4558,8 @@
 <li>另一种形式的栅栏是<code>Exchanger</code>，它是一种<code>两方(Two-Party)栅栏</code>，各方在栅栏位置上交换数据<br>
 当双方执行不对称时，<code>Exchanger</code>非常有用</li>
 </ul>
-<h3 id="6-构件高效且可伸缩的结果缓存"><a class="header-anchor" href="#6-构件高效且可伸缩的结果缓存">¶</a>6 构件高效且可伸缩的结果缓存</h3>
-<h5 id="6-1-分析一个简单的HashMap缓存"><a class="header-anchor" href="#6-1-分析一个简单的HashMap缓存">¶</a>6.1 分析一个简单的<code>HashMap</code>缓存</h5>
+<h3 id="6-构件高效且可伸缩的结果缓存"><a class="header-anchor" href="#6-构件高效且可伸缩的结果缓存"></a>6 构件高效且可伸缩的结果缓存</h3>
+<h5 id="6-1-分析一个简单的HashMap缓存"><a class="header-anchor" href="#6-1-分析一个简单的HashMap缓存"></a>6.1 分析一个简单的<code>HashMap</code>缓存</h5>
 <ul>
 <li>代码四(最终实现)</li>
 </ul>
@@ -4594,7 +4598,7 @@
     }
 }
 </code></pre>
-<h5 id="最后奖励一个并发技巧清单"><a class="header-anchor" href="#最后奖励一个并发技巧清单">¶</a>最后奖励一个并发技巧清单</h5>
+<h5 id="最后奖励一个并发技巧清单"><a class="header-anchor" href="#最后奖励一个并发技巧清单"></a>最后奖励一个并发技巧清单</h5>
 <ul>
 <li>可变状态是至关重要的<br>
 所有的并发问题都可以归结为如何协调对并发状态的访问。可变状态越少，就越容易确保线程安全性</li>
@@ -4616,6 +4620,7 @@
 
 	</div>
 	<div id="footer">
+	<p>
 	©2019-<span id="footerYear"></span> 
 	<a href="/">Wu Jun</a> 
 	|
@@ -4628,7 +4633,9 @@
 		uv
 		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	<br>
 	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
+	</p>
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';

@@ -11,14 +11,14 @@
 	
 		2 交换排序 | 
 	 
-	吴俊的博客
+	WuJun Blog
 	</title>
 	
 	<!-- keywords,description -->
 	
 		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
 	 
-		<meta name="description" content="吴俊的博客,wujun234" />
+		<meta name="description" content="吴俊,wujun234,wujun,wu jun" />
 	
 
 	<!-- favicon -->
@@ -29,7 +29,7 @@
 
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
-	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
+	<link rel="stylesheet" href="/lib/highlight/darcula.css">
 
 	<script src="/lib/highlight/highlight.pack.js"></script>
 	<script src="/lib/jquery-3.4.1.min.js"></script>
@@ -40,16 +40,19 @@
 
 <body>
 	<header id="header">
-    <a id="title" href="/" class="logo">吴俊的博客</a>
+    <a id="title" href="/" class="logo">WuJun Blog</a>
 
 	<ul id="menu">
 		<li class="menu-item">
-			<a href="/about" class="menu-item-link">关于</a>
+			<a href="/" class="menu-item-link">HOME</a>
+		</li>
+		<li class="menu-item">
+			<a href="/about" class="menu-item-link">ABOUT</a>
 		</li>
 		
 		<li class="menu-item">
 			<a href="https://github.com/wujun234/uid-generator-spring-boot-starter" class="menu-item-link" target="_blank">
-				uid-generator
+				UidGenerator
 			</a>
 		</li>
 		<li class="menu-item">
@@ -60,10 +63,11 @@
 	</ul>
 </header>
 
-	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-bars" aria-hidden="true"></i></button>
+	
 <div id="sidebar">
-	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">站点目录</a>
-	<a herf="#" id="sidebar-article" class="sidebar-toc">文章目录</a>
+	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-arrow-right " aria-hidden="true"></i></button>
+	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">SITE MENU</a>
+	<a herf="#" id="sidebar-article" class="sidebar-toc">ARTICLE MENU</a>
 
 	<!-- 侧边目录栏 -->
 	<div id="site-toc">
@@ -1892,8 +1896,8 @@
 			
 							<ul>
 								<li class="file">
-									<a href="/2019/12/18/01%20Spring/04%20Web/4%20Jsonp/">
-										4 Jsonp
+									<a href="/2019/12/18/01%20Spring/04%20Web/4%20%E8%B7%A8%E5%9F%9F/">
+										4 跨域
 									</a>
 								</li>
 							</ul>
@@ -4399,7 +4403,7 @@
 
 
 <div id="article">
-	<h2 id="1、冒泡排序"><a class="header-anchor" href="#1、冒泡排序">¶</a>1、冒泡排序</h2>
+	<h2 id="1、冒泡排序"><a class="header-anchor" href="#1、冒泡排序"></a>1、冒泡排序</h2>
 <p>冒泡排序 (Bubble Sort) 一种交换排序，它的基本思想是：两两比较相邻记录的关键字，如果反序则交换，直到没有反序的记录为止。</p>
 <p><img src="/images/1558694019814.gif" alt=""></p>
 <p>思路：从第0个到第n个，和相邻的元素进行相比，如果比相邻的大的话，那么就交换二者顺序，这样的话0到n范围内的最大的数就放到n的位置。接着下一次操作，第0个到第n-1个，将0到n-1范围内的最大值放到n-1。重复执行，最后数组从小到大排列。</p>
@@ -4418,7 +4422,7 @@
   }
 }
 </code></pre>
-<h4 id="优化"><a class="header-anchor" href="#优化">¶</a>优化</h4>
+<h4 id="优化"><a class="header-anchor" href="#优化"></a>优化</h4>
 <p>如果再一次冒泡过程中，没有发生任何数组交换，那么该数组肯定是有序的，可以提前结束冒泡。</p>
 <pre><code>void BubbleSort2(SqList* L)
 {
@@ -4438,9 +4442,9 @@
   }
 }
 </code></pre>
-<h4 id="复杂度分析"><a class="header-anchor" href="#复杂度分析">¶</a>复杂度分析</h4>
+<h4 id="复杂度分析"><a class="header-anchor" href="#复杂度分析"></a>复杂度分析</h4>
 <p>O(n<sup>2</sup>)</p>
-<h2 id="2、快速排序"><a class="header-anchor" href="#2、快速排序">¶</a>2、快速排序</h2>
+<h2 id="2、快速排序"><a class="header-anchor" href="#2、快速排序"></a>2、快速排序</h2>
 <p>快速排序(Quick Sort)的基本思想是：通过一趟排序将待排记录分割成独立的两部分，其中一部分记录的关键字均比另一部分记录的关键字小，则可分别对这两部分记录继续进行排序，以达到整个序列有序的目的。</p>
 <p><img src="/images/1558694019902.gif" alt=""></p>
 <p>最核心的思想是实现在一个范围内，以n为基准点，左边的数不大于基准点，右边的数不小于基准点。接下来左边的作为一个整体，同样实现上面的要求，右边的作为一个整体也实现上面的要求（左边的数不大于基准点，右边的数不小于基准点）。自顶向下执行下去，最后局部有序实现整体有序。</p>
@@ -4472,10 +4476,10 @@ public static int findPoint(int array[],int start,int end){
     return start;
 }
 </code></pre>
-<h4 id="复杂度分析-v2"><a class="header-anchor" href="#复杂度分析-v2">¶</a>复杂度分析</h4>
+<h4 id="复杂度分析-v2"><a class="header-anchor" href="#复杂度分析-v2"></a>复杂度分析</h4>
 <p>O(nlogn)，不稳定</p>
-<h3 id="快速排序优化"><a class="header-anchor" href="#快速排序优化">¶</a>快速排序优化</h3>
-<h4 id="1-优化选取枢轴"><a class="header-anchor" href="#1-优化选取枢轴">¶</a>1. 优化选取枢轴</h4>
+<h3 id="快速排序优化"><a class="header-anchor" href="#快速排序优化"></a>快速排序优化</h3>
+<h4 id="1-优化选取枢轴"><a class="header-anchor" href="#1-优化选取枢轴"></a>1. 优化选取枢轴</h4>
 <p>三数取中法：取三个关键字先进行排序，将中间数作为枢轴，一般是取左端、右端和中间三个数，也可以随机选取。</p>
 <p>对于非常大的待排序的序列，还有个九数取中法：先从数组中分三次取样，每次取三个数， 三个样品各取出中数，然后从这三个中数当中再取出 一个中数作为枢轴。</p>
 <pre><code>/* 优化之一： 枢轴的选择 */
@@ -4488,7 +4492,7 @@ if (L-&gt;r[m] &gt; L-&gt;r[low])
   swap(L, m, low);              /* 交换中间与左端数据，保证左端小 */
 /* 此时L.r[low]已经为整个序列左中右三个关键数字的中间值 */
 </code></pre>
-<h4 id="2-优化不必要的交换"><a class="header-anchor" href="#2-优化不必要的交换">¶</a>2. 优化不必要的交换</h4>
+<h4 id="2-优化不必要的交换"><a class="header-anchor" href="#2-优化不必要的交换"></a>2. 优化不必要的交换</h4>
 <pre><code>/* 优化之二：优化不必要的交换 */
 int Partition1(SqList *L, int low, int high){
   int pivotkey;
@@ -4506,7 +4510,7 @@ int Partition1(SqList *L, int low, int high){
   return low; /* 返回枢轴所在位置 */
 }
 </code></pre>
-<h4 id="3-优化小数组时的排序方案"><a class="header-anchor" href="#3-优化小数组时的排序方案">¶</a>3. 优化小数组时的排序方案</h4>
+<h4 id="3-优化小数组时的排序方案"><a class="header-anchor" href="#3-优化小数组时的排序方案"></a>3. 优化小数组时的排序方案</h4>
 <p>如果数组非常小，其实快速排序反而不如直接插入排序来得更好(直接插入是简单排序中性能最好的)。</p>
 <pre><code>/* 优化之三： 优化小数组时的排序方案 */
 #define MAX_LENGTH_INSERT_SORT 7 /* 数组长度阈值 */
@@ -4523,7 +4527,7 @@ void QSort(SqList *L, int low, int high){
     InsertSort(L);
 }
 </code></pre>
-<h4 id="4-优化递归操作"><a class="header-anchor" href="#4-优化递归操作">¶</a>4. 优化递归操作</h4>
+<h4 id="4-优化递归操作"><a class="header-anchor" href="#4-优化递归操作"></a>4. 优化递归操作</h4>
 <pre><code>/* 优化之四: 尾递归 */
 /* 对顺序表L中的子序列L-r[low...high]作快速排序 */
 void QSort1(SqList *L, int low, int high)
@@ -4547,6 +4551,7 @@ void QSort1(SqList *L, int low, int high)
 
 	</div>
 	<div id="footer">
+	<p>
 	©2019-<span id="footerYear"></span> 
 	<a href="/">Wu Jun</a> 
 	|
@@ -4559,7 +4564,9 @@ void QSort1(SqList *L, int low, int high)
 		uv
 		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	<br>
 	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
+	</p>
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';

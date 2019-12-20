@@ -11,14 +11,14 @@
 	
 		1 集合接口 | 
 	 
-	吴俊的博客
+	WuJun Blog
 	</title>
 	
 	<!-- keywords,description -->
 	
 		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
 	 
-		<meta name="description" content="吴俊的博客,wujun234" />
+		<meta name="description" content="吴俊,wujun234,wujun,wu jun" />
 	
 
 	<!-- favicon -->
@@ -29,7 +29,7 @@
 
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
-	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
+	<link rel="stylesheet" href="/lib/highlight/darcula.css">
 
 	<script src="/lib/highlight/highlight.pack.js"></script>
 	<script src="/lib/jquery-3.4.1.min.js"></script>
@@ -40,16 +40,19 @@
 
 <body>
 	<header id="header">
-    <a id="title" href="/" class="logo">吴俊的博客</a>
+    <a id="title" href="/" class="logo">WuJun Blog</a>
 
 	<ul id="menu">
 		<li class="menu-item">
-			<a href="/about" class="menu-item-link">关于</a>
+			<a href="/" class="menu-item-link">HOME</a>
+		</li>
+		<li class="menu-item">
+			<a href="/about" class="menu-item-link">ABOUT</a>
 		</li>
 		
 		<li class="menu-item">
 			<a href="https://github.com/wujun234/uid-generator-spring-boot-starter" class="menu-item-link" target="_blank">
-				uid-generator
+				UidGenerator
 			</a>
 		</li>
 		<li class="menu-item">
@@ -60,10 +63,11 @@
 	</ul>
 </header>
 
-	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-bars" aria-hidden="true"></i></button>
+	
 <div id="sidebar">
-	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">站点目录</a>
-	<a herf="#" id="sidebar-article" class="sidebar-toc">文章目录</a>
+	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-arrow-right " aria-hidden="true"></i></button>
+	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">SITE MENU</a>
+	<a herf="#" id="sidebar-article" class="sidebar-toc">ARTICLE MENU</a>
 
 	<!-- 侧边目录栏 -->
 	<div id="site-toc">
@@ -1892,8 +1896,8 @@
 			
 							<ul>
 								<li class="file">
-									<a href="/2019/12/18/01%20Spring/04%20Web/4%20Jsonp/">
-										4 Jsonp
+									<a href="/2019/12/18/01%20Spring/04%20Web/4%20%E8%B7%A8%E5%9F%9F/">
+										4 跨域
 									</a>
 								</li>
 							</ul>
@@ -4405,13 +4409,13 @@ JDK 1.2开始，Java集合框架(JCF)提供了通用的容器。<br>
 JDK 1.5开始，集合类是带有类型参数的泛型类。<br>
 Java容器里只能放对象，基本类型会自动装箱。<br>
 集合中也是值传递。</p>
-<h4 id="1-接口与实现"><a class="header-anchor" href="#1-接口与实现">¶</a>1 接口与实现</h4>
-<h5 id="接口"><a class="header-anchor" href="#接口">¶</a>接口</h5>
+<h4 id="1-接口与实现"><a class="header-anchor" href="#1-接口与实现"></a>1 接口与实现</h4>
+<h5 id="接口"><a class="header-anchor" href="#接口"></a>接口</h5>
 <p>为了规范容器的行为，统一设计，JCF定义了14种容器接口
 <img src="/images/1545011832790.png" alt="image"></p>
 <p>Map接口没有继承自Collection接口，因为Map表示的是关联式容器而不是集合。</p>
 <p>JDK 1.6开始，Stack已被Deque取代。</p>
-<h5 id="实现"><a class="header-anchor" href="#实现">¶</a>实现</h5>
+<h5 id="实现"><a class="header-anchor" href="#实现"></a>实现</h5>
 <p>上述接口的通用实现见下表：</p>
 <table> 
     <tr> 
@@ -4460,7 +4464,7 @@ Java容器里只能放对象，基本类型会自动装箱。<br>
         <td>LinkedHashMap</td> 
     </tr> 
 </table>
-<h4 id="2-迭代器（Iterator）"><a class="header-anchor" href="#2-迭代器（Iterator）">¶</a>2 迭代器（Iterator）</h4>
+<h4 id="2-迭代器（Iterator）"><a class="header-anchor" href="#2-迭代器（Iterator）"></a>2 迭代器（Iterator）</h4>
 <p>Collection的iterator方法返回一个迭代器对象。可以使用这iterator依次访问集合中的元素。</p>
 <pre><code>public interface Iterator&lt;E&gt; {
     boolean hasNext();
@@ -4468,7 +4472,7 @@ Java容器里只能放对象，基本类型会自动装箱。<br>
     void remove();
 }
 </code></pre>
-<h5 id="Iterator中的循环"><a class="header-anchor" href="#Iterator中的循环">¶</a>Iterator中的循环</h5>
+<h5 id="Iterator中的循环"><a class="header-anchor" href="#Iterator中的循环"></a>Iterator中的循环</h5>
 <p>先hasNext()，再next()取用一个对象。</p>
 <pre><code>Collection&lt;String&gt; c = ...;
 Iterator&lt;String&gt; iter = c.iterator();
@@ -4480,7 +4484,7 @@ while(iter.hasNext()){
 <pre><code>for(String element : c){}
 </code></pre>
 <p>Collection接口扩展了Iterable接口，任何集合都可以使用增强for循环。</p>
-<h5 id="Iterator中的remove方法"><a class="header-anchor" href="#Iterator中的remove方法">¶</a>Iterator中的remove方法</h5>
+<h5 id="Iterator中的remove方法"><a class="header-anchor" href="#Iterator中的remove方法"></a>Iterator中的remove方法</h5>
 <p>Iterator.next 类似 InputStream.read，调用、读取、消耗。<br>
 next方法和remove方法具有相互依赖型，调用remove之前没有调用next是不合法的。<br>
 remove是指删除最后遍历的元素</p>
@@ -4496,6 +4500,7 @@ it.remove();//IllegalStateException
 
 	</div>
 	<div id="footer">
+	<p>
 	©2019-<span id="footerYear"></span> 
 	<a href="/">Wu Jun</a> 
 	|
@@ -4508,7 +4513,9 @@ it.remove();//IllegalStateException
 		uv
 		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	<br>
 	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
+	</p>
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';

@@ -11,14 +11,14 @@
 	
 		6 Lambdas与Streams（42-48） | 
 	 
-	吴俊的博客
+	WuJun Blog
 	</title>
 	
 	<!-- keywords,description -->
 	
 		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
 	 
-		<meta name="description" content="吴俊的博客,wujun234" />
+		<meta name="description" content="吴俊,wujun234,wujun,wu jun" />
 	
 
 	<!-- favicon -->
@@ -29,7 +29,7 @@
 
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
-	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
+	<link rel="stylesheet" href="/lib/highlight/darcula.css">
 
 	<script src="/lib/highlight/highlight.pack.js"></script>
 	<script src="/lib/jquery-3.4.1.min.js"></script>
@@ -40,16 +40,19 @@
 
 <body>
 	<header id="header">
-    <a id="title" href="/" class="logo">吴俊的博客</a>
+    <a id="title" href="/" class="logo">WuJun Blog</a>
 
 	<ul id="menu">
 		<li class="menu-item">
-			<a href="/about" class="menu-item-link">关于</a>
+			<a href="/" class="menu-item-link">HOME</a>
+		</li>
+		<li class="menu-item">
+			<a href="/about" class="menu-item-link">ABOUT</a>
 		</li>
 		
 		<li class="menu-item">
 			<a href="https://github.com/wujun234/uid-generator-spring-boot-starter" class="menu-item-link" target="_blank">
-				uid-generator
+				UidGenerator
 			</a>
 		</li>
 		<li class="menu-item">
@@ -60,10 +63,11 @@
 	</ul>
 </header>
 
-	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-bars" aria-hidden="true"></i></button>
+	
 <div id="sidebar">
-	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">站点目录</a>
-	<a herf="#" id="sidebar-article" class="sidebar-toc">文章目录</a>
+	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-arrow-right " aria-hidden="true"></i></button>
+	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">SITE MENU</a>
+	<a herf="#" id="sidebar-article" class="sidebar-toc">ARTICLE MENU</a>
 
 	<!-- 侧边目录栏 -->
 	<div id="site-toc">
@@ -1892,8 +1896,8 @@
 			
 							<ul>
 								<li class="file">
-									<a href="/2019/12/18/01%20Spring/04%20Web/4%20Jsonp/">
-										4 Jsonp
+									<a href="/2019/12/18/01%20Spring/04%20Web/4%20%E8%B7%A8%E5%9F%9F/">
+										4 跨域
 									</a>
 								</li>
 							</ul>
@@ -4399,10 +4403,10 @@
 
 
 <div id="article">
-	<h3 id="第42条：lambdas优于匿名类"><a class="header-anchor" href="#第42条：lambdas优于匿名类">¶</a>第42条：lambdas优于匿名类</h3>
+	<h3 id="第42条：lambdas优于匿名类"><a class="header-anchor" href="#第42条：lambdas优于匿名类"></a>第42条：lambdas优于匿名类</h3>
 <p>从Java 8开始，lambda是迄今为止表示小函数对象的最佳方式。 除非必须创建非函数式接口类型的实例，否则不要使用匿名类作为函数对象。</p>
 <p>lambda没有名称和文档，如果超过三行，不要使用lambda表达式。</p>
-<h3 id="第43条-方法引用优于lambdas"><a class="header-anchor" href="#第43条-方法引用优于lambdas">¶</a>第43条: 方法引用优于lambdas</h3>
+<h3 id="第43条-方法引用优于lambdas"><a class="header-anchor" href="#第43条-方法引用优于lambdas"></a>第43条: 方法引用优于lambdas</h3>
 <p>如果方法引用看起来更简短更清晰，请使用它们；否则，还是坚持lambda。</p>
 <table>
 <thead>
@@ -4440,7 +4444,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="第44条-优先使用标准的函数式接口"><a class="header-anchor" href="#第44条-优先使用标准的函数式接口">¶</a>第44条: 优先使用标准的函数式接口</h3>
+<h3 id="第44条-优先使用标准的函数式接口"><a class="header-anchor" href="#第44条-优先使用标准的函数式接口"></a>第44条: 优先使用标准的函数式接口</h3>
 <p>设计API时必须考虑lambda表达式。 在输入上接受函数式接口类型并在输出中返回它们。 一般来说，最好使用java.util.function.Function中提供的标准接口</p>
 <table>
 <thead>
@@ -4490,22 +4494,23 @@
 </tr>
 </tbody>
 </table>
-<h3 id="第45条-明智审慎地使用Stream"><a class="header-anchor" href="#第45条-明智审慎地使用Stream">¶</a>第45条: 明智审慎地使用Stream</h3>
+<h3 id="第45条-明智审慎地使用Stream"><a class="header-anchor" href="#第45条-明智审慎地使用Stream"></a>第45条: 明智审慎地使用Stream</h3>
 <p>在没有显式类型的情况下，仔细命名lambda参数对于流管道的可读性至关重要。</p>
 <p>使用辅助方法对于流管道中的可读性比在迭代代码中更为重要</p>
 <p>重构现有代码以使用流，并仅在有意义的情况下在新代码中使用它们。</p>
 <p>如果不确定一个任务是通过流还是迭代更好地完成，那么尝试这两种方法，看看哪一种效果更好。</p>
-<h3 id="第46条-优先考虑流中无副作用的函数"><a class="header-anchor" href="#第46条-优先考虑流中无副作用的函数">¶</a>第46条: 优先考虑流中无副作用的函数</h3>
-<h3 id="第47条-返回类型优先选择集合而不是流"><a class="header-anchor" href="#第47条-返回类型优先选择集合而不是流">¶</a>第47条: 返回类型优先选择集合而不是流</h3>
+<h3 id="第46条-优先考虑流中无副作用的函数"><a class="header-anchor" href="#第46条-优先考虑流中无副作用的函数"></a>第46条: 优先考虑流中无副作用的函数</h3>
+<h3 id="第47条-返回类型优先选择集合而不是流"><a class="header-anchor" href="#第47条-返回类型优先选择集合而不是流"></a>第47条: 返回类型优先选择集合而不是流</h3>
 <p>如果返回集合是可行的，请执行此操作。如果返回集合是不可行的，则返回流或可迭代的。</p>
 <p>如果在将来的Java版本中，Stream接口声明被修改为继承Iterable，那么可随意返回流。</p>
-<h3 id="第48条-谨慎使用流并行"><a class="header-anchor" href="#第48条-谨慎使用流并行">¶</a>第48条: 谨慎使用流并行</h3>
+<h3 id="第48条-谨慎使用流并行"><a class="header-anchor" href="#第48条-谨慎使用流并行"></a>第48条: 谨慎使用流并行</h3>
 <p>不恰当地并行化流的代价可能是程序失败或性能灾难。使用并行流之前，请确保您的代码在并行运行时保持正确，并在实际情况下进行仔细的性能度量。</p>
 
 </div>
 
 	</div>
 	<div id="footer">
+	<p>
 	©2019-<span id="footerYear"></span> 
 	<a href="/">Wu Jun</a> 
 	|
@@ -4518,7 +4523,9 @@
 		uv
 		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	<br>
 	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
+	</p>
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';

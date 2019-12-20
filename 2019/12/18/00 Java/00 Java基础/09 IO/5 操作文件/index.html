@@ -11,14 +11,14 @@
 	
 		5 操作文件 | 
 	 
-	吴俊的博客
+	WuJun Blog
 	</title>
 	
 	<!-- keywords,description -->
 	
 		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
 	 
-		<meta name="description" content="吴俊的博客,wujun234" />
+		<meta name="description" content="吴俊,wujun234,wujun,wu jun" />
 	
 
 	<!-- favicon -->
@@ -29,7 +29,7 @@
 
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
-	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
+	<link rel="stylesheet" href="/lib/highlight/darcula.css">
 
 	<script src="/lib/highlight/highlight.pack.js"></script>
 	<script src="/lib/jquery-3.4.1.min.js"></script>
@@ -40,16 +40,19 @@
 
 <body>
 	<header id="header">
-    <a id="title" href="/" class="logo">吴俊的博客</a>
+    <a id="title" href="/" class="logo">WuJun Blog</a>
 
 	<ul id="menu">
 		<li class="menu-item">
-			<a href="/about" class="menu-item-link">关于</a>
+			<a href="/" class="menu-item-link">HOME</a>
+		</li>
+		<li class="menu-item">
+			<a href="/about" class="menu-item-link">ABOUT</a>
 		</li>
 		
 		<li class="menu-item">
 			<a href="https://github.com/wujun234/uid-generator-spring-boot-starter" class="menu-item-link" target="_blank">
-				uid-generator
+				UidGenerator
 			</a>
 		</li>
 		<li class="menu-item">
@@ -60,10 +63,11 @@
 	</ul>
 </header>
 
-	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-bars" aria-hidden="true"></i></button>
+	
 <div id="sidebar">
-	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">站点目录</a>
-	<a herf="#" id="sidebar-article" class="sidebar-toc">文章目录</a>
+	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-arrow-right " aria-hidden="true"></i></button>
+	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">SITE MENU</a>
+	<a herf="#" id="sidebar-article" class="sidebar-toc">ARTICLE MENU</a>
 
 	<!-- 侧边目录栏 -->
 	<div id="site-toc">
@@ -1892,8 +1896,8 @@
 			
 							<ul>
 								<li class="file">
-									<a href="/2019/12/18/01%20Spring/04%20Web/4%20Jsonp/">
-										4 Jsonp
+									<a href="/2019/12/18/01%20Spring/04%20Web/4%20%E8%B7%A8%E5%9F%9F/">
+										4 跨域
 									</a>
 								</li>
 							</ul>
@@ -4400,50 +4404,50 @@
 
 <div id="article">
 	<p>Path接口和Files类封装了在用户机器上处理文件系统所需的所有功能，他们是在JavaSE7中新添加进来的，比自JDK1.0以来一直使用的File类方便很多。</p>
-<h3 id="1-Path"><a class="header-anchor" href="#1-Path">¶</a>1 Path</h3>
+<h3 id="1-Path"><a class="header-anchor" href="#1-Path"></a>1 Path</h3>
 <p>Path表示的是一个目录名序列，其后还可以跟着一个文件名。<br>
 路径中的第一个部件可以是根部件，例如 <code>/</code>或 <code>C:\</code>。以根部件开始的路径是绝对路径；否则，就是相对路径。</p>
 <pre><code>Path absolute = Paths.get(&quot;/home&quot;,&quot;harry&quot;);
 Path relative = Paths.get(&quot;myprog&quot;,&quot;conf&quot;,&quot;user.properties&quot;);
 </code></pre>
 <p>静态的Paths.get方法接受一个或多个字符串，并将它们用默认文件系统的路径分隔符（<code>/</code>,<code>\</code>）连接起来。</p>
-<h5 id="resolve"><a class="header-anchor" href="#resolve">¶</a>resolve</h5>
+<h5 id="resolve"><a class="header-anchor" href="#resolve"></a>resolve</h5>
 <p>组合或解析路径,调用p.resolve(q)将按照下列规则返回一个路径：</p>
 <ul>
 <li>如果q是绝对路径，结果就是q</li>
 <li>否则，根据文件系统规则，将“p后跟q&quot;作为结果</li>
 </ul>
-<h5 id="resolveSibling"><a class="header-anchor" href="#resolveSibling">¶</a>resolveSibling</h5>
+<h5 id="resolveSibling"><a class="header-anchor" href="#resolveSibling"></a>resolveSibling</h5>
 <p>解析指定路径的父路径产生其兄弟路径</p>
 <pre><code>Path workPath = Paths.get(&quot;/opt/myapp/work&quot;);
 Path tempPath = workPath.resolveSibling(&quot;temp&quot;);
 //tempPath == /opt/myapp/temp.
 </code></pre>
-<h5 id="relativize"><a class="header-anchor" href="#relativize">¶</a>relativize</h5>
+<h5 id="relativize"><a class="header-anchor" href="#relativize"></a>relativize</h5>
 <p>resolve的对立面，即调用p.relativize®将产生路径q,而对q进行的解析的结果正是r 。</p>
 <p>例如，以”/home/cay&quot;为目标对&quot;/home/fred/myprog&quot;进行相对化操作，会产生“…/fred/yprog&quot;,其中假设…表示的是文件系统的父目录。</p>
-<h5 id="normalize"><a class="header-anchor" href="#normalize">¶</a>normalize</h5>
+<h5 id="normalize"><a class="header-anchor" href="#normalize"></a>normalize</h5>
 <p>移除所有冗余的.和…部件（或者文件系统认为冗余的所有部件）。</p>
 <p>例如，规范化/home/cay/…/fred/./myprog将产生/home/fred/myprog。</p>
-<h5 id="toAbsolutePath"><a class="header-anchor" href="#toAbsolutePath">¶</a>toAbsolutePath</h5>
+<h5 id="toAbsolutePath"><a class="header-anchor" href="#toAbsolutePath"></a>toAbsolutePath</h5>
 <p>产生给定路径的绝对路径，该绝对路径从根部件开始。</p>
 <p>例如/home/fred/input.txt或c:\Usersfredinput.txt。</p>
-<h5 id="断开路径"><a class="header-anchor" href="#断开路径">¶</a>断开路径</h5>
+<h5 id="断开路径"><a class="header-anchor" href="#断开路径"></a>断开路径</h5>
 <p>Path类有许多有用的方法用来将路径断开。</p>
 <pre><code>Path p = Paths.get(&quot;/home&quot;,&quot;fred&quot;,&quot;myproperties&quot;);
 Path parent = p.getParent();
 Path file = p.getFileName();
 Path root = p.getRoot();
 </code></pre>
-<h5 id="Scanner"><a class="header-anchor" href="#Scanner">¶</a>Scanner</h5>
+<h5 id="Scanner"><a class="header-anchor" href="#Scanner"></a>Scanner</h5>
 <p>还可以从Path对象中构建Scanner对象：</p>
 <pre><code>Scanner in = new Scanner(Paths.get(&quot;/home/fred/input.txt&quot;));
 </code></pre>
-<h5 id="遗留系统"><a class="header-anchor" href="#遗留系统">¶</a>遗留系统</h5>
+<h5 id="遗留系统"><a class="header-anchor" href="#遗留系统"></a>遗留系统</h5>
 <p>需要与遗留系统交互时，可以使用Path的toFile方法，或者File类的toPath方法</p>
-<h3 id="2-读写文件"><a class="header-anchor" href="#2-读写文件">¶</a>2 读写文件</h3>
+<h3 id="2-读写文件"><a class="header-anchor" href="#2-读写文件"></a>2 读写文件</h3>
 <p>Files类可以使得普通文件操作变得快捷。</p>
-<h4 id="读"><a class="header-anchor" href="#读">¶</a>读</h4>
+<h4 id="读"><a class="header-anchor" href="#读"></a>读</h4>
 <ul>
 <li>读为byte</li>
 </ul>
@@ -4459,7 +4463,7 @@ Path root = p.getRoot();
 </ul>
 <pre><code>List&lt;String&gt; lines = Files.readAllLines(path,charset);
 </code></pre>
-<h4 id="写"><a class="header-anchor" href="#写">¶</a>写</h4>
+<h4 id="写"><a class="header-anchor" href="#写"></a>写</h4>
 <ul>
 <li>写出字符串</li>
 </ul>
@@ -4481,20 +4485,20 @@ OutputStream out = Files.newOutputStream(path);
 Reader in = Files.newBufferedReader(path, charset);
 Writer out = Files.newBufferedWriter(path, charset);
 </code></pre>
-<h3 id="3-创建文件和目录"><a class="header-anchor" href="#3-创建文件和目录">¶</a>3 创建文件和目录</h3>
-<h4 id="创建新目录"><a class="header-anchor" href="#创建新目录">¶</a>创建新目录</h4>
+<h3 id="3-创建文件和目录"><a class="header-anchor" href="#3-创建文件和目录"></a>3 创建文件和目录</h3>
+<h4 id="创建新目录"><a class="header-anchor" href="#创建新目录"></a>创建新目录</h4>
 <p>中间目录必须是已存在</p>
 <pre><code>Files.createDirectory(path);
 </code></pre>
 <p>同时创建中间目录</p>
 <pre><code>Files.createDirectories(path);
 </code></pre>
-<h4 id="创建空文件"><a class="header-anchor" href="#创建空文件">¶</a>创建空文件</h4>
+<h4 id="创建空文件"><a class="header-anchor" href="#创建空文件"></a>创建空文件</h4>
 <p>如果文件已存在，会抛异常。</p>
 <pre><code>Files.createFile(path);
 </code></pre>
 <p>检查文件是否存在和创建文件是原子性的，如果文件不存在，该文件就会被创建，并且其他程序在此过程中是无法执行文件创建操作的。</p>
-<h4 id="创建临时文件和临时目录"><a class="header-anchor" href="#创建临时文件和临时目录">¶</a>创建临时文件和临时目录</h4>
+<h4 id="创建临时文件和临时目录"><a class="header-anchor" href="#创建临时文件和临时目录"></a>创建临时文件和临时目录</h4>
 <pre><code>Path newPath = Files.createTempFile(dir,prefix,suffix);
 Pah newPath = Files.createTempFile(prefix,suffix);
 Pah newPath = Files.createTempDirectory(dir,prefix);
@@ -4502,8 +4506,8 @@ Pah newPath = Files.createTempDirectory(prefix);
 </code></pre>
 <p>其中，dir是一个Path对象，prefix和suffix是可以为null的字符串。例如，调用Files.createTempFile(null, “.txt”)可能会返回一个像/tmp/1234405522364837194.txt这样的路径。</p>
 <p>创建文件或目录，可以制定属性，例如文件的拥有者和权限。</p>
-<h3 id="4-复制、移动和删除文件"><a class="header-anchor" href="#4-复制、移动和删除文件">¶</a>4 复制、移动和删除文件</h3>
-<h4 id="复制、移动"><a class="header-anchor" href="#复制、移动">¶</a>复制、移动</h4>
+<h3 id="4-复制、移动和删除文件"><a class="header-anchor" href="#4-复制、移动和删除文件"></a>4 复制、移动和删除文件</h3>
+<h4 id="复制、移动"><a class="header-anchor" href="#复制、移动"></a>复制、移动</h4>
 <p>如果目标路径已经存在，那么复制或移动将失败。</p>
 <ul>
 <li>复制文件</li>
@@ -4528,7 +4532,7 @@ ATOMIC_MOVE：将移动操作定义为原子性的
 <pre><code>Files.copy(inputStream,toPath);
 Files.copy(fromPath,outputStream);
 </code></pre>
-<h4 id="删除"><a class="header-anchor" href="#删除">¶</a>删除</h4>
+<h4 id="删除"><a class="header-anchor" href="#删除"></a>删除</h4>
 <ul>
 <li>删除文件</li>
 </ul>
@@ -4540,21 +4544,21 @@ Files.copy(fromPath,outputStream);
 </ul>
 <pre><code>boolean deleted = Files.deleteIfExits(path);
 </code></pre>
-<h3 id="5-获取文件信息"><a class="header-anchor" href="#5-获取文件信息">¶</a>5 获取文件信息</h3>
-<h5 id="路径属性"><a class="header-anchor" href="#路径属性">¶</a>路径属性</h5>
+<h3 id="5-获取文件信息"><a class="header-anchor" href="#5-获取文件信息"></a>5 获取文件信息</h3>
+<h5 id="路径属性"><a class="header-anchor" href="#路径属性"></a>路径属性</h5>
 <ul>
 <li>exists</li>
 <li>isHidden</li>
 <li>isReadadble,isWritable,isExecuutable</li>
 <li>isRegularFile, isDirectory, isSymbolicLink</li>
 </ul>
-<h5 id="文件字节数"><a class="header-anchor" href="#文件字节数">¶</a>文件字节数</h5>
+<h5 id="文件字节数"><a class="header-anchor" href="#文件字节数"></a>文件字节数</h5>
 <p>size方法</p>
 <pre><code>long filesize = Files.size(path);
 </code></pre>
-<h5 id="文件拥有者"><a class="header-anchor" href="#文件拥有者">¶</a>文件拥有者</h5>
+<h5 id="文件拥有者"><a class="header-anchor" href="#文件拥有者"></a>文件拥有者</h5>
 <p>getOwner方法将文件的拥有者作为java.nio.file.attribute.UserPrincipal的一个实例返回。</p>
-<h5 id="基本属性集"><a class="header-anchor" href="#基本属性集">¶</a>基本属性集</h5>
+<h5 id="基本属性集"><a class="header-anchor" href="#基本属性集"></a>基本属性集</h5>
 <p>获取基本属性集</p>
 <ul>
 <li>创建文件、最后一次访问、最后一次修改的时间，这些时间都表示成java.nio.file.attribute.FileTime</li>
@@ -4568,20 +4572,20 @@ Files.copy(fromPath,outputStream);
 <pre><code>PosixFileAttributes attributes = Files .readAttributes(path,PosixFilesAttributes.class);
 </code></pre>
 <p>然后从中找到拥有者，以及文件的拥有者、组或访问权限。</p>
-<h3 id="6-访问目录中的项"><a class="header-anchor" href="#6-访问目录中的项">¶</a>6 访问目录中的项</h3>
-<h4 id="list"><a class="header-anchor" href="#list">¶</a>list</h4>
+<h3 id="6-访问目录中的项"><a class="header-anchor" href="#6-访问目录中的项"></a>6 访问目录中的项</h3>
+<h4 id="list"><a class="header-anchor" href="#list"></a>list</h4>
 <p>Files.list方法会返回一个可以读取目录中各个项的Stream<Path>对象。惰性读取，更高效。<br>
 list 方法不会进入子目录。</p>
 <pre><code>try( Stream&lt;Path&gt; entries = Files.list(pathToDirectory){...}
 </code></pre>
-<h4 id="walk"><a class="header-anchor" href="#walk">¶</a>walk</h4>
+<h4 id="walk"><a class="header-anchor" href="#walk"></a>walk</h4>
 <p>Files.walk方法会产生一个可以遍历目录中所有子目录的Stream<Path>对象。</p>
 <pre><code>try( Stream&lt;Path&gt; entries = Files.walk方法(pathToRoot){...}
 </code></pre>
 <p>限制想要访问的树的深度。</p>
 <pre><code>File.walk(pathToRoot, depth)
 </code></pre>
-<h3 id="7-使用目录流"><a class="header-anchor" href="#7-使用目录流">¶</a>7 使用目录流</h3>
+<h3 id="7-使用目录流"><a class="header-anchor" href="#7-使用目录流"></a>7 使用目录流</h3>
 <p>要对遍历过程进行更加细粒度的控制，应该使用File.newDirectoryStream对象，它会产生一个DirectoryStream。</p>
 <p>DirectoryStream不是java.util.stream.Stream的子接口，而是专门用于目录遍历的接口。它是Iterable的子接口，可以在增强的for循环中使用目录流。</p>
 <pre><code>try (DirectoryStream&lt;Path&gt; entries = Files.newDirectoryStream(dir)){
@@ -4595,15 +4599,15 @@ list 方法不会进入子目录。</p>
 <pre><code>try (DirectoryStream&lt;Path&gt; entries = Files.newDirectoryStream(dir,&quot;*.java&quot;))
 </code></pre>
 <p><img src="/images/1545011845105.png" alt=""></p>
-<h3 id="8-ZIP文件系统"><a class="header-anchor" href="#8-ZIP文件系统">¶</a>8 ZIP文件系统</h3>
-<h4 id="建立文件系统"><a class="header-anchor" href="#建立文件系统">¶</a>建立文件系统</h4>
+<h3 id="8-ZIP文件系统"><a class="header-anchor" href="#8-ZIP文件系统"></a>8 ZIP文件系统</h3>
+<h4 id="建立文件系统"><a class="header-anchor" href="#建立文件系统"></a>建立文件系统</h4>
 <pre><code>FileSystem fs = FileSystem.newFileSystem(Path.get(zipname),null);
 </code></pre>
-<h4 id="复制文件"><a class="header-anchor" href="#复制文件">¶</a>复制文件</h4>
+<h4 id="复制文件"><a class="header-anchor" href="#复制文件"></a>复制文件</h4>
 <pre><code>Files.copy(fs.getPath(soureceName),targetPath);
 </code></pre>
 <p>fs.getPath与Paths.get类似</p>
-<h4 id="遍历文件树"><a class="header-anchor" href="#遍历文件树">¶</a>遍历文件树</h4>
+<h4 id="遍历文件树"><a class="header-anchor" href="#遍历文件树"></a>遍历文件树</h4>
 <pre><code>FileSystem fs = FileSystem.newFileSystem(Path.get(zipname),null);
 Files.walkFileTreee(fs.getPath(&quot;/&quot;),new SimpleFileVisitor&lt;Path&gt;(){
     public FileVisitResult visitFile(Path file,BasicFileAttributes attrs) throws IOException{
@@ -4617,6 +4621,7 @@ Files.walkFileTreee(fs.getPath(&quot;/&quot;),new SimpleFileVisitor&lt;Path&gt;(
 
 	</div>
 	<div id="footer">
+	<p>
 	©2019-<span id="footerYear"></span> 
 	<a href="/">Wu Jun</a> 
 	|
@@ -4629,7 +4634,9 @@ Files.walkFileTreee(fs.getPath(&quot;/&quot;),new SimpleFileVisitor&lt;Path&gt;(
 		uv
 		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	<br>
 	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
+	</p>
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';

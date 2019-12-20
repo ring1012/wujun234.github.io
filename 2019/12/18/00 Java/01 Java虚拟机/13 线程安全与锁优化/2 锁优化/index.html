@@ -11,14 +11,14 @@
 	
 		2 锁优化 | 
 	 
-	吴俊的博客
+	WuJun Blog
 	</title>
 	
 	<!-- keywords,description -->
 	
 		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
 	 
-		<meta name="description" content="吴俊的博客,wujun234" />
+		<meta name="description" content="吴俊,wujun234,wujun,wu jun" />
 	
 
 	<!-- favicon -->
@@ -29,7 +29,7 @@
 
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
-	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
+	<link rel="stylesheet" href="/lib/highlight/darcula.css">
 
 	<script src="/lib/highlight/highlight.pack.js"></script>
 	<script src="/lib/jquery-3.4.1.min.js"></script>
@@ -40,16 +40,19 @@
 
 <body>
 	<header id="header">
-    <a id="title" href="/" class="logo">吴俊的博客</a>
+    <a id="title" href="/" class="logo">WuJun Blog</a>
 
 	<ul id="menu">
 		<li class="menu-item">
-			<a href="/about" class="menu-item-link">关于</a>
+			<a href="/" class="menu-item-link">HOME</a>
+		</li>
+		<li class="menu-item">
+			<a href="/about" class="menu-item-link">ABOUT</a>
 		</li>
 		
 		<li class="menu-item">
 			<a href="https://github.com/wujun234/uid-generator-spring-boot-starter" class="menu-item-link" target="_blank">
-				uid-generator
+				UidGenerator
 			</a>
 		</li>
 		<li class="menu-item">
@@ -60,10 +63,11 @@
 	</ul>
 </header>
 
-	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-bars" aria-hidden="true"></i></button>
+	
 <div id="sidebar">
-	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">站点目录</a>
-	<a herf="#" id="sidebar-article" class="sidebar-toc">文章目录</a>
+	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-arrow-right " aria-hidden="true"></i></button>
+	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">SITE MENU</a>
+	<a herf="#" id="sidebar-article" class="sidebar-toc">ARTICLE MENU</a>
 
 	<!-- 侧边目录栏 -->
 	<div id="site-toc">
@@ -1892,8 +1896,8 @@
 			
 							<ul>
 								<li class="file">
-									<a href="/2019/12/18/01%20Spring/04%20Web/4%20Jsonp/">
-										4 Jsonp
+									<a href="/2019/12/18/01%20Spring/04%20Web/4%20%E8%B7%A8%E5%9F%9F/">
+										4 跨域
 									</a>
 								</li>
 							</ul>
@@ -4399,26 +4403,26 @@
 
 
 <div id="article">
-	<h3 id="1-自旋锁与自适应自旋"><a class="header-anchor" href="#1-自旋锁与自适应自旋">¶</a>1 自旋锁与自适应自旋</h3>
+	<h3 id="1-自旋锁与自适应自旋"><a class="header-anchor" href="#1-自旋锁与自适应自旋"></a>1 自旋锁与自适应自旋</h3>
 <ul>
 <li><strong>自旋锁</strong>，让后面请求锁的那个线程等待，执行一个忙循环；</li>
 <li>在JDK 1.6已经默认开启自旋锁；如果锁被占用的时间很短自旋等待的效果就会非常好，反之则会白白消耗处理器资源；</li>
 <li>在JDK 1.6中引入了<strong>自适应的自旋锁</strong>，这意味着自旋的时间不再固定，而是由前一次在同一个锁上的自旋时间及锁的拥有者的状态来决定；</li>
 </ul>
-<h3 id="2-锁消除"><a class="header-anchor" href="#2-锁消除">¶</a>2 锁消除</h3>
+<h3 id="2-锁消除"><a class="header-anchor" href="#2-锁消除"></a>2 锁消除</h3>
 <ul>
 <li>消除是指虚拟机即时编译器在运行时，对一些代码上要求同步，但是被检测到不可能存在共享数据竞争的锁进行消除；</li>
 <li>锁消除的主要判断依据来源于逃逸分析的数据支持；</li>
 </ul>
-<h3 id="3-锁粗化"><a class="header-anchor" href="#3-锁粗化">¶</a>3 锁粗化</h3>
+<h3 id="3-锁粗化"><a class="header-anchor" href="#3-锁粗化"></a>3 锁粗化</h3>
 <ul>
 <li>原则上总是推荐将同步块的作用范围限制得尽量小 – 只有在共享数据的实际作用域中才进行同步，这样是为了使得需要同步的操作数量尽可能变小，如果存在锁竞争，那等待锁的线程也能尽快拿到锁；</li>
 <li>但是如果一系列的连续操作都对同一个对象反复加锁和解锁，甚至加锁操作是出现在循环体中的，那即使没有线程竞争，频繁地进行互斥同步操作也会导致不必要的性能损耗；</li>
 </ul>
-<h3 id="4-轻量级锁"><a class="header-anchor" href="#4-轻量级锁">¶</a>4 轻量级锁</h3>
+<h3 id="4-轻量级锁"><a class="header-anchor" href="#4-轻量级锁"></a>4 轻量级锁</h3>
 <p>轻量级锁是JDK 1.6之中加入的新型锁机制，并不是用来代替重量级锁的，它的本意是在没有多线程竞争的前提下，下使用CAS操作去消除同步使用的互斥量，减少传统的重量级锁使用操作系统互斥量产生的性能消耗；</p>
 <p>在线程栈帧中CAS获取锁，<strong>如果有两条以上的线程争用同一个锁，那轻量级锁就不再有效</strong>，要膨胀为重量级锁</p>
-<h3 id="5-偏向锁"><a class="header-anchor" href="#5-偏向锁">¶</a>5 偏向锁</h3>
+<h3 id="5-偏向锁"><a class="header-anchor" href="#5-偏向锁"></a>5 偏向锁</h3>
 <ul>
 <li>偏向锁也是JDK 1.6中引入的一项锁优化，它的目的是消除数据在无竞争情况下的同步原语，进一步提高程序的运行性能；偏向锁就是在<strong>无竞争的情况下把整个同步都消除掉</strong>，连CAS操作都不做了；</li>
 <li>偏向锁会偏向于第一个获得它的线程，如果在接下来的执行过程中，该锁没有被其他的线程获取，则持有偏向锁的线程将永远不需要再进行同步；</li>
@@ -4431,6 +4435,7 @@
 
 	</div>
 	<div id="footer">
+	<p>
 	©2019-<span id="footerYear"></span> 
 	<a href="/">Wu Jun</a> 
 	|
@@ -4443,7 +4448,9 @@
 		uv
 		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	<br>
 	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
+	</p>
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';

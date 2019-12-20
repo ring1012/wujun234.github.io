@@ -9,14 +9,14 @@
 	
 	<title>
 	 
-	吴俊的博客
+	WuJun Blog
 	</title>
 	
 	<!-- keywords,description -->
 	
 		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
 	 
-		<meta name="description" content="吴俊的博客,wujun234" />
+		<meta name="description" content="吴俊,wujun234,wujun,wu jun" />
 	
 
 	<!-- favicon -->
@@ -27,7 +27,7 @@
 
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
-	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
+	<link rel="stylesheet" href="/lib/highlight/darcula.css">
 
 	<script src="/lib/highlight/highlight.pack.js"></script>
 	<script src="/lib/jquery-3.4.1.min.js"></script>
@@ -38,16 +38,19 @@
 
 <body>
 	<header id="header">
-    <a id="title" href="/" class="logo">吴俊的博客</a>
+    <a id="title" href="/" class="logo">WuJun Blog</a>
 
 	<ul id="menu">
 		<li class="menu-item">
-			<a href="/about" class="menu-item-link">关于</a>
+			<a href="/" class="menu-item-link">HOME</a>
+		</li>
+		<li class="menu-item">
+			<a href="/about" class="menu-item-link">ABOUT</a>
 		</li>
 		
 		<li class="menu-item">
 			<a href="https://github.com/wujun234/uid-generator-spring-boot-starter" class="menu-item-link" target="_blank">
-				uid-generator
+				UidGenerator
 			</a>
 		</li>
 		<li class="menu-item">
@@ -58,10 +61,11 @@
 	</ul>
 </header>
 
-	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-bars" aria-hidden="true"></i></button>
+	
 <div id="sidebar">
-	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">站点目录</a>
-	<a herf="#" id="sidebar-article" class="sidebar-toc">文章目录</a>
+	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-arrow-right " aria-hidden="true"></i></button>
+	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">SITE MENU</a>
+	<a herf="#" id="sidebar-article" class="sidebar-toc">ARTICLE MENU</a>
 
 	<!-- 侧边目录栏 -->
 	<div id="site-toc">
@@ -1890,8 +1894,8 @@
 			
 							<ul>
 								<li class="file">
-									<a href="/2019/12/18/01%20Spring/04%20Web/4%20Jsonp/">
-										4 Jsonp
+									<a href="/2019/12/18/01%20Spring/04%20Web/4%20%E8%B7%A8%E5%9F%9F/">
+										4 跨域
 									</a>
 								</li>
 							</ul>
@@ -4384,18 +4388,17 @@
 
 	<!-- 引入正文 -->
 	<div id="content">
-		<section id="articleList">
-		
-
-			<article class="article-li">
-				<h2>
-					<a class="article-title" href="/2019/12/18/07%20%E5%B7%A5%E5%85%B7%E7%B1%BB/1%20Apache%20Commons/7%20Apache%20Commons%20Text/">7 Apache Commons Text</a>
+		<div id="index-list">
+	
+		<div class="index-li">
+			<a href="/2019/12/18/07%20%E5%B7%A5%E5%85%B7%E7%B1%BB/1%20Apache%20Commons/7%20Apache%20Commons%20Text/">
+				<h2 class="index-title">
+					7 Apache Commons Text
 				</h2>
-				<span class="post-date">2019-12-19</span>
-				<div class="article-digest">
+				<div class="index-brief">
 					Apache Commons Text官网
 文本处理
-¶包结构
+包结构
 
 
 
@@ -4410,66 +4413,79 @@ org.apache.commons.text
 文本处理基础类
 
 
-org.ap
+org.apache.commons.text.diff
+提供比较字符串差异的算法
+
+
+org.apache.co
 					...
 				</div>
-			</article>
-			
-		
-
-			<article class="article-li">
-				<h2>
-					<a class="article-title" href="/2019/12/18/07%20%E5%B7%A5%E5%85%B7%E7%B1%BB/3%20utils/1%20%E4%BD%BF%E7%94%A8Java%E8%87%AA%E5%B8%A6MessageDigest%E5%AE%9E%E7%8E%B0%E5%8A%A0%E5%AF%86%EF%BC%88MD5%E5%92%8CSHA%EF%BC%89/">1 使用Java自带MessageDigest实现加密（MD5和SHA）</a>
+				<p class="index-date">2019-12-20</p>
+			</a>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2019/12/18/07%20%E5%B7%A5%E5%85%B7%E7%B1%BB/3%20utils/1%20%E4%BD%BF%E7%94%A8Java%E8%87%AA%E5%B8%A6MessageDigest%E5%AE%9E%E7%8E%B0%E5%8A%A0%E5%AF%86%EF%BC%88MD5%E5%92%8CSHA%EF%BC%89/">
+				<h2 class="index-title">
+					1 使用Java自带MessageDigest实现加密（MD5和SHA）
 				</h2>
-				<span class="post-date">2019-12-19</span>
-				<div class="article-digest">
+				<div class="index-brief">
 					使用Java自带MessageDigest实现加密（MD5和SHA）
 import java.security.MessageDigest;
-import java.security.NoSuchAl
+import java.security.NoSuchAlgorithmException;
+
+/**
+* 加密工具类
+*
+* @author wujun
+*
 					...
 				</div>
-			</article>
-			
-		
-
-			<article class="article-li">
-				<h2>
-					<a class="article-title" href="/2019/12/18/07%20%E5%B7%A5%E5%85%B7%E7%B1%BB/3%20utils/2%20%E4%B8%80%E6%AC%A1%E6%80%A7%E8%AF%BB%E5%8F%96GZIP%E5%8E%8B%E7%BC%A9%E7%9A%84CSV%E6%96%87%E4%BB%B6/">2 一次性读取GZIP压缩的CSV文件</a>
+				<p class="index-date">2019-12-20</p>
+			</a>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2019/12/18/07%20%E5%B7%A5%E5%85%B7%E7%B1%BB/3%20utils/2%20%E4%B8%80%E6%AC%A1%E6%80%A7%E8%AF%BB%E5%8F%96GZIP%E5%8E%8B%E7%BC%A9%E7%9A%84CSV%E6%96%87%E4%BB%B6/">
+				<h2 class="index-title">
+					2 一次性读取GZIP压缩的CSV文件
 				</h2>
-				<span class="post-date">2019-12-19</span>
-				<div class="article-digest">
-					¶读取文件
+				<div class="index-brief">
+					读取文件
 先获取文件InputStream，以url为例
 URL url = new URL(destUrl);
-HttpURLConnection httpUrl = (HttpURLConnec
+HttpURLConnection httpUrl = (HttpURLConnection) url.openConnection();
+httpUrl.connect();
+Inpu
 					...
 				</div>
-			</article>
-			
-		
-
-			<article class="article-li">
-				<h2>
-					<a class="article-title" href="/2019/12/18/07%20%E5%B7%A5%E5%85%B7%E7%B1%BB/3%20utils/3%20HttpUtil/">3 HttpUtil</a>
+				<p class="index-date">2019-12-20</p>
+			</a>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2019/12/18/07%20%E5%B7%A5%E5%85%B7%E7%B1%BB/3%20utils/3%20HttpUtil/">
+				<h2 class="index-title">
+					3 HttpUtil
 				</h2>
-				<span class="post-date">2019-12-19</span>
-				<div class="article-digest">
+				<div class="index-brief">
 					The static method collection for http request
 public class HttpUtil {
-  private static final String 
+  private static final String DEFAULT_CHARSET = &quot;UTF-8&quot;;
+  private sta
 					...
 				</div>
-			</article>
-			
-		
-
-			<article class="article-li">
-				<h2>
-					<a class="article-title" href="/2019/12/18/06%20%E9%87%8D%E6%9E%84/1%20%E9%87%8D%E6%9E%84-%E6%94%B9%E5%96%84%E6%97%A2%E6%9C%89%E4%BB%A3%E7%A0%81%E7%9A%84%E8%AE%BE%E8%AE%A1/01%20%E9%87%8D%E6%9E%84%EF%BC%8C%E7%AC%AC%E4%B8%80%E4%B8%AA%E6%A1%88%E4%BE%8B/">01 重构，第一个案例</a>
+				<p class="index-date">2019-12-20</p>
+			</a>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2019/12/18/06%20%E9%87%8D%E6%9E%84/1%20%E9%87%8D%E6%9E%84-%E6%94%B9%E5%96%84%E6%97%A2%E6%9C%89%E4%BB%A3%E7%A0%81%E7%9A%84%E8%AE%BE%E8%AE%A1/01%20%E9%87%8D%E6%9E%84%EF%BC%8C%E7%AC%AC%E4%B8%80%E4%B8%AA%E6%A1%88%E4%BE%8B/">
+				<h2 class="index-title">
+					01 重构，第一个案例
 				</h2>
-				<span class="post-date">2019-12-19</span>
-				<div class="article-digest">
-					¶1 起点
+				<div class="index-brief">
+					1 起点
 重构前的程序
 
 无法复用
@@ -4477,42 +4493,51 @@ public class HttpUtil {
 很难修改
 很容易引入bug
 
-¶2 重构的第一步
+2 重构的第一步
 重构前，先检查自己是否有一套可靠的测试环境。这些测试环境必须有自我检验能力。
-¶3 分解并重组stat
+3 分解并重组statement()
+
+代码块愈小，代码的功能就愈容易管理，代码的处理和移动也就愈轻松。
+任何不会被修改的变量都
 					...
 				</div>
-			</article>
-			
-		
-
-			<article class="article-li">
-				<h2>
-					<a class="article-title" href="/2019/12/18/06%20%E9%87%8D%E6%9E%84/1%20%E9%87%8D%E6%9E%84-%E6%94%B9%E5%96%84%E6%97%A2%E6%9C%89%E4%BB%A3%E7%A0%81%E7%9A%84%E8%AE%BE%E8%AE%A1/02%20%E9%87%8D%E6%9E%84%E7%9A%84%E5%8E%9F%E5%88%99/">02 重构的原则</a>
+				<p class="index-date">2019-12-20</p>
+			</a>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2019/12/18/06%20%E9%87%8D%E6%9E%84/1%20%E9%87%8D%E6%9E%84-%E6%94%B9%E5%96%84%E6%97%A2%E6%9C%89%E4%BB%A3%E7%A0%81%E7%9A%84%E8%AE%BE%E8%AE%A1/02%20%E9%87%8D%E6%9E%84%E7%9A%84%E5%8E%9F%E5%88%99/">
+				<h2 class="index-title">
+					02 重构的原则
 				</h2>
-				<span class="post-date">2019-12-19</span>
-				<div class="article-digest">
-					¶1 何为重构
+				<div class="index-brief">
+					1 何为重构
 重构: 在不改变软件可观察行为的前提下改善其内部结构
-¶2 为何重构
+2 为何重构
 重构可以提高代码质量
-¶3 何时重构
+3 何时重构
 事不过三，三则重构。
 重构应该是在开发过程中实时的、渐进的演化过程：
 
-添加
+添加新功能时重构
+修补错误时重构
+复审代码时重构
+
+4 怎么对经理说
+为了质量 or 不要告诉
+5 重构的难题
 					...
 				</div>
-			</article>
-			
-		
-
-			<article class="article-li">
-				<h2>
-					<a class="article-title" href="/2019/12/18/06%20%E9%87%8D%E6%9E%84/1%20%E9%87%8D%E6%9E%84-%E6%94%B9%E5%96%84%E6%97%A2%E6%9C%89%E4%BB%A3%E7%A0%81%E7%9A%84%E8%AE%BE%E8%AE%A1/03%20%E4%BB%A3%E7%A0%81%E7%9A%84%E5%9D%8F%E5%91%B3%E9%81%93/">03 代码的坏味道</a>
+				<p class="index-date">2019-12-20</p>
+			</a>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2019/12/18/06%20%E9%87%8D%E6%9E%84/1%20%E9%87%8D%E6%9E%84-%E6%94%B9%E5%96%84%E6%97%A2%E6%9C%89%E4%BB%A3%E7%A0%81%E7%9A%84%E8%AE%BE%E8%AE%A1/03%20%E4%BB%A3%E7%A0%81%E7%9A%84%E5%9D%8F%E5%91%B3%E9%81%93/">
+				<h2 class="index-title">
+					03 代码的坏味道
 				</h2>
-				<span class="post-date">2019-12-19</span>
-				<div class="article-digest">
+				<div class="index-brief">
 					
 
 
@@ -4520,37 +4545,42 @@ public class HttpUtil {
 2 Long Method 过长的函数
 3 Large Class 过大的类
 4 Long Parmeter List 过长参数列表
-5 Diverg
+5 Divergent Change 发散式变化
+6 Shotgun Surgery 霰弹式修改
+7 Feature
 					...
 				</div>
-			</article>
-			
-		
-
-			<article class="article-li">
-				<h2>
-					<a class="article-title" href="/2019/12/18/06%20%E9%87%8D%E6%9E%84/1%20%E9%87%8D%E6%9E%84-%E6%94%B9%E5%96%84%E6%97%A2%E6%9C%89%E4%BB%A3%E7%A0%81%E7%9A%84%E8%AE%BE%E8%AE%A1/04%20%E6%9E%84%E7%AD%91%E6%B5%8B%E8%AF%95%E4%BD%93%E7%B3%BB/">04 构筑测试体系</a>
+				<p class="index-date">2019-12-20</p>
+			</a>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2019/12/18/06%20%E9%87%8D%E6%9E%84/1%20%E9%87%8D%E6%9E%84-%E6%94%B9%E5%96%84%E6%97%A2%E6%9C%89%E4%BB%A3%E7%A0%81%E7%9A%84%E8%AE%BE%E8%AE%A1/04%20%E6%9E%84%E7%AD%91%E6%B5%8B%E8%AF%95%E4%BD%93%E7%B3%BB/">
+				<h2 class="index-title">
+					04 构筑测试体系
 				</h2>
-				<span class="post-date">2019-12-19</span>
-				<div class="article-digest">
+				<div class="index-brief">
 					编写优良的测试程序，可以极大地提高变成速度，即使不进行重构也一样如此。
-¶1 自测试代码的价值
+1 自测试代码的价值
 
 程序员时间消耗：编写代码占据很少一部分，大部分时间用来调试。
-确保所有测试都完全自动化，让它们检查自己
+确保所有测试都完全自动化，让它们检查自己的测试结果。
+撰写测试代码的最有用时机是在开始编程之前。当需要添加新特性得时候，先写测试代码。
+
+2 
 					...
 				</div>
-			</article>
-			
-		
-
-			<article class="article-li">
-				<h2>
-					<a class="article-title" href="/2019/12/18/06%20%E9%87%8D%E6%9E%84/1%20%E9%87%8D%E6%9E%84-%E6%94%B9%E5%96%84%E6%97%A2%E6%9C%89%E4%BB%A3%E7%A0%81%E7%9A%84%E8%AE%BE%E8%AE%A1/05%20%E9%87%8D%E6%9E%84%E5%88%97%E8%A1%A8/">05 重构列表</a>
+				<p class="index-date">2019-12-20</p>
+			</a>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2019/12/18/06%20%E9%87%8D%E6%9E%84/1%20%E9%87%8D%E6%9E%84-%E6%94%B9%E5%96%84%E6%97%A2%E6%9C%89%E4%BB%A3%E7%A0%81%E7%9A%84%E8%AE%BE%E8%AE%A1/05%20%E9%87%8D%E6%9E%84%E5%88%97%E8%A1%A8/">
+				<h2 class="index-title">
+					05 重构列表
 				</h2>
-				<span class="post-date">2019-12-19</span>
-				<div class="article-digest">
-					¶1 重构的记录格式
+				<div class="index-brief">
+					1 重构的记录格式
 采用一个标准格式，每个重构手法都有如下五个部分：
 
 名称
@@ -4559,38 +4589,48 @@ public class HttpUtil {
 做法
 范例
 
-¶2 寻找引用点
+2 寻找引用点
 
 不要盲目替换。检查每一个引用点，确定它指向想要替换得东西。
-使用编译器
+使用编译器帮助寻找引用点。
+
+使用编译器查找，要注意的问题：
+
+被删除的部分在继承体系中声明不止一次，编译器也会迷
 					...
 				</div>
-			</article>
-			
-		
-
-			<article class="article-li">
-				<h2>
-					<a class="article-title" href="/2019/12/18/06%20%E9%87%8D%E6%9E%84/1%20%E9%87%8D%E6%9E%84-%E6%94%B9%E5%96%84%E6%97%A2%E6%9C%89%E4%BB%A3%E7%A0%81%E7%9A%84%E8%AE%BE%E8%AE%A1/09%20%E7%AE%80%E5%8C%96%E6%9D%A1%E4%BB%B6%E8%A1%A8%E8%BE%BE%E5%BC%8F/">09 简化条件表达式</a>
+				<p class="index-date">2019-12-20</p>
+			</a>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2019/12/18/06%20%E9%87%8D%E6%9E%84/1%20%E9%87%8D%E6%9E%84-%E6%94%B9%E5%96%84%E6%97%A2%E6%9C%89%E4%BB%A3%E7%A0%81%E7%9A%84%E8%AE%BE%E8%AE%A1/09%20%E7%AE%80%E5%8C%96%E6%9D%A1%E4%BB%B6%E8%A1%A8%E8%BE%BE%E5%BC%8F/">
+				<h2 class="index-title">
+					09 简化条件表达式
 				</h2>
-				<span class="post-date">2019-12-19</span>
-				<div class="article-digest">
+				<div class="index-brief">
 					
 
 1 Decompose Conditional （分解条件表达式）
 2 Consolidate Conditional Expression （合并条件表达式）
-3 Consolidate Dup
+3 Consolidate Duplicate Conditional Fragments （合并重复的条件片段）
+4 Remove 
 					...
 				</div>
-			</article>
-			
-		
-</section>
-
-	<a class="extend prev" rel="prev" href="/page/26/">&lt;</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/25/">25</a><a class="page-number" href="/page/26/">26</a><span class="page-number current">27</span><a class="page-number" href="/page/28/">28</a><a class="page-number" href="/page/29/">29</a><span class="space">&hellip;</span><a class="page-number" href="/page/39/">39</a><a class="extend next" rel="next" href="/page/28/">&gt;</a>
+				<p class="index-date">2019-12-20</p>
+			</a>
+		</div>	
+	
+</div>
+<div id="index-paginator">
+	
+		<a class="extend prev" rel="prev" href="/page/26/">&lt;</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/25/">25</a><a class="page-number" href="/page/26/">26</a><span class="page-number current">27</span><a class="page-number" href="/page/28/">28</a><a class="page-number" href="/page/29/">29</a><span class="space">&hellip;</span><a class="page-number" href="/page/39/">39</a><a class="extend next" rel="next" href="/page/28/">&gt;</a>
+	
+</div>
 
 	</div>
 	<div id="footer">
+	<p>
 	©2019-<span id="footerYear"></span> 
 	<a href="/">Wu Jun</a> 
 	|
@@ -4603,7 +4643,9 @@ public class HttpUtil {
 		uv
 		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	<br>
 	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
+	</p>
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';

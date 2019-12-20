@@ -11,14 +11,14 @@
 	
 		2 类加载过程 | 
 	 
-	吴俊的博客
+	WuJun Blog
 	</title>
 	
 	<!-- keywords,description -->
 	
 		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
 	 
-		<meta name="description" content="吴俊的博客,wujun234" />
+		<meta name="description" content="吴俊,wujun234,wujun,wu jun" />
 	
 
 	<!-- favicon -->
@@ -29,7 +29,7 @@
 
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
-	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
+	<link rel="stylesheet" href="/lib/highlight/darcula.css">
 
 	<script src="/lib/highlight/highlight.pack.js"></script>
 	<script src="/lib/jquery-3.4.1.min.js"></script>
@@ -40,16 +40,19 @@
 
 <body>
 	<header id="header">
-    <a id="title" href="/" class="logo">吴俊的博客</a>
+    <a id="title" href="/" class="logo">WuJun Blog</a>
 
 	<ul id="menu">
 		<li class="menu-item">
-			<a href="/about" class="menu-item-link">关于</a>
+			<a href="/" class="menu-item-link">HOME</a>
+		</li>
+		<li class="menu-item">
+			<a href="/about" class="menu-item-link">ABOUT</a>
 		</li>
 		
 		<li class="menu-item">
 			<a href="https://github.com/wujun234/uid-generator-spring-boot-starter" class="menu-item-link" target="_blank">
-				uid-generator
+				UidGenerator
 			</a>
 		</li>
 		<li class="menu-item">
@@ -60,10 +63,11 @@
 	</ul>
 </header>
 
-	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-bars" aria-hidden="true"></i></button>
+	
 <div id="sidebar">
-	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">站点目录</a>
-	<a herf="#" id="sidebar-article" class="sidebar-toc">文章目录</a>
+	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-arrow-right " aria-hidden="true"></i></button>
+	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">SITE MENU</a>
+	<a herf="#" id="sidebar-article" class="sidebar-toc">ARTICLE MENU</a>
 
 	<!-- 侧边目录栏 -->
 	<div id="site-toc">
@@ -1892,8 +1896,8 @@
 			
 							<ul>
 								<li class="file">
-									<a href="/2019/12/18/01%20Spring/04%20Web/4%20Jsonp/">
-										4 Jsonp
+									<a href="/2019/12/18/01%20Spring/04%20Web/4%20%E8%B7%A8%E5%9F%9F/">
+										4 跨域
 									</a>
 								</li>
 							</ul>
@@ -4400,13 +4404,13 @@
 
 <div id="article">
 	<p>加载、连接（验证、准备、解析）、初始化</p>
-<h3 id="1-加载"><a class="header-anchor" href="#1-加载">¶</a>1 加载</h3>
+<h3 id="1-加载"><a class="header-anchor" href="#1-加载"></a>1 加载</h3>
 <ol>
 <li>通过一个类的全限定名来获取定义此类的<strong>二进制流</strong></li>
 <li>将这个字节流转化为方法区的<strong>运行时数据结构</strong></li>
 <li>在内存中生成一个代表这个类的java.lang.<strong>Class对象</strong>，作为方法区这个类的各种数据的访问入口</li>
 </ol>
-<h3 id="2-验证"><a class="header-anchor" href="#2-验证">¶</a>2 验证</h3>
+<h3 id="2-验证"><a class="header-anchor" href="#2-验证"></a>2 验证</h3>
 <p>确保Class文件的字节流信息符合虚拟机的要求，并且不会危害虚拟机安全；</p>
 <ul>
 <li>决定了Java虚拟机是否能承受恶意代码的攻击；</li>
@@ -4419,18 +4423,18 @@
 </ul>
 </li>
 </ul>
-<h3 id="3-准备"><a class="header-anchor" href="#3-准备">¶</a>3 准备</h3>
+<h3 id="3-准备"><a class="header-anchor" href="#3-准备"></a>3 准备</h3>
 <p>为<strong>类变量</strong>（static）分配内存并设置零值，如static final则是直接赋值；</p>
-<h3 id="4-解析"><a class="header-anchor" href="#4-解析">¶</a>4 解析</h3>
+<h3 id="4-解析"><a class="header-anchor" href="#4-解析"></a>4 解析</h3>
 <p>将常量池内的<strong>符号引用替换为直接引用</strong>，可对解析结果进行缓存</p>
-<h3 id="5-初始化"><a class="header-anchor" href="#5-初始化">¶</a>5 初始化</h3>
+<h3 id="5-初始化"><a class="header-anchor" href="#5-初始化"></a>5 初始化</h3>
 <p>执行类构造器方法<clinit>()：由编译器自动收集类中的所有类变量的赋值动作和静态语句块中的语句合并产生</p>
 <ul>
 <li>类初始化时要求父类全部初始化过；接口初始化，只有真正用到父接口时才初始化</li>
 <li>方法初始化是加锁阻塞等待的，应当避免在方法中有耗时很长的操作；</li>
 <li>在初始化的时候，静态域的初始化和静态代码块的执行会从上到下依次执行</li>
 </ul>
-<h5 id="初始化顺序"><a class="header-anchor" href="#初始化顺序">¶</a>初始化顺序</h5>
+<h5 id="初始化顺序"><a class="header-anchor" href="#初始化顺序"></a>初始化顺序</h5>
 <p>先初始化静态成员，然后从父类到子类中，依次初始化非静态对象和构造器。</p>
 <ol>
 <li>父类静态初始化块</li>
@@ -4445,6 +4449,7 @@
 
 	</div>
 	<div id="footer">
+	<p>
 	©2019-<span id="footerYear"></span> 
 	<a href="/">Wu Jun</a> 
 	|
@@ -4457,7 +4462,9 @@
 		uv
 		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	<br>
 	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
+	</p>
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';

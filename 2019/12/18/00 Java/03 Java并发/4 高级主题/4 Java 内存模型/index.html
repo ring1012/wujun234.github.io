@@ -11,14 +11,14 @@
 	
 		4 Java 内存模型 | 
 	 
-	吴俊的博客
+	WuJun Blog
 	</title>
 	
 	<!-- keywords,description -->
 	
 		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
 	 
-		<meta name="description" content="吴俊的博客,wujun234" />
+		<meta name="description" content="吴俊,wujun234,wujun,wu jun" />
 	
 
 	<!-- favicon -->
@@ -29,7 +29,7 @@
 
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
-	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
+	<link rel="stylesheet" href="/lib/highlight/darcula.css">
 
 	<script src="/lib/highlight/highlight.pack.js"></script>
 	<script src="/lib/jquery-3.4.1.min.js"></script>
@@ -40,16 +40,19 @@
 
 <body>
 	<header id="header">
-    <a id="title" href="/" class="logo">吴俊的博客</a>
+    <a id="title" href="/" class="logo">WuJun Blog</a>
 
 	<ul id="menu">
 		<li class="menu-item">
-			<a href="/about" class="menu-item-link">关于</a>
+			<a href="/" class="menu-item-link">HOME</a>
+		</li>
+		<li class="menu-item">
+			<a href="/about" class="menu-item-link">ABOUT</a>
 		</li>
 		
 		<li class="menu-item">
 			<a href="https://github.com/wujun234/uid-generator-spring-boot-starter" class="menu-item-link" target="_blank">
-				uid-generator
+				UidGenerator
 			</a>
 		</li>
 		<li class="menu-item">
@@ -60,10 +63,11 @@
 	</ul>
 </header>
 
-	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-bars" aria-hidden="true"></i></button>
+	
 <div id="sidebar">
-	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">站点目录</a>
-	<a herf="#" id="sidebar-article" class="sidebar-toc">文章目录</a>
+	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-arrow-right " aria-hidden="true"></i></button>
+	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">SITE MENU</a>
+	<a herf="#" id="sidebar-article" class="sidebar-toc">ARTICLE MENU</a>
 
 	<!-- 侧边目录栏 -->
 	<div id="site-toc">
@@ -1892,8 +1896,8 @@
 			
 							<ul>
 								<li class="file">
-									<a href="/2019/12/18/01%20Spring/04%20Web/4%20Jsonp/">
-										4 Jsonp
+									<a href="/2019/12/18/01%20Spring/04%20Web/4%20%E8%B7%A8%E5%9F%9F/">
+										4 跨域
 									</a>
 								</li>
 							</ul>
@@ -4399,12 +4403,12 @@
 
 
 <div id="article">
-	<h3 id="1-什么是内存模型-为什么需要它"><a class="header-anchor" href="#1-什么是内存模型-为什么需要它">¶</a>1 什么是内存模型, 为什么需要它</h3>
+	<h3 id="1-什么是内存模型-为什么需要它"><a class="header-anchor" href="#1-什么是内存模型-为什么需要它"></a>1 什么是内存模型, 为什么需要它</h3>
 <p>如果缺少同步，那么将会有许多因素使得线程无法立即甚至永远，看到另一个线程的操作结果。</p>
 <p>JMM规定了JVM必须遵循一组保证，这组保证规定了对变量的写入操作在何时将对于其它线程可见。</p>
-<h5 id="1-1-平台的内存模型"><a class="header-anchor" href="#1-1-平台的内存模型">¶</a>1.1 平台的内存模型</h5>
+<h5 id="1-1-平台的内存模型"><a class="header-anchor" href="#1-1-平台的内存模型"></a>1.1 平台的内存模型</h5>
 <p>为了使Java开发人员无须关心不同架构上内存模型之间的差异，Java提供了自己的内存模型，并且JVM通过在适当的位置上插人内存栅栏来屏蔽在JVM与底层平台内存模型之间的差异。</p>
-<h5 id="1-2-重排序"><a class="header-anchor" href="#1-2-重排序">¶</a>1.2 重排序</h5>
+<h5 id="1-2-重排序"><a class="header-anchor" href="#1-2-重排序"></a>1.2 重排序</h5>
 <ul>
 <li>在编译器中生成的指令顺序，可以与源代码中的顺序不同</li>
 <li>此外编译器还会把变量保存在寄存器而不是内存中；</li>
@@ -4413,7 +4417,7 @@
 <li>而且，保存在处理器本地缓存中的值，对于其他处理器是不可见的。</li>
 </ul>
 <p>同步将限制编译器、运行时和硬件对内存操作重排序的方式，从而在实施重排序时不会破坏JMM提供的可见性保证。</p>
-<h5 id="1-3-Java内存模型简介"><a class="header-anchor" href="#1-3-Java内存模型简介">¶</a>1.3 Java内存模型简介</h5>
+<h5 id="1-3-Java内存模型简介"><a class="header-anchor" href="#1-3-Java内存模型简介"></a>1.3 Java内存模型简介</h5>
 <p>Java 内存模型是通过各种操作来定义的，包括对变量的读/写操作，监视器的加锁和释放操作，以及 线程的启动和合并操作。JMM 为程序中所有的操作定义了一个偏序关系，称之为 Happens-Before。 如果两个操作之间缺乏 Happens-Before 关系，那么 JVM 可以对它们任意地重排序。</p>
 <p>Happens-Before 的规则包括：</p>
 <ul>
@@ -4429,7 +4433,7 @@
 <blockquote>
 <p>在多线程访问共享数据时, 至少有一条线程执行写入操作时, 如果读操作和写操作之间没有Happen-Before关系, 那么就会存在数据竞争问题.</p>
 </blockquote>
-<h5 id="1-4-借助同步"><a class="header-anchor" href="#1-4-借助同步">¶</a>1.4 借助同步</h5>
+<h5 id="1-4-借助同步"><a class="header-anchor" href="#1-4-借助同步"></a>1.4 借助同步</h5>
 <p>有一项技术称之为“借助（Piggyback）”，是因为它使用了一种现有的 Happens-Before 顺序来保证 对象 X 的的可见性，而不是专门为了发布 X 而创建的一种 Happens-Before 顺序。</p>
 <p>在类库中提供的其他Happens-Before排序包括：</p>
 <ul>
@@ -4440,20 +4444,20 @@
 <li>向 Executor 提交一个 Runnable 或 Callable 的操作将在任务开始执行之前执行。</li>
 <li>一个线程到达 CyclicBarrier 或 Exchanger 的操作将在其他到达该棚栏或交换点的线程被释放之前执行。如果 CyclicBarrier 使用一个栅栏操作，那么到达栅栏的操作将在栅栏操作之前执行，而栅栏操作又会在线程从栅栏中释放之前执行。</li>
 </ul>
-<h3 id="2-发布"><a class="header-anchor" href="#2-发布">¶</a>2 发布</h3>
+<h3 id="2-发布"><a class="header-anchor" href="#2-发布"></a>2 发布</h3>
 <p>造成不正确发布的真正原因, 就是在“发布一个对象”与“另一个线程访问该对象”之间缺少一种Happen-Before关系。</p>
-<h5 id="2-1-不安全的发布"><a class="header-anchor" href="#2-1-不安全的发布">¶</a>2.1 不安全的发布</h5>
+<h5 id="2-1-不安全的发布"><a class="header-anchor" href="#2-1-不安全的发布"></a>2.1 不安全的发布</h5>
 <p>当缺少Happen-Before关系时，就可能出现重排序问题。</p>
 <ul>
 <li>如果无法确保发布共享引用的操作Happen-Before另一个线程加载该引用，可能看到一个被部分构造的对象.</li>
 <li>错误的延迟初始化将导致不正确的发布</li>
 </ul>
 <p>除不可变对象以外，使用被另一个线程初始化的对象通常都是不安全的，除非对象的发布操作是在使用该对象的线程开始使用之前执行</p>
-<h5 id="2-2-安全的发布"><a class="header-anchor" href="#2-2-安全的发布">¶</a>2.2 安全的发布</h5>
+<h5 id="2-2-安全的发布"><a class="header-anchor" href="#2-2-安全的发布"></a>2.2 安全的发布</h5>
 <p>通过使用一个由锁保护共享变量或者使用共享的volatile类型变量，可以确保对该变量的读取操作和写入操作按照Happens-Before关系来排序。</p>
 <p>Happens-Before比安全发布提供了更强可见性与顺序保证。</p>
 <p>Happens-Before排序是在内存访问级别上操作的，它是一种“并发级汇编语言&quot;，而安全发布的运行级别更接近程序设计。</p>
-<h5 id="2-3-安全初始化模式"><a class="header-anchor" href="#2-3-安全初始化模式">¶</a>2.3 安全初始化模式</h5>
+<h5 id="2-3-安全初始化模式"><a class="header-anchor" href="#2-3-安全初始化模式"></a>2.3 安全初始化模式</h5>
 <pre><code class="language-java">@ThreadSafe
 public class ResourceFactory {
     private static class ResourceHolder {
@@ -4468,7 +4472,7 @@ public class ResourceFactory {
 }
 </code></pre>
 <p>使用延长初始化占位类模式即可以达到延迟初始化, 又避免同步开销。</p>
-<h5 id="2-4-双重检查加锁"><a class="header-anchor" href="#2-4-双重检查加锁">¶</a>2.4 双重检查加锁</h5>
+<h5 id="2-4-双重检查加锁"><a class="header-anchor" href="#2-4-双重检查加锁"></a>2.4 双重检查加锁</h5>
 <pre><code class="language-java">@NotThreadSafe
 public class DoubleCheckedLocking {
     private static Resource resource;
@@ -4490,7 +4494,7 @@ public class DoubleCheckedLocking {
 <li>可通过将resource声明为volatile来修正上述问题</li>
 <li>不建议使用此种方式，较延迟初始化占位类模式相比，DCL模式代码过于复杂且更脆弱。</li>
 </ul>
-<h3 id="3-初始化过程中的安全性"><a class="header-anchor" href="#3-初始化过程中的安全性">¶</a>3 初始化过程中的安全性</h3>
+<h3 id="3-初始化过程中的安全性"><a class="header-anchor" href="#3-初始化过程中的安全性"></a>3 初始化过程中的安全性</h3>
 <p>初始化安全性将确保，对于被正确构造的对象，所有线程都能看到由构造函数为对象各个 final 域设置的正确值，而不管采用何种方式来发布对象。而且对于可以通过被正确构造对象中某个final域到达的任意变量(例如某个final数组中的元素或者由一个final域引用的HashMap的键值)将同样对于其它线程是可见的。</p>
 <p>初始化安全性只能保证final域可达的值从构造过程完成时开始的可见性。对于通过非final域可达的值，或者在构造过程完成后，可能改变的值，必须采用同步来确保可见性。</p>
 
@@ -4498,6 +4502,7 @@ public class DoubleCheckedLocking {
 
 	</div>
 	<div id="footer">
+	<p>
 	©2019-<span id="footerYear"></span> 
 	<a href="/">Wu Jun</a> 
 	|
@@ -4510,7 +4515,9 @@ public class DoubleCheckedLocking {
 		uv
 		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	<br>
 	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
+	</p>
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';

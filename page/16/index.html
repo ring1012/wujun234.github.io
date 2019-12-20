@@ -9,14 +9,14 @@
 	
 	<title>
 	 
-	吴俊的博客
+	WuJun Blog
 	</title>
 	
 	<!-- keywords,description -->
 	
 		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
 	 
-		<meta name="description" content="吴俊的博客,wujun234" />
+		<meta name="description" content="吴俊,wujun234,wujun,wu jun" />
 	
 
 	<!-- favicon -->
@@ -27,7 +27,7 @@
 
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
-	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
+	<link rel="stylesheet" href="/lib/highlight/darcula.css">
 
 	<script src="/lib/highlight/highlight.pack.js"></script>
 	<script src="/lib/jquery-3.4.1.min.js"></script>
@@ -38,16 +38,19 @@
 
 <body>
 	<header id="header">
-    <a id="title" href="/" class="logo">吴俊的博客</a>
+    <a id="title" href="/" class="logo">WuJun Blog</a>
 
 	<ul id="menu">
 		<li class="menu-item">
-			<a href="/about" class="menu-item-link">关于</a>
+			<a href="/" class="menu-item-link">HOME</a>
+		</li>
+		<li class="menu-item">
+			<a href="/about" class="menu-item-link">ABOUT</a>
 		</li>
 		
 		<li class="menu-item">
 			<a href="https://github.com/wujun234/uid-generator-spring-boot-starter" class="menu-item-link" target="_blank">
-				uid-generator
+				UidGenerator
 			</a>
 		</li>
 		<li class="menu-item">
@@ -58,10 +61,11 @@
 	</ul>
 </header>
 
-	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-bars" aria-hidden="true"></i></button>
+	
 <div id="sidebar">
-	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">站点目录</a>
-	<a herf="#" id="sidebar-article" class="sidebar-toc">文章目录</a>
+	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-arrow-right " aria-hidden="true"></i></button>
+	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">SITE MENU</a>
+	<a herf="#" id="sidebar-article" class="sidebar-toc">ARTICLE MENU</a>
 
 	<!-- 侧边目录栏 -->
 	<div id="site-toc">
@@ -1890,8 +1894,8 @@
 			
 							<ul>
 								<li class="file">
-									<a href="/2019/12/18/01%20Spring/04%20Web/4%20Jsonp/">
-										4 Jsonp
+									<a href="/2019/12/18/01%20Spring/04%20Web/4%20%E8%B7%A8%E5%9F%9F/">
+										4 跨域
 									</a>
 								</li>
 							</ul>
@@ -4384,170 +4388,185 @@
 
 	<!-- 引入正文 -->
 	<div id="content">
-		<section id="articleList">
-		
-
-			<article class="article-li">
-				<h2>
-					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/06%20%E9%9B%86%E5%90%88/2.6%20linkedhashmap%E3%80%81linkedhashset/">2.6 linkedhashmap、linkedhashset</a>
+		<div id="index-list">
+	
+		<div class="index-li">
+			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/06%20%E9%9B%86%E5%90%88/2.6%20linkedhashmap%E3%80%81linkedhashset/">
+				<h2 class="index-title">
+					2.6 linkedhashmap、linkedhashset
 				</h2>
-				<span class="post-date">2019-12-19</span>
-				<div class="article-digest">
-					¶前言
+				<div class="index-brief">
+					前言
 LinkedHashSet仅对LinkedHashMap做了一层包装，实现相同。LinkedHashSet里面有一个LinkedHashMap（适配器模式）。
-¶总体介绍
-LinkedHash
+总体介绍
+LinkedHashMap 有序，非同步，允许null键null值，是由linkedList增强的HashMap。
+继承于H
 					...
 				</div>
-			</article>
-			
-		
-
-			<article class="article-li">
-				<h2>
-					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/06%20%E9%9B%86%E5%90%88/2.7%20priorityqueue/">2.7 priorityqueue</a>
+				<p class="index-date">2019-12-20</p>
+			</a>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/06%20%E9%9B%86%E5%90%88/2.7%20priorityqueue/">
+				<h2 class="index-title">
+					2.7 priorityqueue
 				</h2>
-				<span class="post-date">2019-12-19</span>
-				<div class="article-digest">
-					¶总体介绍
+				<div class="index-brief">
+					总体介绍
 优先队列的作用是能保证每次取出的元素都是队列中权值最小的。
 实现了Queue接口，不允许null，通过数组实现的小顶堆。
 
 父子节点的编号之间有如下关系：
 
-leftNo = parent
+leftNo = parentNo*2+1
+rightNo = parentNo*2+2
+parentNo = (nodeNo-1)
 					...
 				</div>
-			</article>
-			
-		
-
-			<article class="article-li">
-				<h2>
-					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/06%20%E9%9B%86%E5%90%88/2.9%20concurrenthashmap/">2.9 concurrenthashmap</a>
+				<p class="index-date">2019-12-20</p>
+			</a>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/06%20%E9%9B%86%E5%90%88/2.9%20concurrenthashmap/">
+				<h2 class="index-title">
+					2.9 concurrenthashmap
 				</h2>
-				<span class="post-date">2019-12-19</span>
-				<div class="article-digest">
+				<div class="index-brief">
 					JDK1.5起，java.util.concurrent包
-¶JDK1.7
-¶总体介绍
+JDK1.7
+总体介绍
 ConcurrentHashMap采用了分段锁技术，效率较Hashtable高，不允许空值null。
-Concu
+ConcurrentHashMap是 Segment 数组。Segment 继承于ReentrantLock，可以
 					...
 				</div>
-			</article>
-			
-		
-
-			<article class="article-li">
-				<h2>
-					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/06%20%E9%9B%86%E5%90%88/2.9%20ConcurrentSkipListMap/">2.9 ConcurrentSkipListMap</a>
+				<p class="index-date">2019-12-20</p>
+			</a>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/06%20%E9%9B%86%E5%90%88/2.9%20ConcurrentSkipListMap/">
+				<h2 class="index-title">
+					2.9 ConcurrentSkipListMap
 				</h2>
-				<span class="post-date">2019-12-19</span>
-				<div class="article-digest">
+				<div class="index-brief">
 					
 
 					...
 				</div>
-			</article>
-			
-		
-
-			<article class="article-li">
-				<h2>
-					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/06%20%E9%9B%86%E5%90%88/3%20%E6%98%A0%E5%B0%84/">3 映射</a>
+				<p class="index-date">2019-12-20</p>
+			</a>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/06%20%E9%9B%86%E5%90%88/3%20%E6%98%A0%E5%B0%84/">
+				<h2 class="index-title">
+					3 映射
 				</h2>
-				<span class="post-date">2019-12-19</span>
-				<div class="article-digest">
+				<div class="index-brief">
 					映射(map) 用来存放键 / 值对。如
 果提供了键， 就能够查找到值。
-¶1　基本映射操作
-Java 类库为映射提供了两个通用的实现： HashMap 和 TreeMap 。这两个类都实现了 Map
+1　基本映射操作
+Java 类库为映射提供了两个通用的实现： HashMap 和 TreeMap 。这两个类都实现了 Map 接口。
+散列映射对键进行散列， 树映射用键的整体顺序对元素进行排序， 并将其组织成搜索树。
+键必须是
 					...
 				</div>
-			</article>
-			
-		
-
-			<article class="article-li">
-				<h2>
-					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/06%20%E9%9B%86%E5%90%88/5%20%E7%AE%97%E6%B3%95/">5 算法</a>
+				<p class="index-date">2019-12-20</p>
+			</a>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/06%20%E9%9B%86%E5%90%88/5%20%E7%AE%97%E6%B3%95/">
+				<h2 class="index-title">
+					5 算法
 				</h2>
-				<span class="post-date">2019-12-19</span>
-				<div class="article-digest">
+				<div class="index-brief">
 					泛型集合接口有一个很大的优点，即算法只需要实现一次。
-¶1 排序与混排
-¶排序
+1 排序与混排
+排序
 Collections.sort()
 底层使用了数组的归并排序。即先转化集合为数组，排好序以后在复制回以前的集合。
-归并
+归并排序相较于快速排序，速度慢，但是稳定，它不需要交换相同的元素。
+排序传递的列表必须是可修改的，不必要是可
 					...
 				</div>
-			</article>
-			
-		
-
-			<article class="article-li">
-				<h2>
-					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/06%20%E9%9B%86%E5%90%88/6%20%E9%81%97%E7%95%99%E7%9A%84%E9%9B%86%E5%90%88/">6 遗留的集合</a>
+				<p class="index-date">2019-12-20</p>
+			</a>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/06%20%E9%9B%86%E5%90%88/6%20%E9%81%97%E7%95%99%E7%9A%84%E9%9B%86%E5%90%88/">
+				<h2 class="index-title">
+					6 遗留的集合
 				</h2>
-				<span class="post-date">2019-12-19</span>
-				<div class="article-digest">
-					¶1 Hashtable
+				<div class="index-brief">
+					1 Hashtable
 与HashMap的作用是一样的，但是Hashtable是线程同步的。
 如果同步性没有要求，应该尽量使用HashMap。
-¶2 枚举
-遗留集合使用Enumeration接口对元
+2 枚举
+遗留集合使用Enumeration接口对元素序列进行遍历。 Enumeration接口有两个方法，即hasMoreElements和nextEle
 					...
 				</div>
-			</article>
-			
-		
-
-			<article class="article-li">
-				<h2>
-					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/04%20%E5%BC%82%E5%B8%B8%E3%80%81%E6%96%AD%E8%A8%80%E5%92%8C%E6%97%A5%E5%BF%97/1%20%E5%A4%84%E7%90%86%E5%BC%82%E5%B8%B8/">1 处理异常</a>
+				<p class="index-date">2019-12-20</p>
+			</a>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/04%20%E5%BC%82%E5%B8%B8%E3%80%81%E6%96%AD%E8%A8%80%E5%92%8C%E6%97%A5%E5%BF%97/1%20%E5%A4%84%E7%90%86%E5%BC%82%E5%B8%B8/">
+				<h2 class="index-title">
+					1 处理异常
 				</h2>
-				<span class="post-date">2019-12-19</span>
-				<div class="article-digest">
-					¶1 异常分类
+				<div class="index-brief">
+					1 异常分类
 graph LR
 Throwable--&gt;Error
 Throwable--&gt;Exception
 Exception--&gt;RuntimeException
-Excep
+Exception--&gt;除了RuntimeException的其它异常 
+
+异常对象都继承自Throwab
 					...
 				</div>
-			</article>
-			
-		
-
-			<article class="article-li">
-				<h2>
-					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/04%20%E5%BC%82%E5%B8%B8%E3%80%81%E6%96%AD%E8%A8%80%E5%92%8C%E6%97%A5%E5%BF%97/2%20%E6%8D%95%E8%8E%B7%E5%BC%82%E5%B8%B8/">2 捕获异常</a>
+				<p class="index-date">2019-12-20</p>
+			</a>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/04%20%E5%BC%82%E5%B8%B8%E3%80%81%E6%96%AD%E8%A8%80%E5%92%8C%E6%97%A5%E5%BF%97/2%20%E6%8D%95%E8%8E%B7%E5%BC%82%E5%B8%B8/">
+				<h2 class="index-title">
+					2 捕获异常
 				</h2>
-				<span class="post-date">2019-12-19</span>
-				<div class="article-digest">
+				<div class="index-brief">
 					
 如果异常没有被捕获，程序将会停止运行
 try/catch 捕获异常
 如不捕获异常，可 throws 声明异常，将异常传递给调用者
-子类覆盖超类的方法中，只能 throws 超类方法的异常，其他只能自
+子类覆盖超类的方法中，只能 throws 超类方法的异常，其他只能自己捕获处理
+
+1 捕获多个异常
+
+基本语句
+
+try{
+}
+catch (FileNotFoundE
 					...
 				</div>
-			</article>
-			
-		
-
-			<article class="article-li">
-				<h2>
-					<a class="article-title" href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/04%20%E5%BC%82%E5%B8%B8%E3%80%81%E6%96%AD%E8%A8%80%E5%92%8C%E6%97%A5%E5%BF%97/3%20%E6%96%AD%E8%A8%80/">3 断言</a>
+				<p class="index-date">2019-12-20</p>
+			</a>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/04%20%E5%BC%82%E5%B8%B8%E3%80%81%E6%96%AD%E8%A8%80%E5%92%8C%E6%97%A5%E5%BF%97/3%20%E6%96%AD%E8%A8%80/">
+				<h2 class="index-title">
+					3 断言
 				</h2>
-				<span class="post-date">2019-12-19</span>
-				<div class="article-digest">
+				<div class="index-brief">
 					断言用在开发、测试期间。
 当代码发布时，这些插入的检测语句将会被自动地移走。
-¶1 表达形式
+1 表达形式
 
 assert 条件；
 
@@ -4556,18 +4575,25 @@ assert x &gt;= 0;
 
 assert 条件：表达式;
 
-asse
+assert x &gt;= 0 : x;
+
+对条件进行检测，如果为false，则抛出一个AssertionE
 					...
 				</div>
-			</article>
-			
-		
-</section>
-
-	<a class="extend prev" rel="prev" href="/page/15/">&lt;</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="page-number" href="/page/15/">15</a><span class="page-number current">16</span><a class="page-number" href="/page/17/">17</a><a class="page-number" href="/page/18/">18</a><span class="space">&hellip;</span><a class="page-number" href="/page/39/">39</a><a class="extend next" rel="next" href="/page/17/">&gt;</a>
+				<p class="index-date">2019-12-20</p>
+			</a>
+		</div>	
+	
+</div>
+<div id="index-paginator">
+	
+		<a class="extend prev" rel="prev" href="/page/15/">&lt;</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="page-number" href="/page/15/">15</a><span class="page-number current">16</span><a class="page-number" href="/page/17/">17</a><a class="page-number" href="/page/18/">18</a><span class="space">&hellip;</span><a class="page-number" href="/page/39/">39</a><a class="extend next" rel="next" href="/page/17/">&gt;</a>
+	
+</div>
 
 	</div>
 	<div id="footer">
+	<p>
 	©2019-<span id="footerYear"></span> 
 	<a href="/">Wu Jun</a> 
 	|
@@ -4580,7 +4606,9 @@ asse
 		uv
 		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	<br>
 	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
+	</p>
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';

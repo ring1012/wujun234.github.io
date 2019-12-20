@@ -9,14 +9,14 @@
 	
 	<title>
 	 
-	吴俊的博客
+	WuJun Blog
 	</title>
 	
 	<!-- keywords,description -->
 	
 		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
 	 
-		<meta name="description" content="吴俊的博客,wujun234" />
+		<meta name="description" content="吴俊,wujun234,wujun,wu jun" />
 	
 
 	<!-- favicon -->
@@ -27,7 +27,7 @@
 
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
-	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
+	<link rel="stylesheet" href="/lib/highlight/darcula.css">
 
 	<script src="/lib/highlight/highlight.pack.js"></script>
 	<script src="/lib/jquery-3.4.1.min.js"></script>
@@ -38,16 +38,19 @@
 
 <body>
 	<header id="header">
-    <a id="title" href="/" class="logo">吴俊的博客</a>
+    <a id="title" href="/" class="logo">WuJun Blog</a>
 
 	<ul id="menu">
 		<li class="menu-item">
-			<a href="/about" class="menu-item-link">关于</a>
+			<a href="/" class="menu-item-link">HOME</a>
+		</li>
+		<li class="menu-item">
+			<a href="/about" class="menu-item-link">ABOUT</a>
 		</li>
 		
 		<li class="menu-item">
 			<a href="https://github.com/wujun234/uid-generator-spring-boot-starter" class="menu-item-link" target="_blank">
-				uid-generator
+				UidGenerator
 			</a>
 		</li>
 		<li class="menu-item">
@@ -58,10 +61,11 @@
 	</ul>
 </header>
 
-	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-bars" aria-hidden="true"></i></button>
+	
 <div id="sidebar">
-	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">站点目录</a>
-	<a herf="#" id="sidebar-article" class="sidebar-toc">文章目录</a>
+	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-arrow-right " aria-hidden="true"></i></button>
+	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">SITE MENU</a>
+	<a herf="#" id="sidebar-article" class="sidebar-toc">ARTICLE MENU</a>
 
 	<!-- 侧边目录栏 -->
 	<div id="site-toc">
@@ -1890,8 +1894,8 @@
 			
 							<ul>
 								<li class="file">
-									<a href="/2019/12/18/01%20Spring/04%20Web/4%20Jsonp/">
-										4 Jsonp
+									<a href="/2019/12/18/01%20Spring/04%20Web/4%20%E8%B7%A8%E5%9F%9F/">
+										4 跨域
 									</a>
 								</li>
 							</ul>
@@ -4384,134 +4388,158 @@
 
 	<!-- 引入正文 -->
 	<div id="content">
-		<section id="articleList">
-		
-
-			<article class="article-li">
-				<h2>
-					<a class="article-title" href="/2019/12/18/09%20%E5%A4%A7%E6%95%B0%E6%8D%AE/1%20Hadoop/">1 Hadoop</a>
+		<div id="index-list">
+	
+		<div class="index-li">
+			<a href="/2019/12/18/09%20%E5%A4%A7%E6%95%B0%E6%8D%AE/1%20Hadoop/">
+				<h2 class="index-title">
+					1 Hadoop
 				</h2>
-				<span class="post-date">2019-12-19</span>
-				<div class="article-digest">
-					¶1 整体框架
+				<div class="index-brief">
+					1 整体框架
 
 
 HDFS: 分布式文件存储
 YARN: 分布式资源管理，允许任何一个分布式程序（不仅仅是 MapReduce）基于 Hadoop 集群的数据运行
-MapReduce: 批处理。分布
+MapReduce: 批处理。分布式计算
+Others: 利用YARN的资源管理功能实现其他的数据处理方式
+
+生态系统
+
+数据格式
+
+A
 					...
 				</div>
-			</article>
-			
-		
-
-			<article class="article-li">
-				<h2>
-					<a class="article-title" href="/2019/12/18/09%20%E5%A4%A7%E6%95%B0%E6%8D%AE/3%20MapReduce/">3 MapReduce</a>
+				<p class="index-date">2019-12-20</p>
+			</a>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2019/12/18/09%20%E5%A4%A7%E6%95%B0%E6%8D%AE/3%20MapReduce/">
+				<h2 class="index-title">
+					3 MapReduce
 				</h2>
-				<span class="post-date">2019-12-19</span>
-				<div class="article-digest">
+				<div class="index-brief">
 					MapReduce建立在HDFS基础上，为海量的数据提供了一个计算框架。由两个阶段组成：Map和Reduce，用户只需实现map()和reduce()两个函数，即可实现分布式计算。
 
-¶1 架构
-主从
+1 架构
+主从结构
+1）JobTracker（主节点）
+只有一个
+
+接收客户提交的计算任务
+任务调度：把计算任务分给
 					...
 				</div>
-			</article>
-			
-		
-
-			<article class="article-li">
-				<h2>
-					<a class="article-title" href="/2019/12/18/09%20%E5%A4%A7%E6%95%B0%E6%8D%AE/4%20YARN/">4 YARN</a>
+				<p class="index-date">2019-12-20</p>
+			</a>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2019/12/18/09%20%E5%A4%A7%E6%95%B0%E6%8D%AE/4%20YARN/">
+				<h2 class="index-title">
+					4 YARN
 				</h2>
-				<span class="post-date">2019-12-19</span>
-				<div class="article-digest">
+				<div class="index-brief">
 					老的MapReduce架构（俗称MapReduce 1）存在的问题:
 
 Job Tracker 存在单点故障。
 Job Tracker 完成太多任务，当MR任务非常多时，造成很大的内存开销。
-Task
+Task Tracker端，如果两个大内存消耗的任务一起调度，容易出现OOM，如果只有Map任务或Reduc
 					...
 				</div>
-			</article>
-			
-		
-
-			<article class="article-li">
-				<h2>
-					<a class="article-title" href="/2019/12/18/09%20%E5%A4%A7%E6%95%B0%E6%8D%AE/2%20HDFS/">2 HDFS</a>
+				<p class="index-date">2019-12-20</p>
+			</a>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2019/12/18/09%20%E5%A4%A7%E6%95%B0%E6%8D%AE/2%20HDFS/">
+				<h2 class="index-title">
+					2 HDFS
 				</h2>
-				<span class="post-date">2019-12-19</span>
-				<div class="article-digest">
+				<div class="index-brief">
 					HDFS官网
-¶1 简介
+1 简介
 HDFS 是 GFS（Google File System）的克隆版本。
-HDFS（Hadoop Distributed File System）是Hadoop项目的核心子项
+HDFS（Hadoop Distributed File System）是Hadoop项目的核心子项目，是分布式计算中数据存储管理的基础，是基于流数据模式访问和处理超大文件的需求而开发的，可以运行于廉价
 					...
 				</div>
-			</article>
-			
-		
-
-			<article class="article-li">
-				<h2>
-					<a class="article-title" href="/2019/12/18/09%20%E5%A4%A7%E6%95%B0%E6%8D%AE/5%20HBase/">5 HBase</a>
+				<p class="index-date">2019-12-20</p>
+			</a>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2019/12/18/09%20%E5%A4%A7%E6%95%B0%E6%8D%AE/5%20HBase/">
+				<h2 class="index-title">
+					5 HBase
 				</h2>
-				<span class="post-date">2019-12-19</span>
-				<div class="article-digest">
+				<div class="index-brief">
 					HBASE官网
 参考：
 HBase 深入浅出
-¶1 HBase 简介
+1 HBase 简介
 
 HBase（Hadoop Database）是Bigtable的开源实现
 稀疏的，面向列
 基于HDFS，高可靠，可伸缩
-利用Zo
+利用Zookeeper进行协同服务
+适合大数据随机和实时读写
+
+2 HBASE架构
+
+1）Client
+可以通
 					...
 				</div>
-			</article>
-			
-		
-
-			<article class="article-li">
-				<h2>
-					<a class="article-title" href="/2019/12/18/09%20%E5%A4%A7%E6%95%B0%E6%8D%AE/7%20Sqoop%E6%BA%90%E7%A0%81%20-%20%20%E4%BB%8E%20MySQL%20%E5%AF%BC%E5%85%A5%E5%88%B0%20Hive/">7 Sqoop源码 -  从 MySQL 导入到 Hive</a>
+				<p class="index-date">2019-12-20</p>
+			</a>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2019/12/18/09%20%E5%A4%A7%E6%95%B0%E6%8D%AE/7%20Sqoop%E6%BA%90%E7%A0%81%20-%20%20%E4%BB%8E%20MySQL%20%E5%AF%BC%E5%85%A5%E5%88%B0%20Hive/">
+				<h2 class="index-title">
+					7 Sqoop源码 -  从 MySQL 导入到 Hive
 				</h2>
-				<span class="post-date">2019-12-19</span>
-				<div class="article-digest">
+				<div class="index-brief">
 					Sqoop 源码 ：https://github.com/apache/sqoop
-Sqoop 用户手册 ：http://sqoop.apache.org/docs/1.4.6/SqoopUserGu
+Sqoop 用户手册 ：http://sqoop.apache.org/docs/1.4.6/SqoopUserGuide.html
+panther 上 Sqoop使用指南 ：https://docs.panther
 					...
 				</div>
-			</article>
-			
-		
-
-			<article class="article-li">
-				<h2>
-					<a class="article-title" href="/2019/12/18/09%20%E5%A4%A7%E6%95%B0%E6%8D%AE/6%20Hive/">6 Hive</a>
+				<p class="index-date">2019-12-20</p>
+			</a>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2019/12/18/09%20%E5%A4%A7%E6%95%B0%E6%8D%AE/6%20Hive/">
+				<h2 class="index-title">
+					6 Hive
 				</h2>
-				<span class="post-date">2019-12-19</span>
-				<div class="article-digest">
+				<div class="index-brief">
 					HIVE官网
-¶1 HIVE 简介
+1 HIVE 简介
 
 是基于 Hadoop 的一个数据仓库工具
 可以将结构化的数据映射为一张数据库表
 并提供 HQL(Hive SQL)查询功能
 底层数据是存储在 HDFS 上
-Hiv
+Hive的本质是将 SQL 语句转换为 MapReduce 任务运行
+使不熟悉 MapReduce 的用户很
 					...
 				</div>
-			</article>
-			
-		
-</section>
+				<p class="index-date">2019-12-20</p>
+			</a>
+		</div>	
+	
+</div>
+<div id="index-paginator">
+	
+</div>
 
 	</div>
 	<div id="footer">
+	<p>
 	©2019-<span id="footerYear"></span> 
 	<a href="/">Wu Jun</a> 
 	|
@@ -4524,7 +4552,9 @@ Hiv
 		uv
 		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	<br>
 	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
+	</p>
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';

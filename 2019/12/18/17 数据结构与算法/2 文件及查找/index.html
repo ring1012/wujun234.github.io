@@ -11,14 +11,14 @@
 	
 		2 文件及查找 | 
 	 
-	吴俊的博客
+	WuJun Blog
 	</title>
 	
 	<!-- keywords,description -->
 	
 		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
 	 
-		<meta name="description" content="吴俊的博客,wujun234" />
+		<meta name="description" content="吴俊,wujun234,wujun,wu jun" />
 	
 
 	<!-- favicon -->
@@ -29,7 +29,7 @@
 
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
-	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
+	<link rel="stylesheet" href="/lib/highlight/darcula.css">
 
 	<script src="/lib/highlight/highlight.pack.js"></script>
 	<script src="/lib/jquery-3.4.1.min.js"></script>
@@ -40,16 +40,19 @@
 
 <body>
 	<header id="header">
-    <a id="title" href="/" class="logo">吴俊的博客</a>
+    <a id="title" href="/" class="logo">WuJun Blog</a>
 
 	<ul id="menu">
 		<li class="menu-item">
-			<a href="/about" class="menu-item-link">关于</a>
+			<a href="/" class="menu-item-link">HOME</a>
+		</li>
+		<li class="menu-item">
+			<a href="/about" class="menu-item-link">ABOUT</a>
 		</li>
 		
 		<li class="menu-item">
 			<a href="https://github.com/wujun234/uid-generator-spring-boot-starter" class="menu-item-link" target="_blank">
-				uid-generator
+				UidGenerator
 			</a>
 		</li>
 		<li class="menu-item">
@@ -60,10 +63,11 @@
 	</ul>
 </header>
 
-	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-bars" aria-hidden="true"></i></button>
+	
 <div id="sidebar">
-	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">站点目录</a>
-	<a herf="#" id="sidebar-article" class="sidebar-toc">文章目录</a>
+	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-arrow-right " aria-hidden="true"></i></button>
+	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">SITE MENU</a>
+	<a herf="#" id="sidebar-article" class="sidebar-toc">ARTICLE MENU</a>
 
 	<!-- 侧边目录栏 -->
 	<div id="site-toc">
@@ -1892,8 +1896,8 @@
 			
 							<ul>
 								<li class="file">
-									<a href="/2019/12/18/01%20Spring/04%20Web/4%20Jsonp/">
-										4 Jsonp
+									<a href="/2019/12/18/01%20Spring/04%20Web/4%20%E8%B7%A8%E5%9F%9F/">
+										4 跨域
 									</a>
 								</li>
 							</ul>
@@ -4399,7 +4403,7 @@
 
 
 <div id="article">
-	<h3 id="1-文件的基本概念"><a class="header-anchor" href="#1-文件的基本概念">¶</a>1 文件的基本概念</h3>
+	<h3 id="1-文件的基本概念"><a class="header-anchor" href="#1-文件的基本概念"></a>1 文件的基本概念</h3>
 <ul>
 <li>记录：是文件中存取的基本单位</li>
 <li>数据项：是文件可使用的最小单位，有时也称为字段、属性</li>
@@ -4423,13 +4427,13 @@
 </ul>
 </li>
 </ul>
-<h3 id="2-文件的分类"><a class="header-anchor" href="#2-文件的分类">¶</a>2 文件的分类</h3>
-<h4 id="1）顺序文件"><a class="header-anchor" href="#1）顺序文件">¶</a>1）顺序文件</h4>
+<h3 id="2-文件的分类"><a class="header-anchor" href="#2-文件的分类"></a>2 文件的分类</h3>
+<h4 id="1）顺序文件"><a class="header-anchor" href="#1）顺序文件"></a>1）顺序文件</h4>
 <p>顺序文件是记录按其在文件中的逻辑顺序依次存入存储介质所建立的文件。</p>
 <p>优点是连续存取的速度快，因此主要用于只进行顺序存取、批量修改的情况。</p>
 <p>典型介质是磁带。</p>
-<h4 id="2）索引文件"><a class="header-anchor" href="#2）索引文件">¶</a>2）索引文件</h4>
-<h5 id="索引文件概述"><a class="header-anchor" href="#索引文件概述">¶</a>索引文件概述</h5>
+<h4 id="2）索引文件"><a class="header-anchor" href="#2）索引文件"></a>2）索引文件</h4>
+<h5 id="索引文件概述"><a class="header-anchor" href="#索引文件概述"></a>索引文件概述</h5>
 <p>索引文件由索引区和文件数据区构成。</p>
 <p>文件数据区按关键字有序的称为索引顺序文件（稀疏索引），否则为索引非顺序文件（稠密索引、通常是指索引文件）。</p>
 <p>索引区指明逻辑记录和物理记录之间的一一对应关系，称为索引表。由索引项组成。索引项分为关键字和关键字对应的记录地址</p>
@@ -4443,20 +4447,20 @@
 <li>查找表：若索引很大，一个页块容纳不下时，可以对索引表建立一个索引，称为查找表。</li>
 <li>多级索引是一种静态索引，各级索引均为顺序表，修改不便，每次修改都要重组索引。因此，当数据文件在使用过程中记录变动较多时，应采用动态索引</li>
 </ul>
-<h5 id="ISAM"><a class="header-anchor" href="#ISAM">¶</a>ISAM</h5>
+<h5 id="ISAM"><a class="header-anchor" href="#ISAM"></a>ISAM</h5>
 <p>ISAM（索引顺序存取方法，Indexed Sequential Access Methed），是一种专为磁盘存取文件设计的文件组织方式，采用静态索引结构。</p>
 <p>ISAM文件由多级主索引、柱面索引、磁道索引和主文件组成。</p>
-<h5 id="VSAM"><a class="header-anchor" href="#VSAM">¶</a>VSAM</h5>
+<h5 id="VSAM"><a class="header-anchor" href="#VSAM"></a>VSAM</h5>
 <p>VSAM（虚拟存储存取方法，Virtual Storage Access Method，也是一种索引顺序文件的组织方式，采用 B+ 树作为动态索引结构。</p>
-<h4 id="3）直接存取文件（散列文件）"><a class="header-anchor" href="#3）直接存取文件（散列文件）">¶</a>3）直接存取文件（散列文件）</h4>
+<h4 id="3）直接存取文件（散列文件）"><a class="header-anchor" href="#3）直接存取文件（散列文件）"></a>3）直接存取文件（散列文件）</h4>
 <p>在散列文件中，存储单位是桶。桶溢出时通过拉链法存到溢出桶中。</p>
-<h4 id="4）多关键字文件"><a class="header-anchor" href="#4）多关键字文件">¶</a>4）多关键字文件</h4>
-<h5 id="多重表文件"><a class="header-anchor" href="#多重表文件">¶</a>多重表文件</h5>
+<h4 id="4）多关键字文件"><a class="header-anchor" href="#4）多关键字文件"></a>4）多关键字文件</h4>
+<h5 id="多重表文件"><a class="header-anchor" href="#多重表文件"></a>多重表文件</h5>
 <p>多重表文件是将索引方法和链接方法相结合的一种组织方式，对每个需要查询的次关键字建立一个索引，同时将具有相同关键字的记录链接成一个链表，并将此链表的头指针、链表长度及次关键字作为索引表的一个索引项。</p>
-<h5 id="倒排文件"><a class="header-anchor" href="#倒排文件">¶</a>倒排文件</h5>
+<h5 id="倒排文件"><a class="header-anchor" href="#倒排文件"></a>倒排文件</h5>
 <p>倒排文件和多重链表的区别在于次关键字索引的结构不同，倒排文件的次关键字索引称为倒排表。具有相同关键字的记录之间不进行链接，而是在倒排表中列出具有该次关键字记录的物理地址。</p>
-<h3 id="3-文件的存储"><a class="header-anchor" href="#3-文件的存储">¶</a>3 文件的存储</h3>
-<h4 id="1）磁盘"><a class="header-anchor" href="#1）磁盘">¶</a>1）磁盘</h4>
+<h3 id="3-文件的存储"><a class="header-anchor" href="#3-文件的存储"></a>3 文件的存储</h3>
+<h4 id="1）磁盘"><a class="header-anchor" href="#1）磁盘"></a>1）磁盘</h4>
 <p>磁盘通常称为直接访问存储设备。是随机存取设备。通常以存储非顺序文件为主，读取以扇区为单位。</p>
 <p>使用磁盘主要有3个时间需要考虑：</p>
 <ul>
@@ -4464,15 +4468,16 @@
 <li>旋转时间：磁头从当前扇区移动到数据存放扇区位置所花的时间</li>
 <li>传送时间：数据从磁盘读取数据，并将数据传送到内存的时间</li>
 </ul>
-<h4 id="2）磁带"><a class="header-anchor" href="#2）磁带">¶</a>2）磁带</h4>
+<h4 id="2）磁带"><a class="header-anchor" href="#2）磁带"></a>2）磁带</h4>
 <p>磁带通常称为顺序存储设备，只能顺序访问。</p>
 <p>存取单位是磁带长度，存储单位是块。</p>
-<h4 id="3）CD-ROM、闪存"><a class="header-anchor" href="#3）CD-ROM、闪存">¶</a>3）CD-ROM、闪存</h4>
+<h4 id="3）CD-ROM、闪存"><a class="header-anchor" href="#3）CD-ROM、闪存"></a>3）CD-ROM、闪存</h4>
 
 </div>
 
 	</div>
 	<div id="footer">
+	<p>
 	©2019-<span id="footerYear"></span> 
 	<a href="/">Wu Jun</a> 
 	|
@@ -4485,7 +4490,9 @@
 		uv
 		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	<br>
 	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
+	</p>
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';

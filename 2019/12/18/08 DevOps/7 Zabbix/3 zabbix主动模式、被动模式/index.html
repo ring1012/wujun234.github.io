@@ -11,14 +11,14 @@
 	
 		3 zabbix主动模式、被动模式 | 
 	 
-	吴俊的博客
+	WuJun Blog
 	</title>
 	
 	<!-- keywords,description -->
 	
 		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
 	 
-		<meta name="description" content="吴俊的博客,wujun234" />
+		<meta name="description" content="吴俊,wujun234,wujun,wu jun" />
 	
 
 	<!-- favicon -->
@@ -29,7 +29,7 @@
 
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
-	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
+	<link rel="stylesheet" href="/lib/highlight/darcula.css">
 
 	<script src="/lib/highlight/highlight.pack.js"></script>
 	<script src="/lib/jquery-3.4.1.min.js"></script>
@@ -40,16 +40,19 @@
 
 <body>
 	<header id="header">
-    <a id="title" href="/" class="logo">吴俊的博客</a>
+    <a id="title" href="/" class="logo">WuJun Blog</a>
 
 	<ul id="menu">
 		<li class="menu-item">
-			<a href="/about" class="menu-item-link">关于</a>
+			<a href="/" class="menu-item-link">HOME</a>
+		</li>
+		<li class="menu-item">
+			<a href="/about" class="menu-item-link">ABOUT</a>
 		</li>
 		
 		<li class="menu-item">
 			<a href="https://github.com/wujun234/uid-generator-spring-boot-starter" class="menu-item-link" target="_blank">
-				uid-generator
+				UidGenerator
 			</a>
 		</li>
 		<li class="menu-item">
@@ -60,10 +63,11 @@
 	</ul>
 </header>
 
-	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-bars" aria-hidden="true"></i></button>
+	
 <div id="sidebar">
-	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">站点目录</a>
-	<a herf="#" id="sidebar-article" class="sidebar-toc">文章目录</a>
+	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-arrow-right " aria-hidden="true"></i></button>
+	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">SITE MENU</a>
+	<a herf="#" id="sidebar-article" class="sidebar-toc">ARTICLE MENU</a>
 
 	<!-- 侧边目录栏 -->
 	<div id="site-toc">
@@ -1892,8 +1896,8 @@
 			
 							<ul>
 								<li class="file">
-									<a href="/2019/12/18/01%20Spring/04%20Web/4%20Jsonp/">
-										4 Jsonp
+									<a href="/2019/12/18/01%20Spring/04%20Web/4%20%E8%B7%A8%E5%9F%9F/">
+										4 跨域
 									</a>
 								</li>
 							</ul>
@@ -4415,15 +4419,15 @@
 <li>添加Proxy节点或者Node模式做分布式监控</li>
 <li>调整Agentd为主动模式</li>
 </ol>
-<h3 id="被动模式"><a class="header-anchor" href="#被动模式">¶</a>被动模式</h3>
+<h3 id="被动模式"><a class="header-anchor" href="#被动模式"></a>被动模式</h3>
 <p>客户端默认端口10050</p>
-<h4 id="流程"><a class="header-anchor" href="#流程">¶</a>流程</h4>
+<h4 id="流程"><a class="header-anchor" href="#流程"></a>流程</h4>
 <p>Server打开一个TCP连接<br>
 Server发送一个key为agent.ping<br>
 Agent接受这个请求，然后响应&lt; HEADER &gt;&lt; DATALEN &gt;<br>
 Server对接受到的数据进行处理<br>
 TCP连接关闭</p>
-<h4 id="配置"><a class="header-anchor" href="#配置">¶</a>配置</h4>
+<h4 id="配置"><a class="header-anchor" href="#配置"></a>配置</h4>
 <p>1、agent端重点</p>
 <pre><code>StartAgents=3//被动模式，启动客户端数不为0
 Server=x.x.x.x//允许获取数据的地址，可配置0.0.0.0/0允许任意ip获取数据
@@ -4431,8 +4435,8 @@ Hostname=zabbix_client//与服务端设置的名字相同
 </code></pre>
 <p>2、zabbix-server端<br>
 zabbix监控模板默认使用的就是被动模式，直接添加就好</p>
-<h3 id="主动模式"><a class="header-anchor" href="#主动模式">¶</a>主动模式</h3>
-<h4 id="流程-v2"><a class="header-anchor" href="#流程-v2">¶</a>流程</h4>
+<h3 id="主动模式"><a class="header-anchor" href="#主动模式"></a>主动模式</h3>
+<h4 id="流程-v2"><a class="header-anchor" href="#流程-v2"></a>流程</h4>
 <p>1.获取列表</p>
 <p>Agent向Server建立一个TCP连接<br>
 Agent请求需要检测的items数据列表<br>
@@ -4445,7 +4449,7 @@ Agent开始周期性地收集数据</p>
 Agent提交items列表收集的数据
 Server处理数据，并返回响应状态
 关闭TCP连接</p>
-<h4 id="配置-v2"><a class="header-anchor" href="#配置-v2">¶</a>配置</h4>
+<h4 id="配置-v2"><a class="header-anchor" href="#配置-v2"></a>配置</h4>
 <p>1、agent配置</p>
 <pre><code>StartAgents=0//主动模式，不启动客户端
 ServerActive=x.x.x.x//配置服务器地址，可配置域名，域名如用nginx需要tcp转发10051端口
@@ -4458,6 +4462,7 @@ Hostname=zabbix_master//与服务端设置的名字相同
 
 	</div>
 	<div id="footer">
+	<p>
 	©2019-<span id="footerYear"></span> 
 	<a href="/">Wu Jun</a> 
 	|
@@ -4470,7 +4475,9 @@ Hostname=zabbix_master//与服务端设置的名字相同
 		uv
 		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	<br>
 	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
+	</p>
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';

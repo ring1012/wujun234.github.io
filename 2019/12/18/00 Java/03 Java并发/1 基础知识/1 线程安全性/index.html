@@ -11,14 +11,14 @@
 	
 		1 线程安全性 | 
 	 
-	吴俊的博客
+	WuJun Blog
 	</title>
 	
 	<!-- keywords,description -->
 	
 		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
 	 
-		<meta name="description" content="吴俊的博客,wujun234" />
+		<meta name="description" content="吴俊,wujun234,wujun,wu jun" />
 	
 
 	<!-- favicon -->
@@ -29,7 +29,7 @@
 
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
-	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
+	<link rel="stylesheet" href="/lib/highlight/darcula.css">
 
 	<script src="/lib/highlight/highlight.pack.js"></script>
 	<script src="/lib/jquery-3.4.1.min.js"></script>
@@ -40,16 +40,19 @@
 
 <body>
 	<header id="header">
-    <a id="title" href="/" class="logo">吴俊的博客</a>
+    <a id="title" href="/" class="logo">WuJun Blog</a>
 
 	<ul id="menu">
 		<li class="menu-item">
-			<a href="/about" class="menu-item-link">关于</a>
+			<a href="/" class="menu-item-link">HOME</a>
+		</li>
+		<li class="menu-item">
+			<a href="/about" class="menu-item-link">ABOUT</a>
 		</li>
 		
 		<li class="menu-item">
 			<a href="https://github.com/wujun234/uid-generator-spring-boot-starter" class="menu-item-link" target="_blank">
-				uid-generator
+				UidGenerator
 			</a>
 		</li>
 		<li class="menu-item">
@@ -60,10 +63,11 @@
 	</ul>
 </header>
 
-	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-bars" aria-hidden="true"></i></button>
+	
 <div id="sidebar">
-	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">站点目录</a>
-	<a herf="#" id="sidebar-article" class="sidebar-toc">文章目录</a>
+	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-arrow-right " aria-hidden="true"></i></button>
+	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">SITE MENU</a>
+	<a herf="#" id="sidebar-article" class="sidebar-toc">ARTICLE MENU</a>
 
 	<!-- 侧边目录栏 -->
 	<div id="site-toc">
@@ -1892,8 +1896,8 @@
 			
 							<ul>
 								<li class="file">
-									<a href="/2019/12/18/01%20Spring/04%20Web/4%20Jsonp/">
-										4 Jsonp
+									<a href="/2019/12/18/01%20Spring/04%20Web/4%20%E8%B7%A8%E5%9F%9F/">
+										4 跨域
 									</a>
 								</li>
 							</ul>
@@ -4399,18 +4403,18 @@
 
 
 <div id="article">
-	<h3 id="1-什么是线程安全"><a class="header-anchor" href="#1-什么是线程安全">¶</a>1 什么是线程安全</h3>
-<h5 id="1-1-线程安全的类"><a class="header-anchor" href="#1-1-线程安全的类">¶</a>1.1 线程安全的类</h5>
+	<h3 id="1-什么是线程安全"><a class="header-anchor" href="#1-什么是线程安全"></a>1 什么是线程安全</h3>
+<h5 id="1-1-线程安全的类"><a class="header-anchor" href="#1-1-线程安全的类"></a>1.1 线程安全的类</h5>
 <p>当多个线程访问某个类时，不管运行时环境采用何种调度方式或者这些线程将如何交替执行，并且在主调代码中不需要额外的同步，这个类都能表现正确的行为</p>
-<h5 id="1-2-无状态对象"><a class="header-anchor" href="#1-2-无状态对象">¶</a>1.2 无状态对象</h5>
+<h5 id="1-2-无状态对象"><a class="header-anchor" href="#1-2-无状态对象"></a>1.2 无状态对象</h5>
 <p>不包含域，也不包含与其他类中域的引用。一定是线程安全的。</p>
-<h3 id="2-原子性"><a class="header-anchor" href="#2-原子性">¶</a>2 原子性</h3>
-<h5 id="2-1-竞态条件"><a class="header-anchor" href="#2-1-竞态条件">¶</a>2.1 竞态条件</h5>
+<h3 id="2-原子性"><a class="header-anchor" href="#2-原子性"></a>2 原子性</h3>
+<h5 id="2-1-竞态条件"><a class="header-anchor" href="#2-1-竞态条件"></a>2.1 竞态条件</h5>
 <blockquote>
 <p>竞态条件: 由于不恰当的执行时序出现不正确的执行结果.</p>
 </blockquote>
 <p>最常见的竞态条件就是“先检查后执行”。如某个线程的操作插入到另一个线程的检查和执行操作之间。</p>
-<h5 id="2-2-示例：延迟初始化中的竞态条件"><a class="header-anchor" href="#2-2-示例：延迟初始化中的竞态条件">¶</a>2.2 示例：延迟初始化中的竞态条件</h5>
+<h5 id="2-2-示例：延迟初始化中的竞态条件"><a class="header-anchor" href="#2-2-示例：延迟初始化中的竞态条件"></a>2.2 示例：延迟初始化中的竞态条件</h5>
 <pre><code>@NotThreadSafe
 public class LazyInitRace {
     private ExpensiveObject instance = null;
@@ -4423,11 +4427,11 @@ public class LazyInitRace {
     private static class ExpensiveObject {}
 }
 </code></pre>
-<h5 id="2-3-复合操作"><a class="header-anchor" href="#2-3-复合操作">¶</a>2.3 复合操作</h5>
+<h5 id="2-3-复合操作"><a class="header-anchor" href="#2-3-复合操作"></a>2.3 复合操作</h5>
 <p>复合操作：包含了一组必须以原子方式执行的操作以确保线程安全性</p>
 <p>在实际情况中, 应尽可能地使用现有的线程安全对象来管理类的状态.</p>
-<h3 id="3-加锁机制"><a class="header-anchor" href="#3-加锁机制">¶</a>3 加锁机制</h3>
-<h5 id="3-1-内置锁"><a class="header-anchor" href="#3-1-内置锁">¶</a>3.1 内置锁</h5>
+<h3 id="3-加锁机制"><a class="header-anchor" href="#3-加锁机制"></a>3 加锁机制</h3>
+<h5 id="3-1-内置锁"><a class="header-anchor" href="#3-1-内置锁"></a>3.1 内置锁</h5>
 <p>Java提供了内置的锁机制来支持原子性：同步代码块，synchronized 关键字</p>
 <p>synchronized 方法以方法所在对象为锁</p>
 <pre><code>// 以下两种方法等效
@@ -4456,7 +4460,7 @@ public void method() {
 	}
 }
 </code></pre>
-<h5 id="3-2-重入"><a class="header-anchor" href="#3-2-重入">¶</a>3.2 重入</h5>
+<h5 id="3-2-重入"><a class="header-anchor" href="#3-2-重入"></a>3.2 重入</h5>
 <p>内置锁是可重入的, 线程可以获取一个已经由它持有的锁。</p>
 <p>“重入”意味着获取锁的粒度是“线程”而不是“调用”。</p>
 <p>重入的一种实现方法：</p>
@@ -4466,14 +4470,14 @@ public void method() {
 <li>如果同一个线程再次获取这个锁，计数值将递增，而当线程退出同步代码块时, 计数值会相应地递减</li>
 <li>当计数值为0时, 这个锁将释放, JVM将取消记录锁的持有者线程。</li>
 </ol>
-<h3 id="4-用锁来保护状态"><a class="header-anchor" href="#4-用锁来保护状态">¶</a>4 用锁来保护状态</h3>
+<h3 id="4-用锁来保护状态"><a class="header-anchor" href="#4-用锁来保护状态"></a>4 用锁来保护状态</h3>
 <ul>
 <li>对于可能被多个线程同时访问的可变状态变量, 在访问它时都需要持有同一个锁, 在这种情况下，我们称这个状态是由这个锁来保护的。</li>
 <li>对象的内置锁与其状态之间没有内在关联, 对象的与不一定要通过内置锁来保护.</li>
 <li>每个共享的和可变的变量都应该只由一个锁来保护, 从而使维护人员知道是哪一种锁.</li>
 <li>对于每个包含多个变量的不变性条件, 其中涉及的所有变量都需要由同一个锁来保护.</li>
 </ul>
-<h3 id="5-活跃性与性能"><a class="header-anchor" href="#5-活跃性与性能">¶</a>5 活跃性与性能</h3>
+<h3 id="5-活跃性与性能"><a class="header-anchor" href="#5-活跃性与性能"></a>5 活跃性与性能</h3>
 <ul>
 <li>在简单性与性能之间存在着相互制约因素, 当实现某个同步策略时, 一定不要盲目的为了性能而牺牲简单性(这可能会破坏安全性)。</li>
 <li>当执行较长时间的计算或者可能无法快速完成的操作时, 一定不要持有锁。</li>
@@ -4483,6 +4487,7 @@ public void method() {
 
 	</div>
 	<div id="footer">
+	<p>
 	©2019-<span id="footerYear"></span> 
 	<a href="/">Wu Jun</a> 
 	|
@@ -4495,7 +4500,9 @@ public void method() {
 		uv
 		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	<br>
 	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
+	</p>
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';

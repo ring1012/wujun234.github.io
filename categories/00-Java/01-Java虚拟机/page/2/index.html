@@ -9,14 +9,14 @@
 	
 	<title>
 	 
-	吴俊的博客
+	WuJun Blog
 	</title>
 	
 	<!-- keywords,description -->
 	
 		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
 	 
-		<meta name="description" content="吴俊的博客,wujun234" />
+		<meta name="description" content="吴俊,wujun234,wujun,wu jun" />
 	
 
 	<!-- favicon -->
@@ -27,7 +27,7 @@
 
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
-	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
+	<link rel="stylesheet" href="/lib/highlight/darcula.css">
 
 	<script src="/lib/highlight/highlight.pack.js"></script>
 	<script src="/lib/jquery-3.4.1.min.js"></script>
@@ -38,16 +38,19 @@
 
 <body>
 	<header id="header">
-    <a id="title" href="/" class="logo">吴俊的博客</a>
+    <a id="title" href="/" class="logo">WuJun Blog</a>
 
 	<ul id="menu">
 		<li class="menu-item">
-			<a href="/about" class="menu-item-link">关于</a>
+			<a href="/" class="menu-item-link">HOME</a>
+		</li>
+		<li class="menu-item">
+			<a href="/about" class="menu-item-link">ABOUT</a>
 		</li>
 		
 		<li class="menu-item">
 			<a href="https://github.com/wujun234/uid-generator-spring-boot-starter" class="menu-item-link" target="_blank">
-				uid-generator
+				UidGenerator
 			</a>
 		</li>
 		<li class="menu-item">
@@ -58,10 +61,11 @@
 	</ul>
 </header>
 
-	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-bars" aria-hidden="true"></i></button>
+	
 <div id="sidebar">
-	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">站点目录</a>
-	<a herf="#" id="sidebar-article" class="sidebar-toc">文章目录</a>
+	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-arrow-right " aria-hidden="true"></i></button>
+	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">SITE MENU</a>
+	<a herf="#" id="sidebar-article" class="sidebar-toc">ARTICLE MENU</a>
 
 	<!-- 侧边目录栏 -->
 	<div id="site-toc">
@@ -1890,8 +1894,8 @@
 			
 							<ul>
 								<li class="file">
-									<a href="/2019/12/18/01%20Spring/04%20Web/4%20Jsonp/">
-										4 Jsonp
+									<a href="/2019/12/18/01%20Spring/04%20Web/4%20%E8%B7%A8%E5%9F%9F/">
+										4 跨域
 									</a>
 								</li>
 							</ul>
@@ -4384,79 +4388,83 @@
 
 	<!-- 引入正文 -->
 	<div id="content">
-		<section id="articleList">
-		
-
-			<article class="article-li">
-				<h2>
-					<a class="article-title" href="/2019/12/18/00%20Java/01%20Java%E8%99%9A%E6%8B%9F%E6%9C%BA/08%20%E5%AD%97%E8%8A%82%E7%A0%81%E6%89%A7%E8%A1%8C%E5%BC%95%E6%93%8E/3%20%E5%9F%BA%E4%BA%8E%E6%A0%88%E7%9A%84%E5%AD%97%E8%8A%82%E7%A0%81%E8%A7%A3%E9%87%8A%E6%89%A7%E8%A1%8C%E5%BC%95%E6%93%8E/">3 基于栈的字节码解释执行引擎</a>
+		<div id="index-list">
+	
+		<div class="index-li">
+			<a href="/2019/12/18/00%20Java/01%20Java%E8%99%9A%E6%8B%9F%E6%9C%BA/08%20%E5%AD%97%E8%8A%82%E7%A0%81%E6%89%A7%E8%A1%8C%E5%BC%95%E6%93%8E/3%20%E5%9F%BA%E4%BA%8E%E6%A0%88%E7%9A%84%E5%AD%97%E8%8A%82%E7%A0%81%E8%A7%A3%E9%87%8A%E6%89%A7%E8%A1%8C%E5%BC%95%E6%93%8E/">
+				<h2 class="index-title">
+					3 基于栈的字节码解释执行引擎
 				</h2>
-				<span class="post-date">2019-12-19</span>
-				<div class="article-digest">
-					¶1 解释执行
+				<div class="index-brief">
+					1 解释执行
 
 只有确定了谈论对象是某种具体的Java实现版本和执行引擎运行模式时，谈解释执行还是编译执行才比较确切；
-Java语言中，javac编译器完成了程序代码经过词法分析、语法分析到抽象语法
+Java语言中，javac编译器完成了程序代码经过词法分析、语法分析到抽象语法树，再遍历语法树生成线性的字节码指令流的过程；因为这一部分动作是在Java虚拟机之外进行的，而解释器在
 					...
 				</div>
-			</article>
-			
-		
-
-			<article class="article-li">
-				<h2>
-					<a class="article-title" href="/2019/12/18/00%20Java/01%20Java%E8%99%9A%E6%8B%9F%E6%9C%BA/07%20%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/2%20%E7%B1%BB%E5%8A%A0%E8%BD%BD%E8%BF%87%E7%A8%8B/">2 类加载过程</a>
+				<p class="index-date">2019-12-20</p>
+			</a>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2019/12/18/00%20Java/01%20Java%E8%99%9A%E6%8B%9F%E6%9C%BA/07%20%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/2%20%E7%B1%BB%E5%8A%A0%E8%BD%BD%E8%BF%87%E7%A8%8B/">
+				<h2 class="index-title">
+					2 类加载过程
 				</h2>
-				<span class="post-date">2019-12-19</span>
-				<div class="article-digest">
+				<div class="index-brief">
 					加载、连接（验证、准备、解析）、初始化
-¶1 加载
+1 加载
 
 通过一个类的全限定名来获取定义此类的二进制流
 将这个字节流转化为方法区的运行时数据结构
-在内存中生成一个代表这个类的java.lang.Class
+在内存中生成一个代表这个类的java.lang.Class对象，作为方法区这个类的各种数据的访问入口
+
+2 验证
+确保Class文件的字节流信息符合虚拟机的要求
 					...
 				</div>
-			</article>
-			
-		
-
-			<article class="article-li">
-				<h2>
-					<a class="article-title" href="/2019/12/18/00%20Java/01%20Java%E8%99%9A%E6%8B%9F%E6%9C%BA/07%20%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/1%20%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%97%B6%E6%9C%BA/">1 类加载时机</a>
+				<p class="index-date">2019-12-20</p>
+			</a>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2019/12/18/00%20Java/01%20Java%E8%99%9A%E6%8B%9F%E6%9C%BA/07%20%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/1%20%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%97%B6%E6%9C%BA/">
+				<h2 class="index-title">
+					1 类加载时机
 				</h2>
-				<span class="post-date">2019-12-19</span>
-				<div class="article-digest">
-					¶1 生命周期
+				<div class="index-brief">
+					1 生命周期
 类从被虚拟机加载到内存，到卸载出内存为止，类的整个生命周期：加载、连接（验证、准备、解析）、初始化、使用和卸载；
 
-¶2 加载时机
-虚拟机规范没有强制约束类加载的时机，但严格规定了有且
+2 加载时机
+虚拟机规范没有强制约束类加载的时机，但严格规定了有且只有5种情况必须立即对类进行初始化
+
+遇到new、getstatic、putstatic和invokes
 					...
 				</div>
-			</article>
-			
-		
-
-			<article class="article-li">
-				<h2>
-					<a class="article-title" href="/2019/12/18/00%20Java/01%20Java%E8%99%9A%E6%8B%9F%E6%9C%BA/07%20%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/3%20%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%99%A8/">3 类加载器</a>
+				<p class="index-date">2019-12-20</p>
+			</a>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2019/12/18/00%20Java/01%20Java%E8%99%9A%E6%8B%9F%E6%9C%BA/07%20%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/3%20%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%99%A8/">
+				<h2 class="index-title">
+					3 类加载器
 				</h2>
-				<span class="post-date">2019-12-19</span>
-				<div class="article-digest">
+				<div class="index-brief">
 					
 					...
 				</div>
-			</article>
-			
-		
-
-			<article class="article-li">
-				<h2>
-					<a class="article-title" href="/2019/12/18/00%20Java/01%20Java%E8%99%9A%E6%8B%9F%E6%9C%BA/06%20%E7%B1%BB%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84/1%20%E6%97%A0%E5%85%B3%E6%80%A7%E7%9A%84%E5%9F%BA%E7%9F%B3/">1 无关性的基石</a>
+				<p class="index-date">2019-12-20</p>
+			</a>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2019/12/18/00%20Java/01%20Java%E8%99%9A%E6%8B%9F%E6%9C%BA/06%20%E7%B1%BB%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84/1%20%E6%97%A0%E5%85%B3%E6%80%A7%E7%9A%84%E5%9F%BA%E7%9F%B3/">
+				<h2 class="index-title">
+					1 无关性的基石
 				</h2>
-				<span class="post-date">2019-12-19</span>
-				<div class="article-digest">
+				<div class="index-brief">
 					
 平台无关性的基石：各种不同平台的虚拟机与所有平台都统一使用的程序存储格式——字节码（ByteCode）
 语言无关性的基石：虚拟机和字节码存储格式。
@@ -4465,80 +4473,85 @@ Java语言中，javac编译器完成了程序代码经过词法分析、语法�
 
 					...
 				</div>
-			</article>
-			
-		
-
-			<article class="article-li">
-				<h2>
-					<a class="article-title" href="/2019/12/18/00%20Java/01%20Java%E8%99%9A%E6%8B%9F%E6%9C%BA/06%20%E7%B1%BB%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84/2%20Class%E7%B1%BB%E6%96%87%E4%BB%B6%E7%9A%84%E7%BB%93%E6%9E%84/">2 Class类文件的结构</a>
+				<p class="index-date">2019-12-20</p>
+			</a>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2019/12/18/00%20Java/01%20Java%E8%99%9A%E6%8B%9F%E6%9C%BA/06%20%E7%B1%BB%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84/2%20Class%E7%B1%BB%E6%96%87%E4%BB%B6%E7%9A%84%E7%BB%93%E6%9E%84/">
+				<h2 class="index-title">
+					2 Class类文件的结构
 				</h2>
-				<span class="post-date">2019-12-19</span>
-				<div class="article-digest">
+				<div class="index-brief">
 					
 Class文件是一组以8位字节为基础单位的二进制流；8位字节以上以高位在前分割
 只有两种数据类型：无符号数和表;
-无符号数属于基本的数据类型，以u1、u2、u4、u8来分别代表1个字节、2个字节、4
+无符号数属于基本的数据类型，以u1、u2、u4、u8来分别代表1个字节、2个字节、4个字节和8个字节的无符号数，无符号数可以用来描述数字、索引引用、数量值或者按照UTF-8编码构成字符
 					...
 				</div>
-			</article>
-			
-		
-
-			<article class="article-li">
-				<h2>
-					<a class="article-title" href="/2019/12/18/00%20Java/01%20Java%E8%99%9A%E6%8B%9F%E6%9C%BA/06%20%E7%B1%BB%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84/3%20%E5%AD%97%E8%8A%82%E7%A0%81%E6%8C%87%E4%BB%A4%E7%AE%80%E4%BB%8B/">3 字节码指令简介</a>
+				<p class="index-date">2019-12-20</p>
+			</a>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2019/12/18/00%20Java/01%20Java%E8%99%9A%E6%8B%9F%E6%9C%BA/06%20%E7%B1%BB%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84/3%20%E5%AD%97%E8%8A%82%E7%A0%81%E6%8C%87%E4%BB%A4%E7%AE%80%E4%BB%8B/">
+				<h2 class="index-title">
+					3 字节码指令简介
 				</h2>
-				<span class="post-date">2019-12-19</span>
-				<div class="article-digest">
+				<div class="index-brief">
 					Java虚拟机的指令由一个字节长度的、代表着特定操作含义的数字（操作码）以及跟随其后的零至多个代表此操作所需参数（称为操作数）而构成。
-由于Java虚拟机采用面向操作数栈而不是寄存器的架构，所以大多数
+由于Java虚拟机采用面向操作数栈而不是寄存器的架构，所以大多数的指令都不包含操作数，只有一个操作码。
+在指令集中大多数的指令都包含了其操作所对应的数据类型信息
+
+
 					...
 				</div>
-			</article>
-			
-		
-
-			<article class="article-li">
-				<h2>
-					<a class="article-title" href="/2019/12/18/00%20Java/01%20Java%E8%99%9A%E6%8B%9F%E6%9C%BA/05%20%E8%B0%83%E4%BC%98%E6%A1%88%E4%BE%8B/1%20%E6%A1%88%E4%BE%8B%E5%88%86%E6%9E%90/">1 案例分析</a>
+				<p class="index-date">2019-12-20</p>
+			</a>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2019/12/18/00%20Java/01%20Java%E8%99%9A%E6%8B%9F%E6%9C%BA/05%20%E8%B0%83%E4%BC%98%E6%A1%88%E4%BE%8B/1%20%E6%A1%88%E4%BE%8B%E5%88%86%E6%9E%90/">
+				<h2 class="index-title">
+					1 案例分析
 				</h2>
-				<span class="post-date">2019-12-19</span>
-				<div class="article-digest">
-					¶1 高性能硬件上的程序部署策略
-¶问题描述
+				<div class="index-brief">
+					1 高性能硬件上的程序部署策略
+问题描述
 
-一个每天15万PV左右的在线文档网站升级了硬件，4个CPU，16GB物理内存，操作系统为64位CentOS 5.4，使用Resin作为Web服务器，没有
+一个每天15万PV左右的在线文档网站升级了硬件，4个CPU，16GB物理内存，操作系统为64位CentOS 5.4，使用Resin作为Web服务器，没有部署其他的应用。
+管理员选用了64位的JDK 1.5，并通过-Xmx和-Xms参数将Java堆固定在12
 					...
 				</div>
-			</article>
-			
-		
-
-			<article class="article-li">
-				<h2>
-					<a class="article-title" href="/2019/12/18/00%20Java/01%20Java%E8%99%9A%E6%8B%9F%E6%9C%BA/05%20%E8%B0%83%E4%BC%98%E6%A1%88%E4%BE%8B/2%20%E5%AE%9E%E6%88%98%EF%BC%9AEclipse%E8%BF%90%E8%A1%8C%E9%80%9F%E5%BA%A6%E8%B0%83%E4%BC%98/">2 实战：Eclipse运行速度调优</a>
+				<p class="index-date">2019-12-20</p>
+			</a>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2019/12/18/00%20Java/01%20Java%E8%99%9A%E6%8B%9F%E6%9C%BA/05%20%E8%B0%83%E4%BC%98%E6%A1%88%E4%BE%8B/2%20%E5%AE%9E%E6%88%98%EF%BC%9AEclipse%E8%BF%90%E8%A1%8C%E9%80%9F%E5%BA%A6%E8%B0%83%E4%BC%98/">
+				<h2 class="index-title">
+					2 实战：Eclipse运行速度调优
 				</h2>
-				<span class="post-date">2019-12-19</span>
-				<div class="article-digest">
+				<div class="index-brief">
 					
 升级JDK；
 设置-XX:MaxPermSize=256M解决Eclipse判断虚拟机版本的bug；
 加入参数-Xverfify:none禁止字节码验证；
-虚拟机运行在client模式，采用C1轻量
+虚拟机运行在client模式，采用C1轻量级编译器；
+把-Xms和-XX：PermSize参数设置为-Xmx和-XX:MaxPermSize一
 					...
 				</div>
-			</article>
-			
-		
-
-			<article class="article-li">
-				<h2>
-					<a class="article-title" href="/2019/12/18/00%20Java/01%20Java%E8%99%9A%E6%8B%9F%E6%9C%BA/04%20%E6%80%A7%E8%83%BD%E7%9B%91%E6%8E%A7+%E6%95%85%E9%9A%9C%E5%A4%84%E7%90%86/1%20JDK%E7%9A%84%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%B7%A5%E5%85%B7/">1 JDK的命令行工具</a>
+				<p class="index-date">2019-12-20</p>
+			</a>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2019/12/18/00%20Java/01%20Java%E8%99%9A%E6%8B%9F%E6%9C%BA/04%20%E6%80%A7%E8%83%BD%E7%9B%91%E6%8E%A7+%E6%95%85%E9%9A%9C%E5%A4%84%E7%90%86/1%20JDK%E7%9A%84%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%B7%A5%E5%85%B7/">
+				<h2 class="index-title">
+					1 JDK的命令行工具
 				</h2>
-				<span class="post-date">2019-12-19</span>
-				<div class="article-digest">
-					¶1 jps
+				<div class="index-brief">
+					1 jps
 虚拟机进程状况工具
 jps ［options］［hostid］
 
@@ -4556,18 +4569,31 @@ jps ［options］［hostid］
 
 
 -m
-输出虚拟机进程启动时传递给主类main()函
+输出虚拟机进程启动时传递给主类main()函数的参数
+
+
+-l
+输出主类的全名，如果进程运行的jar包，则输出jar的路径。
+
+
+-v
+输出虚拟机
 					...
 				</div>
-			</article>
-			
-		
-</section>
-
-	<a class="extend prev" rel="prev" href="/categories/00-Java/01-Java%E8%99%9A%E6%8B%9F%E6%9C%BA/">&lt;</a><a class="page-number" href="/categories/00-Java/01-Java%E8%99%9A%E6%8B%9F%E6%9C%BA/">1</a><span class="page-number current">2</span><a class="page-number" href="/categories/00-Java/01-Java%E8%99%9A%E6%8B%9F%E6%9C%BA/page/3/">3</a><a class="page-number" href="/categories/00-Java/01-Java%E8%99%9A%E6%8B%9F%E6%9C%BA/page/4/">4</a><a class="extend next" rel="next" href="/categories/00-Java/01-Java%E8%99%9A%E6%8B%9F%E6%9C%BA/page/3/">&gt;</a>
+				<p class="index-date">2019-12-20</p>
+			</a>
+		</div>	
+	
+</div>
+<div id="index-paginator">
+	
+		<a class="extend prev" rel="prev" href="/categories/00-Java/01-Java%E8%99%9A%E6%8B%9F%E6%9C%BA/">&lt;</a><a class="page-number" href="/categories/00-Java/01-Java%E8%99%9A%E6%8B%9F%E6%9C%BA/">1</a><span class="page-number current">2</span><a class="page-number" href="/categories/00-Java/01-Java%E8%99%9A%E6%8B%9F%E6%9C%BA/page/3/">3</a><a class="page-number" href="/categories/00-Java/01-Java%E8%99%9A%E6%8B%9F%E6%9C%BA/page/4/">4</a><a class="extend next" rel="next" href="/categories/00-Java/01-Java%E8%99%9A%E6%8B%9F%E6%9C%BA/page/3/">&gt;</a>
+	
+</div>
 
 	</div>
 	<div id="footer">
+	<p>
 	©2019-<span id="footerYear"></span> 
 	<a href="/">Wu Jun</a> 
 	|
@@ -4580,7 +4606,9 @@ jps ［options］［hostid］
 		uv
 		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	<br>
 	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
+	</p>
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';

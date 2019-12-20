@@ -11,14 +11,14 @@
 	
 		2 字符串 | 
 	 
-	吴俊的博客
+	WuJun Blog
 	</title>
 	
 	<!-- keywords,description -->
 	
 		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
 	 
-		<meta name="description" content="吴俊的博客,wujun234" />
+		<meta name="description" content="吴俊,wujun234,wujun,wu jun" />
 	
 
 	<!-- favicon -->
@@ -29,7 +29,7 @@
 
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
-	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
+	<link rel="stylesheet" href="/lib/highlight/darcula.css">
 
 	<script src="/lib/highlight/highlight.pack.js"></script>
 	<script src="/lib/jquery-3.4.1.min.js"></script>
@@ -40,16 +40,19 @@
 
 <body>
 	<header id="header">
-    <a id="title" href="/" class="logo">吴俊的博客</a>
+    <a id="title" href="/" class="logo">WuJun Blog</a>
 
 	<ul id="menu">
 		<li class="menu-item">
-			<a href="/about" class="menu-item-link">关于</a>
+			<a href="/" class="menu-item-link">HOME</a>
+		</li>
+		<li class="menu-item">
+			<a href="/about" class="menu-item-link">ABOUT</a>
 		</li>
 		
 		<li class="menu-item">
 			<a href="https://github.com/wujun234/uid-generator-spring-boot-starter" class="menu-item-link" target="_blank">
-				uid-generator
+				UidGenerator
 			</a>
 		</li>
 		<li class="menu-item">
@@ -60,10 +63,11 @@
 	</ul>
 </header>
 
-	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-bars" aria-hidden="true"></i></button>
+	
 <div id="sidebar">
-	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">站点目录</a>
-	<a herf="#" id="sidebar-article" class="sidebar-toc">文章目录</a>
+	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-arrow-right " aria-hidden="true"></i></button>
+	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">SITE MENU</a>
+	<a herf="#" id="sidebar-article" class="sidebar-toc">ARTICLE MENU</a>
 
 	<!-- 侧边目录栏 -->
 	<div id="site-toc">
@@ -1892,8 +1896,8 @@
 			
 							<ul>
 								<li class="file">
-									<a href="/2019/12/18/01%20Spring/04%20Web/4%20Jsonp/">
-										4 Jsonp
+									<a href="/2019/12/18/01%20Spring/04%20Web/4%20%E8%B7%A8%E5%9F%9F/">
+										4 跨域
 									</a>
 								</li>
 							</ul>
@@ -4399,9 +4403,9 @@
 
 
 <div id="article">
-	<h3 id="String"><a class="header-anchor" href="#String">¶</a>String</h3>
+	<h3 id="String"><a class="header-anchor" href="#String"></a>String</h3>
 <p>String类是常量类,不可变，编辑器可让字符串共享在常量池。</p>
-<h4 id="初始化"><a class="header-anchor" href="#初始化">¶</a>初始化</h4>
+<h4 id="初始化"><a class="header-anchor" href="#初始化"></a>初始化</h4>
 <ol>
 <li>使用字符串常量直接初始化</li>
 </ol>
@@ -4412,7 +4416,7 @@
 </ol>
 <pre><code>String s = new String(Object);
 </code></pre>
-<h4 id="操作"><a class="header-anchor" href="#操作">¶</a>操作</h4>
+<h4 id="操作"><a class="header-anchor" href="#操作"></a>操作</h4>
 <ol>
 <li>截取字符串</li>
 </ol>
@@ -4466,7 +4470,7 @@ Double.parseDouble(&quot;0.213&quot;);
 <pre><code>基本数据类型变量+&quot;&quot;
 String.valueOf(其他类型的参数)；
 </code></pre>
-<h4 id="引用"><a class="header-anchor" href="#引用">¶</a>引用</h4>
+<h4 id="引用"><a class="header-anchor" href="#引用"></a>引用</h4>
 <pre><code>String s1 = &quot;Programming&quot;;
 String s2 = new String(&quot;Programming&quot;);//两个字符串对象，一个是静态区的&quot;Programming&quot;，一个是用new创建在堆上的对象。
 String s3 = &quot;Program&quot;;
@@ -4483,15 +4487,16 @@ System.out.println(s2 == s2.intern());//false
 <li>String对象的intern方法会得到字符串对象在常量池中对应的版本的引用、，如果常量池中没有对应的字符串，则该字符串将被添加到常量池中，然后返回常量池中字符串的引用；</li>
 <li>字符串的+操作其本质是创建了StringBuilder对象进行append操作，然后将拼接后的StringBuilder对象用toString方法处理成String对象</li>
 </ol>
-<h3 id="StringBuilder"><a class="header-anchor" href="#StringBuilder">¶</a>StringBuilder</h3>
+<h3 id="StringBuilder"><a class="header-anchor" href="#StringBuilder"></a>StringBuilder</h3>
 <p>单线程，没被synchronized修饰，效率比StringBuffer高。</p>
-<h3 id="StringBuffer"><a class="header-anchor" href="#StringBuffer">¶</a>StringBuffer</h3>
+<h3 id="StringBuffer"><a class="header-anchor" href="#StringBuffer"></a>StringBuffer</h3>
 <p>多线程，被synchronized修饰</p>
 
 </div>
 
 	</div>
 	<div id="footer">
+	<p>
 	©2019-<span id="footerYear"></span> 
 	<a href="/">Wu Jun</a> 
 	|
@@ -4504,7 +4509,9 @@ System.out.println(s2 == s2.intern());//false
 		uv
 		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	<br>
 	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
+	</p>
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';

@@ -11,14 +11,14 @@
 	
 		1 依赖注入 | 
 	 
-	吴俊的博客
+	WuJun Blog
 	</title>
 	
 	<!-- keywords,description -->
 	
 		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
 	 
-		<meta name="description" content="吴俊的博客,wujun234" />
+		<meta name="description" content="吴俊,wujun234,wujun,wu jun" />
 	
 
 	<!-- favicon -->
@@ -29,7 +29,7 @@
 
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
-	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
+	<link rel="stylesheet" href="/lib/highlight/darcula.css">
 
 	<script src="/lib/highlight/highlight.pack.js"></script>
 	<script src="/lib/jquery-3.4.1.min.js"></script>
@@ -40,16 +40,19 @@
 
 <body>
 	<header id="header">
-    <a id="title" href="/" class="logo">吴俊的博客</a>
+    <a id="title" href="/" class="logo">WuJun Blog</a>
 
 	<ul id="menu">
 		<li class="menu-item">
-			<a href="/about" class="menu-item-link">关于</a>
+			<a href="/" class="menu-item-link">HOME</a>
+		</li>
+		<li class="menu-item">
+			<a href="/about" class="menu-item-link">ABOUT</a>
 		</li>
 		
 		<li class="menu-item">
 			<a href="https://github.com/wujun234/uid-generator-spring-boot-starter" class="menu-item-link" target="_blank">
-				uid-generator
+				UidGenerator
 			</a>
 		</li>
 		<li class="menu-item">
@@ -60,10 +63,11 @@
 	</ul>
 </header>
 
-	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-bars" aria-hidden="true"></i></button>
+	
 <div id="sidebar">
-	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">站点目录</a>
-	<a herf="#" id="sidebar-article" class="sidebar-toc">文章目录</a>
+	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-arrow-right " aria-hidden="true"></i></button>
+	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">SITE MENU</a>
+	<a herf="#" id="sidebar-article" class="sidebar-toc">ARTICLE MENU</a>
 
 	<!-- 侧边目录栏 -->
 	<div id="site-toc">
@@ -1892,8 +1896,8 @@
 			
 							<ul>
 								<li class="file">
-									<a href="/2019/12/18/01%20Spring/04%20Web/4%20Jsonp/">
-										4 Jsonp
+									<a href="/2019/12/18/01%20Spring/04%20Web/4%20%E8%B7%A8%E5%9F%9F/">
+										4 跨域
 									</a>
 								</li>
 							</ul>
@@ -4401,9 +4405,9 @@
 <div id="article">
 	<p>IoC容器负责装配Bean，即创建应用对象之间协作关系，是<strong>依赖注入</strong>(Dependency injection)的本质。</p>
 <p>装配方式优先级：自动装配 &gt; Java配置文件 &gt; XML配置文件</p>
-<h3 id="2-1-自动装配"><a class="header-anchor" href="#2-1-自动装配">¶</a>2.1 自动装配</h3>
+<h3 id="2-1-自动装配"><a class="header-anchor" href="#2-1-自动装配"></a>2.1 自动装配</h3>
 <p>Spring从两个角度来实现自动装配：</p>
-<h4 id="组件扫描"><a class="header-anchor" href="#组件扫描">¶</a>组件扫描</h4>
+<h4 id="组件扫描"><a class="header-anchor" href="#组件扫描"></a>组件扫描</h4>
 <p>Spring自动发现ApplicationContext中所创建的bean</p>
 <ul>
 <li><strong>@Component</strong><br>
@@ -4422,32 +4426,32 @@
 @ComponentScan(basePackages = {&quot;soundsystem&quot;, &quot;video&quot;})
 @ComponentScan(basePackageClasses = {CDPlayer.class, DVDPlayer.class})//扫描指定类所属的包
 </code></pre>
-<h4 id="自动装配"><a class="header-anchor" href="#自动装配">¶</a>自动装配</h4>
+<h4 id="自动装配"><a class="header-anchor" href="#自动装配"></a>自动装配</h4>
 <p>Spring自动满足bean之间的依赖</p>
 <p><strong>@Autowired</strong>：声明自动装配，可用在构造器、方法、成员变量上。<br>
 只要对应类型的bean有且只有一个，则会自动装配。推荐通过构造器注入以避免NullPointerException问题。</p>
-<h5 id="注入到List和Map"><a class="header-anchor" href="#注入到List和Map">¶</a>注入到List和Map</h5>
+<h5 id="注入到List和Map"><a class="header-anchor" href="#注入到List和Map"></a>注入到List和Map</h5>
 <pre><code>@Autowired
 private List&lt;BeanInterface&gt; list;
 @Autowired
 private Map&lt;String,Interface&gt; map;
 </code></pre>
 <p>@Autowired 可直接将接口的实现Bean注入到List和Map中，其中Map的key必须为String，取的是Bean名字。</p>
-<h5 id="允许null值"><a class="header-anchor" href="#允许null值">¶</a>允许null值</h5>
+<h5 id="允许null值"><a class="header-anchor" href="#允许null值"></a>允许null值</h5>
 <p>默认要求依赖对象必须存在，如允许null值，可设置@Autowired(required=false)</p>
 <p>还有@Resource等</p>
-<h3 id="2-2-Java配置文件"><a class="header-anchor" href="#2-2-Java配置文件">¶</a>2.2 Java配置文件</h3>
+<h3 id="2-2-Java配置文件"><a class="header-anchor" href="#2-2-Java配置文件"></a>2.2 Java配置文件</h3>
 <p>想要装配第三方库中的组件时，因为没办法在它的类上添加@Component和@Autowired注解，不能自动化配置，必须要采用显式装配。</p>
-<h4 id="创建配置类"><a class="header-anchor" href="#创建配置类">¶</a>创建配置类</h4>
+<h4 id="创建配置类"><a class="header-anchor" href="#创建配置类"></a>创建配置类</h4>
 <p>@Configuration：表明是配置类</p>
-<h4 id="声明bean"><a class="header-anchor" href="#声明bean">¶</a>声明bean</h4>
+<h4 id="声明bean"><a class="header-anchor" href="#声明bean"></a>声明bean</h4>
 <p><strong>@Bean</strong>：声明bean，需编写方法创建所需类型实例， 注解@Bean。默认ID是方法名，也可通过name属性指定名字。</p>
 <pre><code>@Bean(name = &quot;lonelyHeartsClub&quot;)
 public CompactDisc sgtPeppers() {
     return new SgtPeppers();
 }
 </code></pre>
-<h4 id="装配bean"><a class="header-anchor" href="#装配bean">¶</a>装配bean</h4>
+<h4 id="装配bean"><a class="header-anchor" href="#装配bean"></a>装配bean</h4>
 <p>在JavaConfig中装配bean的最简单方式就是引用创建bean的方法。<br>
 默认情况下，Spring中所有的bean都是<strong>单例模式</strong>，Spring会拦截@Bean注解的函数调用，并返回之前创建好的bean。</p>
 <pre><code>@Bean
@@ -4455,10 +4459,10 @@ public CDPlayer cdPlayer() {
     return new CDPlayer(sgtPeppers());
 }
 </code></pre>
-<h3 id="2-3-XML配置文件"><a class="header-anchor" href="#2-3-XML配置文件">¶</a>2.3 XML配置文件</h3>
+<h3 id="2-3-XML配置文件"><a class="header-anchor" href="#2-3-XML配置文件"></a>2.3 XML配置文件</h3>
 <p>维护已有的XML配置， 在完成新的Spring工作时， 使用自动化配置和JavaConfig。<br>
 创建一个XML文件， 并且以<beans>元素为根。使用<bean>元素声明bean并指定class属性。<constructor-arg>元素注入构造器</p>
-<h5 id="set注入"><a class="header-anchor" href="#set注入">¶</a>set注入</h5>
+<h5 id="set注入"><a class="header-anchor" href="#set注入"></a>set注入</h5>
 <pre><code class="language-java">private OrderServiceImp orderService;
 public void setOrderService(OrderServiceImp orderService) {
     this.orderService = orderService;
@@ -4470,7 +4474,7 @@ public void setOrderService(OrderServiceImp orderService) {
 &lt;/bean&gt;
 &lt;bean name=&quot;orderService&quot; class=&quot;com.pec.service.imp.OrderServiceImp&quot;&gt;&lt;/bean&gt;
 </code></pre>
-<h5 id="构造器注入"><a class="header-anchor" href="#构造器注入">¶</a>构造器注入</h5>
+<h5 id="构造器注入"><a class="header-anchor" href="#构造器注入"></a>构造器注入</h5>
 <pre><code>private OrderServiceImp orderService;
 public OrderAction(OrderServiceImp orderService) {
     this.orderService = orderService;
@@ -4482,9 +4486,9 @@ public OrderAction(OrderServiceImp orderService) {
 &lt;/bean&gt;
 &lt;bean name=&quot;orderService&quot; class=&quot;com.pec.service.imp.OrderServiceImp&quot;&gt;&lt;/bean&gt;
 </code></pre>
-<h3 id="2-4-多种配置方法混用"><a class="header-anchor" href="#2-4-多种配置方法混用">¶</a>2.4 多种配置方法混用</h3>
+<h3 id="2-4-多种配置方法混用"><a class="header-anchor" href="#2-4-多种配置方法混用"></a>2.4 多种配置方法混用</h3>
 <p>通常的做法是：无论使用JavaConfig或者XML装配，都要创建一个root configuration；并且在这个配置文件中开启自动扫描机制</p>
-<h5 id="JavaConfig中引用"><a class="header-anchor" href="#JavaConfig中引用">¶</a>JavaConfig中引用</h5>
+<h5 id="JavaConfig中引用"><a class="header-anchor" href="#JavaConfig中引用"></a>JavaConfig中引用</h5>
 <ul>
 <li>@Import：导入其他的JavaConfig</li>
 <li>@ImportResource：导入XML配置文件</li>
@@ -4492,7 +4496,7 @@ public OrderAction(OrderServiceImp orderService) {
 <pre><code>@Import({CDPlayerConfig.class, CDConfig.class})
 @ImportResource(&quot;classpath: cd-config.xml&quot;)
 </code></pre>
-<h5 id="XML配置中引用"><a class="header-anchor" href="#XML配置中引用">¶</a>XML配置中引用</h5>
+<h5 id="XML配置中引用"><a class="header-anchor" href="#XML配置中引用"></a>XML配置中引用</h5>
 <p><import>标签引入其他的XML配置文件</p>
 <pre><code>&lt;import resource=&quot;classpath:/spring/calculate-web.xml&quot;/&gt;
 </code></pre>
@@ -4504,6 +4508,7 @@ public OrderAction(OrderServiceImp orderService) {
 
 	</div>
 	<div id="footer">
+	<p>
 	©2019-<span id="footerYear"></span> 
 	<a href="/">Wu Jun</a> 
 	|
@@ -4516,7 +4521,9 @@ public OrderAction(OrderServiceImp orderService) {
 		uv
 		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	<br>
 	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
+	</p>
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';

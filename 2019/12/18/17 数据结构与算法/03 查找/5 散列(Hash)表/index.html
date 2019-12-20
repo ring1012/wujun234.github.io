@@ -11,14 +11,14 @@
 	
 		5 散列(Hash)表 | 
 	 
-	吴俊的博客
+	WuJun Blog
 	</title>
 	
 	<!-- keywords,description -->
 	
 		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
 	 
-		<meta name="description" content="吴俊的博客,wujun234" />
+		<meta name="description" content="吴俊,wujun234,wujun,wu jun" />
 	
 
 	<!-- favicon -->
@@ -29,7 +29,7 @@
 
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
-	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
+	<link rel="stylesheet" href="/lib/highlight/darcula.css">
 
 	<script src="/lib/highlight/highlight.pack.js"></script>
 	<script src="/lib/jquery-3.4.1.min.js"></script>
@@ -40,16 +40,19 @@
 
 <body>
 	<header id="header">
-    <a id="title" href="/" class="logo">吴俊的博客</a>
+    <a id="title" href="/" class="logo">WuJun Blog</a>
 
 	<ul id="menu">
 		<li class="menu-item">
-			<a href="/about" class="menu-item-link">关于</a>
+			<a href="/" class="menu-item-link">HOME</a>
+		</li>
+		<li class="menu-item">
+			<a href="/about" class="menu-item-link">ABOUT</a>
 		</li>
 		
 		<li class="menu-item">
 			<a href="https://github.com/wujun234/uid-generator-spring-boot-starter" class="menu-item-link" target="_blank">
-				uid-generator
+				UidGenerator
 			</a>
 		</li>
 		<li class="menu-item">
@@ -60,10 +63,11 @@
 	</ul>
 </header>
 
-	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-bars" aria-hidden="true"></i></button>
+	
 <div id="sidebar">
-	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">站点目录</a>
-	<a herf="#" id="sidebar-article" class="sidebar-toc">文章目录</a>
+	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-arrow-right " aria-hidden="true"></i></button>
+	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">SITE MENU</a>
+	<a herf="#" id="sidebar-article" class="sidebar-toc">ARTICLE MENU</a>
 
 	<!-- 侧边目录栏 -->
 	<div id="site-toc">
@@ -1892,8 +1896,8 @@
 			
 							<ul>
 								<li class="file">
-									<a href="/2019/12/18/01%20Spring/04%20Web/4%20Jsonp/">
-										4 Jsonp
+									<a href="/2019/12/18/01%20Spring/04%20Web/4%20%E8%B7%A8%E5%9F%9F/">
+										4 跨域
 									</a>
 								</li>
 							</ul>
@@ -4399,14 +4403,14 @@
 
 
 <div id="article">
-	<h3 id="1-散列表查找定义"><a class="header-anchor" href="#1-散列表查找定义">¶</a>1 散列表查找定义</h3>
+	<h3 id="1-散列表查找定义"><a class="header-anchor" href="#1-散列表查找定义"></a>1 散列表查找定义</h3>
 <ul>
 <li>散列技术：是在记录的存储位置和它的关键字之间建立一个确定的对应关系 f，使得每个关键字 key 对应一个存储位置 f (key)。</li>
 <li>散列函数：对应关系 f 。又称为哈希 (Hash) 函数。</li>
 <li>散列表：采用散列技术存储记录的一块连续的存储空间。又称为哈希表 (Hash table) 。</li>
 <li>散列地址：关键字对应的记录存储位置</li>
 </ul>
-<h3 id="2-散列表查找步骤"><a class="header-anchor" href="#2-散列表查找步骤">¶</a>2 散列表查找步骤</h3>
+<h3 id="2-散列表查找步骤"><a class="header-anchor" href="#2-散列表查找步骤"></a>2 散列表查找步骤</h3>
 <ol>
 <li>在存储时，通过散列函数计算记录的散列地址，并按此散列地址存储该记录。</li>
 <li>当查找时，通过同样的散列函数计算记录的散列地址，按此散到地址访问该记录 。</li>
@@ -4416,36 +4420,36 @@
 <ul>
 <li>散列冲突：两个关键字 key1 != key2，但是却有 f(key1) = f(key2)</li>
 </ul>
-<h3 id="3-散列函数的构造方法"><a class="header-anchor" href="#3-散列函数的构造方法">¶</a>3 散列函数的构造方法</h3>
+<h3 id="3-散列函数的构造方法"><a class="header-anchor" href="#3-散列函数的构造方法"></a>3 散列函数的构造方法</h3>
 <p>好的散列函数两个原则：</p>
 <ol>
 <li>计算简单</li>
 <li>散列地址分布均匀</li>
 </ol>
 <p>如果关键字是字符串，可以（通过ASCII 码或者 Unicoæ 码等）转化为某种数字来对待</p>
-<h4 id="1-直接定址法"><a class="header-anchor" href="#1-直接定址法">¶</a>1 直接定址法</h4>
+<h4 id="1-直接定址法"><a class="header-anchor" href="#1-直接定址法"></a>1 直接定址法</h4>
 <p>需要事先知道关键字的分布情况，适合查找表较小且连续的情况。简单，但不常用。</p>
 <p>取关键字的某个线性函数值为散列地址，即 f(key) = a * key + b （a、b 为常数）。</p>
-<h4 id="2-数字分析法"><a class="header-anchor" href="#2-数字分析法">¶</a>2 数字分析法</h4>
+<h4 id="2-数字分析法"><a class="header-anchor" href="#2-数字分析法"></a>2 数字分析法</h4>
 <p>适合处理关键字位数比较大的情况，如果事先知道关键字的分布且关键字的若干位分布较均匀，就可以考虑用这个方法。</p>
 <p>抽取方法是使用关键字的一部分来计算散列存储位置的方法</p>
-<h4 id="3-平方取中法"><a class="header-anchor" href="#3-平方取中法">¶</a>3 平方取中法</h4>
+<h4 id="3-平方取中法"><a class="header-anchor" href="#3-平方取中法"></a>3 平方取中法</h4>
 <p>平方取中法比较适合于不知道关键字的分布，而位数又不是很大的情况。</p>
 <p>先平方，再取中间几位</p>
-<h4 id="4-折叠法"><a class="header-anchor" href="#4-折叠法">¶</a>4 折叠法</h4>
+<h4 id="4-折叠法"><a class="header-anchor" href="#4-折叠法"></a>4 折叠法</h4>
 <p>折叠法事先不需要知道关键字的分布，适合关键字位数较多的情况。</p>
 <p>折叠法是将关键字从左到右分割成位数相等的几部分，然后将这几部分叠加求和，并按散列表表长，取后几位作为散列地址。</p>
 <p>有时可能这还不能够保证分布均匀，不妨从一端向另一端来回折叠后对齐相加。</p>
-<h4 id="5-除留余数法"><a class="header-anchor" href="#5-除留余数法">¶</a>5 除留余数法</h4>
+<h4 id="5-除留余数法"><a class="header-anchor" href="#5-除留余数法"></a>5 除留余数法</h4>
 <p>最常用的构造散列函数方法。</p>
 <p>对于散列表长为 m 的散列函数公式为: f(key) = key mod p (p &lt;= m)</p>
 <p>不仅可以对关键宇直接取模，也可在折叠、 平方取中后再取模。</p>
 <p>根据前辈们的经验，若散列表表长为 m ， 通常 p 为小于或等于表长(最好接近 m ) 的最小质数或不包含小于 20 质因子的合数。</p>
-<h4 id="6-随机数法"><a class="header-anchor" href="#6-随机数法">¶</a>6 随机数法</h4>
+<h4 id="6-随机数法"><a class="header-anchor" href="#6-随机数法"></a>6 随机数法</h4>
 <p>合适关键字的长度不等。</p>
 <p>选择一个随机数（伪随机），取关键字的随机函数值为它的散列地址。也就是 f(key) = random(key) 。</p>
-<h3 id="4-处理散列冲突的方法"><a class="header-anchor" href="#4-处理散列冲突的方法">¶</a>4 处理散列冲突的方法</h3>
-<h4 id="1-开放定址法"><a class="header-anchor" href="#1-开放定址法">¶</a>1 开放定址法</h4>
+<h3 id="4-处理散列冲突的方法"><a class="header-anchor" href="#4-处理散列冲突的方法"></a>4 处理散列冲突的方法</h3>
+<h4 id="1-开放定址法"><a class="header-anchor" href="#1-开放定址法"></a>1 开放定址法</h4>
 <p>开放定址法就是一旦发生了冲突， 就去寻找下一个空的散列地址，只要散列表足够大，空的散列地址总能找到，并将记录存入。</p>
 <p><code>$f_i( key ) = ( f ( key ) + d_i ) MOD m$</code></p>
 <ul>
@@ -4456,20 +4460,21 @@
 <li>随机探测法<br>
 冲突时，采用随机函数计算位移量 <code>$d_i$</code></li>
 </ul>
-<h4 id="2-再散列函数法"><a class="header-anchor" href="#2-再散列函数法">¶</a>2 再散列函数法</h4>
+<h4 id="2-再散列函数法"><a class="header-anchor" href="#2-再散列函数法"></a>2 再散列函数法</h4>
 <p>事先准备多个散列函数，每当发生散到地址冲突肘，就换一个散列函数计算</p>
-<h4 id="3-链地址法"><a class="header-anchor" href="#3-链地址法">¶</a>3 链地址法</h4>
+<h4 id="3-链地址法"><a class="header-anchor" href="#3-链地址法"></a>3 链地址法</h4>
 <p>将所有关键字为同义词的记录存储在一个单链表中，在散列表中只存储所有同义词子表的头指针。</p>
-<h4 id="4-公共溢出区法"><a class="header-anchor" href="#4-公共溢出区法">¶</a>4 公共溢出区法</h4>
+<h4 id="4-公共溢出区法"><a class="header-anchor" href="#4-公共溢出区法"></a>4 公共溢出区法</h4>
 <p>为所有冲突的关键字建立了一个公共的溢出区来存放</p>
 <p>在查找时，对给定值通过散列函数计算出散列地址后，先与基本表的相应位置进行比对，如果相等，则查找成功；如果不相等，则到溢出表去进行顺序查找。</p>
-<h3 id="5-散列表查找实现"><a class="header-anchor" href="#5-散列表查找实现">¶</a>5 散列表查找实现</h3>
+<h3 id="5-散列表查找实现"><a class="header-anchor" href="#5-散列表查找实现"></a>5 散列表查找实现</h3>
 <p>散列表的装填因子 = 填入表中的记录个数 / 散列表长度。</p>
 
 </div>
 
 	</div>
 	<div id="footer">
+	<p>
 	©2019-<span id="footerYear"></span> 
 	<a href="/">Wu Jun</a> 
 	|
@@ -4482,7 +4487,9 @@
 		uv
 		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	<br>
 	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
+	</p>
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';

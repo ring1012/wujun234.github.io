@@ -11,14 +11,14 @@
 	
 		1 ElasticStack | 
 	 
-	吴俊的博客
+	WuJun Blog
 	</title>
 	
 	<!-- keywords,description -->
 	
 		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
 	 
-		<meta name="description" content="吴俊的博客,wujun234" />
+		<meta name="description" content="吴俊,wujun234,wujun,wu jun" />
 	
 
 	<!-- favicon -->
@@ -29,7 +29,7 @@
 
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
-	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
+	<link rel="stylesheet" href="/lib/highlight/darcula.css">
 
 	<script src="/lib/highlight/highlight.pack.js"></script>
 	<script src="/lib/jquery-3.4.1.min.js"></script>
@@ -40,16 +40,19 @@
 
 <body>
 	<header id="header">
-    <a id="title" href="/" class="logo">吴俊的博客</a>
+    <a id="title" href="/" class="logo">WuJun Blog</a>
 
 	<ul id="menu">
 		<li class="menu-item">
-			<a href="/about" class="menu-item-link">关于</a>
+			<a href="/" class="menu-item-link">HOME</a>
+		</li>
+		<li class="menu-item">
+			<a href="/about" class="menu-item-link">ABOUT</a>
 		</li>
 		
 		<li class="menu-item">
 			<a href="https://github.com/wujun234/uid-generator-spring-boot-starter" class="menu-item-link" target="_blank">
-				uid-generator
+				UidGenerator
 			</a>
 		</li>
 		<li class="menu-item">
@@ -60,10 +63,11 @@
 	</ul>
 </header>
 
-	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-bars" aria-hidden="true"></i></button>
+	
 <div id="sidebar">
-	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">站点目录</a>
-	<a herf="#" id="sidebar-article" class="sidebar-toc">文章目录</a>
+	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-arrow-right " aria-hidden="true"></i></button>
+	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">SITE MENU</a>
+	<a herf="#" id="sidebar-article" class="sidebar-toc">ARTICLE MENU</a>
 
 	<!-- 侧边目录栏 -->
 	<div id="site-toc">
@@ -1892,8 +1896,8 @@
 			
 							<ul>
 								<li class="file">
-									<a href="/2019/12/18/01%20Spring/04%20Web/4%20Jsonp/">
-										4 Jsonp
+									<a href="/2019/12/18/01%20Spring/04%20Web/4%20%E8%B7%A8%E5%9F%9F/">
+										4 跨域
 									</a>
 								</li>
 							</ul>
@@ -4400,7 +4404,7 @@
 
 <div id="article">
 	<p>ElasticStack 最初的核心是 ELK (Elasticsearch, Logstash, Kibana) ，后又新增了一个FileBeat。</p>
-<h3 id="ELK架构"><a class="header-anchor" href="#ELK架构">¶</a>ELK架构</h3>
+<h3 id="ELK架构"><a class="header-anchor" href="#ELK架构"></a>ELK架构</h3>
 <ul>
 <li>Elasticsearch ：分布式搜索引擎。基于 Lucene，可用于全文检索、结构化检索和分析。</li>
 <li>Logstash ：数据收集处理引擎。支持动态搜集数据，处理、存储数据。</li>
@@ -4408,17 +4412,17 @@
 <li>Filebeat ：轻量级数据收集引擎。隶属于Beats，替代原先的 Logstash-fowarder 。</li>
 </ul>
 <p><img src="/images/1545712502366.png" alt=""></p>
-<h3 id="日志分析平台流程"><a class="header-anchor" href="#日志分析平台流程">¶</a>日志分析平台流程</h3>
+<h3 id="日志分析平台流程"><a class="header-anchor" href="#日志分析平台流程"></a>日志分析平台流程</h3>
 <ol>
 <li>把分散在各个机器的日志汇总到一个地方(Shipper, Broker, Indexer)</li>
 <li>把这些日志用某种方式保存并索引起来(Search &amp; Storage)</li>
 <li>需要的时候直接在汇总的日志中查询(Web Interface)</li>
 </ol>
 <p><img src="/images/1545712503433.gif" alt=""></p>
-<h2 id="环境搭建"><a class="header-anchor" href="#环境搭建">¶</a>环境搭建</h2>
+<h2 id="环境搭建"><a class="header-anchor" href="#环境搭建"></a>环境搭建</h2>
 <p>ELK依赖JDK</p>
 <p>ELK下载：<a href="https://www.elastic.co/downloads/" target="_blank" rel="noopener">https://www.elastic.co/downloads/</a></p>
-<h3 id="安装-Elasticsearch"><a class="header-anchor" href="#安装-Elasticsearch">¶</a>安装 Elasticsearch</h3>
+<h3 id="安装-Elasticsearch"><a class="header-anchor" href="#安装-Elasticsearch"></a>安装 Elasticsearch</h3>
 <ol>
 <li>官网下载解压。</li>
 <li>安装Head插件，可以通过localhost:9200/_plugin/head查看集群状态</li>
@@ -4439,7 +4443,7 @@ network.port=9200
 <li>运行 bin/elasticsearch （Windows 上运行 bin\elasticsearch.bat）启动</li>
 <li>验证运行成功：REST 访问访问 <a href="http://localhost:9200/" target="_blank" rel="noopener">http://localhost:9200/</a></li>
 </ol>
-<h3 id="安装-Logstash"><a class="header-anchor" href="#安装-Logstash">¶</a>安装 Logstash</h3>
+<h3 id="安装-Logstash"><a class="header-anchor" href="#安装-Logstash"></a>安装 Logstash</h3>
 <ol>
 <li>官网下载解压。</li>
 <li>添加logstash.conf，指定Input和Output及插件，以log4j输入和ElasticSearch输出为例：</li>
@@ -4469,7 +4473,7 @@ output {
 <ol start="3">
 <li>运行 bin/logstash -f logstash.conf （Windows 上运行bin/logstash.bat -f logstash.conf）</li>
 </ol>
-<h3 id="安装-Kibana"><a class="header-anchor" href="#安装-Kibana">¶</a>安装 Kibana</h3>
+<h3 id="安装-Kibana"><a class="header-anchor" href="#安装-Kibana"></a>安装 Kibana</h3>
 <ol>
 <li>官网下载解压。</li>
 <li>修改 config/kibana.yml 配置文件，设置 elasticsearch.url 指向 Elasticsearch 实例。</li>
@@ -4483,7 +4487,7 @@ kibana.index: “.kibana”
 <li>运行 bin/kibana （Windows 上运行 bin\kibana.bat）启动</li>
 <li>在浏览器上访问 <a href="http://localhost:5601" target="_blank" rel="noopener">http://localhost:5601</a></li>
 </ol>
-<h3 id="安装-Filebeat"><a class="header-anchor" href="#安装-Filebeat">¶</a>安装 Filebeat</h3>
+<h3 id="安装-Filebeat"><a class="header-anchor" href="#安装-Filebeat"></a>安装 Filebeat</h3>
 <ol>
 <li>官网下载解压。</li>
 </ol>
@@ -4509,8 +4513,8 @@ sudo rpm -vi filebeat-5.1.1-x86_64.rpm
 </ol>
 <pre><code>sudo /etc/init.d/filebeat start
 </code></pre>
-<h2 id="工作原理"><a class="header-anchor" href="#工作原理">¶</a>工作原理</h2>
-<h3 id="Filebeat工作原理"><a class="header-anchor" href="#Filebeat工作原理">¶</a>Filebeat工作原理</h3>
+<h2 id="工作原理"><a class="header-anchor" href="#工作原理"></a>工作原理</h2>
+<h3 id="Filebeat工作原理"><a class="header-anchor" href="#Filebeat工作原理"></a>Filebeat工作原理</h3>
 <p>Filebeat由两个主要组件组成：prospectors 和 harvesters。这两个组件协同工作将文件变动发送到指定的输出中。</p>
 <p><img src="/images/1545712503649.png" alt=""></p>
 <ul>
@@ -4528,7 +4532,7 @@ Prospector会找到/apps/logs/*目录下的所有info.log文件，并为每个�
 <p>将文件状态记录在文件中（默认在/var/lib/filebeat/registry）。此状态可以记住Harvester收集文件的偏移量。若连接不上输出设备，如ES等，filebeat会记录发送前的最后一行，并再可以连接的时候继续发送。Filebeat在运行的时候，Prospector状态会被记录在内存中。Filebeat重启的时候，利用registry记录的状态来进行重建，用来还原到重启之前的状态。每个Prospector会为每个找到的文件记录一个状态，对于每个文件，Filebeat存储唯一标识符以检测文件是否先前被收集。</p>
 <p>Filebeat如何保证事件至少被输出一次：</p>
 <p>Filebeat之所以能保证事件至少被传递到配置的输出一次，没有数据丢失，是因为filebeat将每个事件的传递状态保存在文件中。在未得到输出方确认时，filebeat会尝试一直发送，直到得到回应。若filebeat在传输过程中被关闭，则不会再关闭之前确认所有时事件。任何在filebeat关闭之前为确认的时间，都会在filebeat重启之后重新发送。这可确保至少发送一次，但有可能会重复。可通过设置shutdown_timeout 参数来设置关闭之前的等待事件回应的时间（默认禁用）。</p>
-<h3 id="Logstash工作原理"><a class="header-anchor" href="#Logstash工作原理">¶</a>Logstash工作原理</h3>
+<h3 id="Logstash工作原理"><a class="header-anchor" href="#Logstash工作原理"></a>Logstash工作原理</h3>
 <p>Logstash事件处理有三个阶段：inputs → filters → outputs。是一个接收，处理，转发日志的工具。</p>
 <p><img src="/images/1545712503755.png" alt=""></p>
 <p><strong>Input</strong>：输入数据到logstash。</p>
@@ -4568,6 +4572,7 @@ grok在线调试：<a href="https://grokdebug.herokuapp.com/" target="_blank" re
 
 	</div>
 	<div id="footer">
+	<p>
 	©2019-<span id="footerYear"></span> 
 	<a href="/">Wu Jun</a> 
 	|
@@ -4580,7 +4585,9 @@ grok在线调试：<a href="https://grokdebug.herokuapp.com/" target="_blank" re
 		uv
 		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	<br>
 	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
+	</p>
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';

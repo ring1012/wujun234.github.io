@@ -11,14 +11,14 @@
 	
 		1 线性表（List） | 
 	 
-	吴俊的博客
+	WuJun Blog
 	</title>
 	
 	<!-- keywords,description -->
 	
 		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
 	 
-		<meta name="description" content="吴俊的博客,wujun234" />
+		<meta name="description" content="吴俊,wujun234,wujun,wu jun" />
 	
 
 	<!-- favicon -->
@@ -29,7 +29,7 @@
 
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
-	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
+	<link rel="stylesheet" href="/lib/highlight/darcula.css">
 
 	<script src="/lib/highlight/highlight.pack.js"></script>
 	<script src="/lib/jquery-3.4.1.min.js"></script>
@@ -40,16 +40,19 @@
 
 <body>
 	<header id="header">
-    <a id="title" href="/" class="logo">吴俊的博客</a>
+    <a id="title" href="/" class="logo">WuJun Blog</a>
 
 	<ul id="menu">
 		<li class="menu-item">
-			<a href="/about" class="menu-item-link">关于</a>
+			<a href="/" class="menu-item-link">HOME</a>
+		</li>
+		<li class="menu-item">
+			<a href="/about" class="menu-item-link">ABOUT</a>
 		</li>
 		
 		<li class="menu-item">
 			<a href="https://github.com/wujun234/uid-generator-spring-boot-starter" class="menu-item-link" target="_blank">
-				uid-generator
+				UidGenerator
 			</a>
 		</li>
 		<li class="menu-item">
@@ -60,10 +63,11 @@
 	</ul>
 </header>
 
-	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-bars" aria-hidden="true"></i></button>
+	
 <div id="sidebar">
-	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">站点目录</a>
-	<a herf="#" id="sidebar-article" class="sidebar-toc">文章目录</a>
+	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-arrow-right " aria-hidden="true"></i></button>
+	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">SITE MENU</a>
+	<a herf="#" id="sidebar-article" class="sidebar-toc">ARTICLE MENU</a>
 
 	<!-- 侧边目录栏 -->
 	<div id="site-toc">
@@ -1892,8 +1896,8 @@
 			
 							<ul>
 								<li class="file">
-									<a href="/2019/12/18/01%20Spring/04%20Web/4%20Jsonp/">
-										4 Jsonp
+									<a href="/2019/12/18/01%20Spring/04%20Web/4%20%E8%B7%A8%E5%9F%9F/">
+										4 跨域
 									</a>
 								</li>
 							</ul>
@@ -4399,13 +4403,13 @@
 
 
 <div id="article">
-	<h2 id="一、线性表的定义和基本操作"><a class="header-anchor" href="#一、线性表的定义和基本操作">¶</a>一、线性表的定义和基本操作</h2>
-<h5 id="1）定义"><a class="header-anchor" href="#1）定义">¶</a>1）定义</h5>
+	<h2 id="一、线性表的定义和基本操作"><a class="header-anchor" href="#一、线性表的定义和基本操作"></a>一、线性表的定义和基本操作</h2>
+<h5 id="1）定义"><a class="header-anchor" href="#1）定义"></a>1）定义</h5>
 <p>线性表：零个或多个数据元素的有序排列。</p>
 <blockquote>
 <p>除第一个元素外，每个元素有且只有一个直接前驱元素；初最后一个元素外，每个元素有且只有一个直接后继元素。</p>
 </blockquote>
-<h5 id="2）基本操作"><a class="header-anchor" href="#2）基本操作">¶</a>2）基本操作</h5>
+<h5 id="2）基本操作"><a class="header-anchor" href="#2）基本操作"></a>2）基本操作</h5>
 <ul>
 <li>InitList：初始化</li>
 <li>ListEmpty：判空</li>
@@ -4416,24 +4420,24 @@
 <li>ListDelete：删除</li>
 <li>ListLength：长度</li>
 </ul>
-<h2 id="二、线性表的实现"><a class="header-anchor" href="#二、线性表的实现">¶</a>二、线性表的实现</h2>
-<h3 id="1-顺序存储"><a class="header-anchor" href="#1-顺序存储">¶</a>1 顺序存储</h3>
-<h5 id="1）定义-v2"><a class="header-anchor" href="#1）定义-v2">¶</a>1）定义</h5>
+<h2 id="二、线性表的实现"><a class="header-anchor" href="#二、线性表的实现"></a>二、线性表的实现</h2>
+<h3 id="1-顺序存储"><a class="header-anchor" href="#1-顺序存储"></a>1 顺序存储</h3>
+<h5 id="1）定义-v2"><a class="header-anchor" href="#1）定义-v2"></a>1）定义</h5>
 <p>线性表的顺序存储结构，指的是用一段地址连续的存储单元依次存储线性表的数据元素。</p>
-<h5 id="2）存储结构"><a class="header-anchor" href="#2）存储结构">¶</a>2）存储结构</h5>
+<h5 id="2）存储结构"><a class="header-anchor" href="#2）存储结构"></a>2）存储结构</h5>
 <p>一维数组，存取时间性能为O(1)，随机存取结构</p>
 <ul>
 <li>存储空间的起始位置：数组 data 的存储位置</li>
 <li>线性表的最大容量：数组长度 MaxSize</li>
 <li>线性表的当前长度 : length</li>
 </ul>
-<h5 id="3）主要操作"><a class="header-anchor" href="#3）主要操作">¶</a>3）主要操作</h5>
+<h5 id="3）主要操作"><a class="header-anchor" href="#3）主要操作"></a>3）主要操作</h5>
 <ul>
 <li>取值O(1)：返回数组中指定下标的值。下标超限抛异常</li>
 <li>插入O(n)：从最后一个元素到插入位置元素依次后移，插入，表长+1。位置或长度有问题抛异常或扩容。</li>
 <li>删除O(n)：从删除位置到最后元素依次前移，表长-1。删除位置不合理抛异常。</li>
 </ul>
-<h5 id="4）优缺点"><a class="header-anchor" href="#4）优缺点">¶</a>4）优缺点</h5>
+<h5 id="4）优缺点"><a class="header-anchor" href="#4）优缺点"></a>4）优缺点</h5>
 <p>优点</p>
 <ul>
 <li>无须为表示表中元素之间的逻辑关系而增加额外的存储空间</li>
@@ -4445,11 +4449,11 @@
 <li>当线性表长度变化较大时，难以确定存储空间的容量</li>
 <li>造成存储空间的&quot;碎片&quot;</li>
 </ul>
-<h3 id="2-链式存储"><a class="header-anchor" href="#2-链式存储">¶</a>2 链式存储</h3>
-<h4 id="2-1-单链表"><a class="header-anchor" href="#2-1-单链表">¶</a>2.1 单链表</h4>
-<h5 id="1）定义-v3"><a class="header-anchor" href="#1）定义-v3">¶</a>1）定义</h5>
+<h3 id="2-链式存储"><a class="header-anchor" href="#2-链式存储"></a>2 链式存储</h3>
+<h4 id="2-1-单链表"><a class="header-anchor" href="#2-1-单链表"></a>2.1 单链表</h4>
+<h5 id="1）定义-v3"><a class="header-anchor" href="#1）定义-v3"></a>1）定义</h5>
 <p>不考虑相邻，哪有空就存哪，让每个元素知道它下一个元素的位置</p>
-<h5 id="2）存储结构-v2"><a class="header-anchor" href="#2）存储结构-v2">¶</a>2）存储结构</h5>
+<h5 id="2）存储结构-v2"><a class="header-anchor" href="#2）存储结构-v2"></a>2）存储结构</h5>
 <p>链式结构中，除了要存数据元素信息外，还要存储它的后继元素的存储地址。</p>
 <ul>
 <li>单链表：每个结点中只包含一个指针域，n 个结点链结成一个链表</li>
@@ -4468,7 +4472,7 @@
 </li>
 <li>线性链表的最后一个结点指针为“空”</li>
 </ul>
-<h5 id="3）主要操作-v2"><a class="header-anchor" href="#3）主要操作-v2">¶</a>3）主要操作</h5>
+<h5 id="3）主要操作-v2"><a class="header-anchor" href="#3）主要操作-v2"></a>3）主要操作</h5>
 <ul>
 <li>读取O(n)：从第一个节点遍历</li>
 <li>插入、删除：遍历查找第i个元素O(n)，改变指针，插入和删除O(1)
@@ -4485,7 +4489,7 @@
 </li>
 <li>整表删除：便利每个节点，在内存中将它释放</li>
 </ul>
-<h5 id="4）单链表与顺序存储优缺点"><a class="header-anchor" href="#4）单链表与顺序存储优缺点">¶</a>4）单链表与顺序存储优缺点</h5>
+<h5 id="4）单链表与顺序存储优缺点"><a class="header-anchor" href="#4）单链表与顺序存储优缺点"></a>4）单链表与顺序存储优缺点</h5>
 <ul>
 <li>
 <p>时间性能</p>
@@ -4524,10 +4528,10 @@
 <p>如长度确定，顺序存储结构效率会高很多。</p>
 </li>
 </ul>
-<h4 id="2-2-静态链表"><a class="header-anchor" href="#2-2-静态链表">¶</a>2.2 静态链表</h4>
-<h5 id="1）定义-v4"><a class="header-anchor" href="#1）定义-v4">¶</a>1）定义</h5>
+<h4 id="2-2-静态链表"><a class="header-anchor" href="#2-2-静态链表"></a>2.2 静态链表</h4>
+<h5 id="1）定义-v4"><a class="header-anchor" href="#1）定义-v4"></a>1）定义</h5>
 <p>针对没有指针的语言，用数组来代替指针描述链表，被称为静态链表。</p>
-<h5 id="2）存储结构-v3"><a class="header-anchor" href="#2）存储结构-v3">¶</a>2）存储结构</h5>
+<h5 id="2）存储结构-v3"><a class="header-anchor" href="#2）存储结构-v3"></a>2）存储结构</h5>
 <p>游标实现法：数组的元素都是由两个数据域组成， data 和 cur</p>
 <ul>
 <li>数据域data ：用来存放数据元素</li>
@@ -4535,7 +4539,7 @@
 <li>第一个元素：存放备用链表的第一个结点的下标</li>
 <li>最后一个元素：存放第一个有数值的元素的下标</li>
 </ul>
-<h5 id="3）主要操作-v3"><a class="header-anchor" href="#3）主要操作-v3">¶</a>3）主要操作</h5>
+<h5 id="3）主要操作-v3"><a class="header-anchor" href="#3）主要操作-v3"></a>3）主要操作</h5>
 <p>将可用空间链成备用链表</p>
 <ul>
 <li>插入
@@ -4549,23 +4553,23 @@
 </ul>
 </li>
 </ul>
-<h5 id="4）静态链表优缺点"><a class="header-anchor" href="#4）静态链表优缺点">¶</a>4）静态链表优缺点</h5>
+<h5 id="4）静态链表优缺点"><a class="header-anchor" href="#4）静态链表优缺点"></a>4）静态链表优缺点</h5>
 <ul>
 <li>插入和删除操作时 ，只需要修改游标。</li>
 <li>没有解决连镇存储分配带来的表长难以确定的问题</li>
 <li>失去了顺序存储结构随机存取的特性</li>
 </ul>
-<h4 id="2-3-循环链表"><a class="header-anchor" href="#2-3-循环链表">¶</a>2.3 循环链表</h4>
-<h5 id="1）定义-v5"><a class="header-anchor" href="#1）定义-v5">¶</a>1）定义</h5>
+<h4 id="2-3-循环链表"><a class="header-anchor" href="#2-3-循环链表"></a>2.3 循环链表</h4>
+<h5 id="1）定义-v5"><a class="header-anchor" href="#1）定义-v5"></a>1）定义</h5>
 <p>循环链表：将单链表中终端结点的指针端由空指针改为指向头结点，这种头尾相接的单链表称为单循环链表，简称循环链表。</p>
-<h5 id="2）差异"><a class="header-anchor" href="#2）差异">¶</a>2）差异</h5>
+<h5 id="2）差异"><a class="header-anchor" href="#2）差异"></a>2）差异</h5>
 <p>循环链表和单链表的主要差异就在于循环的判断条件上，原沫是判断 p-&gt;next 是否为空，现在则是 p -&gt; next 不等于头结点，则循环未结束。</p>
-<h5 id="3）尾指针"><a class="header-anchor" href="#3）尾指针">¶</a>3）尾指针</h5>
+<h5 id="3）尾指针"><a class="header-anchor" href="#3）尾指针"></a>3）尾指针</h5>
 <p>如用尾指针替代头指针，则查找开始结点和终端结点都很方便。</p>
-<h4 id="2-4-双向链表"><a class="header-anchor" href="#2-4-双向链表">¶</a>2.4 双向链表</h4>
-<h5 id="1）定义-v6"><a class="header-anchor" href="#1）定义-v6">¶</a>1）定义</h5>
+<h4 id="2-4-双向链表"><a class="header-anchor" href="#2-4-双向链表"></a>2.4 双向链表</h4>
+<h5 id="1）定义-v6"><a class="header-anchor" href="#1）定义-v6"></a>1）定义</h5>
 <p>双向链表是在单链表的每个结点中，再设置一个指向其前驱结点的指针域。</p>
-<h5 id="2）主要操作"><a class="header-anchor" href="#2）主要操作">¶</a>2）主要操作</h5>
+<h5 id="2）主要操作"><a class="header-anchor" href="#2）主要操作"></a>2）主要操作</h5>
 <p>在插入和删除时，需要更改两个指针变量。顺序很重要，千万不能写反了。</p>
 <ul>
 <li>插入
@@ -4579,7 +4583,7 @@
 </ul>
 </li>
 </ul>
-<h3 id="3-线性表的应用"><a class="header-anchor" href="#3-线性表的应用">¶</a>3 线性表的应用</h3>
+<h3 id="3-线性表的应用"><a class="header-anchor" href="#3-线性表的应用"></a>3 线性表的应用</h3>
 <p>一元整系数的加法和乘法操作</p>
 <p>队列和堆栈</p>
 
@@ -4587,6 +4591,7 @@
 
 	</div>
 	<div id="footer">
+	<p>
 	©2019-<span id="footerYear"></span> 
 	<a href="/">Wu Jun</a> 
 	|
@@ -4599,7 +4604,9 @@
 		uv
 		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	<br>
 	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
+	</p>
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';

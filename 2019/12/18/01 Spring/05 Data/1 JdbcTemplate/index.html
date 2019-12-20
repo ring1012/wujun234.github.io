@@ -11,14 +11,14 @@
 	
 		1 JdbcTemplate | 
 	 
-	吴俊的博客
+	WuJun Blog
 	</title>
 	
 	<!-- keywords,description -->
 	
 		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
 	 
-		<meta name="description" content="吴俊的博客,wujun234" />
+		<meta name="description" content="吴俊,wujun234,wujun,wu jun" />
 	
 
 	<!-- favicon -->
@@ -29,7 +29,7 @@
 
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
-	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
+	<link rel="stylesheet" href="/lib/highlight/darcula.css">
 
 	<script src="/lib/highlight/highlight.pack.js"></script>
 	<script src="/lib/jquery-3.4.1.min.js"></script>
@@ -40,16 +40,19 @@
 
 <body>
 	<header id="header">
-    <a id="title" href="/" class="logo">吴俊的博客</a>
+    <a id="title" href="/" class="logo">WuJun Blog</a>
 
 	<ul id="menu">
 		<li class="menu-item">
-			<a href="/about" class="menu-item-link">关于</a>
+			<a href="/" class="menu-item-link">HOME</a>
+		</li>
+		<li class="menu-item">
+			<a href="/about" class="menu-item-link">ABOUT</a>
 		</li>
 		
 		<li class="menu-item">
 			<a href="https://github.com/wujun234/uid-generator-spring-boot-starter" class="menu-item-link" target="_blank">
-				uid-generator
+				UidGenerator
 			</a>
 		</li>
 		<li class="menu-item">
@@ -60,10 +63,11 @@
 	</ul>
 </header>
 
-	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-bars" aria-hidden="true"></i></button>
+	
 <div id="sidebar">
-	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">站点目录</a>
-	<a herf="#" id="sidebar-article" class="sidebar-toc">文章目录</a>
+	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-arrow-right " aria-hidden="true"></i></button>
+	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">SITE MENU</a>
+	<a herf="#" id="sidebar-article" class="sidebar-toc">ARTICLE MENU</a>
 
 	<!-- 侧边目录栏 -->
 	<div id="site-toc">
@@ -1892,8 +1896,8 @@
 			
 							<ul>
 								<li class="file">
-									<a href="/2019/12/18/01%20Spring/04%20Web/4%20Jsonp/">
-										4 Jsonp
+									<a href="/2019/12/18/01%20Spring/04%20Web/4%20%E8%B7%A8%E5%9F%9F/">
+										4 跨域
 									</a>
 								</li>
 							</ul>
@@ -4401,7 +4405,7 @@
 <div id="article">
 	<p>为了避免业务层模块强依赖于某种类型的数据库，Spring数据库访问层以接口形式对外提供服务。</p>
 <p>使用Spring JDBC的异常体系，描述能力强，且平台无关。</p>
-<h3 id="1-数据访问模板化"><a class="header-anchor" href="#1-数据访问模板化">¶</a>1 数据访问模板化</h3>
+<h3 id="1-数据访问模板化"><a class="header-anchor" href="#1-数据访问模板化"></a>1 数据访问模板化</h3>
 <p>数据访问过程中的固定步骤和变量分为两类：</p>
 <ul>
 <li>模板（templates）：处理数据访问的固定部分——事务控制、 管理资源以及处理异
@@ -4444,7 +4448,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="2-配置DataSource"><a class="header-anchor" href="#2-配置DataSource">¶</a>2 配置DataSource</h3>
+<h3 id="2-配置DataSource"><a class="header-anchor" href="#2-配置DataSource"></a>2 配置DataSource</h3>
 <p>使用JdbcTemplate需设置DataSource，提供了多种配置方式：</p>
 <ol>
 <li>JDBC驱动；</li>
@@ -4452,7 +4456,7 @@
 <li>数据库连接池；</li>
 </ol>
 <p>生产环境建议使用从连接池获取连接的数据源；如果有可能，倾向于通过应用服务器的JNDI来获取数据源。</p>
-<h5 id="1、JNDI数据源"><a class="header-anchor" href="#1、JNDI数据源">¶</a>1、JNDI数据源</h5>
+<h5 id="1、JNDI数据源"><a class="header-anchor" href="#1、JNDI数据源"></a>1、JNDI数据源</h5>
 <p>在Spring应用部署的服务器中配置数据源，通过JNDI获取。数据源配置在应用外部，允许在访问数据库的时再查找数据源，且支持热切换。</p>
 <pre><code>public JndiObjectFactoryBean dataSource() {
     JndiObjectFactoryBean jndiObjectFB = new JndiObjectFactoryBean();
@@ -4462,7 +4466,7 @@
     return jndiObjectFB;
 }
 </code></pre>
-<h5 id="2、数据库连接池"><a class="header-anchor" href="#2、数据库连接池">¶</a>2、数据库连接池</h5>
+<h5 id="2、数据库连接池"><a class="header-anchor" href="#2、数据库连接池"></a>2、数据库连接池</h5>
 <p>有多项开源数据源连接池实现：Apache Commons DBCP、c3p0、BoneCP</p>
 <p>以 <a href="http://commons.apache.org/proper/commons-dbcp/" target="_blank" rel="noopener">DBCP</a> 为例，BasicDataSource配置连接池</p>
 <pre><code>public BasicDataSource dataSource() {
@@ -4475,7 +4479,7 @@
   return ds;
 }
 </code></pre>
-<h5 id="3、JDBC驱动"><a class="header-anchor" href="#3、JDBC驱动">¶</a>3、JDBC驱动</h5>
+<h5 id="3、JDBC驱动"><a class="header-anchor" href="#3、JDBC驱动"></a>3、JDBC驱动</h5>
 <p>通过JDBC驱动定义数据源是最简单的配置方式。 org.springframework.jdbc.datasource包中提供了三个数据源类：</p>
 <ol>
 <li>DriverManagerDataSource：每次请求连接时都返回新的连接，用过的连接会马上关闭并释放资源；</li>
@@ -4494,7 +4498,7 @@ public DataSource dataSource() {
 }
 </code></pre>
 <p>已上三数据源对多线程支持都不好，强烈建议使用数据库连接池。</p>
-<h5 id="4、选择数据源"><a class="header-anchor" href="#4、选择数据源">¶</a>4、选择数据源</h5>
+<h5 id="4、选择数据源"><a class="header-anchor" href="#4、选择数据源"></a>4、选择数据源</h5>
 <p>借助Spring的bean-profiles特性，在不同的环境中配置不同的数据源。利用@Profile注解，在运行时根据激活的profile选择指定的数据源。</p>
 <pre><code>@Configuration
 public class DataSourceConfiguration {
@@ -4522,10 +4526,10 @@ public class DataSourceConfiguration {
     }
 }
 </code></pre>
-<h3 id="3-使用JdbcTemplate"><a class="header-anchor" href="#3-使用JdbcTemplate">¶</a>3 使用JdbcTemplate</h3>
+<h3 id="3-使用JdbcTemplate"><a class="header-anchor" href="#3-使用JdbcTemplate"></a>3 使用JdbcTemplate</h3>
 <p><a href="https://www.jianshu.com/p/aec25eea5c71" target="_blank" rel="noopener">JDBC </a> 直接操作数据库， 处理与数据库访问相关的所有事情， 样板代码繁琐，但很重要。Spring的JDBC框架承担了资源管理和异常处理的样板代码，开发者只需编写读写数据的必需代码。</p>
 <p><strong>JdbcTemplate</strong>是最主要的JDBC模板，支持简单的JDBC数据库访问功能以及基于索引参数的查询；还提供了NameParameterJdbcTemplate支持命名参数。</p>
-<h5 id="1、CRUD"><a class="header-anchor" href="#1、CRUD">¶</a>1、CRUD</h5>
+<h5 id="1、CRUD"><a class="header-anchor" href="#1、CRUD"></a>1、CRUD</h5>
 <p>使用JdbcTemplate前需设置DataSource</p>
 <pre><code>  JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
 </code></pre>
@@ -4565,6 +4569,7 @@ public class UserMapper implements RowMapper&lt;User&gt;{
 
 	</div>
 	<div id="footer">
+	<p>
 	©2019-<span id="footerYear"></span> 
 	<a href="/">Wu Jun</a> 
 	|
@@ -4577,7 +4582,9 @@ public class UserMapper implements RowMapper&lt;User&gt;{
 		uv
 		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	<br>
 	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
+	</p>
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';

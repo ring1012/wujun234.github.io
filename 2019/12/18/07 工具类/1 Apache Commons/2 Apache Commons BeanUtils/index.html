@@ -11,14 +11,14 @@
 	
 		2 Apache Commons BeanUtils | 
 	 
-	吴俊的博客
+	WuJun Blog
 	</title>
 	
 	<!-- keywords,description -->
 	
 		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
 	 
-		<meta name="description" content="吴俊的博客,wujun234" />
+		<meta name="description" content="吴俊,wujun234,wujun,wu jun" />
 	
 
 	<!-- favicon -->
@@ -29,7 +29,7 @@
 
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
-	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
+	<link rel="stylesheet" href="/lib/highlight/darcula.css">
 
 	<script src="/lib/highlight/highlight.pack.js"></script>
 	<script src="/lib/jquery-3.4.1.min.js"></script>
@@ -40,16 +40,19 @@
 
 <body>
 	<header id="header">
-    <a id="title" href="/" class="logo">吴俊的博客</a>
+    <a id="title" href="/" class="logo">WuJun Blog</a>
 
 	<ul id="menu">
 		<li class="menu-item">
-			<a href="/about" class="menu-item-link">关于</a>
+			<a href="/" class="menu-item-link">HOME</a>
+		</li>
+		<li class="menu-item">
+			<a href="/about" class="menu-item-link">ABOUT</a>
 		</li>
 		
 		<li class="menu-item">
 			<a href="https://github.com/wujun234/uid-generator-spring-boot-starter" class="menu-item-link" target="_blank">
-				uid-generator
+				UidGenerator
 			</a>
 		</li>
 		<li class="menu-item">
@@ -60,10 +63,11 @@
 	</ul>
 </header>
 
-	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-bars" aria-hidden="true"></i></button>
+	
 <div id="sidebar">
-	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">站点目录</a>
-	<a herf="#" id="sidebar-article" class="sidebar-toc">文章目录</a>
+	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-arrow-right " aria-hidden="true"></i></button>
+	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">SITE MENU</a>
+	<a herf="#" id="sidebar-article" class="sidebar-toc">ARTICLE MENU</a>
 
 	<!-- 侧边目录栏 -->
 	<div id="site-toc">
@@ -1892,8 +1896,8 @@
 			
 							<ul>
 								<li class="file">
-									<a href="/2019/12/18/01%20Spring/04%20Web/4%20Jsonp/">
-										4 Jsonp
+									<a href="/2019/12/18/01%20Spring/04%20Web/4%20%E8%B7%A8%E5%9F%9F/">
+										4 跨域
 									</a>
 								</li>
 							</ul>
@@ -4400,7 +4404,7 @@
 
 <div id="article">
 	<p><a href="http://commons.apache.org/proper/commons-beanutils/" target="_blank" rel="noopener">Commons BeanUtils官网</a></p>
-<h2 id="包结构"><a class="header-anchor" href="#包结构">¶</a>包结构</h2>
+<h2 id="包结构"><a class="header-anchor" href="#包结构"></a>包结构</h2>
 <hr>
 <table>
 <thead>
@@ -4424,10 +4428,10 @@
 </tr>
 </tbody>
 </table>
-<h2 id="常用类"><a class="header-anchor" href="#常用类">¶</a>常用类</h2>
+<h2 id="常用类"><a class="header-anchor" href="#常用类"></a>常用类</h2>
 <hr>
 <p>常用类都在顶层包中</p>
-<h3 id="1-BeanUtils"><a class="header-anchor" href="#1-BeanUtils">¶</a>(1) BeanUtils</h3>
+<h3 id="1-BeanUtils"><a class="header-anchor" href="#1-BeanUtils"></a>(1) BeanUtils</h3>
 <p>通过反射操纵Bean属性，以下静态方法都是使用默认实例，通过使用<code>BeanUtilsBean </code>可以提供更多复杂操作。</p>
 <ul>
 <li><strong>克隆对象</strong>
@@ -4442,7 +4446,7 @@ getProperty(Object bean, String name) - 获得属性值。作为字符串返回�
 setProperty(Object bean, String name, Object value) - 设置属性值。如果赋NULL值，会被设为默认值。
 <strong>populate</strong>(Object bean, Map&lt;String,? extends Object&gt; properties) - 将Map中的数据注入到Bean对象中</li>
 </ul>
-<h3 id="2-ConstructorUtils"><a class="header-anchor" href="#2-ConstructorUtils">¶</a>(2) ConstructorUtils</h3>
+<h3 id="2-ConstructorUtils"><a class="header-anchor" href="#2-ConstructorUtils"></a>(2) ConstructorUtils</h3>
 <p>通过反射调用构造函数。</p>
 <ul>
 <li><strong>得到构造方法</strong>
@@ -4460,7 +4464,7 @@ invokeConstructor(Class<T> klass, Object[] args, Class&lt;?&gt;[] parameterTypes
 invokeExactConstructor(Class<T> klass, Object[] args)
 invokeExactConstructor(Class<T> klass, Object[] args, Class&lt;?&gt;[] parameterTypes)</em></li>
 </ul>
-<h3 id="3-ConvertUtils"><a class="header-anchor" href="#3-ConvertUtils">¶</a>(3) ConvertUtils</h3>
+<h3 id="3-ConvertUtils"><a class="header-anchor" href="#3-ConvertUtils"></a>(3) ConvertUtils</h3>
 <p>可以自定义 <code>Converter</code> ，或使用<code>ConvertUtilsBean</code>中提供的多种实现，将其与一个类注册，然后调用<code>convert</code>方法进行转换类型</p>
 <ul>
 <li><strong>对象转换</strong>
@@ -4474,7 +4478,7 @@ convert(String value, Class&lt;?&gt; clazz) - 将字符串转换为指定类型�
 ··············· - lookup(Class<?> sourceType, Class<?> targetType)
 注册转换器 - <strong>register</strong>(Converter converter, Class&lt;?&gt; clazz)</li>
 </ul>
-<h3 id="4-MethodUtils"><a class="header-anchor" href="#4-MethodUtils">¶</a>(4) MethodUtils</h3>
+<h3 id="4-MethodUtils"><a class="header-anchor" href="#4-MethodUtils"></a>(4) MethodUtils</h3>
 <p>通过反射访问对象的方法并且执行方法</p>
 <ul>
 <li><strong>获取方法</strong>
@@ -4486,7 +4490,7 @@ invokeStaticMethod - 执行静态方法
 invokeExactMethod - 严格执行方法
 invokeExactStaticMethod - 严格执行静态方法</li>
 </ul>
-<h3 id="5-PropertyUtils"><a class="header-anchor" href="#5-PropertyUtils">¶</a>(5) PropertyUtils</h3>
+<h3 id="5-PropertyUtils"><a class="header-anchor" href="#5-PropertyUtils"></a>(5) PropertyUtils</h3>
 <p>通过反射操纵对象getter、setter方法的工具，具体实现由<code>PropertyUtilsBean</code>提供。</p>
 <ul>
 <li><strong>简单的属性</strong>
@@ -4552,6 +4556,7 @@ setProperty(Object bean, String name, Object value)</p>
 
 	</div>
 	<div id="footer">
+	<p>
 	©2019-<span id="footerYear"></span> 
 	<a href="/">Wu Jun</a> 
 	|
@@ -4564,7 +4569,9 @@ setProperty(Object bean, String name, Object value)</p>
 		uv
 		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	<br>
 	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
+	</p>
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';

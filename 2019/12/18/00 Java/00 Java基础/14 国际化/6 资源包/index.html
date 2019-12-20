@@ -11,14 +11,14 @@
 	
 		6 资源包 | 
 	 
-	吴俊的博客
+	WuJun Blog
 	</title>
 	
 	<!-- keywords,description -->
 	
 		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
 	 
-		<meta name="description" content="吴俊的博客,wujun234" />
+		<meta name="description" content="吴俊,wujun234,wujun,wu jun" />
 	
 
 	<!-- favicon -->
@@ -29,7 +29,7 @@
 
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
-	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
+	<link rel="stylesheet" href="/lib/highlight/darcula.css">
 
 	<script src="/lib/highlight/highlight.pack.js"></script>
 	<script src="/lib/jquery-3.4.1.min.js"></script>
@@ -40,16 +40,19 @@
 
 <body>
 	<header id="header">
-    <a id="title" href="/" class="logo">吴俊的博客</a>
+    <a id="title" href="/" class="logo">WuJun Blog</a>
 
 	<ul id="menu">
 		<li class="menu-item">
-			<a href="/about" class="menu-item-link">关于</a>
+			<a href="/" class="menu-item-link">HOME</a>
+		</li>
+		<li class="menu-item">
+			<a href="/about" class="menu-item-link">ABOUT</a>
 		</li>
 		
 		<li class="menu-item">
 			<a href="https://github.com/wujun234/uid-generator-spring-boot-starter" class="menu-item-link" target="_blank">
-				uid-generator
+				UidGenerator
 			</a>
 		</li>
 		<li class="menu-item">
@@ -60,10 +63,11 @@
 	</ul>
 </header>
 
-	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-bars" aria-hidden="true"></i></button>
+	
 <div id="sidebar">
-	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">站点目录</a>
-	<a herf="#" id="sidebar-article" class="sidebar-toc">文章目录</a>
+	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-arrow-right " aria-hidden="true"></i></button>
+	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">SITE MENU</a>
+	<a herf="#" id="sidebar-article" class="sidebar-toc">ARTICLE MENU</a>
 
 	<!-- 侧边目录栏 -->
 	<div id="site-toc">
@@ -1892,8 +1896,8 @@
 			
 							<ul>
 								<li class="file">
-									<a href="/2019/12/18/01%20Spring/04%20Web/4%20Jsonp/">
-										4 Jsonp
+									<a href="/2019/12/18/01%20Spring/04%20Web/4%20%E8%B7%A8%E5%9F%9F/">
+										4 跨域
 									</a>
 								</li>
 							</ul>
@@ -4400,18 +4404,18 @@
 
 <div id="article">
 	<p>ResourceBundle 资源包包含特定语言环境的对象。使用其可以加载并读取语言环境资源。</p>
-<h3 id="1-定位资源包"><a class="header-anchor" href="#1-定位资源包">¶</a>1 定位资源包</h3>
-<h5 id="包名规则"><a class="header-anchor" href="#包名规则">¶</a>包名规则</h5>
+<h3 id="1-定位资源包"><a class="header-anchor" href="#1-定位资源包"></a>1 定位资源包</h3>
+<h5 id="包名规则"><a class="header-anchor" href="#包名规则"></a>包名规则</h5>
 <ul>
 <li>包名_语言_国家：国家相关资源</li>
 <li>包名_语言：语言相关资源</li>
 <li>包名：默认资源</li>
 </ul>
-<h5 id="加载包"><a class="header-anchor" href="#加载包">¶</a>加载包</h5>
+<h5 id="加载包"><a class="header-anchor" href="#加载包"></a>加载包</h5>
 <p>getBundle方法试图匹配当前locale定义的语言和国家的包，直至默认包</p>
 <pre><code>ResourceBundle currentResource  = ResourceBundle.getBundle(bundleName, currentLocale);
 </code></pre>
-<h3 id="2-属性文件"><a class="header-anchor" href="#2-属性文件">¶</a>2 属性文件</h3>
+<h3 id="2-属性文件"><a class="header-anchor" href="#2-属性文件"></a>2 属性文件</h3>
 <p>对字符串进行国际化可以直接使用属性文件</p>
 <p>MyProreamStrings.properties<br>
 MyProreamStrings_en.properties<br>
@@ -4421,7 +4425,7 @@ MyProreamStrings_zh.properties</p>
 <p>取值</p>
 <pre><code>String aaa = bundle.getString(&quot;aaa&quot;);
 </code></pre>
-<h3 id="3-包类"><a class="header-anchor" href="#3-包类">¶</a>3 包类</h3>
+<h3 id="3-包类"><a class="header-anchor" href="#3-包类"></a>3 包类</h3>
 <p>对字符串之外的资源国际化，选哟定义类，必须扩展自 ResourceBundle 类。</p>
 <p>MyProreamResourse.java<br>
 MyProreamResourse_en.java</p>
@@ -4443,6 +4447,7 @@ MyProreamResourse_en.java</p>
 
 	</div>
 	<div id="footer">
+	<p>
 	©2019-<span id="footerYear"></span> 
 	<a href="/">Wu Jun</a> 
 	|
@@ -4455,7 +4460,9 @@ MyProreamResourse_en.java</p>
 		uv
 		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	<br>
 	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
+	</p>
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';

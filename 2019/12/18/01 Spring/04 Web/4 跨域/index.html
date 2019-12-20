@@ -9,16 +9,16 @@
 	
 	<title>
 	
-		4 Jsonp | 
+		4 跨域 | 
 	 
-	吴俊的博客
+	WuJun Blog
 	</title>
 	
 	<!-- keywords,description -->
 	
 		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
 	 
-		<meta name="description" content="吴俊的博客,wujun234" />
+		<meta name="description" content="吴俊,wujun234,wujun,wu jun" />
 	
 
 	<!-- favicon -->
@@ -29,7 +29,7 @@
 
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
-	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
+	<link rel="stylesheet" href="/lib/highlight/darcula.css">
 
 	<script src="/lib/highlight/highlight.pack.js"></script>
 	<script src="/lib/jquery-3.4.1.min.js"></script>
@@ -40,16 +40,19 @@
 
 <body>
 	<header id="header">
-    <a id="title" href="/" class="logo">吴俊的博客</a>
+    <a id="title" href="/" class="logo">WuJun Blog</a>
 
 	<ul id="menu">
 		<li class="menu-item">
-			<a href="/about" class="menu-item-link">关于</a>
+			<a href="/" class="menu-item-link">HOME</a>
+		</li>
+		<li class="menu-item">
+			<a href="/about" class="menu-item-link">ABOUT</a>
 		</li>
 		
 		<li class="menu-item">
 			<a href="https://github.com/wujun234/uid-generator-spring-boot-starter" class="menu-item-link" target="_blank">
-				uid-generator
+				UidGenerator
 			</a>
 		</li>
 		<li class="menu-item">
@@ -60,10 +63,11 @@
 	</ul>
 </header>
 
-	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-bars" aria-hidden="true"></i></button>
+	
 <div id="sidebar">
-	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">站点目录</a>
-	<a herf="#" id="sidebar-article" class="sidebar-toc">文章目录</a>
+	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-arrow-right " aria-hidden="true"></i></button>
+	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">SITE MENU</a>
+	<a herf="#" id="sidebar-article" class="sidebar-toc">ARTICLE MENU</a>
 
 	<!-- 侧边目录栏 -->
 	<div id="site-toc">
@@ -1892,8 +1896,8 @@
 			
 							<ul>
 								<li class="file active">
-									<a href="/2019/12/18/01%20Spring/04%20Web/4%20Jsonp/">
-										4 Jsonp
+									<a href="/2019/12/18/01%20Spring/04%20Web/4%20%E8%B7%A8%E5%9F%9F/">
+										4 跨域
 									</a>
 								</li>
 							</ul>
@@ -4388,7 +4392,7 @@
 	<div id="content">
 		<h1 id="post-title">
 
-		4 Jsonp
+		4 跨域
 
 </h1>
 <HR />
@@ -4399,7 +4403,96 @@
 
 
 <div id="article">
-	<p>通过jsonp调用，对格式重新封装，解决前端跨域。<br>
+	<p>常用的跨域解决方案有 JSONP 和 CORS， spingboot 2.0 开始不推荐使用 JSONP。</p>
+<h2 id="1-CORS"><a class="header-anchor" href="#1-CORS"></a>1 CORS</h2>
+<h3 id="1-1-属性含义"><a class="header-anchor" href="#1-1-属性含义"></a>1.1 属性含义</h3>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>value</td>
+<td>指定所支持域的集合， 表示所有域都支持，默认值为 。这些值对应于 HTTP 请求头中的 Access-Control-Allow-Origin</td>
+</tr>
+<tr>
+<td>origins</td>
+<td>@AliasFor(“value”)，与 value 属性一样</td>
+</tr>
+<tr>
+<td>allowedHeaders</td>
+<td>允许请求头中的 headers，在预检请求 Access-Control-Allow-Headers 响应头中展示</td>
+</tr>
+<tr>
+<td>exposedHeaders</td>
+<td>响应头中允许访问的 headers，在实际请求的 Access-Control-Expose-Headers</td>
+</tr>
+<tr>
+<td>methods</td>
+<td>支持的 HTTP 请求方法列表，默认和 Controller 中的方法上标注的一致。</td>
+</tr>
+<tr>
+<td>allowCredentials</td>
+<td>表示浏览器在跨域请求中是否携带凭证，比如 cookies。在预检请求的 Access-Control-Allow-Credentials</td>
+</tr>
+<tr>
+<td>maxAge</td>
+<td>预检请求响应的最大缓存时间，单位为秒。在预检请求的 Access-Control-Max-Age 响应头中展示</td>
+</tr>
+</tbody>
+</table>
+<h3 id="1-2-实现方法"><a class="header-anchor" href="#1-2-实现方法"></a>1.2 实现方法</h3>
+<h4 id="1）-CrossOrigin-注解"><a class="header-anchor" href="#1）-CrossOrigin-注解"></a>1） CrossOrigin 注解</h4>
+<p>在 Spring Boot 中为我们提供了一个注解 @CrossOrigin 来实现跨域，这个注解可以加在类或者方法上。</p>
+<pre><code>@Controller
+public class HomeController {
+
+    @GetMapping(&quot;/xxx&quot;)
+    @ResponseBody
+    @CrossOrigin
+    public String xxx() {
+        return &quot;xxx&quot;;
+    }
+}
+</code></pre>
+<h4 id="2）实现-WebMvcConfigurer-接口"><a class="header-anchor" href="#2）实现-WebMvcConfigurer-接口"></a>2）实现 WebMvcConfigurer 接口</h4>
+<pre><code>@Configuration
+public class CorsConfig implements WebMvcConfigurer {
+    @Override
+    public void addCorsMappings(CorsRegistry registry) {
+        registry.addMapping(&quot;/**&quot;)
+                .allowedOrigins(&quot;*&quot;)
+                .allowedMethods(&quot;GET&quot;, &quot;HEAD&quot;, &quot;POST&quot;, &quot;PUT&quot;, &quot;DELETE&quot;, &quot;OPTIONS&quot;)
+                .allowCredentials(true)
+                .maxAge(168000)
+                .allowedHeaders(&quot;*&quot;);
+    }
+}
+</code></pre>
+<h4 id="3）过滤器"><a class="header-anchor" href="#3）过滤器"></a>3）过滤器</h4>
+<pre><code>@Configuration
+public class CorsConfig implements WebMvcConfigurer {
+    @Bean
+    public FilterRegistrationBean corsFilter() {
+        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+        CorsConfiguration config = new CorsConfiguration();
+        config.setAllowCredentials(true);
+        config.addAllowedOrigin(&quot;*&quot;);
+        source.registerCorsConfiguration(&quot;/**&quot;, config);
+        FilterRegistrationBean bean = new FilterRegistrationBean(new CorsFilter(source));
+        bean.setOrder(0);
+        return bean;
+    }
+}
+</code></pre>
+<h2 id="2-Jsonp"><a class="header-anchor" href="#2-Jsonp"></a>2 Jsonp</h2>
+<blockquote>
+<p>spingboot2.0 已不支持JSONP</p>
+</blockquote>
+<p>通过jsonp调用，对格式重新封装，解决前端跨域。<br>
 如：请求<code>http://xxxx?&amp;callback=exec</code>, 那么返回的jsonp格式为<code>exec({&quot;code&quot;:0, &quot;message&quot;:&quot;success&quot;});</code>。</p>
 <p>继承<code>AbstractJsonpResponseBodyAdvice</code>，加入<code>@ControllerAdvice</code>注解,basePackages 标识要被处理的controller。</p>
 <pre><code>@ControllerAdvice(basePackages = &quot;xxx.controller&quot;)
@@ -4432,13 +4525,15 @@ public class JsonpAdvice extends AbstractJsonpResponseBodyAdvice {
             }
         }
     }
-}```
+}
+​```
 </code></pre>
 
 </div>
 
 	</div>
 	<div id="footer">
+	<p>
 	©2019-<span id="footerYear"></span> 
 	<a href="/">Wu Jun</a> 
 	|
@@ -4451,7 +4546,9 @@ public class JsonpAdvice extends AbstractJsonpResponseBodyAdvice {
 		uv
 		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	<br>
 	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
+	</p>
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';

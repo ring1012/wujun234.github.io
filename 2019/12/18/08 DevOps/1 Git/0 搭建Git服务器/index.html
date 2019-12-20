@@ -11,14 +11,14 @@
 	
 		0 搭建Git服务器 | 
 	 
-	吴俊的博客
+	WuJun Blog
 	</title>
 	
 	<!-- keywords,description -->
 	
 		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
 	 
-		<meta name="description" content="吴俊的博客,wujun234" />
+		<meta name="description" content="吴俊,wujun234,wujun,wu jun" />
 	
 
 	<!-- favicon -->
@@ -29,7 +29,7 @@
 
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
-	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
+	<link rel="stylesheet" href="/lib/highlight/darcula.css">
 
 	<script src="/lib/highlight/highlight.pack.js"></script>
 	<script src="/lib/jquery-3.4.1.min.js"></script>
@@ -40,16 +40,19 @@
 
 <body>
 	<header id="header">
-    <a id="title" href="/" class="logo">吴俊的博客</a>
+    <a id="title" href="/" class="logo">WuJun Blog</a>
 
 	<ul id="menu">
 		<li class="menu-item">
-			<a href="/about" class="menu-item-link">关于</a>
+			<a href="/" class="menu-item-link">HOME</a>
+		</li>
+		<li class="menu-item">
+			<a href="/about" class="menu-item-link">ABOUT</a>
 		</li>
 		
 		<li class="menu-item">
 			<a href="https://github.com/wujun234/uid-generator-spring-boot-starter" class="menu-item-link" target="_blank">
-				uid-generator
+				UidGenerator
 			</a>
 		</li>
 		<li class="menu-item">
@@ -60,10 +63,11 @@
 	</ul>
 </header>
 
-	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-bars" aria-hidden="true"></i></button>
+	
 <div id="sidebar">
-	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">站点目录</a>
-	<a herf="#" id="sidebar-article" class="sidebar-toc">文章目录</a>
+	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-arrow-right " aria-hidden="true"></i></button>
+	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">SITE MENU</a>
+	<a herf="#" id="sidebar-article" class="sidebar-toc">ARTICLE MENU</a>
 
 	<!-- 侧边目录栏 -->
 	<div id="site-toc">
@@ -1892,8 +1896,8 @@
 			
 							<ul>
 								<li class="file">
-									<a href="/2019/12/18/01%20Spring/04%20Web/4%20Jsonp/">
-										4 Jsonp
+									<a href="/2019/12/18/01%20Spring/04%20Web/4%20%E8%B7%A8%E5%9F%9F/">
+										4 跨域
 									</a>
 								</li>
 							</ul>
@@ -4406,22 +4410,22 @@
 <li>要像SVN那样变态地控制权限，用Gitolite。</li>
 </ul>
 <p>假设你已经有sudo权限的用户账号，下面，正式开始安装。</p>
-<h5 id="第一步，安装git："><a class="header-anchor" href="#第一步，安装git：">¶</a>第一步，安装git：</h5>
+<h5 id="第一步，安装git："><a class="header-anchor" href="#第一步，安装git："></a>第一步，安装git：</h5>
 <pre><code>$ sudo apt-get install git
 </code></pre>
-<h5 id="第二步，创建一个git用户，用来运行git服务："><a class="header-anchor" href="#第二步，创建一个git用户，用来运行git服务：">¶</a>第二步，创建一个git用户，用来运行git服务：</h5>
+<h5 id="第二步，创建一个git用户，用来运行git服务："><a class="header-anchor" href="#第二步，创建一个git用户，用来运行git服务："></a>第二步，创建一个git用户，用来运行git服务：</h5>
 <pre><code>$ sudo adduser git
 </code></pre>
-<h5 id="第三步，创建证书登录："><a class="header-anchor" href="#第三步，创建证书登录：">¶</a>第三步，创建证书登录：</h5>
+<h5 id="第三步，创建证书登录："><a class="header-anchor" href="#第三步，创建证书登录："></a>第三步，创建证书登录：</h5>
 <p>收集所有需要登录的用户的公钥，就是他们自己的<code>id_rsa.pub</code>文件，把所有公钥导入到<code>/home/git/.ssh/authorized_keys</code>文件里，一行一个。</p>
-<h5 id="第四步，初始化Git仓库："><a class="header-anchor" href="#第四步，初始化Git仓库：">¶</a>第四步，初始化Git仓库：</h5>
+<h5 id="第四步，初始化Git仓库："><a class="header-anchor" href="#第四步，初始化Git仓库："></a>第四步，初始化Git仓库：</h5>
 <p>先选定一个目录作为Git仓库，假定是<code>/srv/sample.git</code>，在<code>/srv</code>目录下输入命令：</p>
 <pre><code>$ sudo git init --bare sample.git
 </code></pre>
 <p>Git就会创建一个裸仓库，裸仓库没有工作区，因为服务器上的Git仓库纯粹是为了共享，所以不让用户直接登录到服务器上去改工作区，并且服务器上的Git仓库通常都以<code>.git</code>结尾。然后，把owner改为<code>git</code>：</p>
 <pre><code>$ sudo chown -R git:git sample.git
 </code></pre>
-<h5 id="第五步，禁用shell登录："><a class="header-anchor" href="#第五步，禁用shell登录：">¶</a>第五步，禁用shell登录：</h5>
+<h5 id="第五步，禁用shell登录："><a class="header-anchor" href="#第五步，禁用shell登录："></a>第五步，禁用shell登录：</h5>
 <p>出于安全考虑，第二步创建的git用户不允许登录shell，这可以通过编辑/etc/passwd文件完成。找到类似下面的一行：</p>
 <pre><code>git:x:1001:1001:,,,:/home/git:/bin/bash
 </code></pre>
@@ -4429,7 +4433,7 @@
 <pre><code>git:x:1001:1001:,,,:/home/git:/usr/bin/git-shell
 </code></pre>
 <p>这样，git用户可以正常通过ssh使用git，但无法登录shell，因为我们为git用户指定的git-shell每次一登录就自动退出。</p>
-<h5 id="第六步，克隆远程仓库："><a class="header-anchor" href="#第六步，克隆远程仓库：">¶</a>第六步，克隆远程仓库：</h5>
+<h5 id="第六步，克隆远程仓库："><a class="header-anchor" href="#第六步，克隆远程仓库："></a>第六步，克隆远程仓库：</h5>
 <p>现在，可以通过git clone命令克隆远程仓库了，在各自的电脑上运行：</p>
 <pre><code>$ git clone git@server:/srv/sample.git
 Cloning into 'sample'...
@@ -4441,6 +4445,7 @@ warning: You appear to have cloned an empty repository.
 
 	</div>
 	<div id="footer">
+	<p>
 	©2019-<span id="footerYear"></span> 
 	<a href="/">Wu Jun</a> 
 	|
@@ -4453,7 +4458,9 @@ warning: You appear to have cloned an empty repository.
 		uv
 		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	<br>
 	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
+	</p>
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';

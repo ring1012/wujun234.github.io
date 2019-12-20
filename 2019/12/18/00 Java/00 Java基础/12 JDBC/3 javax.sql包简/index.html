@@ -11,14 +11,14 @@
 	
 		3 javax.sql包简 | 
 	 
-	吴俊的博客
+	WuJun Blog
 	</title>
 	
 	<!-- keywords,description -->
 	
 		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
 	 
-		<meta name="description" content="吴俊的博客,wujun234" />
+		<meta name="description" content="吴俊,wujun234,wujun,wu jun" />
 	
 
 	<!-- favicon -->
@@ -29,7 +29,7 @@
 
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
-	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
+	<link rel="stylesheet" href="/lib/highlight/darcula.css">
 
 	<script src="/lib/highlight/highlight.pack.js"></script>
 	<script src="/lib/jquery-3.4.1.min.js"></script>
@@ -40,16 +40,19 @@
 
 <body>
 	<header id="header">
-    <a id="title" href="/" class="logo">吴俊的博客</a>
+    <a id="title" href="/" class="logo">WuJun Blog</a>
 
 	<ul id="menu">
 		<li class="menu-item">
-			<a href="/about" class="menu-item-link">关于</a>
+			<a href="/" class="menu-item-link">HOME</a>
+		</li>
+		<li class="menu-item">
+			<a href="/about" class="menu-item-link">ABOUT</a>
 		</li>
 		
 		<li class="menu-item">
 			<a href="https://github.com/wujun234/uid-generator-spring-boot-starter" class="menu-item-link" target="_blank">
-				uid-generator
+				UidGenerator
 			</a>
 		</li>
 		<li class="menu-item">
@@ -60,10 +63,11 @@
 	</ul>
 </header>
 
-	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-bars" aria-hidden="true"></i></button>
+	
 <div id="sidebar">
-	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">站点目录</a>
-	<a herf="#" id="sidebar-article" class="sidebar-toc">文章目录</a>
+	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-arrow-right " aria-hidden="true"></i></button>
+	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">SITE MENU</a>
+	<a herf="#" id="sidebar-article" class="sidebar-toc">ARTICLE MENU</a>
 
 	<!-- 侧边目录栏 -->
 	<div id="site-toc">
@@ -1892,8 +1896,8 @@
 			
 							<ul>
 								<li class="file">
-									<a href="/2019/12/18/01%20Spring/04%20Web/4%20Jsonp/">
-										4 Jsonp
+									<a href="/2019/12/18/01%20Spring/04%20Web/4%20%E8%B7%A8%E5%9F%9F/">
+										4 跨域
 									</a>
 								</li>
 							</ul>
@@ -4408,7 +4412,7 @@
 <li>Rowsets</li>
 </ol>
 <p>应用程序可直接使用的 API是DataSource和RowSet。连接池和分布式事务API由中间层基础架构在内部使用。</p>
-<h3 id="DataSource"><a class="header-anchor" href="#DataSource">¶</a>DataSource</h3>
+<h3 id="DataSource"><a class="header-anchor" href="#DataSource"></a>DataSource</h3>
 <p>DataSource主要目的是替换DriverManager。</p>
 <p><strong>替换原因</strong>：</p>
 <ul>
@@ -4424,10 +4428,10 @@
 <li>分布式事务实现：生成用于分布式事务的Connection对象，几乎总是参与到连接池中。该实现与中间层事务管理器一起工作</li>
 </ul>
 <p>通过 DataSource 对象访问的驱动程序不会向 DriverManager 注册。</p>
-<h4 id="连接池和语句池"><a class="header-anchor" href="#连接池和语句池">¶</a>连接池和语句池</h4>
+<h4 id="连接池和语句池"><a class="header-anchor" href="#连接池和语句池"></a>连接池和语句池</h4>
 <p>连接池由中间层自动完成。应用程序只是简单地使用DataSource.getConnection方法来获取池连接，并以与使用任何Connection对象相同的方式使用它。</p>
 <p>实现原理：连接池使用集合来进行装载，返回的Connection是原始Connection的代理，代理Connection的close方法，当调用close方法时，不是真正关连接，而是把它代理的Connection对象放回到连接池中，等待下一次重复利用。</p>
-<h4 id="分布式事务"><a class="header-anchor" href="#分布式事务">¶</a>分布式事务</h4>
+<h4 id="分布式事务"><a class="header-anchor" href="#分布式事务"></a>分布式事务</h4>
 <p>用于分布式事务的类和接口是：</p>
 <ul>
 <li>XADataSource</li>
@@ -4437,7 +4441,7 @@
 <p>不需任何特殊操作，只需像通常那样通过DataSource.getConnection获取连接，由事务管理器在幕后管理事务。</p>
 <p>XADataSource接口创建XAConnection对象，每个XAConnection对象都会创建事务管理器用来管理连接的XAResource对象。</p>
 <p>一旦XAConnection参与事物，则不能手动干扰事务管理器。 如，不能调用Connection.commit或Connection.rollback方法，无法将连接设置为自动提交模式。</p>
-<h4 id="Rowsets"><a class="header-anchor" href="#Rowsets">¶</a>Rowsets</h4>
+<h4 id="Rowsets"><a class="header-anchor" href="#Rowsets"></a>Rowsets</h4>
 <p><strong>RowSet继承自ResultSet</strong>，和ResultSet相比，它更具灵活性。可离线，可更新的。</p>
 <p>RowSet提供的额外的特性：</p>
 <ul>
@@ -4466,6 +4470,7 @@
 
 	</div>
 	<div id="footer">
+	<p>
 	©2019-<span id="footerYear"></span> 
 	<a href="/">Wu Jun</a> 
 	|
@@ -4478,7 +4483,9 @@
 		uv
 		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	<br>
 	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
+	</p>
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';

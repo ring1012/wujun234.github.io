@@ -11,14 +11,14 @@
 	
 		2.1 ArrayList、Vector | 
 	 
-	吴俊的博客
+	WuJun Blog
 	</title>
 	
 	<!-- keywords,description -->
 	
 		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
 	 
-		<meta name="description" content="吴俊的博客,wujun234" />
+		<meta name="description" content="吴俊,wujun234,wujun,wu jun" />
 	
 
 	<!-- favicon -->
@@ -29,7 +29,7 @@
 
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
-	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
+	<link rel="stylesheet" href="/lib/highlight/darcula.css">
 
 	<script src="/lib/highlight/highlight.pack.js"></script>
 	<script src="/lib/jquery-3.4.1.min.js"></script>
@@ -40,16 +40,19 @@
 
 <body>
 	<header id="header">
-    <a id="title" href="/" class="logo">吴俊的博客</a>
+    <a id="title" href="/" class="logo">WuJun Blog</a>
 
 	<ul id="menu">
 		<li class="menu-item">
-			<a href="/about" class="menu-item-link">关于</a>
+			<a href="/" class="menu-item-link">HOME</a>
+		</li>
+		<li class="menu-item">
+			<a href="/about" class="menu-item-link">ABOUT</a>
 		</li>
 		
 		<li class="menu-item">
 			<a href="https://github.com/wujun234/uid-generator-spring-boot-starter" class="menu-item-link" target="_blank">
-				uid-generator
+				UidGenerator
 			</a>
 		</li>
 		<li class="menu-item">
@@ -60,10 +63,11 @@
 	</ul>
 </header>
 
-	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-bars" aria-hidden="true"></i></button>
+	
 <div id="sidebar">
-	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">站点目录</a>
-	<a herf="#" id="sidebar-article" class="sidebar-toc">文章目录</a>
+	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-arrow-right " aria-hidden="true"></i></button>
+	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">SITE MENU</a>
+	<a herf="#" id="sidebar-article" class="sidebar-toc">ARTICLE MENU</a>
 
 	<!-- 侧边目录栏 -->
 	<div id="site-toc">
@@ -1892,8 +1896,8 @@
 			
 							<ul>
 								<li class="file">
-									<a href="/2019/12/18/01%20Spring/04%20Web/4%20Jsonp/">
-										4 Jsonp
+									<a href="/2019/12/18/01%20Spring/04%20Web/4%20%E8%B7%A8%E5%9F%9F/">
+										4 跨域
 									</a>
 								</li>
 							</ul>
@@ -4399,20 +4403,20 @@
 
 
 <div id="article">
-	<h3 id="前言"><a class="header-anchor" href="#前言">¶</a>前言</h3>
+	<h3 id="前言"><a class="header-anchor" href="#前言"></a>前言</h3>
 <p>ArrayList除未实现同步外，跟Vector大致相同。同步效率低，在不需要同步的时候使用ArrayList。</p>
-<h3 id="ArrayList"><a class="header-anchor" href="#ArrayList">¶</a>ArrayList</h3>
+<h3 id="ArrayList"><a class="header-anchor" href="#ArrayList"></a>ArrayList</h3>
 <hr>
-<h4 id="总体介绍"><a class="header-anchor" href="#总体介绍">¶</a>总体介绍</h4>
+<h4 id="总体介绍"><a class="header-anchor" href="#总体介绍"></a>总体介绍</h4>
 <p><code>ArrayList</code> 实现了 <code>List</code>、<code>RandomAccess</code> 接口。是顺序容器，允许 null 元素，支持随机访问。</p>
 <p><code>ArrayList </code>底层通过动态数组实现，主要包含Object数组 <code>elementData</code> ，实际容量 <code>capacity</code> 以及当前大小 <code>size</code>。</p>
 <p><code>capacity</code>默认10，容量不足时会自动扩容。</p>
 <p><img src="/images/1545011834810.png" alt="image"></p>
 <p>为追求效率，ArrayList没有实现同步。用户可以手动同步，也可使用Vector替代，还可采用 Collections.synchronizedList() 包装。</p>
-<h4 id="方法剖析"><a class="header-anchor" href="#方法剖析">¶</a>方法剖析</h4>
-<h5 id="add"><a class="header-anchor" href="#add">¶</a>add()</h5>
+<h4 id="方法剖析"><a class="header-anchor" href="#方法剖析"></a>方法剖析</h4>
+<h5 id="add"><a class="header-anchor" href="#add"></a>add()</h5>
 <p><img src="/images/1545011835088.png" alt="image"></p>
-<h6 id="调用-add-E-e"><a class="header-anchor" href="#调用-add-E-e">¶</a>调用 <code>add(E e)</code></h6>
+<h6 id="调用-add-E-e"><a class="header-anchor" href="#调用-add-E-e"></a>调用 <code>add(E e)</code></h6>
 <ol>
 <li>扩容校验。</li>
 <li>将插入的值放到尾部，并将 size + 1 。</li>
@@ -4423,7 +4427,7 @@
         return true;
     }
 </code></pre>
-<h6 id="调用-add-index-e"><a class="header-anchor" href="#调用-add-index-e">¶</a>调用 <code>add(index,e)</code></h6>
+<h6 id="调用-add-index-e"><a class="header-anchor" href="#调用-add-index-e"></a>调用 <code>add(index,e)</code></h6>
 <ol>
 <li>扩容校验。</li>
 <li>复制数据，本次数据插入 index ，后面数据后移。</li>
@@ -4437,7 +4441,7 @@
         size++;
     }
 </code></pre>
-<h5 id="grow"><a class="header-anchor" href="#grow">¶</a>grow()</h5>
+<h5 id="grow"><a class="header-anchor" href="#grow"></a>grow()</h5>
 <p>扩容操作
 <img src="/images/1545011835380.png" alt="image"></p>
 <pre><code class="language-java">    private void grow(int minCapacity) {
@@ -4450,17 +4454,17 @@
         elementData = Arrays.copyOf(elementData, newCapacity);//扩展空间并复制
     }
 </code></pre>
-<h5 id="remove"><a class="header-anchor" href="#remove">¶</a>remove()</h5>
+<h5 id="remove"><a class="header-anchor" href="#remove"></a>remove()</h5>
 <p>remove(int index) 删除指定位置的元素<br>
 remove(Object o) 删除第一个满足 o.equals(elementData[index]) 的元素</p>
 <p>删除操作是 add() 操作的逆过程，需要将删除点之后的元素向前移动一个位置。为了让GC起作用，必须显式的为最后一个位置赋 null 值。</p>
-<h4 id="序列化"><a class="header-anchor" href="#序列化">¶</a>序列化</h4>
+<h4 id="序列化"><a class="header-anchor" href="#序列化"></a>序列化</h4>
 <p>ArrayList只序列化了被使用的数据。</p>
 <p>由于 ArrayList 是基于动态数组实现的，所以并不是所有的空间都被使用。因此使用了 <code>transient</code> 修饰，可以防止被自动序列化。</p>
 <pre><code class="language-java">transient Object[] elementData;
 </code></pre>
 <p>ArrayList 自定义了序列化与反序列化: writeObject 和 readObject 方法。</p>
-<h3 id="Vector"><a class="header-anchor" href="#Vector">¶</a>Vector</h3>
+<h3 id="Vector"><a class="header-anchor" href="#Vector"></a>Vector</h3>
 <hr>
 <p><code>Vector</code> 实现与 <code>ArrayList</code> 类似, 但所有方法都被 <code>synchronized</code> 修饰 ，开销较大。</p>
 
@@ -4468,6 +4472,7 @@ remove(Object o) 删除第一个满足 o.equals(elementData[index]) 的元素</p
 
 	</div>
 	<div id="footer">
+	<p>
 	©2019-<span id="footerYear"></span> 
 	<a href="/">Wu Jun</a> 
 	|
@@ -4480,7 +4485,9 @@ remove(Object o) 删除第一个满足 o.equals(elementData[index]) 的元素</p
 		uv
 		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	<br>
 	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
+	</p>
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';

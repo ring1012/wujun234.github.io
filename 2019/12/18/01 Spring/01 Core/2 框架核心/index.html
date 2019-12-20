@@ -11,14 +11,14 @@
 	
 		2 框架核心 | 
 	 
-	吴俊的博客
+	WuJun Blog
 	</title>
 	
 	<!-- keywords,description -->
 	
 		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
 	 
-		<meta name="description" content="吴俊的博客,wujun234" />
+		<meta name="description" content="吴俊,wujun234,wujun,wu jun" />
 	
 
 	<!-- favicon -->
@@ -29,7 +29,7 @@
 
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
-	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
+	<link rel="stylesheet" href="/lib/highlight/darcula.css">
 
 	<script src="/lib/highlight/highlight.pack.js"></script>
 	<script src="/lib/jquery-3.4.1.min.js"></script>
@@ -40,16 +40,19 @@
 
 <body>
 	<header id="header">
-    <a id="title" href="/" class="logo">吴俊的博客</a>
+    <a id="title" href="/" class="logo">WuJun Blog</a>
 
 	<ul id="menu">
 		<li class="menu-item">
-			<a href="/about" class="menu-item-link">关于</a>
+			<a href="/" class="menu-item-link">HOME</a>
+		</li>
+		<li class="menu-item">
+			<a href="/about" class="menu-item-link">ABOUT</a>
 		</li>
 		
 		<li class="menu-item">
 			<a href="https://github.com/wujun234/uid-generator-spring-boot-starter" class="menu-item-link" target="_blank">
-				uid-generator
+				UidGenerator
 			</a>
 		</li>
 		<li class="menu-item">
@@ -60,10 +63,11 @@
 	</ul>
 </header>
 
-	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-bars" aria-hidden="true"></i></button>
+	
 <div id="sidebar">
-	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">站点目录</a>
-	<a herf="#" id="sidebar-article" class="sidebar-toc">文章目录</a>
+	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-arrow-right " aria-hidden="true"></i></button>
+	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">SITE MENU</a>
+	<a herf="#" id="sidebar-article" class="sidebar-toc">ARTICLE MENU</a>
 
 	<!-- 侧边目录栏 -->
 	<div id="site-toc">
@@ -1892,8 +1896,8 @@
 			
 							<ul>
 								<li class="file">
-									<a href="/2019/12/18/01%20Spring/04%20Web/4%20Jsonp/">
-										4 Jsonp
+									<a href="/2019/12/18/01%20Spring/04%20Web/4%20%E8%B7%A8%E5%9F%9F/">
+										4 跨域
 									</a>
 								</li>
 							</ul>
@@ -4399,10 +4403,10 @@
 
 
 <div id="article">
-	<h4 id="1-容器"><a class="header-anchor" href="#1-容器">¶</a>1 容器</h4>
+	<h4 id="1-容器"><a class="header-anchor" href="#1-容器"></a>1 容器</h4>
 <p>容器（container）是Spring框架的核心，它管理着Spring应用中bean的创建、 配置和管理，负责对象的整个生命周期。</p>
 <p><strong>IoC</strong>（Inversion of Control，控制反转 ）：因为具有依赖注入（DI）功能，控制权由应用代码中转到了外部容器，控制权的转移，所谓控制反转。</p>
-<h5 id="1-1-容器实现"><a class="header-anchor" href="#1-1-容器实现">¶</a>1.1 容器实现</h5>
+<h5 id="1-1-容器实现"><a class="header-anchor" href="#1-1-容器实现"></a>1.1 容器实现</h5>
 <p>Spring自带两种不同类型容器实现，主要使用ApplicationContext：</p>
 <ul>
 <li><strong>BeanFactory</strong><br>
@@ -4413,14 +4417,14 @@
 初始化容器时就实例化所有单例的Bean。
 有多种ApplicationContext的实现， 每一种都提供了配置Spring的不同方式。</li>
 </ul>
-<h5 id="1-2-getBean"><a class="header-anchor" href="#1-2-getBean">¶</a>1.2 getBean()</h5>
+<h5 id="1-2-getBean"><a class="header-anchor" href="#1-2-getBean"></a>1.2 getBean()</h5>
 <p>通过容器getBean()方法从容器获取指定bean。</p>
 <pre><code>@Autowired
 ApplicationContext applicationContext;
 
 healthAPI =applicationContext.getBean(AdminServiceAPI.HealthAPI.class);
 </code></pre>
-<h4 id="2-Bean的生命周期"><a class="header-anchor" href="#2-Bean的生命周期">¶</a>2 Bean的生命周期</h4>
+<h4 id="2-Bean的生命周期"><a class="header-anchor" href="#2-Bean的生命周期"></a>2 Bean的生命周期</h4>
 <p>Bean生命周期的控制很精细，Spring提供了很多节点供开发人员定制某个bean的创建过程。</p>
 <p><img src="/images/1545011848523.png" alt="bean的生命周期"></p>
 <p>BeanFactory负责bean创建的最初四步，然后移交给ApplicationContext做后续创建过程</p>
@@ -4429,6 +4433,7 @@ healthAPI =applicationContext.getBean(AdminServiceAPI.HealthAPI.class);
 
 	</div>
 	<div id="footer">
+	<p>
 	©2019-<span id="footerYear"></span> 
 	<a href="/">Wu Jun</a> 
 	|
@@ -4441,7 +4446,9 @@ healthAPI =applicationContext.getBean(AdminServiceAPI.HealthAPI.class);
 		uv
 		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	<br>
 	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
+	</p>
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';

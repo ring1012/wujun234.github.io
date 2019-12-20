@@ -11,14 +11,14 @@
 	
 		5 同步 | 
 	 
-	吴俊的博客
+	WuJun Blog
 	</title>
 	
 	<!-- keywords,description -->
 	
 		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
 	 
-		<meta name="description" content="吴俊的博客,wujun234" />
+		<meta name="description" content="吴俊,wujun234,wujun,wu jun" />
 	
 
 	<!-- favicon -->
@@ -29,7 +29,7 @@
 
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
-	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
+	<link rel="stylesheet" href="/lib/highlight/darcula.css">
 
 	<script src="/lib/highlight/highlight.pack.js"></script>
 	<script src="/lib/jquery-3.4.1.min.js"></script>
@@ -40,16 +40,19 @@
 
 <body>
 	<header id="header">
-    <a id="title" href="/" class="logo">吴俊的博客</a>
+    <a id="title" href="/" class="logo">WuJun Blog</a>
 
 	<ul id="menu">
 		<li class="menu-item">
-			<a href="/about" class="menu-item-link">关于</a>
+			<a href="/" class="menu-item-link">HOME</a>
+		</li>
+		<li class="menu-item">
+			<a href="/about" class="menu-item-link">ABOUT</a>
 		</li>
 		
 		<li class="menu-item">
 			<a href="https://github.com/wujun234/uid-generator-spring-boot-starter" class="menu-item-link" target="_blank">
-				uid-generator
+				UidGenerator
 			</a>
 		</li>
 		<li class="menu-item">
@@ -60,10 +63,11 @@
 	</ul>
 </header>
 
-	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-bars" aria-hidden="true"></i></button>
+	
 <div id="sidebar">
-	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">站点目录</a>
-	<a herf="#" id="sidebar-article" class="sidebar-toc">文章目录</a>
+	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-arrow-right " aria-hidden="true"></i></button>
+	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">SITE MENU</a>
+	<a herf="#" id="sidebar-article" class="sidebar-toc">ARTICLE MENU</a>
 
 	<!-- 侧边目录栏 -->
 	<div id="site-toc">
@@ -1892,8 +1896,8 @@
 			
 							<ul>
 								<li class="file">
-									<a href="/2019/12/18/01%20Spring/04%20Web/4%20Jsonp/">
-										4 Jsonp
+									<a href="/2019/12/18/01%20Spring/04%20Web/4%20%E8%B7%A8%E5%9F%9F/">
+										4 跨域
 									</a>
 								</li>
 							</ul>
@@ -4400,7 +4404,7 @@
 
 <div id="article">
 	<p>有两种机制防止代码块受并发访问的干扰。synchronized关键字,ReentrantLock类。</p>
-<h3 id="1-可重入锁（ReentrantLock）"><a class="header-anchor" href="#1-可重入锁（ReentrantLock）">¶</a>1 可重入锁（ReentrantLock）</h3>
+<h3 id="1-可重入锁（ReentrantLock）"><a class="header-anchor" href="#1-可重入锁（ReentrantLock）"></a>1 可重入锁（ReentrantLock）</h3>
 <p>可重入锁（ReentrantLock）锁是可重入的，因为线程可以重复地获得已经持有的锁。锁保持一个<code>持有计数</code>来跟踪对lock方法的嵌套调用。线程在每一次调用lock都要调用unlock来释放锁。由于这一特性，被一个锁保护的代码可以调用另一个使用相同的锁的方法。</p>
 <pre><code>Lock myLock = new Reentrantlock();
 myLock.lock(); // a Reentrantlock object
@@ -4414,18 +4418,18 @@ try {
 <li>ReentrantLock()：构建一个可以被用来保护临界区的可重入锁。</li>
 <li>ReentrantLock(boolean fair)：构建一个带有公平策略的锁。一个公平锁偏爱等待时间最长的线程，但是，这一公平的保证将大大降低性能。</li>
 </ul>
-<h3 id="2-条件对象（Condition）"><a class="header-anchor" href="#2-条件对象（Condition）">¶</a>2 条件对象（Condition）</h3>
+<h3 id="2-条件对象（Condition）"><a class="header-anchor" href="#2-条件对象（Condition）"></a>2 条件对象（Condition）</h3>
 <p>一个锁对象可以有一个或多个相关的条件对象（Condition）。</p>
 <p>条件对象管理那些已经获得了一个锁但是却不能做有用工作的线程。</p>
-<h5 id="获取条件对象"><a class="header-anchor" href="#获取条件对象">¶</a>获取条件对象</h5>
+<h5 id="获取条件对象"><a class="header-anchor" href="#获取条件对象"></a>获取条件对象</h5>
 <p>newCondition获得一个条件对象。</p>
 <pre><code>Condition condition = myLock.newCondition();
 </code></pre>
-<h5 id="阻塞"><a class="header-anchor" href="#阻塞">¶</a>阻塞</h5>
+<h5 id="阻塞"><a class="header-anchor" href="#阻塞"></a>阻塞</h5>
 <p>线程条件await()，线程进入该条件的等待集，阻塞。</p>
 <pre><code>condition.await();
 </code></pre>
-<h5 id="恢复"><a class="header-anchor" href="#恢复">¶</a>恢复</h5>
+<h5 id="恢复"><a class="header-anchor" href="#恢复"></a>恢复</h5>
 <p>直到某个其他线程调用同一条件上的 signalAll() 重新激活因为这一条件而等待的所有线程。</p>
 <pre><code>otherCondition.singalAll();
 </code></pre>
@@ -4435,7 +4439,7 @@ try {
 </code></pre>
 <p>另一个方法signal()，则是随机解除等待集中某个线程的阻塞状态。</p>
 <p>如果没有其他线程再次调用signal，那么系统就死锁了。</p>
-<h3 id="3-synchronized"><a class="header-anchor" href="#3-synchronized">¶</a>3 synchronized</h3>
+<h3 id="3-synchronized"><a class="header-anchor" href="#3-synchronized"></a>3 synchronized</h3>
 <p>总结一下有关锁和条件的关键之处：</p>
 <ul>
 <li>锁用来保护代码片段，任何时刻只能有一个线程执行被保护的代码。</li>
@@ -4445,7 +4449,7 @@ try {
 </ul>
 <p>Lock 和 Condition 接口为程序设计人员提供了高度的锁定控制。然而， 大多数情况下，
 并不需要那样的控制。</p>
-<h5 id="对象内部锁"><a class="header-anchor" href="#对象内部锁">¶</a>对象内部锁</h5>
+<h5 id="对象内部锁"><a class="header-anchor" href="#对象内部锁"></a>对象内部锁</h5>
 <p><strong>从 1.0 版开始， Java中的每一个对象都有一个内部锁。如果一个方法用 synchronized 关键字声明，那么对象的锁将保护整个方法。</strong></p>
 <pre><code>public synchronized void method() {
     // method body
@@ -4471,7 +4475,7 @@ try {
 <li>试图获得锁时不能设定超时。</li>
 <li>每个锁仅有单一的条件，可能是不够的。</li>
 </ul>
-<h4 id="同步建议"><a class="header-anchor" href="#同步建议">¶</a>同步建议</h4>
+<h4 id="同步建议"><a class="header-anchor" href="#同步建议"></a>同步建议</h4>
 <p>Lock 和 Condition 对象还是同步方法？</p>
 <ul>
 <li>最好既不使用 Lock/Condition 也不使用 synchronized 关键字。可使用 java.util.concurrent 包中的一种机制，或并行流。</li>
@@ -4479,7 +4483,7 @@ try {
 码数量，减少出错的几率。</li>
 <li>如果特别需要 Lock/Condition 结构提供的独有特性时，才使用 Lock/Condition。</li>
 </ul>
-<h3 id="4-同步阻塞"><a class="header-anchor" href="#4-同步阻塞">¶</a>4 同步阻塞</h3>
+<h3 id="4-同步阻塞"><a class="header-anchor" href="#4-同步阻塞"></a>4 同步阻塞</h3>
 <p>线程可通过获得对象的的内部锁，进入同步阻塞。<br>
 lock 对象被创建仅仅是用来使用每个 Java 对象持有的锁。</p>
 <pre><code>private Object lock = new Object();
@@ -4487,7 +4491,7 @@ synchronized (obj){
     // critical section
 }
 </code></pre>
-<h5 id="客户端锁定"><a class="header-anchor" href="#客户端锁定">¶</a>客户端锁定</h5>
+<h5 id="客户端锁定"><a class="header-anchor" href="#客户端锁定"></a>客户端锁定</h5>
 <p>以下例子依赖于Vector类对自己的所有可修改方法都使用内部锁。</p>
 <pre><code>public void transfer(Vector&lt;Double&gt; accounts, int from, int to, int amount){
     synchronized (accounts){
@@ -4498,7 +4502,7 @@ synchronized (obj){
 }
 </code></pre>
 <p>客户端锁定是非常脆弱的，通常不推荐使用。</p>
-<h3 id="5-监视器概念"><a class="header-anchor" href="#5-监视器概念">¶</a>5 监视器概念</h3>
+<h3 id="5-监视器概念"><a class="header-anchor" href="#5-监视器概念"></a>5 监视器概念</h3>
 <p>监视器可以在不需要程序员考虑如何加锁的情况下，就可以保证多线程的安全性。具有如下特性：</p>
 <ul>
 <li>监视器是只包含私有域的类。</li>
@@ -4512,19 +4516,19 @@ synchronized (obj){
 <li>方法不要求必须是synchronized。</li>
 <li>内部锁对客户是可用的。</li>
 </ul>
-<h3 id="6-Volatile域"><a class="header-anchor" href="#6-Volatile域">¶</a>6 Volatile域</h3>
+<h3 id="6-Volatile域"><a class="header-anchor" href="#6-Volatile域"></a>6 Volatile域</h3>
 <p>将域声明为 volatile 保证数据访问一致性，禁止指令重排序优化，但volatile变量不能提供原子性。</p>
 <p>Volatile如何保证内存可见性:</p>
 <ol>
 <li>当写一个volatile变量时，JMM会把该线程对应的本地内存中的共享变量刷新到主内存。</li>
 <li>当读一个volatile变量时，JMM会把该线程对应的本地内存置为无效。线程接下来将从主内存中读取共享变量。</li>
 </ol>
-<h3 id="7-final-变量"><a class="header-anchor" href="#7-final-变量">¶</a>7 final 变量</h3>
+<h3 id="7-final-变量"><a class="header-anchor" href="#7-final-变量"></a>7 final 变量</h3>
 <p>共享域声明为 final 时，也可以安全地访问。</p>
-<h3 id="8-原子性"><a class="header-anchor" href="#8-原子性">¶</a>8 原子性</h3>
+<h3 id="8-原子性"><a class="header-anchor" href="#8-原子性"></a>8 原子性</h3>
 <p>java.util.concurrent包全完建立在CAS（Compare and Swap，比较并交换）之上。</p>
 <p>在java.util.concurrent.atomic包中有许多基于CAS实现的原子包装器类。</p>
-<h5 id="乐观更新compareAndSet"><a class="header-anchor" href="#乐观更新compareAndSet">¶</a>乐观更新compareAndSet</h5>
+<h5 id="乐观更新compareAndSet"><a class="header-anchor" href="#乐观更新compareAndSet"></a>乐观更新compareAndSet</h5>
 <p>应当在一个循环中计算新值和使用 compareAndSet</p>
 <p>有三个操作数：内存值V、旧的预期值A、要修改的值B，当且仅当预期值A和内存值V相同时，将内存值修改为B并返回true，否则什么都不做并返回false。继续循环去获取最新的value并进行compareAndSet，直至获取的value和内存中的value一致为止。</p>
 <pre><code>do {
@@ -4534,7 +4538,7 @@ synchronized (obj){
 //lambda 表达式
 largest.updateAndGet(x -&gt; Math.max(x, observed)) ;
 </code></pre>
-<h5 id="Java-SE-8"><a class="header-anchor" href="#Java-SE-8">¶</a>Java SE 8</h5>
+<h5 id="Java-SE-8"><a class="header-anchor" href="#Java-SE-8"></a>Java SE 8</h5>
 <p>如果认为可能存在大量竞争， 只需要使用 LongAdder 而不是 AtomicLong。</p>
 <p>LongAdder 包括多个变量（加数），其总和为当前值。可以有多个线程更新不同的加数，线程个数增加时会自动提供新的加数。</p>
 <pre><code>final LongAdder adder = new LongAdder();
@@ -4554,36 +4558,36 @@ long total = adder.sum();
 adder.accumulate(value);
 </code></pre>
 <p>另外 DoubleAdder 和 DoubleAccumulator 也采用同样的方式，只不过处理的是 double 值。</p>
-<h3 id="9-死锁"><a class="header-anchor" href="#9-死锁">¶</a>9 死锁</h3>
+<h3 id="9-死锁"><a class="header-anchor" href="#9-死锁"></a>9 死锁</h3>
 <p>如果有一组进程或线程，其中每个都在等待一个只有其它进程或线程才可以执行的操作，那么就称它们被死锁了。</p>
-<h5 id="死锁的必要条件"><a class="header-anchor" href="#死锁的必要条件">¶</a>死锁的必要条件</h5>
+<h5 id="死锁的必要条件"><a class="header-anchor" href="#死锁的必要条件"></a>死锁的必要条件</h5>
 <ol>
 <li>互斥 至少有一个资源处于非共享状态</li>
 <li>占有并等待</li>
 <li>非抢占</li>
 <li>循环等待</li>
 </ol>
-<h5 id="避免死锁"><a class="header-anchor" href="#避免死锁">¶</a>避免死锁</h5>
+<h5 id="避免死锁"><a class="header-anchor" href="#避免死锁"></a>避免死锁</h5>
 <p>要避免死锁，应该确保在获取多个锁时，在所有的线程中都以相同的顺序获取锁。</p>
 <ol>
 <li>死锁预防，不让上面的四个条件同时成立。</li>
 <li>合理分配资源。</li>
 <li>使用银行家算法，如果该进程请求的资源操作系统剩余量可以满足，那么就分配。</li>
 </ol>
-<h3 id="10-线程局部变量（ThreadLocal）"><a class="header-anchor" href="#10-线程局部变量（ThreadLocal）">¶</a>10 线程局部变量（ThreadLocal）</h3>
+<h3 id="10-线程局部变量（ThreadLocal）"><a class="header-anchor" href="#10-线程局部变量（ThreadLocal）"></a>10 线程局部变量（ThreadLocal）</h3>
 <p>ThreadLocal空间换时间，为每个线程提供一个变量副本。变量在线程间隔离而在方法或类间共享的场景。</p>
-<h5 id="原理"><a class="header-anchor" href="#原理">¶</a>原理</h5>
+<h5 id="原理"><a class="header-anchor" href="#原理"></a>原理</h5>
 <p>每个 Thread 维护一个 ThreadLocalMap 映射表，这个映射表的 key 是 ThreadLocal 实例本身， value 是真正需要存储的 Object 。</p>
 <p>ThreadLocal 本身并不存储值，它只是作为一个 key 来让线程从 ThreadLocalMap 获取 value 。</p>
 <p>ThreadLocalMap 中的key使用了弱引用</p>
-<h5 id="建议"><a class="header-anchor" href="#建议">¶</a>建议</h5>
+<h5 id="建议"><a class="header-anchor" href="#建议"></a>建议</h5>
 <ul>
 <li>在进行get之前，必须先set，否则会报空指针异常；或者可以重写initialValue()方法赋初值。</li>
 <li>避免内存泄漏：每次使用完 ThreadLocal ，都调用它的 remove() 方法，清除数据。</li>
 </ul>
-<h3 id="11-锁测试与超时"><a class="header-anchor" href="#11-锁测试与超时">¶</a>11 锁测试与超时</h3>
+<h3 id="11-锁测试与超时"><a class="header-anchor" href="#11-锁测试与超时"></a>11 锁测试与超时</h3>
 <p>tryLock 方法试图申请一个锁，在成功获得锁后返回true，否则，立即返回false，避免阻塞。</p>
-<h3 id="12-读-写锁"><a class="header-anchor" href="#12-读-写锁">¶</a>12 读/写锁</h3>
+<h3 id="12-读-写锁"><a class="header-anchor" href="#12-读-写锁"></a>12 读/写锁</h3>
 <p>ReentrantReadWriteLock 类，对读线程共享，写线程互斥。</p>
 <pre><code>//1) 构造一个ReentrantReadWriteLock对象
 private ReentrantReadWriteLockrwl = new ReentrantReadWriteLock();
@@ -4612,6 +4616,7 @@ public void transfer() {
 
 	</div>
 	<div id="footer">
+	<p>
 	©2019-<span id="footerYear"></span> 
 	<a href="/">Wu Jun</a> 
 	|
@@ -4624,7 +4629,9 @@ public void transfer() {
 		uv
 		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	<br>
 	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
+	</p>
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';

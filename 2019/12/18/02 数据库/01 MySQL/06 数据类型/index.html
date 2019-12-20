@@ -11,14 +11,14 @@
 	
 		06 数据类型 | 
 	 
-	吴俊的博客
+	WuJun Blog
 	</title>
 	
 	<!-- keywords,description -->
 	
 		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
 	 
-		<meta name="description" content="吴俊的博客,wujun234" />
+		<meta name="description" content="吴俊,wujun234,wujun,wu jun" />
 	
 
 	<!-- favicon -->
@@ -29,7 +29,7 @@
 
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
-	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
+	<link rel="stylesheet" href="/lib/highlight/darcula.css">
 
 	<script src="/lib/highlight/highlight.pack.js"></script>
 	<script src="/lib/jquery-3.4.1.min.js"></script>
@@ -40,16 +40,19 @@
 
 <body>
 	<header id="header">
-    <a id="title" href="/" class="logo">吴俊的博客</a>
+    <a id="title" href="/" class="logo">WuJun Blog</a>
 
 	<ul id="menu">
 		<li class="menu-item">
-			<a href="/about" class="menu-item-link">关于</a>
+			<a href="/" class="menu-item-link">HOME</a>
+		</li>
+		<li class="menu-item">
+			<a href="/about" class="menu-item-link">ABOUT</a>
 		</li>
 		
 		<li class="menu-item">
 			<a href="https://github.com/wujun234/uid-generator-spring-boot-starter" class="menu-item-link" target="_blank">
-				uid-generator
+				UidGenerator
 			</a>
 		</li>
 		<li class="menu-item">
@@ -60,10 +63,11 @@
 	</ul>
 </header>
 
-	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-bars" aria-hidden="true"></i></button>
+	
 <div id="sidebar">
-	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">站点目录</a>
-	<a herf="#" id="sidebar-article" class="sidebar-toc">文章目录</a>
+	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-arrow-right " aria-hidden="true"></i></button>
+	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">SITE MENU</a>
+	<a herf="#" id="sidebar-article" class="sidebar-toc">ARTICLE MENU</a>
 
 	<!-- 侧边目录栏 -->
 	<div id="site-toc">
@@ -1892,8 +1896,8 @@
 			
 							<ul>
 								<li class="file">
-									<a href="/2019/12/18/01%20Spring/04%20Web/4%20Jsonp/">
-										4 Jsonp
+									<a href="/2019/12/18/01%20Spring/04%20Web/4%20%E8%B7%A8%E5%9F%9F/">
+										4 跨域
 									</a>
 								</li>
 							</ul>
@@ -4411,37 +4415,38 @@
 <li>尽量避免NULL</li>
 </ul>
 <p>通常情况下最好制定列为NOT NULL，除非真的需要存储NULL值。可为NULL的列更难优化。</p>
-<h3 id="整型"><a class="header-anchor" href="#整型">¶</a>整型</h3>
+<h3 id="整型"><a class="header-anchor" href="#整型"></a>整型</h3>
 <p>TINYINT, SMALLINT, MEDIUMINT, INT, BIGINT 分别使用 8, 16, 24, 32, 64 位存储空间，一般情况下越小的列越好。</p>
 <p>INT(11) 中的数字只是规定了交互工具显示字符的个数，对于存储和计算来说是没有意义的。</p>
-<h3 id="浮点数"><a class="header-anchor" href="#浮点数">¶</a>浮点数</h3>
+<h3 id="浮点数"><a class="header-anchor" href="#浮点数"></a>浮点数</h3>
 <p>FLOAT 和 DOUBLE 为浮点类型，DECIMAL 为高精度小数类型。CPU 原生不支持 DECIMAl 类型的计算，因此 DECIMAL 的计算代价更高。</p>
 <p>FLOAT、DOUBLE 和 DECIMAL 都可以指定列宽，例如 DECIMAL(18, 9) 表示总共 18 位，取 9 位存储小数部分，剩下 9 位存储整数部分。</p>
-<h3 id="字符串"><a class="header-anchor" href="#字符串">¶</a>字符串</h3>
-<h5 id="1-CHAR"><a class="header-anchor" href="#1-CHAR">¶</a>1. CHAR</h5>
+<h3 id="字符串"><a class="header-anchor" href="#字符串"></a>字符串</h3>
+<h5 id="1-CHAR"><a class="header-anchor" href="#1-CHAR"></a>1. CHAR</h5>
 <p>CHAR 定长，末尾空格删除。</p>
 <p>使用场景：短字符串；定长字符串；经常变更的数据</p>
-<h5 id="2-VARCHAR"><a class="header-anchor" href="#2-VARCHAR">¶</a>2. VARCHAR</h5>
+<h5 id="2-VARCHAR"><a class="header-anchor" href="#2-VARCHAR"></a>2. VARCHAR</h5>
 <p>VARCHAR 变长，末尾空格保留，</p>
 <p>VARCHAR 在 UPDATE 时若比原来更长，需要做额外的工作。MyISAM 拆数据，InnoDB 分裂页。</p>
 <p>使用场景：最大长度比平均长度大很多；更新很少；复杂字符集</p>
-<h5 id="3-BLOB和TEXT"><a class="header-anchor" href="#3-BLOB和TEXT">¶</a>3. BLOB和TEXT</h5>
+<h5 id="3-BLOB和TEXT"><a class="header-anchor" href="#3-BLOB和TEXT"></a>3. BLOB和TEXT</h5>
 <p>blob和text都是为了存储很大的数据而设计的字符串数据类型，分别采用二进制和字符串方式存储。尽量避免使用text和blob类型</p>
-<h3 id="时间和日期"><a class="header-anchor" href="#时间和日期">¶</a>时间和日期</h3>
-<h5 id="1-DATETIME"><a class="header-anchor" href="#1-DATETIME">¶</a>1. DATETIME</h5>
+<h3 id="时间和日期"><a class="header-anchor" href="#时间和日期"></a>时间和日期</h3>
+<h5 id="1-DATETIME"><a class="header-anchor" href="#1-DATETIME"></a>1. DATETIME</h5>
 <p>1001 年到 9999 年的日期和时间，精度为秒， 8 字节。时区无关。</p>
 <p>默认情况下，MySQL 以一种可排序的、无歧义的格式显示 DATETIME 值，例如“2008-01-16 22:37:08”，这是 ANSI 标准定义的日期和时间表示方法。</p>
-<h5 id="2-TIMESTAMP"><a class="header-anchor" href="#2-TIMESTAMP">¶</a>2. TIMESTAMP</h5>
+<h5 id="2-TIMESTAMP"><a class="header-anchor" href="#2-TIMESTAMP"></a>2. TIMESTAMP</h5>
 <p>1970 年到 2038 年的时间戳，精度为秒， 4 字节。时区相关。</p>
 <p>MySQL 提供了 FROM_UNIXTIME() 函数把 UNIX 时间戳转换为日期，并提供了 UNIX_TIMESTAMP() 函数把日期转换为 UNIX 时间戳。</p>
 <p>TIMESTAMP 比 DATETIME 空间效率更高。</p>
-<h3 id="IPv4地址"><a class="header-anchor" href="#IPv4地址">¶</a>IPv4地址</h3>
+<h3 id="IPv4地址"><a class="header-anchor" href="#IPv4地址"></a>IPv4地址</h3>
 <p>IP地址实际上是32位无符号整数，小数点分割只是为了方便阅读。MySQL 提供了 INET_ATON() 和 INET_NTOA() 函数在这两种方法之间转换。</p>
 
 </div>
 
 	</div>
 	<div id="footer">
+	<p>
 	©2019-<span id="footerYear"></span> 
 	<a href="/">Wu Jun</a> 
 	|
@@ -4454,7 +4459,9 @@
 		uv
 		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	<br>
 	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
+	</p>
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';

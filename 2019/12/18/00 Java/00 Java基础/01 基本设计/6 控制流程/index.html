@@ -11,14 +11,14 @@
 	
 		6 控制流程 | 
 	 
-	吴俊的博客
+	WuJun Blog
 	</title>
 	
 	<!-- keywords,description -->
 	
 		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
 	 
-		<meta name="description" content="吴俊的博客,wujun234" />
+		<meta name="description" content="吴俊,wujun234,wujun,wu jun" />
 	
 
 	<!-- favicon -->
@@ -29,7 +29,7 @@
 
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
-	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
+	<link rel="stylesheet" href="/lib/highlight/darcula.css">
 
 	<script src="/lib/highlight/highlight.pack.js"></script>
 	<script src="/lib/jquery-3.4.1.min.js"></script>
@@ -40,16 +40,19 @@
 
 <body>
 	<header id="header">
-    <a id="title" href="/" class="logo">吴俊的博客</a>
+    <a id="title" href="/" class="logo">WuJun Blog</a>
 
 	<ul id="menu">
 		<li class="menu-item">
-			<a href="/about" class="menu-item-link">关于</a>
+			<a href="/" class="menu-item-link">HOME</a>
+		</li>
+		<li class="menu-item">
+			<a href="/about" class="menu-item-link">ABOUT</a>
 		</li>
 		
 		<li class="menu-item">
 			<a href="https://github.com/wujun234/uid-generator-spring-boot-starter" class="menu-item-link" target="_blank">
-				uid-generator
+				UidGenerator
 			</a>
 		</li>
 		<li class="menu-item">
@@ -60,10 +63,11 @@
 	</ul>
 </header>
 
-	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-bars" aria-hidden="true"></i></button>
+	
 <div id="sidebar">
-	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">站点目录</a>
-	<a herf="#" id="sidebar-article" class="sidebar-toc">文章目录</a>
+	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-arrow-right " aria-hidden="true"></i></button>
+	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">SITE MENU</a>
+	<a herf="#" id="sidebar-article" class="sidebar-toc">ARTICLE MENU</a>
 
 	<!-- 侧边目录栏 -->
 	<div id="site-toc">
@@ -1892,8 +1896,8 @@
 			
 							<ul>
 								<li class="file">
-									<a href="/2019/12/18/01%20Spring/04%20Web/4%20Jsonp/">
-										4 Jsonp
+									<a href="/2019/12/18/01%20Spring/04%20Web/4%20%E8%B7%A8%E5%9F%9F/">
+										4 跨域
 									</a>
 								</li>
 							</ul>
@@ -4400,34 +4404,35 @@
 
 <div id="article">
 	<p>Java 使用条件语句和循环语句控制流程。</p>
-<h4 id="1-块作用域"><a class="header-anchor" href="#1-块作用域">¶</a>1 块作用域</h4>
+<h4 id="1-块作用域"><a class="header-anchor" href="#1-块作用域"></a>1 块作用域</h4>
 <p>块（block、复合语句），由一对花括号括起来，确定了变量的作用域。<br>
 不能在嵌套的块中声明同名的变量。</p>
-<h4 id="2-条件语句"><a class="header-anchor" href="#2-条件语句">¶</a>2 条件语句</h4>
+<h4 id="2-条件语句"><a class="header-anchor" href="#2-条件语句"></a>2 条件语句</h4>
 <p>if else if</p>
-<h4 id="3-循环"><a class="header-anchor" href="#3-循环">¶</a>3 循环</h4>
+<h4 id="3-循环"><a class="header-anchor" href="#3-循环"></a>3 循环</h4>
 <p>while<br>
 do while</p>
-<h4 id="4-确定循环"><a class="header-anchor" href="#4-确定循环">¶</a>4 确定循环</h4>
+<h4 id="4-确定循环"><a class="header-anchor" href="#4-确定循环"></a>4 确定循环</h4>
 <p>for（初始化；检查；更新）<br>
 警告：循环中检测两个浮点数是否相等时要格外小心，由于舍入可能得不到精确值。</p>
-<h4 id="5-多重选择：switch语句"><a class="header-anchor" href="#5-多重选择：switch语句">¶</a>5 多重选择：switch语句</h4>
+<h4 id="5-多重选择：switch语句"><a class="header-anchor" href="#5-多重选择：switch语句"></a>5 多重选择：switch语句</h4>
 <p>==switch 从与选项值相匹配的 case 标签开始执行直到遇到 break 语句，或者执行到 switch 语句的结束处为止。如果没有相匹配的 case 标签，而有 default 语句，就执行这个子句。==</p>
 <p>如果不用 break ，可能会造成 case 渗透，是很严重的问题。</p>
 <p>在Java 7以前，switch(expr)中，expr只能是byte、short、char、int、enum类型。<br>
 ==从Java 7开始，expr还可以是字符串（String）==(内部实现是在 switch 中使用字符串的 hash code)。<br>
 长整型（long）在目前所有的版本中都是不可以的。</p>
-<h4 id="6-中断控制流程语句"><a class="header-anchor" href="#6-中断控制流程语句">¶</a>6 中断控制流程语句</h4>
-<h5 id="break"><a class="header-anchor" href="#break">¶</a>break</h5>
+<h4 id="6-中断控制流程语句"><a class="header-anchor" href="#6-中断控制流程语句"></a>6 中断控制流程语句</h4>
+<h5 id="break"><a class="header-anchor" href="#break"></a>break</h5>
 <p>对于任何使用 break 语句的代码都需要检测循环是正常结束，还是由break跳出。</p>
 <p>带标签的 break ，类似goto，标签必须放在希望跳出的最外层循环之前，紧跟一个冒号。跳转到带标签的语句块末尾。</p>
-<h5 id="continue"><a class="header-anchor" href="#continue">¶</a>continue</h5>
+<h5 id="continue"><a class="header-anchor" href="#continue"></a>continue</h5>
 <p>带标签的 continue，跳转到带标签的循环首部。</p>
 
 </div>
 
 	</div>
 	<div id="footer">
+	<p>
 	©2019-<span id="footerYear"></span> 
 	<a href="/">Wu Jun</a> 
 	|
@@ -4440,7 +4445,9 @@ do while</p>
 		uv
 		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	<br>
 	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
+	</p>
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';

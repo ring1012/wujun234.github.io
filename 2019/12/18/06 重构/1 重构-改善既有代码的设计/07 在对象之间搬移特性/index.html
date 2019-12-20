@@ -11,14 +11,14 @@
 	
 		07 在对象之间搬移特性 | 
 	 
-	吴俊的博客
+	WuJun Blog
 	</title>
 	
 	<!-- keywords,description -->
 	
 		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
 	 
-		<meta name="description" content="吴俊的博客,wujun234" />
+		<meta name="description" content="吴俊,wujun234,wujun,wu jun" />
 	
 
 	<!-- favicon -->
@@ -29,7 +29,7 @@
 
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
-	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
+	<link rel="stylesheet" href="/lib/highlight/darcula.css">
 
 	<script src="/lib/highlight/highlight.pack.js"></script>
 	<script src="/lib/jquery-3.4.1.min.js"></script>
@@ -40,16 +40,19 @@
 
 <body>
 	<header id="header">
-    <a id="title" href="/" class="logo">吴俊的博客</a>
+    <a id="title" href="/" class="logo">WuJun Blog</a>
 
 	<ul id="menu">
 		<li class="menu-item">
-			<a href="/about" class="menu-item-link">关于</a>
+			<a href="/" class="menu-item-link">HOME</a>
+		</li>
+		<li class="menu-item">
+			<a href="/about" class="menu-item-link">ABOUT</a>
 		</li>
 		
 		<li class="menu-item">
 			<a href="https://github.com/wujun234/uid-generator-spring-boot-starter" class="menu-item-link" target="_blank">
-				uid-generator
+				UidGenerator
 			</a>
 		</li>
 		<li class="menu-item">
@@ -60,10 +63,11 @@
 	</ul>
 </header>
 
-	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-bars" aria-hidden="true"></i></button>
+	
 <div id="sidebar">
-	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">站点目录</a>
-	<a herf="#" id="sidebar-article" class="sidebar-toc">文章目录</a>
+	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-arrow-right " aria-hidden="true"></i></button>
+	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">SITE MENU</a>
+	<a herf="#" id="sidebar-article" class="sidebar-toc">ARTICLE MENU</a>
 
 	<!-- 侧边目录栏 -->
 	<div id="site-toc">
@@ -1892,8 +1896,8 @@
 			
 							<ul>
 								<li class="file">
-									<a href="/2019/12/18/01%20Spring/04%20Web/4%20Jsonp/">
-										4 Jsonp
+									<a href="/2019/12/18/01%20Spring/04%20Web/4%20%E8%B7%A8%E5%9F%9F/">
+										4 跨域
 									</a>
 								</li>
 							</ul>
@@ -4411,68 +4415,68 @@
 <li><a href="#8-introduce-local-extension-%E5%BC%95%E5%85%A5%E6%9C%AC%E5%9C%B0%E6%89%A9%E5%B1%95">8 Introduce Local Extension （引入本地扩展）</a></li>
 </ul>
 <!-- /TOC -->
-<h3 id="1-Move-Method-（搬移函数）"><a class="header-anchor" href="#1-Move-Method-（搬移函数）">¶</a>1 Move Method （搬移函数）</h3>
+<h3 id="1-Move-Method-（搬移函数）"><a class="header-anchor" href="#1-Move-Method-（搬移函数）"></a>1 Move Method （搬移函数）</h3>
 <p>你的程序中，有个函数与其所驻类之外的另一个类进行更多交流：调用后者，或者被后者调用。<br>
 在该函数最常引用的类中建立一个有着类似行为新函数。将旧函数变成一个委托函数，或者将旧函数完全移除。</p>
-<h5 id="动机"><a class="header-anchor" href="#动机">¶</a>动机</h5>
+<h5 id="动机"><a class="header-anchor" href="#动机"></a>动机</h5>
 <p>如果一个类有太多行为，或与另一个类高度耦合，搬移函数，使类更简单。</p>
-<h5 id="做法"><a class="header-anchor" href="#做法">¶</a>做法</h5>
+<h5 id="做法"><a class="header-anchor" href="#做法"></a>做法</h5>
 <p>迁移过程中考虑多态的情况和访问权限的问题，若果迁移方法被引用过多，将旧函数变成委托函数，否则将其完全移除。</p>
-<h3 id="2-Move-Field-（搬移字段）"><a class="header-anchor" href="#2-Move-Field-（搬移字段）">¶</a>2 Move Field （搬移字段）</h3>
+<h3 id="2-Move-Field-（搬移字段）"><a class="header-anchor" href="#2-Move-Field-（搬移字段）"></a>2 Move Field （搬移字段）</h3>
 <p>你的程序中，某个字段被其所驻类之外的另一个类更多地用到。<br>
 在目标类新建一个字段，修改源字段的所有用户，令它们改用新字段。</p>
-<h5 id="动机-v2"><a class="header-anchor" href="#动机-v2">¶</a>动机</h5>
+<h5 id="动机-v2"><a class="header-anchor" href="#动机-v2"></a>动机</h5>
 <p>按需</p>
-<h5 id="做法-v2"><a class="header-anchor" href="#做法-v2">¶</a>做法</h5>
+<h5 id="做法-v2"><a class="header-anchor" href="#做法-v2"></a>做法</h5>
 <ul>
 <li>如果被搬移字段是public的, 先使用Encapsulate Field将它封装起来.</li>
 <li>检查是否有现成的字段或函数可以获取搬移目标对象，如果没有，建立一个这样的函数。如果还不行，在源类中建立一个目标类的引用。</li>
 <li>如果源字段不是private的，必须在源类的所有子类中查找替换</li>
 </ul>
-<h3 id="3-Extract-Class-（提炼类）"><a class="header-anchor" href="#3-Extract-Class-（提炼类）">¶</a>3 Extract Class （提炼类）</h3>
+<h3 id="3-Extract-Class-（提炼类）"><a class="header-anchor" href="#3-Extract-Class-（提炼类）"></a>3 Extract Class （提炼类）</h3>
 <p>某各类做了应该由两个类做的事。<br>
 建立一个新类，将相关的字段和函数从旧类搬移到新类。</p>
-<h5 id="动机-v3"><a class="header-anchor" href="#动机-v3">¶</a>动机</h5>
+<h5 id="动机-v3"><a class="header-anchor" href="#动机-v3"></a>动机</h5>
 <p>后期开发中类的子类化如果只影响类的一部分特性，原来的类需要分解。</p>
-<h5 id="做法-v3"><a class="header-anchor" href="#做法-v3">¶</a>做法</h5>
+<h5 id="做法-v3"><a class="header-anchor" href="#做法-v3"></a>做法</h5>
 <ul>
 <li>分解责任，合理命名新类</li>
 <li>建立两类连接，搬移，精简接口</li>
 </ul>
-<h3 id="4-Inline-Class-（将类内联化）"><a class="header-anchor" href="#4-Inline-Class-（将类内联化）">¶</a>4 Inline Class （将类内联化）</h3>
+<h3 id="4-Inline-Class-（将类内联化）"><a class="header-anchor" href="#4-Inline-Class-（将类内联化）"></a>4 Inline Class （将类内联化）</h3>
 <p>某个类没有做太多事情。<br>
 将这个类的所有特性搬移到另一个类中，然后移除源类。</p>
-<h5 id="做法-v4"><a class="header-anchor" href="#做法-v4">¶</a>做法</h5>
+<h5 id="做法-v4"><a class="header-anchor" href="#做法-v4"></a>做法</h5>
 <p>如果目标类访问权限只在源类内部，如private嵌套类，可放心内联。如果目标类访问权限过大，可先修改类名，让编译器替我们检查目标类被引用的地方。</p>
-<h3 id="5-Hide-Delegate-（隐藏“委托关系”）"><a class="header-anchor" href="#5-Hide-Delegate-（隐藏“委托关系”）">¶</a>5 Hide Delegate （隐藏“委托关系”）</h3>
+<h3 id="5-Hide-Delegate-（隐藏“委托关系”）"><a class="header-anchor" href="#5-Hide-Delegate-（隐藏“委托关系”）"></a>5 Hide Delegate （隐藏“委托关系”）</h3>
 <p>客户通过一个委托类来调用另一个对象。   在服务类上建立客户所需求的所有函数，用以隐藏委托关系。</p>
-<h5 id="动机-v4"><a class="header-anchor" href="#动机-v4">¶</a>动机</h5>
+<h5 id="动机-v4"><a class="header-anchor" href="#动机-v4"></a>动机</h5>
 <p>封装。</p>
 <p>在委托关系过少的情况下可以使用此手法，如果委托关系过多，使用移除中间人。</p>
-<h5 id="做法-v5"><a class="header-anchor" href="#做法-v5">¶</a>做法</h5>
+<h5 id="做法-v5"><a class="header-anchor" href="#做法-v5"></a>做法</h5>
 <p>建立委托函数，调整客户调用之</p>
-<h3 id="6-Remove-Middle-Man-（移除中间人）"><a class="header-anchor" href="#6-Remove-Middle-Man-（移除中间人）">¶</a>6 Remove Middle Man （移除中间人）</h3>
+<h3 id="6-Remove-Middle-Man-（移除中间人）"><a class="header-anchor" href="#6-Remove-Middle-Man-（移除中间人）"></a>6 Remove Middle Man （移除中间人）</h3>
 <p>某个类做了过多的简单委托动作。<br>
 让客户直接调用受托类。</p>
-<h5 id="动机-v5"><a class="header-anchor" href="#动机-v5">¶</a>动机</h5>
+<h5 id="动机-v5"><a class="header-anchor" href="#动机-v5"></a>动机</h5>
 <p>与5相反，尺度问题。</p>
-<h3 id="7-Introduce-Foreign-Method-（引入外加函数）"><a class="header-anchor" href="#7-Introduce-Foreign-Method-（引入外加函数）">¶</a>7 Introduce Foreign Method （引入外加函数）</h3>
+<h3 id="7-Introduce-Foreign-Method-（引入外加函数）"><a class="header-anchor" href="#7-Introduce-Foreign-Method-（引入外加函数）"></a>7 Introduce Foreign Method （引入外加函数）</h3>
 <p>你需要为提供服务的类增加一个函数，但你无法修改这个类。<br>
 在客户类中建立一个函数，并以第一参数形式传入一个服务类实例。</p>
-<h5 id="动机-v6"><a class="header-anchor" href="#动机-v6">¶</a>动机</h5>
+<h5 id="动机-v6"><a class="header-anchor" href="#动机-v6"></a>动机</h5>
 <ul>
 <li>如果以外加函数实现一项功能，这个函数本应在服务类中出现</li>
 <li>如果你发现为一个类添加了大量外加函数，或者发现有许多类都需要同样的外加函数，则应该使用引入本地扩展。</li>
 </ul>
-<h5 id="做法-v6"><a class="header-anchor" href="#做法-v6">¶</a>做法</h5>
+<h5 id="做法-v6"><a class="header-anchor" href="#做法-v6"></a>做法</h5>
 <ul>
 <li>这个函数不应该调用客户类的任何特性，如果它需要一个值，把该值当作参数来传递给它</li>
 <li>可将函数注释为外加函数，以便将来有机会将其搬移到服务类中</li>
 </ul>
-<h3 id="8-Introduce-Local-Extension-（引入本地扩展）"><a class="header-anchor" href="#8-Introduce-Local-Extension-（引入本地扩展）">¶</a>8 Introduce Local Extension （引入本地扩展）</h3>
+<h3 id="8-Introduce-Local-Extension-（引入本地扩展）"><a class="header-anchor" href="#8-Introduce-Local-Extension-（引入本地扩展）"></a>8 Introduce Local Extension （引入本地扩展）</h3>
 <p>你需要为服务类提供一些额外函数，但你无法修改这个类。<br>
 建立一个新类，使它包含这些额外函数。让这个扩展品成为源类的子类或包装类。</p>
-<h5 id="动机-v7"><a class="header-anchor" href="#动机-v7">¶</a>动机</h5>
+<h5 id="动机-v7"><a class="header-anchor" href="#动机-v7"></a>动机</h5>
 <ul>
 <li>将引入外加函数生成的过多函数组织到一起，便于管理</li>
 <li>引入本地扩展有两种方式，子类或包装类
@@ -4483,13 +4487,14 @@
 </ul>
 </li>
 </ul>
-<h5 id="做法-v7"><a class="header-anchor" href="#做法-v7">¶</a>做法</h5>
+<h5 id="做法-v7"><a class="header-anchor" href="#做法-v7"></a>做法</h5>
 <p>新建类，创建转型构造函数，加入新特性，替换</p>
 
 </div>
 
 	</div>
 	<div id="footer">
+	<p>
 	©2019-<span id="footerYear"></span> 
 	<a href="/">Wu Jun</a> 
 	|
@@ -4502,7 +4507,9 @@
 		uv
 		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	<br>
 	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
+	</p>
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';

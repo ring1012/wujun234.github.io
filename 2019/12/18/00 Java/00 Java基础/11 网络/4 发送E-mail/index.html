@@ -11,14 +11,14 @@
 	
 		4 发送E-mail | 
 	 
-	吴俊的博客
+	WuJun Blog
 	</title>
 	
 	<!-- keywords,description -->
 	
 		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
 	 
-		<meta name="description" content="吴俊的博客,wujun234" />
+		<meta name="description" content="吴俊,wujun234,wujun,wu jun" />
 	
 
 	<!-- favicon -->
@@ -29,7 +29,7 @@
 
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
-	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
+	<link rel="stylesheet" href="/lib/highlight/darcula.css">
 
 	<script src="/lib/highlight/highlight.pack.js"></script>
 	<script src="/lib/jquery-3.4.1.min.js"></script>
@@ -40,16 +40,19 @@
 
 <body>
 	<header id="header">
-    <a id="title" href="/" class="logo">吴俊的博客</a>
+    <a id="title" href="/" class="logo">WuJun Blog</a>
 
 	<ul id="menu">
 		<li class="menu-item">
-			<a href="/about" class="menu-item-link">关于</a>
+			<a href="/" class="menu-item-link">HOME</a>
+		</li>
+		<li class="menu-item">
+			<a href="/about" class="menu-item-link">ABOUT</a>
 		</li>
 		
 		<li class="menu-item">
 			<a href="https://github.com/wujun234/uid-generator-spring-boot-starter" class="menu-item-link" target="_blank">
-				uid-generator
+				UidGenerator
 			</a>
 		</li>
 		<li class="menu-item">
@@ -60,10 +63,11 @@
 	</ul>
 </header>
 
-	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-bars" aria-hidden="true"></i></button>
+	
 <div id="sidebar">
-	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">站点目录</a>
-	<a herf="#" id="sidebar-article" class="sidebar-toc">文章目录</a>
+	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-arrow-right " aria-hidden="true"></i></button>
+	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">SITE MENU</a>
+	<a herf="#" id="sidebar-article" class="sidebar-toc">ARTICLE MENU</a>
 
 	<!-- 侧边目录栏 -->
 	<div id="site-toc">
@@ -1892,8 +1896,8 @@
 			
 							<ul>
 								<li class="file">
-									<a href="/2019/12/18/01%20Spring/04%20Web/4%20Jsonp/">
-										4 Jsonp
+									<a href="/2019/12/18/01%20Spring/04%20Web/4%20%E8%B7%A8%E5%9F%9F/">
+										4 跨域
 									</a>
 								</li>
 							</ul>
@@ -4399,7 +4403,7 @@
 
 
 <div id="article">
-	<h3 id="原始"><a class="header-anchor" href="#原始">¶</a>原始</h3>
+	<h3 id="原始"><a class="header-anchor" href="#原始"></a>原始</h3>
 <p>过去发邮件到SMTP专用的25端口很简单，因为没有安全校验</p>
 <pre><code class="language-java">//打开到主机的套接字
 Socket s = new Socket(&quot;mail.server.com&quot;,25);
@@ -4416,7 +4420,7 @@ out.print(&quot;.\r\n&quot;);
 out.print(&quot;QUIT\r\n&quot;);
 </code></pre>
 <p>如今许多服务器都内置了检查功能，并且只接受授信请求。其中人工实现认证非常冗长，通常使用JavaMail</p>
-<h3 id="JavaMail"><a class="header-anchor" href="#JavaMail">¶</a>JavaMail</h3>
+<h3 id="JavaMail"><a class="header-anchor" href="#JavaMail"></a>JavaMail</h3>
 <p>JavaMail 是实现邮件发送和接收功能，支持一些常用的邮件协议，无须考虑邮件的底层实现细节。</p>
 <pre><code class="language-mvn">&lt;dependency&gt;
 	&lt;groupId&gt;javax.mail&lt;/groupId&gt;
@@ -4424,7 +4428,7 @@ out.print(&quot;QUIT\r\n&quot;);
 	&lt;version&gt;1.5.0-b01&lt;/version&gt;
 &lt;/dependency&gt;
 </code></pre>
-<h5 id="简单的纯文本邮件"><a class="header-anchor" href="#简单的纯文本邮件">¶</a>简单的纯文本邮件</h5>
+<h5 id="简单的纯文本邮件"><a class="header-anchor" href="#简单的纯文本邮件"></a>简单的纯文本邮件</h5>
 <pre><code>Properties props = new Properties();
 props.setProperty(&quot;mail.transport.protocol&quot;, &quot;smtp&quot;);
 props.setProperty(&quot;mail.smtp.auth&quot;, &quot;true&quot;);
@@ -4452,6 +4456,7 @@ transport.close();
 
 	</div>
 	<div id="footer">
+	<p>
 	©2019-<span id="footerYear"></span> 
 	<a href="/">Wu Jun</a> 
 	|
@@ -4464,7 +4469,9 @@ transport.close();
 		uv
 		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	<br>
 	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
+	</p>
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';

@@ -11,14 +11,14 @@
 	
 		1 nginx笔记 | 
 	 
-	吴俊的博客
+	WuJun Blog
 	</title>
 	
 	<!-- keywords,description -->
 	
 		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
 	 
-		<meta name="description" content="吴俊的博客,wujun234" />
+		<meta name="description" content="吴俊,wujun234,wujun,wu jun" />
 	
 
 	<!-- favicon -->
@@ -29,7 +29,7 @@
 
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
-	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
+	<link rel="stylesheet" href="/lib/highlight/darcula.css">
 
 	<script src="/lib/highlight/highlight.pack.js"></script>
 	<script src="/lib/jquery-3.4.1.min.js"></script>
@@ -40,16 +40,19 @@
 
 <body>
 	<header id="header">
-    <a id="title" href="/" class="logo">吴俊的博客</a>
+    <a id="title" href="/" class="logo">WuJun Blog</a>
 
 	<ul id="menu">
 		<li class="menu-item">
-			<a href="/about" class="menu-item-link">关于</a>
+			<a href="/" class="menu-item-link">HOME</a>
+		</li>
+		<li class="menu-item">
+			<a href="/about" class="menu-item-link">ABOUT</a>
 		</li>
 		
 		<li class="menu-item">
 			<a href="https://github.com/wujun234/uid-generator-spring-boot-starter" class="menu-item-link" target="_blank">
-				uid-generator
+				UidGenerator
 			</a>
 		</li>
 		<li class="menu-item">
@@ -60,10 +63,11 @@
 	</ul>
 </header>
 
-	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-bars" aria-hidden="true"></i></button>
+	
 <div id="sidebar">
-	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">站点目录</a>
-	<a herf="#" id="sidebar-article" class="sidebar-toc">文章目录</a>
+	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-arrow-right " aria-hidden="true"></i></button>
+	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">SITE MENU</a>
+	<a herf="#" id="sidebar-article" class="sidebar-toc">ARTICLE MENU</a>
 
 	<!-- 侧边目录栏 -->
 	<div id="site-toc">
@@ -1892,8 +1896,8 @@
 			
 							<ul>
 								<li class="file">
-									<a href="/2019/12/18/01%20Spring/04%20Web/4%20Jsonp/">
-										4 Jsonp
+									<a href="/2019/12/18/01%20Spring/04%20Web/4%20%E8%B7%A8%E5%9F%9F/">
+										4 跨域
 									</a>
 								</li>
 							</ul>
@@ -4401,18 +4405,18 @@
 <div id="article">
 	<h1>一、nginx架构</h1>
 <p><img src="/images/1545712500935.png" alt="进程模型"></p>
-<h4 id="1-进程模型"><a class="header-anchor" href="#1-进程模型">¶</a>1. 进程模型</h4>
+<h4 id="1-进程模型"><a class="header-anchor" href="#1-进程模型"></a>1. 进程模型</h4>
 <p>Nginx分一个master进程和多个worker进程。</p>
 <ul>
 <li>master进程：读取和评估配置，并管理worker进程。接收来外界信号，向worker进程发送信号，监控worker进程运行状态，当worker进程异常退出后，会自动重新启动新的worker进程。</li>
 <li>worker进程：对请求进行实际处理。worker进程之间对等且互相独立，竞争客户端请求，一个请求只能在一个worker进程中处理。worker进程的数量可在配置文件中设置的，一般设置与机器CPU核数一致。</li>
 </ul>
-<h4 id="2-异步非阻塞"><a class="header-anchor" href="#2-异步非阻塞">¶</a>2. 异步非阻塞</h4>
+<h4 id="2-异步非阻塞"><a class="header-anchor" href="#2-异步非阻塞"></a>2. 异步非阻塞</h4>
 <p>master进程根据配置建立好socket，再fork出多个worker进程。worker进程竞争请求，每个worker只有一个主线程，有一个函数，执行无限循环，不断处理收到的来自客户端的请求。异步非阻塞，同时处理的请求只有一个，只是在请求间不断地切换而已。</p>
-<h4 id="3-流畅修改"><a class="header-anchor" href="#3-流畅修改">¶</a>3. 流畅修改</h4>
+<h4 id="3-流畅修改"><a class="header-anchor" href="#3-流畅修改"></a>3. 流畅修改</h4>
 <p>重启或修改nginx配置，服务不会中断。<br>
 　　master进程接到信号，先重新加载配置文件，再启动新worker进程，并向所有老worker进程发送信号。老worker收到信号后，不再接收新的请求，处理完当前进程中请求后退出。</p>
-<h4 id="4-模型优点"><a class="header-anchor" href="#4-模型优点">¶</a>4. 模型优点</h4>
+<h4 id="4-模型优点"><a class="header-anchor" href="#4-模型优点"></a>4. 模型优点</h4>
 <ul>
 <li>独立进程，不需要加锁，节省开销。</li>
 <li>独立进程，互相不影响，一个进程出问题，其它进程还在工作，服务不会中断，降低了风险。</li>
@@ -4562,9 +4566,9 @@ upstream模块。实现反向代理的功能，将真正的请求转发到后端
 <li>HTTP服务器(包含动静分离)</li>
 <li>负载均衡</li>
 </ol>
-<h2 id="代理服务器"><a class="header-anchor" href="#代理服务器">¶</a>代理服务器</h2>
-<h3 id="反向代理"><a class="header-anchor" href="#反向代理">¶</a>反向代理</h3>
-<h5 id="1-传递请求"><a class="header-anchor" href="#1-传递请求">¶</a>1. 传递请求</h5>
+<h2 id="代理服务器"><a class="header-anchor" href="#代理服务器"></a>代理服务器</h2>
+<h3 id="反向代理"><a class="header-anchor" href="#反向代理"></a>反向代理</h3>
+<h5 id="1-传递请求"><a class="header-anchor" href="#1-传递请求"></a>1. 传递请求</h5>
 <p>当NGINX代理请求时，它将请求发送到指定的代理服务器，获取响应，并将其发送回客户端。
 <strong>**_ pass指令</strong>：地址可指定为域名或IP地址(可包括端口)。也可以指向一组命名的服务器。如果URI与地址一起指定，将替换匹配请求的URI。</p>
 <ul>
@@ -4581,13 +4585,13 @@ location ~ \.php {
     proxy_pass http://127.0.0.1:8000;
 }
 </code></pre>
-<h5 id="2-传递请求标头"><a class="header-anchor" href="#2-传递请求标头">¶</a>2. 传递请求标头</h5>
+<h5 id="2-传递请求标头"><a class="header-anchor" href="#2-传递请求标头"></a>2. 传递请求标头</h5>
 <p><strong>proxy_set_header</strong>:修改、设置header字段，可以在一个或多个location、server、http块中指定。</p>
 <pre><code>location /some/path/ {
     proxy_set_header Host $host;
 }
 </code></pre>
-<h5 id="3-配置缓冲区"><a class="header-anchor" href="#3-配置缓冲区">¶</a>3. 配置缓冲区</h5>
+<h5 id="3-配置缓冲区"><a class="header-anchor" href="#3-配置缓冲区"></a>3. 配置缓冲区</h5>
 <p>默认情况下，NGINX缓存来自代理服务器的响应，直到收到整个响应。
 proxy_buffering：启用和禁用缓冲
 proxy_buffers ：请求缓冲区的大小和数量
@@ -4598,7 +4602,7 @@ proxy_buffer_size ：响应缓冲区的大小</p>
     proxy_pass http://localhost:8000;
 }
 </code></pre>
-<h5 id="4-选择传出IP地址"><a class="header-anchor" href="#4-选择传出IP地址">¶</a>4. 选择传出IP地址</h5>
+<h5 id="4-选择传出IP地址"><a class="header-anchor" href="#4-选择传出IP地址"></a>4. 选择传出IP地址</h5>
 <p>代理服务器配置为只接受特定IP的连接时。
 proxy_bind：指定IP</p>
 <pre><code>location /app1/ {
@@ -4606,7 +4610,7 @@ proxy_bind：指定IP</p>
     proxy_pass http://example.com/app1/;
 }
 </code></pre>
-<h3 id="正向代理"><a class="header-anchor" href="#正向代理">¶</a>正向代理</h3>
+<h3 id="正向代理"><a class="header-anchor" href="#正向代理"></a>正向代理</h3>
 <p>客户端向代理发送一个请求并指定目标，然后代理向原始服务器转交请求并将获得的内容返回给客户端。目前不支持HTTPS。</p>
 <ul>
 <li>resolver：配置正向代理的DNS服务器</li>
@@ -4623,31 +4627,31 @@ proxy_bind：指定IP</p>
         }
     }
 </code></pre>
-<h2 id="HTTP服务器"><a class="header-anchor" href="#HTTP服务器">¶</a>HTTP服务器</h2>
-<h5 id="Web服务器"><a class="header-anchor" href="#Web服务器">¶</a>Web服务器</h5>
-<h5 id="1-日志"><a class="header-anchor" href="#1-日志">¶</a>1. 日志</h5>
+<h2 id="HTTP服务器"><a class="header-anchor" href="#HTTP服务器"></a>HTTP服务器</h2>
+<h5 id="Web服务器"><a class="header-anchor" href="#Web服务器"></a>Web服务器</h5>
+<h5 id="1-日志"><a class="header-anchor" href="#1-日志"></a>1. 日志</h5>
 <ul>
 <li>access_log 访问日志，可结合if参数条件记录</li>
 <li>error_log 错误日志</li>
 </ul>
-<h5 id="2-server"><a class="header-anchor" href="#2-server">¶</a>2. server</h5>
+<h5 id="2-server"><a class="header-anchor" href="#2-server"></a>2. server</h5>
 <ul>
 <li>server：http中，定义多个虚拟服务器</li>
 <li>listen：指定侦听请求的IP地址和端口。如果省略端口，则使用标准端口。 如果省略地址，将侦听所有地址。</li>
 <li>server_name：如多个server匹配listen，可指定主机头域</li>
 </ul>
-<h5 id="3-资源定位"><a class="header-anchor" href="#3-资源定位">¶</a>3. 资源定位</h5>
+<h5 id="3-资源定位"><a class="header-anchor" href="#3-资源定位"></a>3. 资源定位</h5>
 <ul>
 <li>root：指定搜索文件的根目录，可放在http，server或location</li>
 <li>index：指令定义索引文件的名称，默认为index.html
 匹配root+URI+index</li>
 <li>try_files：检查指定的文件或目录是否存在，如果没有则返回配置的URI、状态代码、代理。</li>
 </ul>
-<h5 id="4-返回特定状态码"><a class="header-anchor" href="#4-返回特定状态码">¶</a>4. 返回特定状态码</h5>
+<h5 id="4-返回特定状态码"><a class="header-anchor" href="#4-返回特定状态码"></a>4. 返回特定状态码</h5>
 <ul>
 <li>return [响应代码] [重定向URL]|[响应文本]：返回指令</li>
 </ul>
-<h5 id="5-重写URI"><a class="header-anchor" href="#5-重写URI">¶</a>5. 重写URI</h5>
+<h5 id="5-重写URI"><a class="header-anchor" href="#5-重写URI"></a>5. 重写URI</h5>
 <ul>
 <li>rewrite regex replacement [flag]：location 和 server中，结合正则表达式和标志位实现url重写以及重定向
 <ul>
@@ -4658,12 +4662,12 @@ proxy_bind：指定IP</p>
 </ul>
 </li>
 </ul>
-<h5 id="6-重写HTTP响应"><a class="header-anchor" href="#6-重写HTTP响应">¶</a>6. 重写HTTP响应</h5>
+<h5 id="6-重写HTTP响应"><a class="header-anchor" href="#6-重写HTTP响应"></a>6. 重写HTTP响应</h5>
 <ul>
 <li>sub_filter：重写或更改响应中的内容</li>
 <li>error_page : 处理错误</li>
 </ul>
-<h5 id="7-压缩和解压"><a class="header-anchor" href="#7-压缩和解压">¶</a>7. 压缩和解压</h5>
+<h5 id="7-压缩和解压"><a class="header-anchor" href="#7-压缩和解压"></a>7. 压缩和解压</h5>
 <ul>
 <li>gzip：向客户端发送响应之前，NGINX会执行压缩</li>
 <li>gunzip：为了服务于不接受压缩数据的客户端</li>
@@ -4714,12 +4718,12 @@ http {
 }
 </code></pre>
 <p>如果访问http://localhost就会默认访问到/data/www目录下面的index.html。</p>
-<h5 id="动静分离"><a class="header-anchor" href="#动静分离">¶</a>动静分离</h5>
+<h5 id="动静分离"><a class="header-anchor" href="#动静分离"></a>动静分离</h5>
 <p>根据请求URI拆分动静资源，分开导流向不同的代理或提供不同的文件</p>
-<h2 id="负载均衡"><a class="header-anchor" href="#负载均衡">¶</a>负载均衡</h2>
+<h2 id="负载均衡"><a class="header-anchor" href="#负载均衡"></a>负载均衡</h2>
 <p>根据规则随机的将请求分发到指定的服务器上处理，负载均衡配置一般都需要同时配置反向代理，通过反向代理跳转到负载均衡。
 Nginx目前支持自带3种负载均衡策略，还有2种常用的第三方策略。</p>
-<h5 id="1-RR-默认"><a class="header-anchor" href="#1-RR-默认">¶</a>1. RR(默认)</h5>
+<h5 id="1-RR-默认"><a class="header-anchor" href="#1-RR-默认"></a>1. RR(默认)</h5>
 <p>每个请求按时间顺序逐一分配到不同的后端服务器，如果后端服务器down掉，能自动剔除。</p>
 <pre><code>upstream test {
     server localhost:8080;
@@ -4733,14 +4737,14 @@ server {
     }
 }
 </code></pre>
-<h5 id="2-权重"><a class="header-anchor" href="#2-权重">¶</a>2. 权重</h5>
+<h5 id="2-权重"><a class="header-anchor" href="#2-权重"></a>2. 权重</h5>
 <p>指定轮询几率，weight和访问比率成正比，用于后端服务器性能不均的情况。</p>
 <pre><code>upstream test {
     server localhost:8080 weight=9;
     server localhost:8081 weight=1;
 }
 </code></pre>
-<h5 id="3-ip-hash"><a class="header-anchor" href="#3-ip-hash">¶</a>3. ip_hash</h5>
+<h5 id="3-ip-hash"><a class="header-anchor" href="#3-ip-hash"></a>3. ip_hash</h5>
 <p>ip_hash的每个请求按访问ip的hash结果分配，每个访客固定访问一个服务器，可解决程序状态问题。</p>
 <pre><code>upstream test {
     ip_hash;
@@ -4748,7 +4752,7 @@ server {
     server localhost:8081;
 }
 </code></pre>
-<h5 id="4-fair-第三方"><a class="header-anchor" href="#4-fair-第三方">¶</a>4. fair(第三方)</h5>
+<h5 id="4-fair-第三方"><a class="header-anchor" href="#4-fair-第三方"></a>4. fair(第三方)</h5>
 <p>按后端服务器的响应时间来分配请求，响应时间短的优先分配。</p>
 <pre><code>upstream backend {
     fair;
@@ -4756,7 +4760,7 @@ server {
     server localhost:8081;
 }
 </code></pre>
-<h5 id="5-url-hash-第三方"><a class="header-anchor" href="#5-url-hash-第三方">¶</a>5. url_hash(第三方)</h5>
+<h5 id="5-url-hash-第三方"><a class="header-anchor" href="#5-url-hash-第三方"></a>5. url_hash(第三方)</h5>
 <p>按访问url的hash结果来分配请求，使每个url定向到同一个后端服务器，后端服务器为缓存时比较有效。 在upstream中加入hash语句，server语句中不能写入weight等其他的参数，hash_method是使用的hash算法</p>
 <pre><code>upstream backend {
     hash $request_uri;
@@ -4769,6 +4773,7 @@ server {
 
 	</div>
 	<div id="footer">
+	<p>
 	©2019-<span id="footerYear"></span> 
 	<a href="/">Wu Jun</a> 
 	|
@@ -4781,7 +4786,9 @@ server {
 		uv
 		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	<br>
 	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
+	</p>
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';

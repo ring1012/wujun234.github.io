@@ -11,14 +11,14 @@
 	
 		10 同步器 | 
 	 
-	吴俊的博客
+	WuJun Blog
 	</title>
 	
 	<!-- keywords,description -->
 	
 		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
 	 
-		<meta name="description" content="吴俊的博客,wujun234" />
+		<meta name="description" content="吴俊,wujun234,wujun,wu jun" />
 	
 
 	<!-- favicon -->
@@ -29,7 +29,7 @@
 
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
-	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
+	<link rel="stylesheet" href="/lib/highlight/darcula.css">
 
 	<script src="/lib/highlight/highlight.pack.js"></script>
 	<script src="/lib/jquery-3.4.1.min.js"></script>
@@ -40,16 +40,19 @@
 
 <body>
 	<header id="header">
-    <a id="title" href="/" class="logo">吴俊的博客</a>
+    <a id="title" href="/" class="logo">WuJun Blog</a>
 
 	<ul id="menu">
 		<li class="menu-item">
-			<a href="/about" class="menu-item-link">关于</a>
+			<a href="/" class="menu-item-link">HOME</a>
+		</li>
+		<li class="menu-item">
+			<a href="/about" class="menu-item-link">ABOUT</a>
 		</li>
 		
 		<li class="menu-item">
 			<a href="https://github.com/wujun234/uid-generator-spring-boot-starter" class="menu-item-link" target="_blank">
-				uid-generator
+				UidGenerator
 			</a>
 		</li>
 		<li class="menu-item">
@@ -60,10 +63,11 @@
 	</ul>
 </header>
 
-	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-bars" aria-hidden="true"></i></button>
+	
 <div id="sidebar">
-	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">站点目录</a>
-	<a herf="#" id="sidebar-article" class="sidebar-toc">文章目录</a>
+	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-arrow-right " aria-hidden="true"></i></button>
+	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">SITE MENU</a>
+	<a herf="#" id="sidebar-article" class="sidebar-toc">ARTICLE MENU</a>
 
 	<!-- 侧边目录栏 -->
 	<div id="site-toc">
@@ -1892,8 +1896,8 @@
 			
 							<ul>
 								<li class="file">
-									<a href="/2019/12/18/01%20Spring/04%20Web/4%20Jsonp/">
-										4 Jsonp
+									<a href="/2019/12/18/01%20Spring/04%20Web/4%20%E8%B7%A8%E5%9F%9F/">
+										4 跨域
 									</a>
 								</li>
 							</ul>
@@ -4400,7 +4404,7 @@
 
 <div id="article">
 	<p>java.util.concurrent 包包含了几个能帮助人们管理相互合作的线程集的类。这些机制具有为线程之间的<strong>共用集结点模式</strong>提供的“预置功能”。如果有一个相互合作的线程集满足这些行为模式之一，那么应该直接重用合适的库类而不要试图提供手工的锁与条件的集合。</p>
-<h5 id="同步器"><a class="header-anchor" href="#同步器">¶</a>同步器</h5>
+<h5 id="同步器"><a class="header-anchor" href="#同步器"></a>同步器</h5>
 <table>
 <thead>
 <tr>
@@ -4442,7 +4446,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="1-信号量（Semaphore）"><a class="header-anchor" href="#1-信号量（Semaphore）">¶</a>1 信号量（Semaphore）</h3>
+<h3 id="1-信号量（Semaphore）"><a class="header-anchor" href="#1-信号量（Semaphore）"></a>1 信号量（Semaphore）</h3>
 <p>信号量（Semaphore）可以控同时访问的线程个数。</p>
 <ul>
 <li>acquire() ：获取一个许可，如果没有就阻塞等待</li>
@@ -4455,7 +4459,7 @@ semaphore.acquire();
 Thread.currentThread().getName()
 semaphore.release();
 </code></pre>
-<h3 id="2-倒计时门栓（CountDownLatch）"><a class="header-anchor" href="#2-倒计时门栓（CountDownLatch）">¶</a>2 倒计时门栓（CountDownLatch）</h3>
+<h3 id="2-倒计时门栓（CountDownLatch）"><a class="header-anchor" href="#2-倒计时门栓（CountDownLatch）"></a>2 倒计时门栓（CountDownLatch）</h3>
 <p>CountDownLatch 让一个线程集等待直到计数变为 0。倒计时门栓是一次性的。一旦计数为 0，就不能在重用了。</p>
 <ul>
 <li>await()：线程挂起，直到count值为0</li>
@@ -4465,7 +4469,7 @@ semaphore.release();
 latch.countDown();
 latch.await();
 </code></pre>
-<h3 id="3-障栅（CyclicBarrier）"><a class="header-anchor" href="#3-障栅（CyclicBarrier）">¶</a>3 障栅（CyclicBarrier）</h3>
+<h3 id="3-障栅（CyclicBarrier）"><a class="header-anchor" href="#3-障栅（CyclicBarrier）"></a>3 障栅（CyclicBarrier）</h3>
 <p>CyclicBarrier 类实现让一组线程等待至某个状态（barrier）之后再全部同时执行。当所有等待线程都被释放以后，CyclicBarrier可以被重用。</p>
 <ul>
 <li>await()：线程挂起，直至所有线程都到达barrier状态</li>
@@ -4480,16 +4484,16 @@ public void run(){
 }
 </code></pre>
 <p>如果任何一个在障栅上等待的线程离开了障栅，那么障栅就被破坏了。在这种情况下，所有其他线程的 await 方法抛出 BrokenBarrierException 异常。那些已经在等待的线程立即终止 await 的调用。</p>
-<h5 id="可选的障栅"><a class="header-anchor" href="#可选的障栅">¶</a>可选的障栅</h5>
+<h5 id="可选的障栅"><a class="header-anchor" href="#可选的障栅"></a>可选的障栅</h5>
 <p>可以提供一个可选的障栅（barrier action），当所有线程到达障栅的时候就会执行这一动作。</p>
 <pre><code class="language-java">Runnable barrierAction = ...;
 CyclicBarrier barrier = new CyclicBarrier(nthreads, barrierAction);
 </code></pre>
 <p>该动作可以收集那些单个线程的运行结果。</p>
 <p>Phaser 类增加了更大的灵活性，允许改变不同阶段中参与线程的个数。</p>
-<h3 id="4-交换器（Exchanger）"><a class="header-anchor" href="#4-交换器（Exchanger）">¶</a>4 交换器（Exchanger）</h3>
+<h3 id="4-交换器（Exchanger）"><a class="header-anchor" href="#4-交换器（Exchanger）"></a>4 交换器（Exchanger）</h3>
 <p>当两个线程在同一数据缓冲区的两个实例上工作的时候，就可以使用交换器（Exchanger）。典型的情况是，一个线程向缓冲区填入数据，另一个线程消耗这些数据。当它们都完成以后，相互交换缓冲区。</p>
-<h3 id="5-同步队列（SynchronousQueue）"><a class="header-anchor" href="#5-同步队列（SynchronousQueue）">¶</a>5 同步队列（SynchronousQueue）</h3>
+<h3 id="5-同步队列（SynchronousQueue）"><a class="header-anchor" href="#5-同步队列（SynchronousQueue）"></a>5 同步队列（SynchronousQueue）</h3>
 <p>同步队列是一种将生产者与消费者线程配对的机制。当一个线程调用 SynchronousQueue 的 put 方法时，它会阻塞直到另一个线程调用 take 方法为止，反之亦然。与 Exchanger 的情况不同，数据仅仅沿一个方向传递，从生产者到消费者。</p>
 <p>即使 SynchronousQueue 类实现了 BlockingQueue 接口，概念上讲，它依然不是一个队列。它没有包含任何元素，它的 size 方法总是返回 0。</p>
 
@@ -4497,6 +4501,7 @@ CyclicBarrier barrier = new CyclicBarrier(nthreads, barrierAction);
 
 	</div>
 	<div id="footer">
+	<p>
 	©2019-<span id="footerYear"></span> 
 	<a href="/">Wu Jun</a> 
 	|
@@ -4509,7 +4514,9 @@ CyclicBarrier barrier = new CyclicBarrier(nthreads, barrierAction);
 		uv
 		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	<br>
 	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
+	</p>
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';

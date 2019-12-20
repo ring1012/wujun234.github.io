@@ -11,14 +11,14 @@
 	
 		03 关注流设计 | 
 	 
-	吴俊的博客
+	WuJun Blog
 	</title>
 	
 	<!-- keywords,description -->
 	
 		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
 	 
-		<meta name="description" content="吴俊的博客,wujun234" />
+		<meta name="description" content="吴俊,wujun234,wujun,wu jun" />
 	
 
 	<!-- favicon -->
@@ -29,7 +29,7 @@
 
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
-	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
+	<link rel="stylesheet" href="/lib/highlight/darcula.css">
 
 	<script src="/lib/highlight/highlight.pack.js"></script>
 	<script src="/lib/jquery-3.4.1.min.js"></script>
@@ -40,16 +40,19 @@
 
 <body>
 	<header id="header">
-    <a id="title" href="/" class="logo">吴俊的博客</a>
+    <a id="title" href="/" class="logo">WuJun Blog</a>
 
 	<ul id="menu">
 		<li class="menu-item">
-			<a href="/about" class="menu-item-link">关于</a>
+			<a href="/" class="menu-item-link">HOME</a>
+		</li>
+		<li class="menu-item">
+			<a href="/about" class="menu-item-link">ABOUT</a>
 		</li>
 		
 		<li class="menu-item">
 			<a href="https://github.com/wujun234/uid-generator-spring-boot-starter" class="menu-item-link" target="_blank">
-				uid-generator
+				UidGenerator
 			</a>
 		</li>
 		<li class="menu-item">
@@ -60,10 +63,11 @@
 	</ul>
 </header>
 
-	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-bars" aria-hidden="true"></i></button>
+	
 <div id="sidebar">
-	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">站点目录</a>
-	<a herf="#" id="sidebar-article" class="sidebar-toc">文章目录</a>
+	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-arrow-right " aria-hidden="true"></i></button>
+	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">SITE MENU</a>
+	<a herf="#" id="sidebar-article" class="sidebar-toc">ARTICLE MENU</a>
 
 	<!-- 侧边目录栏 -->
 	<div id="site-toc">
@@ -1892,8 +1896,8 @@
 			
 							<ul>
 								<li class="file">
-									<a href="/2019/12/18/01%20Spring/04%20Web/4%20Jsonp/">
-										4 Jsonp
+									<a href="/2019/12/18/01%20Spring/04%20Web/4%20%E8%B7%A8%E5%9F%9F/">
+										4 跨域
 									</a>
 								</li>
 							</ul>
@@ -4400,7 +4404,7 @@
 
 <div id="article">
 	<h1>一、需求分析</h1>
-<h2 id="1-1、数据现状"><a class="header-anchor" href="#1-1、数据现状">¶</a>1.1、数据现状</h2>
+<h2 id="1-1、数据现状"><a class="header-anchor" href="#1-1、数据现状"></a>1.1、数据现状</h2>
 <ul>
 <li>每个<code>media</code>可发布不同类型（微头条、文章、视频）的状态。</li>
 <li>每种类型都是从独立的系统发布，数据存在不同的数据库，且都未分表分库。</li>
@@ -4408,13 +4412,13 @@
 <li><code>media</code>共有12.6w 个，其中有 297 个<code>media</code>有粉丝，最多一个有 567 位粉丝。</li>
 <li>有 1.8k 用户有关注<code>media</code>，最多一个用户关注了 46 个<code>media</code></li>
 </ul>
-<h2 id="1-2、展示需求"><a class="header-anchor" href="#1-2、展示需求">¶</a>1.2、展示需求</h2>
+<h2 id="1-2、展示需求"><a class="header-anchor" href="#1-2、展示需求"></a>1.2、展示需求</h2>
 <p>需求可总结为以下4个接口</p>
-<h3 id="1-2-1-个人主页接口"><a class="header-anchor" href="#1-2-1-个人主页接口">¶</a>1.2.1 个人主页接口</h3>
+<h3 id="1-2-1-个人主页接口"><a class="header-anchor" href="#1-2-1-个人主页接口"></a>1.2.1 个人主页接口</h3>
 <ol>
 <li>在<code>media</code>主页统一展示各种类型动态</li>
 </ol>
-<h3 id="1-2-2-关注页接口"><a class="header-anchor" href="#1-2-2-关注页接口">¶</a>1.2.2 关注页接口</h3>
+<h3 id="1-2-2-关注页接口"><a class="header-anchor" href="#1-2-2-关注页接口"></a>1.2.2 关注页接口</h3>
 <ol>
 <li>已关注， 展示所关注<code>media</code>的所有动态</li>
 <li>已关注， 查询所关注<code>media</code>的新动态数量</li>
@@ -4427,40 +4431,40 @@
 <li>缺点：直接请求数据库</li>
 </ul>
 <p>以文章库测试，批量查询用户关注人的动态（<code>in $media_id_list</code>）：关注1000人时，响应时间大概50ms；关注2000人时，响应时间大概70ms。</p>
-<h2 id="2-1、个人主页接口"><a class="header-anchor" href="#2-1、个人主页接口">¶</a>2.1、个人主页接口</h2>
-<h3 id="2-1-1-在-media-主页统一展示各种类型动态"><a class="header-anchor" href="#2-1-1-在-media-主页统一展示各种类型动态">¶</a>2.1.1 在 media 主页统一展示各种类型动态</h3>
-<h4 id="0）外部支持"><a class="header-anchor" href="#0）外部支持">¶</a>0）外部支持</h4>
+<h2 id="2-1、个人主页接口"><a class="header-anchor" href="#2-1、个人主页接口"></a>2.1、个人主页接口</h2>
+<h3 id="2-1-1-在-media-主页统一展示各种类型动态"><a class="header-anchor" href="#2-1-1-在-media-主页统一展示各种类型动态"></a>2.1.1 在 media 主页统一展示各种类型动态</h3>
+<h4 id="0）外部支持"><a class="header-anchor" href="#0）外部支持"></a>0）外部支持</h4>
 <p>需要各来源提供接口：</p>
 <ul>
 <li>请求参数：<code>media_id</code>，<code>max_time</code>，<code>size</code></li>
 <li>返回：来源内容列表</li>
 <li>说明：查找<code>media_id</code>的，发布时间降序且小于<code>max_time</code>的，前<code>size</code>条来源内容列表</li>
 </ul>
-<h4 id="1）接口参数"><a class="header-anchor" href="#1）接口参数">¶</a>1）接口参数</h4>
+<h4 id="1）接口参数"><a class="header-anchor" href="#1）接口参数"></a>1）接口参数</h4>
 <p><code>media_id</code>，<code>max_time</code>（可选，默认当前时间），<code>size</code>（可选，默认10，最大20）</p>
-<h4 id="2）执行流程"><a class="header-anchor" href="#2）执行流程">¶</a>2）执行流程</h4>
+<h4 id="2）执行流程"><a class="header-anchor" href="#2）执行流程"></a>2）执行流程</h4>
 <ol>
 <li>根据<code>media_id</code>，<code>max_time</code>，去各来源，并发请求 n 条数据</li>
 <li>对各来源返回的数据，根据发布时间排序，截取前 n 条</li>
 <li>对这 n 条数据，请求评论信息，封装返回</li>
 </ol>
 <p><img src="/images/1563958633904.jpg" alt=""></p>
-<h2 id="2-2、关注页接口"><a class="header-anchor" href="#2-2、关注页接口">¶</a>2.2、关注页接口</h2>
-<h3 id="2-2-0-前置准备"><a class="header-anchor" href="#2-2-0-前置准备">¶</a>2.2.0 前置准备</h3>
-<h4 id="1）用户请求最新动态的时间"><a class="header-anchor" href="#1）用户请求最新动态的时间">¶</a>1）用户请求最新动态的时间</h4>
+<h2 id="2-2、关注页接口"><a class="header-anchor" href="#2-2、关注页接口"></a>2.2、关注页接口</h2>
+<h3 id="2-2-0-前置准备"><a class="header-anchor" href="#2-2-0-前置准备"></a>2.2.0 前置准备</h3>
+<h4 id="1）用户请求最新动态的时间"><a class="header-anchor" href="#1）用户请求最新动态的时间"></a>1）用户请求最新动态的时间</h4>
 <p>使用<code>redis</code>记录用户请求关注页最新动态的时间。<code>key</code>为<code>time_mark:$user_id</code>，<code>value</code>为<code>$time_mark</code>。</p>
 <p>读取<code>time_mark</code>时若<code>key</code>不存在，则返回<code>0</code>，表示未读过。</p>
-<h3 id="2-2-1-已关注，展示所关注-media-的所有动态"><a class="header-anchor" href="#2-2-1-已关注，展示所关注-media-的所有动态">¶</a>2.2.1 已关注，展示所关注 media 的所有动态</h3>
-<h4 id="0）外部支持-v2"><a class="header-anchor" href="#0）外部支持-v2">¶</a>0）外部支持</h4>
+<h3 id="2-2-1-已关注，展示所关注-media-的所有动态"><a class="header-anchor" href="#2-2-1-已关注，展示所关注-media-的所有动态"></a>2.2.1 已关注，展示所关注 media 的所有动态</h3>
+<h4 id="0）外部支持-v2"><a class="header-anchor" href="#0）外部支持-v2"></a>0）外部支持</h4>
 <p>需要各来源提供接口：</p>
 <ul>
 <li>请求参数：<code>media_id list</code>，<code>max_time</code>，<code>size</code></li>
 <li>返回：来源内容列表</li>
 <li>说明：查找<code>media_id list</code>的，发布时间降序且小于<code>max_time</code>的，前<code>size</code>条来源内容列表</li>
 </ul>
-<h4 id="1）接口参数-v2"><a class="header-anchor" href="#1）接口参数-v2">¶</a>1）接口参数</h4>
+<h4 id="1）接口参数-v2"><a class="header-anchor" href="#1）接口参数-v2"></a>1）接口参数</h4>
 <p><code>user_id</code>，<code>max_time</code>（可选，默认当前时间），<code>size</code>（可选，默认10，最大20）</p>
-<h4 id="2）执行流程-v2"><a class="header-anchor" href="#2）执行流程-v2">¶</a>2）执行流程</h4>
+<h4 id="2）执行流程-v2"><a class="header-anchor" href="#2）执行流程-v2"></a>2）执行流程</h4>
 <ol>
 <li>根据<code>user_id</code>查询用户关注的<code>media_id list</code></li>
 <li>若用户有关注
@@ -4479,17 +4483,17 @@
 <li>若用户没有关注，请看下面“2.2.3 章节”</li>
 </ol>
 <p><img src="/images/1563958636389.jpg" alt=""></p>
-<h3 id="2-2-2-已关注，查询所关注-media-的新动态数量"><a class="header-anchor" href="#2-2-2-已关注，查询所关注-media-的新动态数量">¶</a>2.2.2 已关注，查询所关注 media 的新动态数量</h3>
-<h4 id="0）外部支持-v3"><a class="header-anchor" href="#0）外部支持-v3">¶</a>0）外部支持</h4>
+<h3 id="2-2-2-已关注，查询所关注-media-的新动态数量"><a class="header-anchor" href="#2-2-2-已关注，查询所关注-media-的新动态数量"></a>2.2.2 已关注，查询所关注 media 的新动态数量</h3>
+<h4 id="0）外部支持-v3"><a class="header-anchor" href="#0）外部支持-v3"></a>0）外部支持</h4>
 <p>需要各来源提供接口：</p>
 <ul>
 <li>请求参数：<code>media_id list</code>，<code>max_time</code></li>
 <li>返回：来源内容数量</li>
 <li>说明：查找<code>media_id list</code>的，发布时间降序且大于<code>max_time</code>的，来源内容数量</li>
 </ul>
-<h4 id="1）接口参数-v3"><a class="header-anchor" href="#1）接口参数-v3">¶</a>1）接口参数</h4>
+<h4 id="1）接口参数-v3"><a class="header-anchor" href="#1）接口参数-v3"></a>1）接口参数</h4>
 <p><code>user_id</code></p>
-<h4 id="2）执行流程-v3"><a class="header-anchor" href="#2）执行流程-v3">¶</a>2）执行流程</h4>
+<h4 id="2）执行流程-v3"><a class="header-anchor" href="#2）执行流程-v3"></a>2）执行流程</h4>
 <ol>
 <li>根据<code>user_id</code>查询用户关注的<code>media_id list</code></li>
 <li>若用户有关注
@@ -4502,11 +4506,11 @@
 <li>若用户没有关注，返回 0</li>
 </ol>
 <p><img src="/images/1563958636644.jpg" alt=""></p>
-<h3 id="2-2-3-未关注时，关注页展示数据"><a class="header-anchor" href="#2-2-3-未关注时，关注页展示数据">¶</a>2.2.3 未关注时，关注页展示数据</h3>
+<h3 id="2-2-3-未关注时，关注页展示数据"><a class="header-anchor" href="#2-2-3-未关注时，关注页展示数据"></a>2.2.3 未关注时，关注页展示数据</h3>
 <p>用户未登陆或未关注任何<code>media</code>时，展示推荐<code>media</code>的数据。后台维护一个推荐<code>media_id list</code>。</p>
-<h4 id="1）接口参数-v4"><a class="header-anchor" href="#1）接口参数-v4">¶</a>1）接口参数</h4>
+<h4 id="1）接口参数-v4"><a class="header-anchor" href="#1）接口参数-v4"></a>1）接口参数</h4>
 <p><code>max_time</code>（可选，默认当前时间）</p>
-<h4 id="2）执行流程-v4"><a class="header-anchor" href="#2）执行流程-v4">¶</a>2）执行流程</h4>
+<h4 id="2）执行流程-v4"><a class="header-anchor" href="#2）执行流程-v4"></a>2）执行流程</h4>
 <ol>
 <li>获取后台维护的推荐<code>media_id list</code></li>
 <li>根据<code>media_id list</code>，<code>max_time</code>，去各来源，并发请求 n 条数据</li>
@@ -4525,8 +4529,8 @@
 </li>
 <li>缺点：增加系统复杂度。需要维护数据库，接收 kafka 消息。</li>
 </ul>
-<h2 id="3-0、前置准备"><a class="header-anchor" href="#3-0、前置准备">¶</a>3.0、前置准备</h2>
-<h3 id="3-0-1-新建-feed-表"><a class="header-anchor" href="#3-0-1-新建-feed-表">¶</a>3.0.1 新建 feed 表</h3>
+<h2 id="3-0、前置准备"><a class="header-anchor" href="#3-0、前置准备"></a>3.0、前置准备</h2>
+<h3 id="3-0-1-新建-feed-表"><a class="header-anchor" href="#3-0-1-新建-feed-表"></a>3.0.1 新建 feed 表</h3>
 <p>mysql 新建 feed 表，记录每个用户发布的动态。</p>
 <table>
 <thead>
@@ -4567,44 +4571,44 @@
 <p>唯一索引（<code>source</code>+<code>source_id</code>）<br>
 普通索引（<code>media_id</code>+<code>pub_time</code>）<br>
 普通索引（<code>pub_time</code>）</p>
-<h3 id="3-0-2-数据同步"><a class="header-anchor" href="#3-0-2-数据同步">¶</a>3.0.2 数据同步</h3>
-<h4 id="0）外部支持-v4"><a class="header-anchor" href="#0）外部支持-v4">¶</a>0）外部支持</h4>
+<h3 id="3-0-2-数据同步"><a class="header-anchor" href="#3-0-2-数据同步"></a>3.0.2 数据同步</h3>
+<h4 id="0）外部支持-v4"><a class="header-anchor" href="#0）外部支持-v4"></a>0）外部支持</h4>
 <p>需要各来源在发布、删除动态后，发送 kafka 消息：</p>
 <ul>
 <li>topicId：<code>media-post-$source</code></li>
 <li>value：<code>media_id</code>，<code>source_id</code>，<code>action_type</code>，<code>pub_time</code></li>
 </ul>
-<h4 id="1）历史数据"><a class="header-anchor" href="#1）历史数据">¶</a>1）历史数据</h4>
+<h4 id="1）历史数据"><a class="header-anchor" href="#1）历史数据"></a>1）历史数据</h4>
 <p>遍历所有 media，请求其各渠道已发布内容，插入到 feed 表</p>
-<h4 id="2）实时数据"><a class="header-anchor" href="#2）实时数据">¶</a>2）实时数据</h4>
+<h4 id="2）实时数据"><a class="header-anchor" href="#2）实时数据"></a>2）实时数据</h4>
 <p>Feed 系统监听 kafka 消息，并对<code>feed 表</code>进行增删。</p>
-<h2 id="3-1、个人主页接口"><a class="header-anchor" href="#3-1、个人主页接口">¶</a>3.1、个人主页接口</h2>
-<h3 id="3-1-1-在-media-主页统一展示各种类型动态"><a class="header-anchor" href="#3-1-1-在-media-主页统一展示各种类型动态">¶</a>3.1.1 在 media 主页统一展示各种类型动态</h3>
-<h4 id="0）外部支持-v5"><a class="header-anchor" href="#0）外部支持-v5">¶</a>0）外部支持</h4>
+<h2 id="3-1、个人主页接口"><a class="header-anchor" href="#3-1、个人主页接口"></a>3.1、个人主页接口</h2>
+<h3 id="3-1-1-在-media-主页统一展示各种类型动态"><a class="header-anchor" href="#3-1-1-在-media-主页统一展示各种类型动态"></a>3.1.1 在 media 主页统一展示各种类型动态</h3>
+<h4 id="0）外部支持-v5"><a class="header-anchor" href="#0）外部支持-v5"></a>0）外部支持</h4>
 <p>需要各来源提供接口：</p>
 <ul>
 <li>请求参数：<code>source_id list</code></li>
 <li>返回：来源内容列表</li>
 <li>说明：对<code>source_id list</code>，批量查询<code>来源内容</code></li>
 </ul>
-<h4 id="1）接口参数-v5"><a class="header-anchor" href="#1）接口参数-v5">¶</a>1）接口参数</h4>
+<h4 id="1）接口参数-v5"><a class="header-anchor" href="#1）接口参数-v5"></a>1）接口参数</h4>
 <p><code>media_id</code>,<code>max_time</code>（可选，默认当前时间），<code>size</code>（可选，默认10，最大20）</p>
-<h4 id="2）执行流程-v5"><a class="header-anchor" href="#2）执行流程-v5">¶</a>2）执行流程</h4>
+<h4 id="2）执行流程-v5"><a class="header-anchor" href="#2）执行流程-v5"></a>2）执行流程</h4>
 <ol>
 <li>根据 <code>media_id</code>,<code>max_time</code>,<code>size</code>从<code>feed 表</code>查询<code>source_id list</code></li>
 <li>根据<code>source_id list</code>从各来源查询<code>来源内容</code>（来源处有缓存）</li>
 <li>对来源返回的<code>来源内容</code>，拼接分享信息，请求评论信息，封装返回</li>
 </ol>
 <p><img src="/images/1563958637239.jpg" alt=""></p>
-<h2 id="3-2、关注页接口"><a class="header-anchor" href="#3-2、关注页接口">¶</a>3.2、关注页接口</h2>
-<h3 id="3-2-0-前置准备"><a class="header-anchor" href="#3-2-0-前置准备">¶</a>3.2.0 前置准备</h3>
-<h4 id="1）用户请求最新动态的时间-v2"><a class="header-anchor" href="#1）用户请求最新动态的时间-v2">¶</a>1）用户请求最新动态的时间</h4>
+<h2 id="3-2、关注页接口"><a class="header-anchor" href="#3-2、关注页接口"></a>3.2、关注页接口</h2>
+<h3 id="3-2-0-前置准备"><a class="header-anchor" href="#3-2-0-前置准备"></a>3.2.0 前置准备</h3>
+<h4 id="1）用户请求最新动态的时间-v2"><a class="header-anchor" href="#1）用户请求最新动态的时间-v2"></a>1）用户请求最新动态的时间</h4>
 <p>使用<code>redis</code>记录用户请求关注页最新动态的时间。<code>key</code>为<code>time_mark:$user_id</code>，<code>value</code>为<code>$time_mark</code>。</p>
 <p>读取<code>time_mark</code>时若<code>key</code>不存在，则返回<code>0</code>，表示未读过。</p>
-<h3 id="3-2-1-已关注，展示所关注-media-的所有动态"><a class="header-anchor" href="#3-2-1-已关注，展示所关注-media-的所有动态">¶</a>3.2.1 已关注，展示所关注 media 的所有动态</h3>
-<h4 id="1）接口参数-v6"><a class="header-anchor" href="#1）接口参数-v6">¶</a>1）接口参数</h4>
+<h3 id="3-2-1-已关注，展示所关注-media-的所有动态"><a class="header-anchor" href="#3-2-1-已关注，展示所关注-media-的所有动态"></a>3.2.1 已关注，展示所关注 media 的所有动态</h3>
+<h4 id="1）接口参数-v6"><a class="header-anchor" href="#1）接口参数-v6"></a>1）接口参数</h4>
 <p><code>user_id</code>，<code>max_time</code>（可选，默认当前时间），<code>size</code>（可选，默认10，最大20）</p>
-<h4 id="2）执行流程-v6"><a class="header-anchor" href="#2）执行流程-v6">¶</a>2）执行流程</h4>
+<h4 id="2）执行流程-v6"><a class="header-anchor" href="#2）执行流程-v6"></a>2）执行流程</h4>
 <ol>
 <li>根据<code>user_id</code>查询用户关注的<code>media_id list</code></li>
 <li>若用户有关注
@@ -4623,10 +4627,10 @@
 <li>若用户没有关注，请看下面“3.2.3 章节”</li>
 </ol>
 <p><img src="/images/1563958637509.jpg" alt=""></p>
-<h3 id="3-2-2-已关注，查询所关注-media-的新动态数量"><a class="header-anchor" href="#3-2-2-已关注，查询所关注-media-的新动态数量">¶</a>3.2.2 已关注，查询所关注 media 的新动态数量</h3>
-<h4 id="1）接口参数-v7"><a class="header-anchor" href="#1）接口参数-v7">¶</a>1）接口参数</h4>
+<h3 id="3-2-2-已关注，查询所关注-media-的新动态数量"><a class="header-anchor" href="#3-2-2-已关注，查询所关注-media-的新动态数量"></a>3.2.2 已关注，查询所关注 media 的新动态数量</h3>
+<h4 id="1）接口参数-v7"><a class="header-anchor" href="#1）接口参数-v7"></a>1）接口参数</h4>
 <p><code>user_id</code></p>
-<h4 id="2）执行流程-v7"><a class="header-anchor" href="#2）执行流程-v7">¶</a>2）执行流程</h4>
+<h4 id="2）执行流程-v7"><a class="header-anchor" href="#2）执行流程-v7"></a>2）执行流程</h4>
 <ol>
 <li>根据<code>user_id</code>查询用户关注的<code>media_id list</code></li>
 <li>若用户有关注
@@ -4638,11 +4642,11 @@
 <li>若用户没有关注，返回 0</li>
 </ol>
 <p><img src="/images/1563958637767.jpg" alt=""></p>
-<h3 id="3-2-3-未关注时，关注页展示数据"><a class="header-anchor" href="#3-2-3-未关注时，关注页展示数据">¶</a>3.2.3 未关注时，关注页展示数据</h3>
+<h3 id="3-2-3-未关注时，关注页展示数据"><a class="header-anchor" href="#3-2-3-未关注时，关注页展示数据"></a>3.2.3 未关注时，关注页展示数据</h3>
 <p>用户未登陆或未关注任何<code>media</code>时，展示推荐<code>media</code>的数据。后台维护一个推荐<code>media_id list</code>。</p>
-<h4 id="1）接口参数-v8"><a class="header-anchor" href="#1）接口参数-v8">¶</a>1）接口参数</h4>
+<h4 id="1）接口参数-v8"><a class="header-anchor" href="#1）接口参数-v8"></a>1）接口参数</h4>
 <p><code>max_time</code>（可选，默认当前时间）</p>
-<h4 id="2）执行流程-v8"><a class="header-anchor" href="#2）执行流程-v8">¶</a>2）执行流程</h4>
+<h4 id="2）执行流程-v8"><a class="header-anchor" href="#2）执行流程-v8"></a>2）执行流程</h4>
 <ol>
 <li>获取后台维护的推荐<code>media_id list</code></li>
 <li>根据<code>media_id list</code>，<code>max_time</code>，去<code>feed 表</code>，批量请求<code>source_id list</code></li>
@@ -4663,8 +4667,8 @@
 </ul>
 </li>
 </ul>
-<h2 id="4-0、前置准备"><a class="header-anchor" href="#4-0、前置准备">¶</a>4.0、前置准备</h2>
-<h3 id="4-0-1-新建-follow-feed-表"><a class="header-anchor" href="#4-0-1-新建-follow-feed-表">¶</a>4.0.1 新建 follow_feed 表</h3>
+<h2 id="4-0、前置准备"><a class="header-anchor" href="#4-0、前置准备"></a>4.0、前置准备</h2>
+<h3 id="4-0-1-新建-follow-feed-表"><a class="header-anchor" href="#4-0-1-新建-follow-feed-表"></a>4.0.1 新建 follow_feed 表</h3>
 <p>mysql 新建 follow_feed 表，记录每个用户的关注对象发布的动态。</p>
 <table>
 <thead>
@@ -4709,8 +4713,8 @@
 </table>
 <p>唯一索引（<code>user_id</code>+<code>source</code>+<code>source_id</code>）<br>
 普通索引（<code>user_id</code>+<code>pub_time</code>）</p>
-<h3 id="4-0-2-数据同步"><a class="header-anchor" href="#4-0-2-数据同步">¶</a>4.0.2 数据同步</h3>
-<h4 id="0）外部支持-v6"><a class="header-anchor" href="#0）外部支持-v6">¶</a>0）外部支持</h4>
+<h3 id="4-0-2-数据同步"><a class="header-anchor" href="#4-0-2-数据同步"></a>4.0.2 数据同步</h3>
+<h4 id="0）外部支持-v6"><a class="header-anchor" href="#0）外部支持-v6"></a>0）外部支持</h4>
 <p>需要各来源在发布、删除动态后，发送 kafka 消息：</p>
 <ul>
 <li>topicId：<code>media_post：$source</code></li>
@@ -4721,19 +4725,19 @@
 <li>topicId：<code>follow_change</code></li>
 <li>value：<code>media_id</code>，<code>user_id</code>，<code>action_type</code></li>
 </ul>
-<h4 id="1）历史数据-v2"><a class="header-anchor" href="#1）历史数据-v2">¶</a>1）历史数据</h4>
+<h4 id="1）历史数据-v2"><a class="header-anchor" href="#1）历史数据-v2"></a>1）历史数据</h4>
 <p>遍历所有<code>media</code>，请求其各渠道已发布内容，对每个粉丝插入到<code>follow_feed 表</code></p>
-<h4 id="2）实时数据-v2"><a class="header-anchor" href="#2）实时数据-v2">¶</a>2）实时数据</h4>
+<h4 id="2）实时数据-v2"><a class="header-anchor" href="#2）实时数据-v2"></a>2）实时数据</h4>
 <p>Feed 系统监听 kafka <code>media_post：$source</code>消息。若<code>media_id</code>是大v则跳过。否则查询所有粉丝，结合每个粉丝的<code>user_id</code>对<code>follow_feed 表</code>进行增删。</p>
 <p>Feed 系统监听 kafka <code>follow_change</code>消息。若<code>media_id</code>是大v则跳过。否则，关注时请求<code>media_id</code>的所有动态内容，结合<code>user_id</code>插入到<code>follow_feed 表</code>；取关时删除<code>follow_feed 表</code>中所有<code>media_id</code>+<code>user_id</code>的内容。</p>
-<h3 id="4-0-3-用户请求最新动态的时间"><a class="header-anchor" href="#4-0-3-用户请求最新动态的时间">¶</a>4.0.3 用户请求最新动态的时间</h3>
+<h3 id="4-0-3-用户请求最新动态的时间"><a class="header-anchor" href="#4-0-3-用户请求最新动态的时间"></a>4.0.3 用户请求最新动态的时间</h3>
 <p>使用<code>redis</code>记录用户请求关注页最新动态的时间。<code>key</code>为<code>time_mark:$user_id</code>，<code>value</code>为<code>$time_mark</code>。</p>
 <p>读取<code>time_mark</code>时若<code>key</code>不存在，则返回<code>0</code>，表示未读过。</p>
-<h2 id="4-1、关注页接口"><a class="header-anchor" href="#4-1、关注页接口">¶</a>4.1、关注页接口</h2>
-<h3 id="4-1-1-已关注，展示所关注-media-的所有动态"><a class="header-anchor" href="#4-1-1-已关注，展示所关注-media-的所有动态">¶</a>4.1.1 已关注，展示所关注 media 的所有动态</h3>
-<h4 id="1）接口参数-v9"><a class="header-anchor" href="#1）接口参数-v9">¶</a>1）接口参数</h4>
+<h2 id="4-1、关注页接口"><a class="header-anchor" href="#4-1、关注页接口"></a>4.1、关注页接口</h2>
+<h3 id="4-1-1-已关注，展示所关注-media-的所有动态"><a class="header-anchor" href="#4-1-1-已关注，展示所关注-media-的所有动态"></a>4.1.1 已关注，展示所关注 media 的所有动态</h3>
+<h4 id="1）接口参数-v9"><a class="header-anchor" href="#1）接口参数-v9"></a>1）接口参数</h4>
 <p><code>user_id</code>，<code>max_time</code>（可选，默认当前时间），<code>size</code>（可选，默认10，最大20）</p>
-<h4 id="2）执行流程-v9"><a class="header-anchor" href="#2）执行流程-v9">¶</a>2）执行流程</h4>
+<h4 id="2）执行流程-v9"><a class="header-anchor" href="#2）执行流程-v9"></a>2）执行流程</h4>
 <ol>
 <li>根据<code>user_id</code>从查询用户关注的<code>media_id list</code></li>
 <li>若用户有关注
@@ -4752,10 +4756,10 @@
 </li>
 <li>若用户没有关注，请看下面“4.1.3 章节”</li>
 </ol>
-<h3 id="4-1-2-已关注，查询所关注-media-的新动态数量"><a class="header-anchor" href="#4-1-2-已关注，查询所关注-media-的新动态数量">¶</a>4.1.2 已关注，查询所关注 media 的新动态数量</h3>
-<h4 id="1）接口参数-v10"><a class="header-anchor" href="#1）接口参数-v10">¶</a>1）接口参数</h4>
+<h3 id="4-1-2-已关注，查询所关注-media-的新动态数量"><a class="header-anchor" href="#4-1-2-已关注，查询所关注-media-的新动态数量"></a>4.1.2 已关注，查询所关注 media 的新动态数量</h3>
+<h4 id="1）接口参数-v10"><a class="header-anchor" href="#1）接口参数-v10"></a>1）接口参数</h4>
 <p><code>user_id</code></p>
-<h4 id="2）执行流程-v10"><a class="header-anchor" href="#2）执行流程-v10">¶</a>2）执行流程</h4>
+<h4 id="2）执行流程-v10"><a class="header-anchor" href="#2）执行流程-v10"></a>2）执行流程</h4>
 <ol>
 <li>根据<code>user_id</code>查询用户关注的<code>media_id list</code></li>
 <li>若用户有关注
@@ -4768,11 +4772,11 @@
 </li>
 <li>若用户没有关注，返回 0</li>
 </ol>
-<h3 id="4-1-3-未关注时，关注页展示数据"><a class="header-anchor" href="#4-1-3-未关注时，关注页展示数据">¶</a>4.1.3 未关注时，关注页展示数据</h3>
+<h3 id="4-1-3-未关注时，关注页展示数据"><a class="header-anchor" href="#4-1-3-未关注时，关注页展示数据"></a>4.1.3 未关注时，关注页展示数据</h3>
 <p>用户未登陆或未关注任何<code>media</code>时，展示推荐<code>media</code>的数据。后台维护一个虚拟用户，关注推荐的<code>media_id list</code>，接口返回虚拟用户的关注页即可。</p>
-<h4 id="1）接口参数-v11"><a class="header-anchor" href="#1）接口参数-v11">¶</a>1）接口参数</h4>
+<h4 id="1）接口参数-v11"><a class="header-anchor" href="#1）接口参数-v11"></a>1）接口参数</h4>
 <p><code>max_time</code>（可选，默认当前时间）</p>
-<h4 id="2）执行流程-v11"><a class="header-anchor" href="#2）执行流程-v11">¶</a>2）执行流程</h4>
+<h4 id="2）执行流程-v11"><a class="header-anchor" href="#2）执行流程-v11"></a>2）执行流程</h4>
 <p>通过虚拟用户的<code>user_id</code>和参数<code>max_time</code>，调用“4.1.1 章节”接口</p>
 <h1>五、总结</h1>
 <ul>
@@ -4833,6 +4837,7 @@
 
 	</div>
 	<div id="footer">
+	<p>
 	©2019-<span id="footerYear"></span> 
 	<a href="/">Wu Jun</a> 
 	|
@@ -4845,7 +4850,9 @@
 		uv
 		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	<br>
 	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
+	</p>
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';

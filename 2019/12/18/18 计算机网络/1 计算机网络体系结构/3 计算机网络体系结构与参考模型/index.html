@@ -11,14 +11,14 @@
 	
 		3 计算机网络体系结构与参考模型 | 
 	 
-	吴俊的博客
+	WuJun Blog
 	</title>
 	
 	<!-- keywords,description -->
 	
 		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
 	 
-		<meta name="description" content="吴俊的博客,wujun234" />
+		<meta name="description" content="吴俊,wujun234,wujun,wu jun" />
 	
 
 	<!-- favicon -->
@@ -29,7 +29,7 @@
 
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
-	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
+	<link rel="stylesheet" href="/lib/highlight/darcula.css">
 
 	<script src="/lib/highlight/highlight.pack.js"></script>
 	<script src="/lib/jquery-3.4.1.min.js"></script>
@@ -40,16 +40,19 @@
 
 <body>
 	<header id="header">
-    <a id="title" href="/" class="logo">吴俊的博客</a>
+    <a id="title" href="/" class="logo">WuJun Blog</a>
 
 	<ul id="menu">
 		<li class="menu-item">
-			<a href="/about" class="menu-item-link">关于</a>
+			<a href="/" class="menu-item-link">HOME</a>
+		</li>
+		<li class="menu-item">
+			<a href="/about" class="menu-item-link">ABOUT</a>
 		</li>
 		
 		<li class="menu-item">
 			<a href="https://github.com/wujun234/uid-generator-spring-boot-starter" class="menu-item-link" target="_blank">
-				uid-generator
+				UidGenerator
 			</a>
 		</li>
 		<li class="menu-item">
@@ -60,10 +63,11 @@
 	</ul>
 </header>
 
-	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-bars" aria-hidden="true"></i></button>
+	
 <div id="sidebar">
-	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">站点目录</a>
-	<a herf="#" id="sidebar-article" class="sidebar-toc">文章目录</a>
+	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-arrow-right " aria-hidden="true"></i></button>
+	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">SITE MENU</a>
+	<a herf="#" id="sidebar-article" class="sidebar-toc">ARTICLE MENU</a>
 
 	<!-- 侧边目录栏 -->
 	<div id="site-toc">
@@ -1892,8 +1896,8 @@
 			
 							<ul>
 								<li class="file">
-									<a href="/2019/12/18/01%20Spring/04%20Web/4%20Jsonp/">
-										4 Jsonp
+									<a href="/2019/12/18/01%20Spring/04%20Web/4%20%E8%B7%A8%E5%9F%9F/">
+										4 跨域
 									</a>
 								</li>
 							</ul>
@@ -4399,28 +4403,28 @@
 
 
 <div id="article">
-	<h3 id="1、计算机网络分层结构"><a class="header-anchor" href="#1、计算机网络分层结构">¶</a>1、计算机网络分层结构</h3>
+	<h3 id="1、计算机网络分层结构"><a class="header-anchor" href="#1、计算机网络分层结构"></a>1、计算机网络分层结构</h3>
 <p>两种国际标准：</p>
 <ul>
 <li>ISO/OSI：法律上的国际标准，不过并没有得到市场的认可</li>
 <li>TCP/IP：事实上的国际标准，获得了最广泛的应用</li>
 </ul>
-<h3 id="2、计算机网络协议、接口、服务等概念"><a class="header-anchor" href="#2、计算机网络协议、接口、服务等概念">¶</a>2、计算机网络协议、接口、服务等概念</h3>
+<h3 id="2、计算机网络协议、接口、服务等概念"><a class="header-anchor" href="#2、计算机网络协议、接口、服务等概念"></a>2、计算机网络协议、接口、服务等概念</h3>
 <p>计算机网络的<strong>体系结构</strong>是<strong>计算机网络的各层及其协议的集合</strong></p>
-<h4 id="1）网络协议"><a class="header-anchor" href="#1）网络协议">¶</a>1）网络协议</h4>
+<h4 id="1）网络协议"><a class="header-anchor" href="#1）网络协议"></a>1）网络协议</h4>
 <p>为进行网络中的数据交换而建立的规则、标准或约定称为网络协议（network protocol）。由以下三个要素组成：</p>
 <ul>
 <li>语法：数据与控制信息的结构或格式</li>
 <li>语义：需要发出何种控制信息，完成何种动作以及做出何种响应</li>
 <li>同步：即事件实现顺序的详细信息（时序）</li>
 </ul>
-<h4 id="2）实体与协议"><a class="header-anchor" href="#2）实体与协议">¶</a>2）实体与协议</h4>
+<h4 id="2）实体与协议"><a class="header-anchor" href="#2）实体与协议"></a>2）实体与协议</h4>
 <ul>
 <li>实体：表示任何可发送或接受信息的硬件或软件进程</li>
 <li>协议：是控制两个对等实体（或多个实体）进行通信的规则的集合</li>
 </ul>
 <p>在协议的控制下，两个对等实体间的通信使得本层能够向上一层提供服务，要实现本层协议，还需要使用下面一层所提供的的服务</p>
-<h4 id="3）协议与服务"><a class="header-anchor" href="#3）协议与服务">¶</a>3）协议与服务</h4>
+<h4 id="3）协议与服务"><a class="header-anchor" href="#3）协议与服务"></a>3）协议与服务</h4>
 <ul>
 <li>协议是“水平的”，即协议是控制对等实体之间通信的规则。</li>
 <li>服务是“垂直的”，即服务是由下层向上层通过层间接口提供的。</li>
@@ -4430,14 +4434,14 @@
 <li>同一系统相邻两层的实体进行交互的地方，称为服务访问点SAP(Service Access Point)</li>
 <li>协议必须把所有不利的条件事先都估计到，而不能假定一切都是正常的和非常理想的，还必须非常仔细的检查这个协议能否应付各种异常情况</li>
 </ul>
-<h3 id="3、ISO-OSI-参考模型和-TCP-IP-模型"><a class="header-anchor" href="#3、ISO-OSI-参考模型和-TCP-IP-模型">¶</a>3、ISO/OSI 参考模型和 TCP/IP 模型</h3>
+<h3 id="3、ISO-OSI-参考模型和-TCP-IP-模型"><a class="header-anchor" href="#3、ISO-OSI-参考模型和-TCP-IP-模型"></a>3、ISO/OSI 参考模型和 TCP/IP 模型</h3>
 <ul>
 <li>OSI 七层模型：概念清晰、理论也较为完整、但它既复杂又不实用</li>
 <li>TCP/IP 四层模型：实质上只有上面三层，最下面的网络接口层并没有什么具体内容</li>
 <li>五层模型：综合 OSI 和 TCP/IP 的优点，学习计算机网络时采用。实际应用中还是 TCP/IP 四层模型。</li>
 </ul>
 <p><img src="/images/1564648976338.jpg" alt="image"></p>
-<h4 id="1）五层模型"><a class="header-anchor" href="#1）五层模型">¶</a>1）五层模型</h4>
+<h4 id="1）五层模型"><a class="header-anchor" href="#1）五层模型"></a>1）五层模型</h4>
 <ul>
 <li>应用层：通过应用进程间的交互来完成特定网络应用。数据单位为报文。</li>
 <li>运输层：为进程提供通用数据传输服务。主要使用以下两种协议
@@ -4452,14 +4456,14 @@
 <li>物理层：主要负责在物理线路上传输原始的二进制数据</li>
 </ul>
 <p><img src="/images/1564648978779.jpg" alt="image"></p>
-<h4 id="2）OSI"><a class="header-anchor" href="#2）OSI">¶</a>2）OSI</h4>
+<h4 id="2）OSI"><a class="header-anchor" href="#2）OSI"></a>2）OSI</h4>
 <p>其中表示层和会话层用途如下：</p>
 <ul>
 <li>表示层 ：数据压缩、加密以及数据描述，这使得应用程序不必关心在各台主机中数据内部格式不同的问题。</li>
 <li>会话层 ：建立及管理会话。</li>
 </ul>
 <p>五层协议没有表示层和会话层，而是将这些功能留给应用程序开发者处理。</p>
-<h4 id="3）TCP-IP"><a class="header-anchor" href="#3）TCP-IP">¶</a>3）TCP/IP</h4>
+<h4 id="3）TCP-IP"><a class="header-anchor" href="#3）TCP-IP"></a>3）TCP/IP</h4>
 <p>它只有四层，相当于五层协议中数据链路层和物理层合并为网络接口层。</p>
 <p>TCP/IP 体系结构不严格遵循 OSI 分层概念，应用层可能会直接使用 IP 层或者网络接口层。</p>
 <p><img src="/images/1564648978977.jpg" alt="image"></p>
@@ -4468,6 +4472,7 @@
 
 	</div>
 	<div id="footer">
+	<p>
 	©2019-<span id="footerYear"></span> 
 	<a href="/">Wu Jun</a> 
 	|
@@ -4480,7 +4485,9 @@
 		uv
 		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	<br>
 	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
+	</p>
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';

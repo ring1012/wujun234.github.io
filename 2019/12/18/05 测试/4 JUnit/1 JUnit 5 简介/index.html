@@ -11,14 +11,14 @@
 	
 		1 JUnit 5 简介 | 
 	 
-	吴俊的博客
+	WuJun Blog
 	</title>
 	
 	<!-- keywords,description -->
 	
 		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
 	 
-		<meta name="description" content="吴俊的博客,wujun234" />
+		<meta name="description" content="吴俊,wujun234,wujun,wu jun" />
 	
 
 	<!-- favicon -->
@@ -29,7 +29,7 @@
 
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
-	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
+	<link rel="stylesheet" href="/lib/highlight/darcula.css">
 
 	<script src="/lib/highlight/highlight.pack.js"></script>
 	<script src="/lib/jquery-3.4.1.min.js"></script>
@@ -40,16 +40,19 @@
 
 <body>
 	<header id="header">
-    <a id="title" href="/" class="logo">吴俊的博客</a>
+    <a id="title" href="/" class="logo">WuJun Blog</a>
 
 	<ul id="menu">
 		<li class="menu-item">
-			<a href="/about" class="menu-item-link">关于</a>
+			<a href="/" class="menu-item-link">HOME</a>
+		</li>
+		<li class="menu-item">
+			<a href="/about" class="menu-item-link">ABOUT</a>
 		</li>
 		
 		<li class="menu-item">
 			<a href="https://github.com/wujun234/uid-generator-spring-boot-starter" class="menu-item-link" target="_blank">
-				uid-generator
+				UidGenerator
 			</a>
 		</li>
 		<li class="menu-item">
@@ -60,10 +63,11 @@
 	</ul>
 </header>
 
-	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-bars" aria-hidden="true"></i></button>
+	
 <div id="sidebar">
-	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">站点目录</a>
-	<a herf="#" id="sidebar-article" class="sidebar-toc">文章目录</a>
+	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-arrow-right " aria-hidden="true"></i></button>
+	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">SITE MENU</a>
+	<a herf="#" id="sidebar-article" class="sidebar-toc">ARTICLE MENU</a>
 
 	<!-- 侧边目录栏 -->
 	<div id="site-toc">
@@ -1892,8 +1896,8 @@
 			
 							<ul>
 								<li class="file">
-									<a href="/2019/12/18/01%20Spring/04%20Web/4%20Jsonp/">
-										4 Jsonp
+									<a href="/2019/12/18/01%20Spring/04%20Web/4%20%E8%B7%A8%E5%9F%9F/">
+										4 跨域
 									</a>
 								</li>
 							</ul>
@@ -4429,15 +4433,15 @@
 <li><a href="#%E5%8F%82%E8%80%83">参考</a></li>
 </ul>
 <!-- /TOC -->
-<h3 id="一、JUnit-5-的架构"><a class="header-anchor" href="#一、JUnit-5-的架构">¶</a>一、JUnit 5 的架构</h3>
+<h3 id="一、JUnit-5-的架构"><a class="header-anchor" href="#一、JUnit-5-的架构"></a>一、JUnit 5 的架构</h3>
 <p>Junit5 = JUnit Platform + JUnit Jupiter + JUnit Vintage</p>
-<h5 id="使用-JUnit-Jupiter-编写测试内容"><a class="header-anchor" href="#使用-JUnit-Jupiter-编写测试内容">¶</a>使用 JUnit Jupiter 编写测试内容</h5>
+<h5 id="使用-JUnit-Jupiter-编写测试内容"><a class="header-anchor" href="#使用-JUnit-Jupiter-编写测试内容"></a>使用 JUnit Jupiter 编写测试内容</h5>
 <p>JUnit Jupiter 包含两个组件：API 和 Test Engine。</p>
 <ul>
 <li>使用 API （ 通过注解、断言、回调等） 创建单元测试。</li>
 <li>使用 Test Engine 发现和执行 JUnit Jupiter 单元测试。</li>
 </ul>
-<h5 id="使用-JUnit-Platform-运行测试"><a class="header-anchor" href="#使用-JUnit-Platform-运行测试">¶</a>使用 JUnit Platform 运行测试</h5>
+<h5 id="使用-JUnit-Platform-运行测试"><a class="header-anchor" href="#使用-JUnit-Platform-运行测试"></a>使用 JUnit Platform 运行测试</h5>
 <p>JUnit Platform 包含 API、Test Engine 和 Launcher。</p>
 <p>运行单元测试的过程分为两部分：</p>
 <ul>
@@ -4456,7 +4460,7 @@
 </ul>
 </li>
 </ul>
-<h5 id="后向兼容性：JUnit-Vintage"><a class="header-anchor" href="#后向兼容性：JUnit-Vintage">¶</a>后向兼容性：JUnit Vintage</h5>
+<h5 id="后向兼容性：JUnit-Vintage"><a class="header-anchor" href="#后向兼容性：JUnit-Vintage"></a>后向兼容性：JUnit Vintage</h5>
 <p>JUnit Vintage 可确保现有 JUnit 测试能与使用 JUnit Jupiter 创建的新测试一同运行。</p>
 <p>JUnit Vintage 本身由两个模块组成：</p>
 <ul>
@@ -4464,8 +4468,8 @@
 <li>junit-vintage-engine：是在 JUnit Platform 上运行 JUnit 3 和 JUnit 4 测试的测试引擎。</li>
 </ul>
 <p><img src="/images/1553068291625.png" alt="image"></p>
-<h3 id="二、使用-JUnit-Jupiter-编写测试"><a class="header-anchor" href="#二、使用-JUnit-Jupiter-编写测试">¶</a>二、使用 JUnit Jupiter 编写测试</h3>
-<h4 id="注解"><a class="header-anchor" href="#注解">¶</a>注解</h4>
+<h3 id="二、使用-JUnit-Jupiter-编写测试"><a class="header-anchor" href="#二、使用-JUnit-Jupiter-编写测试"></a>二、使用 JUnit Jupiter 编写测试</h3>
+<h4 id="注解"><a class="header-anchor" href="#注解"></a>注解</h4>
 <p>JUnit 4 与 JUnit 5 中的常用注解比较</p>
 <table>
 <thead>
@@ -4543,7 +4547,7 @@
 </tr>
 </tbody>
 </table>
-<h5 id="使用注解"><a class="header-anchor" href="#使用注解">¶</a>使用注解</h5>
+<h5 id="使用注解"><a class="header-anchor" href="#使用注解"></a>使用注解</h5>
 <pre><code>@RunWith(JUnitPlatform.class)
 @DisplayName(&quot;Testing using JUnit 5&quot;)
 public class JUnit5AppTest {
@@ -4589,7 +4593,7 @@ public class JUnit5AppTest {
 .
 }
 </code></pre>
-<h4 id="断言"><a class="header-anchor" href="#断言">¶</a>断言</h4>
+<h4 id="断言"><a class="header-anchor" href="#断言"></a>断言</h4>
 <p>Junit Jupiter 继承了许多 Junit 4 中的断言方法，同时增加了一些适配 Java 8 lambdas 特点的方法。所有的 Junit Jupiter 都是静态方法，在 org.junit.jupiter.Assertions 类中。</p>
 <pre><code>import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
@@ -4614,7 +4618,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
     .
   }
 </code></pre>
-<h5 id="assertAll"><a class="header-anchor" href="#assertAll">¶</a>@assertAll()</h5>
+<h5 id="assertAll"><a class="header-anchor" href="#assertAll"></a>@assertAll()</h5>
 <p>assertAll() 包含的所有断言都会执行，即使一个或多个断言失败也是如此。</p>
 <pre><code>import static org.junit.jupiter.api.Assertions.assertAll;
 .
@@ -4636,7 +4640,7 @@ void dummyTest() {
       () -&gt; assertTrue(nullValue == null));
 }
 </code></pre>
-<h5 id="assertThrows"><a class="header-anchor" href="#assertThrows">¶</a>@assertThrows()</h5>
+<h5 id="assertThrows"><a class="header-anchor" href="#assertThrows"></a>@assertThrows()</h5>
 <p>在某些条件下，接受测试的类应抛出异常。JUnit 4 通过 expected = 方法参数或一个 @Rule 提供此能力。与此相反，JUnit Jupiter 通过 Assertions 类提供此能力，使它与其他断言更加一致。</p>
 <pre><code>import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -4649,10 +4653,10 @@ public void testAdd_ZeroOperands_EmptyArgument() {
   assertThrows(IllegalArgumentException.class, () -&gt; classUnderTest.add(numbersToSum));
 }
 </code></pre>
-<h4 id="前置条件"><a class="header-anchor" href="#前置条件">¶</a>前置条件</h4>
+<h4 id="前置条件"><a class="header-anchor" href="#前置条件"></a>前置条件</h4>
 <p>前置条件 (Assumption) 与断言类似，但前置条件必须为 true，否则测试将中止。</p>
 <p>前置条件是 org.junit.jupiter.api.Assumptions 类的静态方法。</p>
-<h5 id="assumeTrue"><a class="header-anchor" href="#assumeTrue">¶</a>assumeTrue()</h5>
+<h5 id="assumeTrue"><a class="header-anchor" href="#assumeTrue"></a>assumeTrue()</h5>
 <p>如果条件不成立，就不会执行 lambda 表达式的内容。</p>
 <pre><code>@Test
 @DisplayName(&quot;This test is only run on Fridays&quot;)
@@ -4662,7 +4666,7 @@ public void testAdd_OnlyOnFriday() {
   // Remainder of test (only executed if assumption holds)...
 }
 </code></pre>
-<h5 id="assumingThat"><a class="header-anchor" href="#assumingThat">¶</a>assumingThat()</h5>
+<h5 id="assumingThat"><a class="header-anchor" href="#assumingThat"></a>assumingThat()</h5>
 <p>无论 assumingThat() 中的前置条件成立与否，都会执行 lambda 表达式后的所有代码</p>
 <pre><code>@Test
 @DisplayName(&quot;This test is only run on Fridays (with lambda)&quot;)
@@ -4675,7 +4679,7 @@ public void testAdd_OnlyOnFriday_WithLambda() {
   // Execute this regardless
 }
 </code></pre>
-<h4 id="嵌套测试"><a class="header-anchor" href="#嵌套测试">¶</a>嵌套测试</h4>
+<h4 id="嵌套测试"><a class="header-anchor" href="#嵌套测试"></a>嵌套测试</h4>
 <p>只有非静态的嵌套类可以被标记为 @Nested 测试，嵌套可以是任意的深度。</p>
 <p>每个单元测试可以拥有自己的测试前和测试后生命周期，除了一个例外: @BeforeAll 和 @AfterAll 不起作用。</p>
 <pre><code>@RunWith(JUnitPlatform.class)
@@ -4694,7 +4698,7 @@ public class JUnit5AppTest {
 .
 }
 </code></pre>
-<h3 id="三、使用-JUnit-Platform-运行测试"><a class="header-anchor" href="#三、使用-JUnit-Platform-运行测试">¶</a>三、使用 JUnit Platform 运行测试</h3>
+<h3 id="三、使用-JUnit-Platform-运行测试"><a class="header-anchor" href="#三、使用-JUnit-Platform-运行测试"></a>三、使用 JUnit Platform 运行测试</h3>
 <p>在 IDE 中运行单元测试</p>
 <pre><code>@RunWith(JUnitPlatform.class)
 public class JUnit5AppTest {
@@ -4703,16 +4707,16 @@ public class JUnit5AppTest {
 <p>使用 Maven 运行单元测试</p>
 <pre><code>mvn test
 </code></pre>
-<h3 id="四、JUnit-Jupiter-扩展模型"><a class="header-anchor" href="#四、JUnit-Jupiter-扩展模型">¶</a>四、JUnit Jupiter 扩展模型</h3>
-<h4 id="扩展-JUnit-4-的核心功能"><a class="header-anchor" href="#扩展-JUnit-4-的核心功能">¶</a>扩展 JUnit 4 的核心功能</h4>
+<h3 id="四、JUnit-Jupiter-扩展模型"><a class="header-anchor" href="#四、JUnit-Jupiter-扩展模型"></a>四、JUnit Jupiter 扩展模型</h3>
+<h4 id="扩展-JUnit-4-的核心功能"><a class="header-anchor" href="#扩展-JUnit-4-的核心功能"></a>扩展 JUnit 4 的核心功能</h4>
 <p>使用 Runner 和 @Rule 扩展。</p>
-<h5 id="Runner"><a class="header-anchor" href="#Runner">¶</a>Runner</h5>
+<h5 id="Runner"><a class="header-anchor" href="#Runner"></a>Runner</h5>
 <p>必须在测试类级别上使用 @RunWith 注解来声明 Runner，每个测试类最多只能拥有一个 Runner。</p>
 <p>常见的第三方Runner ，比如用于运行基于 Spring 的单元测试的 SpringJUnit4ClassRunner，以及用于处理单元测试中 Mockito 对象的 MockitoJUnitRunner。</p>
-<h5 id="Rule"><a class="header-anchor" href="#Rule">¶</a>@Rule</h5>
+<h5 id="Rule"><a class="header-anchor" href="#Rule"></a>@Rule</h5>
 <p>为了解决 Runner 概念的这一内置限制，JUnit 4.7 引入了 @Rule。</p>
 <p>一个测试类可声明多个 @Rule，这些规则可在测试方法级别和类级别上运行</p>
-<h5 id="扩展点和测试生命周期"><a class="header-anchor" href="#扩展点和测试生命周期">¶</a>扩展点和测试生命周期</h5>
+<h5 id="扩展点和测试生命周期"><a class="header-anchor" href="#扩展点和测试生命周期"></a>扩展点和测试生命周期</h5>
 <p>一个扩展点对应于 JUnit test 生命周期中一个预定义的点。</p>
 <table>
 <thead>
@@ -4756,7 +4760,7 @@ public class JUnit5AppTest {
 </tr>
 </tbody>
 </table>
-<h5 id="激活扩展"><a class="header-anchor" href="#激活扩展">¶</a>激活扩展</h5>
+<h5 id="激活扩展"><a class="header-anchor" href="#激活扩展"></a>激活扩展</h5>
 <p>要激活上述扩展，只需使用 @ExtendWith 注解注册它</p>
 <pre><code>@ExtendWith(MyBeforeEachCallbackExtension.class)
 public class MyTestClass {
@@ -4774,15 +4778,15 @@ public class MyTestClass {
 .
 }
 </code></pre>
-<h4 id="参数注入"><a class="header-anchor" href="#参数注入">¶</a>参数注入</h4>
+<h4 id="参数注入"><a class="header-anchor" href="#参数注入"></a>参数注入</h4>
 <p>将一个参数传递给 @Test 方法</p>
-<h5 id="ParameterResolver-接口"><a class="header-anchor" href="#ParameterResolver-接口">¶</a>ParameterResolver 接口</h5>
+<h5 id="ParameterResolver-接口"><a class="header-anchor" href="#ParameterResolver-接口"></a>ParameterResolver 接口</h5>
 <p>ParameterResolver 接口包含 2 个方法：</p>
 <ul>
 <li>supports() 方法：测试引擎解析测试类参数时，首先会调用 supports() 方法，查看该扩展是否能处理这种参数类型。</li>
 <li>resolve() 方法：如果 supports() 返回 true，则调用 resolve() 来获取正确类型的 Object，随后在调用测试方法时会使用该对象。</li>
 </ul>
-<h5 id="创建-ParameterResolver-实现"><a class="header-anchor" href="#创建-ParameterResolver-实现">¶</a>创建 ParameterResolver 实现</h5>
+<h5 id="创建-ParameterResolver-实现"><a class="header-anchor" href="#创建-ParameterResolver-实现"></a>创建 ParameterResolver 实现</h5>
 <pre><code>public class GeneratedPersonParameterResolver implements ParameterResolver {
  
   @Override
@@ -4799,14 +4803,14 @@ public class MyTestClass {
  
 }
 </code></pre>
-<h5 id="使用-ParameterResolver-实现"><a class="header-anchor" href="#使用-ParameterResolver-实现">¶</a>使用 ParameterResolver 实现</h5>
+<h5 id="使用-ParameterResolver-实现"><a class="header-anchor" href="#使用-ParameterResolver-实现"></a>使用 ParameterResolver 实现</h5>
 <p>在类或方法上，使用 @ExtendWith 注解完成注册工作</p>
 <pre><code>@ExtendWith(GeneratedPersonParameterResolver.class)
 </code></pre>
-<h4 id="参数化测试"><a class="header-anchor" href="#参数化测试">¶</a>参数化测试</h4>
+<h4 id="参数化测试"><a class="header-anchor" href="#参数化测试"></a>参数化测试</h4>
 <p>参数化测试是指多次调用 @Test 方法，但每次都使用不同的参数值。参数化测试必须使用 @ParameterizedTest 进行注解，而且必须为其参数指定一个来源。</p>
 <p>JUnit Jupiter 提供了多个来源。每个来源指定一个 @ArgumentsSource，也就是一个 ArgumentsProvider 实现。</p>
-<h5 id="ValueSource"><a class="header-anchor" href="#ValueSource">¶</a>@ValueSource</h5>
+<h5 id="ValueSource"><a class="header-anchor" href="#ValueSource"></a>@ValueSource</h5>
 <p>仅支持以下类型：String、int、long、double</p>
 <pre><code>@ParameterizedTest
 @ValueSource(longs = { 1L, 2L, 3L, 4L, 5L })
@@ -4817,7 +4821,7 @@ public void findById(Long id) {
   assertEquals(id, personFound.getId());
 }
 </code></pre>
-<h5 id="EnumSource"><a class="header-anchor" href="#EnumSource">¶</a>@EnumSource</h5>
+<h5 id="EnumSource"><a class="header-anchor" href="#EnumSource"></a>@EnumSource</h5>
 <pre><code>@ParameterizedTest
 @EnumSource(PersonTestEnum.class)
 public void findById(PersonTestEnum testPerson) {
@@ -4829,7 +4833,7 @@ public void findById(PersonTestEnum testPerson) {
       person.getGender(), personFound);
 }
 </code></pre>
-<h5 id="MethodSource"><a class="header-anchor" href="#MethodSource">¶</a>@MethodSource</h5>
+<h5 id="MethodSource"><a class="header-anchor" href="#MethodSource"></a>@MethodSource</h5>
 <p>一个方法来源必须声明为 static，返回类型必须是 Stream、Iterator、Iterable 或数组。</p>
 <pre><code>@ParameterizedTest
 @MethodSource(value = &quot;personProvider&quot;)
@@ -4843,7 +4847,7 @@ public void findById(Person paramPerson) {
       paramPerson.getEyeColor(), paramPerson.getGender(), personFound);
 }
 </code></pre>
-<h5 id="自定义显示名称"><a class="header-anchor" href="#自定义显示名称">¶</a>自定义显示名称</h5>
+<h5 id="自定义显示名称"><a class="header-anchor" href="#自定义显示名称"></a>自定义显示名称</h5>
 <p>可以通过向 @ParameterizedTest 注解提供任何以下属性值来自定义输出：</p>
 <ul>
 <li>{index}：从 1 开始的索引（当前测试迭代 ）。</li>
@@ -4852,10 +4856,10 @@ public void findById(Person paramPerson) {
 </ul>
 <pre><code>@ParameterizedTest(name = &quot;@ValueSource: FindById(): Test# {index}: Id: {0}&quot;)
 </code></pre>
-<h4 id="动态测试"><a class="header-anchor" href="#动态测试">¶</a>动态测试</h4>
-<h5 id="TestFactory"><a class="header-anchor" href="#TestFactory">¶</a>@TestFactory</h5>
+<h4 id="动态测试"><a class="header-anchor" href="#动态测试"></a>动态测试</h4>
+<h5 id="TestFactory"><a class="header-anchor" href="#TestFactory"></a>@TestFactory</h5>
 <p>@TestFactory 方法用于生成动态测试。此方法必须返回 DynamicTest 实例的 Stream、Collection、Iterable 或 Iterator。</p>
-<h5 id="创建-TestFactory"><a class="header-anchor" href="#创建-TestFactory">¶</a>创建 @TestFactory</h5>
+<h5 id="创建-TestFactory"><a class="header-anchor" href="#创建-TestFactory"></a>创建 @TestFactory</h5>
 <pre><code>@TestFactory
 Collection&lt;DynamicTest&gt; dynamicTestsFromCollection() {
     return Arrays.asList(
@@ -4871,9 +4875,9 @@ Stream&lt;DynamicTest&gt; dynamicTestsFromStream() {
         str -&gt; dynamicTest(&quot;test&quot; + str, () -&gt; { /* ... */ }));
 }
 </code></pre>
-<h4 id="标签和过滤"><a class="header-anchor" href="#标签和过滤">¶</a>标签和过滤</h4>
+<h4 id="标签和过滤"><a class="header-anchor" href="#标签和过滤"></a>标签和过滤</h4>
 <p>可使用标签来注解方法或类。然后可使用 Maven POM 或 Gradle 构建脚本中的过滤器设置来过滤掉此测试。</p>
-<h5 id="使用-Maven-过滤"><a class="header-anchor" href="#使用-Maven-过滤">¶</a>使用 Maven 过滤</h5>
+<h5 id="使用-Maven-过滤"><a class="header-anchor" href="#使用-Maven-过滤"></a>使用 Maven 过滤</h5>
 <pre><code>&lt;build&gt;
     &lt;plugins&gt;
     .
@@ -4891,7 +4895,7 @@ Stream&lt;DynamicTest&gt; dynamicTestsFromStream() {
     &lt;/plugins&gt;
 &lt;/build&gt;
 </code></pre>
-<h5 id="使用-Gradle-过滤"><a class="header-anchor" href="#使用-Gradle-过滤">¶</a>使用 Gradle 过滤</h5>
+<h5 id="使用-Gradle-过滤"><a class="header-anchor" href="#使用-Gradle-过滤"></a>使用 Gradle 过滤</h5>
 <pre><code>junitPlatform {
   filters {
     engines {
@@ -4903,7 +4907,7 @@ Stream&lt;DynamicTest&gt; dynamicTestsFromStream() {
   logManager 'org.apache.logging.log4j.jul.LogManager'
 }
 </code></pre>
-<h3 id="参考"><a class="header-anchor" href="#参考">¶</a>参考</h3>
+<h3 id="参考"><a class="header-anchor" href="#参考"></a>参考</h3>
 <ul>
 <li><a href="https://github.com/DanielHit/myblog/blob/7382d6931fa2f8141173ac100db0db5abebcb1e2/source/_posts/Junit5%20%E7%94%A8%E6%88%B7%E6%89%8B%E5%86%8C.md" target="_blank" rel="noopener">Junit5 用户手册</a></li>
 <li><a href="https://www.ibm.com/developerworks/cn/java/j-introducing-junit5-part1-jupiter-api/index.html" target="_blank" rel="noopener">JUnit 5 简介，第 1 部分:JUnit 5 Jupiter API</a></li>
@@ -4914,6 +4918,7 @@ Stream&lt;DynamicTest&gt; dynamicTestsFromStream() {
 
 	</div>
 	<div id="footer">
+	<p>
 	©2019-<span id="footerYear"></span> 
 	<a href="/">Wu Jun</a> 
 	|
@@ -4926,7 +4931,9 @@ Stream&lt;DynamicTest&gt; dynamicTestsFromStream() {
 		uv
 		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	<br>
 	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
+	</p>
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';

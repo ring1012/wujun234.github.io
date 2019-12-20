@@ -11,14 +11,14 @@
 	
 		1 Stream | 
 	 
-	吴俊的博客
+	WuJun Blog
 	</title>
 	
 	<!-- keywords,description -->
 	
 		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
 	 
-		<meta name="description" content="吴俊的博客,wujun234" />
+		<meta name="description" content="吴俊,wujun234,wujun,wu jun" />
 	
 
 	<!-- favicon -->
@@ -29,7 +29,7 @@
 
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
-	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
+	<link rel="stylesheet" href="/lib/highlight/darcula.css">
 
 	<script src="/lib/highlight/highlight.pack.js"></script>
 	<script src="/lib/jquery-3.4.1.min.js"></script>
@@ -40,16 +40,19 @@
 
 <body>
 	<header id="header">
-    <a id="title" href="/" class="logo">吴俊的博客</a>
+    <a id="title" href="/" class="logo">WuJun Blog</a>
 
 	<ul id="menu">
 		<li class="menu-item">
-			<a href="/about" class="menu-item-link">关于</a>
+			<a href="/" class="menu-item-link">HOME</a>
+		</li>
+		<li class="menu-item">
+			<a href="/about" class="menu-item-link">ABOUT</a>
 		</li>
 		
 		<li class="menu-item">
 			<a href="https://github.com/wujun234/uid-generator-spring-boot-starter" class="menu-item-link" target="_blank">
-				uid-generator
+				UidGenerator
 			</a>
 		</li>
 		<li class="menu-item">
@@ -60,10 +63,11 @@
 	</ul>
 </header>
 
-	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-bars" aria-hidden="true"></i></button>
+	
 <div id="sidebar">
-	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">站点目录</a>
-	<a herf="#" id="sidebar-article" class="sidebar-toc">文章目录</a>
+	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-arrow-right " aria-hidden="true"></i></button>
+	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">SITE MENU</a>
+	<a herf="#" id="sidebar-article" class="sidebar-toc">ARTICLE MENU</a>
 
 	<!-- 侧边目录栏 -->
 	<div id="site-toc">
@@ -1892,8 +1896,8 @@
 			
 							<ul>
 								<li class="file">
-									<a href="/2019/12/18/01%20Spring/04%20Web/4%20Jsonp/">
-										4 Jsonp
+									<a href="/2019/12/18/01%20Spring/04%20Web/4%20%E8%B7%A8%E5%9F%9F/">
+										4 跨域
 									</a>
 								</li>
 							</ul>
@@ -4402,14 +4406,14 @@
 	<p>Java 8 中的 Stream 是对集合对象功能的增强，像一个高级版本的Iterator，专注于对集合对象进行各种非常便利、高效的聚合操作，或者大批量数据操作。</p>
 <p>Stream 单向，不可往复，数据源本身可以是无限的。<br>
 所有 Stream 的操作必须以 lambda 表达式为参数。</p>
-<h4 id="1-Stream-的构造"><a class="header-anchor" href="#1-Stream-的构造">¶</a>1 Stream 的构造</h4>
-<h5 id="1-1-数值型"><a class="header-anchor" href="#1-1-数值型">¶</a>1.1 数值型</h5>
+<h4 id="1-Stream-的构造"><a class="header-anchor" href="#1-Stream-的构造"></a>1 Stream 的构造</h4>
+<h5 id="1-1-数值型"><a class="header-anchor" href="#1-1-数值型"></a>1.1 数值型</h5>
 <p>对于基本数值型，特别提供了三种对应的包装类型 Stream：IntStream、LongStream、DoubleStream。</p>
 <pre><code>IntStream.of(new int[]{1, 2, 3}).forEach(System.out::println);
 IntStream.range(1, 3).forEach(System.out::println);
 IntStream.rangeClosed(1, 3).forEach(System.out::println);
 </code></pre>
-<h5 id="1-2-Collection-和数组"><a class="header-anchor" href="#1-2-Collection-和数组">¶</a>1.2 Collection 和数组</h5>
+<h5 id="1-2-Collection-和数组"><a class="header-anchor" href="#1-2-Collection-和数组"></a>1.2 Collection 和数组</h5>
 <ul>
 <li>Collection.stream()</li>
 <li>Collection.parallelStream()</li>
@@ -4426,17 +4430,17 @@ stream = Arrays.stream(strArray);
 List&lt;String&gt; list = Arrays.asList(strArray);
 stream = list.stream();
 </code></pre>
-<h5 id="1-3-BufferedReader"><a class="header-anchor" href="#1-3-BufferedReader">¶</a>1.3 BufferedReader</h5>
+<h5 id="1-3-BufferedReader"><a class="header-anchor" href="#1-3-BufferedReader"></a>1.3 BufferedReader</h5>
 <ul>
 <li>java.io.BufferedReader.lines()</li>
 </ul>
-<h5 id="1-4-静态工厂"><a class="header-anchor" href="#1-4-静态工厂">¶</a>1.4 静态工厂</h5>
+<h5 id="1-4-静态工厂"><a class="header-anchor" href="#1-4-静态工厂"></a>1.4 静态工厂</h5>
 <ul>
 <li>java.util.stream.IntStream.range()</li>
 <li>java.nio.file.Files.walk()</li>
 <li>java.nio.file.Files.lines()</li>
 </ul>
-<h5 id="1-5-自己构建"><a class="header-anchor" href="#1-5-自己构建">¶</a>1.5 自己构建</h5>
+<h5 id="1-5-自己构建"><a class="header-anchor" href="#1-5-自己构建"></a>1.5 自己构建</h5>
 <ul>
 <li>java.util.Spliterator</li>
 <li>Stream.generate<br>
@@ -4456,27 +4460,27 @@ limit(10).forEach(System.out::println);
 <pre><code>Stream.iterate(0, n -&gt; n + 3).limit(10). forEach(x -&gt; System.out.print(x + &quot; &quot;));
 //0 3 6 9 12 15 18 21 24 27
 </code></pre>
-<h5 id="1-6-其它"><a class="header-anchor" href="#1-6-其它">¶</a>1.6 其它</h5>
+<h5 id="1-6-其它"><a class="header-anchor" href="#1-6-其它"></a>1.6 其它</h5>
 <ul>
 <li>Random.ints()</li>
 <li>BitSet.stream()</li>
 <li>Pattern.splitAsStream(java.lang.CharSequence)</li>
 <li>JarFile.stream()</li>
 </ul>
-<h4 id="2-操作类型"><a class="header-anchor" href="#2-操作类型">¶</a>2 操作类型</h4>
-<h5 id="2-1-转换操作（Intermediate）"><a class="header-anchor" href="#2-1-转换操作（Intermediate）">¶</a>2.1 转换操作（Intermediate）</h5>
+<h4 id="2-操作类型"><a class="header-anchor" href="#2-操作类型"></a>2 操作类型</h4>
+<h5 id="2-1-转换操作（Intermediate）"><a class="header-anchor" href="#2-1-转换操作（Intermediate）"></a>2.1 转换操作（Intermediate）</h5>
 <p>一个流可以后面跟随零个或多转换操作。打开流，操作数据，返回一个新的流。这类操作都是惰性化的（lazy），仅仅调用到，并没有真正开始流的遍历。</p>
 <blockquote>
 <p>map (mapToInt, flatMap 等)、 filter、 distinct、 sorted、 peek、 limit、 skip、 parallel、 sequential、 unordered</p>
 </blockquote>
-<h5 id="2-2-最终操作（Terminal）"><a class="header-anchor" href="#2-2-最终操作（Terminal）">¶</a>2.2 最终操作（Terminal）</h5>
+<h5 id="2-2-最终操作（Terminal）"><a class="header-anchor" href="#2-2-最终操作（Terminal）"></a>2.2 最终操作（Terminal）</h5>
 <p>一个流只能有一个最终操作，必定是流的最后一个操作。Terminal 操作的执行，才会真正开始流的遍历，并且会生成一个结果，或者一个 side effect。</p>
 <blockquote>
 <p>forEach、 forEachOrdered、 toArray、 reduce、 collect、 min、 max、 count、 anyMatch、 allMatch、 noneMatch、 findFirst、 findAny、 iterator</p>
 </blockquote>
-<h6 id="遍历次数"><a class="header-anchor" href="#遍历次数">¶</a>遍历次数</h6>
+<h6 id="遍历次数"><a class="header-anchor" href="#遍历次数"></a>遍历次数</h6>
 <p>Stream 里有个操作函数的集合，每次转换操作就是把转换函数放入这个集合中，在 Terminal 操作的时候循环 Stream 对应的集合，然后对每个元素执行所有的函数。</p>
-<h5 id="2-3-short-circuiting操作"><a class="header-anchor" href="#2-3-short-circuiting操作">¶</a>2.3 short-circuiting操作</h5>
+<h5 id="2-3-short-circuiting操作"><a class="header-anchor" href="#2-3-short-circuiting操作"></a>2.3 short-circuiting操作</h5>
 <ul>
 <li>对于一个 intermediate 操作，如果它接受的是一个无限大（infinite/unbounded）的 Stream，但返回一个有限的新 Stream。</li>
 <li>对于一个 terminal 操作，如果它接受的是一个无限大的 Stream，但能在有限的时间计算出结果。</li>
@@ -4484,8 +4488,8 @@ limit(10).forEach(System.out::println);
 <blockquote>
 <p>anyMatch、 allMatch、 noneMatch、 findFirst、 findAny、 limit</p>
 </blockquote>
-<h4 id="3-典型用法"><a class="header-anchor" href="#3-典型用法">¶</a>3 典型用法</h4>
-<h5 id="3-1-转换结构"><a class="header-anchor" href="#3-1-转换结构">¶</a>3.1 转换结构</h5>
+<h4 id="3-典型用法"><a class="header-anchor" href="#3-典型用法"></a>3 典型用法</h4>
+<h5 id="3-1-转换结构"><a class="header-anchor" href="#3-1-转换结构"></a>3.1 转换结构</h5>
 <ol>
 <li>Array</li>
 </ol>
@@ -4504,7 +4508,7 @@ Stack stack1 = stream.collect(Collectors.toCollection(Stack::new));
 </ol>
 <pre><code>String str = stream.collect(Collectors.joining()).toString();
 </code></pre>
-<h5 id="3-2-映射"><a class="header-anchor" href="#3-2-映射">¶</a>3.2 映射</h5>
+<h5 id="3-2-映射"><a class="header-anchor" href="#3-2-映射"></a>3.2 映射</h5>
 <p>把 input Stream 的每一个元素，映射成 output Stream 的另外一个元素。</p>
 <ol>
 <li>map/flatMap<br>
@@ -4526,7 +4530,7 @@ collect(Collectors.toList());
 Stream&lt;Integer&gt; outputStream = inputStream.
 flatMap((childList) -&gt; childList.stream());//1，2，3，4，5，6
 </code></pre>
-<h5 id="3-3-筛选"><a class="header-anchor" href="#3-3-筛选">¶</a>3.3 筛选</h5>
+<h5 id="3-3-筛选"><a class="header-anchor" href="#3-3-筛选"></a>3.3 筛选</h5>
 <ol>
 <li>filter<br>
 filter 对原始 Stream 进行某项测试，通过测试的元素被留下来生成一个新 Stream。</li>
@@ -4540,7 +4544,7 @@ Stream.of(sixNums).filter(n -&gt; n%2 == 0).toArray(Integer[]::new);
 <li>findFirst/limit/skip</li>
 <li>min/max/distinct</li>
 </ol>
-<h5 id="3-4-遍历"><a class="header-anchor" href="#3-4-遍历">¶</a>3.4 遍历</h5>
+<h5 id="3-4-遍历"><a class="header-anchor" href="#3-4-遍历"></a>3.4 遍历</h5>
 <ol>
 <li>forEach<br>
 terminal 操作。<br>
@@ -4568,11 +4572,11 @@ intermediate 操作</li>
  .peek(e -&gt; System.out.println(&quot;Mapped value: &quot; + e))
  .collect(Collectors.toList());
 </code></pre>
-<h5 id="3-5-排序"><a class="header-anchor" href="#3-5-排序">¶</a>3.5 排序</h5>
+<h5 id="3-5-排序"><a class="header-anchor" href="#3-5-排序"></a>3.5 排序</h5>
 <p>sorted</p>
 <pre><code>List&lt;Person&gt; personList2 = persons.stream().limit(2).sorted((p1, p2) -&gt; p1.getName().compareTo(p2.getName())).collect(Collectors.toList());
 </code></pre>
-<h5 id="3-6-reduce"><a class="header-anchor" href="#3-6-reduce">¶</a>3.6 reduce</h5>
+<h5 id="3-6-reduce"><a class="header-anchor" href="#3-6-reduce"></a>3.6 reduce</h5>
 <pre><code>// 字符串连接，concat = &quot;ABCD&quot;
 String concat = Stream.of(&quot;A&quot;, &quot;B&quot;, &quot;C&quot;, &quot;D&quot;).reduce(&quot;&quot;, String::concat); 
 // 求最小值，minValue = -3.0
@@ -4586,20 +4590,20 @@ concat = Stream.of(&quot;a&quot;, &quot;B&quot;, &quot;c&quot;, &quot;D&quot;, &
  filter(x -&gt; x.compareTo(&quot;Z&quot;) &gt; 0).
  reduce(&quot;&quot;, String::concat);
 </code></pre>
-<h5 id="3-7-匹配"><a class="header-anchor" href="#3-7-匹配">¶</a>3.7 匹配</h5>
+<h5 id="3-7-匹配"><a class="header-anchor" href="#3-7-匹配"></a>3.7 匹配</h5>
 <ul>
 <li>allMatch：Stream 中全部元素符合传入的 predicate，返回 true</li>
 <li>anyMatch：Stream 中只要有一个元素符合传入的 predicate，返回 true</li>
 <li>noneMatch：Stream 中没有一个元素符合传入的 predicate，返回 true</li>
 </ul>
-<h5 id="3-8-分组"><a class="header-anchor" href="#3-8-分组">¶</a>3.8 分组</h5>
+<h5 id="3-8-分组"><a class="header-anchor" href="#3-8-分组"></a>3.8 分组</h5>
 <p>Collectors类，groupingBy</p>
 <pre><code>final Map&lt; Status, List&lt; Task &gt; &gt; map = tasks
     .stream()
     .collect( Collectors.groupingBy( Task::getStatus ) );
 //{CLOSED=[[CLOSED, 8]], OPEN=[[OPEN, 5], [OPEN, 13]]}
 </code></pre>
-<h5 id="3-9-归组"><a class="header-anchor" href="#3-9-归组">¶</a>3.9 归组</h5>
+<h5 id="3-9-归组"><a class="header-anchor" href="#3-9-归组"></a>3.9 归组</h5>
 <p>Collectors类，partitioningBy</p>
 <pre><code>Map&lt;Boolean, List&lt;Person&gt;&gt; children = Stream.generate(new PersonSupplier()).
  limit(100).
@@ -4607,7 +4611,7 @@ concat = Stream.of(&quot;a&quot;, &quot;B&quot;, &quot;c&quot;, &quot;D&quot;, &
 System.out.println(&quot;Children number: &quot; + children.get(true).size());//Children number: 23 
 System.out.println(&quot;Adult number: &quot; + children.get(false).size());//Adult number: 77
 </code></pre>
-<h5 id="3-10-I-O操作"><a class="header-anchor" href="#3-10-I-O操作">¶</a>3.10 I/O操作</h5>
+<h5 id="3-10-I-O操作"><a class="header-anchor" href="#3-10-I-O操作"></a>3.10 I/O操作</h5>
 <p>Stream API不仅仅处理Java集合框架。像从文本文件中逐行读取数据这样典型的I/O操作也很适合用Stream API来处理。</p>
 <pre><code>final Path path = new File( filename ).toPath();
 try( Stream&lt; String &gt; lines = Files.lines( path, StandardCharsets.UTF_8 ) ) {
@@ -4625,6 +4629,7 @@ try( Stream&lt; String &gt; lines = Files.lines( path, StandardCharsets.UTF_8 ) 
 
 	</div>
 	<div id="footer">
+	<p>
 	©2019-<span id="footerYear"></span> 
 	<a href="/">Wu Jun</a> 
 	|
@@ -4637,7 +4642,9 @@ try( Stream&lt; String &gt; lines = Files.lines( path, StandardCharsets.UTF_8 ) 
 		uv
 		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	<br>
 	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
+	</p>
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';

@@ -11,14 +11,14 @@
 	
 		08 重新组织数据 | 
 	 
-	吴俊的博客
+	WuJun Blog
 	</title>
 	
 	<!-- keywords,description -->
 	
 		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
 	 
-		<meta name="description" content="吴俊的博客,wujun234" />
+		<meta name="description" content="吴俊,wujun234,wujun,wu jun" />
 	
 
 	<!-- favicon -->
@@ -29,7 +29,7 @@
 
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
-	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
+	<link rel="stylesheet" href="/lib/highlight/darcula.css">
 
 	<script src="/lib/highlight/highlight.pack.js"></script>
 	<script src="/lib/jquery-3.4.1.min.js"></script>
@@ -40,16 +40,19 @@
 
 <body>
 	<header id="header">
-    <a id="title" href="/" class="logo">吴俊的博客</a>
+    <a id="title" href="/" class="logo">WuJun Blog</a>
 
 	<ul id="menu">
 		<li class="menu-item">
-			<a href="/about" class="menu-item-link">关于</a>
+			<a href="/" class="menu-item-link">HOME</a>
+		</li>
+		<li class="menu-item">
+			<a href="/about" class="menu-item-link">ABOUT</a>
 		</li>
 		
 		<li class="menu-item">
 			<a href="https://github.com/wujun234/uid-generator-spring-boot-starter" class="menu-item-link" target="_blank">
-				uid-generator
+				UidGenerator
 			</a>
 		</li>
 		<li class="menu-item">
@@ -60,10 +63,11 @@
 	</ul>
 </header>
 
-	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-bars" aria-hidden="true"></i></button>
+	
 <div id="sidebar">
-	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">站点目录</a>
-	<a herf="#" id="sidebar-article" class="sidebar-toc">文章目录</a>
+	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-arrow-right " aria-hidden="true"></i></button>
+	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">SITE MENU</a>
+	<a herf="#" id="sidebar-article" class="sidebar-toc">ARTICLE MENU</a>
 
 	<!-- 侧边目录栏 -->
 	<div id="site-toc">
@@ -1892,8 +1896,8 @@
 			
 							<ul>
 								<li class="file">
-									<a href="/2019/12/18/01%20Spring/04%20Web/4%20Jsonp/">
-										4 Jsonp
+									<a href="/2019/12/18/01%20Spring/04%20Web/4%20%E8%B7%A8%E5%9F%9F/">
+										4 跨域
 									</a>
 								</li>
 							</ul>
@@ -4419,7 +4423,7 @@
 <li><a href="#16-replace-subclass-with-fields-%E4%BB%A5%E5%AD%97%E6%AE%B5%E5%8F%96%E4%BB%A3%E5%AD%90%E7%B1%BB">16 Replace Subclass with Fields 以字段取代子类</a></li>
 </ul>
 <!-- /TOC -->
-<h3 id="1-Self-Encapsulate-Filed-自封装字段"><a class="header-anchor" href="#1-Self-Encapsulate-Filed-自封装字段">¶</a>1 Self Encapsulate Filed 自封装字段</h3>
+<h3 id="1-Self-Encapsulate-Filed-自封装字段"><a class="header-anchor" href="#1-Self-Encapsulate-Filed-自封装字段"></a>1 Self Encapsulate Filed 自封装字段</h3>
 <ol>
 <li>
 <p>你直接访问一个字段, 但是与字段之间的耦合关系变得笨拙, 降低字段访问权限, 为这个字段建立取值/设值函数, 并且只以这些函数来访问这些字段.</p>
@@ -4434,7 +4438,7 @@
 <p>注意不要再构造函数中使用设值函数</p>
 </li>
 </ol>
-<h3 id="2-Replace-Data-Value-with-Object-以对象取代数据值"><a class="header-anchor" href="#2-Replace-Data-Value-with-Object-以对象取代数据值">¶</a>2 Replace Data Value with Object 以对象取代数据值</h3>
+<h3 id="2-Replace-Data-Value-with-Object-以对象取代数据值"><a class="header-anchor" href="#2-Replace-Data-Value-with-Object-以对象取代数据值"></a>2 Replace Data Value with Object 以对象取代数据值</h3>
 <ol>
 <li>
 <p>你有一个数据项，需要与其他数据和行为一起使用才有意义. 将数据项变成对象.</p>
@@ -4443,28 +4447,28 @@
 <p>值对象应该是不可修改内容的, 这可以避免一些别名问题.</p>
 </li>
 </ol>
-<h3 id="3-Change-Value-to-Reference-将值对象改为引用对象"><a class="header-anchor" href="#3-Change-Value-to-Reference-将值对象改为引用对象">¶</a>3 Change Value to Reference 将值对象改为引用对象</h3>
+<h3 id="3-Change-Value-to-Reference-将值对象改为引用对象"><a class="header-anchor" href="#3-Change-Value-to-Reference-将值对象改为引用对象"></a>3 Change Value to Reference 将值对象改为引用对象</h3>
 <ol>
 <li>你从一个类衍生出许多彼此相等的实例，希望将它们替换为同一个对象, 将这个值对象变成引用对象.</li>
 </ol>
-<h3 id="4-Change-Reference-to-Value-将引用对象改为值对象"><a class="header-anchor" href="#4-Change-Reference-to-Value-将引用对象改为值对象">¶</a>4 Change Reference to Value 将引用对象改为值对象</h3>
+<h3 id="4-Change-Reference-to-Value-将引用对象改为值对象"><a class="header-anchor" href="#4-Change-Reference-to-Value-将引用对象改为值对象"></a>4 Change Reference to Value 将引用对象改为值对象</h3>
 <ol>
 <li>你有一个引用对象，很小且不可变，而且不易管理, 将它变成值对象.</li>
 </ol>
-<h3 id="5-Replace-Array-with-Object-以对象取代数组"><a class="header-anchor" href="#5-Replace-Array-with-Object-以对象取代数组">¶</a>5 Replace Array with Object 以对象取代数组</h3>
+<h3 id="5-Replace-Array-with-Object-以对象取代数组"><a class="header-anchor" href="#5-Replace-Array-with-Object-以对象取代数组"></a>5 Replace Array with Object 以对象取代数组</h3>
 <ol>
 <li>你有一个数组，其中的元素各自代表不同的东西, 以对象替换数组，其中的数组中的每个元素，以一个字段来表示, 数组应该用于容纳一组有序的相似的对象.</li>
 </ol>
-<h3 id="6-Duplicate-Observed-Data-复制-被监视数据"><a class="header-anchor" href="#6-Duplicate-Observed-Data-复制-被监视数据">¶</a>6 Duplicate Observed Data 复制&quot;被监视数据&quot;</h3>
+<h3 id="6-Duplicate-Observed-Data-复制-被监视数据"><a class="header-anchor" href="#6-Duplicate-Observed-Data-复制-被监视数据"></a>6 Duplicate Observed Data 复制&quot;被监视数据&quot;</h3>
 <p>你有一些领域数据置身于GUI控件中，而领域函数需要访问这些数据.</p>
 <p>思路: 将该数据复制到一个领域对象中.建立一个Observer模式，用以同步领域对象和GUI对象内的重要数据.</p>
-<h3 id="7-Change-Unidirectional-Association-to-Bidirectional-将单向关联改为双向关联"><a class="header-anchor" href="#7-Change-Unidirectional-Association-to-Bidirectional-将单向关联改为双向关联">¶</a>7 Change Unidirectional Association to Bidirectional 将单向关联改为双向关联</h3>
+<h3 id="7-Change-Unidirectional-Association-to-Bidirectional-将单向关联改为双向关联"><a class="header-anchor" href="#7-Change-Unidirectional-Association-to-Bidirectional-将单向关联改为双向关联"></a>7 Change Unidirectional Association to Bidirectional 将单向关联改为双向关联</h3>
 <p>两个类都需要使用双方特性，但其间只有一条单向连接.</p>
 <p>思路: 添加一个反向指针，并使修改函数能够同时更新两条连接.</p>
-<h3 id="8-Change-Bidirectional-Association-to-Unidirectional-将双向关联改为单向关联"><a class="header-anchor" href="#8-Change-Bidirectional-Association-to-Unidirectional-将双向关联改为单向关联">¶</a>8 Change Bidirectional Association to Unidirectional 将双向关联改为单向关联</h3>
+<h3 id="8-Change-Bidirectional-Association-to-Unidirectional-将双向关联改为单向关联"><a class="header-anchor" href="#8-Change-Bidirectional-Association-to-Unidirectional-将双向关联改为单向关联"></a>8 Change Bidirectional Association to Unidirectional 将双向关联改为单向关联</h3>
 <p>两个类之间有双向关联，但其中一个类如今不再需要另一个类的特性.</p>
 <p>思路: 去除不必要的关联.</p>
-<h3 id="9-Replace-Magic-Number-with-Symbolic-Constant-以字面常量取代魔法数"><a class="header-anchor" href="#9-Replace-Magic-Number-with-Symbolic-Constant-以字面常量取代魔法数">¶</a>9 Replace Magic Number with Symbolic Constant 以字面常量取代魔法数</h3>
+<h3 id="9-Replace-Magic-Number-with-Symbolic-Constant-以字面常量取代魔法数"><a class="header-anchor" href="#9-Replace-Magic-Number-with-Symbolic-Constant-以字面常量取代魔法数"></a>9 Replace Magic Number with Symbolic Constant 以字面常量取代魔法数</h3>
 <ol>
 <li>
 <p>你有一个字面数值，带有特别含义, 创造一个常量，根据其意义为它命名，并将上述的字面数值替换为这个常量.</p>
@@ -4473,7 +4477,7 @@
 <p>可将常量提取到常量类中.</p>
 </li>
 </ol>
-<h3 id="10-Encapsulate-Field-封装字段"><a class="header-anchor" href="#10-Encapsulate-Field-封装字段">¶</a>10 Encapsulate Field 封装字段</h3>
+<h3 id="10-Encapsulate-Field-封装字段"><a class="header-anchor" href="#10-Encapsulate-Field-封装字段"></a>10 Encapsulate Field 封装字段</h3>
 <ol>
 <li>
 <p>你的类中存在一个 public 字段, 将它声明为private, 并提供相应的访问函数.</p>
@@ -4488,7 +4492,7 @@
 <p>如果这个字段是各对象, 而客户端只不过是调用该对象的函数, 那么该函数是否改变对象的状态, 都只能算是读取该字段, 只有客户端为该字段重新赋值时, 才能将其替换为设值函数.</p>
 </li>
 </ol>
-<h3 id="11-Encapsulate-Collection-封装集合"><a class="header-anchor" href="#11-Encapsulate-Collection-封装集合">¶</a>11 Encapsulate Collection 封装集合</h3>
+<h3 id="11-Encapsulate-Collection-封装集合"><a class="header-anchor" href="#11-Encapsulate-Collection-封装集合"></a>11 Encapsulate Collection 封装集合</h3>
 <p>有一个函数返回一个集合.</p>
 <p>思路: 让这个函数返回该集合的一个<font color=red>只读副本</font>，并在这个类中提供添加/移除集合元素的函数.</p>
 <p>动机:</p>
@@ -4496,20 +4500,20 @@
 <p>但是，集合的处理方式应该和其他种类的数据略有不同.<font color=red>取值函数不该返回集合自身，因为这会让用户得以修改集合内容而集合拥有者却一无所悉.这也会对用户暴露过多对象内部数据结构的信息</font>.如果一个取值函数确实需要返回多个值，它应该避免用户直接操作对象内所保存的集合，并隐藏对象内与用户无关的数据结构.至于如何做到这一点，视你使用的 Java 版本不同而有所不同.</p>
 <p>另外，不应该为这整个集合提供一个设值函数，但应该提供用以为集合添加/移除元素的函数.这样，集合拥有者(对象)就可以控制元素的添加和移除.</p>
 <p>如果你做到以上几点，集合就可以很好地封装起来了，这便可以降低集合拥有者和用户之间的耦合度.</p>
-<h3 id="12-Replace-Record-with-Data-Class-以数据类取代记录"><a class="header-anchor" href="#12-Replace-Record-with-Data-Class-以数据类取代记录">¶</a>12 Replace Record with Data Class 以数据类取代记录</h3>
+<h3 id="12-Replace-Record-with-Data-Class-以数据类取代记录"><a class="header-anchor" href="#12-Replace-Record-with-Data-Class-以数据类取代记录"></a>12 Replace Record with Data Class 以数据类取代记录</h3>
 <ol>
 <li>你需要面对传统编程环境中的记录结构, 为该记录创建一个&quot;哑&quot;数据对象.</li>
 </ol>
-<h3 id="13-Replace-Type-Code-with-Class-以类取代类型码"><a class="header-anchor" href="#13-Replace-Type-Code-with-Class-以类取代类型码">¶</a>13 Replace Type Code with Class 以类取代类型码</h3>
+<h3 id="13-Replace-Type-Code-with-Class-以类取代类型码"><a class="header-anchor" href="#13-Replace-Type-Code-with-Class-以类取代类型码"></a>13 Replace Type Code with Class 以类取代类型码</h3>
 <p>类之中有一个数值类型码，但它并不影响类的行为.</p>
 <p>思路:<strong>以一个新的类替换该数值类型码</strong>.</p>
-<h3 id="14-Replace-Type-Code-with-Subclasses-以子类取代类型码"><a class="header-anchor" href="#14-Replace-Type-Code-with-Subclasses-以子类取代类型码">¶</a>14 Replace Type Code with Subclasses 以子类取代类型码</h3>
+<h3 id="14-Replace-Type-Code-with-Subclasses-以子类取代类型码"><a class="header-anchor" href="#14-Replace-Type-Code-with-Subclasses-以子类取代类型码"></a>14 Replace Type Code with Subclasses 以子类取代类型码</h3>
 <p>你有一个<font color=red>不可变</font>的类型码，它会影响类的行为.</p>
 <p>思路: <strong>以子类取代这个类型码</strong>.</p>
-<h3 id="15-Replace-Type-Code-with-State-Strategy-以-State-Strategy-取代类型码"><a class="header-anchor" href="#15-Replace-Type-Code-with-State-Strategy-以-State-Strategy-取代类型码">¶</a>15 Replace Type Code with State/Strategy 以 State/Strategy 取代类型码</h3>
+<h3 id="15-Replace-Type-Code-with-State-Strategy-以-State-Strategy-取代类型码"><a class="header-anchor" href="#15-Replace-Type-Code-with-State-Strategy-以-State-Strategy-取代类型码"></a>15 Replace Type Code with State/Strategy 以 State/Strategy 取代类型码</h3>
 <p>你有一个类型码，它会影响类的行为，但你无法通过集成手法消除它.</p>
 <p>思路: <strong>以状态对象取代类型码</strong>.</p>
-<h3 id="16-Replace-Subclass-with-Fields-以字段取代子类"><a class="header-anchor" href="#16-Replace-Subclass-with-Fields-以字段取代子类">¶</a>16 Replace Subclass with Fields 以字段取代子类</h3>
+<h3 id="16-Replace-Subclass-with-Fields-以字段取代子类"><a class="header-anchor" href="#16-Replace-Subclass-with-Fields-以字段取代子类"></a>16 Replace Subclass with Fields 以字段取代子类</h3>
 <p>你的各个子类的唯一差别只在&quot;返回常量数据&quot;的函数身上.</p>
 <p>思路: <strong>修改这些函数，使它们返回超类中的某个(新增)字段，然后销毁子类.</strong></p>
 <p>动机:</p>
@@ -4520,6 +4524,7 @@
 
 	</div>
 	<div id="footer">
+	<p>
 	©2019-<span id="footerYear"></span> 
 	<a href="/">Wu Jun</a> 
 	|
@@ -4532,7 +4537,9 @@
 		uv
 		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	<br>
 	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
+	</p>
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';

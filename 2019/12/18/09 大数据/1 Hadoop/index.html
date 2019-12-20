@@ -11,14 +11,14 @@
 	
 		1 Hadoop | 
 	 
-	吴俊的博客
+	WuJun Blog
 	</title>
 	
 	<!-- keywords,description -->
 	
 		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
 	 
-		<meta name="description" content="吴俊的博客,wujun234" />
+		<meta name="description" content="吴俊,wujun234,wujun,wu jun" />
 	
 
 	<!-- favicon -->
@@ -29,7 +29,7 @@
 
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
-	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
+	<link rel="stylesheet" href="/lib/highlight/darcula.css">
 
 	<script src="/lib/highlight/highlight.pack.js"></script>
 	<script src="/lib/jquery-3.4.1.min.js"></script>
@@ -40,16 +40,19 @@
 
 <body>
 	<header id="header">
-    <a id="title" href="/" class="logo">吴俊的博客</a>
+    <a id="title" href="/" class="logo">WuJun Blog</a>
 
 	<ul id="menu">
 		<li class="menu-item">
-			<a href="/about" class="menu-item-link">关于</a>
+			<a href="/" class="menu-item-link">HOME</a>
+		</li>
+		<li class="menu-item">
+			<a href="/about" class="menu-item-link">ABOUT</a>
 		</li>
 		
 		<li class="menu-item">
 			<a href="https://github.com/wujun234/uid-generator-spring-boot-starter" class="menu-item-link" target="_blank">
-				uid-generator
+				UidGenerator
 			</a>
 		</li>
 		<li class="menu-item">
@@ -60,10 +63,11 @@
 	</ul>
 </header>
 
-	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-bars" aria-hidden="true"></i></button>
+	
 <div id="sidebar">
-	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">站点目录</a>
-	<a herf="#" id="sidebar-article" class="sidebar-toc">文章目录</a>
+	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-arrow-right " aria-hidden="true"></i></button>
+	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">SITE MENU</a>
+	<a herf="#" id="sidebar-article" class="sidebar-toc">ARTICLE MENU</a>
 
 	<!-- 侧边目录栏 -->
 	<div id="site-toc">
@@ -1892,8 +1896,8 @@
 			
 							<ul>
 								<li class="file">
-									<a href="/2019/12/18/01%20Spring/04%20Web/4%20Jsonp/">
-										4 Jsonp
+									<a href="/2019/12/18/01%20Spring/04%20Web/4%20%E8%B7%A8%E5%9F%9F/">
+										4 跨域
 									</a>
 								</li>
 							</ul>
@@ -4399,7 +4403,7 @@
 
 
 <div id="article">
-	<h3 id="1-整体框架"><a class="header-anchor" href="#1-整体框架">¶</a>1 整体框架</h3>
+	<h3 id="1-整体框架"><a class="header-anchor" href="#1-整体框架"></a>1 整体框架</h3>
 <p><img src="/images/1556100016561.png" alt="image"></p>
 <ul>
 <li>HDFS: 分布式文件存储</li>
@@ -4407,34 +4411,34 @@
 <li>MapReduce: 批处理。分布式计算</li>
 <li>Others: 利用YARN的资源管理功能实现其他的数据处理方式</li>
 </ul>
-<h3 id="生态系统"><a class="header-anchor" href="#生态系统">¶</a>生态系统</h3>
+<h3 id="生态系统"><a class="header-anchor" href="#生态系统"></a>生态系统</h3>
 <p><img src="/images/1556100018209.jpg" alt=""></p>
-<h5 id="数据格式"><a class="header-anchor" href="#数据格式">¶</a>数据格式</h5>
+<h5 id="数据格式"><a class="header-anchor" href="#数据格式"></a>数据格式</h5>
 <ul>
 <li>Avro：序列化数据</li>
 <li>Parquet</li>
 </ul>
-<h5 id="数据摄取"><a class="header-anchor" href="#数据摄取">¶</a>数据摄取</h5>
+<h5 id="数据摄取"><a class="header-anchor" href="#数据摄取"></a>数据摄取</h5>
 <ul>
 <li>Flume：日志收集</li>
 <li>Sqoop</li>
 </ul>
-<h5 id="数据处理"><a class="header-anchor" href="#数据处理">¶</a>数据处理</h5>
+<h5 id="数据处理"><a class="header-anchor" href="#数据处理"></a>数据处理</h5>
 <ul>
 <li>Pig：数据分析平台，抽象 MapReduce 脚本</li>
 <li>Hive：交互式SQL。将sql语句转换为MapReduce任务</li>
 <li>Crunch</li>
 <li>Spark：迭代处理。MapReduce 的优化，允许在内存中保存中间结果集</li>
 </ul>
-<h5 id="存储"><a class="header-anchor" href="#存储">¶</a>存储</h5>
+<h5 id="存储"><a class="header-anchor" href="#存储"></a>存储</h5>
 <ul>
 <li>HBase：分布式列式数据库</li>
 </ul>
-<h5 id="协作"><a class="header-anchor" href="#协作">¶</a>协作</h5>
+<h5 id="协作"><a class="header-anchor" href="#协作"></a>协作</h5>
 <ul>
 <li>ZooKeeper：协调系统</li>
 </ul>
-<h5 id="其他"><a class="header-anchor" href="#其他">¶</a>其他</h5>
+<h5 id="其他"><a class="header-anchor" href="#其他"></a>其他</h5>
 <ul>
 <li>Ambari：创建、管理、监视 Hadoop 的集群</li>
 <li>Mahout：机器学习框架</li>
@@ -4446,6 +4450,7 @@
 
 	</div>
 	<div id="footer">
+	<p>
 	©2019-<span id="footerYear"></span> 
 	<a href="/">Wu Jun</a> 
 	|
@@ -4458,7 +4463,9 @@
 		uv
 		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	<br>
 	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
+	</p>
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';

@@ -11,14 +11,14 @@
 	
 		7 Sqoop源码 -  从 MySQL 导入到 Hive | 
 	 
-	吴俊的博客
+	WuJun Blog
 	</title>
 	
 	<!-- keywords,description -->
 	
 		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
 	 
-		<meta name="description" content="吴俊的博客,wujun234" />
+		<meta name="description" content="吴俊,wujun234,wujun,wu jun" />
 	
 
 	<!-- favicon -->
@@ -29,7 +29,7 @@
 
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
-	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
+	<link rel="stylesheet" href="/lib/highlight/darcula.css">
 
 	<script src="/lib/highlight/highlight.pack.js"></script>
 	<script src="/lib/jquery-3.4.1.min.js"></script>
@@ -40,16 +40,19 @@
 
 <body>
 	<header id="header">
-    <a id="title" href="/" class="logo">吴俊的博客</a>
+    <a id="title" href="/" class="logo">WuJun Blog</a>
 
 	<ul id="menu">
 		<li class="menu-item">
-			<a href="/about" class="menu-item-link">关于</a>
+			<a href="/" class="menu-item-link">HOME</a>
+		</li>
+		<li class="menu-item">
+			<a href="/about" class="menu-item-link">ABOUT</a>
 		</li>
 		
 		<li class="menu-item">
 			<a href="https://github.com/wujun234/uid-generator-spring-boot-starter" class="menu-item-link" target="_blank">
-				uid-generator
+				UidGenerator
 			</a>
 		</li>
 		<li class="menu-item">
@@ -60,10 +63,11 @@
 	</ul>
 </header>
 
-	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-bars" aria-hidden="true"></i></button>
+	
 <div id="sidebar">
-	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">站点目录</a>
-	<a herf="#" id="sidebar-article" class="sidebar-toc">文章目录</a>
+	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-arrow-right " aria-hidden="true"></i></button>
+	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">SITE MENU</a>
+	<a herf="#" id="sidebar-article" class="sidebar-toc">ARTICLE MENU</a>
 
 	<!-- 侧边目录栏 -->
 	<div id="site-toc">
@@ -1892,8 +1896,8 @@
 			
 							<ul>
 								<li class="file">
-									<a href="/2019/12/18/01%20Spring/04%20Web/4%20Jsonp/">
-										4 Jsonp
+									<a href="/2019/12/18/01%20Spring/04%20Web/4%20%E8%B7%A8%E5%9F%9F/">
+										4 跨域
 									</a>
 								</li>
 							</ul>
@@ -4402,7 +4406,7 @@
 	<p>Sqoop 源码 ：<a href="https://github.com/apache/sqoop" target="_blank" rel="noopener">https://github.com/apache/sqoop</a><br>
 Sqoop 用户手册 ：<a href="http://sqoop.apache.org/docs/1.4.6/SqoopUserGuide.html" target="_blank" rel="noopener">http://sqoop.apache.org/docs/1.4.6/SqoopUserGuide.html</a><br>
 panther 上 Sqoop使用指南 ：<a href="https://docs.panther.sohurdc.com/bigdata/user-manual/workflow/task/sqoop.html" target="_blank" rel="noopener">https://docs.panther.sohurdc.com/bigdata/user-manual/workflow/task/sqoop.html</a></p>
-<h3 id="命令示例"><a class="header-anchor" href="#命令示例">¶</a>命令示例</h3>
+<h3 id="命令示例"><a class="header-anchor" href="#命令示例"></a>命令示例</h3>
 <p>Sqoop 从 MySQL 导入到 Hive 命令示例</p>
 <pre><code>sqoop import 
 --connect jdbc:mysql://10.18.54.58:3306/sapp 
@@ -4418,15 +4422,15 @@ panther 上 Sqoop使用指南 ：<a href="https://docs.panther.sohurdc.com/bigda
 --hive-table users_test 
 --hive-database autoapp
 </code></pre>
-<h3 id="总体流程"><a class="header-anchor" href="#总体流程">¶</a>总体流程</h3>
+<h3 id="总体流程"><a class="header-anchor" href="#总体流程"></a>总体流程</h3>
 <p><img src="/images/1569376640394.jpg" alt="image"></p>
-<h2 id="1、执行入口"><a class="header-anchor" href="#1、执行入口">¶</a>1、执行入口</h2>
+<h2 id="1、执行入口"><a class="header-anchor" href="#1、执行入口"></a>1、执行入口</h2>
 <p>首先查看sqoop命令中的第一个单词，<code>sqoop</code>，背后的执行过程。</p>
 <p><img src="/images/1568966023843.jpg" alt="image"></p>
-<h3 id="1）目录"><a class="header-anchor" href="#1）目录">¶</a>1）目录</h3>
+<h3 id="1）目录"><a class="header-anchor" href="#1）目录"></a>1）目录</h3>
 <p>主要关注 sqoop 源码的 bin 和 src 目录，bin 目录里是执行脚本，src 目录里是具体执行的 Java 源码。</p>
 <p><img src="/images/1568966025294.jpg" alt="image"></p>
-<h3 id="2）脚本入口"><a class="header-anchor" href="#2）脚本入口">¶</a>2）脚本入口</h3>
+<h3 id="2）脚本入口"><a class="header-anchor" href="#2）脚本入口"></a>2）脚本入口</h3>
 <p>sqoop 安装时已经配置好<code>${HADOOP_COMMON_HOME}</code>等变量，并且运行时需要启动 hadoop。</p>
 <p>sqoop 命令执行的是源码中的 bin/sqoop 文件，在 sqoop 文件的中：</p>
 <ul>
@@ -4436,16 +4440,16 @@ panther 上 Sqoop使用指南 ：<a href="https://docs.panther.sohurdc.com/bigda
 <li>最后使用 hadoop 命令，运行 org.apache.sqoop.Sqoop 类，并将 sqoop 命令后面的 <code>$@</code>所有参数传入。</li>
 </ul>
 <p><img src="/images/1568966025359.jpg" alt="image"></p>
-<h3 id="3）Java入口"><a class="header-anchor" href="#3）Java入口">¶</a>3）Java入口</h3>
+<h3 id="3）Java入口"><a class="header-anchor" href="#3）Java入口"></a>3）Java入口</h3>
 <p>org.apache.sqoop.Sqoop.java 文件在 src 目录下，其中的入口 main 函数，将参数传入了同类中的 runTool 方法。</p>
 <p><img src="/images/1568966025723.jpg" alt="image"></p>
-<h2 id="2、初始化执行工具"><a class="header-anchor" href="#2、初始化执行工具">¶</a>2、初始化执行工具</h2>
+<h2 id="2、初始化执行工具"><a class="header-anchor" href="#2、初始化执行工具"></a>2、初始化执行工具</h2>
 <p>然后解析sqoop命令的第一个参数，<code>import</code>，加载本次命令的实现类。</p>
 <p><img src="/images/1568966025817.jpg" alt="image"></p>
-<h3 id="1）默认配置"><a class="header-anchor" href="#1）默认配置">¶</a>1）默认配置</h3>
+<h3 id="1）默认配置"><a class="header-anchor" href="#1）默认配置"></a>1）默认配置</h3>
 <p>runTool 方法里，新建了一个默认 Configuration 实例，Configuration 初始化时设置了默认配置，如类加载器等。再将参数和配置，重载到另一个 runTool 方法。</p>
 <p><img src="/images/1568966025888.jpg" alt="image"></p>
-<h3 id="2）加载命令实现类"><a class="header-anchor" href="#2）加载命令实现类">¶</a>2）加载命令实现类</h3>
+<h3 id="2）加载命令实现类"><a class="header-anchor" href="#2）加载命令实现类"></a>2）加载命令实现类</h3>
 <p>后面的 runTool 方法中：</p>
 <ul>
 <li>取第一个参数作为工具名，根据工具名加载工具实现类；</li>
@@ -4454,26 +4458,26 @@ panther 上 Sqoop使用指南 ：<a href="https://docs.panther.sohurdc.com/bigda
 <li>最后执行 runSqoop 方法。</li>
 </ul>
 <p><img src="/images/1568966025970.jpg" alt="image"></p>
-<h5 id="（1）SqoopTool-类"><a class="header-anchor" href="#（1）SqoopTool-类">¶</a>（1）SqoopTool 类</h5>
+<h5 id="（1）SqoopTool-类"><a class="header-anchor" href="#（1）SqoopTool-类"></a>（1）SqoopTool 类</h5>
 <p>SqoopTool 是一个抽象类，org.apache.sqoop.tool 目录下提供了各种不同命令对 SqoopTool 的扩展类，在SqoopTool 类静态初始化时，类名与命令参数关联在一个类变量<code>TOOLS</code>里。而<code>import</code>参数关联的是<code>ImportTool.class</code>类。</p>
 <p><img src="/images/1568966026101.jpg" alt="image"></p>
-<h5 id="（2）ImportTool-类"><a class="header-anchor" href="#（2）ImportTool-类">¶</a>（2）ImportTool 类</h5>
+<h5 id="（2）ImportTool-类"><a class="header-anchor" href="#（2）ImportTool-类"></a>（2）ImportTool 类</h5>
 <p>getTool 方法根据工具名<code>import</code>，获取了工具类<code>ImportTool.class</code>，并用类反射初始化了一个<code>ImportTool</code>类实例。</p>
 <p><img src="/images/1568966026290.jpg" alt="image"></p>
 <p><code>ImportTool</code>初始化时，还实例化了 CodeGenTool 类和 HiveClientFactory 类，后续会用上。</p>
 <p><img src="/images/1568966026357.jpg" alt="image"></p>
-<h5 id="（3）Sqoop-类"><a class="header-anchor" href="#（3）Sqoop-类">¶</a>（3）Sqoop 类</h5>
+<h5 id="（3）Sqoop-类"><a class="header-anchor" href="#（3）Sqoop-类"></a>（3）Sqoop 类</h5>
 <p>Sqoop 类跟 hadoop 相关，扩展了 org.apache.hadoop.conf.Configured 类，并继承了 org.apache.hadoop.util.Tool 类，Sqoop 类初始化时新建了 SqoopOptions 实例，而 SqoopOptions 在初始化时，设置了许多默认参数，诸如<code>hadoopMapRedHome</code>、<code>numMappers</code>之类。</p>
-<h2 id="3、初始化执行环境"><a class="header-anchor" href="#3、初始化执行环境">¶</a>3、初始化执行环境</h2>
+<h2 id="3、初始化执行环境"><a class="header-anchor" href="#3、初始化执行环境"></a>3、初始化执行环境</h2>
 <p>runSqoop 方法先解析、隐藏子参数，然后调用 <code>ToolRunner.run</code>。</p>
 <p><img src="/images/1568966026424.jpg" alt="image"></p>
-<h3 id="1）隐藏子参数"><a class="header-anchor" href="#1）隐藏子参数">¶</a>1）隐藏子参数</h3>
+<h3 id="1）隐藏子参数"><a class="header-anchor" href="#1）隐藏子参数"></a>1）隐藏子参数</h3>
 <p>以–开头子参数是供子程序，如mysqldump，使用的，而 ToolRunner 会剔除这些参数，所以这里先将子参数提取出来，存在 Sqoop.childPrgmArgs 变量中，之后再使用。</p>
 <p><img src="/images/1568966026583.jpg" alt="image"></p>
-<h3 id="2）初始化hadoop调用上下文"><a class="header-anchor" href="#2）初始化hadoop调用上下文">¶</a>2）初始化hadoop调用上下文</h3>
+<h3 id="2）初始化hadoop调用上下文"><a class="header-anchor" href="#2）初始化hadoop调用上下文"></a>2）初始化hadoop调用上下文</h3>
 <p><code>ToolRunner</code>是 hadoop 的方法，里面先初始化了调用上下文，然后解析参数，最后调用了 入参 tool 的 run 方法。这里的 tool 是上一步调用传入的 Sqoop 类实例，Sqoop 类是 Tool 类的子类。</p>
 <p><img src="/images/1568966026725.jpg" alt="image"></p>
-<h3 id="3）准备-ImportTool"><a class="header-anchor" href="#3）准备-ImportTool">¶</a>3）准备 ImportTool</h3>
+<h3 id="3）准备-ImportTool"><a class="header-anchor" href="#3）准备-ImportTool"></a>3）准备 ImportTool</h3>
 <p>Sqoop 类的 run 方法中实例变量，options 是初始化时传入的 SqoopOptions 实例，tool 是初始化时传入的 <code>ImportTool</code> 实例。</p>
 <ul>
 <li>解析参数，将参数的值，添加到 options 中；</li>
@@ -4482,15 +4486,15 @@ panther 上 Sqoop使用指南 ：<a href="https://docs.panther.sohurdc.com/bigda
 </ul>
 <p>使用解析好的参数，执行<code>ImportTool</code>的 run 方法。</p>
 <p><img src="/images/1568966026811.jpg" alt="image"></p>
-<h2 id="4-执行-Import"><a class="header-anchor" href="#4-执行-Import">¶</a>4 执行 Import</h2>
+<h2 id="4-执行-Import"><a class="header-anchor" href="#4-执行-Import"></a>4 执行 Import</h2>
 <p>ImportTool 的 run 方法，先执行 init 初始化数据库连接Manager，然后执行 importTable 方法——将数据从数据库导入hdfs的具体方法。</p>
 <p><img src="/images/1568966026932.jpg" alt="image"></p>
-<h3 id="1）init-数据库连接Manager"><a class="header-anchor" href="#1）init-数据库连接Manager">¶</a>1）init 数据库连接Manager</h3>
+<h3 id="1）init-数据库连接Manager"><a class="header-anchor" href="#1）init-数据库连接Manager"></a>1）init 数据库连接Manager</h3>
 <p>init 方法中先新建连接工厂 ConnFactory，再从工厂中获取管理器。</p>
 <p><img src="/images/1568966027055.jpg" alt="image"></p>
-<h5 id="（1）ConnFactory-初始化"><a class="header-anchor" href="#（1）ConnFactory-初始化">¶</a>（1）ConnFactory 初始化</h5>
+<h5 id="（1）ConnFactory-初始化"><a class="header-anchor" href="#（1）ConnFactory-初始化"></a>（1）ConnFactory 初始化</h5>
 <p>连接工厂 ConnFactory 初始化时加载了一系列管理工厂 ManagerFactory，先从配置文件中读取配置的工厂（若有），接着再添加代码中写死的默认 ManagerFactory。</p>
-<h5 id="（2）getManager-获取-ConnManager"><a class="header-anchor" href="#（2）getManager-获取-ConnManager">¶</a>（2）getManager 获取 ConnManager</h5>
+<h5 id="（2）getManager-获取-ConnManager"><a class="header-anchor" href="#（2）getManager-获取-ConnManager"></a>（2）getManager 获取 ConnManager</h5>
 <p>由于数据库驱动可以使用<code>--driver</code>、<code>--connection-manager</code>参数指定，所以先从参数里读取这两个特定参数，若有值，则直接生产对应的 ConnManager，否则遍历所有 ManagerFactory，从其他参数中找到最匹配的 ConnManager。</p>
 <p><img src="/images/1568966027110.jpg" alt="image"></p>
 <p>比如本次导入的命令，没有指定 driver，会再默认的 DefaultManagerFactory 中匹配到 ConnManager 的扩展 —— MySQLManager，过程如下：</p>
@@ -4505,7 +4509,7 @@ jdbc:mysql:
 <p>再用 getSchemePrefix() 获取枚举的前缀，截取部分与前缀比较，符合 MYSQL 的前缀。</p>
 <p><img src="/images/1568966027687.jpg" alt="image"></p>
 <p>由于本次参数没有配置<code>--direct</code>设置 direct 模式，所以返回的连接管理器是新建的 <code>MySQLManager</code> 实例。</p>
-<h3 id="2）importTable"><a class="header-anchor" href="#2）importTable">¶</a>2）importTable</h3>
+<h3 id="2）importTable"><a class="header-anchor" href="#2）importTable"></a>2）importTable</h3>
 <p>在 importTable 方法里，即将正在开始导入数据。分四步：</p>
 <ul>
 <li>生成表代码</li>
@@ -4515,7 +4519,7 @@ jdbc:mysql:
 </ul>
 <p>importTable 内容比较多，下面分开解析。</p>
 <p><img src="/images/1568966027771.jpg" alt="image"></p>
-<h2 id="5-生成表代码"><a class="header-anchor" href="#5-生成表代码">¶</a>5 生成表代码</h2>
+<h2 id="5-生成表代码"><a class="header-anchor" href="#5-生成表代码"></a>5 生成表代码</h2>
 <p>主要分三步</p>
 <ul>
 <li>生成：classWriter.generate();</li>
@@ -4523,15 +4527,15 @@ jdbc:mysql:
 <li>jar包：compileMgr.jar();</li>
 </ul>
 <p><img src="/images/1568966027884.jpg" alt="image"></p>
-<h3 id="1）生成表文件"><a class="header-anchor" href="#1）生成表文件">¶</a>1）生成表文件</h3>
+<h3 id="1）生成表文件"><a class="header-anchor" href="#1）生成表文件"></a>1）生成表文件</h3>
 <p>generate()方法中根据表结构生成了表对象的java文件</p>
-<h5 id="（1）读取表结构"><a class="header-anchor" href="#（1）读取表结构">¶</a>（1）读取表结构</h5>
+<h5 id="（1）读取表结构"><a class="header-anchor" href="#（1）读取表结构"></a>（1）读取表结构</h5>
 <p><img src="/images/1568966027998.jpg" alt="image"></p>
 <p>生成查询语句，可以通过参数配置，若没有配置则使用默认语句。</p>
 <p><img src="/images/1568966028055.jpg" alt="image"></p>
 <p>执行语句，并解析表结构，获取表字段，及整数格式的字段类型</p>
 <p><img src="/images/1568966028112.jpg" alt="image"></p>
-<h5 id="（2）生成表文件"><a class="header-anchor" href="#（2）生成表文件">¶</a>（2）生成表文件</h5>
+<h5 id="（2）生成表文件"><a class="header-anchor" href="#（2）生成表文件"></a>（2）生成表文件</h5>
 <p><strong>整理表字段</strong><br>
 字段名加<code>_</code>前缀，将整数字段类型转为对应java类型</p>
 <p><strong>生成java类内容</strong><br>
@@ -4540,28 +4544,28 @@ jdbc:mysql:
 <p><strong>生成java文件容</strong><br>
 生成文件名，将文件内容写入文件中</p>
 <p><img src="/images/1568966028359.jpg" alt="image"></p>
-<h3 id="2）编译表文件"><a class="header-anchor" href="#2）编译表文件">¶</a>2）编译表文件</h3>
+<h3 id="2）编译表文件"><a class="header-anchor" href="#2）编译表文件"></a>2）编译表文件</h3>
 <p>compileMgr.compile() 中</p>
 <p>配置生成参数（hadoop和sqoop的jar路径）、读取刚刚生成的<code>.java</code>文件，使用默认的java编译器，在默认输出路径（可配置）生成<code>.CLASS</code>文件</p>
 <p><img src="/images/1568966028618.jpg" alt="image"></p>
-<h3 id="3）生成-jar-包"><a class="header-anchor" href="#3）生成-jar-包">¶</a>3）生成 jar 包</h3>
+<h3 id="3）生成-jar-包"><a class="header-anchor" href="#3）生成-jar-包"></a>3）生成 jar 包</h3>
 <p>compileMgr.jar();分别获取要写入的<code>.class</code>文件名，和 jar 包文件名，然后使用 addClassFilesFromDir 方法将的<code>.class</code>文件添加到 jar 包写入流 jstream 中，最后写入 jar 文件。</p>
 <p><img src="/images/1568966028691.jpg" alt="image"></p>
-<h2 id="6-导入数据"><a class="header-anchor" href="#6-导入数据">¶</a>6 导入数据</h2>
+<h2 id="6-导入数据"><a class="header-anchor" href="#6-导入数据"></a>6 导入数据</h2>
 <p>导入数据时先使用上面生成的jar包和参数初始化一下数据，然后使用 manager.importTable 方法真正导入。这里的 manager 是之前匹配到的 MySQLManager 实例，MySQLManager 的 importTable 语句，实际上执行的是它的超类 SqlManager，的 importTable。</p>
 <p><img src="/images/1568966028788.jpg" alt="image"></p>
-<h3 id="1）选择-ImportJobBase"><a class="header-anchor" href="#1）选择-ImportJobBase">¶</a>1）选择 ImportJobBase</h3>
+<h3 id="1）选择-ImportJobBase"><a class="header-anchor" href="#1）选择-ImportJobBase"></a>1）选择 ImportJobBase</h3>
 <p>首先根据参数选择<code>ImportJobBase</code>的实现类，由于我们的参数中没有配置<code>hbase</code>和<code>accumulo</code>的参数，所以会选择 <code>DataDrivenImportJob</code>导入HDFS。然后执行 importer.runImport 方法</p>
 <p><img src="/images/1568966028872.jpg" alt="image"></p>
-<h3 id="2）runImport"><a class="header-anchor" href="#2）runImport">¶</a>2）runImport</h3>
-<h5 id="（1）加载-jar"><a class="header-anchor" href="#（1）加载-jar">¶</a>（1）加载 jar</h5>
+<h3 id="2）runImport"><a class="header-anchor" href="#2）runImport"></a>2）runImport</h3>
+<h5 id="（1）加载-jar"><a class="header-anchor" href="#（1）加载-jar"></a>（1）加载 jar</h5>
 <p><strong>获取Class名</strong></p>
 <p>首先根据表名获取待加载的类名，如果有参数指定，则使用参数指定的类名，没有就根据表名构造</p>
 <p><strong>加载Class</strong><br>
 在 loadJars 方法中，使用 ClassLoader 从 jar 包中加载表的 ORM Class</p>
 <pre><code>loadJars(conf, ormJarFile, tableClassName);
 </code></pre>
-<h5 id="（2）提交-Job"><a class="header-anchor" href="#（2）提交-Job">¶</a>（2）提交 Job</h5>
+<h5 id="（2）提交-Job"><a class="header-anchor" href="#（2）提交-Job"></a>（2）提交 Job</h5>
 <p><img src="/images/1568966028950.jpg" alt="image"></p>
 <p><strong>初始化</strong><br>
 首先根据配置项初始化一个 Job</p>
@@ -4572,28 +4576,28 @@ jdbc:mysql:
 最后正式运行 MapReduce job。 runJob 方法里调用了 doSubmitJob 方法，doSubmitJob 方法里最终运行的是 job.waitForCompletion(true)，提交到 hadoop，并阻塞等待执行结果。</p>
 <p>自此数据就从数据库导入到了hdfs中的临时目录。</p>
 <p>如果给 sqoop 配置 listener，并且参数里有<code>--hive-import</code>，这里还会发一条 import 消息。</p>
-<h2 id="7-移动到最终目录"><a class="header-anchor" href="#7-移动到最终目录">¶</a>7 移动到最终目录</h2>
+<h2 id="7-移动到最终目录"><a class="header-anchor" href="#7-移动到最终目录"></a>7 移动到最终目录</h2>
 <p>数据导入到临时文件之后之后，根据配置，将数据从临时文件追加、覆盖或筛选追加到最终文件</p>
 <p>默认是追加</p>
 <p><img src="/images/1568966029155.jpg" alt="image"></p>
-<h3 id="（1）追加导入"><a class="header-anchor" href="#（1）追加导入">¶</a>（1）追加导入</h3>
+<h3 id="（1）追加导入"><a class="header-anchor" href="#（1）追加导入"></a>（1）追加导入</h3>
 <p><code>–-append</code>参数，会操作hdfs文件，将导入的数据移动、追加到目标文件中。</p>
-<h3 id="（2）增量导入"><a class="header-anchor" href="#（2）增量导入">¶</a>（2）增量导入</h3>
+<h3 id="（2）增量导入"><a class="header-anchor" href="#（2）增量导入"></a>（2）增量导入</h3>
 <p><code>–-incremental</code>参数，会生成新的 Job，数据源是刚刚导入的临时目录中的数据，提交 Job，将增量条件过滤后的数据导入到目标文件中。</p>
-<h2 id="8-（可选）导入hive"><a class="header-anchor" href="#8-（可选）导入hive">¶</a>8 （可选）导入hive</h2>
+<h2 id="8-（可选）导入hive"><a class="header-anchor" href="#8-（可选）导入hive"></a>8 （可选）导入hive</h2>
 <p>若配置了<code>--hive-import</code>参数，还需要将数据从 hdfs 导入到 hive 中去。</p>
 <p><img src="/images/1568966029298.jpg" alt="image"></p>
-<h3 id="1）生成客户端"><a class="header-anchor" href="#1）生成客户端">¶</a>1）生成客户端</h3>
+<h3 id="1）生成客户端"><a class="header-anchor" href="#1）生成客户端"></a>1）生成客户端</h3>
 <p>首先创建了一个 Hive 客户端，没有特别配置都会生成 HiveServer2Client，然后执行客户端的 importTable 方法。</p>
-<h3 id="2）importTable-v2"><a class="header-anchor" href="#2）importTable-v2">¶</a>2）importTable</h3>
+<h3 id="2）importTable-v2"><a class="header-anchor" href="#2）importTable-v2"></a>2）importTable</h3>
 <p>importTable 方法中就是生成两条 hive 语句，然后通过客户端执行。</p>
 <p><img src="/images/1568966029363.jpg" alt="image"></p>
 <p>两条语句，一条建表、一条导入，都是根据前面获得的表结构、文件路径等参数，拼接而成。</p>
 <p>最后使用客户端建立链接，执行导入操作。</p>
 <p><img src="/images/1568966029514.jpg" alt="image"></p>
-<h2 id="9-附加：Hadoop-中执行-Map-的实现"><a class="header-anchor" href="#9-附加：Hadoop-中执行-Map-的实现">¶</a>9 附加：Hadoop 中执行 Map 的实现</h2>
+<h2 id="9-附加：Hadoop-中执行-Map-的实现"><a class="header-anchor" href="#9-附加：Hadoop-中执行-Map-的实现"></a>9 附加：Hadoop 中执行 Map 的实现</h2>
 <p>Sqoop 使用导入参数新建了一个 Job，将具体导入过程提交给 Hadoop 执行，但是 Hadoop MapReduce 过程中执行的分配与数据获取操作的方法实现，是在 Sqoop 中定义好，并配置在 Job中的。</p>
-<h3 id="1）分割Map：DataDrivenDBInputFormat"><a class="header-anchor" href="#1）分割Map：DataDrivenDBInputFormat">¶</a>1）分割Map：DataDrivenDBInputFormat</h3>
+<h3 id="1）分割Map：DataDrivenDBInputFormat"><a class="header-anchor" href="#1）分割Map：DataDrivenDBInputFormat"></a>1）分割Map：DataDrivenDBInputFormat</h3>
 <p>Sqoop 设置在 Job 中供分片中使用的 InputFormat 实现， 是 DataDrivenDBInputFormat 类。</p>
 <p><img src="/images/1569376643131.jpg" alt="image"></p>
 <p>DataDrivenDBInputFormat 的 getSplits 方法，先使用 getBoundingValsQuery 查出主键的范围</p>
@@ -4601,7 +4605,7 @@ jdbc:mysql:
 <p>再根据主键类型使用不同分割器，如这里 Long 型主键使用的是 IntegerSplitter。IntegerSplitter 来对主键范围，结合 map 数，计算出分割点。最后得到装有分割信息的 InputSplit 实现数组。</p>
 <p><img src="/images/1569376643802.jpg" alt="image"></p>
 <p>这些分割信息最后都作为分割文件写入HDFS了。</p>
-<h3 id="2）读取数据：DataDrivenDBRecordReader"><a class="header-anchor" href="#2）读取数据：DataDrivenDBRecordReader">¶</a>2）读取数据：DataDrivenDBRecordReader</h3>
+<h3 id="2）读取数据：DataDrivenDBRecordReader"><a class="header-anchor" href="#2）读取数据：DataDrivenDBRecordReader"></a>2）读取数据：DataDrivenDBRecordReader</h3>
 <p>Hadoop 从 HDFS 读取分配信息时，需要使用 RecordReader 来读取 InputSplit 中的数据，而 DataDrivenDBInputFormat 提供的 createDBRecordReader 方法，返回的是 Sqoop 中实现的 DataDrivenDBRecordReader。</p>
 <p>DataDrivenDBRecordReader 初始化化时，除了分片信息之外，还从 Job 的参数配置中读取了数据库连接信息，查询表名，查询字段列表，查询条件，查询结果 ORM 类等所有必须信息。</p>
 <p><img src="/images/1569376645159.jpg" alt="image"></p>
@@ -4613,6 +4617,7 @@ jdbc:mysql:
 
 	</div>
 	<div id="footer">
+	<p>
 	©2019-<span id="footerYear"></span> 
 	<a href="/">Wu Jun</a> 
 	|
@@ -4625,7 +4630,9 @@ jdbc:mysql:
 		uv
 		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	<br>
 	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
+	</p>
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';

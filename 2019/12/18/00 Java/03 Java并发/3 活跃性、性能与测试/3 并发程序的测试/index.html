@@ -11,14 +11,14 @@
 	
 		3 并发程序的测试 | 
 	 
-	吴俊的博客
+	WuJun Blog
 	</title>
 	
 	<!-- keywords,description -->
 	
 		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
 	 
-		<meta name="description" content="吴俊的博客,wujun234" />
+		<meta name="description" content="吴俊,wujun234,wujun,wu jun" />
 	
 
 	<!-- favicon -->
@@ -29,7 +29,7 @@
 
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
-	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
+	<link rel="stylesheet" href="/lib/highlight/darcula.css">
 
 	<script src="/lib/highlight/highlight.pack.js"></script>
 	<script src="/lib/jquery-3.4.1.min.js"></script>
@@ -40,16 +40,19 @@
 
 <body>
 	<header id="header">
-    <a id="title" href="/" class="logo">吴俊的博客</a>
+    <a id="title" href="/" class="logo">WuJun Blog</a>
 
 	<ul id="menu">
 		<li class="menu-item">
-			<a href="/about" class="menu-item-link">关于</a>
+			<a href="/" class="menu-item-link">HOME</a>
+		</li>
+		<li class="menu-item">
+			<a href="/about" class="menu-item-link">ABOUT</a>
 		</li>
 		
 		<li class="menu-item">
 			<a href="https://github.com/wujun234/uid-generator-spring-boot-starter" class="menu-item-link" target="_blank">
-				uid-generator
+				UidGenerator
 			</a>
 		</li>
 		<li class="menu-item">
@@ -60,10 +63,11 @@
 	</ul>
 </header>
 
-	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-bars" aria-hidden="true"></i></button>
+	
 <div id="sidebar">
-	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">站点目录</a>
-	<a herf="#" id="sidebar-article" class="sidebar-toc">文章目录</a>
+	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-arrow-right " aria-hidden="true"></i></button>
+	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">SITE MENU</a>
+	<a herf="#" id="sidebar-article" class="sidebar-toc">ARTICLE MENU</a>
 
 	<!-- 侧边目录栏 -->
 	<div id="site-toc">
@@ -1892,8 +1896,8 @@
 			
 							<ul>
 								<li class="file">
-									<a href="/2019/12/18/01%20Spring/04%20Web/4%20Jsonp/">
-										4 Jsonp
+									<a href="/2019/12/18/01%20Spring/04%20Web/4%20%E8%B7%A8%E5%9F%9F/">
+										4 跨域
 									</a>
 								</li>
 							</ul>
@@ -4399,31 +4403,31 @@
 
 
 <div id="article">
-	<h3 id="1-正确性测试"><a class="header-anchor" href="#1-正确性测试">¶</a>1 正确性测试</h3>
-<h5 id="1-1-基本的单元测试"><a class="header-anchor" href="#1-1-基本的单元测试">¶</a>1.1 基本的单元测试</h5>
-<h5 id="1-2-对阻塞操作的测试"><a class="header-anchor" href="#1-2-对阻塞操作的测试">¶</a>1.2 对阻塞操作的测试</h5>
-<h5 id="1-3-安全性测试"><a class="header-anchor" href="#1-3-安全性测试">¶</a>1.3 安全性测试</h5>
+	<h3 id="1-正确性测试"><a class="header-anchor" href="#1-正确性测试"></a>1 正确性测试</h3>
+<h5 id="1-1-基本的单元测试"><a class="header-anchor" href="#1-1-基本的单元测试"></a>1.1 基本的单元测试</h5>
+<h5 id="1-2-对阻塞操作的测试"><a class="header-anchor" href="#1-2-对阻塞操作的测试"></a>1.2 对阻塞操作的测试</h5>
+<h5 id="1-3-安全性测试"><a class="header-anchor" href="#1-3-安全性测试"></a>1.3 安全性测试</h5>
 <p>在构建对并发程序的安全性测试中，需要解决的关键问题在于，要找出那些容易检查的属性，这些属性在发生错误的情况下极有可能失败，同时又不会使得错误检查代码人为地限制并发性。理想情况是，在测试属性中不需要任何同步机制。</p>
 <p>这些测试应该放在多处理器的系统上运行，从而进一步测试更多形式的交替运行。然而，CPU的数量越多并不一定会使测试越高效。要最大程度地检测出一些对执行时序敏感的数据竞争，那么测试中的线程数量应该多于CPU数量，这样在任意时刻都会有一些线程在运行，而另一些被交换出去，从而可以检查线程间交替行为的可预测性。</p>
-<h5 id="1-4-资源管理的测试"><a class="header-anchor" href="#1-4-资源管理的测试">¶</a>1.4 资源管理的测试</h5>
-<h5 id="1-5-使用回调"><a class="header-anchor" href="#1-5-使用回调">¶</a>1.5 使用回调</h5>
-<h5 id="1-6-产生更多的交替操作"><a class="header-anchor" href="#1-6-产生更多的交替操作">¶</a>1.6 产生更多的交替操作</h5>
+<h5 id="1-4-资源管理的测试"><a class="header-anchor" href="#1-4-资源管理的测试"></a>1.4 资源管理的测试</h5>
+<h5 id="1-5-使用回调"><a class="header-anchor" href="#1-5-使用回调"></a>1.5 使用回调</h5>
+<h5 id="1-6-产生更多的交替操作"><a class="header-anchor" href="#1-6-产生更多的交替操作"></a>1.6 产生更多的交替操作</h5>
 <p>使用 Thread.yield 来产生更多的交替操作。</p>
-<h3 id="2-性能测试"><a class="header-anchor" href="#2-性能测试">¶</a>2 性能测试</h3>
-<h5 id="2-2-多种算法的比较"><a class="header-anchor" href="#2-2-多种算法的比较">¶</a>2.2 多种算法的比较</h5>
+<h3 id="2-性能测试"><a class="header-anchor" href="#2-性能测试"></a>2 性能测试</h3>
+<h5 id="2-2-多种算法的比较"><a class="header-anchor" href="#2-2-多种算法的比较"></a>2.2 多种算法的比较</h5>
 <p>java.util.concurrent中的算法已经进行了调优，其性能也已经达到我们已知的最佳状态</p>
 <p>LinkedBlockingQueue 的可伸缩性要高于 ArrayBlockingQueue。</p>
-<h5 id="2-3-响应性衡量"><a class="header-anchor" href="#2-3-响应性衡量">¶</a>2.3 响应性衡量</h5>
-<h3 id="3-避免性能测试的陷阱"><a class="header-anchor" href="#3-避免性能测试的陷阱">¶</a>3 避免性能测试的陷阱</h3>
-<h5 id="3-1-垃圾回收"><a class="header-anchor" href="#3-1-垃圾回收">¶</a>3.1 垃圾回收</h5>
-<h5 id="3-2-动态编译"><a class="header-anchor" href="#3-2-动态编译">¶</a>3.2 动态编译</h5>
-<h5 id="3-3-对代码路径的不真实采样"><a class="header-anchor" href="#3-3-对代码路径的不真实采样">¶</a>3.3 对代码路径的不真实采样</h5>
-<h5 id="3-4-不真实的竞争程度"><a class="header-anchor" href="#3-4-不真实的竞争程度">¶</a>3.4 不真实的竞争程度</h5>
-<h5 id="3-5-无用代码的消除"><a class="header-anchor" href="#3-5-无用代码的消除">¶</a>3.5 无用代码的消除</h5>
+<h5 id="2-3-响应性衡量"><a class="header-anchor" href="#2-3-响应性衡量"></a>2.3 响应性衡量</h5>
+<h3 id="3-避免性能测试的陷阱"><a class="header-anchor" href="#3-避免性能测试的陷阱"></a>3 避免性能测试的陷阱</h3>
+<h5 id="3-1-垃圾回收"><a class="header-anchor" href="#3-1-垃圾回收"></a>3.1 垃圾回收</h5>
+<h5 id="3-2-动态编译"><a class="header-anchor" href="#3-2-动态编译"></a>3.2 动态编译</h5>
+<h5 id="3-3-对代码路径的不真实采样"><a class="header-anchor" href="#3-3-对代码路径的不真实采样"></a>3.3 对代码路径的不真实采样</h5>
+<h5 id="3-4-不真实的竞争程度"><a class="header-anchor" href="#3-4-不真实的竞争程度"></a>3.4 不真实的竞争程度</h5>
+<h5 id="3-5-无用代码的消除"><a class="header-anchor" href="#3-5-无用代码的消除"></a>3.5 无用代码的消除</h5>
 <p>要编写有效的性能测试程序，就需要告诉优化器不要将基准测试当作无用代码而优化掉。这就要求在程序中对每个计算结果都要通过某种方式来使用，这种方式不需要同步或者大量的计算。</p>
-<h3 id="4-其他的测试方法"><a class="header-anchor" href="#4-其他的测试方法">¶</a>4 其他的测试方法</h3>
-<h5 id="4-1-代码审查"><a class="header-anchor" href="#4-1-代码审查">¶</a>4.1 代码审查</h5>
-<h5 id="4-2-静态分析工具"><a class="header-anchor" href="#4-2-静态分析工具">¶</a>4.2 静态分析工具</h5>
+<h3 id="4-其他的测试方法"><a class="header-anchor" href="#4-其他的测试方法"></a>4 其他的测试方法</h3>
+<h5 id="4-1-代码审查"><a class="header-anchor" href="#4-1-代码审查"></a>4.1 代码审查</h5>
+<h5 id="4-2-静态分析工具"><a class="header-anchor" href="#4-2-静态分析工具"></a>4.2 静态分析工具</h5>
 <p>静态分析工具 FindBugs 包含的检查器中可以发现以下与并发相关的错误模式：</p>
 <ul>
 <li>不一致的同步；</li>
@@ -4438,14 +4442,15 @@
 <li>在休眠或者等待的同时持有一个锁；</li>
 <li>自旋循环。</li>
 </ul>
-<h5 id="4-3-面向切面的测试技术。"><a class="header-anchor" href="#4-3-面向切面的测试技术。">¶</a>4.3 面向切面的测试技术。</h5>
-<h5 id="4-4-分析与监测工具"><a class="header-anchor" href="#4-4-分析与监测工具">¶</a>4.4 分析与监测工具</h5>
+<h5 id="4-3-面向切面的测试技术。"><a class="header-anchor" href="#4-3-面向切面的测试技术。"></a>4.3 面向切面的测试技术。</h5>
+<h5 id="4-4-分析与监测工具"><a class="header-anchor" href="#4-4-分析与监测工具"></a>4.4 分析与监测工具</h5>
 <p>内置的 JMX 代理提供了一些有限的功能来监测线程的行为。ThreadInfo 类中包含了线程的当前状态。</p>
 
 </div>
 
 	</div>
 	<div id="footer">
+	<p>
 	©2019-<span id="footerYear"></span> 
 	<a href="/">Wu Jun</a> 
 	|
@@ -4458,7 +4463,9 @@
 		uv
 		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	<br>
 	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
+	</p>
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';

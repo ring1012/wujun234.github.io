@@ -11,14 +11,14 @@
 	
 		8 XSL转换 | 
 	 
-	吴俊的博客
+	WuJun Blog
 	</title>
 	
 	<!-- keywords,description -->
 	
 		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
 	 
-		<meta name="description" content="吴俊的博客,wujun234" />
+		<meta name="description" content="吴俊,wujun234,wujun,wu jun" />
 	
 
 	<!-- favicon -->
@@ -29,7 +29,7 @@
 
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
-	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
+	<link rel="stylesheet" href="/lib/highlight/darcula.css">
 
 	<script src="/lib/highlight/highlight.pack.js"></script>
 	<script src="/lib/jquery-3.4.1.min.js"></script>
@@ -40,16 +40,19 @@
 
 <body>
 	<header id="header">
-    <a id="title" href="/" class="logo">吴俊的博客</a>
+    <a id="title" href="/" class="logo">WuJun Blog</a>
 
 	<ul id="menu">
 		<li class="menu-item">
-			<a href="/about" class="menu-item-link">关于</a>
+			<a href="/" class="menu-item-link">HOME</a>
+		</li>
+		<li class="menu-item">
+			<a href="/about" class="menu-item-link">ABOUT</a>
 		</li>
 		
 		<li class="menu-item">
 			<a href="https://github.com/wujun234/uid-generator-spring-boot-starter" class="menu-item-link" target="_blank">
-				uid-generator
+				UidGenerator
 			</a>
 		</li>
 		<li class="menu-item">
@@ -60,10 +63,11 @@
 	</ul>
 </header>
 
-	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-bars" aria-hidden="true"></i></button>
+	
 <div id="sidebar">
-	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">站点目录</a>
-	<a herf="#" id="sidebar-article" class="sidebar-toc">文章目录</a>
+	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-arrow-right " aria-hidden="true"></i></button>
+	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">SITE MENU</a>
+	<a herf="#" id="sidebar-article" class="sidebar-toc">ARTICLE MENU</a>
 
 	<!-- 侧边目录栏 -->
 	<div id="site-toc">
@@ -1892,8 +1896,8 @@
 			
 							<ul>
 								<li class="file">
-									<a href="/2019/12/18/01%20Spring/04%20Web/4%20Jsonp/">
-										4 Jsonp
+									<a href="/2019/12/18/01%20Spring/04%20Web/4%20%E8%B7%A8%E5%9F%9F/">
+										4 跨域
 									</a>
 								</li>
 							</ul>
@@ -4401,36 +4405,36 @@
 <div id="article">
 	<p>XSL 指扩展样式表语言（EXtensible Stylesheet Language），可描述如何来显示 XML 文档。</p>
 <p>XSL 包括三部分：XSLT、XPath、XSL-FO</p>
-<h3 id="XSLT"><a class="header-anchor" href="#XSLT">¶</a>XSLT</h3>
+<h3 id="XSLT"><a class="header-anchor" href="#XSLT"></a>XSLT</h3>
 <p>XSLT = XSL 转换，是一种用于将 XML 文档转换为 XHTML 文档或其他 XML 文档的语言。</p>
 <p>XSLT 使用 XPath 来定义源文档中可匹配一个或多个预定义模板的部分。一旦匹配被找到，XSLT 就会把源文档的匹配部分转换为结果文档。</p>
-<h4 id="样式表声明"><a class="header-anchor" href="#样式表声明">¶</a>样式表声明</h4>
+<h4 id="样式表声明"><a class="header-anchor" href="#样式表声明"></a>样式表声明</h4>
 <p>把文档声明为 XSL 样式表的根元素是 <a href="xsl:stylesheet" target="_blank" rel="noopener">xsl:stylesheet</a> 或 <a href="xsl:transform" target="_blank" rel="noopener">xsl:transform</a>。</p>
 <pre><code class="language-XML">&lt;xsl:stylesheet version=&quot;1.0&quot; xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;&gt;
 &lt;!--Or--&gt;
 &lt;xsl:transform version=&quot;1.0&quot; xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;&gt;
 </code></pre>
-<h4 id="样式表模板"><a class="header-anchor" href="#样式表模板">¶</a>样式表模板</h4>
-<h5 id="xsl-template-元素"><a class="header-anchor" href="#xsl-template-元素">¶</a><a href="xsl:template" target="_blank" rel="noopener">xsl:template</a> 元素</h5>
+<h4 id="样式表模板"><a class="header-anchor" href="#样式表模板"></a>样式表模板</h4>
+<h5 id="xsl-template-元素"><a class="header-anchor" href="#xsl-template-元素"></a><a href="xsl:template" target="_blank" rel="noopener">xsl:template</a> 元素</h5>
 <p>用于构建模板。<br>
 match 属性用于关联 XML 元素和模板。match 属性也可用来为整个文档定义模板。match 属性的值是 XPath 表达式（举例，match=&quot;/&quot; 定义整个文档）。</p>
-<h5 id="xsl-value-of-元素"><a class="header-anchor" href="#xsl-value-of-元素">¶</a><a href="xsl:value-of" target="_blank" rel="noopener">xsl:value-of</a> 元素</h5>
+<h5 id="xsl-value-of-元素"><a class="header-anchor" href="#xsl-value-of-元素"></a><a href="xsl:value-of" target="_blank" rel="noopener">xsl:value-of</a> 元素</h5>
 <p>用于提取某个选定节点的值，并把值添加到转换的输出流中。<br>
 select 属性的值是一个 XPath 表达式。</p>
-<h5 id="xsl-for-each-元素"><a class="header-anchor" href="#xsl-for-each-元素">¶</a><a href="xsl:for-each" target="_blank" rel="noopener">xsl:for-each</a> 元素</h5>
+<h5 id="xsl-for-each-元素"><a class="header-anchor" href="#xsl-for-each-元素"></a><a href="xsl:for-each" target="_blank" rel="noopener">xsl:for-each</a> 元素</h5>
 <p>用于选取指定的节点集中的每个 XML 元素。<br>
 select 属性的值是一个 XPath 表达式。</p>
-<h5 id="xsl-sort-元素"><a class="header-anchor" href="#xsl-sort-元素">¶</a><a href="xsl:sort" target="_blank" rel="noopener">xsl:sort</a> 元素</h5>
+<h5 id="xsl-sort-元素"><a class="header-anchor" href="#xsl-sort-元素"></a><a href="xsl:sort" target="_blank" rel="noopener">xsl:sort</a> 元素</h5>
 <p>用于对结果进行排序。<br>
 select 属性的值是一个 XPath 表达式。</p>
-<h5 id="xsl-if-元素"><a class="header-anchor" href="#xsl-if-元素">¶</a><a href="xsl:if" target="_blank" rel="noopener">xsl:if</a> 元素</h5>
+<h5 id="xsl-if-元素"><a class="header-anchor" href="#xsl-if-元素"></a><a href="xsl:if" target="_blank" rel="noopener">xsl:if</a> 元素</h5>
 <pre><code>&lt;xsl:if test=&quot;expression&quot;&gt;
   ...
   ...如果条件成立则输出...
   ...
 &lt;/xsl:if&gt;
 </code></pre>
-<h5 id="xsl-choose-元素"><a class="header-anchor" href="#xsl-choose-元素">¶</a><a href="xsl:choose" target="_blank" rel="noopener">xsl:choose</a> 元素</h5>
+<h5 id="xsl-choose-元素"><a class="header-anchor" href="#xsl-choose-元素"></a><a href="xsl:choose" target="_blank" rel="noopener">xsl:choose</a> 元素</h5>
 <pre><code>&lt;xsl:choose&gt;
   &lt;xsl:when test=&quot;expression&quot;&gt;
     ... 输出 ...
@@ -4440,8 +4444,8 @@ select 属性的值是一个 XPath 表达式。</p>
   &lt;/xsl:otherwise&gt;
 &lt;/xsl:choose&gt;
 </code></pre>
-<h4 id="实例"><a class="header-anchor" href="#实例">¶</a>实例</h4>
-<h5 id="原始-XML-文档"><a class="header-anchor" href="#原始-XML-文档">¶</a>原始 XML 文档</h5>
+<h4 id="实例"><a class="header-anchor" href="#实例"></a>实例</h4>
+<h5 id="原始-XML-文档"><a class="header-anchor" href="#原始-XML-文档"></a>原始 XML 文档</h5>
 <pre><code class="language-XML">&lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?&gt;
 &lt;catalog&gt;
   &lt;cd&gt;
@@ -4457,7 +4461,7 @@ select 属性的值是一个 XPath 表达式。</p>
 .
 &lt;/catalog&gt;
 </code></pre>
-<h5 id="创建-XSL-样式表"><a class="header-anchor" href="#创建-XSL-样式表">¶</a>创建 XSL 样式表</h5>
+<h5 id="创建-XSL-样式表"><a class="header-anchor" href="#创建-XSL-样式表"></a>创建 XSL 样式表</h5>
 <pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?&gt;
 
 &lt;xsl:stylesheet version=&quot;1.0&quot; xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;&gt;
@@ -4484,7 +4488,7 @@ select 属性的值是一个 XPath 表达式。</p>
 
 &lt;/xsl:stylesheet&gt;
 </code></pre>
-<h5 id="把-XSL-样式表链接到-XML-文档"><a class="header-anchor" href="#把-XSL-样式表链接到-XML-文档">¶</a>把 XSL 样式表链接到 XML 文档</h5>
+<h5 id="把-XSL-样式表链接到-XML-文档"><a class="header-anchor" href="#把-XSL-样式表链接到-XML-文档"></a>把 XSL 样式表链接到 XML 文档</h5>
 <p>链接转换</p>
 <pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?&gt;
 &lt;?xml-stylesheet type=&quot;text/xsl&quot; href=&quot;cdcatalog.xsl&quot;?&gt;
@@ -4507,6 +4511,7 @@ select 属性的值是一个 XPath 表达式。</p>
 
 	</div>
 	<div id="footer">
+	<p>
 	©2019-<span id="footerYear"></span> 
 	<a href="/">Wu Jun</a> 
 	|
@@ -4519,7 +4524,9 @@ select 属性的值是一个 XPath 表达式。</p>
 		uv
 		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	<br>
 	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
+	</p>
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';

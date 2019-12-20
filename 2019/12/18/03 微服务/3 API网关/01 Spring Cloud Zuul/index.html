@@ -11,14 +11,14 @@
 	
 		01 Spring Cloud Zuul | 
 	 
-	吴俊的博客
+	WuJun Blog
 	</title>
 	
 	<!-- keywords,description -->
 	
 		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
 	 
-		<meta name="description" content="吴俊的博客,wujun234" />
+		<meta name="description" content="吴俊,wujun234,wujun,wu jun" />
 	
 
 	<!-- favicon -->
@@ -29,7 +29,7 @@
 
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
-	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
+	<link rel="stylesheet" href="/lib/highlight/darcula.css">
 
 	<script src="/lib/highlight/highlight.pack.js"></script>
 	<script src="/lib/jquery-3.4.1.min.js"></script>
@@ -40,16 +40,19 @@
 
 <body>
 	<header id="header">
-    <a id="title" href="/" class="logo">吴俊的博客</a>
+    <a id="title" href="/" class="logo">WuJun Blog</a>
 
 	<ul id="menu">
 		<li class="menu-item">
-			<a href="/about" class="menu-item-link">关于</a>
+			<a href="/" class="menu-item-link">HOME</a>
+		</li>
+		<li class="menu-item">
+			<a href="/about" class="menu-item-link">ABOUT</a>
 		</li>
 		
 		<li class="menu-item">
 			<a href="https://github.com/wujun234/uid-generator-spring-boot-starter" class="menu-item-link" target="_blank">
-				uid-generator
+				UidGenerator
 			</a>
 		</li>
 		<li class="menu-item">
@@ -60,10 +63,11 @@
 	</ul>
 </header>
 
-	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-bars" aria-hidden="true"></i></button>
+	
 <div id="sidebar">
-	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">站点目录</a>
-	<a herf="#" id="sidebar-article" class="sidebar-toc">文章目录</a>
+	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-arrow-right " aria-hidden="true"></i></button>
+	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">SITE MENU</a>
+	<a herf="#" id="sidebar-article" class="sidebar-toc">ARTICLE MENU</a>
 
 	<!-- 侧边目录栏 -->
 	<div id="site-toc">
@@ -1892,8 +1896,8 @@
 			
 							<ul>
 								<li class="file">
-									<a href="/2019/12/18/01%20Spring/04%20Web/4%20Jsonp/">
-										4 Jsonp
+									<a href="/2019/12/18/01%20Spring/04%20Web/4%20%E8%B7%A8%E5%9F%9F/">
+										4 跨域
 									</a>
 								</li>
 							</ul>
@@ -4400,7 +4404,7 @@
 
 <div id="article">
 	<p>Spring Cloud Zuul是提供负载均衡、反向代理、权限认证的一个API gateway。</p>
-<h2 id="简单路由"><a class="header-anchor" href="#简单路由">¶</a>简单路由</h2>
+<h2 id="简单路由"><a class="header-anchor" href="#简单路由"></a>简单路由</h2>
 <ol>
 <li>添加依赖<br>
 引入 spring-cloud-starter-zuul 包</li>
@@ -4424,7 +4428,7 @@ zuul.routes.api-name.url=http://www.xxx.com/
 3. 启动类<br>
 启动类添加 @EnableZuulProxy ，支持网关路由。</p>
 <p>启动后访问http://localhost:9000/yyy/zzz会跳转到http://www.xxx.com/zzz</p>
-<h2 id="服务路由"><a class="header-anchor" href="#服务路由">¶</a>服务路由</h2>
+<h2 id="服务路由"><a class="header-anchor" href="#服务路由"></a>服务路由</h2>
 <p>通过url映射转发有局限性，服务变化配置就得变。将Zuul服务化可以实现对serviceId的映射。</p>
 <ol>
 <li>添加eureka依赖</li>
@@ -4447,11 +4451,11 @@ zuul.routes.api-name.serviceId=eureka-producer
 eureka.client.serviceUrl.defaultZone=http://localhost:8000/eureka/
 </code></pre>
 <p>启动后访问http://localhost:9000/producer/xx会跳转到eureka上serviceId=eureka-producer的服务/xx</p>
-<h3 id="默认路由规则"><a class="header-anchor" href="#默认路由规则">¶</a>默认路由规则</h3>
+<h3 id="默认路由规则"><a class="header-anchor" href="#默认路由规则"></a>默认路由规则</h3>
 <p>不用每个服务都配置，默认情况下，Zuul会代理所有注册到Eureka Server的微服务，并且Zuul的路由规则如下：   <code>http://ZUUL_HOST:ZUUL_PORT/serviceId/**</code> 会被转发到serviceId对应的微服务。</p>
-<h2 id="服务过滤"><a class="header-anchor" href="#服务过滤">¶</a>服务过滤</h2>
+<h2 id="服务过滤"><a class="header-anchor" href="#服务过滤"></a>服务过滤</h2>
 <p>在Zuul中定义过滤器只需要继承ZuulFilter抽象类，实现其定义的四个抽象函数，就可对请求进行拦截与过滤，实现对外服务的安全控制。</p>
-<h3 id="自定义Filter"><a class="header-anchor" href="#自定义Filter">¶</a>自定义Filter</h3>
+<h3 id="自定义Filter"><a class="header-anchor" href="#自定义Filter"></a>自定义Filter</h3>
 <p>实现自定义Filter，需要继承ZuulFilter的类，并覆盖其中的4个方法：</p>
 <ul>
 <li>filterType：返回一个字符串代表过滤器的类型。在zuul中定义了四种不同生命周期的过滤器类：
@@ -4510,9 +4514,9 @@ eureka.client.serviceUrl.defaultZone=http://localhost:8000/eureka/
 		return new AccessFilter();
 	}
 </code></pre>
-<h3 id="filterType生命周期"><a class="header-anchor" href="#filterType生命周期">¶</a>filterType生命周期</h3>
+<h3 id="filterType生命周期"><a class="header-anchor" href="#filterType生命周期"></a>filterType生命周期</h3>
 <p><img src="/images/1545270181259.jpg" alt=""></p>
-<h3 id="核心过滤器"><a class="header-anchor" href="#核心过滤器">¶</a>核心过滤器</h3>
+<h3 id="核心过滤器"><a class="header-anchor" href="#核心过滤器"></a>核心过滤器</h3>
 <p>Spring Cloud Zuul默认地实现了一批核心过滤器，它们会在API网关服务启动的时候被自动地加载和启用。</p>
 <table>
 <thead>
@@ -4586,14 +4590,14 @@ eureka.client.serviceUrl.defaultZone=http://localhost:8000/eureka/
 </tr>
 </tbody>
 </table>
-<h6 id="禁用指定的Filter"><a class="header-anchor" href="#禁用指定的Filter">¶</a>禁用指定的Filter</h6>
+<h6 id="禁用指定的Filter"><a class="header-anchor" href="#禁用指定的Filter"></a>禁用指定的Filter</h6>
 <p>可以在application.yml中配置需要禁用的filter，格式：</p>
 <pre><code>zuul:
     FormBodyWrapperFilter:
         pre:
             disable: true
 </code></pre>
-<h3 id="全局异常处理"><a class="header-anchor" href="#全局异常处理">¶</a>全局异常处理</h3>
+<h3 id="全局异常处理"><a class="header-anchor" href="#全局异常处理"></a>全局异常处理</h3>
 <p>添加一个类型为”error”的filter，将错误信息写入RequestContext，这样SendErrorFilter就可以获取错误信息了。</p>
 <pre><code>class ErrorFilter extends ZuulFilter {
 	@Override
@@ -4622,9 +4626,9 @@ eureka.client.serviceUrl.defaultZone=http://localhost:8000/eureka/
 }
 </code></pre>
 <p><img src="/images/1545270181502.jpg" alt="修改后处理逻辑"></p>
-<h2 id="路由熔断"><a class="header-anchor" href="#路由熔断">¶</a>路由熔断</h2>
+<h2 id="路由熔断"><a class="header-anchor" href="#路由熔断"></a>路由熔断</h2>
 <p>Zuul提供熔断支持。当某个服务出现异常时，直接返回预设的信息。 目前只支持服务级别的熔断，不支持具体到某个URL进行熔断。</p>
-<h3 id="自定义fallback"><a class="header-anchor" href="#自定义fallback">¶</a>自定义fallback</h3>
+<h3 id="自定义fallback"><a class="header-anchor" href="#自定义fallback"></a>自定义fallback</h3>
 <p>通过继承FallbackProvider接口,自定义fallback，并指定给某个route，实现该route的熔断处理。</p>
 <pre><code>public interface FallbackProvider {
 
@@ -4638,7 +4642,7 @@ eureka.client.serviceUrl.defaultZone=http://localhost:8000/eureka/
     public ClientHttpResponse fallbackResponse(Throwable cause);
 }
 </code></pre>
-<h2 id="路由重试"><a class="header-anchor" href="#路由重试">¶</a>路由重试</h2>
+<h2 id="路由重试"><a class="header-anchor" href="#路由重试"></a>路由重试</h2>
 <p>Zuul结合Spring Retry实现了路由重试。用了retry，断路器就只有在该服务的所有实例都无法运作的情况下才能起作用。不用retry，仅使用负载均衡和熔断，就必须考虑到是否能够接受单个服务实例关闭和eureka刷新服务列表之间带来的短时间的熔断。如果可以接受，就无需使用retry。</p>
 <ol>
 <li>添加Spring Retry依赖</li>
@@ -4658,8 +4662,8 @@ ribbon.MaxAutoRetries=2
 #切换相同Server的次数
 ribbon.MaxAutoRetriesNextServer=0
 </code></pre>
-<h2 id="Cookie和头信息"><a class="header-anchor" href="#Cookie和头信息">¶</a>Cookie和头信息</h2>
-<h3 id="Cookie"><a class="header-anchor" href="#Cookie">¶</a>Cookie</h3>
+<h2 id="Cookie和头信息"><a class="header-anchor" href="#Cookie和头信息"></a>Cookie和头信息</h2>
+<h3 id="Cookie"><a class="header-anchor" href="#Cookie"></a>Cookie</h3>
 <p>配置文件中设置sensitiveHeaders，添加需要忽略的信息到请求上下文中，供后续ROUTE阶段的过滤器使用
 默认情况下，Zuul在请求路由时，会过滤HTTP请求头信息中的一些敏感信息，默认的敏感头信息通过zuul.sensitiveHeaders定义，包括Cookie、Set-Cookie、Authorization。</p>
 <ul>
@@ -4673,9 +4677,9 @@ ribbon.MaxAutoRetriesNextServer=0
 <pre><code>zuul.routes.&lt;routeName&gt;.sensitive-headers= # 对指定路由的敏感头设置为空
 zuul.routes.&lt;routeName&gt;.custom-sensitive-headers=true # 对指定路由开启自定义敏感头
 </code></pre>
-<h3 id="头信息"><a class="header-anchor" href="#头信息">¶</a>头信息</h3>
+<h3 id="头信息"><a class="header-anchor" href="#头信息"></a>头信息</h3>
 <p>通过配置属性zuul.add-host-header=true正确处理头信息，比如重定向</p>
-<h2 id="性能优化参考"><a class="header-anchor" href="#性能优化参考">¶</a>性能优化参考</h2>
+<h2 id="性能优化参考"><a class="header-anchor" href="#性能优化参考"></a>性能优化参考</h2>
 <ol>
 <li>在application.yml文件中配置线程数、缓冲大小</li>
 </ol>
@@ -4711,6 +4715,7 @@ hystrix.command.[CommandKey].execution.isolation.thread.timeoutInMilliseconds �
 
 	</div>
 	<div id="footer">
+	<p>
 	©2019-<span id="footerYear"></span> 
 	<a href="/">Wu Jun</a> 
 	|
@@ -4723,7 +4728,9 @@ hystrix.command.[CommandKey].execution.isolation.thread.timeoutInMilliseconds �
 		uv
 		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	<br>
 	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
+	</p>
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';

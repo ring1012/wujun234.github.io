@@ -11,14 +11,14 @@
 	
 		6 NIO（内存映射文件） | 
 	 
-	吴俊的博客
+	WuJun Blog
 	</title>
 	
 	<!-- keywords,description -->
 	
 		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
 	 
-		<meta name="description" content="吴俊的博客,wujun234" />
+		<meta name="description" content="吴俊,wujun234,wujun,wu jun" />
 	
 
 	<!-- favicon -->
@@ -29,7 +29,7 @@
 
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
-	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
+	<link rel="stylesheet" href="/lib/highlight/darcula.css">
 
 	<script src="/lib/highlight/highlight.pack.js"></script>
 	<script src="/lib/jquery-3.4.1.min.js"></script>
@@ -40,16 +40,19 @@
 
 <body>
 	<header id="header">
-    <a id="title" href="/" class="logo">吴俊的博客</a>
+    <a id="title" href="/" class="logo">WuJun Blog</a>
 
 	<ul id="menu">
 		<li class="menu-item">
-			<a href="/about" class="menu-item-link">关于</a>
+			<a href="/" class="menu-item-link">HOME</a>
+		</li>
+		<li class="menu-item">
+			<a href="/about" class="menu-item-link">ABOUT</a>
 		</li>
 		
 		<li class="menu-item">
 			<a href="https://github.com/wujun234/uid-generator-spring-boot-starter" class="menu-item-link" target="_blank">
-				uid-generator
+				UidGenerator
 			</a>
 		</li>
 		<li class="menu-item">
@@ -60,10 +63,11 @@
 	</ul>
 </header>
 
-	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-bars" aria-hidden="true"></i></button>
+	
 <div id="sidebar">
-	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">站点目录</a>
-	<a herf="#" id="sidebar-article" class="sidebar-toc">文章目录</a>
+	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-arrow-right " aria-hidden="true"></i></button>
+	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">SITE MENU</a>
+	<a herf="#" id="sidebar-article" class="sidebar-toc">ARTICLE MENU</a>
 
 	<!-- 侧边目录栏 -->
 	<div id="site-toc">
@@ -1892,8 +1896,8 @@
 			
 							<ul>
 								<li class="file">
-									<a href="/2019/12/18/01%20Spring/04%20Web/4%20Jsonp/">
-										4 Jsonp
+									<a href="/2019/12/18/01%20Spring/04%20Web/4%20%E8%B7%A8%E5%9F%9F/">
+										4 跨域
 									</a>
 								</li>
 							</ul>
@@ -4401,16 +4405,16 @@
 <div id="article">
 	<p>JDK 1.4中引入java.nio，全称java non-blocking IO，为所有的原始类型（boolean类型除外）提供缓存支持的数据容器，使用它可以提供非阻塞式的高伸缩性网络。</p>
 <p>原来的 I/O 以流的方式处理数据，而 NIO 以块的方式处理数据。</p>
-<h3 id="1-核心概念"><a class="header-anchor" href="#1-核心概念">¶</a>1  核心概念</h3>
-<h4 id="1-1-通道"><a class="header-anchor" href="#1-1-通道">¶</a>1.1 通道</h4>
+<h3 id="1-核心概念"><a class="header-anchor" href="#1-核心概念"></a>1  核心概念</h3>
+<h4 id="1-1-通道"><a class="header-anchor" href="#1-1-通道"></a>1.1 通道</h4>
 <p>通道Channel是对原I/O包中的流的模拟，通道是双向的。读写数据通过Channel，再到通道。可以访问诸如内存映射、文件加锁机制以及文件间快速数据传递等操作系统特性。</p>
-<h5 id="获取通道"><a class="header-anchor" href="#获取通道">¶</a>获取通道</h5>
+<h5 id="获取通道"><a class="header-anchor" href="#获取通道"></a>获取通道</h5>
 <pre><code class="language-java">FileChannel channel = FileChannel.open(path,options); 
 </code></pre>
-<h4 id="1-2-缓冲区"><a class="header-anchor" href="#1-2-缓冲区">¶</a>1.2 缓冲区</h4>
+<h4 id="1-2-缓冲区"><a class="header-anchor" href="#1-2-缓冲区"></a>1.2 缓冲区</h4>
 <p>缓冲区Buffer是一个容器对象，包含一些要写入或者刚读出的数据。通道读写的数据首先放到缓冲区。</p>
 <p>缓冲区实质上是一个数组。通常是字节数组，也可使用其他数组。缓冲区不仅仅是一个数组，还提供了对数据的结构化访问，且还可以跟踪系统的读/写进程。</p>
-<h5 id="获取缓冲区"><a class="header-anchor" href="#获取缓冲区">¶</a>获取缓冲区</h5>
+<h5 id="获取缓冲区"><a class="header-anchor" href="#获取缓冲区"></a>获取缓冲区</h5>
 <ul>
 <li>直接获取</li>
 </ul>
@@ -4437,9 +4441,9 @@ ByteBuffer buffer = ByteBuffer.wrap( array );
 </ul>
 <pre><code class="language-java">ByteBuffer buffer = channel.map(FileChannel.MapMode.PRIVATE, 0, 1024);
 </code></pre>
-<h4 id="1-3-读写操作"><a class="header-anchor" href="#1-3-读写操作">¶</a>1.3 读写操作</h4>
+<h4 id="1-3-读写操作"><a class="header-anchor" href="#1-3-读写操作"></a>1.3 读写操作</h4>
 <p>每种基本Java类型都有一种缓冲区类型，以ByteBuffer类为例，可以在其底层字节数组上进行get/set操作读写数据。</p>
-<h5 id="1-3-1-读操作"><a class="header-anchor" href="#1-3-1-读操作">¶</a>1.3.1 读操作</h5>
+<h5 id="1-3-1-读操作"><a class="header-anchor" href="#1-3-1-读操作"></a>1.3.1 读操作</h5>
 <pre><code>// 获取通道
 FileInputStream fin = new FileInputStream( file );  
 FileChannel fc = fin.getChannel();  
@@ -4448,26 +4452,26 @@ ByteBuffer buffer = ByteBuffer.allocate( 1024 );
 // 将数据从通道读到缓冲区中 
 channel.read(buffer);
 </code></pre>
-<h6 id="顺序访问"><a class="header-anchor" href="#顺序访问">¶</a>顺序访问</h6>
+<h6 id="顺序访问"><a class="header-anchor" href="#顺序访问"></a>顺序访问</h6>
 <pre><code class="language-java">byte[] b = buffer.array();
 //or
 while (buffer.hasRemaining()){
     byte b = buffer.get();
 }
 </code></pre>
-<h6 id="随机访问"><a class="header-anchor" href="#随机访问">¶</a>随机访问</h6>
+<h6 id="随机访问"><a class="header-anchor" href="#随机访问"></a>随机访问</h6>
 <pre><code class="language-java">for ( int i=0;i &lt; buffer.limit(); i++){
     byte b = buffer.get(i);
 }
 </code></pre>
-<h6 id="访问顺序"><a class="header-anchor" href="#访问顺序">¶</a>访问顺序</h6>
+<h6 id="访问顺序"><a class="header-anchor" href="#访问顺序"></a>访问顺序</h6>
 <p>Java对二进制数据使用高位在前的排序机制，但如需以低位在前处理：</p>
 <pre><code>buffer.order(ByteOrder.LITTLE_ENDIAN);
 </code></pre>
 <p>查询缓冲区内当前的字节顺序：</p>
 <pre><code>ByteOrder b = buffer.order();
 </code></pre>
-<h5 id="1-3-2-写操作"><a class="header-anchor" href="#1-3-2-写操作">¶</a>1.3.2 写操作</h5>
+<h5 id="1-3-2-写操作"><a class="header-anchor" href="#1-3-2-写操作"></a>1.3.2 写操作</h5>
 <pre><code>// 获取通道
 FileOutputStream fout = new FileOutputStream(file);
 FileChannel channel = fout.getChannel();  
@@ -4483,7 +4487,7 @@ buffer.flip();
 channel.write( buffer );  
 </code></pre>
 <p>在恰当的时候，以及当通道关闭时，会将这些修改写回到文件中。</p>
-<h6 id="反转"><a class="header-anchor" href="#反转">¶</a>反转</h6>
+<h6 id="反转"><a class="header-anchor" href="#反转"></a>反转</h6>
 <p>buffer.flip();为读入后的输出做准备</p>
 <pre><code>public final Buffer flip() {
     limit = position;
@@ -4496,7 +4500,7 @@ channel.write( buffer );
 <li>将limit设置为当前position。</li>
 <li>将position设置为0。</li>
 </ol>
-<h5 id="1-3-3-读写结合"><a class="header-anchor" href="#1-3-3-读写结合">¶</a>1.3.3 读写结合</h5>
+<h5 id="1-3-3-读写结合"><a class="header-anchor" href="#1-3-3-读写结合"></a>1.3.3 读写结合</h5>
 <p>拷贝</p>
 <pre><code>public static void fileCopyNIO(String source, String target) throws IOException {
      try (FileInputStream in = new FileInputStream(source)) {
@@ -4513,7 +4517,7 @@ channel.write( buffer );
      }
 }
 </code></pre>
-<h6 id="重设缓冲区"><a class="header-anchor" href="#重设缓冲区">¶</a>重设缓冲区</h6>
+<h6 id="重设缓冲区"><a class="header-anchor" href="#重设缓冲区"></a>重设缓冲区</h6>
 <p>buffer.clear();初始化缓冲区</p>
 <pre><code>public final Buffer clear() {
     osition = 0;
@@ -4526,10 +4530,10 @@ channel.write( buffer );
 <li>将limit设置为与capacity相同。</li>
 <li>设置position为0。</li>
 </ol>
-<h3 id="2-缓冲区数据结构"><a class="header-anchor" href="#2-缓冲区数据结构">¶</a>2 缓冲区数据结构</h3>
+<h3 id="2-缓冲区数据结构"><a class="header-anchor" href="#2-缓冲区数据结构"></a>2 缓冲区数据结构</h3>
 <p>缓冲区是由具有相同类型的数值构成的数组，有复杂的内部统计机制，会跟踪已经读了多少数据以及还有多少空间可以容纳更多的数据。</p>
 <p>缓冲区有两个重要组件：状态变量和访问方法。实现机制看起来复杂，但大都封装好了，只需像平时使用字节数组和索引变量一样进行操作即可。</p>
-<h4 id="2-1-状态变量"><a class="header-anchor" href="#2-1-状态变量">¶</a>2.1 状态变量</h4>
+<h4 id="2-1-状态变量"><a class="header-anchor" href="#2-1-状态变量"></a>2.1 状态变量</h4>
 <p><img src="/images/1545011845271.png" alt=""></p>
 <p>如图，每个缓冲区都具有：</p>
 <ul>
@@ -4547,7 +4551,7 @@ channel.write( buffer );
 <p>每一个基本类型的缓冲区底层实际上就是一个该类型的数组。如在ByteBuffer中，有：</p>
 <pre><code>final byte[] hb;  
 </code></pre>
-<h4 id="2-2-访问方法"><a class="header-anchor" href="#2-2-访问方法">¶</a>2.2 访问方法</h4>
+<h4 id="2-2-访问方法"><a class="header-anchor" href="#2-2-访问方法"></a>2.2 访问方法</h4>
 <p>使用缓冲区的主要目的是执行“写，然后读入”循环。</p>
 <ol>
 <li>假设有一个缓冲区，初始位置为0，界限等于容量。</li>
@@ -4565,19 +4569,19 @@ channel.position(newpos);
 buffer.flip();
 channel.write(buffer);
 </code></pre>
-<h3 id="3-文件加锁机制"><a class="header-anchor" href="#3-文件加锁机制">¶</a>3 文件加锁机制</h3>
+<h3 id="3-文件加锁机制"><a class="header-anchor" href="#3-文件加锁机制"></a>3 文件加锁机制</h3>
 <p>文件锁可以解决并发修改同一个文件的问题，它可以控制对文件或文件中某个范围的字节的访问。</p>
-<h4 id="锁定整个文件"><a class="header-anchor" href="#锁定整个文件">¶</a>锁定整个文件</h4>
-<h5 id="lock"><a class="header-anchor" href="#lock">¶</a>lock</h5>
+<h4 id="锁定整个文件"><a class="header-anchor" href="#锁定整个文件"></a>锁定整个文件</h4>
+<h5 id="lock"><a class="header-anchor" href="#lock"></a>lock</h5>
 <p>获得独占锁，阻塞直至获得锁。</p>
 <pre><code>FileChannel = FileChannel.open(path);
 FileLock lock = channel.lock();
 </code></pre>
-<h5 id="tryLock"><a class="header-anchor" href="#tryLock">¶</a>tryLock</h5>
+<h5 id="tryLock"><a class="header-anchor" href="#tryLock"></a>tryLock</h5>
 <p>获得独占锁，在无法获得的情况下返回null。</p>
 <pre><code>FileLock lock = channel.rtyLock();
 </code></pre>
-<h4 id="锁定部分文件"><a class="header-anchor" href="#锁定部分文件">¶</a>锁定部分文件</h4>
+<h4 id="锁定部分文件"><a class="header-anchor" href="#锁定部分文件"></a>锁定部分文件</h4>
 <p>在文件区域上获得锁，阻塞直至获得锁。</p>
 <pre><code>FileLock lock (long start,long size,boolean shared)
 </code></pre>
@@ -4590,16 +4594,16 @@ FileLock lock = channel.lock();
 <li>shared为true<br>
 则这是一个共享锁，它允许多个进程从文件中读入，并阻止任何进程获得独占的锁。并非所有的操作系统都支持共享锁，因此你可能会在请求共享锁的时候得到的是独占的锁。</li>
 </ul>
-<h5 id="锁类型"><a class="header-anchor" href="#锁类型">¶</a>锁类型</h5>
+<h5 id="锁类型"><a class="header-anchor" href="#锁类型"></a>锁类型</h5>
 <p>调用FileLock类的isShared方法可以查询所持有的锁的类型。</p>
-<h5 id="锁区间"><a class="header-anchor" href="#锁区间">¶</a>锁区间</h5>
+<h5 id="锁区间"><a class="header-anchor" href="#锁区间"></a>锁区间</h5>
 <p>如果锁定了文件的尾部，而这个文件的长度随后增长了超过锁定的部分，那么增长出来的额外区域是未锁定的，要想锁定所有字节，可以使用Long.MAX_VALUE来表示尺寸。</p>
-<h4 id="释放锁"><a class="header-anchor" href="#释放锁">¶</a>释放锁</h4>
+<h4 id="释放锁"><a class="header-anchor" href="#释放锁"></a>释放锁</h4>
 <pre><code>try(FileLock lock = channel.lock()){
     access the locked file or segment
 }
 </code></pre>
-<h4 id="注意"><a class="header-anchor" href="#注意">¶</a>注意</h4>
+<h4 id="注意"><a class="header-anchor" href="#注意"></a>注意</h4>
 <p>文件加锁机制时依赖操作系统的</p>
 <ul>
 <li>在某些系统中，文件加锁仅仅是建议性的，如果是一个应用未能得到锁，它仍旧可以向被另一个应用并发锁定的文件执行写操作。</li>
@@ -4613,6 +4617,7 @@ FileLock lock = channel.lock();
 
 	</div>
 	<div id="footer">
+	<p>
 	©2019-<span id="footerYear"></span> 
 	<a href="/">Wu Jun</a> 
 	|
@@ -4625,7 +4630,9 @@ FileLock lock = channel.lock();
 		uv
 		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	<br>
 	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
+	</p>
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';

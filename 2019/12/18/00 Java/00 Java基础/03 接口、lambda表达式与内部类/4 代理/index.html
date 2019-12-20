@@ -11,14 +11,14 @@
 	
 		4 代理 | 
 	 
-	吴俊的博客
+	WuJun Blog
 	</title>
 	
 	<!-- keywords,description -->
 	
 		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
 	 
-		<meta name="description" content="吴俊的博客,wujun234" />
+		<meta name="description" content="吴俊,wujun234,wujun,wu jun" />
 	
 
 	<!-- favicon -->
@@ -29,7 +29,7 @@
 
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
-	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
+	<link rel="stylesheet" href="/lib/highlight/darcula.css">
 
 	<script src="/lib/highlight/highlight.pack.js"></script>
 	<script src="/lib/jquery-3.4.1.min.js"></script>
@@ -40,16 +40,19 @@
 
 <body>
 	<header id="header">
-    <a id="title" href="/" class="logo">吴俊的博客</a>
+    <a id="title" href="/" class="logo">WuJun Blog</a>
 
 	<ul id="menu">
 		<li class="menu-item">
-			<a href="/about" class="menu-item-link">关于</a>
+			<a href="/" class="menu-item-link">HOME</a>
+		</li>
+		<li class="menu-item">
+			<a href="/about" class="menu-item-link">ABOUT</a>
 		</li>
 		
 		<li class="menu-item">
 			<a href="https://github.com/wujun234/uid-generator-spring-boot-starter" class="menu-item-link" target="_blank">
-				uid-generator
+				UidGenerator
 			</a>
 		</li>
 		<li class="menu-item">
@@ -60,10 +63,11 @@
 	</ul>
 </header>
 
-	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-bars" aria-hidden="true"></i></button>
+	
 <div id="sidebar">
-	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">站点目录</a>
-	<a herf="#" id="sidebar-article" class="sidebar-toc">文章目录</a>
+	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-arrow-right " aria-hidden="true"></i></button>
+	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">SITE MENU</a>
+	<a herf="#" id="sidebar-article" class="sidebar-toc">ARTICLE MENU</a>
 
 	<!-- 侧边目录栏 -->
 	<div id="site-toc">
@@ -1892,8 +1896,8 @@
 			
 							<ul>
 								<li class="file">
-									<a href="/2019/12/18/01%20Spring/04%20Web/4%20Jsonp/">
-										4 Jsonp
+									<a href="/2019/12/18/01%20Spring/04%20Web/4%20%E8%B7%A8%E5%9F%9F/">
+										4 跨域
 									</a>
 								</li>
 							</ul>
@@ -4401,7 +4405,7 @@
 <div id="article">
 	<p>代理模式：就是为其他对象提供一种代理以控制对这个对象的访问。<br>
 代理可以在不改动目标对象的基础上，增加其他额外的功能（扩展功能）。</p>
-<h4 id="1-静态代理"><a class="header-anchor" href="#1-静态代理">¶</a>1 静态代理</h4>
+<h4 id="1-静态代理"><a class="header-anchor" href="#1-静态代理"></a>1 静态代理</h4>
 <p>代理对象和目标对象实现了相同的接口。<br>
 目标对象作为代理对象的一个属性，代理对象可以在调用目标对象相应方法时加上增强处理的逻辑。</p>
 <ul>
@@ -4446,14 +4450,14 @@ public class App {
     }
 }
 </code></pre>
-<h4 id="2-动态代理"><a class="header-anchor" href="#2-动态代理">¶</a>2 动态代理</h4>
+<h4 id="2-动态代理"><a class="header-anchor" href="#2-动态代理"></a>2 动态代理</h4>
 <p>代理对象不需要实现接口,但是目标对象一定要实现接口,否则不能用动态代理</p>
-<h5 id="创建代理对象"><a class="header-anchor" href="#创建代理对象">¶</a>创建代理对象</h5>
+<h5 id="创建代理对象"><a class="header-anchor" href="#创建代理对象"></a>创建代理对象</h5>
 <p>要创建一个代理对象，需要使用java.lang.reflect.Proxy类的newProxyInstance方法</p>
 <pre><code>static Object newProxyInstance(ClassLoader loader, Class&lt;?&gt;[] interfaces,InvocationHandler h )
 </code></pre>
 <p>该方法有三个参数：类加载器、需要实现的接口、调用处理器。</p>
-<h5 id="实现InvocationHandler接口"><a class="header-anchor" href="#实现InvocationHandler接口">¶</a>实现InvocationHandler接口</h5>
+<h5 id="实现InvocationHandler接口"><a class="header-anchor" href="#实现InvocationHandler接口"></a>实现InvocationHandler接口</h5>
 <p>写一个类实现InvocationHandler接口，重写Invoke方法，在Invoke方法可以进行增强处理的逻辑的编写。</p>
 <pre><code>Object invoke(Object proxy, Method method ,Object[] args)
 </code></pre>
@@ -4496,7 +4500,7 @@ public class App {
     }
 }
 </code></pre>
-<h4 id="3-Cglib代理"><a class="header-anchor" href="#3-Cglib代理">¶</a>3 Cglib代理</h4>
+<h4 id="3-Cglib代理"><a class="header-anchor" href="#3-Cglib代理"></a>3 Cglib代理</h4>
 <p>Cglib代理针对类,也叫子类代理，是在内存中构建一个子类对象从而实现对目标对象功能的扩展。</p>
 <p>在Spring的AOP编程中:<br>
 如果加入容器的目标对象有实现接口,用JDK代理；<br>
@@ -4557,6 +4561,7 @@ public class App {
 
 	</div>
 	<div id="footer">
+	<p>
 	©2019-<span id="footerYear"></span> 
 	<a href="/">Wu Jun</a> 
 	|
@@ -4569,7 +4574,9 @@ public class App {
 		uv
 		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	<br>
 	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
+	</p>
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';

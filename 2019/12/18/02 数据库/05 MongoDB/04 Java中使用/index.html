@@ -11,14 +11,14 @@
 	
 		04 Java中使用 | 
 	 
-	吴俊的博客
+	WuJun Blog
 	</title>
 	
 	<!-- keywords,description -->
 	
 		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
 	 
-		<meta name="description" content="吴俊的博客,wujun234" />
+		<meta name="description" content="吴俊,wujun234,wujun,wu jun" />
 	
 
 	<!-- favicon -->
@@ -29,7 +29,7 @@
 
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
-	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
+	<link rel="stylesheet" href="/lib/highlight/darcula.css">
 
 	<script src="/lib/highlight/highlight.pack.js"></script>
 	<script src="/lib/jquery-3.4.1.min.js"></script>
@@ -40,16 +40,19 @@
 
 <body>
 	<header id="header">
-    <a id="title" href="/" class="logo">吴俊的博客</a>
+    <a id="title" href="/" class="logo">WuJun Blog</a>
 
 	<ul id="menu">
 		<li class="menu-item">
-			<a href="/about" class="menu-item-link">关于</a>
+			<a href="/" class="menu-item-link">HOME</a>
+		</li>
+		<li class="menu-item">
+			<a href="/about" class="menu-item-link">ABOUT</a>
 		</li>
 		
 		<li class="menu-item">
 			<a href="https://github.com/wujun234/uid-generator-spring-boot-starter" class="menu-item-link" target="_blank">
-				uid-generator
+				UidGenerator
 			</a>
 		</li>
 		<li class="menu-item">
@@ -60,10 +63,11 @@
 	</ul>
 </header>
 
-	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-bars" aria-hidden="true"></i></button>
+	
 <div id="sidebar">
-	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">站点目录</a>
-	<a herf="#" id="sidebar-article" class="sidebar-toc">文章目录</a>
+	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-arrow-right " aria-hidden="true"></i></button>
+	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">SITE MENU</a>
+	<a herf="#" id="sidebar-article" class="sidebar-toc">ARTICLE MENU</a>
 
 	<!-- 侧边目录栏 -->
 	<div id="site-toc">
@@ -1892,8 +1896,8 @@
 			
 							<ul>
 								<li class="file">
-									<a href="/2019/12/18/01%20Spring/04%20Web/4%20Jsonp/">
-										4 Jsonp
+									<a href="/2019/12/18/01%20Spring/04%20Web/4%20%E8%B7%A8%E5%9F%9F/">
+										4 跨域
 									</a>
 								</li>
 							</ul>
@@ -4408,7 +4412,7 @@
     &lt;/dependency&gt;
 &lt;/dependencies&gt;
 </code></pre>
-<h3 id="1-连接数据库"><a class="header-anchor" href="#1-连接数据库">¶</a>1 连接数据库</h3>
+<h3 id="1-连接数据库"><a class="header-anchor" href="#1-连接数据库"></a>1 连接数据库</h3>
 <pre><code>public class MongoDBJDBC {  
     public static void main(String[] args){  
         try {  
@@ -4434,13 +4438,13 @@
     }  
 } 
 </code></pre>
-<h3 id="2-创建集合"><a class="header-anchor" href="#2-创建集合">¶</a>2 创建集合</h3>
+<h3 id="2-创建集合"><a class="header-anchor" href="#2-创建集合"></a>2 创建集合</h3>
 <pre><code>mongoDatabase.createCollection(&quot;test&quot;);
 </code></pre>
-<h3 id="3-获取集合"><a class="header-anchor" href="#3-获取集合">¶</a>3 获取集合</h3>
+<h3 id="3-获取集合"><a class="header-anchor" href="#3-获取集合"></a>3 获取集合</h3>
 <pre><code>MongoCollection&lt;Document&gt; collection = mongoDatabase.getCollection(&quot;test&quot;);
 </code></pre>
-<h3 id="4-插入文档"><a class="header-anchor" href="#4-插入文档">¶</a>4 插入文档</h3>
+<h3 id="4-插入文档"><a class="header-anchor" href="#4-插入文档"></a>4 插入文档</h3>
 <pre><code>/** 插入文档
 * 1. 创建文档 org.bson.Document 参数为key-value的格式 
 * 2. 创建文档集合List&lt;Document&gt; 
@@ -4454,7 +4458,7 @@ List&lt;Document&gt; documents = new ArrayList&lt;Document&gt;();
 documents.add(document);  
 collection.insertMany(documents);  
 </code></pre>
-<h3 id="5-检索所有文档"><a class="header-anchor" href="#5-检索所有文档">¶</a>5 检索所有文档</h3>
+<h3 id="5-检索所有文档"><a class="header-anchor" href="#5-检索所有文档"></a>5 检索所有文档</h3>
 <pre><code>//检索所有文档  
 /** 
 * 1. 获取迭代器FindIterable&lt;Document&gt; 
@@ -4467,11 +4471,11 @@ while(mongoCursor.hasNext()){
 System.out.println(mongoCursor.next());  
 }  
 </code></pre>
-<h3 id="6-更新文档"><a class="header-anchor" href="#6-更新文档">¶</a>6 更新文档</h3>
+<h3 id="6-更新文档"><a class="header-anchor" href="#6-更新文档"></a>6 更新文档</h3>
 <pre><code>//更新文档   将文档中likes=100的文档修改为likes=200   
 collection.updateMany(Filters.eq(&quot;likes&quot;, 100), new Document(&quot;$set&quot;,new Document(&quot;likes&quot;,200)));  
 </code></pre>
-<h3 id="7-删除文档"><a class="header-anchor" href="#7-删除文档">¶</a>7 删除文档</h3>
+<h3 id="7-删除文档"><a class="header-anchor" href="#7-删除文档"></a>7 删除文档</h3>
 <pre><code>//删除符合条件的第一个文档  
 collection.deleteOne(Filters.eq(&quot;likes&quot;, 200));  
 //删除所有符合条件的文档  
@@ -4482,6 +4486,7 @@ collection.deleteMany (Filters.eq(&quot;likes&quot;, 200));
 
 	</div>
 	<div id="footer">
+	<p>
 	©2019-<span id="footerYear"></span> 
 	<a href="/">Wu Jun</a> 
 	|
@@ -4494,7 +4499,9 @@ collection.deleteMany (Filters.eq(&quot;likes&quot;, 200));
 		uv
 		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	<br>
 	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
+	</p>
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';

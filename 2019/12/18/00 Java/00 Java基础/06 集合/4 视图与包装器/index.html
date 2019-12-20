@@ -11,14 +11,14 @@
 	
 		4 视图与包装器 | 
 	 
-	吴俊的博客
+	WuJun Blog
 	</title>
 	
 	<!-- keywords,description -->
 	
 		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
 	 
-		<meta name="description" content="吴俊的博客,wujun234" />
+		<meta name="description" content="吴俊,wujun234,wujun,wu jun" />
 	
 
 	<!-- favicon -->
@@ -29,7 +29,7 @@
 
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
-	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
+	<link rel="stylesheet" href="/lib/highlight/darcula.css">
 
 	<script src="/lib/highlight/highlight.pack.js"></script>
 	<script src="/lib/jquery-3.4.1.min.js"></script>
@@ -40,16 +40,19 @@
 
 <body>
 	<header id="header">
-    <a id="title" href="/" class="logo">吴俊的博客</a>
+    <a id="title" href="/" class="logo">WuJun Blog</a>
 
 	<ul id="menu">
 		<li class="menu-item">
-			<a href="/about" class="menu-item-link">关于</a>
+			<a href="/" class="menu-item-link">HOME</a>
+		</li>
+		<li class="menu-item">
+			<a href="/about" class="menu-item-link">ABOUT</a>
 		</li>
 		
 		<li class="menu-item">
 			<a href="https://github.com/wujun234/uid-generator-spring-boot-starter" class="menu-item-link" target="_blank">
-				uid-generator
+				UidGenerator
 			</a>
 		</li>
 		<li class="menu-item">
@@ -60,10 +63,11 @@
 	</ul>
 </header>
 
-	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-bars" aria-hidden="true"></i></button>
+	
 <div id="sidebar">
-	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">站点目录</a>
-	<a herf="#" id="sidebar-article" class="sidebar-toc">文章目录</a>
+	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-arrow-right " aria-hidden="true"></i></button>
+	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">SITE MENU</a>
+	<a herf="#" id="sidebar-article" class="sidebar-toc">ARTICLE MENU</a>
 
 	<!-- 侧边目录栏 -->
 	<div id="site-toc">
@@ -1892,8 +1896,8 @@
 			
 							<ul>
 								<li class="file">
-									<a href="/2019/12/18/01%20Spring/04%20Web/4%20Jsonp/">
-										4 Jsonp
+									<a href="/2019/12/18/01%20Spring/04%20Web/4%20%E8%B7%A8%E5%9F%9F/">
+										4 跨域
 									</a>
 								</li>
 							</ul>
@@ -4401,20 +4405,20 @@
 <div id="article">
 	<p>视图：保持对原集合的控制。只用来展示集合中的元素。<br>
 视图是不可修改的，任何改变视图size的操作都会影响到原集合。抛出异常。</p>
-<h4 id="1、轻量级集包装器"><a class="header-anchor" href="#1、轻量级集包装器">¶</a>1、轻量级集包装器</h4>
-<h5 id="Arrays-asList方法"><a class="header-anchor" href="#Arrays-asList方法">¶</a>Arrays.asList方法</h5>
+<h4 id="1、轻量级集包装器"><a class="header-anchor" href="#1、轻量级集包装器"></a>1、轻量级集包装器</h4>
+<h5 id="Arrays-asList方法"><a class="header-anchor" href="#Arrays-asList方法"></a>Arrays.asList方法</h5>
 <p>Arrays.asList方法返回一个包装了普通Java数组的List包装器,一个视图对象。</p>
-<h5 id="Collecitons-nCopies方法"><a class="header-anchor" href="#Collecitons-nCopies方法">¶</a>Collecitons.nCopies方法</h5>
+<h5 id="Collecitons-nCopies方法"><a class="header-anchor" href="#Collecitons-nCopies方法"></a>Collecitons.nCopies方法</h5>
 <p>Collections.nCopies(n,anObject);返回一个实现了List接口的不可修改的对象,一个视图对象。<br>
 给人一种包含n个元素，每个元素都像是一个anObject的错觉。</p>
-<h5 id="Collections-singleton方法"><a class="header-anchor" href="#Collections-singleton方法">¶</a>Collections.singleton方法</h5>
+<h5 id="Collections-singleton方法"><a class="header-anchor" href="#Collections-singleton方法"></a>Collections.singleton方法</h5>
 <p>Collections.singleton(Object obj)返回一个视图对象，该对象实现了set接口。<br>
 该方法的好处是返回的对象实现了一个不可修改的单元素集，而不需要付出建立数据结构的开销。<br>
 singletonList和singletonMap方法类似。</p>
-<h4 id="2、子范围"><a class="header-anchor" href="#2、子范围">¶</a>2、子范围</h4>
+<h4 id="2、子范围"><a class="header-anchor" href="#2、子范围"></a>2、子范围</h4>
 <p>subList建立左闭右开的子范围视图，对该子范围的任何操作将会影响到整个列表中！</p>
 <p>subSet、subMap等方法类似。</p>
-<h4 id="3、不可修改的视图"><a class="header-anchor" href="#3、不可修改的视图">¶</a>3、不可修改的视图</h4>
+<h4 id="3、不可修改的视图"><a class="header-anchor" href="#3、不可修改的视图"></a>3、不可修改的视图</h4>
 <p>Collections的某些方法用于产生集合的不可修改视图。<br>
 如果修改视图，就会抛出异常。可以修改原始集合。</p>
 <pre><code>unmodifiableCollection();
@@ -4424,10 +4428,10 @@ unmodifiableSortedSet();
 unmodifiableMap();
 unmodifiableSortedMap();
 </code></pre>
-<h4 id="4、同步视图"><a class="header-anchor" href="#4、同步视图">¶</a>4、同步视图</h4>
+<h4 id="4、同步视图"><a class="header-anchor" href="#4、同步视图"></a>4、同步视图</h4>
 <p>Java中，利用视图机制保证常规集合的线程安全，而不是实现线程安全的集合。<br>
 Collections.synchronized***()方法可对任何集合装换成具有同步访问方法的集合。</p>
-<h4 id="5、被检查视图"><a class="header-anchor" href="#5、被检查视图">¶</a>5、被检查视图</h4>
+<h4 id="5、被检查视图"><a class="header-anchor" href="#5、被检查视图"></a>5、被检查视图</h4>
 <p>包装一个具有检查类型机制的视图，对泛型类型插入时就进行检测。<br>
 Collections.checkedList();</p>
 
@@ -4435,6 +4439,7 @@ Collections.checkedList();</p>
 
 	</div>
 	<div id="footer">
+	<p>
 	©2019-<span id="footerYear"></span> 
 	<a href="/">Wu Jun</a> 
 	|
@@ -4447,7 +4452,9 @@ Collections.checkedList();</p>
 		uv
 		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	<br>
 	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
+	</p>
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';

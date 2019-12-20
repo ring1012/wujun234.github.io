@@ -11,14 +11,14 @@
 	
 		11 批量获取多条线程的执行结果 | 
 	 
-	吴俊的博客
+	WuJun Blog
 	</title>
 	
 	<!-- keywords,description -->
 	
 		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
 	 
-		<meta name="description" content="吴俊的博客,wujun234" />
+		<meta name="description" content="吴俊,wujun234,wujun,wu jun" />
 	
 
 	<!-- favicon -->
@@ -29,7 +29,7 @@
 
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
-	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
+	<link rel="stylesheet" href="/lib/highlight/darcula.css">
 
 	<script src="/lib/highlight/highlight.pack.js"></script>
 	<script src="/lib/jquery-3.4.1.min.js"></script>
@@ -40,16 +40,19 @@
 
 <body>
 	<header id="header">
-    <a id="title" href="/" class="logo">吴俊的博客</a>
+    <a id="title" href="/" class="logo">WuJun Blog</a>
 
 	<ul id="menu">
 		<li class="menu-item">
-			<a href="/about" class="menu-item-link">关于</a>
+			<a href="/" class="menu-item-link">HOME</a>
+		</li>
+		<li class="menu-item">
+			<a href="/about" class="menu-item-link">ABOUT</a>
 		</li>
 		
 		<li class="menu-item">
 			<a href="https://github.com/wujun234/uid-generator-spring-boot-starter" class="menu-item-link" target="_blank">
-				uid-generator
+				UidGenerator
 			</a>
 		</li>
 		<li class="menu-item">
@@ -60,10 +63,11 @@
 	</ul>
 </header>
 
-	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-bars" aria-hidden="true"></i></button>
+	
 <div id="sidebar">
-	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">站点目录</a>
-	<a herf="#" id="sidebar-article" class="sidebar-toc">文章目录</a>
+	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-arrow-right " aria-hidden="true"></i></button>
+	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">SITE MENU</a>
+	<a herf="#" id="sidebar-article" class="sidebar-toc">ARTICLE MENU</a>
 
 	<!-- 侧边目录栏 -->
 	<div id="site-toc">
@@ -1892,8 +1896,8 @@
 			
 							<ul>
 								<li class="file">
-									<a href="/2019/12/18/01%20Spring/04%20Web/4%20Jsonp/">
-										4 Jsonp
+									<a href="/2019/12/18/01%20Spring/04%20Web/4%20%E8%B7%A8%E5%9F%9F/">
+										4 跨域
 									</a>
 								</li>
 							</ul>
@@ -4400,7 +4404,7 @@
 
 <div id="article">
 	<p>当向线程池提交callable任务后，我们可能需要一次性获取所有返回结果，有三种处理方法。</p>
-<h3 id="方法一：自己维护返回结果"><a class="header-anchor" href="#方法一：自己维护返回结果">¶</a>方法一：自己维护返回结果</h3>
+<h3 id="方法一：自己维护返回结果"><a class="header-anchor" href="#方法一：自己维护返回结果"></a>方法一：自己维护返回结果</h3>
 <pre><code>// 创建一个线程池
 ExecutorService executorService = Executors.newFixedThreadPool(10);
 
@@ -4434,7 +4438,7 @@ for ( int i=0; i&lt;10; i++ ) {
 <li>需要自己创建容器维护所有的返回结果，比较麻烦；</li>
 <li>从list中遍历的每个Future对象并不一定处于完成状态，这时调用get()方法就会被阻塞住，如果系统是设计成每个线程完成后就能根据其结果继续做后面的事，这样对于处于list后面的但是先完成的线程就会增加了额外的等待时间。</li>
 </ol>
-<h3 id="方法二：使用ExecutorService的invokeAll函数"><a class="header-anchor" href="#方法二：使用ExecutorService的invokeAll函数">¶</a>方法二：使用ExecutorService的invokeAll函数</h3>
+<h3 id="方法二：使用ExecutorService的invokeAll函数"><a class="header-anchor" href="#方法二：使用ExecutorService的invokeAll函数"></a>方法二：使用ExecutorService的invokeAll函数</h3>
 <p>本方法能解决第一个弊端，即并不需要自己去维护一个存储返回结果的容器。当我们需要获取线程池所有的返回结果时，只需调用invokeAll函数即可。 但是，这种方式需要你自己去维护一个用于存储任务的容器。</p>
 <pre><code>// 创建一个线程池
 ExecutorService executorService = Executors.newFixedThreadPool(10);
@@ -4468,7 +4472,7 @@ for ( int i=0; i&lt;10; i++ ) {
     System.out.println(result);
 }
 </code></pre>
-<h3 id="方法三：使用CompletionService"><a class="header-anchor" href="#方法三：使用CompletionService">¶</a>方法三：使用CompletionService</h3>
+<h3 id="方法三：使用CompletionService"><a class="header-anchor" href="#方法三：使用CompletionService"></a>方法三：使用CompletionService</h3>
 <p>CompletionService内部维护了一个阻塞队列，只有执行完成的任务结果才会被放入该队列，这样就确保执行时间较短的任务率先被存入阻塞队列中。</p>
 <pre><code>ExecutorService exec = Executors.newFixedThreadPool(10);
 
@@ -4503,6 +4507,7 @@ for ( int i=0; i&lt;10; i++ ) {
 
 	</div>
 	<div id="footer">
+	<p>
 	©2019-<span id="footerYear"></span> 
 	<a href="/">Wu Jun</a> 
 	|
@@ -4515,7 +4520,9 @@ for ( int i=0; i&lt;10; i++ ) {
 		uv
 		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	<br>
 	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
+	</p>
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';

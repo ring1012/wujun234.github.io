@@ -11,14 +11,14 @@
 	
 		01 分布式统一id设计 | 
 	 
-	吴俊的博客
+	WuJun Blog
 	</title>
 	
 	<!-- keywords,description -->
 	
 		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
 	 
-		<meta name="description" content="吴俊的博客,wujun234" />
+		<meta name="description" content="吴俊,wujun234,wujun,wu jun" />
 	
 
 	<!-- favicon -->
@@ -29,7 +29,7 @@
 
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
-	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
+	<link rel="stylesheet" href="/lib/highlight/darcula.css">
 
 	<script src="/lib/highlight/highlight.pack.js"></script>
 	<script src="/lib/jquery-3.4.1.min.js"></script>
@@ -40,16 +40,19 @@
 
 <body>
 	<header id="header">
-    <a id="title" href="/" class="logo">吴俊的博客</a>
+    <a id="title" href="/" class="logo">WuJun Blog</a>
 
 	<ul id="menu">
 		<li class="menu-item">
-			<a href="/about" class="menu-item-link">关于</a>
+			<a href="/" class="menu-item-link">HOME</a>
+		</li>
+		<li class="menu-item">
+			<a href="/about" class="menu-item-link">ABOUT</a>
 		</li>
 		
 		<li class="menu-item">
 			<a href="https://github.com/wujun234/uid-generator-spring-boot-starter" class="menu-item-link" target="_blank">
-				uid-generator
+				UidGenerator
 			</a>
 		</li>
 		<li class="menu-item">
@@ -60,10 +63,11 @@
 	</ul>
 </header>
 
-	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-bars" aria-hidden="true"></i></button>
+	
 <div id="sidebar">
-	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">站点目录</a>
-	<a herf="#" id="sidebar-article" class="sidebar-toc">文章目录</a>
+	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-arrow-right " aria-hidden="true"></i></button>
+	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">SITE MENU</a>
+	<a herf="#" id="sidebar-article" class="sidebar-toc">ARTICLE MENU</a>
 
 	<!-- 侧边目录栏 -->
 	<div id="site-toc">
@@ -1892,8 +1896,8 @@
 			
 							<ul>
 								<li class="file">
-									<a href="/2019/12/18/01%20Spring/04%20Web/4%20Jsonp/">
-										4 Jsonp
+									<a href="/2019/12/18/01%20Spring/04%20Web/4%20%E8%B7%A8%E5%9F%9F/">
+										4 跨域
 									</a>
 								</li>
 							</ul>
@@ -4399,12 +4403,12 @@
 
 
 <div id="article">
-	<h3 id="一、业界现状"><a class="header-anchor" href="#一、业界现状">¶</a>一、业界现状</h3>
-<h4 id="1-汽车之家"><a class="header-anchor" href="#1-汽车之家">¶</a>1 汽车之家</h4>
-<h5 id="1）id方案"><a class="header-anchor" href="#1）id方案">¶</a>1）id方案</h5>
+	<h3 id="一、业界现状"><a class="header-anchor" href="#一、业界现状"></a>一、业界现状</h3>
+<h4 id="1-汽车之家"><a class="header-anchor" href="#1-汽车之家"></a>1 汽车之家</h4>
+<h5 id="1）id方案"><a class="header-anchor" href="#1）id方案"></a>1）id方案</h5>
 <p>自增id</p>
 <p>现有数据从4位到6位，目前最大320w+</p>
-<h5 id="2）实例"><a class="header-anchor" href="#2）实例">¶</a>2）实例</h5>
+<h5 id="2）实例"><a class="header-anchor" href="#2）实例"></a>2）实例</h5>
 <table>
 <thead>
 <tr>
@@ -4441,17 +4445,17 @@
 </tr>
 </tbody>
 </table>
-<h5 id="3）推断"><a class="header-anchor" href="#3）推断">¶</a>3）推断</h5>
+<h5 id="3）推断"><a class="header-anchor" href="#3）推断"></a>3）推断</h5>
 <p>汽车之家作品是同一张表，只是文章类型不同</p>
-<h4 id="2-今日头条"><a class="header-anchor" href="#2-今日头条">¶</a>2 今日头条</h4>
-<h5 id="1）id方案-v2"><a class="header-anchor" href="#1）id方案-v2">¶</a>1）id方案</h5>
+<h4 id="2-今日头条"><a class="header-anchor" href="#2-今日头条"></a>2 今日头条</h4>
+<h5 id="1）id方案-v2"><a class="header-anchor" href="#1）id方案-v2"></a>1）id方案</h5>
 <p>类snowflake方案：</p>
 <ul>
 <li>文章（图集）、视频使用19位id，微头条使用16位id。</li>
 <li>id二进制前31是秒级时间戳，其余含义不详。</li>
 </ul>
-<h5 id="2）实例-v2"><a class="header-anchor" href="#2）实例-v2">¶</a>2）实例</h5>
-<h6 id="文章"><a class="header-anchor" href="#文章">¶</a>文章</h6>
+<h5 id="2）实例-v2"><a class="header-anchor" href="#2）实例-v2"></a>2）实例</h5>
+<h6 id="文章"><a class="header-anchor" href="#文章"></a>文章</h6>
 <p>文章id长19位，换为2进制63位。<br>
 前31转为10进制，作为秒级时间戳换算出id时间，与页面上的发布时间基本相同。<br>
 后32位未知，10位+12位0+10位组成。</p>
@@ -4517,7 +4521,7 @@
 </tr>
 </tbody>
 </table>
-<h6 id="微头条"><a class="header-anchor" href="#微头条">¶</a>微头条</h6>
+<h6 id="微头条"><a class="header-anchor" href="#微头条"></a>微头条</h6>
 <p>微头条id长16位，换为2进制51位。<br>
 前31转为10进制，作为秒级时间戳换算出id时间，与页面上的发布时间基本相同。</p>
 <table>
@@ -4561,37 +4565,37 @@
 </tr>
 </tbody>
 </table>
-<h5 id="3）推断-v2"><a class="header-anchor" href="#3）推断-v2">¶</a>3）推断</h5>
+<h5 id="3）推断-v2"><a class="header-anchor" href="#3）推断-v2"></a>3）推断</h5>
 <ul>
 <li>头条的文章、视频，是一张表，类型字段不同；微头条是另一张表</li>
 <li>文章、视频、微头条的最终页前缀统一，因未发现标识位，可能是通过id长度区分</li>
 <li>id时间戳与发布时间存在差别，可能的原因：“保存后未立即发布”或“来自抓取”</li>
 </ul>
-<h4 id="3-美团"><a class="header-anchor" href="#3-美团">¶</a>3 美团</h4>
+<h4 id="3-美团"><a class="header-anchor" href="#3-美团"></a>3 美团</h4>
 <p>由于美团有Leaf声称，在美团内部服务包含金融、支付交易、餐饮、外卖、酒店旅游、猫眼电影等众多业务线。查找了一下，但还未发现snowflake痕迹。</p>
-<h5 id="1）详情页"><a class="header-anchor" href="#1）详情页">¶</a>1）详情页</h5>
-<h6 id="猫眼电影——连续自增"><a class="header-anchor" href="#猫眼电影——连续自增">¶</a>猫眼电影——连续自增</h6>
+<h5 id="1）详情页"><a class="header-anchor" href="#1）详情页"></a>1）详情页</h5>
+<h6 id="猫眼电影——连续自增"><a class="header-anchor" href="#猫眼电影——连续自增"></a>猫眼电影——连续自增</h6>
 <ul>
 <li><a href="https://maoyan.com/films/1" target="_blank" rel="noopener">https://maoyan.com/films/1</a></li>
 <li><a href="https://maoyan.com/films/2" target="_blank" rel="noopener">https://maoyan.com/films/2</a></li>
 <li><a href="https://maoyan.com/films/428" target="_blank" rel="noopener">https://maoyan.com/films/428</a></li>
 <li><a href="https://maoyan.com/films/429" target="_blank" rel="noopener">https://maoyan.com/films/429</a></li>
 </ul>
-<h6 id="榛果民宿——不连续自增"><a class="header-anchor" href="#榛果民宿——不连续自增">¶</a>榛果民宿——不连续自增</h6>
+<h6 id="榛果民宿——不连续自增"><a class="header-anchor" href="#榛果民宿——不连续自增"></a>榛果民宿——不连续自增</h6>
 <ul>
 <li><a href="https://phoenix.meituan.com/housing/2680748" target="_blank" rel="noopener">https://phoenix.meituan.com/housing/2680748</a></li>
 <li><a href="https://phoenix.meituan.com/housing/2680749" target="_blank" rel="noopener">https://phoenix.meituan.com/housing/2680749</a></li>
 <li><a href="https://phoenix.meituan.com/housing/5174178" target="_blank" rel="noopener">https://phoenix.meituan.com/housing/5174178</a></li>
 <li><a href="https://phoenix.meituan.com/housing/5174179" target="_blank" rel="noopener">https://phoenix.meituan.com/housing/5174179</a></li>
 </ul>
-<h6 id="美团美食——不明"><a class="header-anchor" href="#美团美食——不明">¶</a>美团美食——不明</h6>
+<h6 id="美团美食——不明"><a class="header-anchor" href="#美团美食——不明"></a>美团美食——不明</h6>
 <ul>
 <li><a href="https://www.meituan.com/meishi/110299905/" target="_blank" rel="noopener">https://www.meituan.com/meishi/110299905/</a></li>
 <li><a href="https://www.meituan.com/meishi/164715711/" target="_blank" rel="noopener">https://www.meituan.com/meishi/164715711/</a></li>
 <li><a href="https://www.meituan.com/meishi/2412338/" target="_blank" rel="noopener">https://www.meituan.com/meishi/2412338/</a></li>
 <li><a href="https://www.meituan.com/meishi/40269181/" target="_blank" rel="noopener">https://www.meituan.com/meishi/40269181/</a></li>
 </ul>
-<h5 id="2）订单号"><a class="header-anchor" href="#2）订单号">¶</a>2）订单号</h5>
+<h5 id="2）订单号"><a class="header-anchor" href="#2）订单号"></a>2）订单号</h5>
 <table>
 <thead>
 <tr>
@@ -4640,10 +4644,10 @@
 </tr>
 </tbody>
 </table>
-<h3 id="二、snowflake算法"><a class="header-anchor" href="#二、snowflake算法">¶</a>二、snowflake算法</h3>
-<h4 id="1-简介"><a class="header-anchor" href="#1-简介">¶</a>1 简介</h4>
+<h3 id="二、snowflake算法"><a class="header-anchor" href="#二、snowflake算法"></a>二、snowflake算法</h3>
+<h4 id="1-简介"><a class="header-anchor" href="#1-简介"></a>1 简介</h4>
 <p>snowflake是twitter 开源的分布式ID生成算法，基于Thrift，发布于2010年。因与自身机器架构依赖过深，twitter已于2014年宣布弃用最初版本，下一版本还未开源。详见<a href="https://github.com/twitter-archive/snowflake" target="_blank" rel="noopener">github</a>。</p>
-<h4 id="2-核心思想"><a class="header-anchor" href="#2-核心思想">¶</a>2 核心思想</h4>
+<h4 id="2-核心思想"><a class="header-anchor" href="#2-核心思想"></a>2 核心思想</h4>
 <p>一个long型的ID有64bit，划分不同含义：</p>
 <ul>
 <li>1bit符号位，始终为0</li>
@@ -4651,7 +4655,7 @@
 <li>10bit机器编号</li>
 <li>12bit毫秒内序列号</li>
 </ul>
-<h4 id="3-类snowflake算法"><a class="header-anchor" href="#3-类snowflake算法">¶</a>3 类snowflake算法</h4>
+<h4 id="3-类snowflake算法"><a class="header-anchor" href="#3-类snowflake算法"></a>3 类snowflake算法</h4>
 <p>采用snowflake算法思想，类snowflake算法根据各自业务需要，做出了不同改动。比如改变了位数占比，添加了业务线等其他信息</p>
 <table>
 <thead>
@@ -4689,7 +4693,7 @@
 </tr>
 </tbody>
 </table>
-<h6 id="附：位数对应"><a class="header-anchor" href="#附：位数对应">¶</a>附：位数对应</h6>
+<h6 id="附：位数对应"><a class="header-anchor" href="#附：位数对应"></a>附：位数对应</h6>
 <table>
    <tr>
       <td><b>二进制</td>
@@ -4710,19 +4714,19 @@
       <td>19位</td>
    </tr>
 </table>
-<h3 id="三、id设计参考"><a class="header-anchor" href="#三、id设计参考">¶</a>三、id设计参考</h3>
-<h4 id="1-时间"><a class="header-anchor" href="#1-时间">¶</a>1 时间</h4>
-<h5 id="1）时间类型"><a class="header-anchor" href="#1）时间类型">¶</a>1）时间类型</h5>
+<h3 id="三、id设计参考"><a class="header-anchor" href="#三、id设计参考"></a>三、id设计参考</h3>
+<h4 id="1-时间"><a class="header-anchor" href="#1-时间"></a>1 时间</h4>
+<h5 id="1）时间类型"><a class="header-anchor" href="#1）时间类型"></a>1）时间类型</h5>
 <ul>
 <li>时间戳：自1970.01.01起（今日头条）</li>
 <li>时间差：自选起始时间（百度、美团）</li>
 </ul>
-<h5 id="2）时间精度"><a class="header-anchor" href="#2）时间精度">¶</a>2）时间精度</h5>
+<h5 id="2）时间精度"><a class="header-anchor" href="#2）时间精度"></a>2）时间精度</h5>
 <ul>
 <li>秒级：支持峰值更高（今日头条、百度）</li>
 <li>毫秒级：记录时间粒度更细（美团）</li>
 </ul>
-<h5 id="3）支持时长"><a class="header-anchor" href="#3）支持时长">¶</a>3）支持时长</h5>
+<h5 id="3）支持时长"><a class="header-anchor" href="#3）支持时长"></a>3）支持时长</h5>
 <table>
 <thead>
 <tr>
@@ -4759,7 +4763,7 @@
 </tr>
 </tbody>
 </table>
-<h4 id="2-序列号"><a class="header-anchor" href="#2-序列号">¶</a>2 序列号</h4>
+<h4 id="2-序列号"><a class="header-anchor" href="#2-序列号"></a>2 序列号</h4>
 <p>单位时间(秒、毫秒)支持的并发量，秒级时间可以取大一点，毫秒取小一点</p>
 <table>
 <thead>
@@ -4783,15 +4787,15 @@
 </tr>
 </tbody>
 </table>
-<h4 id="3-机器号"><a class="header-anchor" href="#3-机器号">¶</a>3 机器号</h4>
+<h4 id="3-机器号"><a class="header-anchor" href="#3-机器号"></a>3 机器号</h4>
 <p>纯机器号，或，机房号+机器号</p>
-<h5 id="1）物理机"><a class="header-anchor" href="#1）物理机">¶</a>1）物理机</h5>
+<h5 id="1）物理机"><a class="header-anchor" href="#1）物理机"></a>1）物理机</h5>
 <ul>
 <li>手动配置</li>
 <li>zookeeper（美团）<br>
 在zookeeper如未注册则创建持久顺序节点，顺序号当机器号，并本地缓存</li>
 </ul>
-<h5 id="2）虚拟机"><a class="header-anchor" href="#2）虚拟机">¶</a>2）虚拟机</h5>
+<h5 id="2）虚拟机"><a class="header-anchor" href="#2）虚拟机"></a>2）虚拟机</h5>
 <ul>
 <li>redis<br>
 利用redis原子计数器，虚拟机启动后，请求计数器，按机器号位数取余</li>
@@ -4800,17 +4804,17 @@
 <li>数据库（百度）<br>
 利用系统变量的host和port为唯一索引，在数据库中存取，主键作为机器id</li>
 </ul>
-<h4 id="4-其他含义位"><a class="header-anchor" href="#4-其他含义位">¶</a>4 其他含义位</h4>
+<h4 id="4-其他含义位"><a class="header-anchor" href="#4-其他含义位"></a>4 其他含义位</h4>
 <p>业务线、备用拓展位……</p>
-<h4 id="5-id设计举例"><a class="header-anchor" href="#5-id设计举例">¶</a>5 id设计举例</h4>
+<h4 id="5-id设计举例"><a class="header-anchor" href="#5-id设计举例"></a>5 id设计举例</h4>
 <p>1符号位 + 30位秒数时间差 + 7位序列号 + 16位机器号 = 54位</p>
 <p>能用34年，单机每秒生成128的id，支持单机重启6.5w次，初始id长度为12，最终随时间增加，最长到16位</p>
-<h3 id="四、问题"><a class="header-anchor" href="#四、问题">¶</a>四、问题</h3>
-<h4 id="1-时钟回拨问题"><a class="header-anchor" href="#1-时钟回拨问题">¶</a>1 时钟回拨问题</h4>
+<h3 id="四、问题"><a class="header-anchor" href="#四、问题"></a>四、问题</h3>
+<h4 id="1-时钟回拨问题"><a class="header-anchor" href="#1-时钟回拨问题"></a>1 时钟回拨问题</h4>
 <p>若机器出现时钟回拨，会产生重复id</p>
-<h5 id="1）启动时回拨"><a class="header-anchor" href="#1）启动时回拨">¶</a>1）启动时回拨</h5>
+<h5 id="1）启动时回拨"><a class="header-anchor" href="#1）启动时回拨"></a>1）启动时回拨</h5>
 <p>启动时获取其他机器的时间，计算出平均时间后，将本机时间与平均时间比较，若超过阈值则启动失败。</p>
-<h5 id="2）运行时回拨"><a class="header-anchor" href="#2）运行时回拨">¶</a>2）运行时回拨</h5>
+<h5 id="2）运行时回拨"><a class="header-anchor" href="#2）运行时回拨"></a>2）运行时回拨</h5>
 <ol>
 <li>直接拒绝，抛异常</li>
 <li>若回拨时间小于阈值，则睡眠，等时钟追上</li>
@@ -4818,7 +4822,7 @@
 <li>或若回拨时间大于阈值，更换机器号</li>
 <li>或若回拨时间大于阈值，利用拓展位</li>
 </ol>
-<h4 id="2-id里是否需要业务线？"><a class="header-anchor" href="#2-id里是否需要业务线？">¶</a>2 id里是否需要业务线？</h4>
+<h4 id="2-id里是否需要业务线？"><a class="header-anchor" href="#2-id里是否需要业务线？"></a>2 id里是否需要业务线？</h4>
 <ol>
 <li>美团Leaf声称在内部服务众多业务线，但id里没有业务线设计</li>
 <li>头条文章和微头条的最终页前缀相同，但id长度不同，可能是通过长度区分业务线的</li>
@@ -4828,6 +4832,7 @@
 
 	</div>
 	<div id="footer">
+	<p>
 	©2019-<span id="footerYear"></span> 
 	<a href="/">Wu Jun</a> 
 	|
@@ -4840,7 +4845,9 @@
 		uv
 		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	<br>
 	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
+	</p>
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';

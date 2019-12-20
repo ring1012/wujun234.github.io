@@ -11,14 +11,14 @@
 	
 		2.6 linkedhashmap、linkedhashset | 
 	 
-	吴俊的博客
+	WuJun Blog
 	</title>
 	
 	<!-- keywords,description -->
 	
 		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
 	 
-		<meta name="description" content="吴俊的博客,wujun234" />
+		<meta name="description" content="吴俊,wujun234,wujun,wu jun" />
 	
 
 	<!-- favicon -->
@@ -29,7 +29,7 @@
 
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
-	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
+	<link rel="stylesheet" href="/lib/highlight/darcula.css">
 
 	<script src="/lib/highlight/highlight.pack.js"></script>
 	<script src="/lib/jquery-3.4.1.min.js"></script>
@@ -40,16 +40,19 @@
 
 <body>
 	<header id="header">
-    <a id="title" href="/" class="logo">吴俊的博客</a>
+    <a id="title" href="/" class="logo">WuJun Blog</a>
 
 	<ul id="menu">
 		<li class="menu-item">
-			<a href="/about" class="menu-item-link">关于</a>
+			<a href="/" class="menu-item-link">HOME</a>
+		</li>
+		<li class="menu-item">
+			<a href="/about" class="menu-item-link">ABOUT</a>
 		</li>
 		
 		<li class="menu-item">
 			<a href="https://github.com/wujun234/uid-generator-spring-boot-starter" class="menu-item-link" target="_blank">
-				uid-generator
+				UidGenerator
 			</a>
 		</li>
 		<li class="menu-item">
@@ -60,10 +63,11 @@
 	</ul>
 </header>
 
-	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-bars" aria-hidden="true"></i></button>
+	
 <div id="sidebar">
-	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">站点目录</a>
-	<a herf="#" id="sidebar-article" class="sidebar-toc">文章目录</a>
+	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-arrow-right " aria-hidden="true"></i></button>
+	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">SITE MENU</a>
+	<a herf="#" id="sidebar-article" class="sidebar-toc">ARTICLE MENU</a>
 
 	<!-- 侧边目录栏 -->
 	<div id="site-toc">
@@ -1892,8 +1896,8 @@
 			
 							<ul>
 								<li class="file">
-									<a href="/2019/12/18/01%20Spring/04%20Web/4%20Jsonp/">
-										4 Jsonp
+									<a href="/2019/12/18/01%20Spring/04%20Web/4%20%E8%B7%A8%E5%9F%9F/">
+										4 跨域
 									</a>
 								</li>
 							</ul>
@@ -4399,9 +4403,9 @@
 
 
 <div id="article">
-	<h3 id="前言"><a class="header-anchor" href="#前言">¶</a>前言</h3>
+	<h3 id="前言"><a class="header-anchor" href="#前言"></a>前言</h3>
 <p>LinkedHashSet仅对LinkedHashMap做了一层包装，实现相同。LinkedHashSet里面有一个LinkedHashMap（适配器模式）。</p>
-<h3 id="总体介绍"><a class="header-anchor" href="#总体介绍">¶</a>总体介绍</h3>
+<h3 id="总体介绍"><a class="header-anchor" href="#总体介绍"></a>总体介绍</h3>
 <p><code>LinkedHashMap</code> 有序，非同步，允许<code>null</code>键<code>null</code>值，是由<code>linkedList</code>增强的<code>HashMap</code>。</p>
 <p>继承于<code>HashMap</code>，采用双向链表的形式将所有<code>entry</code>连接起来，保证顺序。</p>
 <p>排序方式有两种：</p>
@@ -4410,7 +4414,7 @@
 <li>根据访问顺序排序。</li>
 </ul>
 <p><img src="/images/1545011840745.png" alt=""></p>
-<h4 id="数据结构"><a class="header-anchor" href="#数据结构">¶</a>数据结构</h4>
+<h4 id="数据结构"><a class="header-anchor" href="#数据结构"></a>数据结构</h4>
 <pre><code class="language-java">private transient Entry&lt;K,V&gt; header;
 
 private final boolean accessOrder;
@@ -4428,7 +4432,7 @@ private static class Entry&lt;K,V&gt; extends HashMap.Entry&lt;K,V&gt; {
 <li><code>Entry</code> 继承于 <code>HashMap</code> 的<code>Entry</code>，并新增了上下节点的指针，形成双向链表。</li>
 <li>还有一个 <code>accessOrder</code> 成员变量，默认是 <code>false</code>，默认按照插入顺序排序，为 <code>true</code> 时按照访问顺序排序</li>
 </ul>
-<h4 id="构造方法"><a class="header-anchor" href="#构造方法">¶</a>构造方法</h4>
+<h4 id="构造方法"><a class="header-anchor" href="#构造方法"></a>构造方法</h4>
 <pre><code class="language-java">    public LinkedHashMap() {
         super();
         accessOrder = false;
@@ -4442,8 +4446,8 @@ private static class Entry&lt;K,V&gt; extends HashMap.Entry&lt;K,V&gt; {
     }
 </code></pre>
 <p>其实也就是对 <code>header</code> 进行了初始化。</p>
-<h3 id="方法剖析"><a class="header-anchor" href="#方法剖析">¶</a>方法剖析</h3>
-<h4 id="get-方法"><a class="header-anchor" href="#get-方法">¶</a>get 方法</h4>
+<h3 id="方法剖析"><a class="header-anchor" href="#方法剖析"></a>方法剖析</h3>
+<h4 id="get-方法"><a class="header-anchor" href="#get-方法"></a>get 方法</h4>
 <p>重写HashMap的 <code>get()</code> ，多了一个判断</p>
 <pre><code class="language-java">    public V get(Object key) {
         Entry&lt;K,V&gt; e = (Entry&lt;K,V&gt;)getEntry(key);
@@ -4467,7 +4471,7 @@ private static class Entry&lt;K,V&gt; extends HashMap.Entry&lt;K,V&gt; {
         }
     }
 </code></pre>
-<h4 id="put-方法"><a class="header-anchor" href="#put-方法">¶</a>put() 方法</h4>
+<h4 id="put-方法"><a class="header-anchor" href="#put-方法"></a>put() 方法</h4>
 <p>插入有两重含义：</p>
 <ol>
 <li>从 table 的角度看，新的 entry 需要插入到对应的 bucket 里，当有哈希冲突时，采用头插法将新的 entry 插入到冲突链表的头部。</li>
@@ -4502,7 +4506,7 @@ private static class Entry&lt;K,V&gt; extends HashMap.Entry&lt;K,V&gt; {
         after.before = this;
     }  
 </code></pre>
-<h4 id="remove-方法"><a class="header-anchor" href="#remove-方法">¶</a>remove() 方法</h4>
+<h4 id="remove-方法"><a class="header-anchor" href="#remove-方法"></a>remove() 方法</h4>
 <p>调用 removeEntryForKey() ，先找到 key 值对应的 entry ，然后删除该 entry （修改链表的相应引用）。</p>
 <p>删除也有两重含义：</p>
 <ol>
@@ -4550,14 +4554,14 @@ private void remove() {
     after.before = before;
 }
 </code></pre>
-<h4 id="clear-方法"><a class="header-anchor" href="#clear-方法">¶</a>clear() 方法</h4>
+<h4 id="clear-方法"><a class="header-anchor" href="#clear-方法"></a>clear() 方法</h4>
 <p>只需要把指针都指向自己即可，原本那些 Entry 没有引用之后就会被 JVM 自动回收。</p>
 <pre><code class="language-java">    public void clear() {
         super.clear();
         header.before = header.after = header;
     }
 </code></pre>
-<h3 id="LinkedHashMap经典用法"><a class="header-anchor" href="#LinkedHashMap经典用法">¶</a>LinkedHashMap经典用法</h3>
+<h3 id="LinkedHashMap经典用法"><a class="header-anchor" href="#LinkedHashMap经典用法"></a>LinkedHashMap经典用法</h3>
 <p>LinkedHashMap可以轻松实现一个采用了FIFO替换策略的缓存。</p>
 <p>LinkedHashMap有一个子类方法 boolean removeEldestEntry(Map.Entry&lt;K,V&gt; eldest) ，决定是否要删除“最老”的Entry，如返回 true ，就删除。每次插入新元素的之后，都会询问removeEldestEntry()。</p>
 <p>只需在子类中重载该方法，当元素个数超过一定数量时让removeEldestEntry()返回true，就能够实现一个固定大小的FIFO策略的缓存。</p>
@@ -4580,6 +4584,7 @@ class FIFOCache&lt;K, V&gt; extends LinkedHashMap&lt;K, V&gt;{
 
 	</div>
 	<div id="footer">
+	<p>
 	©2019-<span id="footerYear"></span> 
 	<a href="/">Wu Jun</a> 
 	|
@@ -4592,7 +4597,9 @@ class FIFOCache&lt;K, V&gt; extends LinkedHashMap&lt;K, V&gt;{
 		uv
 		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	<br>
 	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
+	</p>
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';

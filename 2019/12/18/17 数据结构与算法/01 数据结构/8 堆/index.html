@@ -11,14 +11,14 @@
 	
 		8 堆 | 
 	 
-	吴俊的博客
+	WuJun Blog
 	</title>
 	
 	<!-- keywords,description -->
 	
 		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
 	 
-		<meta name="description" content="吴俊的博客,wujun234" />
+		<meta name="description" content="吴俊,wujun234,wujun,wu jun" />
 	
 
 	<!-- favicon -->
@@ -29,7 +29,7 @@
 
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
-	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
+	<link rel="stylesheet" href="/lib/highlight/darcula.css">
 
 	<script src="/lib/highlight/highlight.pack.js"></script>
 	<script src="/lib/jquery-3.4.1.min.js"></script>
@@ -40,16 +40,19 @@
 
 <body>
 	<header id="header">
-    <a id="title" href="/" class="logo">吴俊的博客</a>
+    <a id="title" href="/" class="logo">WuJun Blog</a>
 
 	<ul id="menu">
 		<li class="menu-item">
-			<a href="/about" class="menu-item-link">关于</a>
+			<a href="/" class="menu-item-link">HOME</a>
+		</li>
+		<li class="menu-item">
+			<a href="/about" class="menu-item-link">ABOUT</a>
 		</li>
 		
 		<li class="menu-item">
 			<a href="https://github.com/wujun234/uid-generator-spring-boot-starter" class="menu-item-link" target="_blank">
-				uid-generator
+				UidGenerator
 			</a>
 		</li>
 		<li class="menu-item">
@@ -60,10 +63,11 @@
 	</ul>
 </header>
 
-	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-bars" aria-hidden="true"></i></button>
+	
 <div id="sidebar">
-	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">站点目录</a>
-	<a herf="#" id="sidebar-article" class="sidebar-toc">文章目录</a>
+	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-arrow-right " aria-hidden="true"></i></button>
+	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">SITE MENU</a>
+	<a herf="#" id="sidebar-article" class="sidebar-toc">ARTICLE MENU</a>
 
 	<!-- 侧边目录栏 -->
 	<div id="site-toc">
@@ -1892,8 +1896,8 @@
 			
 							<ul>
 								<li class="file">
-									<a href="/2019/12/18/01%20Spring/04%20Web/4%20Jsonp/">
-										4 Jsonp
+									<a href="/2019/12/18/01%20Spring/04%20Web/4%20%E8%B7%A8%E5%9F%9F/">
+										4 跨域
 									</a>
 								</li>
 							</ul>
@@ -4409,10 +4413,10 @@
 <li>索引堆</li>
 <li>Treap树堆</li>
 </ol>
-<h2 id="1、二叉堆"><a class="header-anchor" href="#1、二叉堆">¶</a>1、二叉堆</h2>
+<h2 id="1、二叉堆"><a class="header-anchor" href="#1、二叉堆"></a>1、二叉堆</h2>
 <p>二叉堆是完全二元树或者是近似完全二元树，按照数据的排列方式可以分为两种：最大堆和最小堆。</p>
 <p>二叉堆一般都通过&quot;数组&quot;来实现</p>
-<h2 id="2、左倾堆"><a class="header-anchor" href="#2、左倾堆">¶</a>2、左倾堆</h2>
+<h2 id="2、左倾堆"><a class="header-anchor" href="#2、左倾堆"></a>2、左倾堆</h2>
 <p>左倾堆(leftist tree 或 leftist heap)，又被成为左偏树、左偏堆，最左堆等。</p>
 <p>它和二叉堆一样，都是优先队列实现方式。可以高效解决&quot;对两个优先队列进行合并&quot;的问题。</p>
 <p><img src="/images/1559037013198.jpg" alt=""></p>
@@ -4434,7 +4438,7 @@
 <li>如果新堆的右孩子的NPL &gt; 左孩子的NPL，则交换左右孩子。</li>
 <li>设置新堆的根节点的NPL = 右子堆NPL + 1</li>
 </ol>
-<h2 id="3、斜堆"><a class="header-anchor" href="#3、斜堆">¶</a>3、斜堆</h2>
+<h2 id="3、斜堆"><a class="header-anchor" href="#3、斜堆"></a>3、斜堆</h2>
 <p>斜堆也叫自适应堆，它是左倾堆的一个变种。和左倾堆一样，它通常也用于实现优先队列；作为一种自适应的左倾堆，它的合并操作的时间复杂度也是O(log n)。</p>
 <p>它与左倾堆的差别是：</p>
 <ol>
@@ -4448,32 +4452,32 @@
 <li>合并后，交换新堆根节点的左孩子和右孩子。</li>
 </ol>
 <p>第 3 步是斜堆和左倾堆的合并操作差别的关键所在，如果是左倾堆，则合并后要比较左右孩子的零距离大小，若右孩子的零距离 &gt; 左孩子的零距离，则交换左右孩子；最后，在设置根的零距离。</p>
-<h2 id="4、二项堆"><a class="header-anchor" href="#4、二项堆">¶</a>4、二项堆</h2>
+<h2 id="4、二项堆"><a class="header-anchor" href="#4、二项堆"></a>4、二项堆</h2>
 <p>二项堆是二项树的集合。在了解二项堆之前，先对二项树进行介绍。</p>
-<h3 id="1）二项树"><a class="header-anchor" href="#1）二项树">¶</a>1）二项树</h3>
+<h3 id="1）二项树"><a class="header-anchor" href="#1）二项树"></a>1）二项树</h3>
 <p>二项树是一种递归定义的有序树。它的递归定义如下：</p>
 <ol>
 <li>二项树B0只有一个结点；</li>
 <li>二项树Bk由两棵二项树B(k-1)组成的，其中一棵树是另一棵树根的最左孩子。</li>
 </ol>
 <p><img src="/images/1559037015017.jpg" alt=""></p>
-<h3 id="2）二项堆"><a class="header-anchor" href="#2）二项堆">¶</a>2）二项堆</h3>
+<h3 id="2）二项堆"><a class="header-anchor" href="#2）二项堆"></a>2）二项堆</h3>
 <p>二项堆和之前所讲的堆(二叉堆、左倾堆、斜堆)一样，也是用于实现优先队列的。二项堆是指满足以下性质的二项树的集合：</p>
 <ol>
 <li>每棵二项树都满足最小堆性质。即，父节点的关键字 &lt;= 它的孩子的关键字。</li>
 <li>不能有两棵或以上的二项树具有相同的度数(包括度数为0)。换句话说，具有度数k的二项树有0个或1个。</li>
 </ol>
 <p><img src="/images/1559037015069.jpg" alt=""></p>
-<h2 id="5、斐波那契堆"><a class="header-anchor" href="#5、斐波那契堆">¶</a>5、斐波那契堆</h2>
+<h2 id="5、斐波那契堆"><a class="header-anchor" href="#5、斐波那契堆"></a>5、斐波那契堆</h2>
 <p>斐波那契堆(Fibonacci heap)是一种可合并堆，可用于实现合并优先队列。它比二项堆具有更好的平摊分析性能，它的合并操作的时间复杂度是O(1)。</p>
 <p>与二项堆一样，它也是由一组堆最小有序树组成，并且是一种可合并堆。</p>
 <p>与二项堆不同的是，斐波那契堆中的树不一定是二项树；而且二项堆中的树是有序排列的，但是斐波那契堆中的树都是有根而无序的。</p>
 <p><img src="/images/1559037015086.jpg" alt=""></p>
-<h2 id="6、索引堆"><a class="header-anchor" href="#6、索引堆">¶</a>6、索引堆</h2>
+<h2 id="6、索引堆"><a class="header-anchor" href="#6、索引堆"></a>6、索引堆</h2>
 <p>索引堆是对堆进行了优化。</p>
 <p>索引堆使用了一个新的int类型的数组，用于存放索引信息。</p>
 <p>索引堆的交换操作交换的是元素的索引，而不是直接交换元素。</p>
-<h2 id="7、Treap树堆"><a class="header-anchor" href="#7、Treap树堆">¶</a>7、Treap树堆</h2>
+<h2 id="7、Treap树堆"><a class="header-anchor" href="#7、Treap树堆"></a>7、Treap树堆</h2>
 <p>一棵treap是一棵修改了结点顺序的二叉查找树，如图，显示一个例子，通常树内的每个结点x都有一个关键字值key[x]，另外，还要为结点分配priority[x]，它是一个独立选取的随机数。</p>
 <p><img src="/images/1559037015141.png" alt=""></p>
 <p>假设所有的优先级是不同的，所有的关键字也是不同的。treap的结点排列成让关键字遵循二叉查找树性质，并且优先级遵循最小堆顺序性质：</p>
@@ -4488,6 +4492,7 @@
 
 	</div>
 	<div id="footer">
+	<p>
 	©2019-<span id="footerYear"></span> 
 	<a href="/">Wu Jun</a> 
 	|
@@ -4500,7 +4505,9 @@
 		uv
 		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	<br>
 	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
+	</p>
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';

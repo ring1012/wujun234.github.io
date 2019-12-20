@@ -11,14 +11,14 @@
 	
 		2 maven迁移到gradle | 
 	 
-	吴俊的博客
+	WuJun Blog
 	</title>
 	
 	<!-- keywords,description -->
 	
 		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
 	 
-		<meta name="description" content="吴俊的博客,wujun234" />
+		<meta name="description" content="吴俊,wujun234,wujun,wu jun" />
 	
 
 	<!-- favicon -->
@@ -29,7 +29,7 @@
 
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
-	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
+	<link rel="stylesheet" href="/lib/highlight/darcula.css">
 
 	<script src="/lib/highlight/highlight.pack.js"></script>
 	<script src="/lib/jquery-3.4.1.min.js"></script>
@@ -40,16 +40,19 @@
 
 <body>
 	<header id="header">
-    <a id="title" href="/" class="logo">吴俊的博客</a>
+    <a id="title" href="/" class="logo">WuJun Blog</a>
 
 	<ul id="menu">
 		<li class="menu-item">
-			<a href="/about" class="menu-item-link">关于</a>
+			<a href="/" class="menu-item-link">HOME</a>
+		</li>
+		<li class="menu-item">
+			<a href="/about" class="menu-item-link">ABOUT</a>
 		</li>
 		
 		<li class="menu-item">
 			<a href="https://github.com/wujun234/uid-generator-spring-boot-starter" class="menu-item-link" target="_blank">
-				uid-generator
+				UidGenerator
 			</a>
 		</li>
 		<li class="menu-item">
@@ -60,10 +63,11 @@
 	</ul>
 </header>
 
-	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-bars" aria-hidden="true"></i></button>
+	
 <div id="sidebar">
-	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">站点目录</a>
-	<a herf="#" id="sidebar-article" class="sidebar-toc">文章目录</a>
+	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-arrow-right " aria-hidden="true"></i></button>
+	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">SITE MENU</a>
+	<a herf="#" id="sidebar-article" class="sidebar-toc">ARTICLE MENU</a>
 
 	<!-- 侧边目录栏 -->
 	<div id="site-toc">
@@ -1892,8 +1896,8 @@
 			
 							<ul>
 								<li class="file">
-									<a href="/2019/12/18/01%20Spring/04%20Web/4%20Jsonp/">
-										4 Jsonp
+									<a href="/2019/12/18/01%20Spring/04%20Web/4%20%E8%B7%A8%E5%9F%9F/">
+										4 跨域
 									</a>
 								</li>
 							</ul>
@@ -4399,7 +4403,7 @@
 
 
 <div id="article">
-	<h3 id="1-生成Maven构建图"><a class="header-anchor" href="#1-生成Maven构建图">¶</a>1 生成Maven构建图</h3>
+	<h3 id="1-生成Maven构建图"><a class="header-anchor" href="#1-生成Maven构建图"></a>1 生成Maven构建图</h3>
 <ol>
 <li>在根项目中 .mvn/extensions.xml 文件声明Gradle扩展</li>
 </ol>
@@ -4417,18 +4421,18 @@
 <pre><code>mvn install -Dmaven.test.skip=true
 </code></pre>
 <p>同意协议，获取构建图地址，类似 <a href="https://gradle.com/s/4jhcbxcnjoog4" target="_blank" rel="noopener">https://gradle.com/s/4jhcbxcnjoog4</a></p>
-<h3 id="2-运行自动转换"><a class="header-anchor" href="#2-运行自动转换">¶</a>2 运行自动转换</h3>
+<h3 id="2-运行自动转换"><a class="header-anchor" href="#2-运行自动转换"></a>2 运行自动转换</h3>
 <pre><code>gradle init
 </code></pre>
 <ul>
 <li>删除无用的 pom 文件</li>
 <li>删除 .idea 文件后再重新导入项目</li>
 </ul>
-<h3 id="3-生成Gradle构建图"><a class="header-anchor" href="#3-生成Gradle构建图">¶</a>3 生成Gradle构建图</h3>
+<h3 id="3-生成Gradle构建图"><a class="header-anchor" href="#3-生成Gradle构建图"></a>3 生成Gradle构建图</h3>
 <pre><code>gradlew build --scan -x test
 </code></pre>
 <p>与之前maven的构建图对比，查漏补缺</p>
-<h3 id="4-验证依赖，修复问题"><a class="header-anchor" href="#4-验证依赖，修复问题">¶</a>4 验证依赖，修复问题</h3>
+<h3 id="4-验证依赖，修复问题"><a class="header-anchor" href="#4-验证依赖，修复问题"></a>4 验证依赖，修复问题</h3>
 <p>lambok</p>
 <pre><code>compileOnly 'org.projectlombok:lombok:1.18.4'
 annotationProcessor  'org.projectlombok:lombok:1.18.4'
@@ -4491,7 +4495,7 @@ gradlew bootJar
     }
 }
 </code></pre>
-<h3 id="5-速度对比"><a class="header-anchor" href="#5-速度对比">¶</a>5 速度对比</h3>
+<h3 id="5-速度对比"><a class="header-anchor" href="#5-速度对比"></a>5 速度对比</h3>
 <p>依赖都下载到本地，跳过测试，构建</p>
 <ul>
 <li>Maven首次构建41s：<a href="https://scans.gradle.com/s/xojxxkbqk2mxg" target="_blank" rel="noopener">https://scans.gradle.com/s/xojxxkbqk2mxg</a></li>
@@ -4509,6 +4513,7 @@ gradlew bootJar
 
 	</div>
 	<div id="footer">
+	<p>
 	©2019-<span id="footerYear"></span> 
 	<a href="/">Wu Jun</a> 
 	|
@@ -4521,7 +4526,9 @@ gradlew bootJar
 		uv
 		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	<br>
 	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
+	</p>
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';

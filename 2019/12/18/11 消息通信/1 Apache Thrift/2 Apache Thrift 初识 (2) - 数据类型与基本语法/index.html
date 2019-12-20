@@ -11,14 +11,14 @@
 	
 		2 Apache Thrift 初识 (2) - 数据类型与基本语法 | 
 	 
-	吴俊的博客
+	WuJun Blog
 	</title>
 	
 	<!-- keywords,description -->
 	
 		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
 	 
-		<meta name="description" content="吴俊的博客,wujun234" />
+		<meta name="description" content="吴俊,wujun234,wujun,wu jun" />
 	
 
 	<!-- favicon -->
@@ -29,7 +29,7 @@
 
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
-	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
+	<link rel="stylesheet" href="/lib/highlight/darcula.css">
 
 	<script src="/lib/highlight/highlight.pack.js"></script>
 	<script src="/lib/jquery-3.4.1.min.js"></script>
@@ -40,16 +40,19 @@
 
 <body>
 	<header id="header">
-    <a id="title" href="/" class="logo">吴俊的博客</a>
+    <a id="title" href="/" class="logo">WuJun Blog</a>
 
 	<ul id="menu">
 		<li class="menu-item">
-			<a href="/about" class="menu-item-link">关于</a>
+			<a href="/" class="menu-item-link">HOME</a>
+		</li>
+		<li class="menu-item">
+			<a href="/about" class="menu-item-link">ABOUT</a>
 		</li>
 		
 		<li class="menu-item">
 			<a href="https://github.com/wujun234/uid-generator-spring-boot-starter" class="menu-item-link" target="_blank">
-				uid-generator
+				UidGenerator
 			</a>
 		</li>
 		<li class="menu-item">
@@ -60,10 +63,11 @@
 	</ul>
 </header>
 
-	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-bars" aria-hidden="true"></i></button>
+	
 <div id="sidebar">
-	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">站点目录</a>
-	<a herf="#" id="sidebar-article" class="sidebar-toc">文章目录</a>
+	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-arrow-right " aria-hidden="true"></i></button>
+	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">SITE MENU</a>
+	<a herf="#" id="sidebar-article" class="sidebar-toc">ARTICLE MENU</a>
 
 	<!-- 侧边目录栏 -->
 	<div id="site-toc">
@@ -1892,8 +1896,8 @@
 			
 							<ul>
 								<li class="file">
-									<a href="/2019/12/18/01%20Spring/04%20Web/4%20Jsonp/">
-										4 Jsonp
+									<a href="/2019/12/18/01%20Spring/04%20Web/4%20%E8%B7%A8%E5%9F%9F/">
+										4 跨域
 									</a>
 								</li>
 							</ul>
@@ -4399,11 +4403,11 @@
 
 
 <div id="article">
-	<h2 id="1-数据类型"><a class="header-anchor" href="#1-数据类型">¶</a>1 数据类型</h2>
+	<h2 id="1-数据类型"><a class="header-anchor" href="#1-数据类型"></a>1 数据类型</h2>
 <p><a href="http://thrift.apache.org/docs/types" target="_blank" rel="noopener">官方文档-数据类型</a></p>
 <p>基本类型（Base Types）、特殊类型（Special Types）、结构体（Structs）、容器（Containers）、异常（Exceptions）、服务（Services）
 枚举类型、常量类型。</p>
-<h3 id="1-1-基本类型"><a class="header-anchor" href="#1-1-基本类型">¶</a>1.1 基本类型</h3>
+<h3 id="1-1-基本类型"><a class="header-anchor" href="#1-1-基本类型"></a>1.1 基本类型</h3>
 <p>（括号内为对应的Java类型）</p>
 <pre><code>bool（boolean）：布尔值 (true or false)
 byte（byte）：8位有符号整数
@@ -4413,11 +4417,11 @@ i64（long）：64位有符号整型
 double（double）：64位浮点型
 string（String）：采用UTF-8编码的字符串
 </code></pre>
-<h3 id="1-2-特殊类型"><a class="header-anchor" href="#1-2-特殊类型">¶</a>1.2 特殊类型</h3>
+<h3 id="1-2-特殊类型"><a class="header-anchor" href="#1-2-特殊类型"></a>1.2 特殊类型</h3>
 <p>（括号内为对应的Java类型）</p>
 <pre><code>binary（ByteBuffer）：未经过编码的字节流
 </code></pre>
-<h3 id="1-3-结构体"><a class="header-anchor" href="#1-3-结构体">¶</a>1.3 结构体</h3>
+<h3 id="1-3-结构体"><a class="header-anchor" href="#1-3-结构体"></a>1.3 结构体</h3>
 <p>在 java 中 Thrift 结构体将会被转换成OOP对象。</p>
 <pre><code>struct ExampleStruct {
 　　1: required i32 feild1;
@@ -4438,21 +4442,21 @@ string（String）：采用UTF-8编码的字符串
 optional： 不填充则不序列化
 required：必须填充必须序列化</p>
 </blockquote>
-<h3 id="1-4-容器"><a class="header-anchor" href="#1-4-容器">¶</a>1.4 容器</h3>
+<h3 id="1-4-容器"><a class="header-anchor" href="#1-4-容器"></a>1.4 容器</h3>
 <p>有3种可用容器类型（括号内为对应的Java类型）：</p>
 <pre><code>list&lt;t&gt;(ArrayList)：元素类型为t的有序表，容许元素重复。
 set&lt;t&gt;(HashSet)：元素类型为t的无序表，不容许元素重复。
 map&lt;k,v&gt;(HashMap)：key/value对，键不容许重复。
 </code></pre>
 <p>容器中元素类型可以是除了 service 外的任何合法 Thrift 类型。</p>
-<h3 id="1-5-异常"><a class="header-anchor" href="#1-5-异常">¶</a>1.5 异常</h3>
+<h3 id="1-5-异常"><a class="header-anchor" href="#1-5-异常"></a>1.5 异常</h3>
 <p>异常在语法和功能上相当于结构体，差别是异常使用关键字 exception 而不是 struct 声明。它在语义上不同于结构体：当定义一个 RPC 服务时，开发者可能需要声明一个远程方法抛出一个异常。</p>
 <pre><code>exception RequestException {
      1: i32 code;
      2: string reason;
 }
 </code></pre>
-<h3 id="1-6-服务"><a class="header-anchor" href="#1-6-服务">¶</a>1.6 服务</h3>
+<h3 id="1-6-服务"><a class="header-anchor" href="#1-6-服务"></a>1.6 服务</h3>
 <p>服务的定义方法在语法上等同于面向对象语言中定义接口。Thrift编译器会产生实现这些接口的client和server桩。具体参见下一节。</p>
 <pre><code>service exampleService {
 　　ExampleStruct queryExampleStruct(1:i32 feild1, 2:string feild2);
@@ -4469,7 +4473,7 @@ map&lt;k,v&gt;(HashMap)：key/value对，键不容许重复。
 <li>服务支持继承，一个service可使用extends关键字继承另一个service</li>
 <li>服务不支持重载</li>
 </ul>
-<h3 id="1-7-其他"><a class="header-anchor" href="#1-7-其他">¶</a>1.7 其他</h3>
+<h3 id="1-7-其他"><a class="header-anchor" href="#1-7-其他"></a>1.7 其他</h3>
 <p>Thrift 还支持枚举(enum)和常量(const)。
 ####枚举(enum)
 可以像C/C++那样定义枚举类型。</p>
@@ -4488,28 +4492,28 @@ map&lt;k,v&gt;(HashMap)：key/value对，键不容许重复。
  
 ExampleEnum  exampleEnum  = ExampleEnum.Example1// 给常量赋缺省值时，使用常量的全称
 </code></pre>
-<h4 id="常量-const"><a class="header-anchor" href="#常量-const">¶</a>常量(const)</h4>
+<h4 id="常量-const"><a class="header-anchor" href="#常量-const"></a>常量(const)</h4>
 <p>Thrift允许用户定义常量，复杂的类型和结构体可使用JSON形式表示。</p>
 <pre><code class="language-thrift">const i32 INT_CONST = 1234;    // 分号是可选的，可有可无；支持十六进制赋值。
  
 const map&lt;string,string&gt; MAP_CONST = {&quot;hello&quot;: &quot;world&quot;, &quot;goodbye&quot;: &quot;bye&quot;}
 </code></pre>
-<h2 id="2-基本语法"><a class="header-anchor" href="#2-基本语法">¶</a>2 基本语法</h2>
-<h3 id="2-1-命名空间（namespace）"><a class="header-anchor" href="#2-1-命名空间（namespace）">¶</a>2.1 命名空间（namespace）</h3>
+<h2 id="2-基本语法"><a class="header-anchor" href="#2-基本语法"></a>2 基本语法</h2>
+<h3 id="2-1-命名空间（namespace）"><a class="header-anchor" href="#2-1-命名空间（namespace）"></a>2.1 命名空间（namespace）</h3>
 <p>Thrift 中的命名空间类似于 java 中的 package，它们提供了一种组织（隔离）代码的简便方式。名字空间也可以用于解决类型定义中的名字冲突。</p>
 <pre><code>namespace java com.example.project // 转换成package com.example.project
 </code></pre>
-<h3 id="2-2-文件包含（include）"><a class="header-anchor" href="#2-2-文件包含（include）">¶</a>2.2 文件包含（include）</h3>
+<h3 id="2-2-文件包含（include）"><a class="header-anchor" href="#2-2-文件包含（include）"></a>2.2 文件包含（include）</h3>
 <p>Thrift允许thrift文件包含，用户需要使用thrift文件名作为前缀访问被包含的对象</p>
 <pre><code>include &quot;exampleThrift.thrift&quot;
 </code></pre>
-<h3 id="2-3-类型定义（typedef）"><a class="header-anchor" href="#2-3-类型定义（typedef）">¶</a>2.3 类型定义（typedef）</h3>
+<h3 id="2-3-类型定义（typedef）"><a class="header-anchor" href="#2-3-类型定义（typedef）"></a>2.3 类型定义（typedef）</h3>
 <p>Thrift支持C/C++风格的typedef</p>
 <pre><code>typedef exampleThrift.Example Example 
 
 typedef i32 MyInteger 
 </code></pre>
-<h3 id="2-4-注释"><a class="header-anchor" href="#2-4-注释">¶</a>2.4 注释</h3>
+<h3 id="2-4-注释"><a class="header-anchor" href="#2-4-注释"></a>2.4 注释</h3>
 <p>thrift注释方式支持shell风格的注释，支持C/C++风格的注释，即#和//开头的语句都单当做注释，/**/包裹的语句也是注释。</p>
 <pre><code># This is a valid comment.
  
@@ -4519,7 +4523,7 @@ typedef i32 MyInteger
  
 // C++/Java style single-line comments work just as well.
 </code></pre>
-<h3 id="参考文档"><a class="header-anchor" href="#参考文档">¶</a>参考文档</h3>
+<h3 id="参考文档"><a class="header-anchor" href="#参考文档"></a>参考文档</h3>
 <ul>
 <li><a href="http://thrift.apache.org/docs/types" target="_blank" rel="noopener">官方文档</a></li>
 <li><a href="http://dongxicheng.org/search-engine/thrift-guide/" target="_blank" rel="noopener">Thrift使用指南</a></li>
@@ -4531,6 +4535,7 @@ typedef i32 MyInteger
 
 	</div>
 	<div id="footer">
+	<p>
 	©2019-<span id="footerYear"></span> 
 	<a href="/">Wu Jun</a> 
 	|
@@ -4543,7 +4548,9 @@ typedef i32 MyInteger
 		uv
 		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	<br>
 	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
+	</p>
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';

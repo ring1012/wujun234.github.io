@@ -11,14 +11,14 @@
 	
 		1 使用点对点信道的数据链路层 | 
 	 
-	吴俊的博客
+	WuJun Blog
 	</title>
 	
 	<!-- keywords,description -->
 	
 		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
 	 
-		<meta name="description" content="吴俊的博客,wujun234" />
+		<meta name="description" content="吴俊,wujun234,wujun,wu jun" />
 	
 
 	<!-- favicon -->
@@ -29,7 +29,7 @@
 
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
-	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
+	<link rel="stylesheet" href="/lib/highlight/darcula.css">
 
 	<script src="/lib/highlight/highlight.pack.js"></script>
 	<script src="/lib/jquery-3.4.1.min.js"></script>
@@ -40,16 +40,19 @@
 
 <body>
 	<header id="header">
-    <a id="title" href="/" class="logo">吴俊的博客</a>
+    <a id="title" href="/" class="logo">WuJun Blog</a>
 
 	<ul id="menu">
 		<li class="menu-item">
-			<a href="/about" class="menu-item-link">关于</a>
+			<a href="/" class="menu-item-link">HOME</a>
+		</li>
+		<li class="menu-item">
+			<a href="/about" class="menu-item-link">ABOUT</a>
 		</li>
 		
 		<li class="menu-item">
 			<a href="https://github.com/wujun234/uid-generator-spring-boot-starter" class="menu-item-link" target="_blank">
-				uid-generator
+				UidGenerator
 			</a>
 		</li>
 		<li class="menu-item">
@@ -60,10 +63,11 @@
 	</ul>
 </header>
 
-	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-bars" aria-hidden="true"></i></button>
+	
 <div id="sidebar">
-	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">站点目录</a>
-	<a herf="#" id="sidebar-article" class="sidebar-toc">文章目录</a>
+	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-arrow-right " aria-hidden="true"></i></button>
+	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">SITE MENU</a>
+	<a herf="#" id="sidebar-article" class="sidebar-toc">ARTICLE MENU</a>
 
 	<!-- 侧边目录栏 -->
 	<div id="site-toc">
@@ -1892,8 +1896,8 @@
 			
 							<ul>
 								<li class="file">
-									<a href="/2019/12/18/01%20Spring/04%20Web/4%20Jsonp/">
-										4 Jsonp
+									<a href="/2019/12/18/01%20Spring/04%20Web/4%20%E8%B7%A8%E5%9F%9F/">
+										4 跨域
 									</a>
 								</li>
 							</ul>
@@ -4399,31 +4403,31 @@
 
 
 <div id="article">
-	<h2 id="1-数据链路和帧"><a class="header-anchor" href="#1-数据链路和帧">¶</a>1. 数据链路和帧</h2>
-<h4 id="基本概念"><a class="header-anchor" href="#基本概念">¶</a>基本概念</h4>
+	<h2 id="1-数据链路和帧"><a class="header-anchor" href="#1-数据链路和帧"></a>1. 数据链路和帧</h2>
+<h4 id="基本概念"><a class="header-anchor" href="#基本概念"></a>基本概念</h4>
 <ul>
 <li><strong>链路</strong>(link)：指从一个结点到相邻结点的一段物理线路，中间没有任何其他的交换结点</li>
 <li><strong>数据链路</strong>(data link)：在一条线路上传送数据时，需要必要的通信协议来控制数据的传输，把实现协议的硬件和软件加到链路上，构成了数据链路</li>
 <li><strong>帧</strong>(frame)：点对点信道的数据链路层的协议数据单元</li>
 </ul>
-<h4 id="主要步骤"><a class="header-anchor" href="#主要步骤">¶</a>主要步骤</h4>
+<h4 id="主要步骤"><a class="header-anchor" href="#主要步骤"></a>主要步骤</h4>
 <p>数据链路层把网络层交下来的数据构成帧发送到链路上，以及把接收到的帧中的数据取出并上交给网络层</p>
 <ol>
 <li>结点A的数据链路层把网络层交下来的IP数据报添加首部和尾部封装成帧</li>
 <li>结点A把封装好的帧发送给结点B的数据链路层</li>
 <li>若结点B的数据链路层收到的帧无差错，则从收到的帧中提取出IP数据报上交给上面的网络层，否则丢弃这个帧</li>
 </ol>
-<h2 id="2-三个基本问题"><a class="header-anchor" href="#2-三个基本问题">¶</a>2. 三个基本问题</h2>
-<h4 id="1）封装成帧"><a class="header-anchor" href="#1）封装成帧">¶</a>1）封装成帧</h4>
+<h2 id="2-三个基本问题"><a class="header-anchor" href="#2-三个基本问题"></a>2. 三个基本问题</h2>
+<h4 id="1）封装成帧"><a class="header-anchor" href="#1）封装成帧"></a>1）封装成帧</h4>
 <ul>
 <li>网络层的IP数据报传送到数据链路层，就成为帧的数据部分，在前后分别添加首部和尾部，构成一个帧</li>
 <li>首部和尾部的作用是帧定界（确定帧的界限），并包含必要的控制信息</li>
 <li>每种链路层协议都规定了帧的数据部分的长度上限，即最大传送单元 MTU</li>
 </ul>
 <p><img src="/images/1568971323876.jpg" alt="image"></p>
-<h4 id="2）透明传输"><a class="header-anchor" href="#2）透明传输">¶</a>2）透明传输</h4>
+<h4 id="2）透明传输"><a class="header-anchor" href="#2）透明传输"></a>2）透明传输</h4>
 <p>帧的数据部分不允许出现“帧定界控制字符”，若待传输数据中包含了“帧定界控制字符”，需要在发送端的数据链路层插入转移字符，接收端的数据链路层送往网络层之前删除转移字符</p>
-<h4 id="3）差错检测"><a class="header-anchor" href="#3）差错检测">¶</a>3）差错检测</h4>
+<h4 id="3）差错检测"><a class="header-anchor" href="#3）差错检测"></a>3）差错检测</h4>
 <ul>
 <li><strong>比特差错</strong>：在传输过程中产生差错，即0变成1，1变成0</li>
 <li><strong>误码率</strong>：传输错误的比特占所传输比特总数的比率称为误码率(bit error rate,BER)
@@ -4443,6 +4447,7 @@
 
 	</div>
 	<div id="footer">
+	<p>
 	©2019-<span id="footerYear"></span> 
 	<a href="/">Wu Jun</a> 
 	|
@@ -4455,7 +4460,9 @@
 		uv
 		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	<br>
 	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
+	</p>
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';

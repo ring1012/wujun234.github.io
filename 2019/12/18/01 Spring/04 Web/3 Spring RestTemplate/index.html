@@ -11,14 +11,14 @@
 	
 		3 Spring RestTemplate | 
 	 
-	吴俊的博客
+	WuJun Blog
 	</title>
 	
 	<!-- keywords,description -->
 	
 		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
 	 
-		<meta name="description" content="吴俊的博客,wujun234" />
+		<meta name="description" content="吴俊,wujun234,wujun,wu jun" />
 	
 
 	<!-- favicon -->
@@ -29,7 +29,7 @@
 
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
-	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
+	<link rel="stylesheet" href="/lib/highlight/darcula.css">
 
 	<script src="/lib/highlight/highlight.pack.js"></script>
 	<script src="/lib/jquery-3.4.1.min.js"></script>
@@ -40,16 +40,19 @@
 
 <body>
 	<header id="header">
-    <a id="title" href="/" class="logo">吴俊的博客</a>
+    <a id="title" href="/" class="logo">WuJun Blog</a>
 
 	<ul id="menu">
 		<li class="menu-item">
-			<a href="/about" class="menu-item-link">关于</a>
+			<a href="/" class="menu-item-link">HOME</a>
+		</li>
+		<li class="menu-item">
+			<a href="/about" class="menu-item-link">ABOUT</a>
 		</li>
 		
 		<li class="menu-item">
 			<a href="https://github.com/wujun234/uid-generator-spring-boot-starter" class="menu-item-link" target="_blank">
-				uid-generator
+				UidGenerator
 			</a>
 		</li>
 		<li class="menu-item">
@@ -60,10 +63,11 @@
 	</ul>
 </header>
 
-	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-bars" aria-hidden="true"></i></button>
+	
 <div id="sidebar">
-	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">站点目录</a>
-	<a herf="#" id="sidebar-article" class="sidebar-toc">文章目录</a>
+	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-arrow-right " aria-hidden="true"></i></button>
+	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">SITE MENU</a>
+	<a herf="#" id="sidebar-article" class="sidebar-toc">ARTICLE MENU</a>
 
 	<!-- 侧边目录栏 -->
 	<div id="site-toc">
@@ -1892,8 +1896,8 @@
 			
 							<ul>
 								<li class="file">
-									<a href="/2019/12/18/01%20Spring/04%20Web/4%20Jsonp/">
-										4 Jsonp
+									<a href="/2019/12/18/01%20Spring/04%20Web/4%20%E8%B7%A8%E5%9F%9F/">
+										4 跨域
 									</a>
 								</li>
 							</ul>
@@ -4401,7 +4405,7 @@
 <div id="article">
 	<p>RestTemplate属于Spring-Web，是Spring的同步客户端HTTP访问的中心类。简化了与HTTP服务器的通信，并应用了RESTful原则。</p>
 <p>RestTemplate默认依赖JDK的HttpURLConnection来建立HTTP连接。 可切换到使用不同的HTTP库，例如Apache HttpComponents，Netty和OkHttp。</p>
-<h3 id="组成"><a class="header-anchor" href="#组成">¶</a>组成</h3>
+<h3 id="组成"><a class="header-anchor" href="#组成"></a>组成</h3>
 <p>RestTemplate包含以下几个部分：</p>
 <ul>
 <li>HttpMessageConverter：对象转换器</li>
@@ -4410,7 +4414,7 @@
 <li>ClientHttpRequestInterceptor：请求拦截器</li>
 </ul>
 <p><img src="/images/1545011851872.png" alt=""></p>
-<h3 id="初始化"><a class="header-anchor" href="#初始化">¶</a>初始化</h3>
+<h3 id="初始化"><a class="header-anchor" href="#初始化"></a>初始化</h3>
 <p>初始化时，可以传入ClientHttpRequestFactory，自定义参数。</p>
 <pre><code>@Bean
 RestTemplate restTemplate(){
@@ -4426,8 +4430,8 @@ RestTemplate restTemplate(){
 <pre><code>@Autowired
 private RestTemplate restTemplate;
 </code></pre>
-<h2 id="访问服务"><a class="header-anchor" href="#访问服务">¶</a>访问服务</h2>
-<h3 id="HTTP方法"><a class="header-anchor" href="#HTTP方法">¶</a>HTTP方法</h3>
+<h2 id="访问服务"><a class="header-anchor" href="#访问服务"></a>访问服务</h2>
+<h3 id="HTTP方法"><a class="header-anchor" href="#HTTP方法"></a>HTTP方法</h3>
 <p>使用java.net.URI代替String形式的URI，不会被URL编码两次<br>
 以get和post为例，更多见 <a href="https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/web/client/RestTemplate.html" target="_blank" rel="noopener">官网api</a></p>
 <p><strong>1. GET</strong></p>
@@ -4478,7 +4482,7 @@ public &lt;T&gt; ResponseEntity&lt;T&gt; postForEntity(URI url,Object request,Cl
     } catch (RestClientException e) {
     }
 </code></pre>
-<h3 id="异常处理"><a class="header-anchor" href="#异常处理">¶</a>异常处理</h3>
+<h3 id="异常处理"><a class="header-anchor" href="#异常处理"></a>异常处理</h3>
 <p><strong>捕获HttpServerErrorException</strong></p>
 <pre><code>int retryCount = 0;  
 while (true) {  
@@ -4515,7 +4519,7 @@ public class RestClientConfig {
   
 }  
 </code></pre>
-<h3 id="设置连接池"><a class="header-anchor" href="#设置连接池">¶</a>设置连接池</h3>
+<h3 id="设置连接池"><a class="header-anchor" href="#设置连接池"></a>设置连接池</h3>
 <pre><code>@Configuration  
 public class RestClientConfig {  
   
@@ -4553,7 +4557,7 @@ public class RestClientConfig {
   
 }  
 </code></pre>
-<h3 id="处理文件"><a class="header-anchor" href="#处理文件">¶</a>处理文件</h3>
+<h3 id="处理文件"><a class="header-anchor" href="#处理文件"></a>处理文件</h3>
 <p><strong>发送文件</strong></p>
 <pre><code>MultiValueMap&lt;String, Object&gt; multiPartBody = new LinkedMultiValueMap&lt;&gt;();  
 multiPartBody.add(&quot;file&quot;, new ClassPathResource(&quot;/tmp/user.txt&quot;));  
@@ -4579,7 +4583,7 @@ ResponseExtractor&lt;ResponseEntity&lt;File&gt;&gt; responseExtractor = new Resp
 };  
 File getFile = this.restTemplate.execute(targetUri, HttpMethod.GET, null, responseExtractor);  
 </code></pre>
-<h3 id="Spring-Boot"><a class="header-anchor" href="#Spring-Boot">¶</a>Spring Boot</h3>
+<h3 id="Spring-Boot"><a class="header-anchor" href="#Spring-Boot"></a>Spring Boot</h3>
 <p>RestTemplateBuilder</p>
 <pre><code>@Component  
 public class CustomRestTemplateCustomizer implements RestTemplateCustomizer {  
@@ -4618,8 +4622,8 @@ public class MyRestClientService {
   
 }  
 </code></pre>
-<h2 id="参数设置"><a class="header-anchor" href="#参数设置">¶</a>参数设置</h2>
-<h3 id="指定转换器"><a class="header-anchor" href="#指定转换器">¶</a>指定转换器</h3>
+<h2 id="参数设置"><a class="header-anchor" href="#参数设置"></a>参数设置</h2>
+<h3 id="指定转换器"><a class="header-anchor" href="#指定转换器"></a>指定转换器</h3>
 <p>RestTemplate默认注册了一组HttpMessageConverter用来处理一些不同的contentType的请求。</p>
 <p>StringHttpMessageConverter来处理text/plain;<br>
 MappingJackson2HttpMessageConverter来处理application/json;<br>
@@ -4636,7 +4640,7 @@ messageConverters.remove(6);
 //添加上GSON的转换器
 messageConverters.add(6, new GsonHttpMessageConverter());
 </code></pre>
-<h3 id="设置底层连接方式"><a class="header-anchor" href="#设置底层连接方式">¶</a>设置底层连接方式</h3>
+<h3 id="设置底层连接方式"><a class="header-anchor" href="#设置底层连接方式"></a>设置底层连接方式</h3>
 <p>通过构造参数设置，以切换HttpClient为例</p>
 <pre><code>//生成一个设置了连接超时时间、请求超时时间、异常最大重试次数的httpClient
 RequestConfig config = RequestConfig.custom().setConnectionRequestTimeout(10000).setConnectTimeout(10000).setSocketTimeout(30000).build();
@@ -4651,7 +4655,7 @@ ClientHttpRequestFactory requestFactory = new HttpComponentsClientHttpRequestFac
 //ClientHttpRequestFactory作为参数构造一个使用作为底层的RestTemplate
 RestTemplate restTemplate = new RestTemplate(requestFactory);
 </code></pre>
-<h3 id="设置拦截器"><a class="header-anchor" href="#设置拦截器">¶</a>设置拦截器</h3>
+<h3 id="设置拦截器"><a class="header-anchor" href="#设置拦截器"></a>设置拦截器</h3>
 <p>拦截器需要我们实现org.springframework.http.client.ClientHttpRequestInterceptor接口。</p>
 <pre><code>public class TokenInterceptor implements ClientHttpRequestInterceptor{ 
     @Override 
@@ -4678,6 +4682,7 @@ restTemplate.getInterceptors().add(new TokenInterceptor());
 
 	</div>
 	<div id="footer">
+	<p>
 	©2019-<span id="footerYear"></span> 
 	<a href="/">Wu Jun</a> 
 	|
@@ -4690,7 +4695,9 @@ restTemplate.getInterceptors().add(new TokenInterceptor());
 		uv
 		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	<br>
 	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
+	</p>
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';

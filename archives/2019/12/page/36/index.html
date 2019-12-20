@@ -9,14 +9,14 @@
 	
 	<title>
 	 
-	吴俊的博客
+	WuJun Blog
 	</title>
 	
 	<!-- keywords,description -->
 	
 		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
 	 
-		<meta name="description" content="吴俊的博客,wujun234" />
+		<meta name="description" content="吴俊,wujun234,wujun,wu jun" />
 	
 
 	<!-- favicon -->
@@ -27,7 +27,7 @@
 
 	<link rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
-	<link rel="stylesheet" href="/lib/highlight/styles/atom-one-dark.css">
+	<link rel="stylesheet" href="/lib/highlight/darcula.css">
 
 	<script src="/lib/highlight/highlight.pack.js"></script>
 	<script src="/lib/jquery-3.4.1.min.js"></script>
@@ -38,16 +38,19 @@
 
 <body>
 	<header id="header">
-    <a id="title" href="/" class="logo">吴俊的博客</a>
+    <a id="title" href="/" class="logo">WuJun Blog</a>
 
 	<ul id="menu">
 		<li class="menu-item">
-			<a href="/about" class="menu-item-link">关于</a>
+			<a href="/" class="menu-item-link">HOME</a>
+		</li>
+		<li class="menu-item">
+			<a href="/about" class="menu-item-link">ABOUT</a>
 		</li>
 		
 		<li class="menu-item">
 			<a href="https://github.com/wujun234/uid-generator-spring-boot-starter" class="menu-item-link" target="_blank">
-				uid-generator
+				UidGenerator
 			</a>
 		</li>
 		<li class="menu-item">
@@ -58,10 +61,11 @@
 	</ul>
 </header>
 
-	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-bars" aria-hidden="true"></i></button>
+	
 <div id="sidebar">
-	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">站点目录</a>
-	<a herf="#" id="sidebar-article" class="sidebar-toc">文章目录</a>
+	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-arrow-right " aria-hidden="true"></i></button>
+	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">SITE MENU</a>
+	<a herf="#" id="sidebar-article" class="sidebar-toc">ARTICLE MENU</a>
 
 	<!-- 侧边目录栏 -->
 	<div id="site-toc">
@@ -1890,8 +1894,8 @@
 			
 							<ul>
 								<li class="file">
-									<a href="/2019/12/18/01%20Spring/04%20Web/4%20Jsonp/">
-										4 Jsonp
+									<a href="/2019/12/18/01%20Spring/04%20Web/4%20%E8%B7%A8%E5%9F%9F/">
+										4 跨域
 									</a>
 								</li>
 							</ul>
@@ -4384,176 +4388,206 @@
 
 	<!-- 引入正文 -->
 	<div id="content">
-		<section id="articleList">
-		
-
-			<article class="article-li">
-				<h2>
-					<a class="article-title" href="/2019/12/18/01%20Spring/04%20Web/1%20Spring%20MVC/">1 Spring MVC</a>
+		<div id="index-list">
+	
+		<div class="index-li">
+			<a href="/2019/12/18/01%20Spring/04%20Web/1%20Spring%20MVC/">
+				<h2 class="index-title">
+					1 Spring MVC
 				</h2>
-				<span class="post-date">2019-12-19</span>
-				<div class="article-digest">
-					¶5.1 Spring MVC概览
-¶5.1.1 Spring MVC 运行原理
+				<div class="index-brief">
+					5.1 Spring MVC概览
+5.1.1 Spring MVC 运行原理
 
 
 Spring MVC通过一个单独的前端控制器（DispatcherServlet）过滤分发请求。
-Dispatch
+DispatcherServlet根据处理器映射（HandlerMapping）和请求携带的URL决定将请求发送给某个控
 					...
 				</div>
-			</article>
-			
-		
-
-			<article class="article-li">
-				<h2>
-					<a class="article-title" href="/2019/12/18/01%20Spring/04%20Web/2%20Spring%20MVC%E8%BF%9B%E9%98%B6/">2 Spring MVC进阶</a>
+				<p class="index-date">2019-12-20</p>
+			</a>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2019/12/18/01%20Spring/04%20Web/2%20Spring%20MVC%E8%BF%9B%E9%98%B6/">
+				<h2 class="index-title">
+					2 Spring MVC进阶
 				</h2>
-				<span class="post-date">2019-12-19</span>
-				<div class="article-digest">
-					¶1 替代配置
-¶1.1 自定义DispatcherServlet
-除了三个必须重载的抽象方法，AbstractAnnotationConfigDispatcherServletInitializer
+				<div class="index-brief">
+					1 替代配置
+1.1 自定义DispatcherServlet
+除了三个必须重载的抽象方法，AbstractAnnotationConfigDispatcherServletInitializer还有很多方法可以重载，以实现额外配置。
+例如，通过对customizeRegistration()的重写
 					...
 				</div>
-			</article>
-			
-		
-
-			<article class="article-li">
-				<h2>
-					<a class="article-title" href="/2019/12/18/01%20Spring/04%20Web/3%20Spring%20RestTemplate/">3 Spring RestTemplate</a>
+				<p class="index-date">2019-12-20</p>
+			</a>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2019/12/18/01%20Spring/04%20Web/3%20Spring%20RestTemplate/">
+				<h2 class="index-title">
+					3 Spring RestTemplate
 				</h2>
-				<span class="post-date">2019-12-19</span>
-				<div class="article-digest">
+				<div class="index-brief">
 					RestTemplate属于Spring-Web，是Spring的同步客户端HTTP访问的中心类。简化了与HTTP服务器的通信，并应用了RESTful原则。
-RestTemplate默认依赖JDK的H
+RestTemplate默认依赖JDK的HttpURLConnection来建立HTTP连接。 可切换到使用不同的HTTP库，例如Apache
 					...
 				</div>
-			</article>
-			
-		
-
-			<article class="article-li">
-				<h2>
-					<a class="article-title" href="/2019/12/18/01%20Spring/04%20Web/4%20Jsonp/">4 Jsonp</a>
+				<p class="index-date">2019-12-20</p>
+			</a>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2019/12/18/01%20Spring/04%20Web/4%20%E8%B7%A8%E5%9F%9F/">
+				<h2 class="index-title">
+					4 跨域
 				</h2>
-				<span class="post-date">2019-12-19</span>
-				<div class="article-digest">
-					通过jsonp调用，对格式重新封装，解决前端跨域。
-如：请求http://xxxx?&amp;callback=exec, 那么返回的jsonp格式为exec({&quot;code&quot;:0,
+				<div class="index-brief">
+					常用的跨域解决方案有 JSONP 和 CORS， spingboot 2.0 开始不推荐使用 JSONP。
+1 CORS
+1.1 属性含义
+
+
+
+属性
+含义
+
+
+
+
+value
+指定所支持域的集合， 表示所有域都支持，默认值为 。这些值对应于 HTTP 请求头中的 Access-Control-Al
 					...
 				</div>
-			</article>
-			
-		
-
-			<article class="article-li">
-				<h2>
-					<a class="article-title" href="/2019/12/18/01%20Spring/03%20AOP/1%20AOP%E7%AE%80%E4%BB%8B/">1 AOP简介</a>
+				<p class="index-date">2019-12-20</p>
+			</a>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2019/12/18/01%20Spring/03%20AOP/1%20AOP%E7%AE%80%E4%BB%8B/">
+				<h2 class="index-title">
+					1 AOP简介
 				</h2>
-				<span class="post-date">2019-12-19</span>
-				<div class="article-digest">
+				<div class="index-brief">
 					把通用功能集中模块化到某个特定的类，并规定怎么用，这个类就称为切面（aspects），关注点分离，业务模块清晰。AOP即Aspect Oriented Programming。
-¶AOP术语
+AOP术语
 
 
-通知
+通知（Advice）
+切面真正要做的工作称之为通知（advice）。通知负责定义切面的what和when。
 					...
 				</div>
-			</article>
-			
-		
-
-			<article class="article-li">
-				<h2>
-					<a class="article-title" href="/2019/12/18/01%20Spring/03%20AOP/2%20%E5%88%87%E7%82%B9/">2 切点</a>
+				<p class="index-date">2019-12-20</p>
+			</a>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2019/12/18/01%20Spring/03%20AOP/2%20%E5%88%87%E7%82%B9/">
+				<h2 class="index-title">
+					2 切点
 				</h2>
-				<span class="post-date">2019-12-19</span>
-				<div class="article-digest">
-					¶1 编写切点
+				<div class="index-brief">
+					1 编写切点
 @Pointcut 定义可重复使用的切点
 @Pointcut(&quot;execution(public * com.xxx.mapper.*.*(..))&quot;)
-publi
+public void pointCut() {
+}
+
+1.1 表示式
+由下列方式来定义或者通过 &amp;&a
 					...
 				</div>
-			</article>
-			
-		
-
-			<article class="article-li">
-				<h2>
-					<a class="article-title" href="/2019/12/18/01%20Spring/03%20AOP/3%20%E5%88%87%E9%9D%A2/">3 切面</a>
+				<p class="index-date">2019-12-20</p>
+			</a>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2019/12/18/01%20Spring/03%20AOP/3%20%E5%88%87%E9%9D%A2/">
+				<h2 class="index-title">
+					3 切面
 				</h2>
-				<span class="post-date">2019-12-19</span>
-				<div class="article-digest">
-					¶1 创建切面
+				<div class="index-brief">
+					1 创建切面
 使用@Aspect注解创建切面
 @Aspect
 @Component
 public class LogAspect {
-    @Pointcut(&quot;execution(* 
+    @Pointcut(&quot;execution(* cn.xxx..*ServiceImpl.*(..))&quot;)
+    public void 
 					...
 				</div>
-			</article>
-			
-		
-
-			<article class="article-li">
-				<h2>
-					<a class="article-title" href="/2019/12/18/01%20Spring/02%20IoC/1%20%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5/">1 依赖注入</a>
+				<p class="index-date">2019-12-20</p>
+			</a>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2019/12/18/01%20Spring/02%20IoC/1%20%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5/">
+				<h2 class="index-title">
+					1 依赖注入
 				</h2>
-				<span class="post-date">2019-12-19</span>
-				<div class="article-digest">
+				<div class="index-brief">
 					IoC容器负责装配Bean，即创建应用对象之间协作关系，是依赖注入(Dependency injection)的本质。
 装配方式优先级：自动装配 &gt; Java配置文件 &gt; XML配置文件
-
+2.1 自动装配
+Spring从两个角度来实现自动装配：
+组件扫描
+Spring自动发现Applic
 					...
 				</div>
-			</article>
-			
-		
-
-			<article class="article-li">
-				<h2>
-					<a class="article-title" href="/2019/12/18/01%20Spring/02%20IoC/2%20%E9%AB%98%E7%BA%A7%E8%A3%85%E9%85%8D/">2 高级装配</a>
+				<p class="index-date">2019-12-20</p>
+			</a>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2019/12/18/01%20Spring/02%20IoC/2%20%E9%AB%98%E7%BA%A7%E8%A3%85%E9%85%8D/">
+				<h2 class="index-title">
+					2 高级装配
 				</h2>
-				<span class="post-date">2019-12-19</span>
-				<div class="article-digest">
-					¶3.1 环境与profile
-¶配置profile
+				<div class="index-brief">
+					3.1 环境与profile
+配置profile
 
 @Profile注解
 指定某个bean属于哪一个profile，运行时做出环境决策。
-没有指定profile的bean始终都会被创建， 与激活哪
+没有指定profile的bean始终都会被创建， 与激活哪个profile没有关系。
+
+@Profile(&quot;dev&quot;)
+@Profile(&q
 					...
 				</div>
-			</article>
-			
-		
-
-			<article class="article-li">
-				<h2>
-					<a class="article-title" href="/2019/12/18/01%20Spring/02%20IoC/3%20%E5%8A%A8%E6%80%81%E6%B3%A8%E5%86%8CBean/">3 动态注册Bean</a>
+				<p class="index-date">2019-12-20</p>
+			</a>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2019/12/18/01%20Spring/02%20IoC/3%20%E5%8A%A8%E6%80%81%E6%B3%A8%E5%86%8CBean/">
+				<h2 class="index-title">
+					3 动态注册Bean
 				</h2>
-				<span class="post-date">2019-12-19</span>
-				<div class="article-digest">
-					¶1 注册接口
+				<div class="index-brief">
+					1 注册接口
 有两种接口可动态注册bean
 
 BeanDefinitionRegistry
-注册Bean定义，使用BeanDefinitionRegistry 接口 registerBeanDefi
+注册Bean定义，使用BeanDefinitionRegistry 接口 registerBeanDefinition() 方法，根据BeanDefinition实例化bean实例
+SingletonBean
 					...
 				</div>
-			</article>
-			
-		
-</section>
-
-	<a class="extend prev" rel="prev" href="/archives/2019/12/page/35/">&lt;</a><a class="page-number" href="/archives/2019/12/">1</a><span class="space">&hellip;</span><a class="page-number" href="/archives/2019/12/page/34/">34</a><a class="page-number" href="/archives/2019/12/page/35/">35</a><span class="page-number current">36</span><a class="page-number" href="/archives/2019/12/page/37/">37</a><a class="page-number" href="/archives/2019/12/page/38/">38</a><a class="page-number" href="/archives/2019/12/page/39/">39</a><a class="extend next" rel="next" href="/archives/2019/12/page/37/">&gt;</a>
+				<p class="index-date">2019-12-20</p>
+			</a>
+		</div>	
+	
+</div>
+<div id="index-paginator">
+	
+		<a class="extend prev" rel="prev" href="/archives/2019/12/page/35/">&lt;</a><a class="page-number" href="/archives/2019/12/">1</a><span class="space">&hellip;</span><a class="page-number" href="/archives/2019/12/page/34/">34</a><a class="page-number" href="/archives/2019/12/page/35/">35</a><span class="page-number current">36</span><a class="page-number" href="/archives/2019/12/page/37/">37</a><a class="page-number" href="/archives/2019/12/page/38/">38</a><a class="page-number" href="/archives/2019/12/page/39/">39</a><a class="extend next" rel="next" href="/archives/2019/12/page/37/">&gt;</a>
+	
+</div>
 
 	</div>
 	<div id="footer">
+	<p>
 	©2019-<span id="footerYear"></span> 
 	<a href="/">Wu Jun</a> 
 	|
@@ -4566,7 +4600,9 @@ BeanDefinitionRegistry
 		uv
 		<span id="busuanzi_value_site_uv"></span>
 	</span>
+	<br>
 	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
+	</p>
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
