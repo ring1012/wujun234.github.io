@@ -9,7 +9,7 @@
 	
 	<title>
 	 
-	WuJun Blog
+	吴俊博客
 	</title>
 	
 	<!-- keywords,description -->
@@ -38,7 +38,7 @@
 
 <body>
 	<header id="header">
-    <a id="title" href="/" class="logo">WuJun Blog</a>
+    <a id="title" href="/" class="logo">吴俊博客</a>
 
 	<ul id="menu">
 		<li class="menu-item">
@@ -64,8 +64,8 @@
 	
 <div id="sidebar">
 	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-arrow-right " aria-hidden="true"></i></button>
-	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">SITE MENU</a>
-	<a herf="#" id="sidebar-article" class="sidebar-toc">ARTICLE MENU</a>
+	<a herf="#" id="site-menu" class="sidebar-toc toc-active">SITE MENU</a>
+	<a herf="#" id="article-menu" class="sidebar-toc">ARTICLE MENU</a>
 
 	<!-- 侧边目录栏 -->
 	<div id="site-toc">
@@ -4391,23 +4391,6 @@
 		<div id="index-list">
 	
 		<div class="index-li">
-			<a href="/2019/12/18/00%20Java/01%20Java%E8%99%9A%E6%8B%9F%E6%9C%BA/05%20%E8%B0%83%E4%BC%98%E6%A1%88%E4%BE%8B/1%20%E6%A1%88%E4%BE%8B%E5%88%86%E6%9E%90/">
-				<h2 class="index-title">
-					1 案例分析
-				</h2>
-				<div class="index-brief">
-					1 高性能硬件上的程序部署策略
-问题描述
-
-一个每天15万PV左右的在线文档网站升级了硬件，4个CPU，16GB物理内存，操作系统为64位CentOS 5.4，使用Resin作为Web服务器，没有部署其他的应用。
-管理员选用了64位的JDK 1.5，并通过-Xmx和-Xms参数将Java堆固定在12
-					...
-				</div>
-				<p class="index-date">2019-12-20</p>
-			</a>
-		</div>	
-	
-		<div class="index-li">
 			<a href="/2019/12/18/00%20Java/01%20Java%E8%99%9A%E6%8B%9F%E6%9C%BA/05%20%E8%B0%83%E4%BC%98%E6%A1%88%E4%BE%8B/2%20%E5%AE%9E%E6%88%98%EF%BC%9AEclipse%E8%BF%90%E8%A1%8C%E9%80%9F%E5%BA%A6%E8%B0%83%E4%BC%98/">
 				<h2 class="index-title">
 					2 实战：Eclipse运行速度调优
@@ -4421,7 +4404,24 @@
 把-Xms和-XX：PermSize参数设置为-Xmx和-XX:MaxPermSize一
 					...
 				</div>
-				<p class="index-date">2019-12-20</p>
+				<p class="index-date">2019-12-21</p>
+			</a>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2019/12/18/00%20Java/01%20Java%E8%99%9A%E6%8B%9F%E6%9C%BA/05%20%E8%B0%83%E4%BC%98%E6%A1%88%E4%BE%8B/1%20%E6%A1%88%E4%BE%8B%E5%88%86%E6%9E%90/">
+				<h2 class="index-title">
+					1 案例分析
+				</h2>
+				<div class="index-brief">
+					1 高性能硬件上的程序部署策略
+问题描述
+
+一个每天15万PV左右的在线文档网站升级了硬件，4个CPU，16GB物理内存，操作系统为64位CentOS 5.4，使用Resin作为Web服务器，没有部署其他的应用。
+管理员选用了64位的JDK 1.5，并通过-Xmx和-Xms参数将Java堆固定在12
+					...
+				</div>
+				<p class="index-date">2019-12-21</p>
 			</a>
 		</div>	
 	
@@ -4446,12 +4446,14 @@
 		<span id="busuanzi_value_site_uv"></span>
 	</span>
 	<br>
-	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
+	Theme <a href="//github.com/wujun234/hexo-theme-tree">Tree</a>
+	by <a href="//github.com/wujun234">WuJun</a>
+	Powered by <a href="//hexo.io">Hexo</a>
 	</p>
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
-	<button id="totop" class="toggle"><i class="fa fa-angle-double-up" aria-hidden="true"></i></button>
+	<button id="totop-toggle" class="toggle"><i class="fa fa-angle-double-up" aria-hidden="true"></i></button>
 </body>
 </html>

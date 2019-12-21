@@ -9,7 +9,7 @@
 	
 	<title>
 	 
-	WuJun Blog
+	吴俊博客
 	</title>
 	
 	<!-- keywords,description -->
@@ -38,7 +38,7 @@
 
 <body>
 	<header id="header">
-    <a id="title" href="/" class="logo">WuJun Blog</a>
+    <a id="title" href="/" class="logo">吴俊博客</a>
 
 	<ul id="menu">
 		<li class="menu-item">
@@ -64,8 +64,8 @@
 	
 <div id="sidebar">
 	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-arrow-right " aria-hidden="true"></i></button>
-	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">SITE MENU</a>
-	<a herf="#" id="sidebar-article" class="sidebar-toc">ARTICLE MENU</a>
+	<a herf="#" id="site-menu" class="sidebar-toc toc-active">SITE MENU</a>
+	<a herf="#" id="article-menu" class="sidebar-toc">ARTICLE MENU</a>
 
 	<!-- 侧边目录栏 -->
 	<div id="site-toc">
@@ -4391,6 +4391,154 @@
 		<div id="index-list">
 	
 		<div class="index-li">
+			<a href="/2019/12/18/02%20%E6%95%B0%E6%8D%AE%E5%BA%93/06%20Cassandra/6%20Cassandra%20vs.%20HBase/">
+				<h2 class="index-title">
+					6 Cassandra vs. HBase
+				</h2>
+				<div class="index-brief">
+					参考：
+
+Cassandra vs. HBase: twins or just strangers with similar looks?[Jun 19, 2018]
+HBase vs Cassandra – Which One Is Better (Infographics)[Feb 16, 20
+					...
+				</div>
+				<p class="index-date">2019-12-21</p>
+			</a>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2019/12/18/02%20%E6%95%B0%E6%8D%AE%E5%BA%93/06%20Cassandra/5%20Gossip%20%E5%8D%8F%E8%AE%AE/">
+				<h2 class="index-title">
+					5 Gossip 协议
+				</h2>
+				<div class="index-brief">
+					Gossip的原始论文：《Efficient Reconciliation and Flow Control for Anti-Entropy Protocols》
+
+1 概述
+1）特点
+
+最终一致性：在一个有界网络中，每个节点都随机地与其他节点通信，经过一番杂乱无章的通信，最终所有节点的状态都会达
+					...
+				</div>
+				<p class="index-date">2019-12-21</p>
+			</a>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2019/12/18/02%20%E6%95%B0%E6%8D%AE%E5%BA%93/06%20Cassandra/4%20%E8%BF%81%E7%A7%BB%E6%A1%88%E4%BE%8B%E7%A4%BA%E4%BE%8B/">
+				<h2 class="index-title">
+					4 迁移案例示例
+				</h2>
+				<div class="index-brief">
+					1 关系型数据库的设计
+用户信息 E-R 图
+
+2 Cassandra 设计
+1）归一化到自定义索引的规范化实体
+最佳选择，但是设计时应该增加时间戳 column。
+
+2）部分去规范化实体
+采用 Super Column 方式，数据量增大后，容易出现查询性能问题。
+
+
+					...
+				</div>
+				<p class="index-date">2019-12-21</p>
+			</a>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2019/12/18/02%20%E6%95%B0%E6%8D%AE%E5%BA%93/06%20Cassandra/3%20Cassandra%20%E6%95%B0%E6%8D%AE%E6%A8%A1%E5%9E%8B/">
+				<h2 class="index-title">
+					3 Cassandra 数据模型
+				</h2>
+				<div class="index-brief">
+					Cassandra 的数据模型是基于列族（Column Family）的四维或五维模型。它借鉴了 Amazon 的 Dynamo 和 Google’s BigTable 的数据结构和功能特点，采用 Memtable 和 SSTable 的方式进行存储。
+1 KeySpace（键空间）
+
+相当于dat
+					...
+				</div>
+				<p class="index-date">2019-12-21</p>
+			</a>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2019/12/18/02%20%E6%95%B0%E6%8D%AE%E5%BA%93/06%20Cassandra/2%20Cassandra%20%E6%9E%B6%E6%9E%84/">
+				<h2 class="index-title">
+					2 Cassandra 架构
+				</h2>
+				<div class="index-brief">
+					1 核心架构
+1）Node
+节点，存放数据的地方，Cassandra的基础设施。
+2）datacenter
+
+数据中心，关联节点的集合。可以是物理或虚拟的。
+复制策略由datacenter设置。数据通过复制因子决定，可写入到多个datacenter
+
+3）Cluster
+集群，包含一个或多个数据中心
+					...
+				</div>
+				<p class="index-date">2019-12-21</p>
+			</a>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2019/12/18/02%20%E6%95%B0%E6%8D%AE%E5%BA%93/06%20Cassandra/1%20Cassandra%20%E7%AE%80%E4%BB%8B/">
+				<h2 class="index-title">
+					1 Cassandra 简介
+				</h2>
+				<div class="index-brief">
+					官方文档
+（不完整，很多todo）
+Datastax
+CQL语法
+1 Cassandra简介
+
+Cassandra 是一种分布式非关系型数据库，具有高性能、可扩展、无中心化、高可用性、无单点故障等特征。
+以 Amazon 完全分布式的 Dynamo 数据库作为基础，结合 Google BigTabl
+					...
+				</div>
+				<p class="index-date">2019-12-21</p>
+			</a>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2019/12/18/02%20%E6%95%B0%E6%8D%AE%E5%BA%93/05%20MongoDB/04%20Java%E4%B8%AD%E4%BD%BF%E7%94%A8/">
+				<h2 class="index-title">
+					04 Java中使用
+				</h2>
+				<div class="index-brief">
+					Maven 引入
+&lt;dependencies&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;org.mongodb&lt;/groupId&gt;
+        &lt;artifactId&gt;mongodb-driver&lt;/a
+					...
+				</div>
+				<p class="index-date">2019-12-21</p>
+			</a>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2019/12/18/02%20%E6%95%B0%E6%8D%AE%E5%BA%93/05%20MongoDB/03%20MongoDB%20%E7%AE%A1%E7%90%86/">
+				<h2 class="index-title">
+					03 MongoDB 管理
+				</h2>
+				<div class="index-brief">
+					1 复制（副本集）
+复制提供了数据的冗余备份，并在多个服务器上存储数据副本，提高了数据的可用性， 并可以保证数据的安全性。
+至少需要两个节点。主节点，负责处理客户端请求；从节点，负责复制主节点上的数据。
+主节点记录在其上的所有操作oplog，从节点定期轮询主节点获取这些操作，然后对自己的数据副本执行
+					...
+				</div>
+				<p class="index-date">2019-12-21</p>
+			</a>
+		</div>	
+	
+		<div class="index-li">
 			<a href="/2019/12/18/02%20%E6%95%B0%E6%8D%AE%E5%BA%93/05%20MongoDB/02%20MongoDB%20%E6%93%8D%E4%BD%9C/">
 				<h2 class="index-title">
 					02 MongoDB 操作
@@ -4404,7 +4552,7 @@ mongodb:// 固定格式
 username:pas
 					...
 				</div>
-				<p class="index-date">2019-12-20</p>
+				<p class="index-date">2019-12-21</p>
 			</a>
 		</div>	
 	
@@ -4437,155 +4585,7 @@ MongoDB术语/概念
 字段
 					...
 				</div>
-				<p class="index-date">2019-12-20</p>
-			</a>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/2019/12/18/02%20%E6%95%B0%E6%8D%AE%E5%BA%93/05%20MongoDB/03%20MongoDB%20%E7%AE%A1%E7%90%86/">
-				<h2 class="index-title">
-					03 MongoDB 管理
-				</h2>
-				<div class="index-brief">
-					1 复制（副本集）
-复制提供了数据的冗余备份，并在多个服务器上存储数据副本，提高了数据的可用性， 并可以保证数据的安全性。
-至少需要两个节点。主节点，负责处理客户端请求；从节点，负责复制主节点上的数据。
-主节点记录在其上的所有操作oplog，从节点定期轮询主节点获取这些操作，然后对自己的数据副本执行
-					...
-				</div>
-				<p class="index-date">2019-12-20</p>
-			</a>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/2019/12/18/02%20%E6%95%B0%E6%8D%AE%E5%BA%93/05%20MongoDB/04%20Java%E4%B8%AD%E4%BD%BF%E7%94%A8/">
-				<h2 class="index-title">
-					04 Java中使用
-				</h2>
-				<div class="index-brief">
-					Maven 引入
-&lt;dependencies&gt;
-    &lt;dependency&gt;
-        &lt;groupId&gt;org.mongodb&lt;/groupId&gt;
-        &lt;artifactId&gt;mongodb-driver&lt;/a
-					...
-				</div>
-				<p class="index-date">2019-12-20</p>
-			</a>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/2019/12/18/02%20%E6%95%B0%E6%8D%AE%E5%BA%93/06%20Cassandra/1%20Cassandra%20%E7%AE%80%E4%BB%8B/">
-				<h2 class="index-title">
-					1 Cassandra 简介
-				</h2>
-				<div class="index-brief">
-					官方文档
-（不完整，很多todo）
-Datastax
-CQL语法
-1 Cassandra简介
-
-Cassandra 是一种分布式非关系型数据库，具有高性能、可扩展、无中心化、高可用性、无单点故障等特征。
-以 Amazon 完全分布式的 Dynamo 数据库作为基础，结合 Google BigTabl
-					...
-				</div>
-				<p class="index-date">2019-12-20</p>
-			</a>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/2019/12/18/02%20%E6%95%B0%E6%8D%AE%E5%BA%93/06%20Cassandra/2%20Cassandra%20%E6%9E%B6%E6%9E%84/">
-				<h2 class="index-title">
-					2 Cassandra 架构
-				</h2>
-				<div class="index-brief">
-					1 核心架构
-1）Node
-节点，存放数据的地方，Cassandra的基础设施。
-2）datacenter
-
-数据中心，关联节点的集合。可以是物理或虚拟的。
-复制策略由datacenter设置。数据通过复制因子决定，可写入到多个datacenter
-
-3）Cluster
-集群，包含一个或多个数据中心
-					...
-				</div>
-				<p class="index-date">2019-12-20</p>
-			</a>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/2019/12/18/02%20%E6%95%B0%E6%8D%AE%E5%BA%93/06%20Cassandra/3%20Cassandra%20%E6%95%B0%E6%8D%AE%E6%A8%A1%E5%9E%8B/">
-				<h2 class="index-title">
-					3 Cassandra 数据模型
-				</h2>
-				<div class="index-brief">
-					Cassandra 的数据模型是基于列族（Column Family）的四维或五维模型。它借鉴了 Amazon 的 Dynamo 和 Google’s BigTable 的数据结构和功能特点，采用 Memtable 和 SSTable 的方式进行存储。
-1 KeySpace（键空间）
-
-相当于dat
-					...
-				</div>
-				<p class="index-date">2019-12-20</p>
-			</a>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/2019/12/18/02%20%E6%95%B0%E6%8D%AE%E5%BA%93/06%20Cassandra/4%20%E8%BF%81%E7%A7%BB%E6%A1%88%E4%BE%8B%E7%A4%BA%E4%BE%8B/">
-				<h2 class="index-title">
-					4 迁移案例示例
-				</h2>
-				<div class="index-brief">
-					1 关系型数据库的设计
-用户信息 E-R 图
-
-2 Cassandra 设计
-1）归一化到自定义索引的规范化实体
-最佳选择，但是设计时应该增加时间戳 column。
-
-2）部分去规范化实体
-采用 Super Column 方式，数据量增大后，容易出现查询性能问题。
-
-
-					...
-				</div>
-				<p class="index-date">2019-12-20</p>
-			</a>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/2019/12/18/02%20%E6%95%B0%E6%8D%AE%E5%BA%93/06%20Cassandra/5%20Gossip%20%E5%8D%8F%E8%AE%AE/">
-				<h2 class="index-title">
-					5 Gossip 协议
-				</h2>
-				<div class="index-brief">
-					Gossip的原始论文：《Efficient Reconciliation and Flow Control for Anti-Entropy Protocols》
-
-1 概述
-1）特点
-
-最终一致性：在一个有界网络中，每个节点都随机地与其他节点通信，经过一番杂乱无章的通信，最终所有节点的状态都会达
-					...
-				</div>
-				<p class="index-date">2019-12-20</p>
-			</a>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/2019/12/18/02%20%E6%95%B0%E6%8D%AE%E5%BA%93/06%20Cassandra/6%20Cassandra%20vs.%20HBase/">
-				<h2 class="index-title">
-					6 Cassandra vs. HBase
-				</h2>
-				<div class="index-brief">
-					参考：
-
-Cassandra vs. HBase: twins or just strangers with similar looks?[Jun 19, 2018]
-HBase vs Cassandra – Which One Is Better (Infographics)[Feb 16, 20
-					...
-				</div>
-				<p class="index-date">2019-12-20</p>
+				<p class="index-date">2019-12-21</p>
 			</a>
 		</div>	
 	
@@ -4612,12 +4612,14 @@ HBase vs Cassandra – Which One Is Better (Infographics)[Feb 16, 20
 		<span id="busuanzi_value_site_uv"></span>
 	</span>
 	<br>
-	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
+	Theme <a href="//github.com/wujun234/hexo-theme-tree">Tree</a>
+	by <a href="//github.com/wujun234">WuJun</a>
+	Powered by <a href="//hexo.io">Hexo</a>
 	</p>
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
-	<button id="totop" class="toggle"><i class="fa fa-angle-double-up" aria-hidden="true"></i></button>
+	<button id="totop-toggle" class="toggle"><i class="fa fa-angle-double-up" aria-hidden="true"></i></button>
 </body>
 </html>

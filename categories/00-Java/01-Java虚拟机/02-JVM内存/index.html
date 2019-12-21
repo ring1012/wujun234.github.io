@@ -9,7 +9,7 @@
 	
 	<title>
 	 
-	WuJun Blog
+	吴俊博客
 	</title>
 	
 	<!-- keywords,description -->
@@ -38,7 +38,7 @@
 
 <body>
 	<header id="header">
-    <a id="title" href="/" class="logo">WuJun Blog</a>
+    <a id="title" href="/" class="logo">吴俊博客</a>
 
 	<ul id="menu">
 		<li class="menu-item">
@@ -64,8 +64,8 @@
 	
 <div id="sidebar">
 	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-arrow-right " aria-hidden="true"></i></button>
-	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">SITE MENU</a>
-	<a herf="#" id="sidebar-article" class="sidebar-toc">ARTICLE MENU</a>
+	<a herf="#" id="site-menu" class="sidebar-toc toc-active">SITE MENU</a>
+	<a herf="#" id="article-menu" class="sidebar-toc">ARTICLE MENU</a>
 
 	<!-- 侧边目录栏 -->
 	<div id="site-toc">
@@ -4391,26 +4391,23 @@
 		<div id="index-list">
 	
 		<div class="index-li">
-			<a href="/2019/12/18/00%20Java/01%20Java%E8%99%9A%E6%8B%9F%E6%9C%BA/02%20JVM%E5%86%85%E5%AD%98/1%20%E5%86%85%E5%AD%98%E5%88%86%E5%8C%BA/">
+			<a href="/2019/12/18/00%20Java/01%20Java%E8%99%9A%E6%8B%9F%E6%9C%BA/02%20JVM%E5%86%85%E5%AD%98/3%20%E5%86%85%E5%AD%98%E6%BA%A2%E5%87%BA%E5%BC%82%E5%B8%B8/">
 				<h2 class="index-title">
-					1 内存分区
+					3 内存溢出异常
 				</h2>
 				<div class="index-brief">
-					JVM所管理的内存分为以下几个区域
+					1 堆溢出
+1) 异常报错
+在JVM中如果98％的时间是用于GC且可用的Heap size 不足2％的时候将抛出此异常信息
+java.lang.OutOfMemoryError: Java heap space 
 
-1 程序计数器
+2) 堆参数
 
-线程私有，是当前线程所执行字节码的行号指示器。
-执行java方法，记录正在执行的虚拟机字节码指令的地址；执行native方法，计数器为空。
-JVM中唯一不存在OutOfMemoryError的区域。
-
-2 虚拟机栈
-
-线程私有，控制方法执行
-方
+-Xms(初始空间)：推荐物理内存的1/64
+-Xmx(最大空间)：
 					...
 				</div>
-				<p class="index-date">2019-12-20</p>
+				<p class="index-date">2019-12-21</p>
 			</a>
 		</div>	
 	
@@ -4433,28 +4430,31 @@ JVM中唯一不存在OutOfMemoryError的区域。
 
 					...
 				</div>
-				<p class="index-date">2019-12-20</p>
+				<p class="index-date">2019-12-21</p>
 			</a>
 		</div>	
 	
 		<div class="index-li">
-			<a href="/2019/12/18/00%20Java/01%20Java%E8%99%9A%E6%8B%9F%E6%9C%BA/02%20JVM%E5%86%85%E5%AD%98/3%20%E5%86%85%E5%AD%98%E6%BA%A2%E5%87%BA%E5%BC%82%E5%B8%B8/">
+			<a href="/2019/12/18/00%20Java/01%20Java%E8%99%9A%E6%8B%9F%E6%9C%BA/02%20JVM%E5%86%85%E5%AD%98/1%20%E5%86%85%E5%AD%98%E5%88%86%E5%8C%BA/">
 				<h2 class="index-title">
-					3 内存溢出异常
+					1 内存分区
 				</h2>
 				<div class="index-brief">
-					1 堆溢出
-1) 异常报错
-在JVM中如果98％的时间是用于GC且可用的Heap size 不足2％的时候将抛出此异常信息
-java.lang.OutOfMemoryError: Java heap space 
+					JVM所管理的内存分为以下几个区域
 
-2) 堆参数
+1 程序计数器
 
--Xms(初始空间)：推荐物理内存的1/64
--Xmx(最大空间)：
+线程私有，是当前线程所执行字节码的行号指示器。
+执行java方法，记录正在执行的虚拟机字节码指令的地址；执行native方法，计数器为空。
+JVM中唯一不存在OutOfMemoryError的区域。
+
+2 虚拟机栈
+
+线程私有，控制方法执行
+方
 					...
 				</div>
-				<p class="index-date">2019-12-20</p>
+				<p class="index-date">2019-12-21</p>
 			</a>
 		</div>	
 	
@@ -4479,12 +4479,14 @@ java.lang.OutOfMemoryError: Java heap space
 		<span id="busuanzi_value_site_uv"></span>
 	</span>
 	<br>
-	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
+	Theme <a href="//github.com/wujun234/hexo-theme-tree">Tree</a>
+	by <a href="//github.com/wujun234">WuJun</a>
+	Powered by <a href="//hexo.io">Hexo</a>
 	</p>
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
-	<button id="totop" class="toggle"><i class="fa fa-angle-double-up" aria-hidden="true"></i></button>
+	<button id="totop-toggle" class="toggle"><i class="fa fa-angle-double-up" aria-hidden="true"></i></button>
 </body>
 </html>

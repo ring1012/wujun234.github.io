@@ -9,7 +9,7 @@
 	
 	<title>
 	 
-	WuJun Blog
+	吴俊博客
 	</title>
 	
 	<!-- keywords,description -->
@@ -38,7 +38,7 @@
 
 <body>
 	<header id="header">
-    <a id="title" href="/" class="logo">WuJun Blog</a>
+    <a id="title" href="/" class="logo">吴俊博客</a>
 
 	<ul id="menu">
 		<li class="menu-item">
@@ -64,8 +64,8 @@
 	
 <div id="sidebar">
 	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-arrow-right " aria-hidden="true"></i></button>
-	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">SITE MENU</a>
-	<a herf="#" id="sidebar-article" class="sidebar-toc">ARTICLE MENU</a>
+	<a herf="#" id="site-menu" class="sidebar-toc toc-active">SITE MENU</a>
+	<a herf="#" id="article-menu" class="sidebar-toc">ARTICLE MENU</a>
 
 	<!-- 侧边目录栏 -->
 	<div id="site-toc">
@@ -4391,20 +4391,21 @@
 		<div id="index-list">
 	
 		<div class="index-li">
-			<a href="/2019/12/18/01%20Spring/03%20AOP/1%20AOP%E7%AE%80%E4%BB%8B/">
+			<a href="/2019/12/18/01%20Spring/03%20AOP/3%20%E5%88%87%E9%9D%A2/">
 				<h2 class="index-title">
-					1 AOP简介
+					3 切面
 				</h2>
 				<div class="index-brief">
-					把通用功能集中模块化到某个特定的类，并规定怎么用，这个类就称为切面（aspects），关注点分离，业务模块清晰。AOP即Aspect Oriented Programming。
-AOP术语
-
-
-通知（Advice）
-切面真正要做的工作称之为通知（advice）。通知负责定义切面的what和when。
+					1 创建切面
+使用@Aspect注解创建切面
+@Aspect
+@Component
+public class LogAspect {
+    @Pointcut(&quot;execution(* cn.xxx..*ServiceImpl.*(..))&quot;)
+    public void 
 					...
 				</div>
-				<p class="index-date">2019-12-20</p>
+				<p class="index-date">2019-12-21</p>
 			</a>
 		</div>	
 	
@@ -4424,26 +4425,25 @@ public void pointCut() {
 由下列方式来定义或者通过 &amp;&a
 					...
 				</div>
-				<p class="index-date">2019-12-20</p>
+				<p class="index-date">2019-12-21</p>
 			</a>
 		</div>	
 	
 		<div class="index-li">
-			<a href="/2019/12/18/01%20Spring/03%20AOP/3%20%E5%88%87%E9%9D%A2/">
+			<a href="/2019/12/18/01%20Spring/03%20AOP/1%20AOP%E7%AE%80%E4%BB%8B/">
 				<h2 class="index-title">
-					3 切面
+					1 AOP简介
 				</h2>
 				<div class="index-brief">
-					1 创建切面
-使用@Aspect注解创建切面
-@Aspect
-@Component
-public class LogAspect {
-    @Pointcut(&quot;execution(* cn.xxx..*ServiceImpl.*(..))&quot;)
-    public void 
+					把通用功能集中模块化到某个特定的类，并规定怎么用，这个类就称为切面（aspects），关注点分离，业务模块清晰。AOP即Aspect Oriented Programming。
+AOP术语
+
+
+通知（Advice）
+切面真正要做的工作称之为通知（advice）。通知负责定义切面的what和when。
 					...
 				</div>
-				<p class="index-date">2019-12-20</p>
+				<p class="index-date">2019-12-21</p>
 			</a>
 		</div>	
 	
@@ -4468,12 +4468,14 @@ public class LogAspect {
 		<span id="busuanzi_value_site_uv"></span>
 	</span>
 	<br>
-	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
+	Theme <a href="//github.com/wujun234/hexo-theme-tree">Tree</a>
+	by <a href="//github.com/wujun234">WuJun</a>
+	Powered by <a href="//hexo.io">Hexo</a>
 	</p>
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
-	<button id="totop" class="toggle"><i class="fa fa-angle-double-up" aria-hidden="true"></i></button>
+	<button id="totop-toggle" class="toggle"><i class="fa fa-angle-double-up" aria-hidden="true"></i></button>
 </body>
 </html>

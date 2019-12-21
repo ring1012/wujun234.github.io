@@ -9,7 +9,7 @@
 	
 	<title>
 	 
-	WuJun Blog
+	吴俊博客
 	</title>
 	
 	<!-- keywords,description -->
@@ -38,7 +38,7 @@
 
 <body>
 	<header id="header">
-    <a id="title" href="/" class="logo">WuJun Blog</a>
+    <a id="title" href="/" class="logo">吴俊博客</a>
 
 	<ul id="menu">
 		<li class="menu-item">
@@ -64,8 +64,8 @@
 	
 <div id="sidebar">
 	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-arrow-right " aria-hidden="true"></i></button>
-	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">SITE MENU</a>
-	<a herf="#" id="sidebar-article" class="sidebar-toc">ARTICLE MENU</a>
+	<a herf="#" id="site-menu" class="sidebar-toc toc-active">SITE MENU</a>
+	<a herf="#" id="article-menu" class="sidebar-toc">ARTICLE MENU</a>
 
 	<!-- 侧边目录栏 -->
 	<div id="site-toc">
@@ -4391,44 +4391,77 @@
 		<div id="index-list">
 	
 		<div class="index-li">
-			<a href="/2019/12/18/08%20DevOps/1%20Git/0%20%E6%90%AD%E5%BB%BAGit%E6%9C%8D%E5%8A%A1%E5%99%A8/">
+			<a href="/2019/12/18/08%20DevOps/1%20Git/6%20%E5%85%B6%E4%BB%96/">
 				<h2 class="index-title">
-					0 搭建Git服务器
+					6 其他
 				</h2>
 				<div class="index-brief">
-					原文
+					忽略特殊文件
 
-搭建Git服务器非常简单，通常10分钟即可完成；
-要方便管理公钥，用Gitosis；
-要像SVN那样变态地控制权限，用Gitolite。
+忽略某些文件时，需要编写.gitignore；
+.gitignore文件本身要放到版本库里，并且可以对.gitignore做版本管理！
 
-假设你已经有sudo权限的用户账号，下面，正式开始安装。
-第一步，安装git：
-$ sudo apt-get install git
-
-第二步，创建一个
+GitHub已经为我们准备了各种.gitignore配置文件：https://github.com/github/gitignore
+配置别名
+给
 					...
 				</div>
-				<p class="index-date">2019-12-20</p>
+				<p class="index-date">2019-12-21</p>
 			</a>
 		</div>	
 	
 		<div class="index-li">
-			<a href="/2019/12/18/08%20DevOps/1%20Git/1%20%E5%88%9B%E5%BB%BA%E7%89%88%E6%9C%AC%E5%BA%93/">
+			<a href="/2019/12/18/08%20DevOps/1%20Git/5%20%E6%A0%87%E7%AD%BE%E7%AE%A1%E7%90%86/">
 				<h2 class="index-title">
-					1 创建版本库
+					5 标签管理
 				</h2>
 				<div class="index-brief">
-					Git全局设置
-git config --global user.name &quot;wujun234&quot;
-git config --global user.email &quot;wujun234@gmail.com&quot;
+					tag就是一个让人容易记住的有意义的名字，它跟某个commit绑在一起。
+创建标签
 
-一、创建本地版本库
-1 进入项目文件夹
-cd exist
+git tag ：新建一个标签，默认为HEAD，也可以指定一个commit id
+git tag -a  -m “blablabla…”：指定标签信息
+git tag -s  -m “blablabla…”：用PG
 					...
 				</div>
-				<p class="index-date">2019-12-20</p>
+				<p class="index-date">2019-12-21</p>
+			</a>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2019/12/18/08%20DevOps/1%20Git/4%20%E5%88%86%E6%94%AF%E7%AE%A1%E7%90%86/">
+				<h2 class="index-title">
+					4 分支管理
+				</h2>
+				<div class="index-brief">
+					创建与合并分支
+Git鼓励大量使用分支：
+
+git branch：查看分支
+git branch ：创建分支
+git checkout ：切换分支
+git checkout -b ：创建+切换分支
+git branch -d ：删除本地分支
+git merge ：合并某分支到当前分支
+git reb
+					...
+				</div>
+				<p class="index-date">2019-12-21</p>
+			</a>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2019/12/18/08%20DevOps/1%20Git/3%20%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93/">
+				<h2 class="index-title">
+					3 远程仓库
+				</h2>
+				<div class="index-brief">
+					创建SSH Key
+在用户主目录看看.ssh目录下有没有id_rsa和id_rsa.pub这两个文件，如果没有，打开Shell（Windows下打开Git Bash），创建SSH Key：
+$ ssh-keygen -t rsa -C &quot;youremail@example.com&quot
+					...
+				</div>
+				<p class="index-date">2019-12-21</p>
 			</a>
 		</div>	
 	
@@ -4456,82 +4489,49 @@ git reset --hard commit_id：跳转到指定版本
 git log：可以查
 					...
 				</div>
-				<p class="index-date">2019-12-20</p>
+				<p class="index-date">2019-12-21</p>
 			</a>
 		</div>	
 	
 		<div class="index-li">
-			<a href="/2019/12/18/08%20DevOps/1%20Git/5%20%E6%A0%87%E7%AD%BE%E7%AE%A1%E7%90%86/">
+			<a href="/2019/12/18/08%20DevOps/1%20Git/1%20%E5%88%9B%E5%BB%BA%E7%89%88%E6%9C%AC%E5%BA%93/">
 				<h2 class="index-title">
-					5 标签管理
+					1 创建版本库
 				</h2>
 				<div class="index-brief">
-					tag就是一个让人容易记住的有意义的名字，它跟某个commit绑在一起。
-创建标签
+					Git全局设置
+git config --global user.name &quot;wujun234&quot;
+git config --global user.email &quot;wujun234@gmail.com&quot;
 
-git tag ：新建一个标签，默认为HEAD，也可以指定一个commit id
-git tag -a  -m “blablabla…”：指定标签信息
-git tag -s  -m “blablabla…”：用PG
+一、创建本地版本库
+1 进入项目文件夹
+cd exist
 					...
 				</div>
-				<p class="index-date">2019-12-20</p>
+				<p class="index-date">2019-12-21</p>
 			</a>
 		</div>	
 	
 		<div class="index-li">
-			<a href="/2019/12/18/08%20DevOps/1%20Git/3%20%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93/">
+			<a href="/2019/12/18/08%20DevOps/1%20Git/0%20%E6%90%AD%E5%BB%BAGit%E6%9C%8D%E5%8A%A1%E5%99%A8/">
 				<h2 class="index-title">
-					3 远程仓库
+					0 搭建Git服务器
 				</h2>
 				<div class="index-brief">
-					创建SSH Key
-在用户主目录看看.ssh目录下有没有id_rsa和id_rsa.pub这两个文件，如果没有，打开Shell（Windows下打开Git Bash），创建SSH Key：
-$ ssh-keygen -t rsa -C &quot;youremail@example.com&quot
+					原文
+
+搭建Git服务器非常简单，通常10分钟即可完成；
+要方便管理公钥，用Gitosis；
+要像SVN那样变态地控制权限，用Gitolite。
+
+假设你已经有sudo权限的用户账号，下面，正式开始安装。
+第一步，安装git：
+$ sudo apt-get install git
+
+第二步，创建一个
 					...
 				</div>
-				<p class="index-date">2019-12-20</p>
-			</a>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/2019/12/18/08%20DevOps/1%20Git/4%20%E5%88%86%E6%94%AF%E7%AE%A1%E7%90%86/">
-				<h2 class="index-title">
-					4 分支管理
-				</h2>
-				<div class="index-brief">
-					创建与合并分支
-Git鼓励大量使用分支：
-
-git branch：查看分支
-git branch ：创建分支
-git checkout ：切换分支
-git checkout -b ：创建+切换分支
-git branch -d ：删除本地分支
-git merge ：合并某分支到当前分支
-git reb
-					...
-				</div>
-				<p class="index-date">2019-12-20</p>
-			</a>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/2019/12/18/08%20DevOps/1%20Git/6%20%E5%85%B6%E4%BB%96/">
-				<h2 class="index-title">
-					6 其他
-				</h2>
-				<div class="index-brief">
-					忽略特殊文件
-
-忽略某些文件时，需要编写.gitignore；
-.gitignore文件本身要放到版本库里，并且可以对.gitignore做版本管理！
-
-GitHub已经为我们准备了各种.gitignore配置文件：https://github.com/github/gitignore
-配置别名
-给
-					...
-				</div>
-				<p class="index-date">2019-12-20</p>
+				<p class="index-date">2019-12-21</p>
 			</a>
 		</div>	
 	
@@ -4556,12 +4556,14 @@ GitHub已经为我们准备了各种.gitignore配置文件：https://github.com/
 		<span id="busuanzi_value_site_uv"></span>
 	</span>
 	<br>
-	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
+	Theme <a href="//github.com/wujun234/hexo-theme-tree">Tree</a>
+	by <a href="//github.com/wujun234">WuJun</a>
+	Powered by <a href="//hexo.io">Hexo</a>
 	</p>
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
-	<button id="totop" class="toggle"><i class="fa fa-angle-double-up" aria-hidden="true"></i></button>
+	<button id="totop-toggle" class="toggle"><i class="fa fa-angle-double-up" aria-hidden="true"></i></button>
 </body>
 </html>

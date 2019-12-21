@@ -9,7 +9,7 @@
 	
 	<title>
 	 
-	WuJun Blog
+	吴俊博客
 	</title>
 	
 	<!-- keywords,description -->
@@ -38,7 +38,7 @@
 
 <body>
 	<header id="header">
-    <a id="title" href="/" class="logo">WuJun Blog</a>
+    <a id="title" href="/" class="logo">吴俊博客</a>
 
 	<ul id="menu">
 		<li class="menu-item">
@@ -64,8 +64,8 @@
 	
 <div id="sidebar">
 	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-arrow-right " aria-hidden="true"></i></button>
-	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">SITE MENU</a>
-	<a herf="#" id="sidebar-article" class="sidebar-toc">ARTICLE MENU</a>
+	<a herf="#" id="site-menu" class="sidebar-toc toc-active">SITE MENU</a>
+	<a herf="#" id="article-menu" class="sidebar-toc">ARTICLE MENU</a>
 
 	<!-- 侧边目录栏 -->
 	<div id="site-toc">
@@ -4391,89 +4391,38 @@
 		<div id="index-list">
 	
 		<div class="index-li">
-			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/10%20XML/2%20%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4/">
+			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/10%20XML/8%20XSL%E8%BD%AC%E6%8D%A2/">
 				<h2 class="index-title">
-					2 命名空间
+					8 XSL转换
 				</h2>
 				<div class="index-brief">
-					使用前缀
-来避免命名冲突
-&lt;h:table&gt;
-   &lt;h:tr&gt;
-       &lt;h:td&gt;Apples&lt;/h:td&gt;
-       &lt;h:td&gt;Bananas&lt;/h:td&gt;
-   &lt;/h:tr&gt;
-&lt;/h:ta
+					XSL 指扩展样式表语言（EXtensible Stylesheet Language），可描述如何来显示 XML 文档。
+XSL 包括三部分：XSLT、XPath、XSL-FO
+XSLT
+XSLT = XSL 转换，是一种用于将 XML 文档转换为 XHTML 文档或其他 XML 文档的语言。
+X
 					...
 				</div>
-				<p class="index-date">2019-12-20</p>
+				<p class="index-date">2019-12-21</p>
 			</a>
 		</div>	
 	
 		<div class="index-li">
-			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/10%20XML/1%20XML%E6%A6%82%E8%BF%B0/">
+			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/10%20XML/7%20%E7%94%9F%E6%88%90XML%E6%96%87%E6%A1%A3/">
 				<h2 class="index-title">
-					1 XML概述
+					7 生成XML文档
 				</h2>
 				<div class="index-brief">
-					XML 指可扩展标记语言（eXtensible Markup Language），标签自定义，作用是：
+					1 不带命名空间的文档
+创建空文档
+Document doc = builder.newDocument();
 
-程序之间的数据传输通讯
-配置文件
-存储数据，充当小型数据库
-
-与HTML一样从标准通用标记语言（SGML）衍生，区别是XML语法要求严格，大小写敏感，标签必须闭合，属性必须引号括起来。
-文档结构
+构建元素
+Element rootElement = doc.createElement(rootName);
+Element childElement = doc.createElem
 					...
 				</div>
-				<p class="index-date">2019-12-20</p>
-			</a>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/10%20XML/3%20XPath/">
-				<h2 class="index-title">
-					3 XPath
-				</h2>
-				<div class="index-brief">
-					XPath 是一种用于在 XML 文档中进行导航的语言。
-XPath 使用路径表达式来选取 XML 文档中的节点或者节点集。节点是通过沿着路径 (path) 或者步 (steps) 来选取的。
-XPath 节点
-在 XPath 中，有七种类型的节点：元素、属性、文本、命名空间、处理指令、注释以及文档
-					...
-				</div>
-				<p class="index-date">2019-12-20</p>
-			</a>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/10%20XML/4%20XML%E8%A7%A3%E6%9E%90-%E6%A0%91%E5%9E%8B/">
-				<h2 class="index-title">
-					4 XML解析-树型
-				</h2>
-				<div class="index-brief">
-					xml文件除了给开发者看，更多的情况使用程序读取xml文件的内容。读取xml文档的过程就是xml解析
-1 XML解析方式
-Java库提供了两种XML解析器：
-树型解析器：DOM解析
-DOM解析器一次性把整个xml文档加载进内存，然后在内存中构建一个Document的对象树，通过Document对象，
-					...
-				</div>
-				<p class="index-date">2019-12-20</p>
-			</a>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/10%20XML/5%20XML%E8%A7%A3%E6%9E%90-%E6%B5%81%E6%9C%BA%E5%88%B6/">
-				<h2 class="index-title">
-					5 XML解析-流机制
-				</h2>
-				<div class="index-brief">
-					如果文档很大，并且处理算法又非常简单，可以在运行时解析节点，而不必看到完整的树形结构，应该使用流机制解析器（streaming parser）。
-Java类库提供的流机制解析器：老而弥坚的SAX解析器和添加到Java SE 6中的更现代化的StAX解析器。SAX解析器使用的是事件回调（event c
-					...
-				</div>
-				<p class="index-date">2019-12-20</p>
+				<p class="index-date">2019-12-21</p>
 			</a>
 		</div>	
 	
@@ -4493,43 +4442,94 @@ Java类库提供的流机制解析器：老而弥坚的SAX解析器和添加到J
 
 					...
 				</div>
-				<p class="index-date">2019-12-20</p>
+				<p class="index-date">2019-12-21</p>
 			</a>
 		</div>	
 	
 		<div class="index-li">
-			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/10%20XML/7%20%E7%94%9F%E6%88%90XML%E6%96%87%E6%A1%A3/">
+			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/10%20XML/5%20XML%E8%A7%A3%E6%9E%90-%E6%B5%81%E6%9C%BA%E5%88%B6/">
 				<h2 class="index-title">
-					7 生成XML文档
+					5 XML解析-流机制
 				</h2>
 				<div class="index-brief">
-					1 不带命名空间的文档
-创建空文档
-Document doc = builder.newDocument();
+					如果文档很大，并且处理算法又非常简单，可以在运行时解析节点，而不必看到完整的树形结构，应该使用流机制解析器（streaming parser）。
+Java类库提供的流机制解析器：老而弥坚的SAX解析器和添加到Java SE 6中的更现代化的StAX解析器。SAX解析器使用的是事件回调（event c
+					...
+				</div>
+				<p class="index-date">2019-12-21</p>
+			</a>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/10%20XML/4%20XML%E8%A7%A3%E6%9E%90-%E6%A0%91%E5%9E%8B/">
+				<h2 class="index-title">
+					4 XML解析-树型
+				</h2>
+				<div class="index-brief">
+					xml文件除了给开发者看，更多的情况使用程序读取xml文件的内容。读取xml文档的过程就是xml解析
+1 XML解析方式
+Java库提供了两种XML解析器：
+树型解析器：DOM解析
+DOM解析器一次性把整个xml文档加载进内存，然后在内存中构建一个Document的对象树，通过Document对象，
+					...
+				</div>
+				<p class="index-date">2019-12-21</p>
+			</a>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/10%20XML/3%20XPath/">
+				<h2 class="index-title">
+					3 XPath
+				</h2>
+				<div class="index-brief">
+					XPath 是一种用于在 XML 文档中进行导航的语言。
+XPath 使用路径表达式来选取 XML 文档中的节点或者节点集。节点是通过沿着路径 (path) 或者步 (steps) 来选取的。
+XPath 节点
+在 XPath 中，有七种类型的节点：元素、属性、文本、命名空间、处理指令、注释以及文档
+					...
+				</div>
+				<p class="index-date">2019-12-21</p>
+			</a>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/10%20XML/2%20%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4/">
+				<h2 class="index-title">
+					2 命名空间
+				</h2>
+				<div class="index-brief">
+					使用前缀
+来避免命名冲突
+&lt;h:table&gt;
+   &lt;h:tr&gt;
+       &lt;h:td&gt;Apples&lt;/h:td&gt;
+       &lt;h:td&gt;Bananas&lt;/h:td&gt;
+   &lt;/h:tr&gt;
+&lt;/h:ta
+					...
+				</div>
+				<p class="index-date">2019-12-21</p>
+			</a>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/10%20XML/1%20XML%E6%A6%82%E8%BF%B0/">
+				<h2 class="index-title">
+					1 XML概述
+				</h2>
+				<div class="index-brief">
+					XML 指可扩展标记语言（eXtensible Markup Language），标签自定义，作用是：
 
-构建元素
-Element rootElement = doc.createElement(rootName);
-Element childElement = doc.createElem
+程序之间的数据传输通讯
+配置文件
+存储数据，充当小型数据库
+
+与HTML一样从标准通用标记语言（SGML）衍生，区别是XML语法要求严格，大小写敏感，标签必须闭合，属性必须引号括起来。
+文档结构
 					...
 				</div>
-				<p class="index-date">2019-12-20</p>
-			</a>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/10%20XML/8%20XSL%E8%BD%AC%E6%8D%A2/">
-				<h2 class="index-title">
-					8 XSL转换
-				</h2>
-				<div class="index-brief">
-					XSL 指扩展样式表语言（EXtensible Stylesheet Language），可描述如何来显示 XML 文档。
-XSL 包括三部分：XSLT、XPath、XSL-FO
-XSLT
-XSLT = XSL 转换，是一种用于将 XML 文档转换为 XHTML 文档或其他 XML 文档的语言。
-X
-					...
-				</div>
-				<p class="index-date">2019-12-20</p>
+				<p class="index-date">2019-12-21</p>
 			</a>
 		</div>	
 	
@@ -4554,12 +4554,14 @@ X
 		<span id="busuanzi_value_site_uv"></span>
 	</span>
 	<br>
-	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
+	Theme <a href="//github.com/wujun234/hexo-theme-tree">Tree</a>
+	by <a href="//github.com/wujun234">WuJun</a>
+	Powered by <a href="//hexo.io">Hexo</a>
 	</p>
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
-	<button id="totop" class="toggle"><i class="fa fa-angle-double-up" aria-hidden="true"></i></button>
+	<button id="totop-toggle" class="toggle"><i class="fa fa-angle-double-up" aria-hidden="true"></i></button>
 </body>
 </html>

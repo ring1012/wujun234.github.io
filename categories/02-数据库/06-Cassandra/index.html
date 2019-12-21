@@ -9,7 +9,7 @@
 	
 	<title>
 	 
-	WuJun Blog
+	吴俊博客
 	</title>
 	
 	<!-- keywords,description -->
@@ -38,7 +38,7 @@
 
 <body>
 	<header id="header">
-    <a id="title" href="/" class="logo">WuJun Blog</a>
+    <a id="title" href="/" class="logo">吴俊博客</a>
 
 	<ul id="menu">
 		<li class="menu-item">
@@ -64,8 +64,8 @@
 	
 <div id="sidebar">
 	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-arrow-right " aria-hidden="true"></i></button>
-	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">SITE MENU</a>
-	<a herf="#" id="sidebar-article" class="sidebar-toc">ARTICLE MENU</a>
+	<a herf="#" id="site-menu" class="sidebar-toc toc-active">SITE MENU</a>
+	<a herf="#" id="article-menu" class="sidebar-toc">ARTICLE MENU</a>
 
 	<!-- 侧边目录栏 -->
 	<div id="site-toc">
@@ -4391,60 +4391,36 @@
 		<div id="index-list">
 	
 		<div class="index-li">
-			<a href="/2019/12/18/02%20%E6%95%B0%E6%8D%AE%E5%BA%93/06%20Cassandra/1%20Cassandra%20%E7%AE%80%E4%BB%8B/">
+			<a href="/2019/12/18/02%20%E6%95%B0%E6%8D%AE%E5%BA%93/06%20Cassandra/6%20Cassandra%20vs.%20HBase/">
 				<h2 class="index-title">
-					1 Cassandra 简介
+					6 Cassandra vs. HBase
 				</h2>
 				<div class="index-brief">
-					官方文档
-（不完整，很多todo）
-Datastax
-CQL语法
-1 Cassandra简介
+					参考：
 
-Cassandra 是一种分布式非关系型数据库，具有高性能、可扩展、无中心化、高可用性、无单点故障等特征。
-以 Amazon 完全分布式的 Dynamo 数据库作为基础，结合 Google BigTabl
+Cassandra vs. HBase: twins or just strangers with similar looks?[Jun 19, 2018]
+HBase vs Cassandra – Which One Is Better (Infographics)[Feb 16, 20
 					...
 				</div>
-				<p class="index-date">2019-12-20</p>
+				<p class="index-date">2019-12-21</p>
 			</a>
 		</div>	
 	
 		<div class="index-li">
-			<a href="/2019/12/18/02%20%E6%95%B0%E6%8D%AE%E5%BA%93/06%20Cassandra/2%20Cassandra%20%E6%9E%B6%E6%9E%84/">
+			<a href="/2019/12/18/02%20%E6%95%B0%E6%8D%AE%E5%BA%93/06%20Cassandra/5%20Gossip%20%E5%8D%8F%E8%AE%AE/">
 				<h2 class="index-title">
-					2 Cassandra 架构
+					5 Gossip 协议
 				</h2>
 				<div class="index-brief">
-					1 核心架构
-1）Node
-节点，存放数据的地方，Cassandra的基础设施。
-2）datacenter
+					Gossip的原始论文：《Efficient Reconciliation and Flow Control for Anti-Entropy Protocols》
 
-数据中心，关联节点的集合。可以是物理或虚拟的。
-复制策略由datacenter设置。数据通过复制因子决定，可写入到多个datacenter
+1 概述
+1）特点
 
-3）Cluster
-集群，包含一个或多个数据中心
+最终一致性：在一个有界网络中，每个节点都随机地与其他节点通信，经过一番杂乱无章的通信，最终所有节点的状态都会达
 					...
 				</div>
-				<p class="index-date">2019-12-20</p>
-			</a>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/2019/12/18/02%20%E6%95%B0%E6%8D%AE%E5%BA%93/06%20Cassandra/3%20Cassandra%20%E6%95%B0%E6%8D%AE%E6%A8%A1%E5%9E%8B/">
-				<h2 class="index-title">
-					3 Cassandra 数据模型
-				</h2>
-				<div class="index-brief">
-					Cassandra 的数据模型是基于列族（Column Family）的四维或五维模型。它借鉴了 Amazon 的 Dynamo 和 Google’s BigTable 的数据结构和功能特点，采用 Memtable 和 SSTable 的方式进行存储。
-1 KeySpace（键空间）
-
-相当于dat
-					...
-				</div>
-				<p class="index-date">2019-12-20</p>
+				<p class="index-date">2019-12-21</p>
 			</a>
 		</div>	
 	
@@ -4467,41 +4443,65 @@ Cassandra 是一种分布式非关系型数据库，具有高性能、可扩展�
 
 					...
 				</div>
-				<p class="index-date">2019-12-20</p>
+				<p class="index-date">2019-12-21</p>
 			</a>
 		</div>	
 	
 		<div class="index-li">
-			<a href="/2019/12/18/02%20%E6%95%B0%E6%8D%AE%E5%BA%93/06%20Cassandra/5%20Gossip%20%E5%8D%8F%E8%AE%AE/">
+			<a href="/2019/12/18/02%20%E6%95%B0%E6%8D%AE%E5%BA%93/06%20Cassandra/3%20Cassandra%20%E6%95%B0%E6%8D%AE%E6%A8%A1%E5%9E%8B/">
 				<h2 class="index-title">
-					5 Gossip 协议
+					3 Cassandra 数据模型
 				</h2>
 				<div class="index-brief">
-					Gossip的原始论文：《Efficient Reconciliation and Flow Control for Anti-Entropy Protocols》
+					Cassandra 的数据模型是基于列族（Column Family）的四维或五维模型。它借鉴了 Amazon 的 Dynamo 和 Google’s BigTable 的数据结构和功能特点，采用 Memtable 和 SSTable 的方式进行存储。
+1 KeySpace（键空间）
 
-1 概述
-1）特点
-
-最终一致性：在一个有界网络中，每个节点都随机地与其他节点通信，经过一番杂乱无章的通信，最终所有节点的状态都会达
+相当于dat
 					...
 				</div>
-				<p class="index-date">2019-12-20</p>
+				<p class="index-date">2019-12-21</p>
 			</a>
 		</div>	
 	
 		<div class="index-li">
-			<a href="/2019/12/18/02%20%E6%95%B0%E6%8D%AE%E5%BA%93/06%20Cassandra/6%20Cassandra%20vs.%20HBase/">
+			<a href="/2019/12/18/02%20%E6%95%B0%E6%8D%AE%E5%BA%93/06%20Cassandra/2%20Cassandra%20%E6%9E%B6%E6%9E%84/">
 				<h2 class="index-title">
-					6 Cassandra vs. HBase
+					2 Cassandra 架构
 				</h2>
 				<div class="index-brief">
-					参考：
+					1 核心架构
+1）Node
+节点，存放数据的地方，Cassandra的基础设施。
+2）datacenter
 
-Cassandra vs. HBase: twins or just strangers with similar looks?[Jun 19, 2018]
-HBase vs Cassandra – Which One Is Better (Infographics)[Feb 16, 20
+数据中心，关联节点的集合。可以是物理或虚拟的。
+复制策略由datacenter设置。数据通过复制因子决定，可写入到多个datacenter
+
+3）Cluster
+集群，包含一个或多个数据中心
 					...
 				</div>
-				<p class="index-date">2019-12-20</p>
+				<p class="index-date">2019-12-21</p>
+			</a>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2019/12/18/02%20%E6%95%B0%E6%8D%AE%E5%BA%93/06%20Cassandra/1%20Cassandra%20%E7%AE%80%E4%BB%8B/">
+				<h2 class="index-title">
+					1 Cassandra 简介
+				</h2>
+				<div class="index-brief">
+					官方文档
+（不完整，很多todo）
+Datastax
+CQL语法
+1 Cassandra简介
+
+Cassandra 是一种分布式非关系型数据库，具有高性能、可扩展、无中心化、高可用性、无单点故障等特征。
+以 Amazon 完全分布式的 Dynamo 数据库作为基础，结合 Google BigTabl
+					...
+				</div>
+				<p class="index-date">2019-12-21</p>
 			</a>
 		</div>	
 	
@@ -4526,12 +4526,14 @@ HBase vs Cassandra – Which One Is Better (Infographics)[Feb 16, 20
 		<span id="busuanzi_value_site_uv"></span>
 	</span>
 	<br>
-	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
+	Theme <a href="//github.com/wujun234/hexo-theme-tree">Tree</a>
+	by <a href="//github.com/wujun234">WuJun</a>
+	Powered by <a href="//hexo.io">Hexo</a>
 	</p>
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
-	<button id="totop" class="toggle"><i class="fa fa-angle-double-up" aria-hidden="true"></i></button>
+	<button id="totop-toggle" class="toggle"><i class="fa fa-angle-double-up" aria-hidden="true"></i></button>
 </body>
 </html>

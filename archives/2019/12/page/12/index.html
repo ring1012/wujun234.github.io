@@ -9,7 +9,7 @@
 	
 	<title>
 	 
-	WuJun Blog
+	吴俊博客
 	</title>
 	
 	<!-- keywords,description -->
@@ -38,7 +38,7 @@
 
 <body>
 	<header id="header">
-    <a id="title" href="/" class="logo">WuJun Blog</a>
+    <a id="title" href="/" class="logo">吴俊博客</a>
 
 	<ul id="menu">
 		<li class="menu-item">
@@ -64,8 +64,8 @@
 	
 <div id="sidebar">
 	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-arrow-right " aria-hidden="true"></i></button>
-	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">SITE MENU</a>
-	<a herf="#" id="sidebar-article" class="sidebar-toc">ARTICLE MENU</a>
+	<a herf="#" id="site-menu" class="sidebar-toc toc-active">SITE MENU</a>
+	<a herf="#" id="article-menu" class="sidebar-toc">ARTICLE MENU</a>
 
 	<!-- 侧边目录栏 -->
 	<div id="site-toc">
@@ -4391,185 +4391,177 @@
 		<div id="index-list">
 	
 		<div class="index-li">
-			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/11%20%E7%BD%91%E7%BB%9C/1%20%E8%BF%9E%E6%8E%A5%E5%88%B0%E6%9C%8D%E5%8A%A1%E5%99%A8/">
+			<a href="/2019/12/18/04%20%E8%AE%BE%E8%AE%A1/3%20%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/3-%E8%A1%8C%E4%B8%BA%E5%9E%8B%E6%A8%A1%E5%BC%8F/11.Visitor%EF%BC%88%E8%AE%BF%E9%97%AE%E8%80%85%EF%BC%89/">
 				<h2 class="index-title">
-					1 连接到服务器
+					11.Visitor（访问者）
 				</h2>
 				<div class="index-brief">
-					1 使用telnet
-telnet是用于网络编程的强大调试工具，可远程连接和服务通信。windows的telnet需要单独激活
-telnet time-a.nist.gov 13
+					主要将数据结构与数据操作分离。
+使用一个访问者类，改变元素类的执行算法。在被访问的类里面加一个对外提供接待访问者的接口。
 
-获取标准时间
-2 用Java连接到服务器
-套接字作用与telnet相同，java.net包提供的接口与io包基本相同。
-					...
-				</div>
-				<p class="index-date">2019-12-20</p>
-			</a>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/11%20%E7%BD%91%E7%BB%9C/2%20%E5%AE%9E%E7%8E%B0%E6%9C%8D%E5%8A%A1%E5%99%A8/">
-				<h2 class="index-title">
-					2 实现服务器
-				</h2>
-				<div class="index-brief">
-					1 服务器套接字
-ServerSocket类用于建立套接字
-ServerSocket s = new ServerSocket(8189);
-
-不停等待，直到建立连接
-Socket incoming = s.accept();
-
-输入流来自客户端，发送给输出流的会变为客户端的输入
-InputStre
-					...
-				</div>
-				<p class="index-date">2019-12-20</p>
-			</a>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/11%20%E7%BD%91%E7%BB%9C/3%20%E8%8E%B7%E5%8F%96Web%E6%95%B0%E6%8D%AE/">
-				<h2 class="index-title">
-					3 获取Web数据
-				</h2>
-				<div class="index-brief">
-					Java库支持更高级别处理，而不只是创建套接字连接发送HTTP请求。
-Java库与网页交互并不是特别方便，可以考虑使用其他库，如HttpClient、Feign、RestTemple
-1 URL和URI
-1.1 URL
-URL和URLConnection封装了大量实现细节。
-创建URL
-URL ur
-					...
-				</div>
-				<p class="index-date">2019-12-20</p>
-			</a>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/11%20%E7%BD%91%E7%BB%9C/4%20%E5%8F%91%E9%80%81E-mail/">
-				<h2 class="index-title">
-					4 发送E-mail
-				</h2>
-				<div class="index-brief">
-					原始
-过去发邮件到SMTP专用的25端口很简单，因为没有安全校验
-//打开到主机的套接字
-Socket s = new Socket(&quot;mail.server.com&quot;,25);
-PrintWriter out = new PrintWriter(s.getOutputStrea
-					...
-				</div>
-				<p class="index-date">2019-12-20</p>
-			</a>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/10%20XML/2%20%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4/">
-				<h2 class="index-title">
-					2 命名空间
-				</h2>
-				<div class="index-brief">
-					使用前缀
-来避免命名冲突
-&lt;h:table&gt;
-   &lt;h:tr&gt;
-       &lt;h:td&gt;Apples&lt;/h:td&gt;
-       &lt;h:td&gt;Bananas&lt;/h:td&gt;
-   &lt;/h:tr&gt;
-&lt;/h:ta
-					...
-				</div>
-				<p class="index-date">2019-12-20</p>
-			</a>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/10%20XML/1%20XML%E6%A6%82%E8%BF%B0/">
-				<h2 class="index-title">
-					1 XML概述
-				</h2>
-				<div class="index-brief">
-					XML 指可扩展标记语言（eXtensible Markup Language），标签自定义，作用是：
-
-程序之间的数据传输通讯
-配置文件
-存储数据，充当小型数据库
-
-与HTML一样从标准通用标记语言（SGML）衍生，区别是XML语法要求严格，大小写敏感，标签必须闭合，属性必须引号括起来。
-文档结构
-					...
-				</div>
-				<p class="index-date">2019-12-20</p>
-			</a>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/10%20XML/3%20XPath/">
-				<h2 class="index-title">
-					3 XPath
-				</h2>
-				<div class="index-brief">
-					XPath 是一种用于在 XML 文档中进行导航的语言。
-XPath 使用路径表达式来选取 XML 文档中的节点或者节点集。节点是通过沿着路径 (path) 或者步 (steps) 来选取的。
-XPath 节点
-在 XPath 中，有七种类型的节点：元素、属性、文本、命名空间、处理指令、注释以及文档
-					...
-				</div>
-				<p class="index-date">2019-12-20</p>
-			</a>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/10%20XML/4%20XML%E8%A7%A3%E6%9E%90-%E6%A0%91%E5%9E%8B/">
-				<h2 class="index-title">
-					4 XML解析-树型
-				</h2>
-				<div class="index-brief">
-					xml文件除了给开发者看，更多的情况使用程序读取xml文件的内容。读取xml文档的过程就是xml解析
-1 XML解析方式
-Java库提供了两种XML解析器：
-树型解析器：DOM解析
-DOM解析器一次性把整个xml文档加载进内存，然后在内存中构建一个Document的对象树，通过Document对象，
-					...
-				</div>
-				<p class="index-date">2019-12-20</p>
-			</a>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/10%20XML/5%20XML%E8%A7%A3%E6%9E%90-%E6%B5%81%E6%9C%BA%E5%88%B6/">
-				<h2 class="index-title">
-					5 XML解析-流机制
-				</h2>
-				<div class="index-brief">
-					如果文档很大，并且处理算法又非常简单，可以在运行时解析节点，而不必看到完整的树形结构，应该使用流机制解析器（streaming parser）。
-Java类库提供的流机制解析器：老而弥坚的SAX解析器和添加到Java SE 6中的更现代化的StAX解析器。SAX解析器使用的是事件回调（event c
-					...
-				</div>
-				<p class="index-date">2019-12-20</p>
-			</a>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/10%20XML/6%20%E9%AA%8C%E8%AF%81XML%E6%96%87%E6%A1%A3/">
-				<h2 class="index-title">
-					6 验证XML文档
-				</h2>
-				<div class="index-brief">
-					如果要指定文档结构，可以提供一个文档类型定义（DTD）或一个XML Schema定义。
-1 DTD
-文档类型定义（DTD）可定义合法的XML文档构建模块。它使用一系列合法的元素来定义文档的结构。
-内部的 DOCTYPE 声明
-&lt;!DOCTYPE 根元素 [元素声明]&gt;
-
-引用内部DTD
 
 					...
 				</div>
-				<p class="index-date">2019-12-20</p>
+				<p class="index-date">2019-12-21</p>
+			</a>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2019/12/18/04%20%E8%AE%BE%E8%AE%A1/3%20%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/3-%E8%A1%8C%E4%B8%BA%E5%9E%8B%E6%A8%A1%E5%BC%8F/10.Template%20Method%EF%BC%88%E6%A8%A1%E6%9D%BF%E6%96%B9%E6%B3%95%EF%BC%89/">
+				<h2 class="index-title">
+					10.Template Method（模板方法）
+				</h2>
+				<div class="index-brief">
+					定义一个操作中的算法的骨架，而将一些步骤延迟到子类中。模板方法使得子类可以不改变一个算法的结构即可重定义该算法的某些特定步骤。
+实现
+我们将创建一个定义操作的 Game 抽象类，其中，模板方法设置为 final，这样它就不会被重写。Cricket 和 Football 是扩展了 Game 的实体类，
+					...
+				</div>
+				<p class="index-date">2019-12-21</p>
+			</a>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2019/12/18/04%20%E8%AE%BE%E8%AE%A1/3%20%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/3-%E8%A1%8C%E4%B8%BA%E5%9E%8B%E6%A8%A1%E5%BC%8F/1.Chain%20of%20Responsibility%EF%BC%88%E8%B4%A3%E4%BB%BB%E9%93%BE%EF%BC%89/">
+				<h2 class="index-title">
+					1.Chain of Responsibility（责任链）
+				</h2>
+				<div class="index-brief">
+					为请求创建了一个接收者对象的链。
+将请求的发送者和请求的处理者解耦，每个接收者都包含对另一个接收者的引用。如果一个对象不能处理该请求，那么它会把相同的请求传给下一个接收者，依此类推。
+应用实例
+JAVA WEB 中 Apache Tomcat 对 Encoding 的处理，Struts2 的拦截器，
+					...
+				</div>
+				<p class="index-date">2019-12-21</p>
+			</a>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2019/12/18/04%20%E8%AE%BE%E8%AE%A1/3%20%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/2-%E7%BB%93%E6%9E%84%E5%9E%8B%E6%A8%A1%E5%BC%8F/8.Filter%EF%BC%88%E8%BF%87%E6%BB%A4%E5%99%A8%EF%BC%89/">
+				<h2 class="index-title">
+					8.Filter（过滤器）
+				</h2>
+				<div class="index-brief">
+					允许开发人员使用不同的标准来过滤一组对象，通过逻辑运算以解耦的方式把它们连接起来。
+
+模式应用
+java8的stream分组操作
+Map&lt;Integer, List&lt;Person &gt;&gt; groupMap = persons.stream().collect(Collector
+					...
+				</div>
+				<p class="index-date">2019-12-21</p>
+			</a>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2019/12/18/04%20%E8%AE%BE%E8%AE%A1/3%20%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/2-%E7%BB%93%E6%9E%84%E5%9E%8B%E6%A8%A1%E5%BC%8F/7.Proxy%EF%BC%88%E4%BB%A3%E7%90%86%EF%BC%89/">
+				<h2 class="index-title">
+					7.Proxy（代理）
+				</h2>
+				<div class="index-brief">
+					给某一个对象提供一个代理，并由代理对象控制对原对象的引用。
+
+模式应用
+
+远程代理：为一个位于不同的地址空间的对象提供一个本地的代理对象，这个不同的地址空间可以是在同一台主机中，也可是在另一台主机中。
+虚拟代理：如果需要创建一个资源消耗较大的对象，先创建一个消耗相对较小的对象来表示，真实对象只在需要
+					...
+				</div>
+				<p class="index-date">2019-12-21</p>
+			</a>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2019/12/18/04%20%E8%AE%BE%E8%AE%A1/3%20%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/2-%E7%BB%93%E6%9E%84%E5%9E%8B%E6%A8%A1%E5%BC%8F/6.Flyweight%EF%BC%88%E4%BA%AB%E5%85%83%EF%BC%89/">
+				<h2 class="index-title">
+					6.Flyweight（享元）
+				</h2>
+				<div class="index-brief">
+					运用共享技术有效地支持大量细粒度的对象。
+工厂类、享元池
+享元模式的核心在于享元工厂类，享元工厂类的作用在于提供一个用于存储享元对象的享元池，用户需要对象时，首先从享元池中获取，如果享元池中不存在，则创建一个新的享元对象返回给用户，并在享元池中保存该新增对象。
+区分内部状态和外部状态
+
+内部状态：存
+					...
+				</div>
+				<p class="index-date">2019-12-21</p>
+			</a>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2019/12/18/04%20%E8%AE%BE%E8%AE%A1/3%20%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/2-%E7%BB%93%E6%9E%84%E5%9E%8B%E6%A8%A1%E5%BC%8F/5.Facade%EF%BC%88%E5%A4%96%E8%A7%82%EF%BC%89/">
+				<h2 class="index-title">
+					5.Facade（外观）
+				</h2>
+				<div class="index-brief">
+					为子系统中的一组接口提供一个一致的界面，定义了一个高层接口，这个接口使得这一子系统更加容易使用。又称为门面模式。
+
+
+					...
+				</div>
+				<p class="index-date">2019-12-21</p>
+			</a>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2019/12/18/04%20%E8%AE%BE%E8%AE%A1/3%20%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/2-%E7%BB%93%E6%9E%84%E5%9E%8B%E6%A8%A1%E5%BC%8F/4.Decorator%EF%BC%88%E8%A3%85%E9%A5%B0%E5%99%A8%EF%BC%89/">
+				<h2 class="index-title">
+					4.Decorator（装饰器）
+				</h2>
+				<div class="index-brief">
+					关联机制，向一个现有的对象添加新的功能，同时又不改变其结构。
+模式应用
+JAVA IO 中 FilterInputStream
+实现
+
+Component: 抽象构件
+ConcreteComponent: 具体构件
+Decorator: 抽象装饰类
+ConcreteDecorator: 具体装饰类
+
+					...
+				</div>
+				<p class="index-date">2019-12-21</p>
+			</a>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2019/12/18/04%20%E8%AE%BE%E8%AE%A1/3%20%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/2-%E7%BB%93%E6%9E%84%E5%9E%8B%E6%A8%A1%E5%BC%8F/3.Composite%EF%BC%88%E7%BB%84%E5%90%88%EF%BC%89/">
+				<h2 class="index-title">
+					3.Composite（组合）
+				</h2>
+				<div class="index-brief">
+					将对象组合成树形结构以表示“部分-整体”的层次结构。使得用户对单个对象和组合对象的使用具有一致性。
+将对象称为节点，即一个根节点包含许多子节点，这些子节点有的不再包含子节点，而有的仍然包含子节点，以此类推。
+
+
+透明模式：在component中声明管理子对象的所有方法
+安全模式：在composite
+					...
+				</div>
+				<p class="index-date">2019-12-21</p>
+			</a>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2019/12/18/04%20%E8%AE%BE%E8%AE%A1/3%20%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/2-%E7%BB%93%E6%9E%84%E5%9E%8B%E6%A8%A1%E5%BC%8F/2.Bridge%EF%BC%88%E6%A1%A5%E6%8E%A5%EF%BC%89/">
+				<h2 class="index-title">
+					2.Bridge（桥接）
+				</h2>
+				<div class="index-brief">
+					将类的功能层次结构和实现层次结构相分离，使二者能够独立地变化，并在两者之间搭建桥梁，实现桥接。
+
+类的功能层次结构：父类具有基本功能，在子类中增加新的功能；
+类的实现层次结构：父类通过声明抽象方法来定义接口，子类通过实现具体方法来实现接口；
+
+模式应用
+
+抽象的JDBC接口和各个数据库引擎API之间
+					...
+				</div>
+				<p class="index-date">2019-12-21</p>
 			</a>
 		</div>	
 	
@@ -4596,12 +4588,14 @@ Java类库提供的流机制解析器：老而弥坚的SAX解析器和添加到J
 		<span id="busuanzi_value_site_uv"></span>
 	</span>
 	<br>
-	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
+	Theme <a href="//github.com/wujun234/hexo-theme-tree">Tree</a>
+	by <a href="//github.com/wujun234">WuJun</a>
+	Powered by <a href="//hexo.io">Hexo</a>
 	</p>
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
-	<button id="totop" class="toggle"><i class="fa fa-angle-double-up" aria-hidden="true"></i></button>
+	<button id="totop-toggle" class="toggle"><i class="fa fa-angle-double-up" aria-hidden="true"></i></button>
 </body>
 </html>

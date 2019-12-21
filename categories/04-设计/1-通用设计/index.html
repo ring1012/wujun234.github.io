@@ -9,7 +9,7 @@
 	
 	<title>
 	 
-	WuJun Blog
+	吴俊博客
 	</title>
 	
 	<!-- keywords,description -->
@@ -38,7 +38,7 @@
 
 <body>
 	<header id="header">
-    <a id="title" href="/" class="logo">WuJun Blog</a>
+    <a id="title" href="/" class="logo">吴俊博客</a>
 
 	<ul id="menu">
 		<li class="menu-item">
@@ -64,8 +64,8 @@
 	
 <div id="sidebar">
 	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-arrow-right " aria-hidden="true"></i></button>
-	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">SITE MENU</a>
-	<a herf="#" id="sidebar-article" class="sidebar-toc">ARTICLE MENU</a>
+	<a herf="#" id="site-menu" class="sidebar-toc toc-active">SITE MENU</a>
+	<a herf="#" id="article-menu" class="sidebar-toc">ARTICLE MENU</a>
 
 	<!-- 侧边目录栏 -->
 	<div id="site-toc">
@@ -4391,6 +4391,81 @@
 		<div id="index-list">
 	
 		<div class="index-li">
+			<a href="/2019/12/18/04%20%E8%AE%BE%E8%AE%A1/1%20%E9%80%9A%E7%94%A8%E8%AE%BE%E8%AE%A1/05%20%E6%B5%B7%E6%98%8E%E8%B7%9D%E7%A6%BB%E8%AE%A1%E7%AE%97/">
+				<h2 class="index-title">
+					05 海明距离计算
+				</h2>
+				<div class="index-brief">
+					海明距离计算
+Google提出的simhash去重算法里关于”汉明距离”计算最关键的步骤就是“位计数”（计算位数组中1的个数）。
+方案A
+最慢
+直接数
+void count(int x){
+    int count = 0;
+    for (int i = 0; i &lt; 32; i++) 
+					...
+				</div>
+				<p class="index-date">2019-12-21</p>
+			</a>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2019/12/18/04%20%E8%AE%BE%E8%AE%A1/1%20%E9%80%9A%E7%94%A8%E8%AE%BE%E8%AE%A1/04%20%E7%9B%B8%E4%BC%BC%E5%9B%BE%E7%89%87%E8%B0%83%E7%A0%94/">
+				<h2 class="index-title">
+					04 相似图片调研
+				</h2>
+				<div class="index-brief">
+					通过调研，相似图片判断领域使用较多的算法有“感知哈希”算法（谷歌、360），“直方图”算法（阿里）和“特征提取”算法（百度），下面对这些算法进行了测试与对比，实现上可能还有进一步改进的地方。
+测试用的图片附在文末的 附1。
+之前未能成功安装的， postgresql 的 imgsmlr 插件，将它的
+					...
+				</div>
+				<p class="index-date">2019-12-21</p>
+			</a>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2019/12/18/04%20%E8%AE%BE%E8%AE%A1/1%20%E9%80%9A%E7%94%A8%E8%AE%BE%E8%AE%A1/03%20%E7%9F%AD%E9%93%BE%E6%8E%A5/">
+				<h2 class="index-title">
+					03 短链接
+				</h2>
+				<div class="index-brief">
+					短链接URL系统是怎么设计的？
+实现一个自增发号器，每个长地址，发个短号，存储长短关系，请求短号时返回对应长号。
+在[0-9]的10进制与[0-9a-zA-Z]的62进制之间转换。可以使号码很小。
+大并发高可用？
+并发量大还可以搞分布式。类似 snowflake。
+一长对多短？还是一对一？
+如有需要
+					...
+				</div>
+				<p class="index-date">2019-12-21</p>
+			</a>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2019/12/18/04%20%E8%AE%BE%E8%AE%A1/1%20%E9%80%9A%E7%94%A8%E8%AE%BE%E8%AE%A1/02%20%E8%B7%A8%E5%BA%93%E5%88%86%E9%A1%B5/">
+				<h2 class="index-title">
+					02 跨库分页
+				</h2>
+				<div class="index-brief">
+					原文：https://mp.weixin.qq.com/s/cMAXYBxmevFV_fwysZqP8w
+需求缘起
+分页需求
+分页拉取需求有这样一些特点：
+
+有一个业务主键id
+分页排序是按照非业务主键id来排序的，业务中经常按照时间time来排序order by
+
+在数据量不大时，可以通过在排序字
+					...
+				</div>
+				<p class="index-date">2019-12-21</p>
+			</a>
+		</div>	
+	
+		<div class="index-li">
 			<a href="/2019/12/18/04%20%E8%AE%BE%E8%AE%A1/1%20%E9%80%9A%E7%94%A8%E8%AE%BE%E8%AE%A1/01%20%E5%88%86%E5%B8%83%E5%BC%8F%E7%BB%9F%E4%B8%80id%E8%AE%BE%E8%AE%A1/">
 				<h2 class="index-title">
 					01 分布式统一id设计
@@ -4421,82 +4496,7 @@ https://chejiahao.autohome.com.cn/info/3200292
 https://che
 					...
 				</div>
-				<p class="index-date">2019-12-20</p>
-			</a>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/2019/12/18/04%20%E8%AE%BE%E8%AE%A1/1%20%E9%80%9A%E7%94%A8%E8%AE%BE%E8%AE%A1/02%20%E8%B7%A8%E5%BA%93%E5%88%86%E9%A1%B5/">
-				<h2 class="index-title">
-					02 跨库分页
-				</h2>
-				<div class="index-brief">
-					原文：https://mp.weixin.qq.com/s/cMAXYBxmevFV_fwysZqP8w
-需求缘起
-分页需求
-分页拉取需求有这样一些特点：
-
-有一个业务主键id
-分页排序是按照非业务主键id来排序的，业务中经常按照时间time来排序order by
-
-在数据量不大时，可以通过在排序字
-					...
-				</div>
-				<p class="index-date">2019-12-20</p>
-			</a>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/2019/12/18/04%20%E8%AE%BE%E8%AE%A1/1%20%E9%80%9A%E7%94%A8%E8%AE%BE%E8%AE%A1/03%20%E7%9F%AD%E9%93%BE%E6%8E%A5/">
-				<h2 class="index-title">
-					03 短链接
-				</h2>
-				<div class="index-brief">
-					短链接URL系统是怎么设计的？
-实现一个自增发号器，每个长地址，发个短号，存储长短关系，请求短号时返回对应长号。
-在[0-9]的10进制与[0-9a-zA-Z]的62进制之间转换。可以使号码很小。
-大并发高可用？
-并发量大还可以搞分布式。类似 snowflake。
-一长对多短？还是一对一？
-如有需要
-					...
-				</div>
-				<p class="index-date">2019-12-20</p>
-			</a>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/2019/12/18/04%20%E8%AE%BE%E8%AE%A1/1%20%E9%80%9A%E7%94%A8%E8%AE%BE%E8%AE%A1/04%20%E7%9B%B8%E4%BC%BC%E5%9B%BE%E7%89%87%E8%B0%83%E7%A0%94/">
-				<h2 class="index-title">
-					04 相似图片调研
-				</h2>
-				<div class="index-brief">
-					通过调研，相似图片判断领域使用较多的算法有“感知哈希”算法（谷歌、360），“直方图”算法（阿里）和“特征提取”算法（百度），下面对这些算法进行了测试与对比，实现上可能还有进一步改进的地方。
-测试用的图片附在文末的 附1。
-之前未能成功安装的， postgresql 的 imgsmlr 插件，将它的
-					...
-				</div>
-				<p class="index-date">2019-12-20</p>
-			</a>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/2019/12/18/04%20%E8%AE%BE%E8%AE%A1/1%20%E9%80%9A%E7%94%A8%E8%AE%BE%E8%AE%A1/05%20%E6%B5%B7%E6%98%8E%E8%B7%9D%E7%A6%BB%E8%AE%A1%E7%AE%97/">
-				<h2 class="index-title">
-					05 海明距离计算
-				</h2>
-				<div class="index-brief">
-					海明距离计算
-Google提出的simhash去重算法里关于”汉明距离”计算最关键的步骤就是“位计数”（计算位数组中1的个数）。
-方案A
-最慢
-直接数
-void count(int x){
-    int count = 0;
-    for (int i = 0; i &lt; 32; i++) 
-					...
-				</div>
-				<p class="index-date">2019-12-20</p>
+				<p class="index-date">2019-12-21</p>
 			</a>
 		</div>	
 	
@@ -4521,12 +4521,14 @@ void count(int x){
 		<span id="busuanzi_value_site_uv"></span>
 	</span>
 	<br>
-	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
+	Theme <a href="//github.com/wujun234/hexo-theme-tree">Tree</a>
+	by <a href="//github.com/wujun234">WuJun</a>
+	Powered by <a href="//hexo.io">Hexo</a>
 	</p>
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
-	<button id="totop" class="toggle"><i class="fa fa-angle-double-up" aria-hidden="true"></i></button>
+	<button id="totop-toggle" class="toggle"><i class="fa fa-angle-double-up" aria-hidden="true"></i></button>
 </body>
 </html>

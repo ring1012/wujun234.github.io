@@ -9,7 +9,7 @@
 	
 	<title>
 	 
-	WuJun Blog
+	吴俊博客
 	</title>
 	
 	<!-- keywords,description -->
@@ -38,7 +38,7 @@
 
 <body>
 	<header id="header">
-    <a id="title" href="/" class="logo">WuJun Blog</a>
+    <a id="title" href="/" class="logo">吴俊博客</a>
 
 	<ul id="menu">
 		<li class="menu-item">
@@ -64,8 +64,8 @@
 	
 <div id="sidebar">
 	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-arrow-right " aria-hidden="true"></i></button>
-	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">SITE MENU</a>
-	<a herf="#" id="sidebar-article" class="sidebar-toc">ARTICLE MENU</a>
+	<a herf="#" id="site-menu" class="sidebar-toc toc-active">SITE MENU</a>
+	<a herf="#" id="article-menu" class="sidebar-toc">ARTICLE MENU</a>
 
 	<!-- 侧边目录栏 -->
 	<div id="site-toc">
@@ -4391,6 +4391,23 @@
 		<div id="index-list">
 	
 		<div class="index-li">
+			<a href="/2019/12/18/08%20DevOps/4%20Maven/2%20maven%E5%86%B2%E7%AA%81%E8%A7%A3%E5%86%B3/">
+				<h2 class="index-title">
+					2 maven冲突解决
+				</h2>
+				<div class="index-brief">
+					原文地址：https://www.jianshu.com/p/bbd5b0abcad1
+主要目的是升级现有的jar包，排除传递依赖引起的冲突
+1 maven 命令
+1.1 mvn dependency tree
+mvn dependency:tree命令可以查看当前项目的依赖关系。可以将当前POM的
+					...
+				</div>
+				<p class="index-date">2019-12-21</p>
+			</a>
+		</div>	
+	
+		<div class="index-li">
 			<a href="/2019/12/18/08%20DevOps/4%20Maven/1%20Maven%E7%AC%94%E8%AE%B0/">
 				<h2 class="index-title">
 					1 Maven笔记
@@ -4407,24 +4424,7 @@
 3.3 需要时设置MAVEN_OPTS环境变量，-Xms128m -
 					...
 				</div>
-				<p class="index-date">2019-12-20</p>
-			</a>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/2019/12/18/08%20DevOps/4%20Maven/2%20maven%E5%86%B2%E7%AA%81%E8%A7%A3%E5%86%B3/">
-				<h2 class="index-title">
-					2 maven冲突解决
-				</h2>
-				<div class="index-brief">
-					原文地址：https://www.jianshu.com/p/bbd5b0abcad1
-主要目的是升级现有的jar包，排除传递依赖引起的冲突
-1 maven 命令
-1.1 mvn dependency tree
-mvn dependency:tree命令可以查看当前项目的依赖关系。可以将当前POM的
-					...
-				</div>
-				<p class="index-date">2019-12-20</p>
+				<p class="index-date">2019-12-21</p>
 			</a>
 		</div>	
 	
@@ -4449,12 +4449,14 @@ mvn dependency:tree命令可以查看当前项目的依赖关系。可以将当�
 		<span id="busuanzi_value_site_uv"></span>
 	</span>
 	<br>
-	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
+	Theme <a href="//github.com/wujun234/hexo-theme-tree">Tree</a>
+	by <a href="//github.com/wujun234">WuJun</a>
+	Powered by <a href="//hexo.io">Hexo</a>
 	</p>
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
-	<button id="totop" class="toggle"><i class="fa fa-angle-double-up" aria-hidden="true"></i></button>
+	<button id="totop-toggle" class="toggle"><i class="fa fa-angle-double-up" aria-hidden="true"></i></button>
 </body>
 </html>

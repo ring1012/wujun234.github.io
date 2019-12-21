@@ -9,7 +9,7 @@
 	
 	<title>
 	 
-	WuJun Blog
+	吴俊博客
 	</title>
 	
 	<!-- keywords,description -->
@@ -38,7 +38,7 @@
 
 <body>
 	<header id="header">
-    <a id="title" href="/" class="logo">WuJun Blog</a>
+    <a id="title" href="/" class="logo">吴俊博客</a>
 
 	<ul id="menu">
 		<li class="menu-item">
@@ -64,8 +64,8 @@
 	
 <div id="sidebar">
 	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-arrow-right " aria-hidden="true"></i></button>
-	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">SITE MENU</a>
-	<a herf="#" id="sidebar-article" class="sidebar-toc">ARTICLE MENU</a>
+	<a herf="#" id="site-menu" class="sidebar-toc toc-active">SITE MENU</a>
+	<a herf="#" id="article-menu" class="sidebar-toc">ARTICLE MENU</a>
 
 	<!-- 侧边目录栏 -->
 	<div id="site-toc">
@@ -4391,160 +4391,165 @@
 		<div id="index-list">
 	
 		<div class="index-li">
-			<a href="/2019/12/18/04%20%E8%AE%BE%E8%AE%A1/3%20%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/4-J2EE%20%E6%A8%A1%E5%BC%8F/5.Front%20Controller%EF%BC%88%E5%89%8D%E7%AB%AF%E6%8E%A7%E5%88%B6%E5%99%A8%EF%BC%89/">
+			<a href="/2019/12/18/17%20%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/04%20%E6%8E%92%E5%BA%8F/6%20%E5%A4%96%E9%83%A8%E6%8E%92%E5%BA%8F/">
 				<h2 class="index-title">
-					5.Front Controller（前端控制器）
+					6 外部排序
 				</h2>
 				<div class="index-brief">
-					前端控制器模式是用来提供一个集中的请求处理机制，所有的请求都将由一个单一的处理程序处理。该处理程序可以做认证/授权/记录日志，或者跟踪请求，然后把请求传给相应的处理程序。
-以下是这种设计模式的实体。
+					外部排序的基本思想就是归并排序。
+1 二路平衡归并
 
-前端控制器（Front Controller） - 处理应用程序所有类型请求的单个处理程序，应用程
+按照内存大小，将大文件分成若干长度为 l 的子文件（l 应小于内存的可使用容量），然后将各个子文件依次读入内存，使用适当的内部排序算法对其进行排序（排好序的子文件统称为“归并段”或者“顺段”），将排好序的归并段重新写入外存，为下一个子文件排序腾出
 					...
 				</div>
-				<p class="index-date">2019-12-20</p>
+				<p class="index-date">2019-12-21</p>
 			</a>
 		</div>	
 	
 		<div class="index-li">
-			<a href="/2019/12/18/04%20%E8%AE%BE%E8%AE%A1/3%20%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/4-J2EE%20%E6%A8%A1%E5%BC%8F/1.MVC/">
+			<a href="/2019/12/18/17%20%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/04%20%E6%8E%92%E5%BA%8F/5%20%E5%88%86%E9%85%8D%E6%8E%92%E5%BA%8F/">
 				<h2 class="index-title">
-					1.MVC
+					5 分配排序
+				</h2>
+				<div class="index-brief">
+					1、计数排序
+计数排序的核心在于将输入的数据值转化为键存储在额外开辟的数组空间中。作为一种线性时间复杂度的排序，计数排序要求输入的数据必须是有确定范围的整数。
+当输入的元素是 n 个 0 到 k 之间的整数时，它的运行时间是 O(n + k)。计数排序不是比较排序，排序的速度快于任何比较排序算法。
+
+					...
+				</div>
+				<p class="index-date">2019-12-21</p>
+			</a>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2019/12/18/17%20%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/04%20%E6%8E%92%E5%BA%8F/4%20%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F/">
+				<h2 class="index-title">
+					4 归并排序
+				</h2>
+				<div class="index-brief">
+					归并排序 (Merging Sort) 就是利用归并的思想实现的排序方法。
+假设初始序列含有 n 个记录 ， 则可以看成是 n 个有序的子序列，每个子序列的长度为 1 ，然后两两归并，得到 [n/2] ([x]表示不小于 x 的最小整数)个长度为 2 或 1 的有序子序列；再两两归并，……，如此重复
+					...
+				</div>
+				<p class="index-date">2019-12-21</p>
+			</a>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2019/12/18/17%20%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/04%20%E6%8E%92%E5%BA%8F/3%20%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F/">
+				<h2 class="index-title">
+					3 选择排序
+				</h2>
+				<div class="index-brief">
+					1、简单选择排序
+简单选择排序法 (Simpple Selection Sort) 就是通过 n - i 次关键字间的比较，从 n- i + 1 个记录中选出关键字最小的记录，并和第 i ( 1 &lt;= i &lt;= n) 个记录交换之。
+
+思路：遍历第i到第n个，找到i到n范围内最小的数，然
+					...
+				</div>
+				<p class="index-date">2019-12-21</p>
+			</a>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2019/12/18/17%20%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/04%20%E6%8E%92%E5%BA%8F/2%20%E4%BA%A4%E6%8D%A2%E6%8E%92%E5%BA%8F/">
+				<h2 class="index-title">
+					2 交换排序
+				</h2>
+				<div class="index-brief">
+					1、冒泡排序
+冒泡排序 (Bubble Sort) 一种交换排序，它的基本思想是：两两比较相邻记录的关键字，如果反序则交换，直到没有反序的记录为止。
+
+思路：从第0个到第n个，和相邻的元素进行相比，如果比相邻的大的话，那么就交换二者顺序，这样的话0到n范围内的最大的数就放到n的位置。接着下一次操作，
+					...
+				</div>
+				<p class="index-date">2019-12-21</p>
+			</a>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2019/12/18/17%20%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/04%20%E6%8E%92%E5%BA%8F/1%20%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/">
+				<h2 class="index-title">
+					1 插入排序
+				</h2>
+				<div class="index-brief">
+					1、直接插入排序
+直接插入排序(Straight Insertion Sort) 的基本操作是将一个记录插入到已经排好序的有序表中，从而得到一个新的、记录数增 1 的有序袭。
+
+思路：如第0到5范围内的数从小到大排列，第六个数记为temp，此时第temp比第5个数小，那么第5个数往后退，接着再与第4
+					...
+				</div>
+				<p class="index-date">2019-12-21</p>
+			</a>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2019/12/18/17%20%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/04%20%E6%8E%92%E5%BA%8F/0%20%E6%8E%92%E5%BA%8F%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E4%B8%8E%E5%88%86%E7%B1%BB/">
+				<h2 class="index-title">
+					0 排序的基本概念与分类
+				</h2>
+				<div class="index-brief">
+					1 排序的基本概念
+假设含有 n 个记录的序列为{r1,r2,…,rn} ，其相应的关键字分别为{k1,k2,…,kn} ，需确定 1,2,…,n 的一种排列 p1,p2,…,pn，使其相应的关键字满足 kpl&lt;=kp2&lt;=…&lt;=kpn (非递减或非递增) 关系，即使得序列成为一个
+					...
+				</div>
+				<p class="index-date">2019-12-21</p>
+			</a>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2019/12/18/17%20%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/03%20%E6%9F%A5%E6%89%BE/5%20%E6%95%A3%E5%88%97(Hash)%E8%A1%A8/">
+				<h2 class="index-title">
+					5 散列(Hash)表
+				</h2>
+				<div class="index-brief">
+					1 散列表查找定义
+
+散列技术：是在记录的存储位置和它的关键字之间建立一个确定的对应关系 f，使得每个关键字 key 对应一个存储位置 f (key)。
+散列函数：对应关系 f 。又称为哈希 (Hash) 函数。
+散列表：采用散列技术存储记录的一块连续的存储空间。又称为哈希表 (Hash table
+					...
+				</div>
+				<p class="index-date">2019-12-21</p>
+			</a>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2019/12/18/17%20%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/03%20%E6%9F%A5%E6%89%BE/4%20%E5%A4%9A%E8%B7%AF%E6%9F%A5%E6%89%BE%E6%A0%91(B%20%E6%A0%91)/">
+				<h2 class="index-title">
+					4 多路查找树(B 树)
+				</h2>
+				<div class="index-brief">
+					多路查找树：每一个结点的孩子数可以多于两个，且每一个结点处可以存储多个元素。
+1、2-3 树
+
+2-3 树：每一个结点都具有两个孩子 (2 结点) 或三个孩子 (3 结点) 的多路查找树
+2 结点：包含一个元素和两个孩子(或没有孩子) ，左小右大。
+3 结点：包含一小一大两个元素和三个孩子(或没有孩
+					...
+				</div>
+				<p class="index-date">2019-12-21</p>
+			</a>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2019/12/18/17%20%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/03%20%E6%9F%A5%E6%89%BE/3%20%E7%BA%BF%E6%80%A7%E7%B4%A2%E5%BC%95%E6%9F%A5%E6%89%BE/">
+				<h2 class="index-title">
+					3 线性索引查找
 				</h2>
 				<div class="index-brief">
 					
-Model（模型） - 模型代表一个存取数据的对象或 JAVA POJO。它也可以带有逻辑，在数据变化时更新控制器。
-View（视图） - 视图代表模型包含的数据的可视化。
-Controller（控制器） - 控制器作用于模型和视图上。它控制数据流向模型对象，并在数据变化时更新视图。它使视图与模型
-					...
-				</div>
-				<p class="index-date">2019-12-20</p>
-			</a>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/2019/12/18/04%20%E8%AE%BE%E8%AE%A1/3%20%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/4-J2EE%20%E6%A8%A1%E5%BC%8F/2.Business%20Delegate%EF%BC%88%E4%B8%9A%E5%8A%A1%E4%BB%A3%E8%A1%A8%EF%BC%89/">
-				<h2 class="index-title">
-					2.Business Delegate（业务代表）
-				</h2>
-				<div class="index-brief">
-					业务代表模式用于对表示层和业务层解耦。它基本上是用来减少通信或对表示层代码中的业务层代码的远程查询功能。在业务层中我们有以下实体。
+索引：就是把一个关键字与它对应的记录相关联的过程。
+索引按照结构可以分为线性索引、树形索引和多级索引。
+线性索引：就是将索引项集合组织为线性结构，也称为索引表。
 
-客户端 - 表示层代码可以是 JSP、servlet 或 UI java 代码。
-业务代表 - 一个为客户端实体提供的入口类，它提供了对业务服务方法的访问。
-查询服务
+1 稠密索引
+稠密索引：在线性索引中，将数据集中的每个记录对应一个索引项，索引项按照关键码有序排列。
+但数据量大时，可能由于内存有限，
 					...
 				</div>
-				<p class="index-date">2019-12-20</p>
-			</a>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/2019/12/18/04%20%E8%AE%BE%E8%AE%A1/3%20%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/4-J2EE%20%E6%A8%A1%E5%BC%8F/3.Composite%20Entity%EF%BC%88%E7%BB%84%E5%90%88%E5%AE%9E%E4%BD%93%EF%BC%89/">
-				<h2 class="index-title">
-					3.Composite Entity（组合实体）
-				</h2>
-				<div class="index-brief">
-					组合实体模式用在 EJB 持久化机制中。
-一个组合实体是一个 EJB 实体 bean，代表了对象的图解。当更新一个组合实体时，内部依赖对象 beans 会自动更新，因为它们是由 EJB 实体 bean 管理的。
-以下是组合实体 bean 的参与者。
-
-组合实体（Composite Entity） -
-					...
-				</div>
-				<p class="index-date">2019-12-20</p>
-			</a>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/2019/12/18/04%20%E8%AE%BE%E8%AE%A1/3%20%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/4-J2EE%20%E6%A8%A1%E5%BC%8F/4.Data%20Access%20Object%EF%BC%88%E6%95%B0%E6%8D%AE%E8%AE%BF%E9%97%AE%E5%AF%B9%E8%B1%A1%EF%BC%89/">
-				<h2 class="index-title">
-					4.Data Access Object（数据访问对象）
-				</h2>
-				<div class="index-brief">
-					DAO 模式用于把低级的数据访问 API 或操作从高级的业务服务中分离出来。
-以下是数据访问对象模式的参与者。
-
-数据访问对象接口（Data Access Object Interface） - 该接口定义了在一个模型对象上要执行的标准操作。
-数据访问对象实体类（Data Access Object
-					...
-				</div>
-				<p class="index-date">2019-12-20</p>
-			</a>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/2019/12/18/04%20%E8%AE%BE%E8%AE%A1/3%20%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/4-J2EE%20%E6%A8%A1%E5%BC%8F/6.Intercepting%20Filter%EF%BC%88%E6%8B%A6%E6%88%AA%E8%BF%87%E6%BB%A4%E5%99%A8%EF%BC%89/">
-				<h2 class="index-title">
-					6.Intercepting Filter（拦截过滤器）
-				</h2>
-				<div class="index-brief">
-					拦截过滤器模式用于对应用程序的请求或响应做一些预处理/后处理。定义过滤器，并在把请求传给实际目标应用程序之前应用在请求上。过滤器可以做认证/授权/记录日志，或者跟踪请求，然后把请求传给相应的处理程序。
-以下是这种设计模式的实体。
-
-过滤器（Filter） - 过滤器在请求处理程序执行请求之前或之后，
-					...
-				</div>
-				<p class="index-date">2019-12-20</p>
-			</a>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/2019/12/18/04%20%E8%AE%BE%E8%AE%A1/3%20%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/4-J2EE%20%E6%A8%A1%E5%BC%8F/7.Service%20Locator%EF%BC%88%E6%9C%8D%E5%8A%A1%E5%AE%9A%E4%BD%8D%E5%99%A8%EF%BC%89/">
-				<h2 class="index-title">
-					7.Service Locator（服务定位器）
-				</h2>
-				<div class="index-brief">
-					服务定位器模式用在我们想使用 JNDI 查询定位各种服务的时候。考虑到为某个服务查找 JNDI 的代价很高，服务定位器模式充分利用了缓存技术。在首次请求某个服务时，服务定位器在 JNDI 中查找服务，并缓存该服务对象。当再次请求相同的服务时，服务定位器会在它的缓存中查找，这样可以在很大程度上提高应用
-					...
-				</div>
-				<p class="index-date">2019-12-20</p>
-			</a>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/2019/12/18/04%20%E8%AE%BE%E8%AE%A1/3%20%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/4-J2EE%20%E6%A8%A1%E5%BC%8F/8.Transfer%20Object%EF%BC%88%E4%BC%A0%E8%BE%93%E5%AF%B9%E8%B1%A1%EF%BC%89/">
-				<h2 class="index-title">
-					8.Transfer Object（传输对象）
-				</h2>
-				<div class="index-brief">
-					传输对象模式用于从客户端向服务器一次性传递带有多个属性的数据。
-传输对象也被称为数值对象。传输对象是一个具有 getter/setter 方法的简单的 POJO 类，它是可序列化的，所以它可以通过网络传输。它没有任何的行为。
-服务器端的业务类通常从数据库读取数据，然后填充 POJO，并把它发送到客户
-					...
-				</div>
-				<p class="index-date">2019-12-20</p>
-			</a>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/2019/12/18/04%20%E8%AE%BE%E8%AE%A1/3%20%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/3-%E8%A1%8C%E4%B8%BA%E5%9E%8B%E6%A8%A1%E5%BC%8F/1.Chain%20of%20Responsibility%EF%BC%88%E8%B4%A3%E4%BB%BB%E9%93%BE%EF%BC%89/">
-				<h2 class="index-title">
-					1.Chain of Responsibility（责任链）
-				</h2>
-				<div class="index-brief">
-					为请求创建了一个接收者对象的链。
-将请求的发送者和请求的处理者解耦，每个接收者都包含对另一个接收者的引用。如果一个对象不能处理该请求，那么它会把相同的请求传给下一个接收者，依此类推。
-应用实例
-JAVA WEB 中 Apache Tomcat 对 Encoding 的处理，Struts2 的拦截器，
-					...
-				</div>
-				<p class="index-date">2019-12-20</p>
-			</a>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/2019/12/18/04%20%E8%AE%BE%E8%AE%A1/3%20%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/3-%E8%A1%8C%E4%B8%BA%E5%9E%8B%E6%A8%A1%E5%BC%8F/10.Template%20Method%EF%BC%88%E6%A8%A1%E6%9D%BF%E6%96%B9%E6%B3%95%EF%BC%89/">
-				<h2 class="index-title">
-					10.Template Method（模板方法）
-				</h2>
-				<div class="index-brief">
-					定义一个操作中的算法的骨架，而将一些步骤延迟到子类中。模板方法使得子类可以不改变一个算法的结构即可重定义该算法的某些特定步骤。
-实现
-我们将创建一个定义操作的 Game 抽象类，其中，模板方法设置为 final，这样它就不会被重写。Cricket 和 Football 是扩展了 Game 的实体类，
-					...
-				</div>
-				<p class="index-date">2019-12-20</p>
+				<p class="index-date">2019-12-21</p>
 			</a>
 		</div>	
 	
@@ -4571,12 +4576,14 @@ JAVA WEB 中 Apache Tomcat 对 Encoding 的处理，Struts2 的拦截器，
 		<span id="busuanzi_value_site_uv"></span>
 	</span>
 	<br>
-	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
+	Theme <a href="//github.com/wujun234/hexo-theme-tree">Tree</a>
+	by <a href="//github.com/wujun234">WuJun</a>
+	Powered by <a href="//hexo.io">Hexo</a>
 	</p>
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
-	<button id="totop" class="toggle"><i class="fa fa-angle-double-up" aria-hidden="true"></i></button>
+	<button id="totop-toggle" class="toggle"><i class="fa fa-angle-double-up" aria-hidden="true"></i></button>
 </body>
 </html>

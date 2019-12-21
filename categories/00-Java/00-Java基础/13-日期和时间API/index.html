@@ -9,7 +9,7 @@
 	
 	<title>
 	 
-	WuJun Blog
+	吴俊博客
 	</title>
 	
 	<!-- keywords,description -->
@@ -38,7 +38,7 @@
 
 <body>
 	<header id="header">
-    <a id="title" href="/" class="logo">WuJun Blog</a>
+    <a id="title" href="/" class="logo">吴俊博客</a>
 
 	<ul id="menu">
 		<li class="menu-item">
@@ -64,8 +64,8 @@
 	
 <div id="sidebar">
 	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-arrow-right " aria-hidden="true"></i></button>
-	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">SITE MENU</a>
-	<a herf="#" id="sidebar-article" class="sidebar-toc">ARTICLE MENU</a>
+	<a herf="#" id="site-menu" class="sidebar-toc toc-active">SITE MENU</a>
+	<a herf="#" id="article-menu" class="sidebar-toc">ARTICLE MENU</a>
 
 	<!-- 侧边目录栏 -->
 	<div id="site-toc">
@@ -4391,35 +4391,21 @@
 		<div id="index-list">
 	
 		<div class="index-li">
-			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/13%20%E6%97%A5%E6%9C%9F%E5%92%8C%E6%97%B6%E9%97%B4API/2%20%E4%BA%BA%E7%B1%BB%E6%97%B6%E9%97%B4/">
+			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/13%20%E6%97%A5%E6%9C%9F%E5%92%8C%E6%97%B6%E9%97%B4API/4%20%E4%B8%8E%E9%81%97%E7%95%99%E4%BB%A3%E7%A0%81%E7%9A%84%E4%BA%92%E6%93%8D%E4%BD%9C/">
 				<h2 class="index-title">
-					2 人类时间
+					4 与遗留代码的互操作
 				</h2>
 				<div class="index-brief">
-					Java API 中有两种人类时间，本地日期/时间和时区时间。本地日期/时间无时区，而时区常常造成困扰，除非确实想要表示绝对时间的实例，最好都使用本地日期/时间。
-本地日期/时间
-1. LocaleDate
-LocaleDate是带有年、月、日的日期
-1.1 构造
-LocalDate today =
+					JDBC
+最新JDBC映射将把数据库的日期类型和Java 8的新类型关联起来：
+SQL -&gt; Java
+--------------------------
+date -&gt; LocalDate
+time -&gt; LocalTime
+timestamp -&gt; LocalDateT
 					...
 				</div>
-				<p class="index-date">2019-12-20</p>
-			</a>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/13%20%E6%97%A5%E6%9C%9F%E5%92%8C%E6%97%B6%E9%97%B4API/1%20%E7%BB%9D%E5%AF%B9%E6%97%B6%E9%97%B4/">
-				<h2 class="index-title">
-					1 绝对时间
-				</h2>
-				<div class="index-brief">
-					Java 8新的Date-Time API 吸取了Joda-Time的精髓，所有类不可修改。
-新的java.time包涵盖了所有处理日期，时间，日期/时间，时区，时刻（instants），过程（during）与时钟（clock）的操作。替换Calendar和Date类。
-Java的Date和Time
-					...
-				</div>
-				<p class="index-date">2019-12-20</p>
+				<p class="index-date">2019-12-21</p>
 			</a>
 		</div>	
 	
@@ -4439,26 +4425,40 @@ Locale相关格式器
 String formatted = DateTimeFormatter.ISO_OFFSET_DATE_TIME.format(apollo11launch
 					...
 				</div>
-				<p class="index-date">2019-12-20</p>
+				<p class="index-date">2019-12-21</p>
 			</a>
 		</div>	
 	
 		<div class="index-li">
-			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/13%20%E6%97%A5%E6%9C%9F%E5%92%8C%E6%97%B6%E9%97%B4API/4%20%E4%B8%8E%E9%81%97%E7%95%99%E4%BB%A3%E7%A0%81%E7%9A%84%E4%BA%92%E6%93%8D%E4%BD%9C/">
+			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/13%20%E6%97%A5%E6%9C%9F%E5%92%8C%E6%97%B6%E9%97%B4API/2%20%E4%BA%BA%E7%B1%BB%E6%97%B6%E9%97%B4/">
 				<h2 class="index-title">
-					4 与遗留代码的互操作
+					2 人类时间
 				</h2>
 				<div class="index-brief">
-					JDBC
-最新JDBC映射将把数据库的日期类型和Java 8的新类型关联起来：
-SQL -&gt; Java
---------------------------
-date -&gt; LocalDate
-time -&gt; LocalTime
-timestamp -&gt; LocalDateT
+					Java API 中有两种人类时间，本地日期/时间和时区时间。本地日期/时间无时区，而时区常常造成困扰，除非确实想要表示绝对时间的实例，最好都使用本地日期/时间。
+本地日期/时间
+1. LocaleDate
+LocaleDate是带有年、月、日的日期
+1.1 构造
+LocalDate today =
 					...
 				</div>
-				<p class="index-date">2019-12-20</p>
+				<p class="index-date">2019-12-21</p>
+			</a>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/13%20%E6%97%A5%E6%9C%9F%E5%92%8C%E6%97%B6%E9%97%B4API/1%20%E7%BB%9D%E5%AF%B9%E6%97%B6%E9%97%B4/">
+				<h2 class="index-title">
+					1 绝对时间
+				</h2>
+				<div class="index-brief">
+					Java 8新的Date-Time API 吸取了Joda-Time的精髓，所有类不可修改。
+新的java.time包涵盖了所有处理日期，时间，日期/时间，时区，时刻（instants），过程（during）与时钟（clock）的操作。替换Calendar和Date类。
+Java的Date和Time
+					...
+				</div>
+				<p class="index-date">2019-12-21</p>
 			</a>
 		</div>	
 	
@@ -4483,12 +4483,14 @@ timestamp -&gt; LocalDateT
 		<span id="busuanzi_value_site_uv"></span>
 	</span>
 	<br>
-	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
+	Theme <a href="//github.com/wujun234/hexo-theme-tree">Tree</a>
+	by <a href="//github.com/wujun234">WuJun</a>
+	Powered by <a href="//hexo.io">Hexo</a>
 	</p>
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
-	<button id="totop" class="toggle"><i class="fa fa-angle-double-up" aria-hidden="true"></i></button>
+	<button id="totop-toggle" class="toggle"><i class="fa fa-angle-double-up" aria-hidden="true"></i></button>
 </body>
 </html>

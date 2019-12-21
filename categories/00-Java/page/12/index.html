@@ -9,7 +9,7 @@
 	
 	<title>
 	 
-	WuJun Blog
+	吴俊博客
 	</title>
 	
 	<!-- keywords,description -->
@@ -38,7 +38,7 @@
 
 <body>
 	<header id="header">
-    <a id="title" href="/" class="logo">WuJun Blog</a>
+    <a id="title" href="/" class="logo">吴俊博客</a>
 
 	<ul id="menu">
 		<li class="menu-item">
@@ -64,8 +64,8 @@
 	
 <div id="sidebar">
 	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-arrow-right " aria-hidden="true"></i></button>
-	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">SITE MENU</a>
-	<a herf="#" id="sidebar-article" class="sidebar-toc">ARTICLE MENU</a>
+	<a herf="#" id="site-menu" class="sidebar-toc toc-active">SITE MENU</a>
+	<a herf="#" id="article-menu" class="sidebar-toc">ARTICLE MENU</a>
 
 	<!-- 侧边目录栏 -->
 	<div id="site-toc">
@@ -4391,223 +4391,196 @@
 		<div id="index-list">
 	
 		<div class="index-li">
-			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/06%20%E9%9B%86%E5%90%88/1%20%E9%9B%86%E5%90%88%E6%8E%A5%E5%8F%A3/">
+			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/07%20%E5%B9%B6%E5%8F%91/9%20%E6%89%A7%E8%A1%8C%E5%99%A8Executor/">
 				<h2 class="index-title">
-					1 集合接口
+					9 执行器Executor
 				</h2>
 				<div class="index-brief">
-					框架，是一个类的集。
-容器，是可以容纳其他Java对象的对象。
-JDK 1.2开始，Java集合框架(JCF)提供了通用的容器。
-JDK 1.5开始，集合类是带有类型参数的泛型类。
-Java容器里只能放对象，基本类型会自动装箱。
-集合中也是值传递。
-1 接口与实现
-接口
-为了规范容器的行为，统一设计
-					...
-				</div>
-				<p class="index-date">2019-12-20</p>
-			</a>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/06%20%E9%9B%86%E5%90%88/2.0%20%E5%85%B7%E4%BD%93%E7%9A%84%E9%9B%86%E5%90%88/">
-				<h2 class="index-title">
-					2.0 具体的集合
-				</h2>
-				<div class="index-brief">
-					Java库中的具体集合
+					执行器（Executor）类有许多静态工厂方法用来构建线程池。
 
 
 
-集合类型
-同步
-可null
-有序
+方法
 描述
 
 
 
 
-ArrayList
-否
-是
-是
-动态增缩的索引序列
+newCachedThreadPool
+必要时创建新线程；空闲线程会被保留 60 秒
 
 
-Vector
-是
-是
-是
-过时，同步的ArrayList
+newFixedThreadPool
+线程包含固定数量的线程；空闲线程会一直被保留
 
 
-LinkedList
-否
-是
-是
-高效插删的有序序列
-
-
-ArrayDeque
-否
-否
-是
-循环数组实现
+newSingleThreadE
 					...
 				</div>
-				<p class="index-date">2019-12-20</p>
+				<p class="index-date">2019-12-21</p>
 			</a>
 		</div>	
 	
 		<div class="index-li">
-			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/06%20%E9%9B%86%E5%90%88/2.1%20ArrayList%E3%80%81Vector/">
+			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/07%20%E5%B9%B6%E5%8F%91/8%20Callable%E4%B8%8EFuture/">
 				<h2 class="index-title">
-					2.1 ArrayList、Vector
+					8 Callable与Future
 				</h2>
 				<div class="index-brief">
-					前言
-ArrayList除未实现同步外，跟Vector大致相同。同步效率低，在不需要同步的时候使用ArrayList。
-ArrayList
+					Callable
+Callable与Runnable类似，它们的主要区别是 Callable 的 call() 方法可以返回值和抛出异常。
+Callable接口是一个参数化的类型，只有一个方法call。
+public interface Ca11able&lt;V&gt;{
+    V call()
+					...
+				</div>
+				<p class="index-date">2019-12-21</p>
+			</a>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/07%20%E5%B9%B6%E5%8F%91/7%20%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8%E7%9A%84%E9%9B%86%E5%90%88/">
+				<h2 class="index-title">
+					7 线程安全的集合
+				</h2>
+				<div class="index-brief">
+					1 Concurrent集合
+java.util.concurrent包中 ConcurrentHashMap、ConcurrentSkipListMap、ConcurrentSkipListSet 和 ConcurrentLinkedQueue。
+这些集合使用复杂的算法，通过允许并发地访问数据结构
+					...
+				</div>
+				<p class="index-date">2019-12-21</p>
+			</a>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/07%20%E5%B9%B6%E5%8F%91/6%20%E9%98%BB%E5%A1%9E%E9%98%9F%E5%88%97/">
+				<h2 class="index-title">
+					6 阻塞队列
+				</h2>
+				<div class="index-brief">
+					对于许多线程问题，可以通过使用一个或多个队列以优雅且安全的方式将其形式化。
+使用队列，可以安全地从一个线程向另一个线程传递数据。
+使用通知模式实现线程的同步。当试图向队列添加元素而队列已满，或是想从队列移出元素而队列为空的时候，阻塞队列（blocking queue）导致线程阻塞。
+队列方法
 
-总体介绍
-ArrayList 实现了 List、RandomAccess 接口。是顺序容器，允许 null 元素，支持随机访问。
-ArrayList 底层通过
+ad
 					...
 				</div>
-				<p class="index-date">2019-12-20</p>
+				<p class="index-date">2019-12-21</p>
 			</a>
 		</div>	
 	
 		<div class="index-li">
-			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/06%20%E9%9B%86%E5%90%88/2.2%20LinkedList/">
+			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/07%20%E5%B9%B6%E5%8F%91/5%20%E5%90%8C%E6%AD%A5/">
 				<h2 class="index-title">
-					2.2 LinkedList
+					5 同步
 				</h2>
 				<div class="index-brief">
-					前言
-现在栈或者队列的首选是ArrayDeque。
-总体介绍
+					有两种机制防止代码块受并发访问的干扰。synchronized关键字,ReentrantLock类。
+1 可重入锁（ReentrantLock）
+可重入锁（ReentrantLock）锁是可重入的，因为线程可以重复地获得已经持有的锁。锁保持一个持有计数来跟踪对lock方法的嵌套调用。线程在每一次调用
+					...
+				</div>
+				<p class="index-date">2019-12-21</p>
+			</a>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/07%20%E5%B9%B6%E5%8F%91/4%20%E7%BA%BF%E7%A8%8B%E5%B1%9E%E6%80%A7/">
+				<h2 class="index-title">
+					4 线程属性
+				</h2>
+				<div class="index-brief">
+					1 线程优先级
+不要将程序构建为功能的正确性依赖于优先级。
+Linux上线程不具有优先级。
 
-LinkedList同时实现了List接口和Deque接口，允许null元素。
+void setPriority(fnt newPriority)：设置线程的优先级。
+static void yield()：让步，不休眠，只暂停。让步于其他优先级不小于次线程的的可运行线程。
 
-LinkedList底层通过双向链表实现。节点用内部类Node表示,通过 first 和 last 引用分别指向链表的第一个和最后一个元素。链表为空时 f
+2 守护
 					...
 				</div>
-				<p class="index-date">2019-12-20</p>
+				<p class="index-date">2019-12-21</p>
 			</a>
 		</div>	
 	
 		<div class="index-li">
-			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/06%20%E9%9B%86%E5%90%88/2.3%20ArrayDeque/">
+			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/07%20%E5%B9%B6%E5%8F%91/3%20%E7%BA%BF%E7%A8%8B%E7%8A%B6%E6%80%81/">
 				<h2 class="index-title">
-					2.3 ArrayDeque
+					3 线程状态
 				</h2>
 				<div class="index-brief">
-					前言
-栈Stack已过时，队列LinkedList效率不高，栈和队列首选ArrayDeque。
-总体介绍
+					线程状态
+线程可以有如下 6 种状态：
 
-Deque接口
-ArrayDeque实现了Deque接口，Deque继承Queue实现了Stack相关方法。
-Deque的含义是“double ended queue”，即双端队列。既可当栈使
-					...
-				</div>
-				<p class="index-date">2019-12-20</p>
-			</a>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/06%20%E9%9B%86%E5%90%88/2.4%20treemap%E3%80%81treeset/">
-				<h2 class="index-title">
-					2.4 treemap、treeset
-				</h2>
-				<div class="index-brief">
-					前言
-TreeSet仅对TreeMap做了一层包装，实现相同。TreeSet里面有一个TreeMap（适配器模式）。
-TreeMap
-总体介绍
-TreeMap实现了SortedMap接口，有序。非同步。
-底层通过红黑树实现，也就意味着containsKey(), get(), put(), remo
-					...
-				</div>
-				<p class="index-date">2019-12-20</p>
-			</a>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/06%20%E9%9B%86%E5%90%88/4%20%E8%A7%86%E5%9B%BE%E4%B8%8E%E5%8C%85%E8%A3%85%E5%99%A8/">
-				<h2 class="index-title">
-					4 视图与包装器
-				</h2>
-				<div class="index-brief">
-					视图：保持对原集合的控制。只用来展示集合中的元素。
-视图是不可修改的，任何改变视图size的操作都会影响到原集合。抛出异常。
-1、轻量级集包装器
-Arrays.asList方法
-Arrays.asList方法返回一个包装了普通Java数组的List包装器,一个视图对象。
-Collecitons.nC
-					...
-				</div>
-				<p class="index-date">2019-12-20</p>
-			</a>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/06%20%E9%9B%86%E5%90%88/2.5%20hashmap%E3%80%81hashset%E3%80%81hashtable/">
-				<h2 class="index-title">
-					2.5 hashmap、hashset、hashtable
-				</h2>
-				<div class="index-brief">
-					前言
-HashSet仅对HashMap做了一层包装，实现相同。HashSet里面有一个HashMap（适配器模式）。
-Hashtable与HashMap大致相同，但Hashtable是同步的，并且不允许使用 null 。
-HashMap
-总体介绍
-基于哈希表，实现了Map接口。允许null值null
-					...
-				</div>
-				<p class="index-date">2019-12-20</p>
-			</a>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/06%20%E9%9B%86%E5%90%88/2.6%20linkedhashmap%E3%80%81linkedhashset/">
-				<h2 class="index-title">
-					2.6 linkedhashmap、linkedhashset
-				</h2>
-				<div class="index-brief">
-					前言
-LinkedHashSet仅对LinkedHashMap做了一层包装，实现相同。LinkedHashSet里面有一个LinkedHashMap（适配器模式）。
-总体介绍
-LinkedHashMap 有序，非同步，允许null键null值，是由linkedList增强的HashMap。
-继承于H
-					...
-				</div>
-				<p class="index-date">2019-12-20</p>
-			</a>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/06%20%E9%9B%86%E5%90%88/2.7%20priorityqueue/">
-				<h2 class="index-title">
-					2.7 priorityqueue
-				</h2>
-				<div class="index-brief">
-					总体介绍
-优先队列的作用是能保证每次取出的元素都是队列中权值最小的。
-实现了Queue接口，不允许null，通过数组实现的小顶堆。
+New(新建)
+创建后，尚未启动的线程
+Runable(可运行)
 
-父子节点的编号之间有如下关系：
-
-leftNo = parentNo*2+1
-rightNo = parentNo*2+2
-parentNo = (nodeNo-1)
+正在JVM中执行的线程处于这种状态（注意不是在CPU中执行，见2）
+Runable对应了两种OS线程状态Running和Ready，也就说Runable状态的Java线程有可能正在执行，也有
 					...
 				</div>
-				<p class="index-date">2019-12-20</p>
+				<p class="index-date">2019-12-21</p>
+			</a>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/07%20%E5%B9%B6%E5%8F%91/2%20%E4%B8%AD%E6%96%AD%E7%BA%BF%E7%A8%8B/">
+				<h2 class="index-title">
+					2 中断线程
+				</h2>
+				<div class="index-brief">
+					当线程的run方法执行方法体中最后一条语句并经由return返回时。或出现了在方法中没有捕获的异常时，线程终止。
+没有可以强制线程终止的方法，interrupt方法可以用来请求终止线程。isInterrupted()可以检测线程是否被中断。
+如果要安全有效地终止一个线程，应该采用以下这些方法：
+1.
+					...
+				</div>
+				<p class="index-date">2019-12-21</p>
+			</a>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/07%20%E5%B9%B6%E5%8F%91/11%20%E6%89%B9%E9%87%8F%E8%8E%B7%E5%8F%96%E5%A4%9A%E6%9D%A1%E7%BA%BF%E7%A8%8B%E7%9A%84%E6%89%A7%E8%A1%8C%E7%BB%93%E6%9E%9C/">
+				<h2 class="index-title">
+					11 批量获取多条线程的执行结果
+				</h2>
+				<div class="index-brief">
+					当向线程池提交callable任务后，我们可能需要一次性获取所有返回结果，有三种处理方法。
+方法一：自己维护返回结果
+// 创建一个线程池
+ExecutorService executorService = Executors.newFixedThreadPool(10);
+
+// 存储执行结果的L
+					...
+				</div>
+				<p class="index-date">2019-12-21</p>
+			</a>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/07%20%E5%B9%B6%E5%8F%91/10%20%E5%90%8C%E6%AD%A5%E5%99%A8/">
+				<h2 class="index-title">
+					10 同步器
+				</h2>
+				<div class="index-brief">
+					java.util.concurrent 包包含了几个能帮助人们管理相互合作的线程集的类。这些机制具有为线程之间的共用集结点模式提供的“预置功能”。如果有一个相互合作的线程集满足这些行为模式之一，那么应该直接重用合适的库类而不要试图提供手工的锁与条件的集合。
+同步器
+
+
+
+类
+它能做什么
+说明
+
+
+
+					...
+				</div>
+				<p class="index-date">2019-12-21</p>
 			</a>
 		</div>	
 	
@@ -4634,12 +4607,14 @@ parentNo = (nodeNo-1)
 		<span id="busuanzi_value_site_uv"></span>
 	</span>
 	<br>
-	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
+	Theme <a href="//github.com/wujun234/hexo-theme-tree">Tree</a>
+	by <a href="//github.com/wujun234">WuJun</a>
+	Powered by <a href="//hexo.io">Hexo</a>
 	</p>
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
-	<button id="totop" class="toggle"><i class="fa fa-angle-double-up" aria-hidden="true"></i></button>
+	<button id="totop-toggle" class="toggle"><i class="fa fa-angle-double-up" aria-hidden="true"></i></button>
 </body>
 </html>

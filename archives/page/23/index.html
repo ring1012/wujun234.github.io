@@ -9,7 +9,7 @@
 	
 	<title>
 	 
-	WuJun Blog
+	吴俊博客
 	</title>
 	
 	<!-- keywords,description -->
@@ -38,7 +38,7 @@
 
 <body>
 	<header id="header">
-    <a id="title" href="/" class="logo">WuJun Blog</a>
+    <a id="title" href="/" class="logo">吴俊博客</a>
 
 	<ul id="menu">
 		<li class="menu-item">
@@ -64,8 +64,8 @@
 	
 <div id="sidebar">
 	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-arrow-right " aria-hidden="true"></i></button>
-	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">SITE MENU</a>
-	<a herf="#" id="sidebar-article" class="sidebar-toc">ARTICLE MENU</a>
+	<a herf="#" id="site-menu" class="sidebar-toc toc-active">SITE MENU</a>
+	<a herf="#" id="article-menu" class="sidebar-toc">ARTICLE MENU</a>
 
 	<!-- 侧边目录栏 -->
 	<div id="site-toc">
@@ -4391,197 +4391,175 @@
 		<div id="index-list">
 	
 		<div class="index-li">
-			<a href="/2019/12/18/17%20%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/01%20%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/6%20%E5%9B%BE%EF%BC%88Gnph%EF%BC%89/">
+			<a href="/2019/12/18/00%20Java/03%20Java%E5%B9%B6%E5%8F%91/1%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/2%20%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%85%B1%E4%BA%AB/">
 				<h2 class="index-title">
-					6 图（Gnph）
+					2 对象的共享
 				</h2>
 				<div class="index-brief">
-					一、图的基本概念
-图：由顶点的有穷非空集合和顶点之间边的集合组成，通常表示为: G(V,E)，其中，G 表示一个图，V 是图 G 中顶点的集合。E 是图 G 中边的集合。
-1、各种图定义
-
-
-无向边：若顶点 $V_i$ 到 $V_j$，之间的边没有方向，则称这条边为无向边(Edge)。
-
-用无序偶对
+					一种常见的误解是, 认为关键字synchronized只能用于实现原子性或者确定临界区, 同步还有一个重要的方面: 内存可见性.
+1 可见性
+在没有同步的情况下, 编译器, 处理器, 运行时等可能对操作的执行顺序进行一些意想不到的调整, 在缺乏足够同步的多线程程序中, 要想对内存操作的执行顺序进行判
 					...
 				</div>
-				<p class="index-date">2019-12-20</p>
+				<p class="index-date">2019-12-21</p>
 			</a>
 		</div>	
 	
 		<div class="index-li">
-			<a href="/2019/12/18/17%20%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/01%20%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/8%20%E5%A0%86/">
+			<a href="/2019/12/18/00%20Java/03%20Java%E5%B9%B6%E5%8F%91/1%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/1%20%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8%E6%80%A7/">
 				<h2 class="index-title">
-					8 堆
+					1 线程安全性
 				</h2>
 				<div class="index-brief">
-					堆（Heap）是一种特别的树状数据结构：“给定堆中任意节点 P 和 C，若 P 是 C 的母节点，那么 P 的值会小于等于（或大于等于）C 的值”。分为最小堆和最大堆。
+					1 什么是线程安全
+1.1 线程安全的类
+当多个线程访问某个类时，不管运行时环境采用何种调度方式或者这些线程将如何交替执行，并且在主调代码中不需要额外的同步，这个类都能表现正确的行为
+1.2 无状态对象
+不包含域，也不包含与其他类中域的引用。一定是线程安全的。
+2 原子性
+2.1 竞态条件
 
-二叉堆
-左倾堆
-斜堆
-二项堆
-斐波那契堆
-索引堆
-Treap树堆
-
-1、二叉堆
-二叉堆是完全二元树或者是近似完全二元树，按照数据
+竞态条
 					...
 				</div>
-				<p class="index-date">2019-12-20</p>
+				<p class="index-date">2019-12-21</p>
 			</a>
 		</div>	
 	
 		<div class="index-li">
-			<a href="/2019/12/18/17%20%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/01%20%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/7%20%E7%BA%A2%E9%BB%91%E6%A0%91/">
+			<a href="/2019/12/18/00%20Java/02%20Effective%20Java/9%20%E5%BC%82%E5%B8%B8%EF%BC%8869-77%EF%BC%89/">
 				<h2 class="index-title">
-					7 红黑树
+					9 异常（69-77）
 				</h2>
 				<div class="index-brief">
-					1、红黑树定义
-红黑树是一种近似平衡的二叉查找树，它能够确保任何一个节点的左右子树的高度差不会超过二者中较低那个的一陪。可以在 O(logn) 时间内做查找，插入和删除。红黑树相对于AVL树来说，牺牲了部分平衡性以换取插入/删除操作时少量的旋转操作，整体来说性能要优于AVL树。
-满足如下条件：
-
-每
+					第69条：只针对异常的情况才使用异常
+如果在try、catch、finally块中都抛出了异常，只是只有一个异常可被传播到外界。
+请不要在try块中发出对return、break或continue的调用，万一无法避免，一定要确保finally的存在不会改变函数的返回值（比如说抛异常啊、return啊
 					...
 				</div>
-				<p class="index-date">2019-12-20</p>
+				<p class="index-date">2019-12-21</p>
 			</a>
 		</div>	
 	
 		<div class="index-li">
-			<a href="/2019/12/18/13%20%E5%89%8D%E7%AB%AF/4%20FIS/1%20FIS%203%E6%8E%A5%E5%8F%A3%E9%80%9F%E6%9F%A5/">
+			<a href="/2019/12/18/00%20Java/02%20Effective%20Java/8%20%E9%80%9A%E7%94%A8%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%EF%BC%8857-68%EF%BC%89/">
 				<h2 class="index-title">
-					1 FIS 3接口速查
+					8 通用程序设计（57-68）
 				</h2>
 				<div class="index-brief">
-					FIS 构建工具 前端工具框架
-官方文档：http://fis.baidu.com/fis3/docs/beginning/intro.html
-默认配置文件为 fis-conf.js，有此文件的目录被看做是项目根目
-配置接口
+					第57条：将局部变量的作用域最小化
+第58条：for-each循环优先于传统的for循环
+第59条：了解和使用标准类库
+第60条：如果需要精确的答案，请避免使用float和double
 
-fis.set(key, value)：设置一些配置，如系统内置属性。
+float和double类型尤其不适合用于货币计算
+可以使用bigDecimal、int或者long进行货币计算
 					...
 				</div>
-				<p class="index-date">2019-12-20</p>
+				<p class="index-date">2019-12-21</p>
 			</a>
 		</div>	
 	
 		<div class="index-li">
-			<a href="/2019/12/18/11%20%E6%B6%88%E6%81%AF%E9%80%9A%E4%BF%A1/1%20Apache%20Thrift/1%20Apache%20Thrift%20%E5%88%9D%E8%AF%86%20(1)%20-%20%E7%AE%80%E4%BB%8B/">
+			<a href="/2019/12/18/00%20Java/02%20Effective%20Java/7%20%E6%96%B9%E6%B3%95%EF%BC%8849-56%EF%BC%89/">
 				<h2 class="index-title">
-					1 Apache Thrift 初识 (1) - 简介
+					7 方法（49-56）
 				</h2>
 				<div class="index-brief">
-					Thrift 是最初由 Facebook 开发的 RPC 框架，适用于程序对程序静态的数据交换，需要先确定好数据结构。
-1 特性
-
-
-静态化
-当数据结构发生变化时，必须重新编辑IDL文件、代码生成再编译载入的流程。
-
-
-跨语言
-Thrift 通过 IDL(接口定义语言) 在.thrift文件中确定好
+					第49条：检查参数的有效性
+不仅需要检查参数的有效性，还需要在函数的文档中给予明确的说明，如在参数非法的情况下，会抛出哪些异常，或导致函数返回哪些错误值等
+第50条：必要时进行保护性拷贝
+如果不能够容忍对象进入数据结构之后发生变，就必须对该对象进行保护性拷贝，并且让拷贝之后的对象而不是原始对象进入到
 					...
 				</div>
-				<p class="index-date">2019-12-20</p>
+				<p class="index-date">2019-12-21</p>
 			</a>
 		</div>	
 	
 		<div class="index-li">
-			<a href="/2019/12/18/11%20%E6%B6%88%E6%81%AF%E9%80%9A%E4%BF%A1/1%20Apache%20Thrift/3%20Apache%20Thrift%20%E5%88%9D%E8%AF%86%20(3)%20-%20%E5%AE%9E%E6%88%98Demo/">
+			<a href="/2019/12/18/00%20Java/02%20Effective%20Java/6%20Lambdas%E4%B8%8EStreams%EF%BC%8842-48%EF%BC%89/">
 				<h2 class="index-title">
-					3 Apache Thrift 初识 (3) - 实战Demo
+					6 Lambdas与Streams（42-48）
 				</h2>
 				<div class="index-brief">
-					1 下载Thrift编译器
-
-从官网中下载对应的 Window 平台编译器（以 thrift-0.9.2.exe 为例）
-
-2  创建.thrift脚本
-使用 IDL 描述语言建立 query_media_service.thrift 脚本
-namespace java com.xxxx.auto.
+					第42条：lambdas优于匿名类
+从Java 8开始，lambda是迄今为止表示小函数对象的最佳方式。 除非必须创建非函数式接口类型的实例，否则不要使用匿名类作为函数对象。
+lambda没有名称和文档，如果超过三行，不要使用lambda表达式。
+第43条: 方法引用优于lambdas
+如果方法引用
 					...
 				</div>
-				<p class="index-date">2019-12-20</p>
+				<p class="index-date">2019-12-21</p>
 			</a>
 		</div>	
 	
 		<div class="index-li">
-			<a href="/2019/12/18/11%20%E6%B6%88%E6%81%AF%E9%80%9A%E4%BF%A1/1%20Apache%20Thrift/2%20Apache%20Thrift%20%E5%88%9D%E8%AF%86%20(2)%20-%20%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E4%B8%8E%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/">
+			<a href="/2019/12/18/00%20Java/02%20Effective%20Java/5%20%E6%9E%9A%E4%B8%BE%E5%92%8C%E6%B3%A8%E8%A7%A3%EF%BC%8834-41%EF%BC%89/">
 				<h2 class="index-title">
-					2 Apache Thrift 初识 (2) - 数据类型与基本语法
+					5 枚举和注解（34-41）
 				</h2>
 				<div class="index-brief">
-					1 数据类型
-官方文档-数据类型
-基本类型（Base Types）、特殊类型（Special Types）、结构体（Structs）、容器（Containers）、异常（Exceptions）、服务（Services）
-枚举类型、常量类型。
-1.1 基本类型
-（括号内为对应的Java类型）
-bool
+					第34条：用enum代替int常量
+当需要一组固定常量的时候，应该使用enum代替int常量。
+第35条：用实例域代替序数
+应该给enum添加int域，而不是使用ordinal()方法来导出与枚举关联的序数值。(几乎不应使用ordinal()方法，除非在编写像EnumMap这样的基于枚举的通用数据结
 					...
 				</div>
-				<p class="index-date">2019-12-20</p>
+				<p class="index-date">2019-12-21</p>
 			</a>
 		</div>	
 	
 		<div class="index-li">
-			<a href="/2019/12/18/10%20%E6%9C%8D%E5%8A%A1%E5%99%A8/4%20Nginx/1%20nginx%E7%AC%94%E8%AE%B0/">
+			<a href="/2019/12/18/00%20Java/02%20Effective%20Java/4%20%E6%B3%9B%E5%9E%8B%EF%BC%8826-33%EF%BC%89/">
 				<h2 class="index-title">
-					1 nginx笔记
+					4 泛型（26-33）
 				</h2>
 				<div class="index-brief">
-					一、nginx架构
-
-1. 进程模型
-Nginx分一个master进程和多个worker进程。
-
-master进程：读取和评估配置，并管理worker进程。接收来外界信号，向worker进程发送信号，监控worker进程运行状态，当worker进程异常退出后，会自动重新启动新的worker进程。
-w
+					第26条：请不要在新代码中使用原生态类型
+原生态类型只为了与引入泛型之前的遗留代码进行兼容和互用而提供的。
+第27条：消除非受检警告
+如果无法消除警告，同时可以证明引起警告的代码是类型安全的，只有在这种情况下才可以用一个@SuppressWarnings(“unchecked”)注解来禁止这条警告。
 					...
 				</div>
-				<p class="index-date">2019-12-20</p>
+				<p class="index-date">2019-12-21</p>
 			</a>
 		</div>	
 	
 		<div class="index-li">
-			<a href="/2019/12/18/08%20DevOps/9%20Docker/1%20Docker%E7%AC%94%E8%AE%B0/">
+			<a href="/2019/12/18/00%20Java/02%20Effective%20Java/3%20%E7%B1%BB%E5%92%8C%E6%8E%A5%E5%8F%A3%EF%BC%8815-25%EF%BC%89/">
 				<h2 class="index-title">
-					1 Docker笔记
+					3 类和接口（15-25）
 				</h2>
 				<div class="index-brief">
-					Docker简介
-Docker是一个虚拟环境容器，可以将开发环境、代码、配置文件等一并打包到这个容器中，并发布和应用到任意平台中。
-Docker架构
-架构
-Docker使用Go语言进行开发，使用的是客户端/服务器（C/S）架构的模式。
+					第15条：使类和成员的可访问性最小化
+公有静态final域暴露常量，要么包含基本类型值，要么包含指向不可变对象的引用
+第16条：在公有类中使用访问方法而非公有域
 
-
-Docker 客户端：是主要的用户与 Docker 交互方式
+公有类不应该暴露可变域，因为其客户端代码遍布各处，将来极难改变内部表示法
+公有类暴露不可变域危害较小，事实上也不应该
+包级私有或私有嵌套
 					...
 				</div>
-				<p class="index-date">2019-12-20</p>
+				<p class="index-date">2019-12-21</p>
 			</a>
 		</div>	
 	
 		<div class="index-li">
-			<a href="/2019/12/18/08%20DevOps/8%20ELK/1%20ElasticStack/">
+			<a href="/2019/12/18/00%20Java/02%20Effective%20Java/2%20%E5%AF%B9%E4%BA%8E%E6%89%80%E6%9C%89%E5%AF%B9%E8%B1%A1%E9%83%BD%E9%80%9A%E7%94%A8%E7%9A%84%E6%96%B9%E6%B3%95%EF%BC%8810-14%EF%BC%89/">
 				<h2 class="index-title">
-					1 ElasticStack
+					2 对于所有对象都通用的方法（10-14）
 				</h2>
 				<div class="index-brief">
-					ElasticStack 最初的核心是 ELK (Elasticsearch, Logstash, Kibana) ，后又新增了一个FileBeat。
-ELK架构
+					第10条：覆盖equals时请遵守通用约定
 
-Elasticsearch ：分布式搜索引擎。基于 Lucene，可用于全文检索、结构化检索和分析。
-Logstash ：数据收集处理
+自反性 - 对象必须等于其自身
+对称性 - 任何两个对象对于它们是否相等的问题都必须保持一致，Timestamp违反了，不值得效仿
+传递性 - 如果对象A等于B，B等于C，那么A一定等于C
+一致性 - 相等的对象永远相等，不相等的对象永远不相等
+非空性 
 					...
 				</div>
-				<p class="index-date">2019-12-20</p>
+				<p class="index-date">2019-12-21</p>
 			</a>
 		</div>	
 	
@@ -4608,12 +4586,14 @@ Logstash ：数据收集处理
 		<span id="busuanzi_value_site_uv"></span>
 	</span>
 	<br>
-	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
+	Theme <a href="//github.com/wujun234/hexo-theme-tree">Tree</a>
+	by <a href="//github.com/wujun234">WuJun</a>
+	Powered by <a href="//hexo.io">Hexo</a>
 	</p>
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
-	<button id="totop" class="toggle"><i class="fa fa-angle-double-up" aria-hidden="true"></i></button>
+	<button id="totop-toggle" class="toggle"><i class="fa fa-angle-double-up" aria-hidden="true"></i></button>
 </body>
 </html>

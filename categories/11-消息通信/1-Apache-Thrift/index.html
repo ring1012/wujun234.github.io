@@ -9,7 +9,7 @@
 	
 	<title>
 	 
-	WuJun Blog
+	吴俊博客
 	</title>
 	
 	<!-- keywords,description -->
@@ -38,7 +38,7 @@
 
 <body>
 	<header id="header">
-    <a id="title" href="/" class="logo">WuJun Blog</a>
+    <a id="title" href="/" class="logo">吴俊博客</a>
 
 	<ul id="menu">
 		<li class="menu-item">
@@ -64,8 +64,8 @@
 	
 <div id="sidebar">
 	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-arrow-right " aria-hidden="true"></i></button>
-	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">SITE MENU</a>
-	<a herf="#" id="sidebar-article" class="sidebar-toc">ARTICLE MENU</a>
+	<a herf="#" id="site-menu" class="sidebar-toc toc-active">SITE MENU</a>
+	<a herf="#" id="article-menu" class="sidebar-toc">ARTICLE MENU</a>
 
 	<!-- 侧边目录栏 -->
 	<div id="site-toc">
@@ -4391,28 +4391,6 @@
 		<div id="index-list">
 	
 		<div class="index-li">
-			<a href="/2019/12/18/11%20%E6%B6%88%E6%81%AF%E9%80%9A%E4%BF%A1/1%20Apache%20Thrift/1%20Apache%20Thrift%20%E5%88%9D%E8%AF%86%20(1)%20-%20%E7%AE%80%E4%BB%8B/">
-				<h2 class="index-title">
-					1 Apache Thrift 初识 (1) - 简介
-				</h2>
-				<div class="index-brief">
-					Thrift 是最初由 Facebook 开发的 RPC 框架，适用于程序对程序静态的数据交换，需要先确定好数据结构。
-1 特性
-
-
-静态化
-当数据结构发生变化时，必须重新编辑IDL文件、代码生成再编译载入的流程。
-
-
-跨语言
-Thrift 通过 IDL(接口定义语言) 在.thrift文件中确定好
-					...
-				</div>
-				<p class="index-date">2019-12-20</p>
-			</a>
-		</div>	
-	
-		<div class="index-li">
 			<a href="/2019/12/18/11%20%E6%B6%88%E6%81%AF%E9%80%9A%E4%BF%A1/1%20Apache%20Thrift/3%20Apache%20Thrift%20%E5%88%9D%E8%AF%86%20(3)%20-%20%E5%AE%9E%E6%88%98Demo/">
 				<h2 class="index-title">
 					3 Apache Thrift 初识 (3) - 实战Demo
@@ -4427,7 +4405,7 @@ Thrift 通过 IDL(接口定义语言) 在.thrift文件中确定好
 namespace java com.xxxx.auto.
 					...
 				</div>
-				<p class="index-date">2019-12-20</p>
+				<p class="index-date">2019-12-21</p>
 			</a>
 		</div>	
 	
@@ -4446,7 +4424,29 @@ namespace java com.xxxx.auto.
 bool
 					...
 				</div>
-				<p class="index-date">2019-12-20</p>
+				<p class="index-date">2019-12-21</p>
+			</a>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2019/12/18/11%20%E6%B6%88%E6%81%AF%E9%80%9A%E4%BF%A1/1%20Apache%20Thrift/1%20Apache%20Thrift%20%E5%88%9D%E8%AF%86%20(1)%20-%20%E7%AE%80%E4%BB%8B/">
+				<h2 class="index-title">
+					1 Apache Thrift 初识 (1) - 简介
+				</h2>
+				<div class="index-brief">
+					Thrift 是最初由 Facebook 开发的 RPC 框架，适用于程序对程序静态的数据交换，需要先确定好数据结构。
+1 特性
+
+
+静态化
+当数据结构发生变化时，必须重新编辑IDL文件、代码生成再编译载入的流程。
+
+
+跨语言
+Thrift 通过 IDL(接口定义语言) 在.thrift文件中确定好
+					...
+				</div>
+				<p class="index-date">2019-12-21</p>
 			</a>
 		</div>	
 	
@@ -4471,12 +4471,14 @@ bool
 		<span id="busuanzi_value_site_uv"></span>
 	</span>
 	<br>
-	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
+	Theme <a href="//github.com/wujun234/hexo-theme-tree">Tree</a>
+	by <a href="//github.com/wujun234">WuJun</a>
+	Powered by <a href="//hexo.io">Hexo</a>
 	</p>
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
-	<button id="totop" class="toggle"><i class="fa fa-angle-double-up" aria-hidden="true"></i></button>
+	<button id="totop-toggle" class="toggle"><i class="fa fa-angle-double-up" aria-hidden="true"></i></button>
 </body>
 </html>

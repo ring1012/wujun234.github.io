@@ -9,7 +9,7 @@
 	
 	<title>
 	 
-	WuJun Blog
+	吴俊博客
 	</title>
 	
 	<!-- keywords,description -->
@@ -38,7 +38,7 @@
 
 <body>
 	<header id="header">
-    <a id="title" href="/" class="logo">WuJun Blog</a>
+    <a id="title" href="/" class="logo">吴俊博客</a>
 
 	<ul id="menu">
 		<li class="menu-item">
@@ -64,8 +64,8 @@
 	
 <div id="sidebar">
 	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-arrow-right " aria-hidden="true"></i></button>
-	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">SITE MENU</a>
-	<a herf="#" id="sidebar-article" class="sidebar-toc">ARTICLE MENU</a>
+	<a herf="#" id="site-menu" class="sidebar-toc toc-active">SITE MENU</a>
+	<a herf="#" id="article-menu" class="sidebar-toc">ARTICLE MENU</a>
 
 	<!-- 侧边目录栏 -->
 	<div id="site-toc">
@@ -4391,21 +4391,172 @@
 		<div id="index-list">
 	
 		<div class="index-li">
-			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/11%20%E7%BD%91%E7%BB%9C/3%20%E8%8E%B7%E5%8F%96Web%E6%95%B0%E6%8D%AE/">
+			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/14%20%E5%9B%BD%E9%99%85%E5%8C%96/1%20Locale%E5%AF%B9%E8%B1%A1/">
 				<h2 class="index-title">
-					3 获取Web数据
+					1 Locale对象
 				</h2>
 				<div class="index-brief">
-					Java库支持更高级别处理，而不只是创建套接字连接发送HTTP请求。
-Java库与网页交互并不是特别方便，可以考虑使用其他库，如HttpClient、Feign、RestTemple
-1 URL和URI
-1.1 URL
-URL和URLConnection封装了大量实现细节。
-创建URL
-URL ur
+					java.util.Locale是表示语言和国家/地区信息的本地化类，它是创建国际化应用的基础。
+组成
+Locale由5个元素组成，语言必选，其他可选：
+
+语言
+2到3个小写字母。例如en、zh
+字符脚本
+首字母大写的四个字母。例如Hant繁体中文字符。
+国家/地区
+2个大写字幕或3个数字
+变体
+指
 					...
 				</div>
-				<p class="index-date">2019-12-20</p>
+				<p class="index-date">2019-12-21</p>
+			</a>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/13%20%E6%97%A5%E6%9C%9F%E5%92%8C%E6%97%B6%E9%97%B4API/4%20%E4%B8%8E%E9%81%97%E7%95%99%E4%BB%A3%E7%A0%81%E7%9A%84%E4%BA%92%E6%93%8D%E4%BD%9C/">
+				<h2 class="index-title">
+					4 与遗留代码的互操作
+				</h2>
+				<div class="index-brief">
+					JDBC
+最新JDBC映射将把数据库的日期类型和Java 8的新类型关联起来：
+SQL -&gt; Java
+--------------------------
+date -&gt; LocalDate
+time -&gt; LocalTime
+timestamp -&gt; LocalDateT
+					...
+				</div>
+				<p class="index-date">2019-12-21</p>
+			</a>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/13%20%E6%97%A5%E6%9C%9F%E5%92%8C%E6%97%B6%E9%97%B4API/3%20%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%92%8C%E8%A7%A3%E6%9E%90/">
+				<h2 class="index-title">
+					3 格式化和解析
+				</h2>
+				<div class="index-brief">
+					DateTimeFormatter类提供了三种打印日期/时间值的格式器
+
+预定义格式器
+Locale相关格式器
+定制的格式器
+
+预定义格式器
+String formatted = DateTimeFormatter.ISO_OFFSET_DATE_TIME.format(apollo11launch
+					...
+				</div>
+				<p class="index-date">2019-12-21</p>
+			</a>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/13%20%E6%97%A5%E6%9C%9F%E5%92%8C%E6%97%B6%E9%97%B4API/2%20%E4%BA%BA%E7%B1%BB%E6%97%B6%E9%97%B4/">
+				<h2 class="index-title">
+					2 人类时间
+				</h2>
+				<div class="index-brief">
+					Java API 中有两种人类时间，本地日期/时间和时区时间。本地日期/时间无时区，而时区常常造成困扰，除非确实想要表示绝对时间的实例，最好都使用本地日期/时间。
+本地日期/时间
+1. LocaleDate
+LocaleDate是带有年、月、日的日期
+1.1 构造
+LocalDate today =
+					...
+				</div>
+				<p class="index-date">2019-12-21</p>
+			</a>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/13%20%E6%97%A5%E6%9C%9F%E5%92%8C%E6%97%B6%E9%97%B4API/1%20%E7%BB%9D%E5%AF%B9%E6%97%B6%E9%97%B4/">
+				<h2 class="index-title">
+					1 绝对时间
+				</h2>
+				<div class="index-brief">
+					Java 8新的Date-Time API 吸取了Joda-Time的精髓，所有类不可修改。
+新的java.time包涵盖了所有处理日期，时间，日期/时间，时区，时刻（instants），过程（during）与时钟（clock）的操作。替换Calendar和Date类。
+Java的Date和Time
+					...
+				</div>
+				<p class="index-date">2019-12-21</p>
+			</a>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/12%20JDBC/4%20JDBC%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/">
+				<h2 class="index-title">
+					4 JDBC最佳实践
+				</h2>
+				<div class="index-brief">
+					
+数据库资源是非常昂贵的，用完了应该尽快关闭它。Connection, Statement, ResultSet等JDBC对象都有close方法，调用它就好了。
+养成在代码中显式关闭掉ResultSet，Statement，Connection的习惯，如果你用的是连接池的话，连接用完后会放回池里，但
+					...
+				</div>
+				<p class="index-date">2019-12-21</p>
+			</a>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/12%20JDBC/3%20javax.sql%E5%8C%85%E7%AE%80/">
+				<h2 class="index-title">
+					3 javax.sql包简
+				</h2>
+				<div class="index-brief">
+					补充java.sql包，提供Java服务器端数据源访问和处理的API。
+javax.sql包提供了以下内容：
+
+DataSource接口，DriverManager的替代品，用于与数据源建立连接
+连接池和语句池
+分布式事务
+Rowsets
+
+应用程序可直接使用的 API是DataSource和Row
+					...
+				</div>
+				<p class="index-date">2019-12-21</p>
+			</a>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/12%20JDBC/2%20java.sql%E5%8C%85%E7%AE%80%E4%BB%8B/">
+				<h2 class="index-title">
+					2 java.sql包简介
+				</h2>
+				<div class="index-brief">
+					常用接口与类
+常用接口与类主要有DriverManager、Connection、Statement和ResultSet。
+DriverManager
+注册数据库驱动，创建数据库连接。Driver由数据库厂家提供。
+注册驱动：
+
+通过API注册驱动,但Driver会new两次
+
+DriverMana
+					...
+				</div>
+				<p class="index-date">2019-12-21</p>
+			</a>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/12%20JDBC/1%20JDBC%E7%AE%80%E4%BB%8B/">
+				<h2 class="index-title">
+					1 JDBC简介
+				</h2>
+				<div class="index-brief">
+					一、JDBC 简介
+Java数据库连接（JDBC）API提供了来自Java的通用数据访问。   该API包含一个框架，可以动态安装不同的驱动程序来访问不同的数据源。JDBC API 允许用户访问任何形式的表格数据，尤其是存储在关系数据库中的数据。
+JDBC API由两个包组成：
+
+java.sql：
+					...
+				</div>
+				<p class="index-date">2019-12-21</p>
 			</a>
 		</div>	
 	
@@ -4422,151 +4573,7 @@ Socket s = new Socket(&quot;mail.server.com&quot;,25);
 PrintWriter out = new PrintWriter(s.getOutputStrea
 					...
 				</div>
-				<p class="index-date">2019-12-20</p>
-			</a>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/10%20XML/2%20%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4/">
-				<h2 class="index-title">
-					2 命名空间
-				</h2>
-				<div class="index-brief">
-					使用前缀
-来避免命名冲突
-&lt;h:table&gt;
-   &lt;h:tr&gt;
-       &lt;h:td&gt;Apples&lt;/h:td&gt;
-       &lt;h:td&gt;Bananas&lt;/h:td&gt;
-   &lt;/h:tr&gt;
-&lt;/h:ta
-					...
-				</div>
-				<p class="index-date">2019-12-20</p>
-			</a>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/10%20XML/1%20XML%E6%A6%82%E8%BF%B0/">
-				<h2 class="index-title">
-					1 XML概述
-				</h2>
-				<div class="index-brief">
-					XML 指可扩展标记语言（eXtensible Markup Language），标签自定义，作用是：
-
-程序之间的数据传输通讯
-配置文件
-存储数据，充当小型数据库
-
-与HTML一样从标准通用标记语言（SGML）衍生，区别是XML语法要求严格，大小写敏感，标签必须闭合，属性必须引号括起来。
-文档结构
-					...
-				</div>
-				<p class="index-date">2019-12-20</p>
-			</a>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/10%20XML/3%20XPath/">
-				<h2 class="index-title">
-					3 XPath
-				</h2>
-				<div class="index-brief">
-					XPath 是一种用于在 XML 文档中进行导航的语言。
-XPath 使用路径表达式来选取 XML 文档中的节点或者节点集。节点是通过沿着路径 (path) 或者步 (steps) 来选取的。
-XPath 节点
-在 XPath 中，有七种类型的节点：元素、属性、文本、命名空间、处理指令、注释以及文档
-					...
-				</div>
-				<p class="index-date">2019-12-20</p>
-			</a>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/10%20XML/4%20XML%E8%A7%A3%E6%9E%90-%E6%A0%91%E5%9E%8B/">
-				<h2 class="index-title">
-					4 XML解析-树型
-				</h2>
-				<div class="index-brief">
-					xml文件除了给开发者看，更多的情况使用程序读取xml文件的内容。读取xml文档的过程就是xml解析
-1 XML解析方式
-Java库提供了两种XML解析器：
-树型解析器：DOM解析
-DOM解析器一次性把整个xml文档加载进内存，然后在内存中构建一个Document的对象树，通过Document对象，
-					...
-				</div>
-				<p class="index-date">2019-12-20</p>
-			</a>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/10%20XML/5%20XML%E8%A7%A3%E6%9E%90-%E6%B5%81%E6%9C%BA%E5%88%B6/">
-				<h2 class="index-title">
-					5 XML解析-流机制
-				</h2>
-				<div class="index-brief">
-					如果文档很大，并且处理算法又非常简单，可以在运行时解析节点，而不必看到完整的树形结构，应该使用流机制解析器（streaming parser）。
-Java类库提供的流机制解析器：老而弥坚的SAX解析器和添加到Java SE 6中的更现代化的StAX解析器。SAX解析器使用的是事件回调（event c
-					...
-				</div>
-				<p class="index-date">2019-12-20</p>
-			</a>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/10%20XML/6%20%E9%AA%8C%E8%AF%81XML%E6%96%87%E6%A1%A3/">
-				<h2 class="index-title">
-					6 验证XML文档
-				</h2>
-				<div class="index-brief">
-					如果要指定文档结构，可以提供一个文档类型定义（DTD）或一个XML Schema定义。
-1 DTD
-文档类型定义（DTD）可定义合法的XML文档构建模块。它使用一系列合法的元素来定义文档的结构。
-内部的 DOCTYPE 声明
-&lt;!DOCTYPE 根元素 [元素声明]&gt;
-
-引用内部DTD
-
-					...
-				</div>
-				<p class="index-date">2019-12-20</p>
-			</a>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/10%20XML/7%20%E7%94%9F%E6%88%90XML%E6%96%87%E6%A1%A3/">
-				<h2 class="index-title">
-					7 生成XML文档
-				</h2>
-				<div class="index-brief">
-					1 不带命名空间的文档
-创建空文档
-Document doc = builder.newDocument();
-
-构建元素
-Element rootElement = doc.createElement(rootName);
-Element childElement = doc.createElem
-					...
-				</div>
-				<p class="index-date">2019-12-20</p>
-			</a>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/07%20%E5%B9%B6%E5%8F%91/11%20%E6%89%B9%E9%87%8F%E8%8E%B7%E5%8F%96%E5%A4%9A%E6%9D%A1%E7%BA%BF%E7%A8%8B%E7%9A%84%E6%89%A7%E8%A1%8C%E7%BB%93%E6%9E%9C/">
-				<h2 class="index-title">
-					11 批量获取多条线程的执行结果
-				</h2>
-				<div class="index-brief">
-					当向线程池提交callable任务后，我们可能需要一次性获取所有返回结果，有三种处理方法。
-方法一：自己维护返回结果
-// 创建一个线程池
-ExecutorService executorService = Executors.newFixedThreadPool(10);
-
-// 存储执行结果的L
-					...
-				</div>
-				<p class="index-date">2019-12-20</p>
+				<p class="index-date">2019-12-21</p>
 			</a>
 		</div>	
 	
@@ -4593,12 +4600,14 @@ ExecutorService executorService = Executors.newFixedThreadPool(10);
 		<span id="busuanzi_value_site_uv"></span>
 	</span>
 	<br>
-	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
+	Theme <a href="//github.com/wujun234/hexo-theme-tree">Tree</a>
+	by <a href="//github.com/wujun234">WuJun</a>
+	Powered by <a href="//hexo.io">Hexo</a>
 	</p>
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
-	<button id="totop" class="toggle"><i class="fa fa-angle-double-up" aria-hidden="true"></i></button>
+	<button id="totop-toggle" class="toggle"><i class="fa fa-angle-double-up" aria-hidden="true"></i></button>
 </body>
 </html>

@@ -9,7 +9,7 @@
 	
 	<title>
 	 
-	WuJun Blog
+	吴俊博客
 	</title>
 	
 	<!-- keywords,description -->
@@ -38,7 +38,7 @@
 
 <body>
 	<header id="header">
-    <a id="title" href="/" class="logo">WuJun Blog</a>
+    <a id="title" href="/" class="logo">吴俊博客</a>
 
 	<ul id="menu">
 		<li class="menu-item">
@@ -64,8 +64,8 @@
 	
 <div id="sidebar">
 	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-arrow-right " aria-hidden="true"></i></button>
-	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">SITE MENU</a>
-	<a herf="#" id="sidebar-article" class="sidebar-toc">ARTICLE MENU</a>
+	<a herf="#" id="site-menu" class="sidebar-toc toc-active">SITE MENU</a>
+	<a herf="#" id="article-menu" class="sidebar-toc">ARTICLE MENU</a>
 
 	<!-- 侧边目录栏 -->
 	<div id="site-toc">
@@ -4391,180 +4391,197 @@
 		<div id="index-list">
 	
 		<div class="index-li">
-			<a href="/2019/12/18/04%20%E8%AE%BE%E8%AE%A1/3%20%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/1-%E5%88%9B%E5%BB%BA%E5%9E%8B%E6%A8%A1%E5%BC%8F/3.Prototype%EF%BC%88%E5%8E%9F%E5%9E%8B%EF%BC%89/">
+			<a href="/2019/12/18/17%20%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/01%20%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/2%20%E6%A0%88%EF%BC%88stack%EF%BC%89%E4%B8%8E%E9%98%9F%E5%88%97%EF%BC%88queue%EF%BC%89/">
 				<h2 class="index-title">
-					3.Prototype（原型）
+					2 栈（stack）与队列（queue）
 				</h2>
 				<div class="index-brief">
-					当直接创建对象的代价比较大时，创建当前对象的克隆
-原型模式很少单独出现，一般是和工厂方法模式一起出现，通过 clone 的方法创建一个对象，然后由工厂方法提供给调用者。
-//原型角色：定义用于复制现有实例来生成新实例的方法；
-// 1.（抽象类或者接口）实现 java.lang.Cloneable 
+					一、栈
+1 基本概念
+
+栈：是限定仅在表尾进行插入和删除操作的线性表。后进先出LIFO
+
+栈顶(top)：允许插入和删除的一端
+核底(bottom)：另一端
+
+
+栈的引入简化了程序设计，使关注范围缩小，聚焦于要解决的问题核心。
+
+2 栈的顺序存储结构 - 顺序栈
+1）存储结构
+栈是线性表的特例，栈的
 					...
 				</div>
-				<p class="index-date">2019-12-20</p>
+				<p class="index-date">2019-12-21</p>
 			</a>
 		</div>	
 	
 		<div class="index-li">
-			<a href="/2019/12/18/04%20%E8%AE%BE%E8%AE%A1/3%20%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/1-%E5%88%9B%E5%BB%BA%E5%9E%8B%E6%A8%A1%E5%BC%8F/1.Factory%EF%BC%88%E5%B7%A5%E5%8E%82%EF%BC%89/">
+			<a href="/2019/12/18/17%20%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/01%20%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/1%20%E7%BA%BF%E6%80%A7%E8%A1%A8%EF%BC%88List%EF%BC%89/">
 				<h2 class="index-title">
-					1.Factory（工厂）
+					1 线性表（List）
 				</h2>
 				<div class="index-brief">
-					1 简单工厂（Simple Factory）
-根据参数的不同返回不同类的实例。
+					一、线性表的定义和基本操作
+1）定义
+线性表：零个或多个数据元素的有序排列。
 
-模式应用
-java.text.DateFormat
-public final static DateFormat getDateInstance(int style);
+除第一个元素外，每个元素有且只有一个直接前驱元素；初最后一个元素外，每个元素有且只有一个直接后继元素。
 
-2 工厂方法（Factory Method）
+2）基本操作
 
+InitList：初始化
+ListEmpty：判空
+ClearList：清空
+GetElem：取值
 					...
 				</div>
-				<p class="index-date">2019-12-20</p>
+				<p class="index-date">2019-12-21</p>
 			</a>
 		</div>	
 	
 		<div class="index-li">
-			<a href="/2019/12/18/04%20%E8%AE%BE%E8%AE%A1/3%20%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/1-%E5%88%9B%E5%BB%BA%E5%9E%8B%E6%A8%A1%E5%BC%8F/2.Builder%EF%BC%88%E5%BB%BA%E9%80%A0%E8%80%85%EF%BC%89/">
+			<a href="/2019/12/18/17%20%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/01%20%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/0%20%E6%A6%82%E8%BF%B0/">
 				<h2 class="index-title">
-					2.Builder（建造者）
+					0 概述
 				</h2>
 				<div class="index-brief">
-					使用多个简单的对象一步一步构建成一个复杂的对象。
-工厂模式关注的是创建单个产品，而建造者模式则关注创建符合对象，多个部分
+					程序设计 = 数据结构 + 算法
+1 数据结构
+数据结构：相互之间存在一种或多种特定关系的数据元素的集合。
+1.1 基本概念
 
-MealBuilder mealBuilder = new MealBuilder();
-Meal vegMeal = mealBuilder.prepareVegMeal()
+数据：能别计算机识别、处理的符号集合
+数据对象：性质相同的数据元素的集合，是数据的子集。
+数据元素：组成数据的、有一定意义的基本单位。通常作为整体被计算机处理。
+数据项：数
 					...
 				</div>
-				<p class="index-date">2019-12-20</p>
+				<p class="index-date">2019-12-21</p>
 			</a>
 		</div>	
 	
 		<div class="index-li">
-			<a href="/2019/12/18/04%20%E8%AE%BE%E8%AE%A1/3%20%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/1-%E5%88%9B%E5%BB%BA%E5%9E%8B%E6%A8%A1%E5%BC%8F/4.Singleton%EF%BC%88%E5%8D%95%E4%BE%8B%EF%BC%89/">
+			<a href="/2019/12/18/17%20%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/Long.bitCount()%20%E8%A7%A3%E6%9E%90/">
 				<h2 class="index-title">
-					4.Singleton（单例）
+					Long.bitCount() 解析
 				</h2>
 				<div class="index-brief">
-					
+					一、算法原型
+Long.bitCount()的算法原型是以下的错位相加，分治统计。
+public static long countOne(long i) {
+    i = (i &amp; (0x5555555555555555L)) + ((i &gt;&gt; 1) &amp; (0x555
 					...
 				</div>
-				<p class="index-date">2019-12-20</p>
+				<p class="index-date">2019-12-21</p>
 			</a>
 		</div>	
 	
 		<div class="index-li">
-			<a href="/2019/12/18/04%20%E8%AE%BE%E8%AE%A1/3%20%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/2-%E7%BB%93%E6%9E%84%E5%9E%8B%E6%A8%A1%E5%BC%8F/1.Adapter%EF%BC%88%E9%80%82%E9%85%8D%E5%99%A8%EF%BC%89/">
+			<a href="/2019/12/18/17%20%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/2%20%E6%96%87%E4%BB%B6%E5%8F%8A%E6%9F%A5%E6%89%BE/">
 				<h2 class="index-title">
-					1.Adapter（适配器）
+					2 文件及查找
 				</h2>
 				<div class="index-brief">
-					将一个接口转换成客户希望的另一个接口，适配器模式使接口不兼容的那些类可以一起工作，别名包装器(Wrapper)。
-如非必要，可以重构
-模式应用
+					1 文件的基本概念
 
-Enumeration 接口转化为 Iterator 接口
-Java I/O中 InputStreamReader 和 OutputStreamWrite
+记录：是文件中存取的基本单位
+数据项：是文件可使用的最小单位，有时也称为字段、属性
+主关键字项：其值能唯一标识一个记录的数据项或数据项的组合
+次关键字项：其值不能唯一标识一个记录的数据项
+单关键字文件：文件的记录中只有一个唯一标识记录的主关键字
+多关键字文件：文件的记录除有一个
 					...
 				</div>
-				<p class="index-date">2019-12-20</p>
+				<p class="index-date">2019-12-21</p>
 			</a>
 		</div>	
 	
 		<div class="index-li">
-			<a href="/2019/12/18/04%20%E8%AE%BE%E8%AE%A1/3%20%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/2-%E7%BB%93%E6%9E%84%E5%9E%8B%E6%A8%A1%E5%BC%8F/2.Bridge%EF%BC%88%E6%A1%A5%E6%8E%A5%EF%BC%89/">
+			<a href="/2019/12/18/17%20%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/1%20%E5%8A%A8%E6%80%81%E5%AD%98%E5%82%A8%E7%AE%A1%E7%90%86/">
 				<h2 class="index-title">
-					2.Bridge（桥接）
+					1 动态存储管理
 				</h2>
 				<div class="index-brief">
-					将类的功能层次结构和实现层次结构相分离，使二者能够独立地变化，并在两者之间搭建桥梁，实现桥接。
+					1 内存分配与回收策略
+对内存的管理或对内存的分配测量通常有两种方法：
 
-类的功能层次结构：父类具有基本功能，在子类中增加新的功能；
-类的实现层次结构：父类通过声明抽象方法来定义接口，子类通过实现具体方法来实现接口；
-
-模式应用
-
-抽象的JDBC接口和各个数据库引擎API之间
+系统从高地址的空闲块分配空间，直到分配无法进行，系统才会去回收之前的空闲块，重新组织继续分配；
+当用户运行一结束，系统马上将其所占空间进行回收。当有新的用户请求分配内存时，系统遍历所有的空闲块，从中找出一个合适的空闲块分配给用
 					...
 				</div>
-				<p class="index-date">2019-12-20</p>
+				<p class="index-date">2019-12-21</p>
 			</a>
 		</div>	
 	
 		<div class="index-li">
-			<a href="/2019/12/18/04%20%E8%AE%BE%E8%AE%A1/3%20%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/2-%E7%BB%93%E6%9E%84%E5%9E%8B%E6%A8%A1%E5%BC%8F/3.Composite%EF%BC%88%E7%BB%84%E5%90%88%EF%BC%89/">
+			<a href="/2019/12/18/13%20%E5%89%8D%E7%AB%AF/4%20FIS/1%20FIS%203%E6%8E%A5%E5%8F%A3%E9%80%9F%E6%9F%A5/">
 				<h2 class="index-title">
-					3.Composite（组合）
+					1 FIS 3接口速查
 				</h2>
 				<div class="index-brief">
-					将对象组合成树形结构以表示“部分-整体”的层次结构。使得用户对单个对象和组合对象的使用具有一致性。
-将对象称为节点，即一个根节点包含许多子节点，这些子节点有的不再包含子节点，而有的仍然包含子节点，以此类推。
+					FIS 构建工具 前端工具框架
+官方文档：http://fis.baidu.com/fis3/docs/beginning/intro.html
+默认配置文件为 fis-conf.js，有此文件的目录被看做是项目根目
+配置接口
 
-
-透明模式：在component中声明管理子对象的所有方法
-安全模式：在composite
+fis.set(key, value)：设置一些配置，如系统内置属性。
 					...
 				</div>
-				<p class="index-date">2019-12-20</p>
+				<p class="index-date">2019-12-21</p>
 			</a>
 		</div>	
 	
 		<div class="index-li">
-			<a href="/2019/12/18/04%20%E8%AE%BE%E8%AE%A1/3%20%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/2-%E7%BB%93%E6%9E%84%E5%9E%8B%E6%A8%A1%E5%BC%8F/4.Decorator%EF%BC%88%E8%A3%85%E9%A5%B0%E5%99%A8%EF%BC%89/">
+			<a href="/2019/12/18/12%20%E6%95%B0%E6%8D%AE%E6%A0%BC%E5%BC%8F/2%20MapStruct%E5%AE%9E%E4%BD%93%E9%97%B4%E8%BD%AC%E6%8D%A2/">
 				<h2 class="index-title">
-					4.Decorator（装饰器）
+					2 MapStruct实体间转换
 				</h2>
 				<div class="index-brief">
-					关联机制，向一个现有的对象添加新的功能，同时又不改变其结构。
-模式应用
-JAVA IO 中 FilterInputStream
-实现
-
-Component: 抽象构件
-ConcreteComponent: 具体构件
-Decorator: 抽象装饰类
-ConcreteDecorator: 具体装饰类
-
+					1 简介
+MapStruct是一个代码生成器的工具类，简化了不同的Java Bean之间映射的处理，所以映射指的就是从一个实体变化成一个实体。在实际项目中，我们经常会将PO转DTO、DTO转PO等一些实体间的转换。在转换时大部分属性都是相同的，只有少部分的不同，这时我们可以通过mapStruct的一
 					...
 				</div>
-				<p class="index-date">2019-12-20</p>
+				<p class="index-date">2019-12-21</p>
 			</a>
 		</div>	
 	
 		<div class="index-li">
-			<a href="/2019/12/18/04%20%E8%AE%BE%E8%AE%A1/3%20%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/2-%E7%BB%93%E6%9E%84%E5%9E%8B%E6%A8%A1%E5%BC%8F/5.Facade%EF%BC%88%E5%A4%96%E8%A7%82%EF%BC%89/">
+			<a href="/2019/12/18/12%20%E6%95%B0%E6%8D%AE%E6%A0%BC%E5%BC%8F/1%20Lombok%E6%B6%88%E9%99%A4Java%E5%86%97%E9%95%BF/">
 				<h2 class="index-title">
-					5.Facade（外观）
+					1 Lombok消除Java冗长
 				</h2>
 				<div class="index-brief">
-					为子系统中的一组接口提供一个一致的界面，定义了一个高层接口，这个接口使得这一子系统更加容易使用。又称为门面模式。
-
-
+					官方网址、
+github地址
+简介
+Lombok采取注解声明方法，注解后经编译，会自动生成注解声明的方法，减少很多重复代码的书写。比如说getter/setter/toString等方法。
+安装
+添加依赖
+&lt;dependency&gt;
+    &lt;groupId&gt;org.proje
 					...
 				</div>
-				<p class="index-date">2019-12-20</p>
+				<p class="index-date">2019-12-21</p>
 			</a>
 		</div>	
 	
 		<div class="index-li">
-			<a href="/2019/12/18/04%20%E8%AE%BE%E8%AE%A1/3%20%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/2-%E7%BB%93%E6%9E%84%E5%9E%8B%E6%A8%A1%E5%BC%8F/7.Proxy%EF%BC%88%E4%BB%A3%E7%90%86%EF%BC%89/">
+			<a href="/2019/12/18/11%20%E6%B6%88%E6%81%AF%E9%80%9A%E4%BF%A1/1%20Apache%20Thrift/3%20Apache%20Thrift%20%E5%88%9D%E8%AF%86%20(3)%20-%20%E5%AE%9E%E6%88%98Demo/">
 				<h2 class="index-title">
-					7.Proxy（代理）
+					3 Apache Thrift 初识 (3) - 实战Demo
 				</h2>
 				<div class="index-brief">
-					给某一个对象提供一个代理，并由代理对象控制对原对象的引用。
+					1 下载Thrift编译器
 
-模式应用
+从官网中下载对应的 Window 平台编译器（以 thrift-0.9.2.exe 为例）
 
-远程代理：为一个位于不同的地址空间的对象提供一个本地的代理对象，这个不同的地址空间可以是在同一台主机中，也可是在另一台主机中。
-虚拟代理：如果需要创建一个资源消耗较大的对象，先创建一个消耗相对较小的对象来表示，真实对象只在需要
+2  创建.thrift脚本
+使用 IDL 描述语言建立 query_media_service.thrift 脚本
+namespace java com.xxxx.auto.
 					...
 				</div>
-				<p class="index-date">2019-12-20</p>
+				<p class="index-date">2019-12-21</p>
 			</a>
 		</div>	
 	
@@ -4591,12 +4608,14 @@ ConcreteDecorator: 具体装饰类
 		<span id="busuanzi_value_site_uv"></span>
 	</span>
 	<br>
-	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
+	Theme <a href="//github.com/wujun234/hexo-theme-tree">Tree</a>
+	by <a href="//github.com/wujun234">WuJun</a>
+	Powered by <a href="//hexo.io">Hexo</a>
 	</p>
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
-	<button id="totop" class="toggle"><i class="fa fa-angle-double-up" aria-hidden="true"></i></button>
+	<button id="totop-toggle" class="toggle"><i class="fa fa-angle-double-up" aria-hidden="true"></i></button>
 </body>
 </html>

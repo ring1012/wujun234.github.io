@@ -9,7 +9,7 @@
 	
 	<title>
 	 
-	WuJun Blog
+	吴俊博客
 	</title>
 	
 	<!-- keywords,description -->
@@ -38,7 +38,7 @@
 
 <body>
 	<header id="header">
-    <a id="title" href="/" class="logo">WuJun Blog</a>
+    <a id="title" href="/" class="logo">吴俊博客</a>
 
 	<ul id="menu">
 		<li class="menu-item">
@@ -64,8 +64,8 @@
 	
 <div id="sidebar">
 	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-arrow-right " aria-hidden="true"></i></button>
-	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">SITE MENU</a>
-	<a herf="#" id="sidebar-article" class="sidebar-toc">ARTICLE MENU</a>
+	<a herf="#" id="site-menu" class="sidebar-toc toc-active">SITE MENU</a>
+	<a herf="#" id="article-menu" class="sidebar-toc">ARTICLE MENU</a>
 
 	<!-- 侧边目录栏 -->
 	<div id="site-toc">
@@ -4391,47 +4391,25 @@
 		<div id="index-list">
 	
 		<div class="index-li">
-			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/04%20%E5%BC%82%E5%B8%B8%E3%80%81%E6%96%AD%E8%A8%80%E5%92%8C%E6%97%A5%E5%BF%97/1%20%E5%A4%84%E7%90%86%E5%BC%82%E5%B8%B8/">
+			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/04%20%E5%BC%82%E5%B8%B8%E3%80%81%E6%96%AD%E8%A8%80%E5%92%8C%E6%97%A5%E5%BF%97/4%20%E8%AE%B0%E5%BD%95%E6%97%A5%E5%BF%97/">
 				<h2 class="index-title">
-					1 处理异常
+					4 记录日志
 				</h2>
 				<div class="index-brief">
-					1 异常分类
-graph LR
-Throwable--&gt;Error
-Throwable--&gt;Exception
-Exception--&gt;RuntimeException
-Exception--&gt;除了RuntimeException的其它异常 
+					java.util.logging.Logger
+1 日志记录器
 
-异常对象都继承自Throwab
+全局日志记录器：Logger.getGlobal()
+
+Logger.getGlobal().info(&quot;&quot;);
+
+
+自定义日志记录器：Logger.getLogger()
+
+Logger myLogger= L
 					...
 				</div>
-				<p class="index-date">2019-12-20</p>
-			</a>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/04%20%E5%BC%82%E5%B8%B8%E3%80%81%E6%96%AD%E8%A8%80%E5%92%8C%E6%97%A5%E5%BF%97/2%20%E6%8D%95%E8%8E%B7%E5%BC%82%E5%B8%B8/">
-				<h2 class="index-title">
-					2 捕获异常
-				</h2>
-				<div class="index-brief">
-					
-如果异常没有被捕获，程序将会停止运行
-try/catch 捕获异常
-如不捕获异常，可 throws 声明异常，将异常传递给调用者
-子类覆盖超类的方法中，只能 throws 超类方法的异常，其他只能自己捕获处理
-
-1 捕获多个异常
-
-基本语句
-
-try{
-}
-catch (FileNotFoundE
-					...
-				</div>
-				<p class="index-date">2019-12-20</p>
+				<p class="index-date">2019-12-21</p>
 			</a>
 		</div>	
 	
@@ -4457,30 +4435,52 @@ assert x &gt;= 0 : x;
 对条件进行检测，如果为false，则抛出一个AssertionE
 					...
 				</div>
-				<p class="index-date">2019-12-20</p>
+				<p class="index-date">2019-12-21</p>
 			</a>
 		</div>	
 	
 		<div class="index-li">
-			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/04%20%E5%BC%82%E5%B8%B8%E3%80%81%E6%96%AD%E8%A8%80%E5%92%8C%E6%97%A5%E5%BF%97/4%20%E8%AE%B0%E5%BD%95%E6%97%A5%E5%BF%97/">
+			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/04%20%E5%BC%82%E5%B8%B8%E3%80%81%E6%96%AD%E8%A8%80%E5%92%8C%E6%97%A5%E5%BF%97/2%20%E6%8D%95%E8%8E%B7%E5%BC%82%E5%B8%B8/">
 				<h2 class="index-title">
-					4 记录日志
+					2 捕获异常
 				</h2>
 				<div class="index-brief">
-					java.util.logging.Logger
-1 日志记录器
+					
+如果异常没有被捕获，程序将会停止运行
+try/catch 捕获异常
+如不捕获异常，可 throws 声明异常，将异常传递给调用者
+子类覆盖超类的方法中，只能 throws 超类方法的异常，其他只能自己捕获处理
 
-全局日志记录器：Logger.getGlobal()
+1 捕获多个异常
 
-Logger.getGlobal().info(&quot;&quot;);
+基本语句
 
-
-自定义日志记录器：Logger.getLogger()
-
-Logger myLogger= L
+try{
+}
+catch (FileNotFoundE
 					...
 				</div>
-				<p class="index-date">2019-12-20</p>
+				<p class="index-date">2019-12-21</p>
+			</a>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/04%20%E5%BC%82%E5%B8%B8%E3%80%81%E6%96%AD%E8%A8%80%E5%92%8C%E6%97%A5%E5%BF%97/1%20%E5%A4%84%E7%90%86%E5%BC%82%E5%B8%B8/">
+				<h2 class="index-title">
+					1 处理异常
+				</h2>
+				<div class="index-brief">
+					1 异常分类
+graph LR
+Throwable--&gt;Error
+Throwable--&gt;Exception
+Exception--&gt;RuntimeException
+Exception--&gt;除了RuntimeException的其它异常 
+
+异常对象都继承自Throwab
+					...
+				</div>
+				<p class="index-date">2019-12-21</p>
 			</a>
 		</div>	
 	
@@ -4505,12 +4505,14 @@ Logger myLogger= L
 		<span id="busuanzi_value_site_uv"></span>
 	</span>
 	<br>
-	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
+	Theme <a href="//github.com/wujun234/hexo-theme-tree">Tree</a>
+	by <a href="//github.com/wujun234">WuJun</a>
+	Powered by <a href="//hexo.io">Hexo</a>
 	</p>
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
-	<button id="totop" class="toggle"><i class="fa fa-angle-double-up" aria-hidden="true"></i></button>
+	<button id="totop-toggle" class="toggle"><i class="fa fa-angle-double-up" aria-hidden="true"></i></button>
 </body>
 </html>

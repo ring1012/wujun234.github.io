@@ -9,7 +9,7 @@
 	
 	<title>
 	 
-	WuJun Blog
+	吴俊博客
 	</title>
 	
 	<!-- keywords,description -->
@@ -38,7 +38,7 @@
 
 <body>
 	<header id="header">
-    <a id="title" href="/" class="logo">WuJun Blog</a>
+    <a id="title" href="/" class="logo">吴俊博客</a>
 
 	<ul id="menu">
 		<li class="menu-item">
@@ -64,8 +64,8 @@
 	
 <div id="sidebar">
 	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-arrow-right " aria-hidden="true"></i></button>
-	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">SITE MENU</a>
-	<a herf="#" id="sidebar-article" class="sidebar-toc">ARTICLE MENU</a>
+	<a herf="#" id="site-menu" class="sidebar-toc toc-active">SITE MENU</a>
+	<a herf="#" id="article-menu" class="sidebar-toc">ARTICLE MENU</a>
 
 	<!-- 侧边目录栏 -->
 	<div id="site-toc">
@@ -4391,40 +4391,17 @@
 		<div id="index-list">
 	
 		<div class="index-li">
-			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/12%20JDBC/2%20java.sql%E5%8C%85%E7%AE%80%E4%BB%8B/">
+			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/12%20JDBC/4%20JDBC%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/">
 				<h2 class="index-title">
-					2 java.sql包简介
+					4 JDBC最佳实践
 				</h2>
 				<div class="index-brief">
-					常用接口与类
-常用接口与类主要有DriverManager、Connection、Statement和ResultSet。
-DriverManager
-注册数据库驱动，创建数据库连接。Driver由数据库厂家提供。
-注册驱动：
-
-通过API注册驱动,但Driver会new两次
-
-DriverMana
+					
+数据库资源是非常昂贵的，用完了应该尽快关闭它。Connection, Statement, ResultSet等JDBC对象都有close方法，调用它就好了。
+养成在代码中显式关闭掉ResultSet，Statement，Connection的习惯，如果你用的是连接池的话，连接用完后会放回池里，但
 					...
 				</div>
-				<p class="index-date">2019-12-20</p>
-			</a>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/12%20JDBC/1%20JDBC%E7%AE%80%E4%BB%8B/">
-				<h2 class="index-title">
-					1 JDBC简介
-				</h2>
-				<div class="index-brief">
-					一、JDBC 简介
-Java数据库连接（JDBC）API提供了来自Java的通用数据访问。   该API包含一个框架，可以动态安装不同的驱动程序来访问不同的数据源。JDBC API 允许用户访问任何形式的表格数据，尤其是存储在关系数据库中的数据。
-JDBC API由两个包组成：
-
-java.sql：
-					...
-				</div>
-				<p class="index-date">2019-12-20</p>
+				<p class="index-date">2019-12-21</p>
 			</a>
 		</div>	
 	
@@ -4445,22 +4422,45 @@ Rowsets
 应用程序可直接使用的 API是DataSource和Row
 					...
 				</div>
-				<p class="index-date">2019-12-20</p>
+				<p class="index-date">2019-12-21</p>
 			</a>
 		</div>	
 	
 		<div class="index-li">
-			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/12%20JDBC/4%20JDBC%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/">
+			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/12%20JDBC/2%20java.sql%E5%8C%85%E7%AE%80%E4%BB%8B/">
 				<h2 class="index-title">
-					4 JDBC最佳实践
+					2 java.sql包简介
 				</h2>
 				<div class="index-brief">
-					
-数据库资源是非常昂贵的，用完了应该尽快关闭它。Connection, Statement, ResultSet等JDBC对象都有close方法，调用它就好了。
-养成在代码中显式关闭掉ResultSet，Statement，Connection的习惯，如果你用的是连接池的话，连接用完后会放回池里，但
+					常用接口与类
+常用接口与类主要有DriverManager、Connection、Statement和ResultSet。
+DriverManager
+注册数据库驱动，创建数据库连接。Driver由数据库厂家提供。
+注册驱动：
+
+通过API注册驱动,但Driver会new两次
+
+DriverMana
 					...
 				</div>
-				<p class="index-date">2019-12-20</p>
+				<p class="index-date">2019-12-21</p>
+			</a>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/12%20JDBC/1%20JDBC%E7%AE%80%E4%BB%8B/">
+				<h2 class="index-title">
+					1 JDBC简介
+				</h2>
+				<div class="index-brief">
+					一、JDBC 简介
+Java数据库连接（JDBC）API提供了来自Java的通用数据访问。   该API包含一个框架，可以动态安装不同的驱动程序来访问不同的数据源。JDBC API 允许用户访问任何形式的表格数据，尤其是存储在关系数据库中的数据。
+JDBC API由两个包组成：
+
+java.sql：
+					...
+				</div>
+				<p class="index-date">2019-12-21</p>
 			</a>
 		</div>	
 	
@@ -4485,12 +4485,14 @@ Rowsets
 		<span id="busuanzi_value_site_uv"></span>
 	</span>
 	<br>
-	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
+	Theme <a href="//github.com/wujun234/hexo-theme-tree">Tree</a>
+	by <a href="//github.com/wujun234">WuJun</a>
+	Powered by <a href="//hexo.io">Hexo</a>
 	</p>
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
-	<button id="totop" class="toggle"><i class="fa fa-angle-double-up" aria-hidden="true"></i></button>
+	<button id="totop-toggle" class="toggle"><i class="fa fa-angle-double-up" aria-hidden="true"></i></button>
 </body>
 </html>

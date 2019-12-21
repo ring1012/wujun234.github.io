@@ -9,7 +9,7 @@
 	
 	<title>
 	 
-	WuJun Blog
+	吴俊博客
 	</title>
 	
 	<!-- keywords,description -->
@@ -38,7 +38,7 @@
 
 <body>
 	<header id="header">
-    <a id="title" href="/" class="logo">WuJun Blog</a>
+    <a id="title" href="/" class="logo">吴俊博客</a>
 
 	<ul id="menu">
 		<li class="menu-item">
@@ -64,8 +64,8 @@
 	
 <div id="sidebar">
 	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-arrow-right " aria-hidden="true"></i></button>
-	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">SITE MENU</a>
-	<a herf="#" id="sidebar-article" class="sidebar-toc">ARTICLE MENU</a>
+	<a herf="#" id="site-menu" class="sidebar-toc toc-active">SITE MENU</a>
+	<a herf="#" id="article-menu" class="sidebar-toc">ARTICLE MENU</a>
 
 	<!-- 侧边目录栏 -->
 	<div id="site-toc">
@@ -4391,59 +4391,36 @@
 		<div id="index-list">
 	
 		<div class="index-li">
-			<a href="/2019/12/18/18%20%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/3%20%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/2%20%E7%82%B9%E5%AF%B9%E7%82%B9%E5%8D%8F%E8%AE%AE%20PPP/">
+			<a href="/2019/12/18/18%20%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/3%20%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/%E6%9C%AC%E7%AB%A0%E7%9A%84%E9%87%8D%E8%A6%81%E6%A6%82%E5%BF%B5/">
 				<h2 class="index-title">
-					2 点对点协议 PPP
+					本章的重要概念
 				</h2>
 				<div class="index-brief">
-					点对点协议PPP(point-to-point protocol)是最常用的数据链路层协议
-PPP 协议是用户计算机和 ISP 进行通信所使用的数据链路层协议。
-1 PPP协议的特点
-1）PPP 协议应满足的需求
-
-(1)简单：数据链路层没有必要提供比IP协议更多的功能。接收方每收到一个帧，就进行C
+					
+链路是从一个结点到相邻结点的一段物理线路，数据链路则是在链路的基础上增加了一些必要的硬件（如网络适配器）和软件（如协议的实现）
+数据链路层使用的信道主要有点对点信道和广播信道两种
+数据链路层传送的协议数据单元是帧。数据链路层的三个基本问题：封装成帧、透明传输和差错检测。
+循环冗余检验 CRC 是一
 					...
 				</div>
-				<p class="index-date">2019-12-20</p>
+				<p class="index-date">2019-12-21</p>
 			</a>
 		</div>	
 	
 		<div class="index-li">
-			<a href="/2019/12/18/18%20%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/3%20%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/1%20%E4%BD%BF%E7%94%A8%E7%82%B9%E5%AF%B9%E7%82%B9%E4%BF%A1%E9%81%93%E7%9A%84%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/">
+			<a href="/2019/12/18/18%20%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/3%20%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/5%20%E9%AB%98%E9%80%9F%E4%BB%A5%E5%A4%AA%E7%BD%91/">
 				<h2 class="index-title">
-					1 使用点对点信道的数据链路层
+					5 高速以太网
 				</h2>
 				<div class="index-brief">
-					1. 数据链路和帧
-基本概念
+					1 100BASE-T 以太网
 
-链路(link)：指从一个结点到相邻结点的一段物理线路，中间没有任何其他的交换结点
-数据链路(data link)：在一条线路上传送数据时，需要必要的通信协议来控制数据的传输，把实现协议的硬件和软件加到链路上，构成了数据链路
-帧(frame)：点对点信道的数据链路层的
+100BASE-T 是在双绞线上传送 100Mb/s 基带信号的星型拓扑以太网，使用CSMA/CD协议，又称为快速以太网
+使用交换式集线器提供很好地服务质量，可以在全双工方式下工作而无碰撞发生，此时无需 CSMA/CD 协议
+从细缆以太网升级到快速以太网的用户必须重
 					...
 				</div>
-				<p class="index-date">2019-12-20</p>
-			</a>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/2019/12/18/18%20%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/3%20%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/3%20%E4%BD%BF%E7%94%A8%E5%B9%BF%E6%92%AD%E4%BF%A1%E9%81%93%E7%9A%84%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/">
-				<h2 class="index-title">
-					3 使用广播信道的数据链路层
-				</h2>
-				<div class="index-brief">
-					广播信道可以实现一对多的通信，局域网使用的是广播信道
-1. 局域网的数据链路层
-1） 按网络拓扑分类
-
-星型网：常见的是星型以太网
-环形网：最典型的是令牌环形网
-总线网：各站直接连在总线上，常见的总线网使用传统以太网使用的 CSMA/CD 协议
-树形网：是总线网的变型，主要用于频分复用的宽带局域网
-
-					...
-				</div>
-				<p class="index-date">2019-12-20</p>
+				<p class="index-date">2019-12-21</p>
 			</a>
 		</div>	
 	
@@ -4467,41 +4444,64 @@ PPP 协议是用户计算机和 ISP 进行通信所使用的数据链路层协�
 最初使用网桥(
 					...
 				</div>
-				<p class="index-date">2019-12-20</p>
+				<p class="index-date">2019-12-21</p>
 			</a>
 		</div>	
 	
 		<div class="index-li">
-			<a href="/2019/12/18/18%20%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/3%20%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/5%20%E9%AB%98%E9%80%9F%E4%BB%A5%E5%A4%AA%E7%BD%91/">
+			<a href="/2019/12/18/18%20%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/3%20%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/3%20%E4%BD%BF%E7%94%A8%E5%B9%BF%E6%92%AD%E4%BF%A1%E9%81%93%E7%9A%84%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/">
 				<h2 class="index-title">
-					5 高速以太网
+					3 使用广播信道的数据链路层
 				</h2>
 				<div class="index-brief">
-					1 100BASE-T 以太网
+					广播信道可以实现一对多的通信，局域网使用的是广播信道
+1. 局域网的数据链路层
+1） 按网络拓扑分类
 
-100BASE-T 是在双绞线上传送 100Mb/s 基带信号的星型拓扑以太网，使用CSMA/CD协议，又称为快速以太网
-使用交换式集线器提供很好地服务质量，可以在全双工方式下工作而无碰撞发生，此时无需 CSMA/CD 协议
-从细缆以太网升级到快速以太网的用户必须重
+星型网：常见的是星型以太网
+环形网：最典型的是令牌环形网
+总线网：各站直接连在总线上，常见的总线网使用传统以太网使用的 CSMA/CD 协议
+树形网：是总线网的变型，主要用于频分复用的宽带局域网
+
 					...
 				</div>
-				<p class="index-date">2019-12-20</p>
+				<p class="index-date">2019-12-21</p>
 			</a>
 		</div>	
 	
 		<div class="index-li">
-			<a href="/2019/12/18/18%20%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/3%20%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/%E6%9C%AC%E7%AB%A0%E7%9A%84%E9%87%8D%E8%A6%81%E6%A6%82%E5%BF%B5/">
+			<a href="/2019/12/18/18%20%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/3%20%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/2%20%E7%82%B9%E5%AF%B9%E7%82%B9%E5%8D%8F%E8%AE%AE%20PPP/">
 				<h2 class="index-title">
-					本章的重要概念
+					2 点对点协议 PPP
 				</h2>
 				<div class="index-brief">
-					
-链路是从一个结点到相邻结点的一段物理线路，数据链路则是在链路的基础上增加了一些必要的硬件（如网络适配器）和软件（如协议的实现）
-数据链路层使用的信道主要有点对点信道和广播信道两种
-数据链路层传送的协议数据单元是帧。数据链路层的三个基本问题：封装成帧、透明传输和差错检测。
-循环冗余检验 CRC 是一
+					点对点协议PPP(point-to-point protocol)是最常用的数据链路层协议
+PPP 协议是用户计算机和 ISP 进行通信所使用的数据链路层协议。
+1 PPP协议的特点
+1）PPP 协议应满足的需求
+
+(1)简单：数据链路层没有必要提供比IP协议更多的功能。接收方每收到一个帧，就进行C
 					...
 				</div>
-				<p class="index-date">2019-12-20</p>
+				<p class="index-date">2019-12-21</p>
+			</a>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2019/12/18/18%20%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/3%20%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/1%20%E4%BD%BF%E7%94%A8%E7%82%B9%E5%AF%B9%E7%82%B9%E4%BF%A1%E9%81%93%E7%9A%84%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/">
+				<h2 class="index-title">
+					1 使用点对点信道的数据链路层
+				</h2>
+				<div class="index-brief">
+					1. 数据链路和帧
+基本概念
+
+链路(link)：指从一个结点到相邻结点的一段物理线路，中间没有任何其他的交换结点
+数据链路(data link)：在一条线路上传送数据时，需要必要的通信协议来控制数据的传输，把实现协议的硬件和软件加到链路上，构成了数据链路
+帧(frame)：点对点信道的数据链路层的
+					...
+				</div>
+				<p class="index-date">2019-12-21</p>
 			</a>
 		</div>	
 	
@@ -4526,12 +4526,14 @@ PPP 协议是用户计算机和 ISP 进行通信所使用的数据链路层协�
 		<span id="busuanzi_value_site_uv"></span>
 	</span>
 	<br>
-	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
+	Theme <a href="//github.com/wujun234/hexo-theme-tree">Tree</a>
+	by <a href="//github.com/wujun234">WuJun</a>
+	Powered by <a href="//hexo.io">Hexo</a>
 	</p>
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
-	<button id="totop" class="toggle"><i class="fa fa-angle-double-up" aria-hidden="true"></i></button>
+	<button id="totop-toggle" class="toggle"><i class="fa fa-angle-double-up" aria-hidden="true"></i></button>
 </body>
 </html>

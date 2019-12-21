@@ -9,7 +9,7 @@
 	
 	<title>
 	 
-	WuJun Blog
+	吴俊博客
 	</title>
 	
 	<!-- keywords,description -->
@@ -38,7 +38,7 @@
 
 <body>
 	<header id="header">
-    <a id="title" href="/" class="logo">WuJun Blog</a>
+    <a id="title" href="/" class="logo">吴俊博客</a>
 
 	<ul id="menu">
 		<li class="menu-item">
@@ -64,8 +64,8 @@
 	
 <div id="sidebar">
 	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-arrow-right " aria-hidden="true"></i></button>
-	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">SITE MENU</a>
-	<a herf="#" id="sidebar-article" class="sidebar-toc">ARTICLE MENU</a>
+	<a herf="#" id="site-menu" class="sidebar-toc toc-active">SITE MENU</a>
+	<a herf="#" id="article-menu" class="sidebar-toc">ARTICLE MENU</a>
 
 	<!-- 侧边目录栏 -->
 	<div id="site-toc">
@@ -4391,6 +4391,114 @@
 		<div id="index-list">
 	
 		<div class="index-li">
+			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/15%20%E8%84%9A%E6%9C%AC%E3%80%81%E7%BC%96%E8%AF%91%E4%B8%8E%E6%B3%A8%E8%A7%A3%E5%A4%84%E7%90%86/7%20%E5%AD%97%E8%8A%82%E7%A0%81%E5%B7%A5%E7%A8%8B/">
+				<h2 class="index-title">
+					7 字节码工程
+				</h2>
+				<div class="index-brief">
+					1 修改类文件
+2 在加载时修改字节码
+
+					...
+				</div>
+				<p class="index-date">2019-12-21</p>
+			</a>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/15%20%E8%84%9A%E6%9C%AC%E3%80%81%E7%BC%96%E8%AF%91%E4%B8%8E%E6%B3%A8%E8%A7%A3%E5%A4%84%E7%90%86/6%20%E6%BA%90%E7%A0%81%E7%BA%A7%E6%B3%A8%E8%A7%A3%E5%A4%84%E7%90%86/">
+				<h2 class="index-title">
+					6 源码级注解处理
+				</h2>
+				<div class="index-brief">
+					1 注解处理
+编译器会定位源文件中的注解。每个注解处理器会依次执行。如果某个注解处理器产生了新的源文件，则重复处理。没有新文件产生后，就编译所有源文件。
+注解处理器通常扩展 AbstractProcessor 类实现 Processor 接口。
+@SupportedAnnotationTypes(&
+					...
+				</div>
+				<p class="index-date">2019-12-21</p>
+			</a>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/15%20%E8%84%9A%E6%9C%AC%E3%80%81%E7%BC%96%E8%AF%91%E4%B8%8E%E6%B3%A8%E8%A7%A3%E5%A4%84%E7%90%86/5%20%E6%A0%87%E5%87%86%E6%B3%A8%E8%A7%A3/">
+				<h2 class="index-title">
+					5 标准注解
+				</h2>
+				<div class="index-brief">
+					Java SE在java.lang、java.lang.annotation 和 javax.annotation 包中定义了大量注解接口
+1 用于编译的注解
+
+@Deprecated 不再鼓励使用
+@SuppressWarnings 阻止特定警告
+@Override 覆盖超类方法
+@Generat
+					...
+				</div>
+				<p class="index-date">2019-12-21</p>
+			</a>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/15%20%E8%84%9A%E6%9C%AC%E3%80%81%E7%BC%96%E8%AF%91%E4%B8%8E%E6%B3%A8%E8%A7%A3%E5%A4%84%E7%90%86/4%20%E6%B3%A8%E8%A7%A3%E8%AF%AD%E6%B3%95/">
+				<h2 class="index-title">
+					4 注解语法
+				</h2>
+				<div class="index-brief">
+					1 注解接口
+注解是由注解接口来定义的：
+modifiers @interface AnnotationName {
+	elementDeclaration1
+	elementDeclaration2
+}
+
+注解接口隐式扩展自Annotation接口，无法扩展注解接口。
+元素
+元素声明
+type e
+					...
+				</div>
+				<p class="index-date">2019-12-21</p>
+			</a>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/15%20%E8%84%9A%E6%9C%AC%E3%80%81%E7%BC%96%E8%AF%91%E4%B8%8E%E6%B3%A8%E8%A7%A3%E5%A4%84%E7%90%86/3%20%E4%BD%BF%E7%94%A8%E6%B3%A8%E8%A7%A3/">
+				<h2 class="index-title">
+					3 使用注解
+				</h2>
+				<div class="index-brief">
+					注解是插入到源代码的标签，由其他工具对其进行处理，不会改变程序的编译方式
+注解位置
+在Java中，注解是当作一个修饰符来使用的。它被置于被注解项之前，中间没有分号。每一个注解的名称前面都加上了@符号。
+注解项
+注解项可以是方法、类、成员以及局部变量，还可以是包、参数变量、类型参数和类型用法。
+注解接
+					...
+				</div>
+				<p class="index-date">2019-12-21</p>
+			</a>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/15%20%E8%84%9A%E6%9C%AC%E3%80%81%E7%BC%96%E8%AF%91%E4%B8%8E%E6%B3%A8%E8%A7%A3%E5%A4%84%E7%90%86/2%20%E7%BC%96%E8%AF%91%E5%99%A8API/">
+				<h2 class="index-title">
+					2 编译器API
+				</h2>
+				<div class="index-brief">
+					编译器API替代jdk/lib/toors.jar类库
+1 编译便捷之法
+JavaCompiler compiler = ToolProvider.getSystemJavaCompiler();
+OutputStream outStream = ...;
+OutputStream errStrea
+					...
+				</div>
+				<p class="index-date">2019-12-21</p>
+			</a>
+		</div>	
+	
+		<div class="index-li">
 			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/15%20%E8%84%9A%E6%9C%AC%E3%80%81%E7%BC%96%E8%AF%91%E4%B8%8E%E6%B3%A8%E8%A7%A3%E5%A4%84%E7%90%86/1%20Java%E5%B9%B3%E5%8F%B0%E7%9A%84%E8%84%9A%E6%9C%AC/">
 				<h2 class="index-title">
 					1 Java平台的脚本
@@ -4418,115 +4526,7 @@ Nashorn
 nashorn,Nashorn,js,JS,JavaScript,javascript,ECM
 					...
 				</div>
-				<p class="index-date">2019-12-20</p>
-			</a>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/15%20%E8%84%9A%E6%9C%AC%E3%80%81%E7%BC%96%E8%AF%91%E4%B8%8E%E6%B3%A8%E8%A7%A3%E5%A4%84%E7%90%86/3%20%E4%BD%BF%E7%94%A8%E6%B3%A8%E8%A7%A3/">
-				<h2 class="index-title">
-					3 使用注解
-				</h2>
-				<div class="index-brief">
-					注解是插入到源代码的标签，由其他工具对其进行处理，不会改变程序的编译方式
-注解位置
-在Java中，注解是当作一个修饰符来使用的。它被置于被注解项之前，中间没有分号。每一个注解的名称前面都加上了@符号。
-注解项
-注解项可以是方法、类、成员以及局部变量，还可以是包、参数变量、类型参数和类型用法。
-注解接
-					...
-				</div>
-				<p class="index-date">2019-12-20</p>
-			</a>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/15%20%E8%84%9A%E6%9C%AC%E3%80%81%E7%BC%96%E8%AF%91%E4%B8%8E%E6%B3%A8%E8%A7%A3%E5%A4%84%E7%90%86/4%20%E6%B3%A8%E8%A7%A3%E8%AF%AD%E6%B3%95/">
-				<h2 class="index-title">
-					4 注解语法
-				</h2>
-				<div class="index-brief">
-					1 注解接口
-注解是由注解接口来定义的：
-modifiers @interface AnnotationName {
-	elementDeclaration1
-	elementDeclaration2
-}
-
-注解接口隐式扩展自Annotation接口，无法扩展注解接口。
-元素
-元素声明
-type e
-					...
-				</div>
-				<p class="index-date">2019-12-20</p>
-			</a>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/15%20%E8%84%9A%E6%9C%AC%E3%80%81%E7%BC%96%E8%AF%91%E4%B8%8E%E6%B3%A8%E8%A7%A3%E5%A4%84%E7%90%86/2%20%E7%BC%96%E8%AF%91%E5%99%A8API/">
-				<h2 class="index-title">
-					2 编译器API
-				</h2>
-				<div class="index-brief">
-					编译器API替代jdk/lib/toors.jar类库
-1 编译便捷之法
-JavaCompiler compiler = ToolProvider.getSystemJavaCompiler();
-OutputStream outStream = ...;
-OutputStream errStrea
-					...
-				</div>
-				<p class="index-date">2019-12-20</p>
-			</a>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/15%20%E8%84%9A%E6%9C%AC%E3%80%81%E7%BC%96%E8%AF%91%E4%B8%8E%E6%B3%A8%E8%A7%A3%E5%A4%84%E7%90%86/5%20%E6%A0%87%E5%87%86%E6%B3%A8%E8%A7%A3/">
-				<h2 class="index-title">
-					5 标准注解
-				</h2>
-				<div class="index-brief">
-					Java SE在java.lang、java.lang.annotation 和 javax.annotation 包中定义了大量注解接口
-1 用于编译的注解
-
-@Deprecated 不再鼓励使用
-@SuppressWarnings 阻止特定警告
-@Override 覆盖超类方法
-@Generat
-					...
-				</div>
-				<p class="index-date">2019-12-20</p>
-			</a>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/15%20%E8%84%9A%E6%9C%AC%E3%80%81%E7%BC%96%E8%AF%91%E4%B8%8E%E6%B3%A8%E8%A7%A3%E5%A4%84%E7%90%86/6%20%E6%BA%90%E7%A0%81%E7%BA%A7%E6%B3%A8%E8%A7%A3%E5%A4%84%E7%90%86/">
-				<h2 class="index-title">
-					6 源码级注解处理
-				</h2>
-				<div class="index-brief">
-					1 注解处理
-编译器会定位源文件中的注解。每个注解处理器会依次执行。如果某个注解处理器产生了新的源文件，则重复处理。没有新文件产生后，就编译所有源文件。
-注解处理器通常扩展 AbstractProcessor 类实现 Processor 接口。
-@SupportedAnnotationTypes(&
-					...
-				</div>
-				<p class="index-date">2019-12-20</p>
-			</a>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/15%20%E8%84%9A%E6%9C%AC%E3%80%81%E7%BC%96%E8%AF%91%E4%B8%8E%E6%B3%A8%E8%A7%A3%E5%A4%84%E7%90%86/7%20%E5%AD%97%E8%8A%82%E7%A0%81%E5%B7%A5%E7%A8%8B/">
-				<h2 class="index-title">
-					7 字节码工程
-				</h2>
-				<div class="index-brief">
-					1 修改类文件
-2 在加载时修改字节码
-
-					...
-				</div>
-				<p class="index-date">2019-12-20</p>
+				<p class="index-date">2019-12-21</p>
 			</a>
 		</div>	
 	
@@ -4551,12 +4551,14 @@ OutputStream errStrea
 		<span id="busuanzi_value_site_uv"></span>
 	</span>
 	<br>
-	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
+	Theme <a href="//github.com/wujun234/hexo-theme-tree">Tree</a>
+	by <a href="//github.com/wujun234">WuJun</a>
+	Powered by <a href="//hexo.io">Hexo</a>
 	</p>
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
-	<button id="totop" class="toggle"><i class="fa fa-angle-double-up" aria-hidden="true"></i></button>
+	<button id="totop-toggle" class="toggle"><i class="fa fa-angle-double-up" aria-hidden="true"></i></button>
 </body>
 </html>

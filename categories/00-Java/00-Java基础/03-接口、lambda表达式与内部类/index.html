@@ -9,7 +9,7 @@
 	
 	<title>
 	 
-	WuJun Blog
+	吴俊博客
 	</title>
 	
 	<!-- keywords,description -->
@@ -38,7 +38,7 @@
 
 <body>
 	<header id="header">
-    <a id="title" href="/" class="logo">WuJun Blog</a>
+    <a id="title" href="/" class="logo">吴俊博客</a>
 
 	<ul id="menu">
 		<li class="menu-item">
@@ -64,8 +64,8 @@
 	
 <div id="sidebar">
 	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-arrow-right " aria-hidden="true"></i></button>
-	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">SITE MENU</a>
-	<a herf="#" id="sidebar-article" class="sidebar-toc">ARTICLE MENU</a>
+	<a herf="#" id="site-menu" class="sidebar-toc toc-active">SITE MENU</a>
+	<a herf="#" id="article-menu" class="sidebar-toc">ARTICLE MENU</a>
 
 	<!-- 侧边目录栏 -->
 	<div id="site-toc">
@@ -4391,44 +4391,22 @@
 		<div id="index-list">
 	
 		<div class="index-li">
-			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/03%20%E6%8E%A5%E5%8F%A3%E3%80%81lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F%E4%B8%8E%E5%86%85%E9%83%A8%E7%B1%BB/1%20%E6%8E%A5%E5%8F%A3/">
+			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/03%20%E6%8E%A5%E5%8F%A3%E3%80%81lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F%E4%B8%8E%E5%86%85%E9%83%A8%E7%B1%BB/4%20%E4%BB%A3%E7%90%86/">
 				<h2 class="index-title">
-					1 接口
+					4 代理
 				</h2>
 				<div class="index-brief">
-					1 概念与特性
+					代理模式：就是为其他对象提供一种代理以控制对这个对象的访问。
+代理可以在不改动目标对象的基础上，增加其他额外的功能（扩展功能）。
+1 静态代理
+代理对象和目标对象实现了相同的接口。
+目标对象作为代理对象的一个属性，代理对象可以在调用目标对象相应方法时加上增强处理的逻辑。
 
-成员默认public
-常量必须赋初值，内部类自动成为static类。
-不能含有实例域，不能实现方法。（JDK 8之后允许提供静态方法、默认方法）
-可以声明接口变量，不能使用new实例化一个接口。
-
-2 接口与抽象类
-与抽象类区别。没有实例域，可以实现多个。
-3 Java 8新特性
-
+优点
+可以做到在不修改目标
 					...
 				</div>
-				<p class="index-date">2019-12-20</p>
-			</a>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/03%20%E6%8E%A5%E5%8F%A3%E3%80%81lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F%E4%B8%8E%E5%86%85%E9%83%A8%E7%B1%BB/2%20lambda/">
-				<h2 class="index-title">
-					2 lambda
-				</h2>
-				<div class="index-brief">
-					@since 1.8
-1 语法
-参数，箭头（-&gt;）以及一个表达式。
-(String first, String second) -&gt;first.length() - second.length()
-
-没有参数也要提供空括号，就像无参数方法一样。
-() -&gt; { for (int i
-					...
-				</div>
-				<p class="index-date">2019-12-20</p>
+				<p class="index-date">2019-12-21</p>
 			</a>
 		</div>	
 	
@@ -4449,27 +4427,49 @@
 内部类的构造器具有外部类的隐式
 					...
 				</div>
-				<p class="index-date">2019-12-20</p>
+				<p class="index-date">2019-12-21</p>
 			</a>
 		</div>	
 	
 		<div class="index-li">
-			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/03%20%E6%8E%A5%E5%8F%A3%E3%80%81lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F%E4%B8%8E%E5%86%85%E9%83%A8%E7%B1%BB/4%20%E4%BB%A3%E7%90%86/">
+			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/03%20%E6%8E%A5%E5%8F%A3%E3%80%81lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F%E4%B8%8E%E5%86%85%E9%83%A8%E7%B1%BB/2%20lambda/">
 				<h2 class="index-title">
-					4 代理
+					2 lambda
 				</h2>
 				<div class="index-brief">
-					代理模式：就是为其他对象提供一种代理以控制对这个对象的访问。
-代理可以在不改动目标对象的基础上，增加其他额外的功能（扩展功能）。
-1 静态代理
-代理对象和目标对象实现了相同的接口。
-目标对象作为代理对象的一个属性，代理对象可以在调用目标对象相应方法时加上增强处理的逻辑。
+					@since 1.8
+1 语法
+参数，箭头（-&gt;）以及一个表达式。
+(String first, String second) -&gt;first.length() - second.length()
 
-优点
-可以做到在不修改目标
+没有参数也要提供空括号，就像无参数方法一样。
+() -&gt; { for (int i
 					...
 				</div>
-				<p class="index-date">2019-12-20</p>
+				<p class="index-date">2019-12-21</p>
+			</a>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/03%20%E6%8E%A5%E5%8F%A3%E3%80%81lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F%E4%B8%8E%E5%86%85%E9%83%A8%E7%B1%BB/1%20%E6%8E%A5%E5%8F%A3/">
+				<h2 class="index-title">
+					1 接口
+				</h2>
+				<div class="index-brief">
+					1 概念与特性
+
+成员默认public
+常量必须赋初值，内部类自动成为static类。
+不能含有实例域，不能实现方法。（JDK 8之后允许提供静态方法、默认方法）
+可以声明接口变量，不能使用new实例化一个接口。
+
+2 接口与抽象类
+与抽象类区别。没有实例域，可以实现多个。
+3 Java 8新特性
+
+					...
+				</div>
+				<p class="index-date">2019-12-21</p>
 			</a>
 		</div>	
 	
@@ -4494,12 +4494,14 @@
 		<span id="busuanzi_value_site_uv"></span>
 	</span>
 	<br>
-	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
+	Theme <a href="//github.com/wujun234/hexo-theme-tree">Tree</a>
+	by <a href="//github.com/wujun234">WuJun</a>
+	Powered by <a href="//hexo.io">Hexo</a>
 	</p>
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
-	<button id="totop" class="toggle"><i class="fa fa-angle-double-up" aria-hidden="true"></i></button>
+	<button id="totop-toggle" class="toggle"><i class="fa fa-angle-double-up" aria-hidden="true"></i></button>
 </body>
 </html>

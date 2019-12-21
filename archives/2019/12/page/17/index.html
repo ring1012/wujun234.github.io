@@ -9,7 +9,7 @@
 	
 	<title>
 	 
-	WuJun Blog
+	吴俊博客
 	</title>
 	
 	<!-- keywords,description -->
@@ -38,7 +38,7 @@
 
 <body>
 	<header id="header">
-    <a id="title" href="/" class="logo">WuJun Blog</a>
+    <a id="title" href="/" class="logo">吴俊博客</a>
 
 	<ul id="menu">
 		<li class="menu-item">
@@ -64,8 +64,8 @@
 	
 <div id="sidebar">
 	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-arrow-right " aria-hidden="true"></i></button>
-	<a herf="#" id="sidebar-site" class="sidebar-toc toc-active">SITE MENU</a>
-	<a herf="#" id="sidebar-article" class="sidebar-toc">ARTICLE MENU</a>
+	<a herf="#" id="site-menu" class="sidebar-toc toc-active">SITE MENU</a>
+	<a herf="#" id="article-menu" class="sidebar-toc">ARTICLE MENU</a>
 
 	<!-- 侧边目录栏 -->
 	<div id="site-toc">
@@ -4391,213 +4391,230 @@
 		<div id="index-list">
 	
 		<div class="index-li">
-			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/04%20%E5%BC%82%E5%B8%B8%E3%80%81%E6%96%AD%E8%A8%80%E5%92%8C%E6%97%A5%E5%BF%97/4%20%E8%AE%B0%E5%BD%95%E6%97%A5%E5%BF%97/">
+			<a href="/2019/12/18/02%20%E6%95%B0%E6%8D%AE%E5%BA%93/04%20Memcached/01%20Memcached%E7%AC%94%E8%AE%B0/">
 				<h2 class="index-title">
-					4 记录日志
+					01 Memcached笔记
 				</h2>
 				<div class="index-brief">
-					java.util.logging.Logger
-1 日志记录器
+					Memcached是高性能，分布式内存对象key-value缓存系统。一般使用目的是，通过缓存数据库查询结果，减少数据库访问次数，以提高动态Web应用的速度、提高可扩展性。
+连接
+通过 telnet 命令并指定主机ip和端口来连接 Memcached 服务
+telnet HOST PORT
 
-全局日志记录器：Logger.getGlobal()
-
-Logger.getGlobal().info(&quot;&quot;);
-
-
-自定义日志记录器：Logger.getLogger()
-
-Logger myLogger= L
+存储命
 					...
 				</div>
-				<p class="index-date">2019-12-20</p>
+				<p class="index-date">2019-12-21</p>
 			</a>
 		</div>	
 	
 		<div class="index-li">
-			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/05%20%E6%B3%9B%E5%9E%8B%E3%80%81%E4%BA%8B%E4%BB%B6%E5%A4%84%E7%90%86/2%20%E4%BA%8B%E4%BB%B6%E5%A4%84%E7%90%86/">
+			<a href="/2019/12/18/02%20%E6%95%B0%E6%8D%AE%E5%BA%93/03%20Redis/4%20%E6%89%A7%E8%A1%8C%E8%84%9A%E6%9C%AC/">
 				<h2 class="index-title">
-					2 事件处理
+					4 执行脚本
 				</h2>
 				<div class="index-brief">
-					一 主要角色
+					1 配置
+@Configuration
+@EnableTransactionManagement
+public class RedisTemplateConfig {
 
-事件源（Source）
-触发事件的对象，不需要实现或继承任何接口或类。
-因为事件源需要注册事件监听器，所以事件源内需要有相应的盛放事件监听器的容器。
-事件（EventObject）
-java.util.EventObject是事件状态对象的基类，封装了事件源对象以及和事件相关的信息。
+    @Bean(&quot;redisTemplate&quot;)
+    public RedisTemplate red
 					...
 				</div>
-				<p class="index-date">2019-12-20</p>
+				<p class="index-date">2019-12-21</p>
 			</a>
 		</div>	
 	
 		<div class="index-li">
-			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/05%20%E6%B3%9B%E5%9E%8B%E3%80%81%E4%BA%8B%E4%BB%B6%E5%A4%84%E7%90%86/1%20%E6%B3%9B%E5%9E%8B/">
+			<a href="/2019/12/18/02%20%E6%95%B0%E6%8D%AE%E5%BA%93/03%20Redis/3%20%E8%87%AA%E5%AE%9A%E4%B9%89%E5%BA%8F%E5%88%97%E5%8C%96/">
 				<h2 class="index-title">
-					1 泛型
+					3 自定义序列化
 				</h2>
 				<div class="index-brief">
-					1 泛型类
-泛型类可以有多个类型变量，用尖括号（&lt; &gt;）括起来，并放在类名的后面。
-通常用E表示集合的元素类型， K和V分别表示表的关键字与值的类型。 T、U、S等表示“任意类型”。
-泛型类可看作普通类的工厂。
-public class Pair&lt;T,U&gt;{}
-public 
+					/**
+ * @author wujun
+ * @date 2018-10-30 16:25
+ */
+@Configuration
+public class RedisConfig {
+    /**
+     * redisTemplate 自定义序列化类
+     *
+     * @param
 					...
 				</div>
-				<p class="index-date">2019-12-20</p>
+				<p class="index-date">2019-12-21</p>
 			</a>
 		</div>	
 	
 		<div class="index-li">
-			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/03%20%E6%8E%A5%E5%8F%A3%E3%80%81lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F%E4%B8%8E%E5%86%85%E9%83%A8%E7%B1%BB/1%20%E6%8E%A5%E5%8F%A3/">
+			<a href="/2019/12/18/02%20%E6%95%B0%E6%8D%AE%E5%BA%93/03%20Redis/2%20%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81/">
 				<h2 class="index-title">
-					1 接口
+					2 分布式锁
 				</h2>
 				<div class="index-brief">
-					1 概念与特性
-
-成员默认public
-常量必须赋初值，内部类自动成为static类。
-不能含有实例域，不能实现方法。（JDK 8之后允许提供静态方法、默认方法）
-可以声明接口变量，不能使用new实例化一个接口。
-
-2 接口与抽象类
-与抽象类区别。没有实例域，可以实现多个。
-3 Java 8新特性
-
+					1 Redisson
+直接上官方推荐Redisson
+&lt;!-- https://mvnrepository.com/artifact/org.redisson/redisson --&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;org.redisson&
 					...
 				</div>
-				<p class="index-date">2019-12-20</p>
+				<p class="index-date">2019-12-21</p>
 			</a>
 		</div>	
 	
 		<div class="index-li">
-			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/03%20%E6%8E%A5%E5%8F%A3%E3%80%81lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F%E4%B8%8E%E5%86%85%E9%83%A8%E7%B1%BB/2%20lambda/">
+			<a href="/2019/12/18/02%20%E6%95%B0%E6%8D%AE%E5%BA%93/03%20Redis/1%20Redis%20%E7%AE%80%E4%BB%8B/">
 				<h2 class="index-title">
-					2 lambda
+					1 Redis 简介
 				</h2>
 				<div class="index-brief">
-					@since 1.8
-1 语法
-参数，箭头（-&gt;）以及一个表达式。
-(String first, String second) -&gt;first.length() - second.length()
+					1 Redis 简介
+高性能key-value数据库，支持数据的持久化、备份，数据类型丰富，支持事物、发布/订阅、通知、key过期等特性。
+2 Redis 安装
+2.1 单机安装
 
-没有参数也要提供空括号，就像无参数方法一样。
-() -&gt; { for (int i
+Window
+下载zip，解压缩可用。修改redis.conf的daemonize为yes可后台启动
+Linux
+
+w
 					...
 				</div>
-				<p class="index-date">2019-12-20</p>
+				<p class="index-date">2019-12-21</p>
 			</a>
 		</div>	
 	
 		<div class="index-li">
-			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/03%20%E6%8E%A5%E5%8F%A3%E3%80%81lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F%E4%B8%8E%E5%86%85%E9%83%A8%E7%B1%BB/3%20%E5%86%85%E9%83%A8%E7%B1%BB/">
+			<a href="/2019/12/18/02%20%E6%95%B0%E6%8D%AE%E5%BA%93/02%20MyBatis/04%20%E6%B3%A8%E8%A7%A3%E4%BD%BF%E7%94%A8/">
 				<h2 class="index-title">
-					3 内部类
+					04 注解使用
 				</h2>
 				<div class="index-brief">
-					内部类（ inner class）是定义在另一个类中的类。
-为什么需要使用内部类：
-
-内部类方法可以访问该类定义所在的作用域中的数据，包括私有数据
-内部类可以对同一个包中的其他类隐藏起来
-当想要定义一个回调函数而不想写大量代码时，使用匿名内部类比较便捷
-
-1 访问状态
-内部类的构造器具有外部类的隐式
+					1 Provider
+Mapper 接口
+@InsertProvider、@DeleteProvider、@SelectProvider
+Provider 注解，属性 type = Provider类和 method = Provider类中的方法
+@Repository
+public interf
 					...
 				</div>
-				<p class="index-date">2019-12-20</p>
+				<p class="index-date">2019-12-21</p>
 			</a>
 		</div>	
 	
 		<div class="index-li">
-			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/03%20%E6%8E%A5%E5%8F%A3%E3%80%81lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F%E4%B8%8E%E5%86%85%E9%83%A8%E7%B1%BB/4%20%E4%BB%A3%E7%90%86/">
+			<a href="/2019/12/18/02%20%E6%95%B0%E6%8D%AE%E5%BA%93/02%20MyBatis/03%20CDDATA%E5%9D%97/">
 				<h2 class="index-title">
-					4 代理
+					03 CDDATA块
 				</h2>
 				<div class="index-brief">
-					代理模式：就是为其他对象提供一种代理以控制对这个对象的访问。
-代理可以在不改动目标对象的基础上，增加其他额外的功能（扩展功能）。
-1 静态代理
-代理对象和目标对象实现了相同的接口。
-目标对象作为代理对象的一个属性，代理对象可以在调用目标对象相应方法时加上增强处理的逻辑。
+					&quot;&quot;里才需要转换CDDATA块！
 
-优点
-可以做到在不修改目标
+
+
+符号
+转换
+
+
+
+
+&amp;
+&amp;amp;
+
+
+&lt;
+&amp;lt;
+
+
+&gt;
+&amp;gt;
+
+
+&quot;
+&amp;quot;
+
+
+'
+&amp;apos;
+
+
+
+
+
+
+-
+-
+-
+-
+
+
+
+
+小于等于
+a&lt
 					...
 				</div>
-				<p class="index-date">2019-12-20</p>
+				<p class="index-date">2019-12-21</p>
 			</a>
 		</div>	
 	
 		<div class="index-li">
-			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/02%20%E5%AF%B9%E8%B1%A1%E4%B8%8E%E7%B1%BB/2%20%E4%BF%AE%E9%A5%B0%E7%AC%A6/">
+			<a href="/2019/12/18/02%20%E6%95%B0%E6%8D%AE%E5%BA%93/02%20MyBatis/02%20MyBatis%20Generator/">
 				<h2 class="index-title">
-					2 修饰符
+					02 MyBatis Generator
 				</h2>
 				<div class="index-brief">
-					访问修饰符
+					MyBatis Generator
 
-private——仅对本类可见
-public——对所有类可见
-接口里方法默认public
-protected——对本包和所有子类可见
-default——对本包可见
-
-一个方法可以访问所属类的所有对象的私有对象
-非访问修饰符
-final
-
-final 域
-final域必须显式指定初始值，
+一、在pom.xml中添加plugin
+      &lt;plugin&gt;
+        &lt;groupId&gt;org.mybatis.generator&lt;/groupId&gt;
+        &lt;artifactId&gt;myb
 					...
 				</div>
-				<p class="index-date">2019-12-20</p>
+				<p class="index-date">2019-12-21</p>
 			</a>
 		</div>	
 	
 		<div class="index-li">
-			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/02%20%E5%AF%B9%E8%B1%A1%E4%B8%8E%E7%B1%BB/1%20%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/">
+			<a href="/2019/12/18/02%20%E6%95%B0%E6%8D%AE%E5%BA%93/02%20MyBatis/01%20MyBatis+Spring%20Boot/">
 				<h2 class="index-title">
-					1 面向对象
+					01 MyBatis+Spring Boot
 				</h2>
 				<div class="index-brief">
-					1 抽象
-抽象是将一类对象的共同特征总结出来构造类的过程，包括数据抽象和行为抽象两方面。抽象只关注对象有哪些属性和行为，并不关注这些行为的细节是什么。
-2 封装
-把数据和行为隐藏，只能通过暴露的接口访问数据。
-3 继承
-通过扩展一个类来建立另一个新的类。
-3.1 慎用继承
+					简介
 
-将公共操作和域放在超类。
+
+MyBatis
+传统方法使用 MyBatis ，有  MyBatis 官网中文文档 。
+Generator
+传统方法比较繁琐，因而 MyBatis 推出了 MyBatis Generator 工具，可自动生成实体类、配置文件和dao层代码，以减轻一部分开发量。
+Spring Boot + 
 					...
 				</div>
-				<p class="index-date">2019-12-20</p>
+				<p class="index-date">2019-12-21</p>
 			</a>
 		</div>	
 	
 		<div class="index-li">
-			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/02%20%E5%AF%B9%E8%B1%A1%E4%B8%8E%E7%B1%BB/3%20%E7%B1%BB/">
+			<a href="/2019/12/18/02%20%E6%95%B0%E6%8D%AE%E5%BA%93/01%20MySQL/11%20%E5%A4%8D%E5%88%B6/">
 				<h2 class="index-title">
-					3 类
+					11 复制
 				</h2>
 				<div class="index-brief">
-					1 类
-类是构造对象的模板。
-由类构造对象的过程称为创建类的实例。
-一个源文件中，只能有一个公共类，类名必须与文件名相同。
-1.1 类之间的关系
-最常见的关系有：
+					一、主从复制
+在主库上记录二进制日志，在从库重放日志，实现异步的数据复制。非强一致性，由于时延、大语句执行等。
+主要涉及三个线程：BinLog 线程、I/O 线程和 SQL 线程。
 
-==依赖==（”uses-a”）：一个类的方法需要操纵另一个类的对象
-==聚合==（”has-a”）：类 A 的对象包含着类 B 的对
+BinLog 线程 ：在主库上把“数据更改”（按事物提交顺序）记录到二进制日志（Binary Log）中。
+I/O 
 					...
 				</div>
-				<p class="index-date">2019-12-20</p>
+				<p class="index-date">2019-12-21</p>
 			</a>
 		</div>	
 	
@@ -4624,12 +4641,14 @@ final域必须显式指定初始值，
 		<span id="busuanzi_value_site_uv"></span>
 	</span>
 	<br>
-	Theme Tree by <a href="//github.com/wujun234">WuJun</a> Powered by Hexo
+	Theme <a href="//github.com/wujun234/hexo-theme-tree">Tree</a>
+	by <a href="//github.com/wujun234">WuJun</a>
+	Powered by <a href="//hexo.io">Hexo</a>
 	</p>
 </div>
 <script type="text/javascript"> 
 	document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
 </script>
-	<button id="totop" class="toggle"><i class="fa fa-angle-double-up" aria-hidden="true"></i></button>
+	<button id="totop-toggle" class="toggle"><i class="fa fa-angle-double-up" aria-hidden="true"></i></button>
 </body>
 </html>
