@@ -4391,13 +4391,11 @@
 	<div id="content">
 		<h1 class="post-title">
 
-		1 EasyMock - 模拟对象测试
-
+	1 EasyMock - 模拟对象测试
 </h1>
 <div>
-	<span id="2019/12/18/05 测试/1 EasyMock/1 EasyMock - 模拟对象测试/" class="leancloud_visitors index-date" data-flag-title="Your Article Title">
-		<em class="post-meta-item-text">阅读量: </em>
-		<i class="leancloud-visitors-count"></i>
+	<span class="index-date">
+		阅读量:<span id="/2019/12/18/05%20%E6%B5%8B%E8%AF%95/1%20EasyMock/1%20EasyMock%20-%20%E6%A8%A1%E6%8B%9F%E5%AF%B9%E8%B1%A1%E6%B5%8B%E8%AF%95/" class="leancloud_visitors" data-flag-title=""></span>
 	</span>
 	<span class="index-date">Wu Jun</span>
 	<span class="index-date">2019-12-18 00:40:38</span>
@@ -4503,6 +4501,7 @@ public void test() {
 		appId: 'cbzi4mBFHIqKdH4wYkVHs44K-MdYXbMMI',
 		appKey: '4qY2BKiLCCOPgxVbsB5RkMc0',
 		avatar: 'retro',
+		recordIP: true,
 		visitor: true
 	})
 </script>
@@ -4526,7 +4525,39 @@ public void test() {
         </div>
     </div>
 
-
+<script>
+    // 显示次数
+    function showTime(Counter) {
+        var query = new AV.Query("Counter");
+        if($(".leancloud_visitors").length > 0){
+            var url = $(".leancloud_visitors").attr('id').trim();
+            // where field
+            query.equalTo("words", url);
+            // count
+            query.count().then(function (number) {
+                // There are number instances of MyClass where words equals url.
+                $(document.getElementById(url)).text(number?  number : '--');
+            }, function (error) {
+                // error is an instance of AVError.
+            });
+        }
+    }
+    // 追加pv
+    function addCount(Counter) {
+        var url = $(".leancloud_visitors").length > 0 ? $(".leancloud_visitors").attr('id').trim() : 'icafebolger.com';
+        var Counter = AV.Object.extend("Counter");
+        var query = new Counter;
+        query.save({
+            words: url
+        }).then(function (object) {
+        })
+    }
+    $(function () {
+        var Counter = AV.Object.extend("Counter");
+        addCount(Counter);
+        showTime(Counter);
+    });
+</script>
 	</div>
 	<div id="footer">
 	<p>

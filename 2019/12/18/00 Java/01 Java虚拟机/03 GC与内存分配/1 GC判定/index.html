@@ -4391,13 +4391,11 @@
 	<div id="content">
 		<h1 class="post-title">
 
-		1 GC判定
-
+	1 GC判定
 </h1>
 <div>
-	<span id="2019/12/18/00 Java/01 Java虚拟机/03 GC与内存分配/1 GC判定/" class="leancloud_visitors index-date" data-flag-title="Your Article Title">
-		<em class="post-meta-item-text">阅读量: </em>
-		<i class="leancloud-visitors-count"></i>
+	<span class="index-date">
+		阅读量:<span id="/2019/12/18/00%20Java/01%20Java%E8%99%9A%E6%8B%9F%E6%9C%BA/03%20GC%E4%B8%8E%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D/1%20GC%E5%88%A4%E5%AE%9A/" class="leancloud_visitors" data-flag-title=""></span>
 	</span>
 	<span class="index-date">Wu Jun</span>
 	<span class="index-date">2019-12-18 00:40:51</span>
@@ -4482,6 +4480,7 @@
 		appId: 'cbzi4mBFHIqKdH4wYkVHs44K-MdYXbMMI',
 		appKey: '4qY2BKiLCCOPgxVbsB5RkMc0',
 		avatar: 'retro',
+		recordIP: true,
 		visitor: true
 	})
 </script>
@@ -4505,7 +4504,39 @@
         </div>
     </div>
 
-
+<script>
+    // 显示次数
+    function showTime(Counter) {
+        var query = new AV.Query("Counter");
+        if($(".leancloud_visitors").length > 0){
+            var url = $(".leancloud_visitors").attr('id').trim();
+            // where field
+            query.equalTo("words", url);
+            // count
+            query.count().then(function (number) {
+                // There are number instances of MyClass where words equals url.
+                $(document.getElementById(url)).text(number?  number : '--');
+            }, function (error) {
+                // error is an instance of AVError.
+            });
+        }
+    }
+    // 追加pv
+    function addCount(Counter) {
+        var url = $(".leancloud_visitors").length > 0 ? $(".leancloud_visitors").attr('id').trim() : 'icafebolger.com';
+        var Counter = AV.Object.extend("Counter");
+        var query = new Counter;
+        query.save({
+            words: url
+        }).then(function (object) {
+        })
+    }
+    $(function () {
+        var Counter = AV.Object.extend("Counter");
+        addCount(Counter);
+        showTime(Counter);
+    });
+</script>
 	</div>
 	<div id="footer">
 	<p>

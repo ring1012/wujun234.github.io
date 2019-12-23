@@ -4391,13 +4391,11 @@
 	<div id="content">
 		<h1 class="post-title">
 
-		10.Template Method（模板方法）
-
+	10.Template Method（模板方法）
 </h1>
 <div>
-	<span id="2019/12/18/04 设计/3 设计模式/3-行为型模式/10.Template Method（模板方法）/" class="leancloud_visitors index-date" data-flag-title="Your Article Title">
-		<em class="post-meta-item-text">阅读量: </em>
-		<i class="leancloud-visitors-count"></i>
+	<span class="index-date">
+		阅读量:<span id="/2019/12/18/04%20%E8%AE%BE%E8%AE%A1/3%20%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/3-%E8%A1%8C%E4%B8%BA%E5%9E%8B%E6%A8%A1%E5%BC%8F/10.Template%20Method%EF%BC%88%E6%A8%A1%E6%9D%BF%E6%96%B9%E6%B3%95%EF%BC%89/" class="leancloud_visitors" data-flag-title=""></span>
 	</span>
 	<span class="index-date">Wu Jun</span>
 	<span class="index-date">2019-12-18 00:40:55</span>
@@ -4443,6 +4441,7 @@
 		appId: 'cbzi4mBFHIqKdH4wYkVHs44K-MdYXbMMI',
 		appKey: '4qY2BKiLCCOPgxVbsB5RkMc0',
 		avatar: 'retro',
+		recordIP: true,
 		visitor: true
 	})
 </script>
@@ -4466,7 +4465,39 @@
         </div>
     </div>
 
-
+<script>
+    // 显示次数
+    function showTime(Counter) {
+        var query = new AV.Query("Counter");
+        if($(".leancloud_visitors").length > 0){
+            var url = $(".leancloud_visitors").attr('id').trim();
+            // where field
+            query.equalTo("words", url);
+            // count
+            query.count().then(function (number) {
+                // There are number instances of MyClass where words equals url.
+                $(document.getElementById(url)).text(number?  number : '--');
+            }, function (error) {
+                // error is an instance of AVError.
+            });
+        }
+    }
+    // 追加pv
+    function addCount(Counter) {
+        var url = $(".leancloud_visitors").length > 0 ? $(".leancloud_visitors").attr('id').trim() : 'icafebolger.com';
+        var Counter = AV.Object.extend("Counter");
+        var query = new Counter;
+        query.save({
+            words: url
+        }).then(function (object) {
+        })
+    }
+    $(function () {
+        var Counter = AV.Object.extend("Counter");
+        addCount(Counter);
+        showTime(Counter);
+    });
+</script>
 	</div>
 	<div id="footer">
 	<p>
