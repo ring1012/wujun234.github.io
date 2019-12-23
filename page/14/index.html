@@ -9,7 +9,7 @@
 	
 	<title>
 	 
-	吴俊博客
+	吴俊的博客
 	</title>
 	
 	<!-- keywords,description -->
@@ -38,12 +38,9 @@
 
 <body>
 	<header id="header">
-    <a id="title" href="/" class="logo">吴俊博客</a>
+    <a id="title" href="/" class="logo">吴俊的博客</a>
 
 	<ul id="menu">
-		<li class="menu-item">
-			<a href="/" class="menu-item-link">HOME</a>
-		</li>
 		<li class="menu-item">
 			<a href="/about" class="menu-item-link">ABOUT</a>
 		</li>
@@ -4391,206 +4388,444 @@
 		<div id="index-list">
 	
 		<div class="index-li">
-			<a href="/2019/12/18/04%20%E8%AE%BE%E8%AE%A1/1%20%E9%80%9A%E7%94%A8%E8%AE%BE%E8%AE%A1/03%20%E7%9F%AD%E9%93%BE%E6%8E%A5/">
+			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/07%20%E5%B9%B6%E5%8F%91/7%20%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8%E7%9A%84%E9%9B%86%E5%90%88/">
 				<h2 class="index-title">
-					03 短链接
+					7 线程安全的集合
 				</h2>
 				<div class="index-brief">
-					短链接URL系统是怎么设计的？
-实现一个自增发号器，每个长地址，发个短号，存储长短关系，请求短号时返回对应长号。
-在[0-9]的10进制与[0-9a-zA-Z]的62进制之间转换。可以使号码很小。
-大并发高可用？
-并发量大还可以搞分布式。类似 snowflake。
-一长对多短？还是一对一？
-如有需要
+					1 Concurrent集合
+java.util.concurrent包中 ConcurrentHashMap、ConcurrentSkipListMap、ConcurrentSkipListSet 和 ConcurrentLinkedQueue。
+这些集合使用复杂的算法，通过允许并发地访问数据结构
 					...
 				</div>
-				<p class="index-date">2019-12-21</p>
 			</a>
+                <div>
+				    <span class="index-date">2019-12-18</span>
+                    
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/">00 Java</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/00-Java基础/">00 Java基础</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/00-Java基础/07-并发/">07 并发</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
 		</div>	
 	
 		<div class="index-li">
-			<a href="/2019/12/18/04%20%E8%AE%BE%E8%AE%A1/1%20%E9%80%9A%E7%94%A8%E8%AE%BE%E8%AE%A1/02%20%E8%B7%A8%E5%BA%93%E5%88%86%E9%A1%B5/">
+			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/07%20%E5%B9%B6%E5%8F%91/9%20%E6%89%A7%E8%A1%8C%E5%99%A8Executor/">
 				<h2 class="index-title">
-					02 跨库分页
+					9 执行器Executor
 				</h2>
 				<div class="index-brief">
-					原文：https://mp.weixin.qq.com/s/cMAXYBxmevFV_fwysZqP8w
-需求缘起
-分页需求
-分页拉取需求有这样一些特点：
+					执行器（Executor）类有许多静态工厂方法用来构建线程池。
 
-有一个业务主键id
-分页排序是按照非业务主键id来排序的，业务中经常按照时间time来排序order by
 
-在数据量不大时，可以通过在排序字
+
+方法
+描述
+
+
+
+
+newCachedThreadPool
+必要时创建新线程；空闲线程会被保留 60 秒
+
+
+newFixedThreadPool
+线程包含固定数量的线程；空闲线程会一直被保留
+
+
+newSingleThreadE
 					...
 				</div>
-				<p class="index-date">2019-12-21</p>
 			</a>
+                <div>
+				    <span class="index-date">2019-12-18</span>
+                    
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/">00 Java</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/00-Java基础/">00 Java基础</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/00-Java基础/07-并发/">07 并发</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
 		</div>	
 	
 		<div class="index-li">
-			<a href="/2019/12/18/04%20%E8%AE%BE%E8%AE%A1/1%20%E9%80%9A%E7%94%A8%E8%AE%BE%E8%AE%A1/01%20%E5%88%86%E5%B8%83%E5%BC%8F%E7%BB%9F%E4%B8%80id%E8%AE%BE%E8%AE%A1/">
+			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/10%20XML/8%20XSL%E8%BD%AC%E6%8D%A2/">
 				<h2 class="index-title">
-					01 分布式统一id设计
+					8 XSL转换
 				</h2>
 				<div class="index-brief">
-					一、业界现状
-1 汽车之家
-1）id方案
-自增id
-现有数据从4位到6位，目前最大320w+
-2）实例
-
-
-
-作品id
-URL
-类型
-
-
-
-
-3200292
-https://chejiahao.autohome.com.cn/info/3200292
-轻文
-
-
-3200293
-https://che
+					XSL 指扩展样式表语言（EXtensible Stylesheet Language），可描述如何来显示 XML 文档。
+XSL 包括三部分：XSLT、XPath、XSL-FO
+XSLT
+XSLT = XSL 转换，是一种用于将 XML 文档转换为 XHTML 文档或其他 XML 文档的语言。
+X
 					...
 				</div>
-				<p class="index-date">2019-12-21</p>
 			</a>
+                <div>
+				    <span class="index-date">2019-12-18</span>
+                    
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/">00 Java</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/00-Java基础/">00 Java基础</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/00-Java基础/10-XML/">10 XML</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
 		</div>	
 	
 		<div class="index-li">
-			<a href="/2019/12/18/03%20%E5%BE%AE%E6%9C%8D%E5%8A%A1/Service%20Mesh/00%20%E7%9B%B8%E5%85%B3%E8%B5%84%E6%96%99/">
+			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/09%20IO/1%20%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E6%B5%81/">
 				<h2 class="index-title">
-					00 相关资料
+					1 输入输出流
 				</h2>
 				<div class="index-brief">
-					【todo】
-概念好文
+					Java 的 I/O 类库的基本架构
+Java 的 I/O 操作类可以分成四组：
 
-浅谈Service Mesh体系中的Envoy
-Service Mesh解读：新一代微服务技术新秀
-Service Mesh：下一代微服务
-
-实战好文
-Istio Service Mesh 教程
-文档
-
-istio中文文档
-conduit中文文档
-linkerd中文文档
-
-
+基于字节操作的 I/O 接口：InputStream 和 OutputStream
+基于字符操作的 I/O 接口：Writer 和 Reader
+基于磁盘操作的 I/O 接口：File
+基于网络操作的 I/O 接口：
 					...
 				</div>
-				<p class="index-date">2019-12-21</p>
 			</a>
+                <div>
+				    <span class="index-date">2019-12-18</span>
+                    
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/">00 Java</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/00-Java基础/">00 Java基础</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/00-Java基础/09-IO/">09 IO</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
 		</div>	
 	
 		<div class="index-li">
-			<a href="/2019/12/18/03%20%E5%BE%AE%E6%9C%8D%E5%8A%A1/Dubbo/00%20%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3/">
+			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/09%20IO/3%20%E8%AF%BB%E5%86%99%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%95%B0%E6%8D%AE/">
 				<h2 class="index-title">
-					00 官方文档
+					3 读写二进制数据
 				</h2>
 				<div class="index-brief">
-					
-Apache文档
-第一个 Dubbo 应用
-
-
+					1 DataInput和DataOutput接口
+DataInput接口 write* 方法写二进制格式数据，DataInput接口 read*方法读回二进制格式数据。
+DataInputStream类实现了DataInput接口
+DataInputStream in = new DataInput
 					...
 				</div>
-				<p class="index-date">2019-12-21</p>
 			</a>
+                <div>
+				    <span class="index-date">2019-12-18</span>
+                    
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/">00 Java</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/00-Java基础/">00 Java基础</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/00-Java基础/09-IO/">09 IO</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
 		</div>	
 	
 		<div class="index-li">
-			<a href="/2019/12/18/03%20%E5%BE%AE%E6%9C%8D%E5%8A%A1/5%20%E9%93%BE%E8%B7%AF%E8%BF%BD%E8%B8%AA/02%20CAT/">
+			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/09%20IO/2%20%E8%AF%BB%E5%86%99%E6%96%87%E6%9C%AC/">
 				<h2 class="index-title">
-					02 CAT
+					2 读写文本
 				</h2>
 				<div class="index-brief">
-					【todo】
-
+					存储文本字符串时，需要考虑字符编码方式。
+OutputStreamWriter类将使用选定的字符编码方式，把Unicode码元的输出流转换为字节流。
+InputStreamReader类将包含字节的输入流转换为可以产生Unicode码元的读入器。
+1 文本输出
+文本输出使用PrintWriter，拥
 					...
 				</div>
-				<p class="index-date">2019-12-21</p>
 			</a>
+                <div>
+				    <span class="index-date">2019-12-18</span>
+                    
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/">00 Java</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/00-Java基础/">00 Java基础</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/00-Java基础/09-IO/">09 IO</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
 		</div>	
 	
 		<div class="index-li">
-			<a href="/2019/12/18/03%20%E5%BE%AE%E6%9C%8D%E5%8A%A1/5%20%E9%93%BE%E8%B7%AF%E8%BF%BD%E8%B8%AA/01%20Spring%20Cloud%20Sleuth/">
+			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/09%20IO/4%20%E5%BA%8F%E5%88%97%E5%8C%96/">
 				<h2 class="index-title">
-					01 Spring Cloud Sleuth
+					4 序列化
 				</h2>
 				<div class="index-brief">
-					Spring Cloud Sleuth分布式服务跟踪
-快速入门
-
-pom依赖
-
-&lt;dependency&gt;
-    &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
-    &lt;artifactId&gt;spring-c
+					Java 提供了一种对象序列化的机制，该机制中，一个对象可以被表示为一个字节序列，写出到输出流中，并在之后将其读回。整个过程都是 Java 虚拟机独立的。
+1 保存和加载序列化对象
+类 ObjectInputStream 和 ObjectOutputStream 是高层次的数据流，它们包含反序列化和
 					...
 				</div>
-				<p class="index-date">2019-12-21</p>
 			</a>
+                <div>
+				    <span class="index-date">2019-12-18</span>
+                    
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/">00 Java</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/00-Java基础/">00 Java基础</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/00-Java基础/09-IO/">09 IO</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
 		</div>	
 	
 		<div class="index-li">
-			<a href="/2019/12/18/03%20%E5%BE%AE%E6%9C%8D%E5%8A%A1/4%20%E6%B6%88%E6%81%AF%E7%BB%84%E4%BB%B6/02%20Spring%20Cloud%20Stream/">
+			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/09%20IO/5%20%E6%93%8D%E4%BD%9C%E6%96%87%E4%BB%B6/">
 				<h2 class="index-title">
-					02 Spring Cloud Stream
+					5 操作文件
 				</h2>
 				<div class="index-brief">
-					Spring Cloud Stream整合了Spring Boot和Spring Integration，实现了一套轻量级的消息驱动的微服务框架。目前为止只支持RabbitMQ和Kafka的自动化配置。
-快速入门
-以RabbitMQ为例
-
-引入依赖
-
-    &lt;dependency&gt;
- 
+					Path接口和Files类封装了在用户机器上处理文件系统所需的所有功能，他们是在JavaSE7中新添加进来的，比自JDK1.0以来一直使用的File类方便很多。
+1 Path
+Path表示的是一个目录名序列，其后还可以跟着一个文件名。
+路径中的第一个部件可以是根部件，例如 /或 C:\。以根部件开始
 					...
 				</div>
-				<p class="index-date">2019-12-21</p>
 			</a>
+                <div>
+				    <span class="index-date">2019-12-18</span>
+                    
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/">00 Java</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/00-Java基础/">00 Java基础</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/00-Java基础/09-IO/">09 IO</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
 		</div>	
 	
 		<div class="index-li">
-			<a href="/2019/12/18/03%20%E5%BE%AE%E6%9C%8D%E5%8A%A1/4%20%E6%B6%88%E6%81%AF%E7%BB%84%E4%BB%B6/01%20Spring%20Cloud%20Bus/">
+			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/09%20IO/6%20NIO%EF%BC%88%E5%86%85%E5%AD%98%E6%98%A0%E5%B0%84%E6%96%87%E4%BB%B6%EF%BC%89/">
 				<h2 class="index-title">
-					01 Spring Cloud Bus
+					6 NIO（内存映射文件）
 				</h2>
 				<div class="index-brief">
-					消息总线是一种通信工具，可以在机器之间互相传输消息、文件等。消息总线扮演着一种消息路由的角色，拥有一套完备的路由机制来决定消息传输方向。发送段只需要向消息总线发出消息而不用管消息被如何转发。
-原理
-spring cloud bus整合 java的事件处理机制和消息中间件消息的发送和接受，主要由发送端
+					JDK 1.4中引入java.nio，全称java non-blocking IO，为所有的原始类型（boolean类型除外）提供缓存支持的数据容器，使用它可以提供非阻塞式的高伸缩性网络。
+原来的 I/O 以流的方式处理数据，而 NIO 以块的方式处理数据。
+1  核心概念
+1.1 通道
+通道Cha
 					...
 				</div>
-				<p class="index-date">2019-12-21</p>
 			</a>
+                <div>
+				    <span class="index-date">2019-12-18</span>
+                    
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/">00 Java</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/00-Java基础/">00 Java基础</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/00-Java基础/09-IO/">09 IO</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
 		</div>	
 	
 		<div class="index-li">
-			<a href="/2019/12/18/03%20%E5%BE%AE%E6%9C%8D%E5%8A%A1/3%20API%E7%BD%91%E5%85%B3/02%20Spring%20Cloud%20Gateway/">
+			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/09%20IO/7%20%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">
 				<h2 class="index-title">
-					02 Spring Cloud Gateway
+					7 正则表达式
 				</h2>
 				<div class="index-brief">
-					【todo】
+					语法
+在使用正则表达式的各种程序和类库之间，表达式语法并未完全标准化。
+字符
 
+字符类是一个括在括号中的可选择的字符集，例如，[Jj]、[0-9]、[A-Za-z]或1。这里“-”表示是一个范围，而 ^ 表示补集。
+如果字符类中包含-，必须第一项或最后一项；如果包含[，必须第一项；包含^，不能开始位
 					...
 				</div>
-				<p class="index-date">2019-12-21</p>
 			</a>
+                <div>
+				    <span class="index-date">2019-12-18</span>
+                    
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/">00 Java</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/00-Java基础/">00 Java基础</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/00-Java基础/09-IO/">09 IO</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
 		</div>	
 	
 </div>

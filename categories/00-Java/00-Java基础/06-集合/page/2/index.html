@@ -9,7 +9,7 @@
 	
 	<title>
 	 
-	吴俊博客
+	吴俊的博客
 	</title>
 	
 	<!-- keywords,description -->
@@ -38,12 +38,9 @@
 
 <body>
 	<header id="header">
-    <a id="title" href="/" class="logo">吴俊博客</a>
+    <a id="title" href="/" class="logo">吴俊的博客</a>
 
 	<ul id="menu">
-		<li class="menu-item">
-			<a href="/" class="menu-item-link">HOME</a>
-		</li>
 		<li class="menu-item">
 			<a href="/about" class="menu-item-link">ABOUT</a>
 		</li>
@@ -4391,132 +4388,218 @@
 		<div id="index-list">
 	
 		<div class="index-li">
-			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/06%20%E9%9B%86%E5%90%88/2.3%20ArrayDeque/">
+			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/06%20%E9%9B%86%E5%90%88/2.9%20concurrenthashmap/">
 				<h2 class="index-title">
-					2.3 ArrayDeque
+					2.9 concurrenthashmap
 				</h2>
 				<div class="index-brief">
-					前言
-栈Stack已过时，队列LinkedList效率不高，栈和队列首选ArrayDeque。
+					JDK1.5起，java.util.concurrent包
+JDK1.7
 总体介绍
-
-Deque接口
-ArrayDeque实现了Deque接口，Deque继承Queue实现了Stack相关方法。
-Deque的含义是“double ended queue”，即双端队列。既可当栈使
+ConcurrentHashMap采用了分段锁技术，效率较Hashtable高，不允许空值null。
+ConcurrentHashMap是 Segment 数组。Segment 继承于ReentrantLock，可以
 					...
 				</div>
-				<p class="index-date">2019-12-21</p>
 			</a>
+                <div>
+				    <span class="index-date">2019-12-18</span>
+                    
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/">00 Java</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/00-Java基础/">00 Java基础</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/00-Java基础/06-集合/">06 集合</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
 		</div>	
 	
 		<div class="index-li">
-			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/06%20%E9%9B%86%E5%90%88/2.2%20LinkedList/">
+			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/06%20%E9%9B%86%E5%90%88/2.9%20ConcurrentSkipListMap/">
 				<h2 class="index-title">
-					2.2 LinkedList
+					2.9 ConcurrentSkipListMap
 				</h2>
 				<div class="index-brief">
-					前言
-现在栈或者队列的首选是ArrayDeque。
-总体介绍
+					
 
-LinkedList同时实现了List接口和Deque接口，允许null元素。
-
-LinkedList底层通过双向链表实现。节点用内部类Node表示,通过 first 和 last 引用分别指向链表的第一个和最后一个元素。链表为空时 f
 					...
 				</div>
-				<p class="index-date">2019-12-21</p>
 			</a>
+                <div>
+				    <span class="index-date">2019-12-18</span>
+                    
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/">00 Java</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/00-Java基础/">00 Java基础</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/00-Java基础/06-集合/">06 集合</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
 		</div>	
 	
 		<div class="index-li">
-			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/06%20%E9%9B%86%E5%90%88/2.1%20ArrayList%E3%80%81Vector/">
+			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/06%20%E9%9B%86%E5%90%88/3%20%E6%98%A0%E5%B0%84/">
 				<h2 class="index-title">
-					2.1 ArrayList、Vector
+					3 映射
 				</h2>
 				<div class="index-brief">
-					前言
-ArrayList除未实现同步外，跟Vector大致相同。同步效率低，在不需要同步的时候使用ArrayList。
-ArrayList
-
-总体介绍
-ArrayList 实现了 List、RandomAccess 接口。是顺序容器，允许 null 元素，支持随机访问。
-ArrayList 底层通过
+					映射(map) 用来存放键 / 值对。如
+果提供了键， 就能够查找到值。
+1　基本映射操作
+Java 类库为映射提供了两个通用的实现： HashMap 和 TreeMap 。这两个类都实现了 Map 接口。
+散列映射对键进行散列， 树映射用键的整体顺序对元素进行排序， 并将其组织成搜索树。
+键必须是
 					...
 				</div>
-				<p class="index-date">2019-12-21</p>
 			</a>
+                <div>
+				    <span class="index-date">2019-12-18</span>
+                    
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/">00 Java</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/00-Java基础/">00 Java基础</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/00-Java基础/06-集合/">06 集合</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
 		</div>	
 	
 		<div class="index-li">
-			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/06%20%E9%9B%86%E5%90%88/2.0%20%E5%85%B7%E4%BD%93%E7%9A%84%E9%9B%86%E5%90%88/">
+			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/06%20%E9%9B%86%E5%90%88/5%20%E7%AE%97%E6%B3%95/">
 				<h2 class="index-title">
-					2.0 具体的集合
+					5 算法
 				</h2>
 				<div class="index-brief">
-					Java库中的具体集合
-
-
-
-集合类型
-同步
-可null
-有序
-描述
-
-
-
-
-ArrayList
-否
-是
-是
-动态增缩的索引序列
-
-
-Vector
-是
-是
-是
-过时，同步的ArrayList
-
-
-LinkedList
-否
-是
-是
-高效插删的有序序列
-
-
-ArrayDeque
-否
-否
-是
-循环数组实现
+					泛型集合接口有一个很大的优点，即算法只需要实现一次。
+1 排序与混排
+排序
+Collections.sort()
+底层使用了数组的归并排序。即先转化集合为数组，排好序以后在复制回以前的集合。
+归并排序相较于快速排序，速度慢，但是稳定，它不需要交换相同的元素。
+排序传递的列表必须是可修改的，不必要是可
 					...
 				</div>
-				<p class="index-date">2019-12-21</p>
 			</a>
+                <div>
+				    <span class="index-date">2019-12-18</span>
+                    
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/">00 Java</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/00-Java基础/">00 Java基础</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/00-Java基础/06-集合/">06 集合</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
 		</div>	
 	
 		<div class="index-li">
-			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/06%20%E9%9B%86%E5%90%88/1%20%E9%9B%86%E5%90%88%E6%8E%A5%E5%8F%A3/">
+			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/06%20%E9%9B%86%E5%90%88/6%20%E9%81%97%E7%95%99%E7%9A%84%E9%9B%86%E5%90%88/">
 				<h2 class="index-title">
-					1 集合接口
+					6 遗留的集合
 				</h2>
 				<div class="index-brief">
-					框架，是一个类的集。
-容器，是可以容纳其他Java对象的对象。
-JDK 1.2开始，Java集合框架(JCF)提供了通用的容器。
-JDK 1.5开始，集合类是带有类型参数的泛型类。
-Java容器里只能放对象，基本类型会自动装箱。
-集合中也是值传递。
-1 接口与实现
-接口
-为了规范容器的行为，统一设计
+					1 Hashtable
+与HashMap的作用是一样的，但是Hashtable是线程同步的。
+如果同步性没有要求，应该尽量使用HashMap。
+2 枚举
+遗留集合使用Enumeration接口对元素序列进行遍历。 Enumeration接口有两个方法，即hasMoreElements和nextEle
 					...
 				</div>
-				<p class="index-date">2019-12-21</p>
 			</a>
+                <div>
+				    <span class="index-date">2019-12-18</span>
+                    
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/">00 Java</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/00-Java基础/">00 Java基础</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/00-Java基础/06-集合/">06 集合</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
 		</div>	
 	
 </div>

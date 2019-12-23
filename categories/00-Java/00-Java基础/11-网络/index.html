@@ -9,7 +9,7 @@
 	
 	<title>
 	 
-	吴俊博客
+	吴俊的博客
 	</title>
 	
 	<!-- keywords,description -->
@@ -38,12 +38,9 @@
 
 <body>
 	<header id="header">
-    <a id="title" href="/" class="logo">吴俊博客</a>
+    <a id="title" href="/" class="logo">吴俊的博客</a>
 
 	<ul id="menu">
-		<li class="menu-item">
-			<a href="/" class="menu-item-link">HOME</a>
-		</li>
 		<li class="menu-item">
 			<a href="/about" class="menu-item-link">ABOUT</a>
 		</li>
@@ -4391,39 +4388,48 @@
 		<div id="index-list">
 	
 		<div class="index-li">
-			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/11%20%E7%BD%91%E7%BB%9C/4%20%E5%8F%91%E9%80%81E-mail/">
+			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/11%20%E7%BD%91%E7%BB%9C/1%20%E8%BF%9E%E6%8E%A5%E5%88%B0%E6%9C%8D%E5%8A%A1%E5%99%A8/">
 				<h2 class="index-title">
-					4 发送E-mail
+					1 连接到服务器
 				</h2>
 				<div class="index-brief">
-					原始
-过去发邮件到SMTP专用的25端口很简单，因为没有安全校验
-//打开到主机的套接字
-Socket s = new Socket(&quot;mail.server.com&quot;,25);
-PrintWriter out = new PrintWriter(s.getOutputStrea
+					1 使用telnet
+telnet是用于网络编程的强大调试工具，可远程连接和服务通信。windows的telnet需要单独激活
+telnet time-a.nist.gov 13
+
+获取标准时间
+2 用Java连接到服务器
+套接字作用与telnet相同，java.net包提供的接口与io包基本相同。
 					...
 				</div>
-				<p class="index-date">2019-12-21</p>
 			</a>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/11%20%E7%BD%91%E7%BB%9C/3%20%E8%8E%B7%E5%8F%96Web%E6%95%B0%E6%8D%AE/">
-				<h2 class="index-title">
-					3 获取Web数据
-				</h2>
-				<div class="index-brief">
-					Java库支持更高级别处理，而不只是创建套接字连接发送HTTP请求。
-Java库与网页交互并不是特别方便，可以考虑使用其他库，如HttpClient、Feign、RestTemple
-1 URL和URI
-1.1 URL
-URL和URLConnection封装了大量实现细节。
-创建URL
-URL ur
-					...
-				</div>
-				<p class="index-date">2019-12-21</p>
-			</a>
+                <div>
+				    <span class="index-date">2019-12-18</span>
+                    
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/">00 Java</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/00-Java基础/">00 Java基础</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/00-Java基础/11-网络/">11 网络</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
 		</div>	
 	
 		<div class="index-li">
@@ -4443,27 +4449,122 @@ Socket incoming = s.accept();
 InputStre
 					...
 				</div>
-				<p class="index-date">2019-12-21</p>
 			</a>
+                <div>
+				    <span class="index-date">2019-12-18</span>
+                    
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/">00 Java</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/00-Java基础/">00 Java基础</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/00-Java基础/11-网络/">11 网络</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
 		</div>	
 	
 		<div class="index-li">
-			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/11%20%E7%BD%91%E7%BB%9C/1%20%E8%BF%9E%E6%8E%A5%E5%88%B0%E6%9C%8D%E5%8A%A1%E5%99%A8/">
+			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/11%20%E7%BD%91%E7%BB%9C/3%20%E8%8E%B7%E5%8F%96Web%E6%95%B0%E6%8D%AE/">
 				<h2 class="index-title">
-					1 连接到服务器
+					3 获取Web数据
 				</h2>
 				<div class="index-brief">
-					1 使用telnet
-telnet是用于网络编程的强大调试工具，可远程连接和服务通信。windows的telnet需要单独激活
-telnet time-a.nist.gov 13
-
-获取标准时间
-2 用Java连接到服务器
-套接字作用与telnet相同，java.net包提供的接口与io包基本相同。
+					Java库支持更高级别处理，而不只是创建套接字连接发送HTTP请求。
+Java库与网页交互并不是特别方便，可以考虑使用其他库，如HttpClient、Feign、RestTemple
+1 URL和URI
+1.1 URL
+URL和URLConnection封装了大量实现细节。
+创建URL
+URL ur
 					...
 				</div>
-				<p class="index-date">2019-12-21</p>
 			</a>
+                <div>
+				    <span class="index-date">2019-12-18</span>
+                    
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/">00 Java</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/00-Java基础/">00 Java基础</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/00-Java基础/11-网络/">11 网络</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/11%20%E7%BD%91%E7%BB%9C/4%20%E5%8F%91%E9%80%81E-mail/">
+				<h2 class="index-title">
+					4 发送E-mail
+				</h2>
+				<div class="index-brief">
+					原始
+过去发邮件到SMTP专用的25端口很简单，因为没有安全校验
+//打开到主机的套接字
+Socket s = new Socket(&quot;mail.server.com&quot;,25);
+PrintWriter out = new PrintWriter(s.getOutputStrea
+					...
+				</div>
+			</a>
+                <div>
+				    <span class="index-date">2019-12-18</span>
+                    
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/">00 Java</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/00-Java基础/">00 Java基础</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/00-Java基础/11-网络/">11 网络</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
 		</div>	
 	
 </div>

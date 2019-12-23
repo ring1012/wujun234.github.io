@@ -9,7 +9,7 @@
 	
 	<title>
 	 
-	吴俊博客
+	吴俊的博客
 	</title>
 	
 	<!-- keywords,description -->
@@ -38,12 +38,9 @@
 
 <body>
 	<header id="header">
-    <a id="title" href="/" class="logo">吴俊博客</a>
+    <a id="title" href="/" class="logo">吴俊的博客</a>
 
 	<ul id="menu">
-		<li class="menu-item">
-			<a href="/" class="menu-item-link">HOME</a>
-		</li>
 		<li class="menu-item">
 			<a href="/about" class="menu-item-link">ABOUT</a>
 		</li>
@@ -4391,187 +4388,376 @@
 		<div id="index-list">
 	
 		<div class="index-li">
-			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/13%20%E6%97%A5%E6%9C%9F%E5%92%8C%E6%97%B6%E9%97%B4API/3%20%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%92%8C%E8%A7%A3%E6%9E%90/">
+			<a href="/2019/12/18/03%20%E5%BE%AE%E6%9C%8D%E5%8A%A1/0%20%E6%9C%8D%E5%8A%A1%E6%B3%A8%E5%86%8C%E4%B8%8E%E5%8F%91%E7%8E%B0/02%20Spring%20Cloud%20Consul/">
 				<h2 class="index-title">
-					3 格式化和解析
+					02 Spring Cloud Consul
 				</h2>
 				<div class="index-brief">
-					DateTimeFormatter类提供了三种打印日期/时间值的格式器
+					Spring Cloud Consul是针对Consul的服务治理实现，提供服务发现和服务配置。包含了下面几个特性：
 
-预定义格式器
-Locale相关格式器
-定制的格式器
+服务发现
+健康检查
+Key/Value存储
+多数据中心
 
-预定义格式器
-String formatted = DateTimeFormatter.ISO_OFFSET_DATE_TIME.format(apollo11launch
+Consul自身提供了服务端，不需要创建服务注册中心，通过命令“$consul agent -dev”启动consul服务
 					...
 				</div>
-				<p class="index-date">2019-12-21</p>
 			</a>
+                <div>
+				    <span class="index-date">2019-12-18</span>
+                    
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/03-微服务/">03 微服务</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/03-微服务/0-服务注册与发现/">0 服务注册与发现</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
 		</div>	
 	
 		<div class="index-li">
-			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/13%20%E6%97%A5%E6%9C%9F%E5%92%8C%E6%97%B6%E9%97%B4API/2%20%E4%BA%BA%E7%B1%BB%E6%97%B6%E9%97%B4/">
+			<a href="/2019/12/18/03%20%E5%BE%AE%E6%9C%8D%E5%8A%A1/Dubbo/00%20%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3/">
 				<h2 class="index-title">
-					2 人类时间
-				</h2>
-				<div class="index-brief">
-					Java API 中有两种人类时间，本地日期/时间和时区时间。本地日期/时间无时区，而时区常常造成困扰，除非确实想要表示绝对时间的实例，最好都使用本地日期/时间。
-本地日期/时间
-1. LocaleDate
-LocaleDate是带有年、月、日的日期
-1.1 构造
-LocalDate today =
-					...
-				</div>
-				<p class="index-date">2019-12-21</p>
-			</a>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/13%20%E6%97%A5%E6%9C%9F%E5%92%8C%E6%97%B6%E9%97%B4API/1%20%E7%BB%9D%E5%AF%B9%E6%97%B6%E9%97%B4/">
-				<h2 class="index-title">
-					1 绝对时间
-				</h2>
-				<div class="index-brief">
-					Java 8新的Date-Time API 吸取了Joda-Time的精髓，所有类不可修改。
-新的java.time包涵盖了所有处理日期，时间，日期/时间，时区，时刻（instants），过程（during）与时钟（clock）的操作。替换Calendar和Date类。
-Java的Date和Time
-					...
-				</div>
-				<p class="index-date">2019-12-21</p>
-			</a>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/12%20JDBC/4%20JDBC%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/">
-				<h2 class="index-title">
-					4 JDBC最佳实践
+					00 官方文档
 				</h2>
 				<div class="index-brief">
 					
-数据库资源是非常昂贵的，用完了应该尽快关闭它。Connection, Statement, ResultSet等JDBC对象都有close方法，调用它就好了。
-养成在代码中显式关闭掉ResultSet，Statement，Connection的习惯，如果你用的是连接池的话，连接用完后会放回池里，但
+Apache文档
+第一个 Dubbo 应用
+
+
 					...
 				</div>
-				<p class="index-date">2019-12-21</p>
 			</a>
+                <div>
+				    <span class="index-date">2019-12-18</span>
+                    
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/03-微服务/">03 微服务</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/03-微服务/Dubbo/">Dubbo</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
 		</div>	
 	
 		<div class="index-li">
-			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/12%20JDBC/3%20javax.sql%E5%8C%85%E7%AE%80/">
+			<a href="/2019/12/18/03%20%E5%BE%AE%E6%9C%8D%E5%8A%A1/Service%20Mesh/00%20%E7%9B%B8%E5%85%B3%E8%B5%84%E6%96%99/">
 				<h2 class="index-title">
-					3 javax.sql包简
+					00 相关资料
 				</h2>
 				<div class="index-brief">
-					补充java.sql包，提供Java服务器端数据源访问和处理的API。
-javax.sql包提供了以下内容：
+					【todo】
+概念好文
 
-DataSource接口，DriverManager的替代品，用于与数据源建立连接
-连接池和语句池
-分布式事务
-Rowsets
+浅谈Service Mesh体系中的Envoy
+Service Mesh解读：新一代微服务技术新秀
+Service Mesh：下一代微服务
 
-应用程序可直接使用的 API是DataSource和Row
+实战好文
+Istio Service Mesh 教程
+文档
+
+istio中文文档
+conduit中文文档
+linkerd中文文档
+
+
 					...
 				</div>
-				<p class="index-date">2019-12-21</p>
 			</a>
+                <div>
+				    <span class="index-date">2019-12-18</span>
+                    
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/03-微服务/">03 微服务</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/03-微服务/Service-Mesh/">Service Mesh</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
 		</div>	
 	
 		<div class="index-li">
-			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/12%20JDBC/2%20java.sql%E5%8C%85%E7%AE%80%E4%BB%8B/">
+			<a href="/2019/12/18/03%20%E5%BE%AE%E6%9C%8D%E5%8A%A1/5%20%E9%93%BE%E8%B7%AF%E8%BF%BD%E8%B8%AA/02%20CAT/">
 				<h2 class="index-title">
-					2 java.sql包简介
+					02 CAT
 				</h2>
 				<div class="index-brief">
-					常用接口与类
-常用接口与类主要有DriverManager、Connection、Statement和ResultSet。
-DriverManager
-注册数据库驱动，创建数据库连接。Driver由数据库厂家提供。
-注册驱动：
+					【todo】
 
-通过API注册驱动,但Driver会new两次
-
-DriverMana
 					...
 				</div>
-				<p class="index-date">2019-12-21</p>
 			</a>
+                <div>
+				    <span class="index-date">2019-12-18</span>
+                    
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/03-微服务/">03 微服务</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/03-微服务/5-链路追踪/">5 链路追踪</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
 		</div>	
 	
 		<div class="index-li">
-			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/12%20JDBC/1%20JDBC%E7%AE%80%E4%BB%8B/">
+			<a href="/2019/12/18/03%20%E5%BE%AE%E6%9C%8D%E5%8A%A1/5%20%E9%93%BE%E8%B7%AF%E8%BF%BD%E8%B8%AA/01%20Spring%20Cloud%20Sleuth/">
 				<h2 class="index-title">
-					1 JDBC简介
+					01 Spring Cloud Sleuth
 				</h2>
 				<div class="index-brief">
-					一、JDBC 简介
-Java数据库连接（JDBC）API提供了来自Java的通用数据访问。   该API包含一个框架，可以动态安装不同的驱动程序来访问不同的数据源。JDBC API 允许用户访问任何形式的表格数据，尤其是存储在关系数据库中的数据。
-JDBC API由两个包组成：
+					Spring Cloud Sleuth分布式服务跟踪
+快速入门
 
-java.sql：
+pom依赖
+
+&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-c
 					...
 				</div>
-				<p class="index-date">2019-12-21</p>
 			</a>
+                <div>
+				    <span class="index-date">2019-12-18</span>
+                    
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/03-微服务/">03 微服务</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/03-微服务/5-链路追踪/">5 链路追踪</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
 		</div>	
 	
 		<div class="index-li">
-			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/11%20%E7%BD%91%E7%BB%9C/4%20%E5%8F%91%E9%80%81E-mail/">
+			<a href="/2019/12/18/03%20%E5%BE%AE%E6%9C%8D%E5%8A%A1/4%20%E6%B6%88%E6%81%AF%E7%BB%84%E4%BB%B6/01%20Spring%20Cloud%20Bus/">
 				<h2 class="index-title">
-					4 发送E-mail
+					01 Spring Cloud Bus
 				</h2>
 				<div class="index-brief">
-					原始
-过去发邮件到SMTP专用的25端口很简单，因为没有安全校验
-//打开到主机的套接字
-Socket s = new Socket(&quot;mail.server.com&quot;,25);
-PrintWriter out = new PrintWriter(s.getOutputStrea
+					消息总线是一种通信工具，可以在机器之间互相传输消息、文件等。消息总线扮演着一种消息路由的角色，拥有一套完备的路由机制来决定消息传输方向。发送段只需要向消息总线发出消息而不用管消息被如何转发。
+原理
+spring cloud bus整合 java的事件处理机制和消息中间件消息的发送和接受，主要由发送端
 					...
 				</div>
-				<p class="index-date">2019-12-21</p>
 			</a>
+                <div>
+				    <span class="index-date">2019-12-18</span>
+                    
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/03-微服务/">03 微服务</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/03-微服务/4-消息组件/">4 消息组件</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
 		</div>	
 	
 		<div class="index-li">
-			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/11%20%E7%BD%91%E7%BB%9C/3%20%E8%8E%B7%E5%8F%96Web%E6%95%B0%E6%8D%AE/">
+			<a href="/2019/12/18/03%20%E5%BE%AE%E6%9C%8D%E5%8A%A1/4%20%E6%B6%88%E6%81%AF%E7%BB%84%E4%BB%B6/02%20Spring%20Cloud%20Stream/">
 				<h2 class="index-title">
-					3 获取Web数据
+					02 Spring Cloud Stream
 				</h2>
 				<div class="index-brief">
-					Java库支持更高级别处理，而不只是创建套接字连接发送HTTP请求。
-Java库与网页交互并不是特别方便，可以考虑使用其他库，如HttpClient、Feign、RestTemple
-1 URL和URI
-1.1 URL
-URL和URLConnection封装了大量实现细节。
-创建URL
-URL ur
+					Spring Cloud Stream整合了Spring Boot和Spring Integration，实现了一套轻量级的消息驱动的微服务框架。目前为止只支持RabbitMQ和Kafka的自动化配置。
+快速入门
+以RabbitMQ为例
+
+引入依赖
+
+    &lt;dependency&gt;
+ 
 					...
 				</div>
-				<p class="index-date">2019-12-21</p>
 			</a>
+                <div>
+				    <span class="index-date">2019-12-18</span>
+                    
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/03-微服务/">03 微服务</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/03-微服务/4-消息组件/">4 消息组件</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
 		</div>	
 	
 		<div class="index-li">
-			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/11%20%E7%BD%91%E7%BB%9C/2%20%E5%AE%9E%E7%8E%B0%E6%9C%8D%E5%8A%A1%E5%99%A8/">
+			<a href="/2019/12/18/03%20%E5%BE%AE%E6%9C%8D%E5%8A%A1/3%20API%E7%BD%91%E5%85%B3/01%20Spring%20Cloud%20Zuul/">
 				<h2 class="index-title">
-					2 实现服务器
+					01 Spring Cloud Zuul
 				</h2>
 				<div class="index-brief">
-					1 服务器套接字
-ServerSocket类用于建立套接字
-ServerSocket s = new ServerSocket(8189);
+					Spring Cloud Zuul是提供负载均衡、反向代理、权限认证的一个API gateway。
+简单路由
 
-不停等待，直到建立连接
-Socket incoming = s.accept();
+添加依赖
+引入 spring-cloud-starter-zuul 包
 
-输入流来自客户端，发送给输出流的会变为客户端的输入
-InputStre
+&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework
 					...
 				</div>
-				<p class="index-date">2019-12-21</p>
 			</a>
+                <div>
+				    <span class="index-date">2019-12-18</span>
+                    
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/03-微服务/">03 微服务</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/03-微服务/3-API网关/">3 API网关</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2019/12/18/03%20%E5%BE%AE%E6%9C%8D%E5%8A%A1/3%20API%E7%BD%91%E5%85%B3/02%20Spring%20Cloud%20Gateway/">
+				<h2 class="index-title">
+					02 Spring Cloud Gateway
+				</h2>
+				<div class="index-brief">
+					【todo】
+
+					...
+				</div>
+			</a>
+                <div>
+				    <span class="index-date">2019-12-18</span>
+                    
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/03-微服务/">03 微服务</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/03-微服务/3-API网关/">3 API网关</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2019/12/18/03%20%E5%BE%AE%E6%9C%8D%E5%8A%A1/2%20%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83/01%20Spring%20Cloud%20Config/">
+				<h2 class="index-title">
+					01 Spring Cloud Config
+				</h2>
+				<div class="index-brief">
+					Spring Cloud Config老版采用git或svn存储配置文件，默认情况下使用git。从Edgware版本开始新增的一种配置方式：采用数据库存储配置信息。
+结构与原理
+Spring Cloud Config分服务端和客户端，服务端负责将git（svn）中存储的配置文件发布成REST接口，客
+					...
+				</div>
+			</a>
+                <div>
+				    <span class="index-date">2019-12-18</span>
+                    
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/03-微服务/">03 微服务</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/03-微服务/2-配置中心/">2 配置中心</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
 		</div>	
 	
 </div>

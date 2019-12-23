@@ -9,7 +9,7 @@
 	
 	<title>
 	 
-	吴俊博客
+	吴俊的博客
 	</title>
 	
 	<!-- keywords,description -->
@@ -38,12 +38,9 @@
 
 <body>
 	<header id="header">
-    <a id="title" href="/" class="logo">吴俊博客</a>
+    <a id="title" href="/" class="logo">吴俊的博客</a>
 
 	<ul id="menu">
-		<li class="menu-item">
-			<a href="/" class="menu-item-link">HOME</a>
-		</li>
 		<li class="menu-item">
 			<a href="/about" class="menu-item-link">ABOUT</a>
 		</li>
@@ -4391,30 +4388,37 @@
 		<div id="index-list">
 	
 		<div class="index-li">
-			<a href="/2019/12/18/00%20Java/02%20Effective%20Java/1%20%E5%88%9B%E5%BB%BA%E5%92%8C%E9%94%80%E6%AF%81%E5%AF%B9%E8%B1%A1%EF%BC%881-9%EF%BC%89/">
+			<a href="/2019/12/18/00%20Java/02%20Effective%20Java/9%20%E5%BC%82%E5%B8%B8%EF%BC%8869-77%EF%BC%89/">
 				<h2 class="index-title">
-					1 创建和销毁对象（1-9）
+					9 异常（69-77）
 				</h2>
 				<div class="index-brief">
-					第1条：考虑用静态工厂方法代替构造器
-工厂方法优势：
-
-有名称，更易读
-可选，不必每次创建新对象
-可以返回子类型
-创建参数化类型实例时，更简洁
-可以返回非公有类
-
-工厂方法缺点：
-
-类如果不含有他的公有或者受保护的构造器，就不能被子类化。
-与其他静态方法没区别，不易识别
-
-常用的静态工厂名称：val
+					第69条：只针对异常的情况才使用异常
+如果在try、catch、finally块中都抛出了异常，只是只有一个异常可被传播到外界。
+请不要在try块中发出对return、break或continue的调用，万一无法避免，一定要确保finally的存在不会改变函数的返回值（比如说抛异常啊、return啊
 					...
 				</div>
-				<p class="index-date">2019-12-21</p>
 			</a>
+                <div>
+				    <span class="index-date">2019-12-18</span>
+                    
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/">00 Java</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/02-Effective-Java/">02 Effective Java</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
 		</div>	
 	
 </div>

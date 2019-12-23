@@ -9,7 +9,7 @@
 	
 	<title>
 	 
-	吴俊博客
+	吴俊的博客
 	</title>
 	
 	<!-- keywords,description -->
@@ -38,12 +38,9 @@
 
 <body>
 	<header id="header">
-    <a id="title" href="/" class="logo">吴俊博客</a>
+    <a id="title" href="/" class="logo">吴俊的博客</a>
 
 	<ul id="menu">
-		<li class="menu-item">
-			<a href="/" class="menu-item-link">HOME</a>
-		</li>
 		<li class="menu-item">
 			<a href="/about" class="menu-item-link">ABOUT</a>
 		</li>
@@ -4391,26 +4388,100 @@
 		<div id="index-list">
 	
 		<div class="index-li">
-			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/04%20%E5%BC%82%E5%B8%B8%E3%80%81%E6%96%AD%E8%A8%80%E5%92%8C%E6%97%A5%E5%BF%97/4%20%E8%AE%B0%E5%BD%95%E6%97%A5%E5%BF%97/">
+			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/04%20%E5%BC%82%E5%B8%B8%E3%80%81%E6%96%AD%E8%A8%80%E5%92%8C%E6%97%A5%E5%BF%97/1%20%E5%A4%84%E7%90%86%E5%BC%82%E5%B8%B8/">
 				<h2 class="index-title">
-					4 记录日志
+					1 处理异常
 				</h2>
 				<div class="index-brief">
-					java.util.logging.Logger
-1 日志记录器
+					1 异常分类
+graph LR
+Throwable--&gt;Error
+Throwable--&gt;Exception
+Exception--&gt;RuntimeException
+Exception--&gt;除了RuntimeException的其它异常 
 
-全局日志记录器：Logger.getGlobal()
-
-Logger.getGlobal().info(&quot;&quot;);
-
-
-自定义日志记录器：Logger.getLogger()
-
-Logger myLogger= L
+异常对象都继承自Throwab
 					...
 				</div>
-				<p class="index-date">2019-12-21</p>
 			</a>
+                <div>
+				    <span class="index-date">2019-12-18</span>
+                    
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/">00 Java</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/00-Java基础/">00 Java基础</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/00-Java基础/04-异常、断言和日志/">04 异常、断言和日志</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/04%20%E5%BC%82%E5%B8%B8%E3%80%81%E6%96%AD%E8%A8%80%E5%92%8C%E6%97%A5%E5%BF%97/2%20%E6%8D%95%E8%8E%B7%E5%BC%82%E5%B8%B8/">
+				<h2 class="index-title">
+					2 捕获异常
+				</h2>
+				<div class="index-brief">
+					
+如果异常没有被捕获，程序将会停止运行
+try/catch 捕获异常
+如不捕获异常，可 throws 声明异常，将异常传递给调用者
+子类覆盖超类的方法中，只能 throws 超类方法的异常，其他只能自己捕获处理
+
+1 捕获多个异常
+
+基本语句
+
+try{
+}
+catch (FileNotFoundE
+					...
+				</div>
+			</a>
+                <div>
+				    <span class="index-date">2019-12-18</span>
+                    
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/">00 Java</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/00-Java基础/">00 Java基础</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/00-Java基础/04-异常、断言和日志/">04 异常、断言和日志</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
 		</div>	
 	
 		<div class="index-li">
@@ -4435,53 +4506,83 @@ assert x &gt;= 0 : x;
 对条件进行检测，如果为false，则抛出一个AssertionE
 					...
 				</div>
-				<p class="index-date">2019-12-21</p>
 			</a>
+                <div>
+				    <span class="index-date">2019-12-18</span>
+                    
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/">00 Java</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/00-Java基础/">00 Java基础</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/00-Java基础/04-异常、断言和日志/">04 异常、断言和日志</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
 		</div>	
 	
 		<div class="index-li">
-			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/04%20%E5%BC%82%E5%B8%B8%E3%80%81%E6%96%AD%E8%A8%80%E5%92%8C%E6%97%A5%E5%BF%97/2%20%E6%8D%95%E8%8E%B7%E5%BC%82%E5%B8%B8/">
+			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/04%20%E5%BC%82%E5%B8%B8%E3%80%81%E6%96%AD%E8%A8%80%E5%92%8C%E6%97%A5%E5%BF%97/4%20%E8%AE%B0%E5%BD%95%E6%97%A5%E5%BF%97/">
 				<h2 class="index-title">
-					2 捕获异常
+					4 记录日志
 				</h2>
 				<div class="index-brief">
-					
-如果异常没有被捕获，程序将会停止运行
-try/catch 捕获异常
-如不捕获异常，可 throws 声明异常，将异常传递给调用者
-子类覆盖超类的方法中，只能 throws 超类方法的异常，其他只能自己捕获处理
+					java.util.logging.Logger
+1 日志记录器
 
-1 捕获多个异常
+全局日志记录器：Logger.getGlobal()
 
-基本语句
+Logger.getGlobal().info(&quot;&quot;);
 
-try{
-}
-catch (FileNotFoundE
+
+自定义日志记录器：Logger.getLogger()
+
+Logger myLogger= L
 					...
 				</div>
-				<p class="index-date">2019-12-21</p>
 			</a>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/04%20%E5%BC%82%E5%B8%B8%E3%80%81%E6%96%AD%E8%A8%80%E5%92%8C%E6%97%A5%E5%BF%97/1%20%E5%A4%84%E7%90%86%E5%BC%82%E5%B8%B8/">
-				<h2 class="index-title">
-					1 处理异常
-				</h2>
-				<div class="index-brief">
-					1 异常分类
-graph LR
-Throwable--&gt;Error
-Throwable--&gt;Exception
-Exception--&gt;RuntimeException
-Exception--&gt;除了RuntimeException的其它异常 
-
-异常对象都继承自Throwab
-					...
-				</div>
-				<p class="index-date">2019-12-21</p>
-			</a>
+                <div>
+				    <span class="index-date">2019-12-18</span>
+                    
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/">00 Java</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/00-Java基础/">00 Java基础</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/00-Java基础/04-异常、断言和日志/">04 异常、断言和日志</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
 		</div>	
 	
 </div>

@@ -9,7 +9,7 @@
 	
 	<title>
 	 
-	吴俊博客
+	吴俊的博客
 	</title>
 	
 	<!-- keywords,description -->
@@ -38,12 +38,9 @@
 
 <body>
 	<header id="header">
-    <a id="title" href="/" class="logo">吴俊博客</a>
+    <a id="title" href="/" class="logo">吴俊的博客</a>
 
 	<ul id="menu">
-		<li class="menu-item">
-			<a href="/" class="menu-item-link">HOME</a>
-		</li>
 		<li class="menu-item">
 			<a href="/about" class="menu-item-link">ABOUT</a>
 		</li>
@@ -4391,39 +4388,78 @@
 		<div id="index-list">
 	
 		<div class="index-li">
-			<a href="/2019/12/18/01%20Spring/03%20AOP/1%20AOP%E7%AE%80%E4%BB%8B/">
+			<a href="/2019/12/18/01%20Spring/03%20AOP/3%20%E5%88%87%E9%9D%A2/">
 				<h2 class="index-title">
-					1 AOP简介
+					3 切面
 				</h2>
 				<div class="index-brief">
-					把通用功能集中模块化到某个特定的类，并规定怎么用，这个类就称为切面（aspects），关注点分离，业务模块清晰。AOP即Aspect Oriented Programming。
-AOP术语
-
-
-通知（Advice）
-切面真正要做的工作称之为通知（advice）。通知负责定义切面的what和when。
+					1 创建切面
+使用@Aspect注解创建切面
+@Aspect
+@Component
+public class LogAspect {
+    @Pointcut(&quot;execution(* cn.xxx..*ServiceImpl.*(..))&quot;)
+    public void 
 					...
 				</div>
-				<p class="index-date">2019-12-21</p>
 			</a>
+                <div>
+				    <span class="index-date">2019-12-18</span>
+                    
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/01-Spring/">01 Spring</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/01-Spring/03-AOP/">03 AOP</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
 		</div>	
 	
 		<div class="index-li">
-			<a href="/2019/12/18/01%20Spring/02%20IoC/3%20%E5%8A%A8%E6%80%81%E6%B3%A8%E5%86%8CBean/">
+			<a href="/2019/12/18/01%20Spring/02%20IoC/1%20%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5/">
 				<h2 class="index-title">
-					3 动态注册Bean
+					1 依赖注入
 				</h2>
 				<div class="index-brief">
-					1 注册接口
-有两种接口可动态注册bean
-
-BeanDefinitionRegistry
-注册Bean定义，使用BeanDefinitionRegistry 接口 registerBeanDefinition() 方法，根据BeanDefinition实例化bean实例
-SingletonBean
+					IoC容器负责装配Bean，即创建应用对象之间协作关系，是依赖注入(Dependency injection)的本质。
+装配方式优先级：自动装配 &gt; Java配置文件 &gt; XML配置文件
+2.1 自动装配
+Spring从两个角度来实现自动装配：
+组件扫描
+Spring自动发现Applic
 					...
 				</div>
-				<p class="index-date">2019-12-21</p>
 			</a>
+                <div>
+				    <span class="index-date">2019-12-18</span>
+                    
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/01-Spring/">01 Spring</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/01-Spring/02-IoC/">02 IoC</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
 		</div>	
 	
 		<div class="index-li">
@@ -4443,60 +4479,64 @@ SingletonBean
 @Profile(&q
 					...
 				</div>
-				<p class="index-date">2019-12-21</p>
 			</a>
+                <div>
+				    <span class="index-date">2019-12-18</span>
+                    
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/01-Spring/">01 Spring</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/01-Spring/02-IoC/">02 IoC</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
 		</div>	
 	
 		<div class="index-li">
-			<a href="/2019/12/18/01%20Spring/02%20IoC/1%20%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5/">
+			<a href="/2019/12/18/01%20Spring/02%20IoC/3%20%E5%8A%A8%E6%80%81%E6%B3%A8%E5%86%8CBean/">
 				<h2 class="index-title">
-					1 依赖注入
+					3 动态注册Bean
 				</h2>
 				<div class="index-brief">
-					IoC容器负责装配Bean，即创建应用对象之间协作关系，是依赖注入(Dependency injection)的本质。
-装配方式优先级：自动装配 &gt; Java配置文件 &gt; XML配置文件
-2.1 自动装配
-Spring从两个角度来实现自动装配：
-组件扫描
-Spring自动发现Applic
-					...
-				</div>
-				<p class="index-date">2019-12-21</p>
-			</a>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/2019/12/18/01%20Spring/01%20Core/3%20%E6%95%B4%E4%BD%93%E6%9E%B6%E6%9E%84/">
-				<h2 class="index-title">
-					3 整体架构
-				</h2>
-				<div class="index-brief">
-					1 Spring模块
-Spring 4.0有20个模块，这些模块依据其所属的功能可以划分为6类不同的功能
+					1 注册接口
+有两种接口可动态注册bean
 
-
-Spring核心容器
-最核心的部分， 见上文。
-除了BeanFactory和ApplicationContext，还提供E-mail、 JNDI访问、 EJB集成和调度等服务。所有的Spri
+BeanDefinitionRegistry
+注册Bean定义，使用BeanDefinitionRegistry 接口 registerBeanDefinition() 方法，根据BeanDefinition实例化bean实例
+SingletonBean
 					...
 				</div>
-				<p class="index-date">2019-12-21</p>
 			</a>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/2019/12/18/01%20Spring/01%20Core/2%20%E6%A1%86%E6%9E%B6%E6%A0%B8%E5%BF%83/">
-				<h2 class="index-title">
-					2 框架核心
-				</h2>
-				<div class="index-brief">
-					1 容器
-容器（container）是Spring框架的核心，它管理着Spring应用中bean的创建、 配置和管理，负责对象的整个生命周期。
-IoC（Inversion of Control，控制反转 ）：因为具有依赖注入（DI）功能，控制权由应用代码中转到了外部容器，控制权的转移，所谓控制反转。
-					...
-				</div>
-				<p class="index-date">2019-12-21</p>
-			</a>
+                <div>
+				    <span class="index-date">2019-12-18</span>
+                    
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/01-Spring/">01 Spring</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/01-Spring/02-IoC/">02 IoC</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
 		</div>	
 	
 		<div class="index-li">
@@ -4519,8 +4559,99 @@ spring基本原理
 解析包里面的所有类，找到所有
 					...
 				</div>
-				<p class="index-date">2019-12-21</p>
 			</a>
+                <div>
+				    <span class="index-date">2019-12-18</span>
+                    
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/01-Spring/">01 Spring</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/01-Spring/01-Core/">01 Core</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2019/12/18/01%20Spring/01%20Core/3%20%E6%95%B4%E4%BD%93%E6%9E%B6%E6%9E%84/">
+				<h2 class="index-title">
+					3 整体架构
+				</h2>
+				<div class="index-brief">
+					1 Spring模块
+Spring 4.0有20个模块，这些模块依据其所属的功能可以划分为6类不同的功能
+
+
+Spring核心容器
+最核心的部分， 见上文。
+除了BeanFactory和ApplicationContext，还提供E-mail、 JNDI访问、 EJB集成和调度等服务。所有的Spri
+					...
+				</div>
+			</a>
+                <div>
+				    <span class="index-date">2019-12-18</span>
+                    
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/01-Spring/">01 Spring</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/01-Spring/01-Core/">01 Core</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2019/12/18/01%20Spring/01%20Core/2%20%E6%A1%86%E6%9E%B6%E6%A0%B8%E5%BF%83/">
+				<h2 class="index-title">
+					2 框架核心
+				</h2>
+				<div class="index-brief">
+					1 容器
+容器（container）是Spring框架的核心，它管理着Spring应用中bean的创建、 配置和管理，负责对象的整个生命周期。
+IoC（Inversion of Control，控制反转 ）：因为具有依赖注入（DI）功能，控制权由应用代码中转到了外部容器，控制权的转移，所谓控制反转。
+					...
+				</div>
+			</a>
+                <div>
+				    <span class="index-date">2019-12-18</span>
+                    
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/01-Spring/">01 Spring</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/01-Spring/01-Core/">01 Core</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
 		</div>	
 	
 </div>

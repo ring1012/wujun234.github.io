@@ -11,7 +11,7 @@
 	
 		2 取消与关闭 | 
 	 
-	吴俊博客
+	吴俊的博客
 	</title>
 	
 	<!-- keywords,description -->
@@ -40,12 +40,9 @@
 
 <body>
 	<header id="header">
-    <a id="title" href="/" class="logo">吴俊博客</a>
+    <a id="title" href="/" class="logo">吴俊的博客</a>
 
 	<ul id="menu">
-		<li class="menu-item">
-			<a href="/" class="menu-item-link">HOME</a>
-		</li>
 		<li class="menu-item">
 			<a href="/about" class="menu-item-link">ABOUT</a>
 		</li>
@@ -4390,15 +4387,38 @@
 
 	<!-- 引入正文 -->
 	<div id="content">
-		<h1 id="post-title">
+		<h1 class="post-title">
 
 		2 取消与关闭
 
 </h1>
-<HR />
 <div>
-	<span id="post-author">Wu Jun</span>
-	<span id="post-date">2019-12-18 01:00:42</span>
+	<span class="index-date">Wu Jun</span>
+	<span class="index-date">2019-12-18 00:40:53</span>
+    
+            
+                
+                    <span class="index-date">
+                        <i class="fa fa-folder" aria-hidden="true"></i>
+                        <a href="/categories/00-Java/">00 Java</a>
+                    </span>
+                
+            
+                
+                    <span class="index-date">
+                        <i class="fa fa-folder" aria-hidden="true"></i>
+                        <a href="/categories/00-Java/03-Java并发/">03 Java并发</a>
+                    </span>
+                
+            
+                
+                    <span class="index-date">
+                        <i class="fa fa-folder" aria-hidden="true"></i>
+                        <a href="/categories/00-Java/03-Java并发/2-结构化并发应用程序/">2 结构化并发应用程序</a>
+                    </span>
+                
+            
+    
 </div>
 
 
@@ -4631,6 +4651,26 @@ class CancellingExecutor extends ThreadPoolExecutor {
 <p>在任务、线程、服务以及应用程序等模块中的生命周期结束问题，可能会增加它们在设计和实现时的复杂性。Java并没有提供某种抢占式的机制来取消操作或者终结线程。相反，它提供了一种协作式的中断机制来实现取消操作，但这要依赖于如何构建取消操作的协议，以及能否始终遵循这些协议。通过使用 FutureTask 和 Executor 框架，可以帮助我们构建可取消的任务和服务。</p>
 
 </div>
+
+    <div class="post-guide">
+        <div class="item left">
+            
+              <a href="/2019/12/18/00%20Java/03%20Java%E5%B9%B6%E5%8F%91/3%20%E6%B4%BB%E8%B7%83%E6%80%A7%E3%80%81%E6%80%A7%E8%83%BD%E4%B8%8E%E6%B5%8B%E8%AF%95/2%20%E6%80%A7%E8%83%BD%E4%B8%8E%E5%8F%AF%E4%BC%B8%E7%BC%A9%E6%80%A7/">
+                  <i class="fa fa-angle-left" aria-hidden="true"></i>
+                  2 性能与可伸缩性
+              </a>
+            
+        </div>
+        <div class="item right">
+            
+              <a href="/2019/12/18/00%20Java/03%20Java%E5%B9%B6%E5%8F%91/2%20%E7%BB%93%E6%9E%84%E5%8C%96%E5%B9%B6%E5%8F%91%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F/1%20%E4%BB%BB%E5%8A%A1%E6%89%A7%E8%A1%8C/">
+                1 任务执行
+                <i class="fa fa-angle-right" aria-hidden="true"></i>
+              </a>
+            
+        </div>
+    </div>
+
 
 	</div>
 	<div id="footer">

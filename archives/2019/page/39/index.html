@@ -9,7 +9,7 @@
 	
 	<title>
 	 
-	吴俊博客
+	吴俊的博客
 	</title>
 	
 	<!-- keywords,description -->
@@ -38,12 +38,9 @@
 
 <body>
 	<header id="header">
-    <a id="title" href="/" class="logo">吴俊博客</a>
+    <a id="title" href="/" class="logo">吴俊的博客</a>
 
 	<ul id="menu">
-		<li class="menu-item">
-			<a href="/" class="menu-item-link">HOME</a>
-		</li>
 		<li class="menu-item">
 			<a href="/about" class="menu-item-link">ABOUT</a>
 		</li>
@@ -4391,138 +4388,223 @@
 		<div id="index-list">
 	
 		<div class="index-li">
-			<a href="/2019/12/18/18%20%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/3%20%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/1%20%E4%BD%BF%E7%94%A8%E7%82%B9%E5%AF%B9%E7%82%B9%E4%BF%A1%E9%81%93%E7%9A%84%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/">
+			<a href="/2019/12/18/09%20%E5%A4%A7%E6%95%B0%E6%8D%AE/3%20MapReduce/">
 				<h2 class="index-title">
-					1 使用点对点信道的数据链路层
+					3 MapReduce
 				</h2>
 				<div class="index-brief">
-					1. 数据链路和帧
-基本概念
+					MapReduce建立在HDFS基础上，为海量的数据提供了一个计算框架。由两个阶段组成：Map和Reduce，用户只需实现map()和reduce()两个函数，即可实现分布式计算。
 
-链路(link)：指从一个结点到相邻结点的一段物理线路，中间没有任何其他的交换结点
-数据链路(data link)：在一条线路上传送数据时，需要必要的通信协议来控制数据的传输，把实现协议的硬件和软件加到链路上，构成了数据链路
-帧(frame)：点对点信道的数据链路层的
+1 架构
+主从结构
+1）JobTracker（主节点）
+只有一个
+
+接收客户提交的计算任务
+任务调度：把计算任务分给
 					...
 				</div>
-				<p class="index-date">2019-12-21</p>
 			</a>
+                <div>
+				    <span class="index-date">2019-12-18</span>
+                    
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/09-大数据/">09 大数据</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
 		</div>	
 	
 		<div class="index-li">
-			<a href="/2019/12/18/18%20%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/2%20%E7%89%A9%E7%90%86%E5%B1%82/%E6%9C%AC%E7%AB%A0%E7%9A%84%E9%87%8D%E8%A6%81%E6%A6%82%E5%BF%B5/">
+			<a href="/2019/12/18/09%20%E5%A4%A7%E6%95%B0%E6%8D%AE/4%20YARN/">
 				<h2 class="index-title">
-					本章的重要概念
+					4 YARN
 				</h2>
 				<div class="index-brief">
-					
-物理层的主要任务就是确定与传输媒体的接口有关的一些特性，如机械特性、电气特性、功能特性和过程特性
-一个数据通信系统可划分为三大部分，即源系统、传输系统和目的系统。源系统包括源点（或源站、信源）和发送器，目的系统包括接收器和终点（或目的站、信宿）
-通信的目的是传送消息，如话音、文字、图像、视频等都是
+					老的MapReduce架构（俗称MapReduce 1）存在的问题:
+
+Job Tracker 存在单点故障。
+Job Tracker 完成太多任务，当MR任务非常多时，造成很大的内存开销。
+Task Tracker端，如果两个大内存消耗的任务一起调度，容易出现OOM，如果只有Map任务或Reduc
 					...
 				</div>
-				<p class="index-date">2019-12-21</p>
 			</a>
+                <div>
+				    <span class="index-date">2019-12-18</span>
+                    
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/09-大数据/">09 大数据</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
 		</div>	
 	
 		<div class="index-li">
-			<a href="/2019/12/18/18%20%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/2%20%E7%89%A9%E7%90%86%E5%B1%82/1%20%E7%89%A9%E7%90%86%E5%B1%82%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/">
+			<a href="/2019/12/18/09%20%E5%A4%A7%E6%95%B0%E6%8D%AE/2%20HDFS/">
 				<h2 class="index-title">
-					1 物理层的基本概念
+					2 HDFS
 				</h2>
 				<div class="index-brief">
-					物理层的作用是尽可能地屏蔽计算机网络中的物理设备、传输媒体、通信方式等方面的差异，使数据链路层感觉不到这些差异。
-1、物理层的基本概念
-物理层的主要任务描述为确定与传输媒体的接口的一些特性：
-
-机械特性：指明接口所用接线器的形状和尺寸、引线数目和排列、固定和锁定装置等等。
-电气特性：指明在接口电缆的
+					HDFS官网
+1 简介
+HDFS 是 GFS（Google File System）的克隆版本。
+HDFS（Hadoop Distributed File System）是Hadoop项目的核心子项目，是分布式计算中数据存储管理的基础，是基于流数据模式访问和处理超大文件的需求而开发的，可以运行于廉价
 					...
 				</div>
-				<p class="index-date">2019-12-21</p>
 			</a>
+                <div>
+				    <span class="index-date">2019-12-18</span>
+                    
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/09-大数据/">09 大数据</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
 		</div>	
 	
 		<div class="index-li">
-			<a href="/2019/12/18/18%20%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/1%20%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84/%E6%9C%AC%E7%AB%A0%E7%9A%84%E9%87%8D%E8%A6%81%E6%A6%82%E5%BF%B5/">
+			<a href="/2019/12/18/09%20%E5%A4%A7%E6%95%B0%E6%8D%AE/5%20HBase/">
 				<h2 class="index-title">
-					本章的重要概念
+					5 HBase
 				</h2>
 				<div class="index-brief">
-					
-网络把许多计算机连接在一起，而互连网把许多网络连接在一起，是网络的网络。
-internet（互连网）是通用名词，在这些网络之间的通信协议（即通信规则）可以是任意的
-Internet（互联网）是专用名词，采用TCP/IP协议族作为通信规则，并且前身是美国的ARPANET
-互联网现在采用存储转发的分组
+					HBASE官网
+参考：
+HBase 深入浅出
+1 HBase 简介
+
+HBase（Hadoop Database）是Bigtable的开源实现
+稀疏的，面向列
+基于HDFS，高可靠，可伸缩
+利用Zookeeper进行协同服务
+适合大数据随机和实时读写
+
+2 HBASE架构
+
+1）Client
+可以通
 					...
 				</div>
-				<p class="index-date">2019-12-21</p>
 			</a>
+                <div>
+				    <span class="index-date">2019-12-18</span>
+                    
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/09-大数据/">09 大数据</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
 		</div>	
 	
 		<div class="index-li">
-			<a href="/2019/12/18/18%20%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/1%20%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84/3%20%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E4%B8%8E%E5%8F%82%E8%80%83%E6%A8%A1%E5%9E%8B/">
+			<a href="/2019/12/18/09%20%E5%A4%A7%E6%95%B0%E6%8D%AE/7%20Sqoop%E6%BA%90%E7%A0%81%20-%20%20%E4%BB%8E%20MySQL%20%E5%AF%BC%E5%85%A5%E5%88%B0%20Hive/">
 				<h2 class="index-title">
-					3 计算机网络体系结构与参考模型
+					7 Sqoop源码 -  从 MySQL 导入到 Hive
 				</h2>
 				<div class="index-brief">
-					1、计算机网络分层结构
-两种国际标准：
-
-ISO/OSI：法律上的国际标准，不过并没有得到市场的认可
-TCP/IP：事实上的国际标准，获得了最广泛的应用
-
-2、计算机网络协议、接口、服务等概念
-计算机网络的体系结构是计算机网络的各层及其协议的集合
-1）网络协议
-为进行网络中的数据交换而建立的规则、标
+					Sqoop 源码 ：https://github.com/apache/sqoop
+Sqoop 用户手册 ：http://sqoop.apache.org/docs/1.4.6/SqoopUserGuide.html
+panther 上 Sqoop使用指南 ：https://docs.panther
 					...
 				</div>
-				<p class="index-date">2019-12-21</p>
 			</a>
+                <div>
+				    <span class="index-date">2019-12-18</span>
+                    
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/09-大数据/">09 大数据</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
 		</div>	
 	
 		<div class="index-li">
-			<a href="/2019/12/18/18%20%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/1%20%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84/2%20%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9A%84%E6%80%A7%E8%83%BD/">
+			<a href="/2019/12/18/09%20%E5%A4%A7%E6%95%B0%E6%8D%AE/6%20Hive/">
 				<h2 class="index-title">
-					2 计算机网络的性能
+					6 Hive
 				</h2>
 				<div class="index-brief">
-					一、计算机网络的性能指标
-性能指标可以从不同的方面来度量计算机网络的性能。
-1、速率
-比特（bit）来源于“binary digit”。
-速率也称为数据率（date rate）或比特率（bit rate），是指数据的传送速率，单位是bit/s（比特每秒，b/s，bps）。
-2、带宽
-带宽（bandw
+					HIVE官网
+1 HIVE 简介
+
+是基于 Hadoop 的一个数据仓库工具
+可以将结构化的数据映射为一张数据库表
+并提供 HQL(Hive SQL)查询功能
+底层数据是存储在 HDFS 上
+Hive的本质是将 SQL 语句转换为 MapReduce 任务运行
+使不熟悉 MapReduce 的用户很
 					...
 				</div>
-				<p class="index-date">2019-12-21</p>
 			</a>
+                <div>
+				    <span class="index-date">2019-12-18</span>
+                    
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/09-大数据/">09 大数据</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
 		</div>	
 	
 		<div class="index-li">
-			<a href="/2019/12/18/18%20%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/1%20%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84/1%20%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E6%A6%82%E8%BF%B0/">
+			<a href="/2019/12/18/02%20%E6%95%B0%E6%8D%AE%E5%BA%93/NoSQL/">
 				<h2 class="index-title">
-					1 计算机网络概述
+					NoSQL
 				</h2>
 				<div class="index-brief">
-					一、计算机网络的概念、组成与功能
-1、概念
-互联网基本特点：连通性和共享
-1）网络、互连网和主机
+					todo：hibernate、Hbase、Neo4J
+CAP定理
+CAP定理指出对于一个分布式计算系统来说，不可能同时满足以下三点:
 
-网路：由若干个结点和链接这些结点的链路组成
-互连网：网络的网络
-主机：与网络相连的计算机
-
-2）互联网基础结构发展的三个阶段
-
-第一阶段：从单个网络 ARPANET 向互连网发展的过程
-第二阶段：建成
+一致性(Consistency) (所有节点在同一时间具有相同的数据)
+可用性(Availability) (保证每个请求不管成功或者失败都有响应)
+分隔容忍(Pa
 					...
 				</div>
-				<p class="index-date">2019-12-21</p>
 			</a>
+                <div>
+				    <span class="index-date">2019-12-18</span>
+                    
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/02-数据库/">02 数据库</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
 		</div>	
 	
 </div>

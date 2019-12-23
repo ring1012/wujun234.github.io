@@ -9,7 +9,7 @@
 	
 	<title>
 	 
-	吴俊博客
+	吴俊的博客
 	</title>
 	
 	<!-- keywords,description -->
@@ -38,12 +38,9 @@
 
 <body>
 	<header id="header">
-    <a id="title" href="/" class="logo">吴俊博客</a>
+    <a id="title" href="/" class="logo">吴俊的博客</a>
 
 	<ul id="menu">
-		<li class="menu-item">
-			<a href="/" class="menu-item-link">HOME</a>
-		</li>
 		<li class="menu-item">
 			<a href="/about" class="menu-item-link">ABOUT</a>
 		</li>
@@ -4391,22 +4388,80 @@
 		<div id="index-list">
 	
 		<div class="index-li">
-			<a href="/2019/12/18/02%20%E6%95%B0%E6%8D%AE%E5%BA%93/03%20Redis/4%20%E6%89%A7%E8%A1%8C%E8%84%9A%E6%9C%AC/">
+			<a href="/2019/12/18/02%20%E6%95%B0%E6%8D%AE%E5%BA%93/03%20Redis/1%20Redis%20%E7%AE%80%E4%BB%8B/">
 				<h2 class="index-title">
-					4 执行脚本
+					1 Redis 简介
 				</h2>
 				<div class="index-brief">
-					1 配置
-@Configuration
-@EnableTransactionManagement
-public class RedisTemplateConfig {
+					1 Redis 简介
+高性能key-value数据库，支持数据的持久化、备份，数据类型丰富，支持事物、发布/订阅、通知、key过期等特性。
+2 Redis 安装
+2.1 单机安装
 
-    @Bean(&quot;redisTemplate&quot;)
-    public RedisTemplate red
+Window
+下载zip，解压缩可用。修改redis.conf的daemonize为yes可后台启动
+Linux
+
+w
 					...
 				</div>
-				<p class="index-date">2019-12-21</p>
 			</a>
+                <div>
+				    <span class="index-date">2019-12-18</span>
+                    
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/02-数据库/">02 数据库</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/02-数据库/03-Redis/">03 Redis</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2019/12/18/02%20%E6%95%B0%E6%8D%AE%E5%BA%93/03%20Redis/2%20%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81/">
+				<h2 class="index-title">
+					2 分布式锁
+				</h2>
+				<div class="index-brief">
+					1 Redisson
+直接上官方推荐Redisson
+&lt;!-- https://mvnrepository.com/artifact/org.redisson/redisson --&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;org.redisson&
+					...
+				</div>
+			</a>
+                <div>
+				    <span class="index-date">2019-12-18</span>
+                    
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/02-数据库/">02 数据库</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/02-数据库/03-Redis/">03 Redis</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
 		</div>	
 	
 		<div class="index-li">
@@ -4427,47 +4482,65 @@ public class RedisConfig {
      * @param
 					...
 				</div>
-				<p class="index-date">2019-12-21</p>
 			</a>
+                <div>
+				    <span class="index-date">2019-12-18</span>
+                    
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/02-数据库/">02 数据库</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/02-数据库/03-Redis/">03 Redis</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
 		</div>	
 	
 		<div class="index-li">
-			<a href="/2019/12/18/02%20%E6%95%B0%E6%8D%AE%E5%BA%93/03%20Redis/2%20%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81/">
+			<a href="/2019/12/18/02%20%E6%95%B0%E6%8D%AE%E5%BA%93/03%20Redis/4%20%E6%89%A7%E8%A1%8C%E8%84%9A%E6%9C%AC/">
 				<h2 class="index-title">
-					2 分布式锁
+					4 执行脚本
 				</h2>
 				<div class="index-brief">
-					1 Redisson
-直接上官方推荐Redisson
-&lt;!-- https://mvnrepository.com/artifact/org.redisson/redisson --&gt;
-&lt;dependency&gt;
-    &lt;groupId&gt;org.redisson&
+					1 配置
+@Configuration
+@EnableTransactionManagement
+public class RedisTemplateConfig {
+
+    @Bean(&quot;redisTemplate&quot;)
+    public RedisTemplate red
 					...
 				</div>
-				<p class="index-date">2019-12-21</p>
 			</a>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/2019/12/18/02%20%E6%95%B0%E6%8D%AE%E5%BA%93/03%20Redis/1%20Redis%20%E7%AE%80%E4%BB%8B/">
-				<h2 class="index-title">
-					1 Redis 简介
-				</h2>
-				<div class="index-brief">
-					1 Redis 简介
-高性能key-value数据库，支持数据的持久化、备份，数据类型丰富，支持事物、发布/订阅、通知、key过期等特性。
-2 Redis 安装
-2.1 单机安装
-
-Window
-下载zip，解压缩可用。修改redis.conf的daemonize为yes可后台启动
-Linux
-
-w
-					...
-				</div>
-				<p class="index-date">2019-12-21</p>
-			</a>
+                <div>
+				    <span class="index-date">2019-12-18</span>
+                    
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/02-数据库/">02 数据库</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/02-数据库/03-Redis/">03 Redis</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
 		</div>	
 	
 </div>

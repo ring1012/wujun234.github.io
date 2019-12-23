@@ -9,7 +9,7 @@
 	
 	<title>
 	 
-	吴俊博客
+	吴俊的博客
 	</title>
 	
 	<!-- keywords,description -->
@@ -38,12 +38,9 @@
 
 <body>
 	<header id="header">
-    <a id="title" href="/" class="logo">吴俊博客</a>
+    <a id="title" href="/" class="logo">吴俊的博客</a>
 
 	<ul id="menu">
-		<li class="menu-item">
-			<a href="/" class="menu-item-link">HOME</a>
-		</li>
 		<li class="menu-item">
 			<a href="/about" class="menu-item-link">ABOUT</a>
 		</li>
@@ -4391,39 +4388,130 @@
 		<div id="index-list">
 	
 		<div class="index-li">
-			<a href="/2019/12/18/09%20%E5%A4%A7%E6%95%B0%E6%8D%AE/7%20Sqoop%E6%BA%90%E7%A0%81%20-%20%20%E4%BB%8E%20MySQL%20%E5%AF%BC%E5%85%A5%E5%88%B0%20Hive/">
+			<a href="/2019/12/18/09%20%E5%A4%A7%E6%95%B0%E6%8D%AE/1%20Hadoop/">
 				<h2 class="index-title">
-					7 Sqoop源码 -  从 MySQL 导入到 Hive
+					1 Hadoop
 				</h2>
 				<div class="index-brief">
-					Sqoop 源码 ：https://github.com/apache/sqoop
-Sqoop 用户手册 ：http://sqoop.apache.org/docs/1.4.6/SqoopUserGuide.html
-panther 上 Sqoop使用指南 ：https://docs.panther
+					1 整体框架
+
+
+HDFS: 分布式文件存储
+YARN: 分布式资源管理，允许任何一个分布式程序（不仅仅是 MapReduce）基于 Hadoop 集群的数据运行
+MapReduce: 批处理。分布式计算
+Others: 利用YARN的资源管理功能实现其他的数据处理方式
+
+生态系统
+
+数据格式
+
+A
 					...
 				</div>
-				<p class="index-date">2019-12-21</p>
 			</a>
+                <div>
+				    <span class="index-date">2019-12-18</span>
+                    
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/09-大数据/">09 大数据</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
 		</div>	
 	
 		<div class="index-li">
-			<a href="/2019/12/18/09%20%E5%A4%A7%E6%95%B0%E6%8D%AE/6%20Hive/">
+			<a href="/2019/12/18/09%20%E5%A4%A7%E6%95%B0%E6%8D%AE/3%20MapReduce/">
 				<h2 class="index-title">
-					6 Hive
+					3 MapReduce
 				</h2>
 				<div class="index-brief">
-					HIVE官网
-1 HIVE 简介
+					MapReduce建立在HDFS基础上，为海量的数据提供了一个计算框架。由两个阶段组成：Map和Reduce，用户只需实现map()和reduce()两个函数，即可实现分布式计算。
 
-是基于 Hadoop 的一个数据仓库工具
-可以将结构化的数据映射为一张数据库表
-并提供 HQL(Hive SQL)查询功能
-底层数据是存储在 HDFS 上
-Hive的本质是将 SQL 语句转换为 MapReduce 任务运行
-使不熟悉 MapReduce 的用户很
+1 架构
+主从结构
+1）JobTracker（主节点）
+只有一个
+
+接收客户提交的计算任务
+任务调度：把计算任务分给
 					...
 				</div>
-				<p class="index-date">2019-12-21</p>
 			</a>
+                <div>
+				    <span class="index-date">2019-12-18</span>
+                    
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/09-大数据/">09 大数据</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2019/12/18/09%20%E5%A4%A7%E6%95%B0%E6%8D%AE/4%20YARN/">
+				<h2 class="index-title">
+					4 YARN
+				</h2>
+				<div class="index-brief">
+					老的MapReduce架构（俗称MapReduce 1）存在的问题:
+
+Job Tracker 存在单点故障。
+Job Tracker 完成太多任务，当MR任务非常多时，造成很大的内存开销。
+Task Tracker端，如果两个大内存消耗的任务一起调度，容易出现OOM，如果只有Map任务或Reduc
+					...
+				</div>
+			</a>
+                <div>
+				    <span class="index-date">2019-12-18</span>
+                    
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/09-大数据/">09 大数据</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2019/12/18/09%20%E5%A4%A7%E6%95%B0%E6%8D%AE/2%20HDFS/">
+				<h2 class="index-title">
+					2 HDFS
+				</h2>
+				<div class="index-brief">
+					HDFS官网
+1 简介
+HDFS 是 GFS（Google File System）的克隆版本。
+HDFS（Hadoop Distributed File System）是Hadoop项目的核心子项目，是分布式计算中数据存储管理的基础，是基于流数据模式访问和处理超大文件的需求而开发的，可以运行于廉价
+					...
+				</div>
+			</a>
+                <div>
+				    <span class="index-date">2019-12-18</span>
+                    
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/09-大数据/">09 大数据</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
 		</div>	
 	
 		<div class="index-li">
@@ -4449,87 +4537,80 @@ HBase（Hadoop Database）是Bigtable的开源实现
 可以通
 					...
 				</div>
-				<p class="index-date">2019-12-21</p>
 			</a>
+                <div>
+				    <span class="index-date">2019-12-18</span>
+                    
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/09-大数据/">09 大数据</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
 		</div>	
 	
 		<div class="index-li">
-			<a href="/2019/12/18/09%20%E5%A4%A7%E6%95%B0%E6%8D%AE/4%20YARN/">
+			<a href="/2019/12/18/09%20%E5%A4%A7%E6%95%B0%E6%8D%AE/7%20Sqoop%E6%BA%90%E7%A0%81%20-%20%20%E4%BB%8E%20MySQL%20%E5%AF%BC%E5%85%A5%E5%88%B0%20Hive/">
 				<h2 class="index-title">
-					4 YARN
+					7 Sqoop源码 -  从 MySQL 导入到 Hive
 				</h2>
 				<div class="index-brief">
-					老的MapReduce架构（俗称MapReduce 1）存在的问题:
-
-Job Tracker 存在单点故障。
-Job Tracker 完成太多任务，当MR任务非常多时，造成很大的内存开销。
-Task Tracker端，如果两个大内存消耗的任务一起调度，容易出现OOM，如果只有Map任务或Reduc
+					Sqoop 源码 ：https://github.com/apache/sqoop
+Sqoop 用户手册 ：http://sqoop.apache.org/docs/1.4.6/SqoopUserGuide.html
+panther 上 Sqoop使用指南 ：https://docs.panther
 					...
 				</div>
-				<p class="index-date">2019-12-21</p>
 			</a>
+                <div>
+				    <span class="index-date">2019-12-18</span>
+                    
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/09-大数据/">09 大数据</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
 		</div>	
 	
 		<div class="index-li">
-			<a href="/2019/12/18/09%20%E5%A4%A7%E6%95%B0%E6%8D%AE/3%20MapReduce/">
+			<a href="/2019/12/18/09%20%E5%A4%A7%E6%95%B0%E6%8D%AE/6%20Hive/">
 				<h2 class="index-title">
-					3 MapReduce
+					6 Hive
 				</h2>
 				<div class="index-brief">
-					MapReduce建立在HDFS基础上，为海量的数据提供了一个计算框架。由两个阶段组成：Map和Reduce，用户只需实现map()和reduce()两个函数，即可实现分布式计算。
+					HIVE官网
+1 HIVE 简介
 
-1 架构
-主从结构
-1）JobTracker（主节点）
-只有一个
-
-接收客户提交的计算任务
-任务调度：把计算任务分给
+是基于 Hadoop 的一个数据仓库工具
+可以将结构化的数据映射为一张数据库表
+并提供 HQL(Hive SQL)查询功能
+底层数据是存储在 HDFS 上
+Hive的本质是将 SQL 语句转换为 MapReduce 任务运行
+使不熟悉 MapReduce 的用户很
 					...
 				</div>
-				<p class="index-date">2019-12-21</p>
 			</a>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/2019/12/18/09%20%E5%A4%A7%E6%95%B0%E6%8D%AE/2%20HDFS/">
-				<h2 class="index-title">
-					2 HDFS
-				</h2>
-				<div class="index-brief">
-					HDFS官网
-1 简介
-HDFS 是 GFS（Google File System）的克隆版本。
-HDFS（Hadoop Distributed File System）是Hadoop项目的核心子项目，是分布式计算中数据存储管理的基础，是基于流数据模式访问和处理超大文件的需求而开发的，可以运行于廉价
-					...
-				</div>
-				<p class="index-date">2019-12-21</p>
-			</a>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/2019/12/18/09%20%E5%A4%A7%E6%95%B0%E6%8D%AE/1%20Hadoop/">
-				<h2 class="index-title">
-					1 Hadoop
-				</h2>
-				<div class="index-brief">
-					1 整体框架
-
-
-HDFS: 分布式文件存储
-YARN: 分布式资源管理，允许任何一个分布式程序（不仅仅是 MapReduce）基于 Hadoop 集群的数据运行
-MapReduce: 批处理。分布式计算
-Others: 利用YARN的资源管理功能实现其他的数据处理方式
-
-生态系统
-
-数据格式
-
-A
-					...
-				</div>
-				<p class="index-date">2019-12-21</p>
-			</a>
+                <div>
+				    <span class="index-date">2019-12-18</span>
+                    
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/09-大数据/">09 大数据</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
 		</div>	
 	
 </div>

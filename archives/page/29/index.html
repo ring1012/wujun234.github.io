@@ -9,7 +9,7 @@
 	
 	<title>
 	 
-	吴俊博客
+	吴俊的博客
 	</title>
 	
 	<!-- keywords,description -->
@@ -38,12 +38,9 @@
 
 <body>
 	<header id="header">
-    <a id="title" href="/" class="logo">吴俊博客</a>
+    <a id="title" href="/" class="logo">吴俊的博客</a>
 
 	<ul id="menu">
-		<li class="menu-item">
-			<a href="/" class="menu-item-link">HOME</a>
-		</li>
 		<li class="menu-item">
 			<a href="/about" class="menu-item-link">ABOUT</a>
 		</li>
@@ -4391,224 +4388,420 @@
 		<div id="index-list">
 	
 		<div class="index-li">
-			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/15%20%E8%84%9A%E6%9C%AC%E3%80%81%E7%BC%96%E8%AF%91%E4%B8%8E%E6%B3%A8%E8%A7%A3%E5%A4%84%E7%90%86/3%20%E4%BD%BF%E7%94%A8%E6%B3%A8%E8%A7%A3/">
+			<a href="/2019/12/18/05%20%E6%B5%8B%E8%AF%95/1%20EasyMock/1%20EasyMock%20-%20%E6%A8%A1%E6%8B%9F%E5%AF%B9%E8%B1%A1%E6%B5%8B%E8%AF%95/">
 				<h2 class="index-title">
-					3 使用注解
+					1 EasyMock - 模拟对象测试
 				</h2>
 				<div class="index-brief">
-					注解是插入到源代码的标签，由其他工具对其进行处理，不会改变程序的编译方式
-注解位置
-在Java中，注解是当作一个修饰符来使用的。它被置于被注解项之前，中间没有分号。每一个注解的名称前面都加上了@符号。
-注解项
-注解项可以是方法、类、成员以及局部变量，还可以是包、参数变量、类型参数和类型用法。
-注解接
+					easymock官网
+一、Mock对象
+
+测试是个好习惯，然而当你想测试自己的代码，而依赖的其他类或方法又还没实现。或者你在实践TDD（测试驱动开发），还没完成你的实现，而又想先测试。该怎么办呢？
+简单情况可以手动编写mock类，复杂情况可以借助EasyMock等Mock框架来模拟这些类和方法。
+m
 					...
 				</div>
-				<p class="index-date">2019-12-21</p>
 			</a>
+                <div>
+				    <span class="index-date">2019-12-18</span>
+                    
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/05-测试/">05 测试</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/05-测试/1-EasyMock/">1 EasyMock</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
 		</div>	
 	
 		<div class="index-li">
-			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/15%20%E8%84%9A%E6%9C%AC%E3%80%81%E7%BC%96%E8%AF%91%E4%B8%8E%E6%B3%A8%E8%A7%A3%E5%A4%84%E7%90%86/2%20%E7%BC%96%E8%AF%91%E5%99%A8API/">
+			<a href="/2019/12/18/04%20%E8%AE%BE%E8%AE%A1/2%20%E4%B8%9A%E5%8A%A1%E8%AE%BE%E8%AE%A1/03%20%E5%85%B3%E6%B3%A8%E6%B5%81%E8%AE%BE%E8%AE%A1/">
 				<h2 class="index-title">
-					2 编译器API
+					03 关注流设计
 				</h2>
 				<div class="index-brief">
-					编译器API替代jdk/lib/toors.jar类库
-1 编译便捷之法
-JavaCompiler compiler = ToolProvider.getSystemJavaCompiler();
-OutputStream outStream = ...;
-OutputStream errStrea
+					一、需求分析
+1.1、数据现状
+
+每个media可发布不同类型（微头条、文章、视频）的状态。
+每种类型都是从独立的系统发布，数据存在不同的数据库，且都未分表分库。
+当前media主页只展示了微头条动态。用户关注feed也只加载了media的微头条动态。
+media共有12.6w 个，其中有 297 
 					...
 				</div>
-				<p class="index-date">2019-12-21</p>
 			</a>
+                <div>
+				    <span class="index-date">2019-12-18</span>
+                    
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/04-设计/">04 设计</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/04-设计/2-业务设计/">2 业务设计</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
 		</div>	
 	
 		<div class="index-li">
-			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/15%20%E8%84%9A%E6%9C%AC%E3%80%81%E7%BC%96%E8%AF%91%E4%B8%8E%E6%B3%A8%E8%A7%A3%E5%A4%84%E7%90%86/1%20Java%E5%B9%B3%E5%8F%B0%E7%9A%84%E8%84%9A%E6%9C%AC/">
+			<a href="/2019/12/18/04%20%E8%AE%BE%E8%AE%A1/2%20%E4%B8%9A%E5%8A%A1%E8%AE%BE%E8%AE%A1/01%20%E5%8D%B3%E5%88%BB-%E9%93%BE%E6%8E%A5%E8%A7%A3%E6%9E%90-%E5%88%86%E6%9E%90/">
 				<h2 class="index-title">
-					1 Java平台的脚本
+					01 即刻-链接解析-分析
 				</h2>
 				<div class="index-brief">
-					
-脚本 API ：允许调用脚本语言代码
-编译器 API ：应用程序内编译Java代码
-注解处理器 ：操作注解
-
-1 获取脚本引擎
-常用引擎
-
-
-
-引擎
-名字
-MIME类型
-文件扩展
+					一、结果分析
+1 判断
+添加链接时，客户端本地判断，是否为合法链接
+2 解析
+添加链接之后请求后台解析
+POST https://app.jike.ruguoapp.com/1.0/readability/extract
+参数
 
 
 
+字段
+含义
+必传
 
-Nashorn
-nashorn,Nashorn,js,JS,JavaScript,javascript,ECM
+
+
+
+link
+请求解析链接
+√
+
+
+
+返回
+
 					...
 				</div>
-				<p class="index-date">2019-12-21</p>
 			</a>
+                <div>
+				    <span class="index-date">2019-12-18</span>
+                    
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/04-设计/">04 设计</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/04-设计/2-业务设计/">2 业务设计</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
 		</div>	
 	
 		<div class="index-li">
-			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/14%20%E5%9B%BD%E9%99%85%E5%8C%96/6%20%E8%B5%84%E6%BA%90%E5%8C%85/">
+			<a href="/2019/12/18/04%20%E8%AE%BE%E8%AE%A1/2%20%E4%B8%9A%E5%8A%A1%E8%AE%BE%E8%AE%A1/02%20%E6%B6%88%E6%81%AF%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/">
 				<h2 class="index-title">
-					6 资源包
+					02 消息系统设计
 				</h2>
 				<div class="index-brief">
-					ResourceBundle 资源包包含特定语言环境的对象。使用其可以加载并读取语言环境资源。
-1 定位资源包
-包名规则
+					一、消息类型
 
-包名_语言_国家：国家相关资源
-包名_语言：语言相关资源
-包名：默认资源
+分析需求，将消息分为三类
+1.提醒(Remind)
 
-加载包
-getBundle方法试图匹配当前locale定义的语言和国家的包，直至默认包
-Resour
+谁对一样属于谁的事物做了什么操作
+
+
+sender：触发者
+target：事物
+action：触发操作
+targetOwner：事物所有者（通过订阅维护）
+
+节省资源，适合Pull
+2.私信(Message)
+
+谁对谁发送什么内容
 					...
 				</div>
-				<p class="index-date">2019-12-21</p>
 			</a>
+                <div>
+				    <span class="index-date">2019-12-18</span>
+                    
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/04-设计/">04 设计</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/04-设计/2-业务设计/">2 业务设计</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
 		</div>	
 	
 		<div class="index-li">
-			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/14%20%E5%9B%BD%E9%99%85%E5%8C%96/5%20%E6%96%87%E6%9C%AC%E6%96%87%E4%BB%B6%E5%92%8C%E5%AD%97%E7%AC%A6%E9%9B%86/">
+			<a href="/2019/12/18/04%20%E8%AE%BE%E8%AE%A1/1%20%E9%80%9A%E7%94%A8%E8%AE%BE%E8%AE%A1/01%20%E5%88%86%E5%B8%83%E5%BC%8F%E7%BB%9F%E4%B8%80id%E8%AE%BE%E8%AE%A1/">
 				<h2 class="index-title">
-					5 文本文件和字符集
+					01 分布式统一id设计
 				</h2>
 				<div class="index-brief">
-					1 文本文件
-获取平台的编码机制
-Charset platformEncoding = Charset.defalutCharset();
+					一、业界现状
+1 汽车之家
+1）id方案
+自增id
+现有数据从4位到6位，目前最大320w+
+2）实例
 
-2 行结束符
-Window中，文本文件希望每行末尾使用“\r\n”，UNIX只需“\n”。
-可使用 printf 和 %n 来产生平台相关的行结束符
-out.
-					...
-				</div>
-				<p class="index-date">2019-12-21</p>
-			</a>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/14%20%E5%9B%BD%E9%99%85%E5%8C%96/4%20%E6%B6%88%E6%81%AF%E6%A0%BC%E5%BC%8F%E5%8C%96/">
-				<h2 class="index-title">
-					4 消息格式化
-				</h2>
-				<div class="index-brief">
-					MessageFormat格式化类似printf，支持Locale，可格式化数字和日期
-1 格式化数字和日期
-模式化字符串与占位符
-占位符索引后面可跟一个类型和一个风格
+
+
+作品id
+URL
 类型
 
-number
-风格
-
-intger
-currency
-percent
-数字格式模式
 
 
-time
-风格
 
-short
-…
+3200292
+https://chejiahao.autohome.com.cn/info/3200292
+轻文
 
+
+3200293
+https://che
 					...
 				</div>
-				<p class="index-date">2019-12-21</p>
 			</a>
+                <div>
+				    <span class="index-date">2019-12-18</span>
+                    
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/04-设计/">04 设计</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/04-设计/1-通用设计/">1 通用设计</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
 		</div>	
 	
 		<div class="index-li">
-			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/14%20%E5%9B%BD%E9%99%85%E5%8C%96/3%20%E6%8E%92%E5%BA%8F%E5%92%8C%E8%8C%83%E5%8C%96/">
+			<a href="/2019/12/18/04%20%E8%AE%BE%E8%AE%A1/1%20%E9%80%9A%E7%94%A8%E8%AE%BE%E8%AE%A1/02%20%E8%B7%A8%E5%BA%93%E5%88%86%E9%A1%B5/">
 				<h2 class="index-title">
-					3 排序和范化
+					02 跨库分页
 				</h2>
 				<div class="index-brief">
-					Collator 类实现了Comparator接口，Locale敏感，可以设置不同语言的排序
-Collator coll = Collator.getInstance(Locale.US);
+					原文：https://mp.weixin.qq.com/s/cMAXYBxmevFV_fwysZqP8w
+需求缘起
+分页需求
+分页拉取需求有这样一些特点：
 
-字符差别强度
-排序器有字符差别强度设置：
+有一个业务主键id
+分页排序是按照非业务主键id来排序的，业务中经常按照时间time来排序order by
 
-Collator.PRIMARY：首要的
-Collator.S
+在数据量不大时，可以通过在排序字
 					...
 				</div>
-				<p class="index-date">2019-12-21</p>
 			</a>
+                <div>
+				    <span class="index-date">2019-12-18</span>
+                    
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/04-设计/">04 设计</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/04-设计/1-通用设计/">1 通用设计</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
 		</div>	
 	
 		<div class="index-li">
-			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/14%20%E5%9B%BD%E9%99%85%E5%8C%96/2%20%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%92%8C%E8%A7%A3%E6%9E%90/">
+			<a href="/2019/12/18/04%20%E8%AE%BE%E8%AE%A1/1%20%E9%80%9A%E7%94%A8%E8%AE%BE%E8%AE%A1/03%20%E7%9F%AD%E9%93%BE%E6%8E%A5/">
 				<h2 class="index-title">
-					2 格式化和解析
+					03 短链接
 				</h2>
 				<div class="index-brief">
-					数字格式
-NumberFormat 类接受Locale参数，静态工厂方法 getNumberInstance、getCurrencyInstance、getPercentInstance 分别返回对数字、货币量、百分比的格式化和解析。
-NumberFormat currFmt = NumberFor
+					短链接URL系统是怎么设计的？
+实现一个自增发号器，每个长地址，发个短号，存储长短关系，请求短号时返回对应长号。
+在[0-9]的10进制与[0-9a-zA-Z]的62进制之间转换。可以使号码很小。
+大并发高可用？
+并发量大还可以搞分布式。类似 snowflake。
+一长对多短？还是一对一？
+如有需要
 					...
 				</div>
-				<p class="index-date">2019-12-21</p>
 			</a>
+                <div>
+				    <span class="index-date">2019-12-18</span>
+                    
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/04-设计/">04 设计</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/04-设计/1-通用设计/">1 通用设计</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
 		</div>	
 	
 		<div class="index-li">
-			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/14%20%E5%9B%BD%E9%99%85%E5%8C%96/1%20Locale%E5%AF%B9%E8%B1%A1/">
+			<a href="/2019/12/18/04%20%E8%AE%BE%E8%AE%A1/1%20%E9%80%9A%E7%94%A8%E8%AE%BE%E8%AE%A1/04%20%E7%9B%B8%E4%BC%BC%E5%9B%BE%E7%89%87%E8%B0%83%E7%A0%94/">
 				<h2 class="index-title">
-					1 Locale对象
+					04 相似图片调研
 				</h2>
 				<div class="index-brief">
-					java.util.Locale是表示语言和国家/地区信息的本地化类，它是创建国际化应用的基础。
-组成
-Locale由5个元素组成，语言必选，其他可选：
-
-语言
-2到3个小写字母。例如en、zh
-字符脚本
-首字母大写的四个字母。例如Hant繁体中文字符。
-国家/地区
-2个大写字幕或3个数字
-变体
-指
+					通过调研，相似图片判断领域使用较多的算法有“感知哈希”算法（谷歌、360），“直方图”算法（阿里）和“特征提取”算法（百度），下面对这些算法进行了测试与对比，实现上可能还有进一步改进的地方。
+测试用的图片附在文末的 附1。
+之前未能成功安装的， postgresql 的 imgsmlr 插件，将它的
 					...
 				</div>
-				<p class="index-date">2019-12-21</p>
 			</a>
+                <div>
+				    <span class="index-date">2019-12-18</span>
+                    
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/04-设计/">04 设计</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/04-设计/1-通用设计/">1 通用设计</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
 		</div>	
 	
 		<div class="index-li">
-			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/13%20%E6%97%A5%E6%9C%9F%E5%92%8C%E6%97%B6%E9%97%B4API/4%20%E4%B8%8E%E9%81%97%E7%95%99%E4%BB%A3%E7%A0%81%E7%9A%84%E4%BA%92%E6%93%8D%E4%BD%9C/">
+			<a href="/2019/12/18/04%20%E8%AE%BE%E8%AE%A1/1%20%E9%80%9A%E7%94%A8%E8%AE%BE%E8%AE%A1/05%20%E6%B5%B7%E6%98%8E%E8%B7%9D%E7%A6%BB%E8%AE%A1%E7%AE%97/">
 				<h2 class="index-title">
-					4 与遗留代码的互操作
+					05 海明距离计算
 				</h2>
 				<div class="index-brief">
-					JDBC
-最新JDBC映射将把数据库的日期类型和Java 8的新类型关联起来：
-SQL -&gt; Java
---------------------------
-date -&gt; LocalDate
-time -&gt; LocalTime
-timestamp -&gt; LocalDateT
+					海明距离计算
+Google提出的simhash去重算法里关于”汉明距离”计算最关键的步骤就是“位计数”（计算位数组中1的个数）。
+方案A
+最慢
+直接数
+void count(int x){
+    int count = 0;
+    for (int i = 0; i &lt; 32; i++) 
 					...
 				</div>
-				<p class="index-date">2019-12-21</p>
 			</a>
+                <div>
+				    <span class="index-date">2019-12-18</span>
+                    
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/04-设计/">04 设计</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/04-设计/1-通用设计/">1 通用设计</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2019/12/18/03%20%E5%BE%AE%E6%9C%8D%E5%8A%A1/0%20%E6%9C%8D%E5%8A%A1%E6%B3%A8%E5%86%8C%E4%B8%8E%E5%8F%91%E7%8E%B0/01%20Spring%20Cloud%20Eureka/">
+				<h2 class="index-title">
+					01 Spring Cloud Eureka
+				</h2>
+				<div class="index-brief">
+					简介
+Spring Cloud针对服务注册与发现，进行了一层抽象，并提供了三种实现：Eureka、Consul、Zookeeper。目前支持得最好的就是Eureka，其次是Consul，最后是Zookeeper。Eureka 是封装了 Netflix 的 Eureka 模块，采用了 C-S 的设计架
+					...
+				</div>
+			</a>
+                <div>
+				    <span class="index-date">2019-12-18</span>
+                    
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/03-微服务/">03 微服务</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/03-微服务/0-服务注册与发现/">0 服务注册与发现</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
 		</div>	
 	
 </div>

@@ -9,7 +9,7 @@
 	
 	<title>
 	 
-	吴俊博客
+	吴俊的博客
 	</title>
 	
 	<!-- keywords,description -->
@@ -38,12 +38,9 @@
 
 <body>
 	<header id="header">
-    <a id="title" href="/" class="logo">吴俊博客</a>
+    <a id="title" href="/" class="logo">吴俊的博客</a>
 
 	<ul id="menu">
-		<li class="menu-item">
-			<a href="/" class="menu-item-link">HOME</a>
-		</li>
 		<li class="menu-item">
 			<a href="/about" class="menu-item-link">ABOUT</a>
 		</li>
@@ -4391,42 +4388,48 @@
 		<div id="index-list">
 	
 		<div class="index-li">
-			<a href="/2019/12/18/00%20Java/01%20Java%E8%99%9A%E6%8B%9F%E6%9C%BA/03%20GC%E4%B8%8E%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D/5%20%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D%E4%B8%8E%E5%9B%9E%E6%94%B6%E7%AD%96%E7%95%A5/">
+			<a href="/2019/12/18/00%20Java/01%20Java%E8%99%9A%E6%8B%9F%E6%9C%BA/03%20GC%E4%B8%8E%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D/1%20GC%E5%88%A4%E5%AE%9A/">
 				<h2 class="index-title">
-					5 内存分配与回收策略
+					1 GC判定
 				</h2>
 				<div class="index-brief">
-					内存管理两个问题：分配内存、回收内存
-分配就是在堆上分配，主要在新生代的Eden区上，少数情况也会直接分配在老年代中。
-1 对象优先在Eden分配
-Eden没有足够空间时会发起一次Minor GC
-2 大对象直接进入老年代
-大对象是只需要大量连续内存空间的对象（如长字符串、数组），应当避免“朝生夕灭
+					1 引用计数法
+对象内部维护有一个被其他对象引用的引用计数，当这个引用计数为0的时候，表示对象可以被回收。
+引用计数法存在一个问题——循环引用，加入a引用b，b同时也引用a，那么就存在ab的引用计数都不为0的情况。
+2 可达性分析算法
+一个对象的根节点，不是GC Roots的话，就可以被回收。
+
+J
 					...
 				</div>
-				<p class="index-date">2019-12-21</p>
 			</a>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/2019/12/18/00%20Java/01%20Java%E8%99%9A%E6%8B%9F%E6%9C%BA/03%20GC%E4%B8%8E%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D/4%20%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8/">
-				<h2 class="index-title">
-					4 垃圾收集器
-				</h2>
-				<div class="index-brief">
-					1 新生代
-1) 串行（Serial）
-单线程，复制算法。Java 9以前默认收集器。
-2) 并行（ParNew）
-Serial的多线程版本。
-3) 吞吐量优先（Parallel Scavenge）
-多线程，复制算法，侧重于吞吐量的控制。
-可以启用自适应调节策略，不用手工设置新生代大小等参数。
-2 
-					...
-				</div>
-				<p class="index-date">2019-12-21</p>
-			</a>
+                <div>
+				    <span class="index-date">2019-12-18</span>
+                    
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/">00 Java</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/01-Java虚拟机/">01 Java虚拟机</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/01-Java虚拟机/03-GC与内存分配/">03 GC与内存分配</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
 		</div>	
 	
 		<div class="index-li">
@@ -4442,8 +4445,34 @@ GC 进行时必须停顿所有Java执行线程（Stop The World）。
 并不需要一个不漏地检查完所有引用位置，HotSpot 用 O
 					...
 				</div>
-				<p class="index-date">2019-12-21</p>
 			</a>
+                <div>
+				    <span class="index-date">2019-12-18</span>
+                    
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/">00 Java</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/01-Java虚拟机/">01 Java虚拟机</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/01-Java虚拟机/03-GC与内存分配/">03 GC与内存分配</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
 		</div>	
 	
 		<div class="index-li">
@@ -4477,27 +4506,125 @@ GC 进行时必须停顿所有Java执行线程（Stop The World）。
 产生大量不连续内
 					...
 				</div>
-				<p class="index-date">2019-12-21</p>
 			</a>
+                <div>
+				    <span class="index-date">2019-12-18</span>
+                    
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/">00 Java</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/01-Java虚拟机/">01 Java虚拟机</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/01-Java虚拟机/03-GC与内存分配/">03 GC与内存分配</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
 		</div>	
 	
 		<div class="index-li">
-			<a href="/2019/12/18/00%20Java/01%20Java%E8%99%9A%E6%8B%9F%E6%9C%BA/03%20GC%E4%B8%8E%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D/1%20GC%E5%88%A4%E5%AE%9A/">
+			<a href="/2019/12/18/00%20Java/01%20Java%E8%99%9A%E6%8B%9F%E6%9C%BA/03%20GC%E4%B8%8E%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D/4%20%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8/">
 				<h2 class="index-title">
-					1 GC判定
+					4 垃圾收集器
 				</h2>
 				<div class="index-brief">
-					1 引用计数法
-对象内部维护有一个被其他对象引用的引用计数，当这个引用计数为0的时候，表示对象可以被回收。
-引用计数法存在一个问题——循环引用，加入a引用b，b同时也引用a，那么就存在ab的引用计数都不为0的情况。
-2 可达性分析算法
-一个对象的根节点，不是GC Roots的话，就可以被回收。
-
-J
+					1 新生代
+1) 串行（Serial）
+单线程，复制算法。Java 9以前默认收集器。
+2) 并行（ParNew）
+Serial的多线程版本。
+3) 吞吐量优先（Parallel Scavenge）
+多线程，复制算法，侧重于吞吐量的控制。
+可以启用自适应调节策略，不用手工设置新生代大小等参数。
+2 
 					...
 				</div>
-				<p class="index-date">2019-12-21</p>
 			</a>
+                <div>
+				    <span class="index-date">2019-12-18</span>
+                    
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/">00 Java</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/01-Java虚拟机/">01 Java虚拟机</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/01-Java虚拟机/03-GC与内存分配/">03 GC与内存分配</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2019/12/18/00%20Java/01%20Java%E8%99%9A%E6%8B%9F%E6%9C%BA/03%20GC%E4%B8%8E%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D/5%20%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D%E4%B8%8E%E5%9B%9E%E6%94%B6%E7%AD%96%E7%95%A5/">
+				<h2 class="index-title">
+					5 内存分配与回收策略
+				</h2>
+				<div class="index-brief">
+					内存管理两个问题：分配内存、回收内存
+分配就是在堆上分配，主要在新生代的Eden区上，少数情况也会直接分配在老年代中。
+1 对象优先在Eden分配
+Eden没有足够空间时会发起一次Minor GC
+2 大对象直接进入老年代
+大对象是只需要大量连续内存空间的对象（如长字符串、数组），应当避免“朝生夕灭
+					...
+				</div>
+			</a>
+                <div>
+				    <span class="index-date">2019-12-18</span>
+                    
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/">00 Java</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/01-Java虚拟机/">01 Java虚拟机</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/01-Java虚拟机/03-GC与内存分配/">03 GC与内存分配</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
 		</div>	
 	
 </div>

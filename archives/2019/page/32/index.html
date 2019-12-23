@@ -9,7 +9,7 @@
 	
 	<title>
 	 
-	吴俊博客
+	吴俊的博客
 	</title>
 	
 	<!-- keywords,description -->
@@ -38,12 +38,9 @@
 
 <body>
 	<header id="header">
-    <a id="title" href="/" class="logo">吴俊博客</a>
+    <a id="title" href="/" class="logo">吴俊的博客</a>
 
 	<ul id="menu">
-		<li class="menu-item">
-			<a href="/" class="menu-item-link">HOME</a>
-		</li>
 		<li class="menu-item">
 			<a href="/about" class="menu-item-link">ABOUT</a>
 		</li>
@@ -4391,185 +4388,383 @@
 		<div id="index-list">
 	
 		<div class="index-li">
-			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/09%20IO/6%20NIO%EF%BC%88%E5%86%85%E5%AD%98%E6%98%A0%E5%B0%84%E6%96%87%E4%BB%B6%EF%BC%89/">
+			<a href="/2019/12/18/02%20%E6%95%B0%E6%8D%AE%E5%BA%93/06%20Cassandra/2%20Cassandra%20%E6%9E%B6%E6%9E%84/">
 				<h2 class="index-title">
-					6 NIO（内存映射文件）
+					2 Cassandra 架构
 				</h2>
 				<div class="index-brief">
-					JDK 1.4中引入java.nio，全称java non-blocking IO，为所有的原始类型（boolean类型除外）提供缓存支持的数据容器，使用它可以提供非阻塞式的高伸缩性网络。
-原来的 I/O 以流的方式处理数据，而 NIO 以块的方式处理数据。
-1  核心概念
-1.1 通道
-通道Cha
+					1 核心架构
+1）Node
+节点，存放数据的地方，Cassandra的基础设施。
+2）datacenter
+
+数据中心，关联节点的集合。可以是物理或虚拟的。
+复制策略由datacenter设置。数据通过复制因子决定，可写入到多个datacenter
+
+3）Cluster
+集群，包含一个或多个数据中心
 					...
 				</div>
-				<p class="index-date">2019-12-21</p>
 			</a>
+                <div>
+				    <span class="index-date">2019-12-18</span>
+                    
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/02-数据库/">02 数据库</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/02-数据库/06-Cassandra/">06 Cassandra</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
 		</div>	
 	
 		<div class="index-li">
-			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/09%20IO/5%20%E6%93%8D%E4%BD%9C%E6%96%87%E4%BB%B6/">
+			<a href="/2019/12/18/02%20%E6%95%B0%E6%8D%AE%E5%BA%93/06%20Cassandra/3%20Cassandra%20%E6%95%B0%E6%8D%AE%E6%A8%A1%E5%9E%8B/">
 				<h2 class="index-title">
-					5 操作文件
+					3 Cassandra 数据模型
 				</h2>
 				<div class="index-brief">
-					Path接口和Files类封装了在用户机器上处理文件系统所需的所有功能，他们是在JavaSE7中新添加进来的，比自JDK1.0以来一直使用的File类方便很多。
-1 Path
-Path表示的是一个目录名序列，其后还可以跟着一个文件名。
-路径中的第一个部件可以是根部件，例如 /或 C:\。以根部件开始
+					Cassandra 的数据模型是基于列族（Column Family）的四维或五维模型。它借鉴了 Amazon 的 Dynamo 和 Google’s BigTable 的数据结构和功能特点，采用 Memtable 和 SSTable 的方式进行存储。
+1 KeySpace（键空间）
+
+相当于dat
 					...
 				</div>
-				<p class="index-date">2019-12-21</p>
 			</a>
+                <div>
+				    <span class="index-date">2019-12-18</span>
+                    
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/02-数据库/">02 数据库</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/02-数据库/06-Cassandra/">06 Cassandra</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
 		</div>	
 	
 		<div class="index-li">
-			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/09%20IO/4%20%E5%BA%8F%E5%88%97%E5%8C%96/">
+			<a href="/2019/12/18/02%20%E6%95%B0%E6%8D%AE%E5%BA%93/06%20Cassandra/4%20%E8%BF%81%E7%A7%BB%E6%A1%88%E4%BE%8B%E7%A4%BA%E4%BE%8B/">
 				<h2 class="index-title">
-					4 序列化
+					4 迁移案例示例
 				</h2>
 				<div class="index-brief">
-					Java 提供了一种对象序列化的机制，该机制中，一个对象可以被表示为一个字节序列，写出到输出流中，并在之后将其读回。整个过程都是 Java 虚拟机独立的。
-1 保存和加载序列化对象
-类 ObjectInputStream 和 ObjectOutputStream 是高层次的数据流，它们包含反序列化和
+					1 关系型数据库的设计
+用户信息 E-R 图
+
+2 Cassandra 设计
+1）归一化到自定义索引的规范化实体
+最佳选择，但是设计时应该增加时间戳 column。
+
+2）部分去规范化实体
+采用 Super Column 方式，数据量增大后，容易出现查询性能问题。
+
+
 					...
 				</div>
-				<p class="index-date">2019-12-21</p>
 			</a>
+                <div>
+				    <span class="index-date">2019-12-18</span>
+                    
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/02-数据库/">02 数据库</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/02-数据库/06-Cassandra/">06 Cassandra</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
 		</div>	
 	
 		<div class="index-li">
-			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/09%20IO/3%20%E8%AF%BB%E5%86%99%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%95%B0%E6%8D%AE/">
+			<a href="/2019/12/18/02%20%E6%95%B0%E6%8D%AE%E5%BA%93/06%20Cassandra/5%20Gossip%20%E5%8D%8F%E8%AE%AE/">
 				<h2 class="index-title">
-					3 读写二进制数据
+					5 Gossip 协议
 				</h2>
 				<div class="index-brief">
-					1 DataInput和DataOutput接口
-DataInput接口 write* 方法写二进制格式数据，DataInput接口 read*方法读回二进制格式数据。
-DataInputStream类实现了DataInput接口
-DataInputStream in = new DataInput
+					Gossip的原始论文：《Efficient Reconciliation and Flow Control for Anti-Entropy Protocols》
+
+1 概述
+1）特点
+
+最终一致性：在一个有界网络中，每个节点都随机地与其他节点通信，经过一番杂乱无章的通信，最终所有节点的状态都会达
 					...
 				</div>
-				<p class="index-date">2019-12-21</p>
 			</a>
+                <div>
+				    <span class="index-date">2019-12-18</span>
+                    
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/02-数据库/">02 数据库</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/02-数据库/06-Cassandra/">06 Cassandra</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
 		</div>	
 	
 		<div class="index-li">
-			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/09%20IO/2%20%E8%AF%BB%E5%86%99%E6%96%87%E6%9C%AC/">
+			<a href="/2019/12/18/02%20%E6%95%B0%E6%8D%AE%E5%BA%93/06%20Cassandra/6%20Cassandra%20vs.%20HBase/">
 				<h2 class="index-title">
-					2 读写文本
+					6 Cassandra vs. HBase
 				</h2>
 				<div class="index-brief">
-					存储文本字符串时，需要考虑字符编码方式。
-OutputStreamWriter类将使用选定的字符编码方式，把Unicode码元的输出流转换为字节流。
-InputStreamReader类将包含字节的输入流转换为可以产生Unicode码元的读入器。
-1 文本输出
-文本输出使用PrintWriter，拥
+					参考：
+
+Cassandra vs. HBase: twins or just strangers with similar looks?[Jun 19, 2018]
+HBase vs Cassandra – Which One Is Better (Infographics)[Feb 16, 20
 					...
 				</div>
-				<p class="index-date">2019-12-21</p>
 			</a>
+                <div>
+				    <span class="index-date">2019-12-18</span>
+                    
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/02-数据库/">02 数据库</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/02-数据库/06-Cassandra/">06 Cassandra</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
 		</div>	
 	
 		<div class="index-li">
-			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/09%20IO/1%20%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E6%B5%81/">
+			<a href="/2019/12/18/02%20%E6%95%B0%E6%8D%AE%E5%BA%93/04%20Memcached/02%20%E4%B8%80%E8%87%B4%E6%80%A7hash/">
 				<h2 class="index-title">
-					1 输入输出流
+					02 一致性hash
 				</h2>
 				<div class="index-brief">
-					Java 的 I/O 类库的基本架构
-Java 的 I/O 操作类可以分成四组：
-
-基于字节操作的 I/O 接口：InputStream 和 OutputStream
-基于字符操作的 I/O 接口：Writer 和 Reader
-基于磁盘操作的 I/O 接口：File
-基于网络操作的 I/O 接口：
+					一致性hash算法解决了分布式环境下机器增加或者减少时，简单的取模运算无法获取较高命中率的问题。通过虚拟节点的使用，一致性hash算法可以均匀分担机器的负载，使得这一算法更具现实的意义。
+一致性Hash(Consistent Hashing)原理剖析
+基本思想
+key 与 机器节点 都 hash 到
 					...
 				</div>
-				<p class="index-date">2019-12-21</p>
 			</a>
+                <div>
+				    <span class="index-date">2019-12-18</span>
+                    
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/02-数据库/">02 数据库</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/02-数据库/04-Memcached/">04 Memcached</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
 		</div>	
 	
 		<div class="index-li">
-			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/08%20Java%20SE%208%E7%9A%84%E6%B5%81%E5%BA%93/2%20Optional/">
+			<a href="/2019/12/18/02%20%E6%95%B0%E6%8D%AE%E5%BA%93/04%20Memcached/01%20Memcached%E7%AC%94%E8%AE%B0/">
 				<h2 class="index-title">
-					2 Optional
+					01 Memcached笔记
 				</h2>
 				<div class="index-brief">
-					@since 1.8
-为了解决空指针异常，受到Google Guava的启发，Optional类已经成为Java 8类库的一部分。
-Optional实际上是个容器：它可以保存类型T的值，或者仅仅保存null。Optional提供很多有用的方法，这样就不用显式进行空值检测。
-初始化
+					Memcached是高性能，分布式内存对象key-value缓存系统。一般使用目的是，通过缓存数据库查询结果，减少数据库访问次数，以提高动态Web应用的速度、提高可扩展性。
+连接
+通过 telnet 命令并指定主机ip和端口来连接 Memcached 服务
+telnet HOST PORT
 
-Optional
+存储命
 					...
 				</div>
-				<p class="index-date">2019-12-21</p>
 			</a>
+                <div>
+				    <span class="index-date">2019-12-18</span>
+                    
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/02-数据库/">02 数据库</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/02-数据库/04-Memcached/">04 Memcached</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
 		</div>	
 	
 		<div class="index-li">
-			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/08%20Java%20SE%208%E7%9A%84%E6%B5%81%E5%BA%93/1%20Stream/">
+			<a href="/2019/12/18/02%20%E6%95%B0%E6%8D%AE%E5%BA%93/03%20Redis/1%20Redis%20%E7%AE%80%E4%BB%8B/">
 				<h2 class="index-title">
-					1 Stream
+					1 Redis 简介
 				</h2>
 				<div class="index-brief">
-					Java 8 中的 Stream 是对集合对象功能的增强，像一个高级版本的Iterator，专注于对集合对象进行各种非常便利、高效的聚合操作，或者大批量数据操作。
-Stream 单向，不可往复，数据源本身可以是无限的。
-所有 Stream 的操作必须以 lambda 表达式为参数。
-1 Stream
+					1 Redis 简介
+高性能key-value数据库，支持数据的持久化、备份，数据类型丰富，支持事物、发布/订阅、通知、key过期等特性。
+2 Redis 安装
+2.1 单机安装
+
+Window
+下载zip，解压缩可用。修改redis.conf的daemonize为yes可后台启动
+Linux
+
+w
 					...
 				</div>
-				<p class="index-date">2019-12-21</p>
 			</a>
+                <div>
+				    <span class="index-date">2019-12-18</span>
+                    
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/02-数据库/">02 数据库</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/02-数据库/03-Redis/">03 Redis</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
 		</div>	
 	
 		<div class="index-li">
-			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/07%20%E5%B9%B6%E5%8F%91/9%20%E6%89%A7%E8%A1%8C%E5%99%A8Executor/">
+			<a href="/2019/12/18/02%20%E6%95%B0%E6%8D%AE%E5%BA%93/03%20Redis/2%20%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81/">
 				<h2 class="index-title">
-					9 执行器Executor
+					2 分布式锁
 				</h2>
 				<div class="index-brief">
-					执行器（Executor）类有许多静态工厂方法用来构建线程池。
-
-
-
-方法
-描述
-
-
-
-
-newCachedThreadPool
-必要时创建新线程；空闲线程会被保留 60 秒
-
-
-newFixedThreadPool
-线程包含固定数量的线程；空闲线程会一直被保留
-
-
-newSingleThreadE
+					1 Redisson
+直接上官方推荐Redisson
+&lt;!-- https://mvnrepository.com/artifact/org.redisson/redisson --&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;org.redisson&
 					...
 				</div>
-				<p class="index-date">2019-12-21</p>
 			</a>
+                <div>
+				    <span class="index-date">2019-12-18</span>
+                    
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/02-数据库/">02 数据库</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/02-数据库/03-Redis/">03 Redis</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
 		</div>	
 	
 		<div class="index-li">
-			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/07%20%E5%B9%B6%E5%8F%91/8%20Callable%E4%B8%8EFuture/">
+			<a href="/2019/12/18/02%20%E6%95%B0%E6%8D%AE%E5%BA%93/03%20Redis/3%20%E8%87%AA%E5%AE%9A%E4%B9%89%E5%BA%8F%E5%88%97%E5%8C%96/">
 				<h2 class="index-title">
-					8 Callable与Future
+					3 自定义序列化
 				</h2>
 				<div class="index-brief">
-					Callable
-Callable与Runnable类似，它们的主要区别是 Callable 的 call() 方法可以返回值和抛出异常。
-Callable接口是一个参数化的类型，只有一个方法call。
-public interface Ca11able&lt;V&gt;{
-    V call()
+					/**
+ * @author wujun
+ * @date 2018-10-30 16:25
+ */
+@Configuration
+public class RedisConfig {
+    /**
+     * redisTemplate 自定义序列化类
+     *
+     * @param
 					...
 				</div>
-				<p class="index-date">2019-12-21</p>
 			</a>
+                <div>
+				    <span class="index-date">2019-12-18</span>
+                    
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/02-数据库/">02 数据库</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/02-数据库/03-Redis/">03 Redis</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
 		</div>	
 	
 </div>

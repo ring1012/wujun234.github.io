@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+Disallow: /js/
+Disallow: /css/
+Disallow: /lib/
+
+Sitemap: https://wujun234.github.io/sitemap.xml
+Sitemap: https://wujun234.github.io/baidusitemap.xml

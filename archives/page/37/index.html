@@ -9,7 +9,7 @@
 	
 	<title>
 	 
-	吴俊博客
+	吴俊的博客
 	</title>
 	
 	<!-- keywords,description -->
@@ -38,12 +38,9 @@
 
 <body>
 	<header id="header">
-    <a id="title" href="/" class="logo">吴俊博客</a>
+    <a id="title" href="/" class="logo">吴俊的博客</a>
 
 	<ul id="menu">
-		<li class="menu-item">
-			<a href="/" class="menu-item-link">HOME</a>
-		</li>
 		<li class="menu-item">
 			<a href="/about" class="menu-item-link">ABOUT</a>
 		</li>
@@ -4391,217 +4388,386 @@
 		<div id="index-list">
 	
 		<div class="index-li">
-			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/01%20%E5%9F%BA%E6%9C%AC%E8%AE%BE%E8%AE%A1/5%20%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA/">
+			<a href="/2019/12/18/01%20Spring/01%20Core/1%20%E5%9F%BA%E6%9C%AC%E7%90%86%E5%BF%B5/">
 				<h2 class="index-title">
-					5 输入输出
+					1 基本理念
 				</h2>
 				<div class="index-brief">
-					1 读取输入
-Scanner 类
+					Spring 基本理念：简化Java开发
 
-文件输入
+最小侵入：基于POJO的轻量级、最小侵入式开发；
+依赖注入：松耦合
+面向接口：松耦合
+面向切面：声明式编程，消除样板式代码
+使用模板：消除样板式代码
 
-Scanner scan = new Scanner(Paths.get(&quot;myfile.txt&quot;)，&quot;UTF-8&quot;);
-// 如果是win系统，使用双反斜杠,&quot;c:\\mydirectory\\myf
+spring基本原理
+
+启动项目后，按照配置找到要scan的包（自动装配）
+解析包里面的所有类，找到所有
 					...
 				</div>
-				<p class="index-date">2019-12-21</p>
 			</a>
+                <div>
+				    <span class="index-date">2019-12-18</span>
+                    
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/01-Spring/">01 Spring</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/01-Spring/01-Core/">01 Core</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
 		</div>	
 	
 		<div class="index-li">
-			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/01%20%E5%9F%BA%E6%9C%AC%E8%AE%BE%E8%AE%A1/4%20%E8%BF%90%E7%AE%97%E7%AC%A6/">
+			<a href="/2019/12/18/01%20Spring/01%20Core/3%20%E6%95%B4%E4%BD%93%E6%9E%B6%E6%9E%84/">
 				<h2 class="index-title">
-					4 运算符
+					3 整体架构
 				</h2>
 				<div class="index-brief">
-					1 数学函数与常量
-Math.sqrt(x) 平方根
-Math.pow(x,y) 幂运算，x的y次幂
-Math.floorMod(x,y) 求余
-2 自增与自减运算符
-建议不要在表达式中使用++，容易带来疑惑和bug
-3 关系和boolean运算符
-==
-!=
-&lt;
-&gt;
-&lt;=
-&gt
+					1 Spring模块
+Spring 4.0有20个模块，这些模块依据其所属的功能可以划分为6类不同的功能
+
+
+Spring核心容器
+最核心的部分， 见上文。
+除了BeanFactory和ApplicationContext，还提供E-mail、 JNDI访问、 EJB集成和调度等服务。所有的Spri
 					...
 				</div>
-				<p class="index-date">2019-12-21</p>
 			</a>
+                <div>
+				    <span class="index-date">2019-12-18</span>
+                    
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/01-Spring/">01 Spring</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/01-Spring/01-Core/">01 Core</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
 		</div>	
 	
 		<div class="index-li">
-			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/01%20%E5%9F%BA%E6%9C%AC%E8%AE%BE%E8%AE%A1/3%20%E6%95%B0%E7%BB%84/">
+			<a href="/2019/12/18/01%20Spring/01%20Core/2%20%E6%A1%86%E6%9E%B6%E6%A0%B8%E5%BF%83/">
 				<h2 class="index-title">
-					3 数组
+					2 框架核心
 				</h2>
 				<div class="index-brief">
-					1.一维数组
-声明
-一旦创建了数组就不能改变它的大小。
-int[] a = new int[n];
-int a[] = new int[n];
-
-初始化
-数字数组初始化为0。boolean数组初始化false。对象数组初始化null。
-int[] a = {1,2,3} ;
-new int[]{1,
+					1 容器
+容器（container）是Spring框架的核心，它管理着Spring应用中bean的创建、 配置和管理，负责对象的整个生命周期。
+IoC（Inversion of Control，控制反转 ）：因为具有依赖注入（DI）功能，控制权由应用代码中转到了外部容器，控制权的转移，所谓控制反转。
 					...
 				</div>
-				<p class="index-date">2019-12-21</p>
 			</a>
+                <div>
+				    <span class="index-date">2019-12-18</span>
+                    
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/01-Spring/">01 Spring</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/01-Spring/01-Core/">01 Core</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
 		</div>	
 	
 		<div class="index-li">
-			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/01%20%E5%9F%BA%E6%9C%AC%E8%AE%BE%E8%AE%A1/2%20%E5%AD%97%E7%AC%A6%E4%B8%B2/">
+			<a href="/2019/12/18/00%20Java/02%20Effective%20Java/1%20%E5%88%9B%E5%BB%BA%E5%92%8C%E9%94%80%E6%AF%81%E5%AF%B9%E8%B1%A1%EF%BC%881-9%EF%BC%89/">
 				<h2 class="index-title">
-					2 字符串
+					1 创建和销毁对象（1-9）
 				</h2>
 				<div class="index-brief">
-					String
-String类是常量类,不可变，编辑器可让字符串共享在常量池。
-初始化
+					第1条：考虑用静态工厂方法代替构造器
+工厂方法优势：
 
-使用字符串常量直接初始化
+有名称，更易读
+可选，不必每次创建新对象
+可以返回子类型
+创建参数化类型实例时，更简洁
+可以返回非公有类
 
-String s = &quot;hello!&quot;;
+工厂方法缺点：
 
+类如果不含有他的公有或者受保护的构造器，就不能被子类化。
+与其他静态方法没区别，不易识别
 
-使用构造方法创建并初始化
-
-String s = new String(Object);
-
-操作
-
-截取字符串
-
-单点
+常用的静态工厂名称：val
 					...
 				</div>
-				<p class="index-date">2019-12-21</p>
 			</a>
+                <div>
+				    <span class="index-date">2019-12-18</span>
+                    
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/">00 Java</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/02-Effective-Java/">02 Effective Java</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
 		</div>	
 	
 		<div class="index-li">
-			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/01%20%E5%9F%BA%E6%9C%AC%E8%AE%BE%E8%AE%A1/1%20%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/">
+			<a href="/2019/12/18/00%20Java/02%20Effective%20Java/10%20%E5%B9%B6%E5%8F%91%EF%BC%8878-84%EF%BC%89/">
 				<h2 class="index-title">
-					1 数据类型
+					10 并发（78-84）
 				</h2>
 				<div class="index-brief">
-					数据类型分为基本类型和对象类型。
-1. 基本类型
-Java中的基本类型有8种，其中有4种整型、2种浮点型、char和boolean。还有void和reference类型
+					第78条：同步访问共享的可变数据
+第79条：避免过度同步
+第80条：executor和task优先于线程
 
-基本类型值存储在内存栈上。
-基本类型所占空间大小固定。
-所有数值类型都有正负号。
-
-整型
-
-
-
-类型
-包装类
-存储需求
-取值范围
+Executor.newCachedThreadPool：小程序，轻载的服务器
+Executor.newFixedThreadPool：大负载的服务器
+ThreadPoolExecutor：最
 					...
 				</div>
-				<p class="index-date">2019-12-21</p>
 			</a>
+                <div>
+				    <span class="index-date">2019-12-18</span>
+                    
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/">00 Java</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/02-Effective-Java/">02 Effective Java</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
 		</div>	
 	
 		<div class="index-li">
-			<a href="/2019/12/18/18%20%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/4%20%E7%BD%91%E7%BB%9C%E5%B1%82/%E6%9C%AC%E7%AB%A0%E7%9A%84%E9%87%8D%E8%A6%81%E6%A6%82%E5%BF%B5/">
+			<a href="/2019/12/18/00%20Java/02%20Effective%20Java/11%20%E5%BA%8F%E5%88%97%E5%8C%96%EF%BC%8885-90%EF%BC%89/">
 				<h2 class="index-title">
-					本章的重要概念
+					11 序列化（85-90）
 				</h2>
 				<div class="index-brief">
-					
-TCP/IP 体系中的网络层向上只提供简单灵活的、无连接的、尽最大努力交付的数据报服务。网络层不提供服务质量的承诺，不保证分组交付的时限，所传送的分组可能出错、丢失、重复和失序。进程之间通信的可靠性由运输层负责。
-IP 网是虚拟的，因为从网络层上看，IP网就是一个统一的、抽象的网络（实际上是异构的
+					第85条: 首选Java序列化的替代品
+序列化是危险的，反序列化有漏洞，应该避免。
+使用跨平台的结构化数据替代，例如JSON或protobuf。
+或者不反序列化不受信任的数据。
+如果必须反序列化，使用对象反序列化过滤，并避免编写可序列化的类。
+第86条：谨慎地实现Serializable接口
+Ser
 					...
 				</div>
-				<p class="index-date">2019-12-21</p>
 			</a>
+                <div>
+				    <span class="index-date">2019-12-18</span>
+                    
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/">00 Java</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/02-Effective-Java/">02 Effective Java</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
 		</div>	
 	
 		<div class="index-li">
-			<a href="/2019/12/18/18%20%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/4%20%E7%BD%91%E7%BB%9C%E5%B1%82/9%20%E5%A4%9A%E5%8D%8F%E8%AE%AE%E6%A0%87%E8%AE%B0%E4%BA%A4%E6%8D%A2MPLS/">
+			<a href="/2019/12/18/00%20Java/02%20Effective%20Java/2%20%E5%AF%B9%E4%BA%8E%E6%89%80%E6%9C%89%E5%AF%B9%E8%B1%A1%E9%83%BD%E9%80%9A%E7%94%A8%E7%9A%84%E6%96%B9%E6%B3%95%EF%BC%8810-14%EF%BC%89/">
 				<h2 class="index-title">
-					9 多协议标记交换MPLS
+					2 对于所有对象都通用的方法（10-14）
 				</h2>
 				<div class="index-brief">
-					多协议标记交换MPLS，“多协议&quot;表示在MPLS的上层可以采用多种协议。
-MPLS利用面向连接技术，使每个分组携带一个叫做标记的小整数。当分组到达交换机时，交换机读取分组的标记，并用标记值来检索分组转发表。这样就比查找路由表来转发分组要快得多。
-MPLS具有以下三个方面的特点：
+					第10条：覆盖equals时请遵守通用约定
 
-(1)支
+自反性 - 对象必须等于其自身
+对称性 - 任何两个对象对于它们是否相等的问题都必须保持一致，Timestamp违反了，不值得效仿
+传递性 - 如果对象A等于B，B等于C，那么A一定等于C
+一致性 - 相等的对象永远相等，不相等的对象永远不相等
+非空性 
 					...
 				</div>
-				<p class="index-date">2019-12-21</p>
 			</a>
+                <div>
+				    <span class="index-date">2019-12-18</span>
+                    
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/">00 Java</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/02-Effective-Java/">02 Effective Java</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
 		</div>	
 	
 		<div class="index-li">
-			<a href="/2019/12/18/18%20%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/4%20%E7%BD%91%E7%BB%9C%E5%B1%82/8%20%E8%99%9A%E6%8B%9F%E4%B8%93%E7%94%A8%E7%BD%91VPN%E5%92%8C%E7%BD%91%E7%BB%9C%E5%9C%B0%E5%9D%80%E8%BD%AC%E6%8D%A2NAT/">
+			<a href="/2019/12/18/00%20Java/02%20Effective%20Java/3%20%E7%B1%BB%E5%92%8C%E6%8E%A5%E5%8F%A3%EF%BC%8815-25%EF%BC%89/">
 				<h2 class="index-title">
-					8 虚拟专用网VPN和网络地址转换NAT
+					3 类和接口（15-25）
 				</h2>
 				<div class="index-brief">
-					1 虚拟专用网 VPN
-互联网中的路由器，对目的地址是专用地址的数据报一律不进行转发。
-有三个专用地址块：
+					第15条：使类和成员的可访问性最小化
+公有静态final域暴露常量，要么包含基本类型值，要么包含指向不可变对象的引用
+第16条：在公有类中使用访问方法而非公有域
 
-10.0.0.0 ~ 10.255.255.255
-172.16.0.0 ~ 172.31.255.255
-192.168.0.0 ~ 192.168.255.255
-
-如果专用网不同网点之
+公有类不应该暴露可变域，因为其客户端代码遍布各处，将来极难改变内部表示法
+公有类暴露不可变域危害较小，事实上也不应该
+包级私有或私有嵌套
 					...
 				</div>
-				<p class="index-date">2019-12-21</p>
 			</a>
+                <div>
+				    <span class="index-date">2019-12-18</span>
+                    
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/">00 Java</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/02-Effective-Java/">02 Effective Java</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
 		</div>	
 	
 		<div class="index-li">
-			<a href="/2019/12/18/18%20%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/4%20%E7%BD%91%E7%BB%9C%E5%B1%82/7%20IP%E5%A4%9A%E6%92%AD/">
+			<a href="/2019/12/18/00%20Java/02%20Effective%20Java/4%20%E6%B3%9B%E5%9E%8B%EF%BC%8826-33%EF%BC%89/">
 				<h2 class="index-title">
-					7 IP多播
+					4 泛型（26-33）
 				</h2>
 				<div class="index-brief">
-					
-1 IP多播的基本概念
-
-在互联网上进行多播就叫做IP多播。
-IP多播所传送的分组需要使用多播IP地址。
-在多播数据报的目的地址写入的是多播组的标识符，然后设法让加入到这个多播组的主机的IP地址与多播组的标识符关联起来；
-多播组的标识符就是IP地址中的D类地址。
-多播地址只能用于目的地址，而不能用
+					第26条：请不要在新代码中使用原生态类型
+原生态类型只为了与引入泛型之前的遗留代码进行兼容和互用而提供的。
+第27条：消除非受检警告
+如果无法消除警告，同时可以证明引起警告的代码是类型安全的，只有在这种情况下才可以用一个@SuppressWarnings(“unchecked”)注解来禁止这条警告。
 					...
 				</div>
-				<p class="index-date">2019-12-21</p>
 			</a>
+                <div>
+				    <span class="index-date">2019-12-18</span>
+                    
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/">00 Java</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/02-Effective-Java/">02 Effective Java</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
 		</div>	
 	
 		<div class="index-li">
-			<a href="/2019/12/18/18%20%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/4%20%E7%BD%91%E7%BB%9C%E5%B1%82/6%20IPv6/">
+			<a href="/2019/12/18/00%20Java/02%20Effective%20Java/5%20%E6%9E%9A%E4%B8%BE%E5%92%8C%E6%B3%A8%E8%A7%A3%EF%BC%8834-41%EF%BC%89/">
 				<h2 class="index-title">
-					6 IPv6
+					5 枚举和注解（34-41）
 				</h2>
 				<div class="index-brief">
-					1 IPv6的基本首部
-IPv6 的协议数据单元 PDU 称为分组，而不是IPv4的数据报。
-IPv6 从32位增大到128位，首部由是4字节对齐改为8字节对齐。
-IPv6 数据报由两大部分组成，即基本首部和有效载荷（净负荷）。有效载荷允许有零个或多个扩展首部，再后面是数据部分。
-2 IPv6的地址
+					第34条：用enum代替int常量
+当需要一组固定常量的时候，应该使用enum代替int常量。
+第35条：用实例域代替序数
+应该给enum添加int域，而不是使用ordinal()方法来导出与枚举关联的序数值。(几乎不应使用ordinal()方法，除非在编写像EnumMap这样的基于枚举的通用数据结
 					...
 				</div>
-				<p class="index-date">2019-12-21</p>
 			</a>
+                <div>
+				    <span class="index-date">2019-12-18</span>
+                    
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/">00 Java</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/02-Effective-Java/">02 Effective Java</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
 		</div>	
 	
 </div>

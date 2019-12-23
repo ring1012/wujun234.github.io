@@ -9,7 +9,7 @@
 	
 	<title>
 	 
-	吴俊博客
+	吴俊的博客
 	</title>
 	
 	<!-- keywords,description -->
@@ -38,12 +38,9 @@
 
 <body>
 	<header id="header">
-    <a id="title" href="/" class="logo">吴俊博客</a>
+    <a id="title" href="/" class="logo">吴俊的博客</a>
 
 	<ul id="menu">
-		<li class="menu-item">
-			<a href="/" class="menu-item-link">HOME</a>
-		</li>
 		<li class="menu-item">
 			<a href="/about" class="menu-item-link">ABOUT</a>
 		</li>
@@ -4391,42 +4388,130 @@
 		<div id="index-list">
 	
 		<div class="index-li">
-			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/07%20%E5%B9%B6%E5%8F%91/1%20%E4%BB%80%E4%B9%88%E6%98%AF%E7%BA%BF%E7%A8%8B/">
+			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/06%20%E9%9B%86%E5%90%88/2.9%20concurrenthashmap/">
 				<h2 class="index-title">
-					1 什么是线程
+					2.9 concurrenthashmap
 				</h2>
 				<div class="index-brief">
-					并发和并行的区别
-
-并发:单核处理多个任务
-并行:多核同时处理多个任
-
-进程和线程的区别
-
-进程：每个进程都有独立的代码和数据空间（进程上下文），进程间的切换会有较大的开销，一个进程包含1–n个线程。
-线程：同一类线程共享代码和数据空间，每个线程有独立的运行栈和程序计数器(PC)，线程切换开销小。
-
+					JDK1.5起，java.util.concurrent包
+JDK1.7
+总体介绍
+ConcurrentHashMap采用了分段锁技术，效率较Hashtable高，不允许空值null。
+ConcurrentHashMap是 Segment 数组。Segment 继承于ReentrantLock，可以
 					...
 				</div>
-				<p class="index-date">2019-12-21</p>
 			</a>
+                <div>
+				    <span class="index-date">2019-12-18</span>
+                    
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/">00 Java</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/00-Java基础/">00 Java基础</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/00-Java基础/06-集合/">06 集合</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
 		</div>	
 	
 		<div class="index-li">
-			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/06%20%E9%9B%86%E5%90%88/6%20%E9%81%97%E7%95%99%E7%9A%84%E9%9B%86%E5%90%88/">
+			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/06%20%E9%9B%86%E5%90%88/2.9%20ConcurrentSkipListMap/">
 				<h2 class="index-title">
-					6 遗留的集合
+					2.9 ConcurrentSkipListMap
 				</h2>
 				<div class="index-brief">
-					1 Hashtable
-与HashMap的作用是一样的，但是Hashtable是线程同步的。
-如果同步性没有要求，应该尽量使用HashMap。
-2 枚举
-遗留集合使用Enumeration接口对元素序列进行遍历。 Enumeration接口有两个方法，即hasMoreElements和nextEle
+					
+
 					...
 				</div>
-				<p class="index-date">2019-12-21</p>
 			</a>
+                <div>
+				    <span class="index-date">2019-12-18</span>
+                    
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/">00 Java</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/00-Java基础/">00 Java基础</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/00-Java基础/06-集合/">06 集合</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/06%20%E9%9B%86%E5%90%88/3%20%E6%98%A0%E5%B0%84/">
+				<h2 class="index-title">
+					3 映射
+				</h2>
+				<div class="index-brief">
+					映射(map) 用来存放键 / 值对。如
+果提供了键， 就能够查找到值。
+1　基本映射操作
+Java 类库为映射提供了两个通用的实现： HashMap 和 TreeMap 。这两个类都实现了 Map 接口。
+散列映射对键进行散列， 树映射用键的整体顺序对元素进行排序， 并将其组织成搜索树。
+键必须是
+					...
+				</div>
+			</a>
+                <div>
+				    <span class="index-date">2019-12-18</span>
+                    
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/">00 Java</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/00-Java基础/">00 Java基础</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/00-Java基础/06-集合/">06 集合</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
 		</div>	
 	
 		<div class="index-li">
@@ -4444,131 +4529,320 @@ Collections.sort()
 排序传递的列表必须是可修改的，不必要是可
 					...
 				</div>
-				<p class="index-date">2019-12-21</p>
 			</a>
+                <div>
+				    <span class="index-date">2019-12-18</span>
+                    
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/">00 Java</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/00-Java基础/">00 Java基础</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/00-Java基础/06-集合/">06 集合</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
 		</div>	
 	
 		<div class="index-li">
-			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/06%20%E9%9B%86%E5%90%88/4%20%E8%A7%86%E5%9B%BE%E4%B8%8E%E5%8C%85%E8%A3%85%E5%99%A8/">
+			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/06%20%E9%9B%86%E5%90%88/6%20%E9%81%97%E7%95%99%E7%9A%84%E9%9B%86%E5%90%88/">
 				<h2 class="index-title">
-					4 视图与包装器
+					6 遗留的集合
 				</h2>
 				<div class="index-brief">
-					视图：保持对原集合的控制。只用来展示集合中的元素。
-视图是不可修改的，任何改变视图size的操作都会影响到原集合。抛出异常。
-1、轻量级集包装器
-Arrays.asList方法
-Arrays.asList方法返回一个包装了普通Java数组的List包装器,一个视图对象。
-Collecitons.nC
+					1 Hashtable
+与HashMap的作用是一样的，但是Hashtable是线程同步的。
+如果同步性没有要求，应该尽量使用HashMap。
+2 枚举
+遗留集合使用Enumeration接口对元素序列进行遍历。 Enumeration接口有两个方法，即hasMoreElements和nextEle
 					...
 				</div>
-				<p class="index-date">2019-12-21</p>
 			</a>
+                <div>
+				    <span class="index-date">2019-12-18</span>
+                    
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/">00 Java</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/00-Java基础/">00 Java基础</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/00-Java基础/06-集合/">06 集合</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
 		</div>	
 	
 		<div class="index-li">
-			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/06%20%E9%9B%86%E5%90%88/3%20%E6%98%A0%E5%B0%84/">
+			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/04%20%E5%BC%82%E5%B8%B8%E3%80%81%E6%96%AD%E8%A8%80%E5%92%8C%E6%97%A5%E5%BF%97/1%20%E5%A4%84%E7%90%86%E5%BC%82%E5%B8%B8/">
 				<h2 class="index-title">
-					3 映射
+					1 处理异常
 				</h2>
 				<div class="index-brief">
-					映射(map) 用来存放键 / 值对。如
-果提供了键， 就能够查找到值。
-1　基本映射操作
-Java 类库为映射提供了两个通用的实现： HashMap 和 TreeMap 。这两个类都实现了 Map 接口。
-散列映射对键进行散列， 树映射用键的整体顺序对元素进行排序， 并将其组织成搜索树。
-键必须是
+					1 异常分类
+graph LR
+Throwable--&gt;Error
+Throwable--&gt;Exception
+Exception--&gt;RuntimeException
+Exception--&gt;除了RuntimeException的其它异常 
+
+异常对象都继承自Throwab
 					...
 				</div>
-				<p class="index-date">2019-12-21</p>
 			</a>
+                <div>
+				    <span class="index-date">2019-12-18</span>
+                    
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/">00 Java</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/00-Java基础/">00 Java基础</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/00-Java基础/04-异常、断言和日志/">04 异常、断言和日志</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
 		</div>	
 	
 		<div class="index-li">
-			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/06%20%E9%9B%86%E5%90%88/2.9%20ConcurrentSkipListMap/">
+			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/04%20%E5%BC%82%E5%B8%B8%E3%80%81%E6%96%AD%E8%A8%80%E5%92%8C%E6%97%A5%E5%BF%97/2%20%E6%8D%95%E8%8E%B7%E5%BC%82%E5%B8%B8/">
 				<h2 class="index-title">
-					2.9 ConcurrentSkipListMap
+					2 捕获异常
 				</h2>
 				<div class="index-brief">
 					
+如果异常没有被捕获，程序将会停止运行
+try/catch 捕获异常
+如不捕获异常，可 throws 声明异常，将异常传递给调用者
+子类覆盖超类的方法中，只能 throws 超类方法的异常，其他只能自己捕获处理
 
-					...
-				</div>
-				<p class="index-date">2019-12-21</p>
-			</a>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/06%20%E9%9B%86%E5%90%88/2.9%20concurrenthashmap/">
-				<h2 class="index-title">
-					2.9 concurrenthashmap
-				</h2>
-				<div class="index-brief">
-					JDK1.5起，java.util.concurrent包
-JDK1.7
-总体介绍
-ConcurrentHashMap采用了分段锁技术，效率较Hashtable高，不允许空值null。
-ConcurrentHashMap是 Segment 数组。Segment 继承于ReentrantLock，可以
-					...
-				</div>
-				<p class="index-date">2019-12-21</p>
-			</a>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/06%20%E9%9B%86%E5%90%88/2.7%20priorityqueue/">
-				<h2 class="index-title">
-					2.7 priorityqueue
-				</h2>
-				<div class="index-brief">
-					总体介绍
-优先队列的作用是能保证每次取出的元素都是队列中权值最小的。
-实现了Queue接口，不允许null，通过数组实现的小顶堆。
+1 捕获多个异常
 
-父子节点的编号之间有如下关系：
+基本语句
 
-leftNo = parentNo*2+1
-rightNo = parentNo*2+2
-parentNo = (nodeNo-1)
+try{
+}
+catch (FileNotFoundE
 					...
 				</div>
-				<p class="index-date">2019-12-21</p>
 			</a>
+                <div>
+				    <span class="index-date">2019-12-18</span>
+                    
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/">00 Java</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/00-Java基础/">00 Java基础</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/00-Java基础/04-异常、断言和日志/">04 异常、断言和日志</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
 		</div>	
 	
 		<div class="index-li">
-			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/06%20%E9%9B%86%E5%90%88/2.6%20linkedhashmap%E3%80%81linkedhashset/">
+			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/04%20%E5%BC%82%E5%B8%B8%E3%80%81%E6%96%AD%E8%A8%80%E5%92%8C%E6%97%A5%E5%BF%97/3%20%E6%96%AD%E8%A8%80/">
 				<h2 class="index-title">
-					2.6 linkedhashmap、linkedhashset
+					3 断言
 				</h2>
 				<div class="index-brief">
-					前言
-LinkedHashSet仅对LinkedHashMap做了一层包装，实现相同。LinkedHashSet里面有一个LinkedHashMap（适配器模式）。
-总体介绍
-LinkedHashMap 有序，非同步，允许null键null值，是由linkedList增强的HashMap。
-继承于H
+					断言用在开发、测试期间。
+当代码发布时，这些插入的检测语句将会被自动地移走。
+1 表达形式
+
+assert 条件；
+
+assert x &gt;= 0;
+
+
+assert 条件：表达式;
+
+assert x &gt;= 0 : x;
+
+对条件进行检测，如果为false，则抛出一个AssertionE
 					...
 				</div>
-				<p class="index-date">2019-12-21</p>
 			</a>
+                <div>
+				    <span class="index-date">2019-12-18</span>
+                    
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/">00 Java</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/00-Java基础/">00 Java基础</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/00-Java基础/04-异常、断言和日志/">04 异常、断言和日志</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
 		</div>	
 	
 		<div class="index-li">
-			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/06%20%E9%9B%86%E5%90%88/2.5%20hashmap%E3%80%81hashset%E3%80%81hashtable/">
+			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/04%20%E5%BC%82%E5%B8%B8%E3%80%81%E6%96%AD%E8%A8%80%E5%92%8C%E6%97%A5%E5%BF%97/4%20%E8%AE%B0%E5%BD%95%E6%97%A5%E5%BF%97/">
 				<h2 class="index-title">
-					2.5 hashmap、hashset、hashtable
+					4 记录日志
 				</h2>
 				<div class="index-brief">
-					前言
-HashSet仅对HashMap做了一层包装，实现相同。HashSet里面有一个HashMap（适配器模式）。
-Hashtable与HashMap大致相同，但Hashtable是同步的，并且不允许使用 null 。
-HashMap
-总体介绍
-基于哈希表，实现了Map接口。允许null值null
+					java.util.logging.Logger
+1 日志记录器
+
+全局日志记录器：Logger.getGlobal()
+
+Logger.getGlobal().info(&quot;&quot;);
+
+
+自定义日志记录器：Logger.getLogger()
+
+Logger myLogger= L
 					...
 				</div>
-				<p class="index-date">2019-12-21</p>
 			</a>
+                <div>
+				    <span class="index-date">2019-12-18</span>
+                    
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/">00 Java</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/00-Java基础/">00 Java基础</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/00-Java基础/04-异常、断言和日志/">04 异常、断言和日志</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/05%20%E6%B3%9B%E5%9E%8B%E3%80%81%E4%BA%8B%E4%BB%B6%E5%A4%84%E7%90%86/2%20%E4%BA%8B%E4%BB%B6%E5%A4%84%E7%90%86/">
+				<h2 class="index-title">
+					2 事件处理
+				</h2>
+				<div class="index-brief">
+					一 主要角色
+
+事件源（Source）
+触发事件的对象，不需要实现或继承任何接口或类。
+因为事件源需要注册事件监听器，所以事件源内需要有相应的盛放事件监听器的容器。
+事件（EventObject）
+java.util.EventObject是事件状态对象的基类，封装了事件源对象以及和事件相关的信息。
+					...
+				</div>
+			</a>
+                <div>
+				    <span class="index-date">2019-12-18</span>
+                    
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/">00 Java</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/00-Java基础/">00 Java基础</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/00-Java基础/05-泛型、事件处理/">05 泛型、事件处理</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
 		</div>	
 	
 </div>

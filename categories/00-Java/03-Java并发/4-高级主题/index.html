@@ -9,7 +9,7 @@
 	
 	<title>
 	 
-	吴俊博客
+	吴俊的博客
 	</title>
 	
 	<!-- keywords,description -->
@@ -38,12 +38,9 @@
 
 <body>
 	<header id="header">
-    <a id="title" href="/" class="logo">吴俊博客</a>
+    <a id="title" href="/" class="logo">吴俊的博客</a>
 
 	<ul id="menu">
-		<li class="menu-item">
-			<a href="/" class="menu-item-link">HOME</a>
-		</li>
 		<li class="menu-item">
 			<a href="/about" class="menu-item-link">ABOUT</a>
 		</li>
@@ -4391,20 +4388,85 @@
 		<div id="index-list">
 	
 		<div class="index-li">
-			<a href="/2019/12/18/00%20Java/03%20Java%E5%B9%B6%E5%8F%91/4%20%E9%AB%98%E7%BA%A7%E4%B8%BB%E9%A2%98/4%20Java%20%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/">
+			<a href="/2019/12/18/00%20Java/03%20Java%E5%B9%B6%E5%8F%91/4%20%E9%AB%98%E7%BA%A7%E4%B8%BB%E9%A2%98/1%20%E6%98%BE%E5%BC%8F%E9%94%81/">
 				<h2 class="index-title">
-					4 Java 内存模型
+					1 显式锁
 				</h2>
 				<div class="index-brief">
-					1 什么是内存模型, 为什么需要它
-如果缺少同步，那么将会有许多因素使得线程无法立即甚至永远，看到另一个线程的操作结果。
-JMM规定了JVM必须遵循一组保证，这组保证规定了对变量的写入操作在何时将对于其它线程可见。
-1.1 平台的内存模型
-为了使Java开发人员无须关心不同架构上内存模型之间的差异，
+					ReentrantLock 并不是一种替代内置加锁的方法，而是当内置加锁机制不适用时，作为一种可选择的高级功能。
+1 Lock 与 ReentrantLock
+ReentrantLock 实现了Lock接口，并提供了与 synchronized 相同的互斥性、内存可见性和可重入的加锁语义。
+与syn
 					...
 				</div>
-				<p class="index-date">2019-12-21</p>
 			</a>
+                <div>
+				    <span class="index-date">2019-12-18</span>
+                    
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/">00 Java</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/03-Java并发/">03 Java并发</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/03-Java并发/4-高级主题/">4 高级主题</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2019/12/18/00%20Java/03%20Java%E5%B9%B6%E5%8F%91/4%20%E9%AB%98%E7%BA%A7%E4%B8%BB%E9%A2%98/2%20%E6%9E%84%E5%BB%BA%E8%87%AA%E5%AE%9A%E4%B9%89%E7%9A%84%E5%90%8C%E6%AD%A5%E5%B7%A5%E5%85%B7/">
+				<h2 class="index-title">
+					2 构建自定义的同步工具
+				</h2>
+				<div class="index-brief">
+					创建状态依赖类的最简单方法通常是在类库中现有状态依赖类的基础上进行构造。但如果类库没有提供你需要的功能，那么还可以使用Java语言和类库提供的底层机制来构造自己的同步机制，包括内置的条件队列、显式的 Condition 对象以及  AbstractQueuedSynchronizer 框架。
+1 状
+					...
+				</div>
+			</a>
+                <div>
+				    <span class="index-date">2019-12-18</span>
+                    
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/">00 Java</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/03-Java并发/">03 Java并发</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/03-Java并发/4-高级主题/">4 高级主题</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
 		</div>	
 	
 		<div class="index-li">
@@ -4421,38 +4483,77 @@ volatile不会引起线程上下文切换或线程调度，但不能用于构建
 如果锁一直被持有，其
 					...
 				</div>
-				<p class="index-date">2019-12-21</p>
 			</a>
+                <div>
+				    <span class="index-date">2019-12-18</span>
+                    
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/">00 Java</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/03-Java并发/">03 Java并发</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/03-Java并发/4-高级主题/">4 高级主题</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
 		</div>	
 	
 		<div class="index-li">
-			<a href="/2019/12/18/00%20Java/03%20Java%E5%B9%B6%E5%8F%91/4%20%E9%AB%98%E7%BA%A7%E4%B8%BB%E9%A2%98/2%20%E6%9E%84%E5%BB%BA%E8%87%AA%E5%AE%9A%E4%B9%89%E7%9A%84%E5%90%8C%E6%AD%A5%E5%B7%A5%E5%85%B7/">
+			<a href="/2019/12/18/00%20Java/03%20Java%E5%B9%B6%E5%8F%91/4%20%E9%AB%98%E7%BA%A7%E4%B8%BB%E9%A2%98/4%20Java%20%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/">
 				<h2 class="index-title">
-					2 构建自定义的同步工具
+					4 Java 内存模型
 				</h2>
 				<div class="index-brief">
-					创建状态依赖类的最简单方法通常是在类库中现有状态依赖类的基础上进行构造。但如果类库没有提供你需要的功能，那么还可以使用Java语言和类库提供的底层机制来构造自己的同步机制，包括内置的条件队列、显式的 Condition 对象以及  AbstractQueuedSynchronizer 框架。
-1 状
+					1 什么是内存模型, 为什么需要它
+如果缺少同步，那么将会有许多因素使得线程无法立即甚至永远，看到另一个线程的操作结果。
+JMM规定了JVM必须遵循一组保证，这组保证规定了对变量的写入操作在何时将对于其它线程可见。
+1.1 平台的内存模型
+为了使Java开发人员无须关心不同架构上内存模型之间的差异，
 					...
 				</div>
-				<p class="index-date">2019-12-21</p>
 			</a>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/2019/12/18/00%20Java/03%20Java%E5%B9%B6%E5%8F%91/4%20%E9%AB%98%E7%BA%A7%E4%B8%BB%E9%A2%98/1%20%E6%98%BE%E5%BC%8F%E9%94%81/">
-				<h2 class="index-title">
-					1 显式锁
-				</h2>
-				<div class="index-brief">
-					ReentrantLock 并不是一种替代内置加锁的方法，而是当内置加锁机制不适用时，作为一种可选择的高级功能。
-1 Lock 与 ReentrantLock
-ReentrantLock 实现了Lock接口，并提供了与 synchronized 相同的互斥性、内存可见性和可重入的加锁语义。
-与syn
-					...
-				</div>
-				<p class="index-date">2019-12-21</p>
-			</a>
+                <div>
+				    <span class="index-date">2019-12-18</span>
+                    
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/">00 Java</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/03-Java并发/">03 Java并发</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/03-Java并发/4-高级主题/">4 高级主题</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
 		</div>	
 	
 </div>

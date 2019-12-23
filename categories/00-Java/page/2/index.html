@@ -9,7 +9,7 @@
 	
 	<title>
 	 
-	吴俊博客
+	吴俊的博客
 	</title>
 	
 	<!-- keywords,description -->
@@ -38,12 +38,9 @@
 
 <body>
 	<header id="header">
-    <a id="title" href="/" class="logo">吴俊博客</a>
+    <a id="title" href="/" class="logo">吴俊的博客</a>
 
 	<ul id="menu">
-		<li class="menu-item">
-			<a href="/" class="menu-item-link">HOME</a>
-		</li>
 		<li class="menu-item">
 			<a href="/about" class="menu-item-link">ABOUT</a>
 		</li>
@@ -4391,21 +4388,91 @@
 		<div id="index-list">
 	
 		<div class="index-li">
-			<a href="/2019/12/18/00%20Java/03%20Java%E5%B9%B6%E5%8F%91/1%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/4%20%E5%9F%BA%E7%A1%80%E6%9E%84%E5%BB%BA%E6%A8%A1%E5%9D%97/">
+			<a href="/2019/12/18/00%20Java/03%20Java%E5%B9%B6%E5%8F%91/1%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/1%20%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8%E6%80%A7/">
 				<h2 class="index-title">
-					4 基础构建模块
+					1 线程安全性
 				</h2>
 				<div class="index-brief">
-					1 同步容器类
-同步容器类实现线程安全的方式是： 将他们的状态封装起来,并对每个公有方法都进行同步，使得每次只有一个线程能访问容器的状态。
-1.1 同步容器类的问题
+					1 什么是线程安全
+1.1 线程安全的类
+当多个线程访问某个类时，不管运行时环境采用何种调度方式或者这些线程将如何交替执行，并且在主调代码中不需要额外的同步，这个类都能表现正确的行为
+1.2 无状态对象
+不包含域，也不包含与其他类中域的引用。一定是线程安全的。
+2 原子性
+2.1 竞态条件
 
-同步容器类都是线程安全的，但在某些情况下可能需要额外的客户端加锁来保护复合操作。
-由于同步容器类要遵守同步策略(支持客户端加锁)，因
+竞态条
 					...
 				</div>
-				<p class="index-date">2019-12-21</p>
 			</a>
+                <div>
+				    <span class="index-date">2019-12-18</span>
+                    
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/">00 Java</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/03-Java并发/">03 Java并发</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/03-Java并发/1-基础知识/">1 基础知识</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2019/12/18/00%20Java/03%20Java%E5%B9%B6%E5%8F%91/1%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/2%20%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%85%B1%E4%BA%AB/">
+				<h2 class="index-title">
+					2 对象的共享
+				</h2>
+				<div class="index-brief">
+					一种常见的误解是, 认为关键字synchronized只能用于实现原子性或者确定临界区, 同步还有一个重要的方面: 内存可见性.
+1 可见性
+在没有同步的情况下, 编译器, 处理器, 运行时等可能对操作的执行顺序进行一些意想不到的调整, 在缺乏足够同步的多线程程序中, 要想对内存操作的执行顺序进行判
+					...
+				</div>
+			</a>
+                <div>
+				    <span class="index-date">2019-12-18</span>
+                    
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/">00 Java</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/03-Java并发/">03 Java并发</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/03-Java并发/1-基础知识/">1 基础知识</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
 		</div>	
 	
 		<div class="index-li">
@@ -4427,143 +4494,333 @@
 许多类
 					...
 				</div>
-				<p class="index-date">2019-12-21</p>
 			</a>
+                <div>
+				    <span class="index-date">2019-12-18</span>
+                    
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/">00 Java</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/03-Java并发/">03 Java并发</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/03-Java并发/1-基础知识/">1 基础知识</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
 		</div>	
 	
 		<div class="index-li">
-			<a href="/2019/12/18/00%20Java/03%20Java%E5%B9%B6%E5%8F%91/1%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/2%20%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%85%B1%E4%BA%AB/">
+			<a href="/2019/12/18/00%20Java/03%20Java%E5%B9%B6%E5%8F%91/1%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/4%20%E5%9F%BA%E7%A1%80%E6%9E%84%E5%BB%BA%E6%A8%A1%E5%9D%97/">
 				<h2 class="index-title">
-					2 对象的共享
+					4 基础构建模块
 				</h2>
 				<div class="index-brief">
-					一种常见的误解是, 认为关键字synchronized只能用于实现原子性或者确定临界区, 同步还有一个重要的方面: 内存可见性.
-1 可见性
-在没有同步的情况下, 编译器, 处理器, 运行时等可能对操作的执行顺序进行一些意想不到的调整, 在缺乏足够同步的多线程程序中, 要想对内存操作的执行顺序进行判
-					...
-				</div>
-				<p class="index-date">2019-12-21</p>
-			</a>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/2019/12/18/00%20Java/03%20Java%E5%B9%B6%E5%8F%91/1%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/1%20%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8%E6%80%A7/">
-				<h2 class="index-title">
-					1 线程安全性
-				</h2>
-				<div class="index-brief">
-					1 什么是线程安全
-1.1 线程安全的类
-当多个线程访问某个类时，不管运行时环境采用何种调度方式或者这些线程将如何交替执行，并且在主调代码中不需要额外的同步，这个类都能表现正确的行为
-1.2 无状态对象
-不包含域，也不包含与其他类中域的引用。一定是线程安全的。
-2 原子性
-2.1 竞态条件
+					1 同步容器类
+同步容器类实现线程安全的方式是： 将他们的状态封装起来,并对每个公有方法都进行同步，使得每次只有一个线程能访问容器的状态。
+1.1 同步容器类的问题
 
-竞态条
+同步容器类都是线程安全的，但在某些情况下可能需要额外的客户端加锁来保护复合操作。
+由于同步容器类要遵守同步策略(支持客户端加锁)，因
 					...
 				</div>
-				<p class="index-date">2019-12-21</p>
 			</a>
+                <div>
+				    <span class="index-date">2019-12-18</span>
+                    
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/">00 Java</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/03-Java并发/">03 Java并发</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/03-Java并发/1-基础知识/">1 基础知识</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
 		</div>	
 	
 		<div class="index-li">
-			<a href="/2019/12/18/00%20Java/02%20Effective%20Java/9%20%E5%BC%82%E5%B8%B8%EF%BC%8869-77%EF%BC%89/">
+			<a href="/2019/12/18/00%20Java/01%20Java%E8%99%9A%E6%8B%9F%E6%9C%BA/13%20%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8%E4%B8%8E%E9%94%81%E4%BC%98%E5%8C%96/1%20%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8/">
 				<h2 class="index-title">
-					9 异常（69-77）
+					1 线程安全
 				</h2>
 				<div class="index-brief">
-					第69条：只针对异常的情况才使用异常
-如果在try、catch、finally块中都抛出了异常，只是只有一个异常可被传播到外界。
-请不要在try块中发出对return、break或continue的调用，万一无法避免，一定要确保finally的存在不会改变函数的返回值（比如说抛异常啊、return啊
+					
 					...
 				</div>
-				<p class="index-date">2019-12-21</p>
 			</a>
+                <div>
+				    <span class="index-date">2019-12-18</span>
+                    
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/">00 Java</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/01-Java虚拟机/">01 Java虚拟机</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/01-Java虚拟机/13-线程安全与锁优化/">13 线程安全与锁优化</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
 		</div>	
 	
 		<div class="index-li">
-			<a href="/2019/12/18/00%20Java/02%20Effective%20Java/8%20%E9%80%9A%E7%94%A8%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%EF%BC%8857-68%EF%BC%89/">
+			<a href="/2019/12/18/00%20Java/01%20Java%E8%99%9A%E6%8B%9F%E6%9C%BA/13%20%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8%E4%B8%8E%E9%94%81%E4%BC%98%E5%8C%96/2%20%E9%94%81%E4%BC%98%E5%8C%96/">
 				<h2 class="index-title">
-					8 通用程序设计（57-68）
+					2 锁优化
 				</h2>
 				<div class="index-brief">
-					第57条：将局部变量的作用域最小化
-第58条：for-each循环优先于传统的for循环
-第59条：了解和使用标准类库
-第60条：如果需要精确的答案，请避免使用float和double
+					1 自旋锁与自适应自旋
 
-float和double类型尤其不适合用于货币计算
-可以使用bigDecimal、int或者long进行货币计算
+自旋锁，让后面请求锁的那个线程等待，执行一个忙循环；
+在JDK 1.6已经默认开启自旋锁；如果锁被占用的时间很短自旋等待的效果就会非常好，反之则会白白消耗处理器资源；
+在JDK 1.6中引入了自适应的自旋锁，这意味着自旋的时间不再固定，而是由前一次在同一个锁上的自旋时间及锁
 					...
 				</div>
-				<p class="index-date">2019-12-21</p>
 			</a>
+                <div>
+				    <span class="index-date">2019-12-18</span>
+                    
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/">00 Java</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/01-Java虚拟机/">01 Java虚拟机</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/01-Java虚拟机/13-线程安全与锁优化/">13 线程安全与锁优化</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
 		</div>	
 	
 		<div class="index-li">
-			<a href="/2019/12/18/00%20Java/02%20Effective%20Java/7%20%E6%96%B9%E6%B3%95%EF%BC%8849-56%EF%BC%89/">
+			<a href="/2019/12/18/00%20Java/01%20Java%E8%99%9A%E6%8B%9F%E6%9C%BA/12%20Java%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B/2%20Java%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/">
 				<h2 class="index-title">
-					7 方法（49-56）
+					2 Java内存模型
 				</h2>
 				<div class="index-brief">
-					第49条：检查参数的有效性
-不仅需要检查参数的有效性，还需要在函数的文档中给予明确的说明，如在参数非法的情况下，会抛出哪些异常，或导致函数返回哪些错误值等
-第50条：必要时进行保护性拷贝
-如果不能够容忍对象进入数据结构之后发生变，就必须对该对象进行保护性拷贝，并且让拷贝之后的对象而不是原始对象进入到
+					Java虚拟机规范中试图定义一种Java内存模型（JMM）来屏蔽掉各种硬件和操作系统的内存访问差异，以实现让Java程序在各种平台下都能达到一致的内存访问效果。
+主内存、工作内存与JVM内存不是同一个层次的内存划分，没有关联
+1 主内存与工作内存
+Java内存模型的主要目标是定义程序中各个线程共享变
 					...
 				</div>
-				<p class="index-date">2019-12-21</p>
 			</a>
+                <div>
+				    <span class="index-date">2019-12-18</span>
+                    
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/">00 Java</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/01-Java虚拟机/">01 Java虚拟机</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/01-Java虚拟机/12-Java内存模型与线程/">12 Java内存模型与线程</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
 		</div>	
 	
 		<div class="index-li">
-			<a href="/2019/12/18/00%20Java/02%20Effective%20Java/6%20Lambdas%E4%B8%8EStreams%EF%BC%8842-48%EF%BC%89/">
+			<a href="/2019/12/18/00%20Java/01%20Java%E8%99%9A%E6%8B%9F%E6%9C%BA/12%20Java%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B/1%20%E7%A1%AC%E4%BB%B6%E7%9A%84%E6%95%88%E7%8E%87%E4%B8%8E%E4%B8%80%E8%87%B4%E6%80%A7/">
 				<h2 class="index-title">
-					6 Lambdas与Streams（42-48）
+					1 硬件的效率与一致性
 				</h2>
 				<div class="index-brief">
-					第42条：lambdas优于匿名类
-从Java 8开始，lambda是迄今为止表示小函数对象的最佳方式。 除非必须创建非函数式接口类型的实例，否则不要使用匿名类作为函数对象。
-lambda没有名称和文档，如果超过三行，不要使用lambda表达式。
-第43条: 方法引用优于lambdas
-如果方法引用
+					高速缓存
+绝大多数的运算任务不可能只靠处理器计算就能完成，处理器至少要与内存交互，所以现代计算机系统都不得不加入一层读写速度尽可能接近处理器运算速度的高速缓存来作为内存与处理器之间的缓冲：将运算需要使用到的数据复制到缓存中，让运算能快速运行，当运算结束后再从缓存同步回内存之中，这样处理器就无须等待缓
 					...
 				</div>
-				<p class="index-date">2019-12-21</p>
 			</a>
+                <div>
+				    <span class="index-date">2019-12-18</span>
+                    
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/">00 Java</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/01-Java虚拟机/">01 Java虚拟机</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/01-Java虚拟机/12-Java内存模型与线程/">12 Java内存模型与线程</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
 		</div>	
 	
 		<div class="index-li">
-			<a href="/2019/12/18/00%20Java/02%20Effective%20Java/5%20%E6%9E%9A%E4%B8%BE%E5%92%8C%E6%B3%A8%E8%A7%A3%EF%BC%8834-41%EF%BC%89/">
+			<a href="/2019/12/18/00%20Java/01%20Java%E8%99%9A%E6%8B%9F%E6%9C%BA/12%20Java%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B/3%20Java%E4%B8%8E%E7%BA%BF%E7%A8%8B/">
 				<h2 class="index-title">
-					5 枚举和注解（34-41）
+					3 Java与线程
 				</h2>
 				<div class="index-brief">
-					第34条：用enum代替int常量
-当需要一组固定常量的时候，应该使用enum代替int常量。
-第35条：用实例域代替序数
-应该给enum添加int域，而不是使用ordinal()方法来导出与枚举关联的序数值。(几乎不应使用ordinal()方法，除非在编写像EnumMap这样的基于枚举的通用数据结
+					1 线程的实现
+线程是比进程更轻量级的调度执行单位，线程的引入可以把一个进程的资源分配和执行调度分开，各个线程既可以共享进程资源又可以独立调度；
+Thread类
+Thread类与大部分的Java API有显著的差别，它的所有关键方法都是声明为Native的；
+实现方式
+实现线程主要有三种方式：
+
+使
 					...
 				</div>
-				<p class="index-date">2019-12-21</p>
 			</a>
+                <div>
+				    <span class="index-date">2019-12-18</span>
+                    
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/">00 Java</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/01-Java虚拟机/">01 Java虚拟机</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/01-Java虚拟机/12-Java内存模型与线程/">12 Java内存模型与线程</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
 		</div>	
 	
 		<div class="index-li">
-			<a href="/2019/12/18/00%20Java/02%20Effective%20Java/4%20%E6%B3%9B%E5%9E%8B%EF%BC%8826-33%EF%BC%89/">
+			<a href="/2019/12/18/00%20Java/01%20Java%E8%99%9A%E6%8B%9F%E6%9C%BA/11%20%E6%99%9A%E6%9C%9F%EF%BC%88%E8%BF%90%E8%A1%8C%E6%9C%9F%EF%BC%89%E4%BC%98%E5%8C%96/2%20%E7%BC%96%E8%AF%91%E4%BC%98%E5%8C%96%E6%8A%80%E6%9C%AF/">
 				<h2 class="index-title">
-					4 泛型（26-33）
+					2 编译优化技术
 				</h2>
 				<div class="index-brief">
-					第26条：请不要在新代码中使用原生态类型
-原生态类型只为了与引入泛型之前的遗留代码进行兼容和互用而提供的。
-第27条：消除非受检警告
-如果无法消除警告，同时可以证明引起警告的代码是类型安全的，只有在这种情况下才可以用一个@SuppressWarnings(“unchecked”)注解来禁止这条警告。
+					1 优化技术概览
+
+
+2 公共子表达式消除
+如果一个表达式E已经计算过了，并且从先前的计算到现在E中所有变量的值都没有发生变化，那么E的这次出现就成为了公共子表达式，只需要直接用前面计算过的表达式结果代替E就可以了；
+3 数组边界检查消除
+对于虚拟机的执行子系统来说，每次数组元素的读写都带有一次隐含
 					...
 				</div>
-				<p class="index-date">2019-12-21</p>
 			</a>
+                <div>
+				    <span class="index-date">2019-12-18</span>
+                    
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/">00 Java</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/01-Java虚拟机/">01 Java虚拟机</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/01-Java虚拟机/11-晚期（运行期）优化/">11 晚期（运行期）优化</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
 		</div>	
 	
 </div>

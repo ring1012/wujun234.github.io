@@ -219,6 +219,7 @@ a {
 	font-style: italic;
 	font-size: 12px;
 	color: #acabab;
+	padding: 0 5px 0 0;
 }
 
 .index-title {
@@ -256,19 +257,8 @@ a {
   transition: all 0.2s;
 }
 /* article */
-#post-author {
-	font-size: 9px;
-	position: absolute;
-	top: 60px;
-	right: 30px;
-	color: #999;
-}
-#post-date {
-	font-size: 9px;
-	position: absolute;
-	top: 80px;
-	right: 30px;
-	color: #999;
+.post-title {
+	border-bottom: 1px solid #ddd;
 }
 #article {
 	padding: 50px 30px;
@@ -355,6 +345,42 @@ table td {
 }
 table tr:nth-child(2n) {
 	background: #f7f8f8; 
+}
+.post-guide{
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	-moz-justify-content: space-between;
+	-webkit-justify-content: space-between;
+	justify-content: space-between;
+	padding: 1rem 0;
+	border-bottom: 1px solid #ddd;
+}
+.post-guide .item {
+	width: 50%;
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	-moz-align-items: center;
+	-webkit-align-items: center;
+	align-items: center;
+}
+.post-guide .item a {
+	font-size: 0.875rem;
+}
+.post-guide .left {
+	-moz-justify-content: flex-start;
+	-webkit-justify-content: flex-start;
+	justify-content: flex-start;
+}
+.post-guide .right {
+	-moz-justify-content: flex-end;
+	-webkit-justify-content: flex-end;
+	justify-content: flex-end;
 }
 /* footer */
 #footer{

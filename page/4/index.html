@@ -9,7 +9,7 @@
 	
 	<title>
 	 
-	吴俊博客
+	吴俊的博客
 	</title>
 	
 	<!-- keywords,description -->
@@ -38,12 +38,9 @@
 
 <body>
 	<header id="header">
-    <a id="title" href="/" class="logo">吴俊博客</a>
+    <a id="title" href="/" class="logo">吴俊的博客</a>
 
 	<ul id="menu">
-		<li class="menu-item">
-			<a href="/" class="menu-item-link">HOME</a>
-		</li>
 		<li class="menu-item">
 			<a href="/about" class="menu-item-link">ABOUT</a>
 		</li>
@@ -4391,205 +4388,436 @@
 		<div id="index-list">
 	
 		<div class="index-li">
-			<a href="/2019/12/18/11%20%E6%B6%88%E6%81%AF%E9%80%9A%E4%BF%A1/1%20Apache%20Thrift/2%20Apache%20Thrift%20%E5%88%9D%E8%AF%86%20(2)%20-%20%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E4%B8%8E%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/">
+			<a href="/2019/12/18/04%20%E8%AE%BE%E8%AE%A1/3%20%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/2-%E7%BB%93%E6%9E%84%E5%9E%8B%E6%A8%A1%E5%BC%8F/6.Flyweight%EF%BC%88%E4%BA%AB%E5%85%83%EF%BC%89/">
 				<h2 class="index-title">
-					2 Apache Thrift 初识 (2) - 数据类型与基本语法
+					6.Flyweight（享元）
 				</h2>
 				<div class="index-brief">
-					1 数据类型
-官方文档-数据类型
-基本类型（Base Types）、特殊类型（Special Types）、结构体（Structs）、容器（Containers）、异常（Exceptions）、服务（Services）
-枚举类型、常量类型。
-1.1 基本类型
-（括号内为对应的Java类型）
-bool
+					运用共享技术有效地支持大量细粒度的对象。
+工厂类、享元池
+享元模式的核心在于享元工厂类，享元工厂类的作用在于提供一个用于存储享元对象的享元池，用户需要对象时，首先从享元池中获取，如果享元池中不存在，则创建一个新的享元对象返回给用户，并在享元池中保存该新增对象。
+区分内部状态和外部状态
+
+内部状态：存
 					...
 				</div>
-				<p class="index-date">2019-12-21</p>
 			</a>
+                <div>
+				    <span class="index-date">2019-12-18</span>
+                    
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/04-设计/">04 设计</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/04-设计/3-设计模式/">3 设计模式</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/04-设计/3-设计模式/2-结构型模式/">2-结构型模式</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
 		</div>	
 	
 		<div class="index-li">
-			<a href="/2019/12/18/11%20%E6%B6%88%E6%81%AF%E9%80%9A%E4%BF%A1/1%20Apache%20Thrift/1%20Apache%20Thrift%20%E5%88%9D%E8%AF%86%20(1)%20-%20%E7%AE%80%E4%BB%8B/">
+			<a href="/2019/12/18/04%20%E8%AE%BE%E8%AE%A1/3%20%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/2-%E7%BB%93%E6%9E%84%E5%9E%8B%E6%A8%A1%E5%BC%8F/8.Filter%EF%BC%88%E8%BF%87%E6%BB%A4%E5%99%A8%EF%BC%89/">
 				<h2 class="index-title">
-					1 Apache Thrift 初识 (1) - 简介
+					8.Filter（过滤器）
 				</h2>
 				<div class="index-brief">
-					Thrift 是最初由 Facebook 开发的 RPC 框架，适用于程序对程序静态的数据交换，需要先确定好数据结构。
-1 特性
+					允许开发人员使用不同的标准来过滤一组对象，通过逻辑运算以解耦的方式把它们连接起来。
 
-
-静态化
-当数据结构发生变化时，必须重新编辑IDL文件、代码生成再编译载入的流程。
-
-
-跨语言
-Thrift 通过 IDL(接口定义语言) 在.thrift文件中确定好
+模式应用
+java8的stream分组操作
+Map&lt;Integer, List&lt;Person &gt;&gt; groupMap = persons.stream().collect(Collector
 					...
 				</div>
-				<p class="index-date">2019-12-21</p>
 			</a>
+                <div>
+				    <span class="index-date">2019-12-18</span>
+                    
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/04-设计/">04 设计</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/04-设计/3-设计模式/">3 设计模式</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/04-设计/3-设计模式/2-结构型模式/">2-结构型模式</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
 		</div>	
 	
 		<div class="index-li">
-			<a href="/2019/12/18/10%20%E6%9C%8D%E5%8A%A1%E5%99%A8/4%20Nginx/1%20nginx%E7%AC%94%E8%AE%B0/">
+			<a href="/2019/12/18/00%20Java/03%20Java%E5%B9%B6%E5%8F%91/4%20%E9%AB%98%E7%BA%A7%E4%B8%BB%E9%A2%98/1%20%E6%98%BE%E5%BC%8F%E9%94%81/">
 				<h2 class="index-title">
-					1 nginx笔记
+					1 显式锁
 				</h2>
 				<div class="index-brief">
-					一、nginx架构
-
-1. 进程模型
-Nginx分一个master进程和多个worker进程。
-
-master进程：读取和评估配置，并管理worker进程。接收来外界信号，向worker进程发送信号，监控worker进程运行状态，当worker进程异常退出后，会自动重新启动新的worker进程。
-w
+					ReentrantLock 并不是一种替代内置加锁的方法，而是当内置加锁机制不适用时，作为一种可选择的高级功能。
+1 Lock 与 ReentrantLock
+ReentrantLock 实现了Lock接口，并提供了与 synchronized 相同的互斥性、内存可见性和可重入的加锁语义。
+与syn
 					...
 				</div>
-				<p class="index-date">2019-12-21</p>
 			</a>
+                <div>
+				    <span class="index-date">2019-12-18</span>
+                    
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/">00 Java</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/03-Java并发/">03 Java并发</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/03-Java并发/4-高级主题/">4 高级主题</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
 		</div>	
 	
 		<div class="index-li">
-			<a href="/2019/12/18/09%20%E5%A4%A7%E6%95%B0%E6%8D%AE/7%20Sqoop%E6%BA%90%E7%A0%81%20-%20%20%E4%BB%8E%20MySQL%20%E5%AF%BC%E5%85%A5%E5%88%B0%20Hive/">
+			<a href="/2019/12/18/00%20Java/03%20Java%E5%B9%B6%E5%8F%91/4%20%E9%AB%98%E7%BA%A7%E4%B8%BB%E9%A2%98/2%20%E6%9E%84%E5%BB%BA%E8%87%AA%E5%AE%9A%E4%B9%89%E7%9A%84%E5%90%8C%E6%AD%A5%E5%B7%A5%E5%85%B7/">
 				<h2 class="index-title">
-					7 Sqoop源码 -  从 MySQL 导入到 Hive
+					2 构建自定义的同步工具
 				</h2>
 				<div class="index-brief">
-					Sqoop 源码 ：https://github.com/apache/sqoop
-Sqoop 用户手册 ：http://sqoop.apache.org/docs/1.4.6/SqoopUserGuide.html
-panther 上 Sqoop使用指南 ：https://docs.panther
+					创建状态依赖类的最简单方法通常是在类库中现有状态依赖类的基础上进行构造。但如果类库没有提供你需要的功能，那么还可以使用Java语言和类库提供的底层机制来构造自己的同步机制，包括内置的条件队列、显式的 Condition 对象以及  AbstractQueuedSynchronizer 框架。
+1 状
 					...
 				</div>
-				<p class="index-date">2019-12-21</p>
 			</a>
+                <div>
+				    <span class="index-date">2019-12-18</span>
+                    
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/">00 Java</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/03-Java并发/">03 Java并发</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/03-Java并发/4-高级主题/">4 高级主题</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
 		</div>	
 	
 		<div class="index-li">
-			<a href="/2019/12/18/09%20%E5%A4%A7%E6%95%B0%E6%8D%AE/6%20Hive/">
+			<a href="/2019/12/18/00%20Java/03%20Java%E5%B9%B6%E5%8F%91/4%20%E9%AB%98%E7%BA%A7%E4%B8%BB%E9%A2%98/3%20%E5%8E%9F%E5%AD%90%E5%8F%98%E9%87%8F%E4%B8%8E%E9%9D%9E%E9%98%BB%E5%A1%9E%E5%90%8C%E6%AD%A5%E6%9C%BA%E5%88%B6/">
 				<h2 class="index-title">
-					6 Hive
+					3 原子变量与非阻塞同步机制
 				</h2>
 				<div class="index-brief">
-					HIVE官网
-1 HIVE 简介
+					1 锁的劣势
 
-是基于 Hadoop 的一个数据仓库工具
-可以将结构化的数据映射为一张数据库表
-并提供 HQL(Hive SQL)查询功能
-底层数据是存储在 HDFS 上
-Hive的本质是将 SQL 语句转换为 MapReduce 任务运行
-使不熟悉 MapReduce 的用户很
+多线程竞争锁， 需要挂起和恢复未获取到锁的线程， 需要借助操作系统介入, 存在很大的开销， 现代JVM的锁优化技术并不能全部优化掉。
+volatile不会引起线程上下文切换或线程调度，但不能用于构建原子的复合操作。
+当一个线程正在等待锁时，它不能做任何其他事情。
+如果锁一直被持有，其
 					...
 				</div>
-				<p class="index-date">2019-12-21</p>
 			</a>
+                <div>
+				    <span class="index-date">2019-12-18</span>
+                    
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/">00 Java</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/03-Java并发/">03 Java并发</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/03-Java并发/4-高级主题/">4 高级主题</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
 		</div>	
 	
 		<div class="index-li">
-			<a href="/2019/12/18/09%20%E5%A4%A7%E6%95%B0%E6%8D%AE/5%20HBase/">
+			<a href="/2019/12/18/00%20Java/03%20Java%E5%B9%B6%E5%8F%91/4%20%E9%AB%98%E7%BA%A7%E4%B8%BB%E9%A2%98/4%20Java%20%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/">
 				<h2 class="index-title">
-					5 HBase
+					4 Java 内存模型
 				</h2>
 				<div class="index-brief">
-					HBASE官网
-参考：
-HBase 深入浅出
-1 HBase 简介
-
-HBase（Hadoop Database）是Bigtable的开源实现
-稀疏的，面向列
-基于HDFS，高可靠，可伸缩
-利用Zookeeper进行协同服务
-适合大数据随机和实时读写
-
-2 HBASE架构
-
-1）Client
-可以通
+					1 什么是内存模型, 为什么需要它
+如果缺少同步，那么将会有许多因素使得线程无法立即甚至永远，看到另一个线程的操作结果。
+JMM规定了JVM必须遵循一组保证，这组保证规定了对变量的写入操作在何时将对于其它线程可见。
+1.1 平台的内存模型
+为了使Java开发人员无须关心不同架构上内存模型之间的差异，
 					...
 				</div>
-				<p class="index-date">2019-12-21</p>
 			</a>
+                <div>
+				    <span class="index-date">2019-12-18</span>
+                    
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/">00 Java</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/03-Java并发/">03 Java并发</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/03-Java并发/4-高级主题/">4 高级主题</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
 		</div>	
 	
 		<div class="index-li">
-			<a href="/2019/12/18/09%20%E5%A4%A7%E6%95%B0%E6%8D%AE/4%20YARN/">
+			<a href="/2019/12/18/00%20Java/03%20Java%E5%B9%B6%E5%8F%91/3%20%E6%B4%BB%E8%B7%83%E6%80%A7%E3%80%81%E6%80%A7%E8%83%BD%E4%B8%8E%E6%B5%8B%E8%AF%95/1%20%E9%81%BF%E5%85%8D%E6%B4%BB%E8%B7%83%E6%80%A7%E5%8D%B1%E9%99%A9/">
 				<h2 class="index-title">
-					4 YARN
+					1 避免活跃性危险
 				</h2>
 				<div class="index-brief">
-					老的MapReduce架构（俗称MapReduce 1）存在的问题:
+					在安全性和活跃性之间通常存在着某种制衡
+10.1 死锁
+死锁的四个必要条件:
 
-Job Tracker 存在单点故障。
-Job Tracker 完成太多任务，当MR任务非常多时，造成很大的内存开销。
-Task Tracker端，如果两个大内存消耗的任务一起调度，容易出现OOM，如果只有Map任务或Reduc
+互斥条件：一个资源每次只能被一个线程使用
+占有且等待：一个进程因请求资源而阻塞时， 对已获得的资源保持不放
+不可强行占有：线程已获得的资源, 在未使用完之前, 不能强行被剥夺
+循环等待条件： 若干进程之间形成一种头尾相接
 					...
 				</div>
-				<p class="index-date">2019-12-21</p>
 			</a>
+                <div>
+				    <span class="index-date">2019-12-18</span>
+                    
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/">00 Java</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/03-Java并发/">03 Java并发</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/03-Java并发/3-活跃性、性能与测试/">3 活跃性、性能与测试</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
 		</div>	
 	
 		<div class="index-li">
-			<a href="/2019/12/18/09%20%E5%A4%A7%E6%95%B0%E6%8D%AE/3%20MapReduce/">
+			<a href="/2019/12/18/00%20Java/03%20Java%E5%B9%B6%E5%8F%91/3%20%E6%B4%BB%E8%B7%83%E6%80%A7%E3%80%81%E6%80%A7%E8%83%BD%E4%B8%8E%E6%B5%8B%E8%AF%95/3%20%E5%B9%B6%E5%8F%91%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%B5%8B%E8%AF%95/">
 				<h2 class="index-title">
-					3 MapReduce
+					3 并发程序的测试
 				</h2>
 				<div class="index-brief">
-					MapReduce建立在HDFS基础上，为海量的数据提供了一个计算框架。由两个阶段组成：Map和Reduce，用户只需实现map()和reduce()两个函数，即可实现分布式计算。
-
-1 架构
-主从结构
-1）JobTracker（主节点）
-只有一个
-
-接收客户提交的计算任务
-任务调度：把计算任务分给
+					1 正确性测试
+1.1 基本的单元测试
+1.2 对阻塞操作的测试
+1.3 安全性测试
+在构建对并发程序的安全性测试中，需要解决的关键问题在于，要找出那些容易检查的属性，这些属性在发生错误的情况下极有可能失败，同时又不会使得错误检查代码人为地限制并发性。理想情况是，在测试属性中不需要任何同步机制。
+这
 					...
 				</div>
-				<p class="index-date">2019-12-21</p>
 			</a>
+                <div>
+				    <span class="index-date">2019-12-18</span>
+                    
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/">00 Java</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/03-Java并发/">03 Java并发</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/03-Java并发/3-活跃性、性能与测试/">3 活跃性、性能与测试</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
 		</div>	
 	
 		<div class="index-li">
-			<a href="/2019/12/18/09%20%E5%A4%A7%E6%95%B0%E6%8D%AE/2%20HDFS/">
+			<a href="/2019/12/18/00%20Java/03%20Java%E5%B9%B6%E5%8F%91/3%20%E6%B4%BB%E8%B7%83%E6%80%A7%E3%80%81%E6%80%A7%E8%83%BD%E4%B8%8E%E6%B5%8B%E8%AF%95/2%20%E6%80%A7%E8%83%BD%E4%B8%8E%E5%8F%AF%E4%BC%B8%E7%BC%A9%E6%80%A7/">
 				<h2 class="index-title">
-					2 HDFS
+					2 性能与可伸缩性
 				</h2>
 				<div class="index-brief">
-					HDFS官网
-1 简介
-HDFS 是 GFS（Google File System）的克隆版本。
-HDFS（Hadoop Distributed File System）是Hadoop项目的核心子项目，是分布式计算中数据存储管理的基础，是基于流数据模式访问和处理超大文件的需求而开发的，可以运行于廉价
+					1 对性能的思考
+引入多线程会增加开销： 线程之间协调、上下文切换、线程的创建和销毁、线程的调度。
+如果过度地使用线程，开销甚至会超过性能的提升。
+1.1 性能和可伸缩性
+可伸缩性：当增加计算资源时， 程序的吞吐量或者处理能力能相应地增加。
+性能的两类衡量指标——“运行速度”和“处理能力”，是完全独
 					...
 				</div>
-				<p class="index-date">2019-12-21</p>
 			</a>
+                <div>
+				    <span class="index-date">2019-12-18</span>
+                    
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/">00 Java</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/03-Java并发/">03 Java并发</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/03-Java并发/3-活跃性、性能与测试/">3 活跃性、性能与测试</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
 		</div>	
 	
 		<div class="index-li">
-			<a href="/2019/12/18/09%20%E5%A4%A7%E6%95%B0%E6%8D%AE/1%20Hadoop/">
+			<a href="/2019/12/18/00%20Java/03%20Java%E5%B9%B6%E5%8F%91/2%20%E7%BB%93%E6%9E%84%E5%8C%96%E5%B9%B6%E5%8F%91%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F/2%20%E5%8F%96%E6%B6%88%E4%B8%8E%E5%85%B3%E9%97%AD/">
 				<h2 class="index-title">
-					1 Hadoop
+					2 取消与关闭
 				</h2>
 				<div class="index-brief">
-					1 整体框架
+					1 任务取消
+在Java中没有一种安全的抢占式方法来停止线程，因此也就没有一种安全的抢占式方法来停止任务，只有一些协作式的机制，使请求取消的任务和代码都遵循一种协商好的协议。
 
-
-HDFS: 分布式文件存储
-YARN: 分布式资源管理，允许任何一个分布式程序（不仅仅是 MapReduce）基于 Hadoop 集群的数据运行
-MapReduce: 批处理。分布式计算
-Others: 利用YARN的资源管理功能实现其他的数据处理方式
-
-生态系统
-
-数据格式
-
-A
+方法1：volatile类型的“已请求取消”状态标识。
+方法2：中断。状态标识检查对于调用阻塞方法的任务是不合适的，所以需
 					...
 				</div>
-				<p class="index-date">2019-12-21</p>
 			</a>
+                <div>
+				    <span class="index-date">2019-12-18</span>
+                    
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/">00 Java</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/03-Java并发/">03 Java并发</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span class="index-date">
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/03-Java并发/2-结构化并发应用程序/">2 结构化并发应用程序</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
 		</div>	
 	
 </div>
