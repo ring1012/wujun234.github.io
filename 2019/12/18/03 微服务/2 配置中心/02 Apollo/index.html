@@ -4389,27 +4389,27 @@
 
 	<!-- 引入正文 -->
 	<div id="content">
-		<h1 class="post-title">
+		<h1 class="article-title">
 
 	02 Apollo
 </h1>
-<div>
-	<span class="index-date">
+<div class="article-meta">
+	<span>
 		阅读量:<span id="/2019/12/18/03%20%E5%BE%AE%E6%9C%8D%E5%8A%A1/2%20%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83/02%20Apollo/" class="leancloud_visitors" data-flag-title=""></span>
 	</span>
-	<span class="index-date">Wu Jun</span>
-	<span class="index-date">2019-12-18 00:40:23</span>
+	<span>Wu Jun</span>
+	<span>2019-12-18 00:40:23</span>
     
             
                 
-                    <span class="index-date">
+                    <span>
                         <i class="fa fa-folder" aria-hidden="true"></i>
                         <a href="/categories/03-微服务/">03 微服务</a>
                     </span>
                 
             
                 
-                    <span class="index-date">
+                    <span>
                         <i class="fa fa-folder" aria-hidden="true"></i>
                         <a href="/categories/03-微服务/2-配置中心/">2 配置中心</a>
                     </span>
@@ -4419,7 +4419,7 @@
 </div>
 
 
-<div id="article">
+<div id="article-content">
 	<p>携程Apollo分布式配置中心，官方文档已经够成熟了：</p>
 <p><a href="https://github.com/ctripcorp/apollo/wiki" target="_blank" rel="noopener">Wiki</a></p>
 <p><a href="http://www.iocoder.cn/categories/Apollo/" target="_blank" rel="noopener">源码解析</a></p>
@@ -4431,11 +4431,14 @@
 	new Valine({
 		av: AV,
 		el: '#vcomments',
+        notify: false,
+        verify: false,
+        path: window.location.pathname,
 		appId: 'cbzi4mBFHIqKdH4wYkVHs44K-MdYXbMMI',
 		appKey: '4qY2BKiLCCOPgxVbsB5RkMc0',
-		avatar: 'retro',
-		recordIP: true,
-		visitor: true
+        placeholder: 'aaaaa',
+        avatar: 'retro',
+        recordIP: true
 	})
 </script>
 
@@ -4477,7 +4480,7 @@
     }
     // 追加pv
     function addCount(Counter) {
-        var url = $(".leancloud_visitors").length > 0 ? $(".leancloud_visitors").attr('id').trim() : 'icafebolger.com';
+        var url = $(".leancloud_visitors").length > 0 ? $(".leancloud_visitors").attr('id').trim() : 'wujun234.github.io';
         var Counter = AV.Object.extend("Counter");
         var query = new Counter;
         query.save({

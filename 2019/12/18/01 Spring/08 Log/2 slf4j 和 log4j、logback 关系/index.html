@@ -4389,27 +4389,27 @@
 
 	<!-- 引入正文 -->
 	<div id="content">
-		<h1 class="post-title">
+		<h1 class="article-title">
 
 	2 slf4j 和 log4j、logback 关系
 </h1>
-<div>
-	<span class="index-date">
+<div class="article-meta">
+	<span>
 		阅读量:<span id="/2019/12/18/01%20Spring/08%20Log/2%20slf4j%20%E5%92%8C%20log4j%E3%80%81logback%20%E5%85%B3%E7%B3%BB/" class="leancloud_visitors" data-flag-title=""></span>
 	</span>
-	<span class="index-date">Wu Jun</span>
-	<span class="index-date">2019-12-18 00:40:21</span>
+	<span>Wu Jun</span>
+	<span>2019-12-18 00:40:21</span>
     
             
                 
-                    <span class="index-date">
+                    <span>
                         <i class="fa fa-folder" aria-hidden="true"></i>
                         <a href="/categories/01-Spring/">01 Spring</a>
                     </span>
                 
             
                 
-                    <span class="index-date">
+                    <span>
                         <i class="fa fa-folder" aria-hidden="true"></i>
                         <a href="/categories/01-Spring/08-Log/">08 Log</a>
                     </span>
@@ -4419,7 +4419,7 @@
 </div>
 
 
-<div id="article">
+<div id="article-content">
 	<p>slf4j（The Simple Logging Facade for Java）是日志框架的抽象，而log4j logback是具体实现了的日志框架。</p>
 <ul>
 <li>log4j：是apache实现的一个开源日志组件。（Wrapped implementations）</li>
@@ -4435,11 +4435,14 @@
 	new Valine({
 		av: AV,
 		el: '#vcomments',
+        notify: false,
+        verify: false,
+        path: window.location.pathname,
 		appId: 'cbzi4mBFHIqKdH4wYkVHs44K-MdYXbMMI',
 		appKey: '4qY2BKiLCCOPgxVbsB5RkMc0',
-		avatar: 'retro',
-		recordIP: true,
-		visitor: true
+        placeholder: 'aaaaa',
+        avatar: 'retro',
+        recordIP: true
 	})
 </script>
 
@@ -4481,7 +4484,7 @@
     }
     // 追加pv
     function addCount(Counter) {
-        var url = $(".leancloud_visitors").length > 0 ? $(".leancloud_visitors").attr('id').trim() : 'icafebolger.com';
+        var url = $(".leancloud_visitors").length > 0 ? $(".leancloud_visitors").attr('id').trim() : 'wujun234.github.io';
         var Counter = AV.Object.extend("Counter");
         var query = new Counter;
         query.save({

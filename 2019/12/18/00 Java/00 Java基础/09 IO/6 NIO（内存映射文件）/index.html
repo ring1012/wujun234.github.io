@@ -4389,34 +4389,34 @@
 
 	<!-- 引入正文 -->
 	<div id="content">
-		<h1 class="post-title">
+		<h1 class="article-title">
 
 	6 NIO（内存映射文件）
 </h1>
-<div>
-	<span class="index-date">
+<div class="article-meta">
+	<span>
 		阅读量:<span id="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/09%20IO/6%20NIO%EF%BC%88%E5%86%85%E5%AD%98%E6%98%A0%E5%B0%84%E6%96%87%E4%BB%B6%EF%BC%89/" class="leancloud_visitors" data-flag-title=""></span>
 	</span>
-	<span class="index-date">Wu Jun</span>
-	<span class="index-date">2019-12-18 00:40:47</span>
+	<span>Wu Jun</span>
+	<span>2019-12-18 00:40:47</span>
     
             
                 
-                    <span class="index-date">
+                    <span>
                         <i class="fa fa-folder" aria-hidden="true"></i>
                         <a href="/categories/00-Java/">00 Java</a>
                     </span>
                 
             
                 
-                    <span class="index-date">
+                    <span>
                         <i class="fa fa-folder" aria-hidden="true"></i>
                         <a href="/categories/00-Java/00-Java基础/">00 Java基础</a>
                     </span>
                 
             
                 
-                    <span class="index-date">
+                    <span>
                         <i class="fa fa-folder" aria-hidden="true"></i>
                         <a href="/categories/00-Java/00-Java基础/09-IO/">09 IO</a>
                     </span>
@@ -4426,7 +4426,7 @@
 </div>
 
 
-<div id="article">
+<div id="article-content">
 	<p>JDK 1.4中引入java.nio，全称java non-blocking IO，为所有的原始类型（boolean类型除外）提供缓存支持的数据容器，使用它可以提供非阻塞式的高伸缩性网络。</p>
 <p>原来的 I/O 以流的方式处理数据，而 NIO 以块的方式处理数据。</p>
 <h3 id="1-核心概念"><a class="header-anchor" href="#1-核心概念"></a>1  核心概念</h3>
@@ -4643,11 +4643,14 @@ FileLock lock = channel.lock();
 	new Valine({
 		av: AV,
 		el: '#vcomments',
+        notify: false,
+        verify: false,
+        path: window.location.pathname,
 		appId: 'cbzi4mBFHIqKdH4wYkVHs44K-MdYXbMMI',
 		appKey: '4qY2BKiLCCOPgxVbsB5RkMc0',
-		avatar: 'retro',
-		recordIP: true,
-		visitor: true
+        placeholder: 'aaaaa',
+        avatar: 'retro',
+        recordIP: true
 	})
 </script>
 
@@ -4689,7 +4692,7 @@ FileLock lock = channel.lock();
     }
     // 追加pv
     function addCount(Counter) {
-        var url = $(".leancloud_visitors").length > 0 ? $(".leancloud_visitors").attr('id').trim() : 'icafebolger.com';
+        var url = $(".leancloud_visitors").length > 0 ? $(".leancloud_visitors").attr('id').trim() : 'wujun234.github.io';
         var Counter = AV.Object.extend("Counter");
         var query = new Counter;
         query.save({

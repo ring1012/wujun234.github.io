@@ -4389,27 +4389,27 @@
 
 	<!-- 引入正文 -->
 	<div id="content">
-		<h1 class="post-title">
+		<h1 class="article-title">
 
 	1 AOP简介
 </h1>
-<div>
-	<span class="index-date">
+<div class="article-meta">
+	<span>
 		阅读量:<span id="/2019/12/18/01%20Spring/03%20AOP/1%20AOP%E7%AE%80%E4%BB%8B/" class="leancloud_visitors" data-flag-title=""></span>
 	</span>
-	<span class="index-date">Wu Jun</span>
-	<span class="index-date">2019-12-18 00:40:17</span>
+	<span>Wu Jun</span>
+	<span>2019-12-18 00:40:17</span>
     
             
                 
-                    <span class="index-date">
+                    <span>
                         <i class="fa fa-folder" aria-hidden="true"></i>
                         <a href="/categories/01-Spring/">01 Spring</a>
                     </span>
                 
             
                 
-                    <span class="index-date">
+                    <span>
                         <i class="fa fa-folder" aria-hidden="true"></i>
                         <a href="/categories/01-Spring/03-AOP/">03 AOP</a>
                     </span>
@@ -4419,7 +4419,7 @@
 </div>
 
 
-<div id="article">
+<div id="article-content">
 	<p>把通用功能集中模块化到某个特定的类，并规定怎么用，这个类就称为切面（aspects），关注点分离，业务模块清晰。AOP即Aspect Oriented Programming。</p>
 <h3 id="AOP术语"><a class="header-anchor" href="#AOP术语"></a>AOP术语</h3>
 <p><img src="/images/1545011850041.png" alt=""></p>
@@ -4466,11 +4466,14 @@ public class ConcertConfig {
 	new Valine({
 		av: AV,
 		el: '#vcomments',
+        notify: false,
+        verify: false,
+        path: window.location.pathname,
 		appId: 'cbzi4mBFHIqKdH4wYkVHs44K-MdYXbMMI',
 		appKey: '4qY2BKiLCCOPgxVbsB5RkMc0',
-		avatar: 'retro',
-		recordIP: true,
-		visitor: true
+        placeholder: 'aaaaa',
+        avatar: 'retro',
+        recordIP: true
 	})
 </script>
 
@@ -4512,7 +4515,7 @@ public class ConcertConfig {
     }
     // 追加pv
     function addCount(Counter) {
-        var url = $(".leancloud_visitors").length > 0 ? $(".leancloud_visitors").attr('id').trim() : 'icafebolger.com';
+        var url = $(".leancloud_visitors").length > 0 ? $(".leancloud_visitors").attr('id').trim() : 'wujun234.github.io';
         var Counter = AV.Object.extend("Counter");
         var query = new Counter;
         query.save({

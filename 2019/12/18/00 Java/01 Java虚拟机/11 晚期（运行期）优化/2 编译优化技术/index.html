@@ -4389,34 +4389,34 @@
 
 	<!-- 引入正文 -->
 	<div id="content">
-		<h1 class="post-title">
+		<h1 class="article-title">
 
 	2 编译优化技术
 </h1>
-<div>
-	<span class="index-date">
+<div class="article-meta">
+	<span>
 		阅读量:<span id="/2019/12/18/00%20Java/01%20Java%E8%99%9A%E6%8B%9F%E6%9C%BA/11%20%E6%99%9A%E6%9C%9F%EF%BC%88%E8%BF%90%E8%A1%8C%E6%9C%9F%EF%BC%89%E4%BC%98%E5%8C%96/2%20%E7%BC%96%E8%AF%91%E4%BC%98%E5%8C%96%E6%8A%80%E6%9C%AF/" class="leancloud_visitors" data-flag-title=""></span>
 	</span>
-	<span class="index-date">Wu Jun</span>
-	<span class="index-date">2019-12-18 00:40:52</span>
+	<span>Wu Jun</span>
+	<span>2019-12-18 00:40:52</span>
     
             
                 
-                    <span class="index-date">
+                    <span>
                         <i class="fa fa-folder" aria-hidden="true"></i>
                         <a href="/categories/00-Java/">00 Java</a>
                     </span>
                 
             
                 
-                    <span class="index-date">
+                    <span>
                         <i class="fa fa-folder" aria-hidden="true"></i>
                         <a href="/categories/00-Java/01-Java虚拟机/">01 Java虚拟机</a>
                     </span>
                 
             
                 
-                    <span class="index-date">
+                    <span>
                         <i class="fa fa-folder" aria-hidden="true"></i>
                         <a href="/categories/00-Java/01-Java虚拟机/11-晚期（运行期）优化/">11 晚期（运行期）优化</a>
                     </span>
@@ -4426,7 +4426,7 @@
 </div>
 
 
-<div id="article">
+<div id="article-content">
 	<h3 id="1-优化技术概览"><a class="header-anchor" href="#1-优化技术概览"></a>1 优化技术概览</h3>
 <p><img src="/images/1545642659285.jpg" alt="image">
 <img src="/images/1545642661932.jpg" alt="image"></p>
@@ -4449,11 +4449,14 @@
 	new Valine({
 		av: AV,
 		el: '#vcomments',
+        notify: false,
+        verify: false,
+        path: window.location.pathname,
 		appId: 'cbzi4mBFHIqKdH4wYkVHs44K-MdYXbMMI',
 		appKey: '4qY2BKiLCCOPgxVbsB5RkMc0',
-		avatar: 'retro',
-		recordIP: true,
-		visitor: true
+        placeholder: 'aaaaa',
+        avatar: 'retro',
+        recordIP: true
 	})
 </script>
 
@@ -4495,7 +4498,7 @@
     }
     // 追加pv
     function addCount(Counter) {
-        var url = $(".leancloud_visitors").length > 0 ? $(".leancloud_visitors").attr('id').trim() : 'icafebolger.com';
+        var url = $(".leancloud_visitors").length > 0 ? $(".leancloud_visitors").attr('id').trim() : 'wujun234.github.io';
         var Counter = AV.Object.extend("Counter");
         var query = new Counter;
         query.save({

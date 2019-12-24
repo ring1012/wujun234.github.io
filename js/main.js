@@ -17,9 +17,9 @@ function pageScroll(){
 		start_hight = end_hight;
 		var $header = $('#header');
         if(distance > 0 && end_hight > 50){
-			$header.slideUp();
+			$header.hide();
 		}else if(distance < 0){
-			$header.slideDown();
+			$header.show();
 		}else{
 			return false;
 		}
@@ -40,11 +40,19 @@ function switchTreeOrIndex(){
 			scrollOn();
 		}
 	});
+	$('body').click(function(e) {
+		var target = $(e.target);
+		if(!target.is('#sidebar *')) {
+			if ($('#sidebar').hasClass('on')){
+				scrollOff();
+			}
+		}
+	});
 	if (window.matchMedia("(min-width: 1100px)").matches) {
 		scrollOn();
 	}else{
 		scrollOff();
-	}
+	};
 	$("#site-menu").on("click", function(e){
 		$("#site-toc").show();
 		$("#site-menu").addClass('toc-active');
@@ -61,7 +69,7 @@ function switchTreeOrIndex(){
 //生成文章目录
 function showArticleIndex() {
 	var h1List = h2List = h3List = h4List = h5List = [];
-	var labelList = $("#article").children();
+	var labelList = $("#article-content").children();
 	for ( var i=0; i<labelList.length; i++ ) {
 		if ( $(labelList[i]).is("h1") ) {
 			h2List = new Array();

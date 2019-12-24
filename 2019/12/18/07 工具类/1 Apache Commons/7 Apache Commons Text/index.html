@@ -4389,27 +4389,27 @@
 
 	<!-- 引入正文 -->
 	<div id="content">
-		<h1 class="post-title">
+		<h1 class="article-title">
 
 	7 Apache Commons Text
 </h1>
-<div>
-	<span class="index-date">
+<div class="article-meta">
+	<span>
 		阅读量:<span id="/2019/12/18/07%20%E5%B7%A5%E5%85%B7%E7%B1%BB/1%20Apache%20Commons/7%20Apache%20Commons%20Text/" class="leancloud_visitors" data-flag-title=""></span>
 	</span>
-	<span class="index-date">Wu Jun</span>
-	<span class="index-date">2019-12-18 00:40:39</span>
+	<span>Wu Jun</span>
+	<span>2019-12-18 00:40:39</span>
     
             
                 
-                    <span class="index-date">
+                    <span>
                         <i class="fa fa-folder" aria-hidden="true"></i>
                         <a href="/categories/07-工具类/">07 工具类</a>
                     </span>
                 
             
                 
-                    <span class="index-date">
+                    <span>
                         <i class="fa fa-folder" aria-hidden="true"></i>
                         <a href="/categories/07-工具类/1-Apache-Commons/">1 Apache Commons</a>
                     </span>
@@ -4419,7 +4419,7 @@
 </div>
 
 
-<div id="article">
+<div id="article-content">
 	<p><a href="http://commons.apache.org/proper/commons-text/" target="_blank" rel="noopener">Apache Commons Text官网</a>
 文本处理</p>
 <h2 id="包结构"><a class="header-anchor" href="#包结构"></a>包结构</h2>
@@ -4613,11 +4613,14 @@ WordUtils.wrap(str,20,&quot;&lt;br /&gt;&quot;,false)//&quot;Here is one line of
 	new Valine({
 		av: AV,
 		el: '#vcomments',
+        notify: false,
+        verify: false,
+        path: window.location.pathname,
 		appId: 'cbzi4mBFHIqKdH4wYkVHs44K-MdYXbMMI',
 		appKey: '4qY2BKiLCCOPgxVbsB5RkMc0',
-		avatar: 'retro',
-		recordIP: true,
-		visitor: true
+        placeholder: 'aaaaa',
+        avatar: 'retro',
+        recordIP: true
 	})
 </script>
 
@@ -4659,7 +4662,7 @@ WordUtils.wrap(str,20,&quot;&lt;br /&gt;&quot;,false)//&quot;Here is one line of
     }
     // 追加pv
     function addCount(Counter) {
-        var url = $(".leancloud_visitors").length > 0 ? $(".leancloud_visitors").attr('id').trim() : 'icafebolger.com';
+        var url = $(".leancloud_visitors").length > 0 ? $(".leancloud_visitors").attr('id').trim() : 'wujun234.github.io';
         var Counter = AV.Object.extend("Counter");
         var query = new Counter;
         query.save({

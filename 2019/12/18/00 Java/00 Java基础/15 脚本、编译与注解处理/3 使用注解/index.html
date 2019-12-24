@@ -4389,34 +4389,34 @@
 
 	<!-- 引入正文 -->
 	<div id="content">
-		<h1 class="post-title">
+		<h1 class="article-title">
 
 	3 使用注解
 </h1>
-<div>
-	<span class="index-date">
+<div class="article-meta">
+	<span>
 		阅读量:<span id="/2019/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/15%20%E8%84%9A%E6%9C%AC%E3%80%81%E7%BC%96%E8%AF%91%E4%B8%8E%E6%B3%A8%E8%A7%A3%E5%A4%84%E7%90%86/3%20%E4%BD%BF%E7%94%A8%E6%B3%A8%E8%A7%A3/" class="leancloud_visitors" data-flag-title=""></span>
 	</span>
-	<span class="index-date">Wu Jun</span>
-	<span class="index-date">2019-12-18 00:40:50</span>
+	<span>Wu Jun</span>
+	<span>2019-12-18 00:40:50</span>
     
             
                 
-                    <span class="index-date">
+                    <span>
                         <i class="fa fa-folder" aria-hidden="true"></i>
                         <a href="/categories/00-Java/">00 Java</a>
                     </span>
                 
             
                 
-                    <span class="index-date">
+                    <span>
                         <i class="fa fa-folder" aria-hidden="true"></i>
                         <a href="/categories/00-Java/00-Java基础/">00 Java基础</a>
                     </span>
                 
             
                 
-                    <span class="index-date">
+                    <span>
                         <i class="fa fa-folder" aria-hidden="true"></i>
                         <a href="/categories/00-Java/00-Java基础/15-脚本、编译与注解处理/">15 脚本、编译与注解处理</a>
                     </span>
@@ -4426,7 +4426,7 @@
 </div>
 
 
-<div id="article">
+<div id="article-content">
 	<p>注解是插入到源代码的标签，由其他工具对其进行处理，不会改变程序的编译方式</p>
 <h5 id="注解位置"><a class="header-anchor" href="#注解位置"></a>注解位置</h5>
 <p>在Java中，注解是当作一个修饰符来使用的。它被置于被注解项之前，中间没有分号。每一个注解的名称前面都加上了@符号。</p>
@@ -4458,11 +4458,14 @@ public @interface Test {
 	new Valine({
 		av: AV,
 		el: '#vcomments',
+        notify: false,
+        verify: false,
+        path: window.location.pathname,
 		appId: 'cbzi4mBFHIqKdH4wYkVHs44K-MdYXbMMI',
 		appKey: '4qY2BKiLCCOPgxVbsB5RkMc0',
-		avatar: 'retro',
-		recordIP: true,
-		visitor: true
+        placeholder: 'aaaaa',
+        avatar: 'retro',
+        recordIP: true
 	})
 </script>
 
@@ -4504,7 +4507,7 @@ public @interface Test {
     }
     // 追加pv
     function addCount(Counter) {
-        var url = $(".leancloud_visitors").length > 0 ? $(".leancloud_visitors").attr('id').trim() : 'icafebolger.com';
+        var url = $(".leancloud_visitors").length > 0 ? $(".leancloud_visitors").attr('id').trim() : 'wujun234.github.io';
         var Counter = AV.Object.extend("Counter");
         var query = new Counter;
         query.save({

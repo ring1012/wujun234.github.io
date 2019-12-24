@@ -4389,27 +4389,27 @@
 
 	<!-- 引入正文 -->
 	<div id="content">
-		<h1 class="post-title">
+		<h1 class="article-title">
 
 	1 Spring MVC
 </h1>
-<div>
-	<span class="index-date">
+<div class="article-meta">
+	<span>
 		阅读量:<span id="/2019/12/18/01%20Spring/04%20Web/1%20Spring%20MVC/" class="leancloud_visitors" data-flag-title=""></span>
 	</span>
-	<span class="index-date">Wu Jun</span>
-	<span class="index-date">2019-12-18 00:40:17</span>
+	<span>Wu Jun</span>
+	<span>2019-12-18 00:40:17</span>
     
             
                 
-                    <span class="index-date">
+                    <span>
                         <i class="fa fa-folder" aria-hidden="true"></i>
                         <a href="/categories/01-Spring/">01 Spring</a>
                     </span>
                 
             
                 
-                    <span class="index-date">
+                    <span>
                         <i class="fa fa-folder" aria-hidden="true"></i>
                         <a href="/categories/01-Spring/04-Web/">04 Web</a>
                     </span>
@@ -4419,7 +4419,7 @@
 </div>
 
 
-<div id="article">
+<div id="article-content">
 	<h3 id="5-1-Spring-MVC概览"><a class="header-anchor" href="#5-1-Spring-MVC概览"></a>5.1 Spring MVC概览</h3>
 <h4 id="5-1-1-Spring-MVC-运行原理"><a class="header-anchor" href="#5-1-1-Spring-MVC-运行原理"></a>5.1.1 Spring MVC 运行原理</h4>
 <p><img src="/images/1545011851570.png" alt=""></p>
@@ -4630,11 +4630,14 @@ public String processRegistration(@Valid Spitter spitter, Errors errors) {
 	new Valine({
 		av: AV,
 		el: '#vcomments',
+        notify: false,
+        verify: false,
+        path: window.location.pathname,
 		appId: 'cbzi4mBFHIqKdH4wYkVHs44K-MdYXbMMI',
 		appKey: '4qY2BKiLCCOPgxVbsB5RkMc0',
-		avatar: 'retro',
-		recordIP: true,
-		visitor: true
+        placeholder: 'aaaaa',
+        avatar: 'retro',
+        recordIP: true
 	})
 </script>
 
@@ -4676,7 +4679,7 @@ public String processRegistration(@Valid Spitter spitter, Errors errors) {
     }
     // 追加pv
     function addCount(Counter) {
-        var url = $(".leancloud_visitors").length > 0 ? $(".leancloud_visitors").attr('id').trim() : 'icafebolger.com';
+        var url = $(".leancloud_visitors").length > 0 ? $(".leancloud_visitors").attr('id').trim() : 'wujun234.github.io';
         var Counter = AV.Object.extend("Counter");
         var query = new Counter;
         query.save({

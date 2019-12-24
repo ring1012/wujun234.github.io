@@ -4389,27 +4389,27 @@
 
 	<!-- 引入正文 -->
 	<div id="content">
-		<h1 class="post-title">
+		<h1 class="article-title">
 
 	1 使用Java自带MessageDigest实现加密（MD5和SHA）
 </h1>
-<div>
-	<span class="index-date">
+<div class="article-meta">
+	<span>
 		阅读量:<span id="/2019/12/18/07%20%E5%B7%A5%E5%85%B7%E7%B1%BB/3%20utils/1%20%E4%BD%BF%E7%94%A8Java%E8%87%AA%E5%B8%A6MessageDigest%E5%AE%9E%E7%8E%B0%E5%8A%A0%E5%AF%86%EF%BC%88MD5%E5%92%8CSHA%EF%BC%89/" class="leancloud_visitors" data-flag-title=""></span>
 	</span>
-	<span class="index-date">Wu Jun</span>
-	<span class="index-date">2019-12-18 00:40:39</span>
+	<span>Wu Jun</span>
+	<span>2019-12-18 00:40:39</span>
     
             
                 
-                    <span class="index-date">
+                    <span>
                         <i class="fa fa-folder" aria-hidden="true"></i>
                         <a href="/categories/07-工具类/">07 工具类</a>
                     </span>
                 
             
                 
-                    <span class="index-date">
+                    <span>
                         <i class="fa fa-folder" aria-hidden="true"></i>
                         <a href="/categories/07-工具类/3-utils/">3 utils</a>
                     </span>
@@ -4419,7 +4419,7 @@
 </div>
 
 
-<div id="article">
+<div id="article-content">
 	<p>使用Java自带MessageDigest实现加密（MD5和SHA）</p>
 <pre><code class="language-java">import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -4510,11 +4510,14 @@ public class EncryptUtil {
 	new Valine({
 		av: AV,
 		el: '#vcomments',
+        notify: false,
+        verify: false,
+        path: window.location.pathname,
 		appId: 'cbzi4mBFHIqKdH4wYkVHs44K-MdYXbMMI',
 		appKey: '4qY2BKiLCCOPgxVbsB5RkMc0',
-		avatar: 'retro',
-		recordIP: true,
-		visitor: true
+        placeholder: 'aaaaa',
+        avatar: 'retro',
+        recordIP: true
 	})
 </script>
 
@@ -4556,7 +4559,7 @@ public class EncryptUtil {
     }
     // 追加pv
     function addCount(Counter) {
-        var url = $(".leancloud_visitors").length > 0 ? $(".leancloud_visitors").attr('id').trim() : 'icafebolger.com';
+        var url = $(".leancloud_visitors").length > 0 ? $(".leancloud_visitors").attr('id').trim() : 'wujun234.github.io';
         var Counter = AV.Object.extend("Counter");
         var query = new Counter;
         query.save({

@@ -4389,27 +4389,27 @@
 
 	<!-- 引入正文 -->
 	<div id="content">
-		<h1 class="post-title">
+		<h1 class="article-title">
 
 	1 Zabbix简介
 </h1>
-<div>
-	<span class="index-date">
+<div class="article-meta">
+	<span>
 		阅读量:<span id="/2019/12/18/08%20DevOps/7%20Zabbix/1%20Zabbix%E7%AE%80%E4%BB%8B/" class="leancloud_visitors" data-flag-title=""></span>
 	</span>
-	<span class="index-date">Wu Jun</span>
-	<span class="index-date">2019-12-18 00:40:41</span>
+	<span>Wu Jun</span>
+	<span>2019-12-18 00:40:41</span>
     
             
                 
-                    <span class="index-date">
+                    <span>
                         <i class="fa fa-folder" aria-hidden="true"></i>
                         <a href="/categories/08-DevOps/">08 DevOps</a>
                     </span>
                 
             
                 
-                    <span class="index-date">
+                    <span>
                         <i class="fa fa-folder" aria-hidden="true"></i>
                         <a href="/categories/08-DevOps/7-Zabbix/">7 Zabbix</a>
                     </span>
@@ -4419,7 +4419,7 @@
 </div>
 
 
-<div id="article">
+<div id="article-content">
 	<p>Zabbix 手册：<a href="https://www.zabbix.com/documentation/3.4/zh/manual" target="_blank" rel="noopener">https://www.zabbix.com/documentation/3.4/zh/manual</a></p>
 <p>Zabbix 3.0 从入门到精通(zabbix使用详解)：<a href="https://www.cnblogs.com/clsn/p/7885990.html" target="_blank" rel="noopener">https://www.cnblogs.com/clsn/p/7885990.html</a></p>
 <h3 id="一、概述"><a class="header-anchor" href="#一、概述"></a>一、概述</h3>
@@ -4600,11 +4600,14 @@ Zabbix web配置文件：/etc/httpd/conf.d/zabbix.conf<br>
 	new Valine({
 		av: AV,
 		el: '#vcomments',
+        notify: false,
+        verify: false,
+        path: window.location.pathname,
 		appId: 'cbzi4mBFHIqKdH4wYkVHs44K-MdYXbMMI',
 		appKey: '4qY2BKiLCCOPgxVbsB5RkMc0',
-		avatar: 'retro',
-		recordIP: true,
-		visitor: true
+        placeholder: 'aaaaa',
+        avatar: 'retro',
+        recordIP: true
 	})
 </script>
 
@@ -4646,7 +4649,7 @@ Zabbix web配置文件：/etc/httpd/conf.d/zabbix.conf<br>
     }
     // 追加pv
     function addCount(Counter) {
-        var url = $(".leancloud_visitors").length > 0 ? $(".leancloud_visitors").attr('id').trim() : 'icafebolger.com';
+        var url = $(".leancloud_visitors").length > 0 ? $(".leancloud_visitors").attr('id').trim() : 'wujun234.github.io';
         var Counter = AV.Object.extend("Counter");
         var query = new Counter;
         query.save({
