@@ -41,10 +41,12 @@ function switchTreeOrIndex(){
 		}
 	});
 	$('body').click(function(e) {
-		var target = $(e.target);
-		if(!target.is('#sidebar *')) {
-			if ($('#sidebar').hasClass('on')){
-				scrollOff();
+		if (window.matchMedia("(max-width: 1100px)").matches) {
+			var target = $(e.target);
+			if(!target.is('#sidebar *')) {
+				if ($('#sidebar').hasClass('on')){
+					scrollOff();
+				}
 			}
 		}
 	});
@@ -54,67 +56,51 @@ function switchTreeOrIndex(){
 		scrollOff();
 	};
 	$("#site-menu").on("click", function(e){
-		$("#site-toc").show();
-		$("#site-menu").addClass('toc-active');
-		$("#article-toc").hide();
-		$("#article-menu").removeClass('toc-active');
+		showSiteMenu();
 	});
 	$("#article-menu").on("click", function(e){
-		$("#article-toc").show();
-		$("#article-menu").addClass('toc-active');
-		$("#site-toc").hide();
-		$("#site-menu").removeClass('toc-active');
+		showArticleMenu();
 	});
+}
+
+function showSiteMenu() {
+	$("#site-toc").show();
+	$("#site-menu").addClass('toc-active');
+	$("#article-toc").hide();
+	$("#article-menu").removeClass('toc-active');
+}
+
+function showArticleMenu() {
+	$("#article-toc").show();
+	$("#article-menu").addClass('toc-active');
+	$("#site-toc").hide();
+	$("#site-menu").removeClass('toc-active');
 }
 //生成文章目录
 function showArticleIndex() {
-	var h1List = h2List = h3List = h4List = h5List = [];
 	var labelList = $("#article-content").children();
-	for ( var i=0; i<labelList.length; i++ ) {
+	var content = "<ul>";
+	for ( var i=0; i < labelList.length; i++ ) {
+		var level = 0;
 		if ( $(labelList[i]).is("h1") ) {
-			h2List = new Array();
-			h1List.push({node: $(labelList[i]), id: i, children: h2List});
+			level = 1;
+		}else if ( $(labelList[i]).is("h2") ) {
+			level = 2;
+		}else if ( $(labelList[i]).is("h3") ) {
+			level = 3;
+		}else if ( $(labelList[i]).is("h4") ) {
+			level = 4;
 		}
-
-		if ( $(labelList[i]).is("h2") ) {
-			h3List = new Array();
-			h2List.push({node: $(labelList[i]), id: i, children: h3List});
-		}
-
-		if ( $(labelList[i]).is("h3") ) {
-			h4List = new Array();
-			h3List.push({node: $(labelList[i]), id: i, children: h4List});
-		}
-		
-		if ( $(labelList[i]).is("h4") ) {
-			h5List = new Array();
-			h4List.push({node: $(labelList[i]), id: i, children: h5List});
-		}
-		
-		if ( $(labelList[i]).is("h5") ) {
-			h5List.push({node: $(labelList[i]), id: i, children: []});
+		if(level!=0){
+			$(labelList[i]).before('<span class="anchor" id="_label'+ i +'"></span>');
+			content += '<li class="level_'+level+'"><i class="fa fa-circle" aria-hidden="true"></i><a href="#_label'+ i +'"> '+ $(labelList[i]).text() +'</a></li>';
 		}
 	}
-
-	// 闭包递归，返回树状 html 格式的文章目录索引
-	function show(tocList) {
-		var content = "<ul>";
-		tocList.forEach(function (toc) {
-			toc.node.before('<span class="anchor" id="_label'+toc.id+'"></span>');
-			if ( toc.children == 0 ) {
-				content += '<li><a href="#_label'+toc.id+'">'+toc.node.text()+'</a></li>';
-			}
-			else {
-				content += '<li><a href="#_label'+toc.id+'">'+toc.node.text()+'</a>'+show(toc.children)+'</li>';
-			}
-		});
-		content += "</ul>"
-		return content;
-	}
+	content += "</ul>"
 
 	// 最后组合成 div 方便 css 设计样式，添加到指定位置
 	$("#article-toc").empty();
-	$("#article-toc").append(show(h1List));
+	$("#article-toc").append(content);
 
 	// 点击目录索引链接，动画跳转过去，不是默认闪现过去
 	$("#article-toc a").on("click", function(e){
