@@ -79,6 +79,7 @@ function showArticleMenu() {
 //生成文章目录
 function showArticleIndex() {
 	var labelList = $("#article-content").children();
+	console.log("labelList");
 	var content = "<ul>";
 	for ( var i=0; i < labelList.length; i++ ) {
 		var level = 0;
@@ -101,39 +102,45 @@ function showArticleIndex() {
 	// 最后组合成 div 方便 css 设计样式，添加到指定位置
 	$("#article-toc").empty();
 	$("#article-toc").append(content);
-
-	// 点击目录索引链接，动画跳转过去，不是默认闪现过去
-	$("#article-toc a").on("click", function(e){
-		e.preventDefault();
-		// 获取当前点击的 a 标签，并前触发滚动动画往对应的位置
-		var target = $(this.hash);
-		$("body, html").animate(
-			{'scrollTop': target.offset().top},
-			500
-		);
-	});
-
-	// 监听浏览器滚动条，当浏览过的标签，给他上色。
-	$(window).on("scroll", function(e){
-		var anchorList = $(".anchor");
-		anchorList.each(function(){
-			var tocLink = $('#article-toc a[href="#'+$(this).attr("id")+'"]');
-			var anchorTop = $(this).offset().top;
-			var windowTop = $(window).scrollTop();
-			if ( anchorTop <= windowTop+100 ) {
-				tocLink.addClass("read");
-			}
-			else {
-				tocLink.removeClass("read");
-			}
+	
+	if(null != $("#article-toc a") && 0 != $("#article-toc a").length){
+		
+		// 点击目录索引链接，动画跳转过去，不是默认闪现过去
+		$("#article-toc a").on("click", function(e){
+			e.preventDefault();
+			// 获取当前点击的 a 标签，并前触发滚动动画往对应的位置
+			var target = $(this.hash);
+			$("body, html").animate(
+				{'scrollTop': target.offset().top},
+				500
+			);
 		});
-	});
+
+
+		// 监听浏览器滚动条，当浏览过的标签，给他上色。
+		$(window).on("scroll", function(e){
+			var anchorList = $(".anchor");
+			anchorList.each(function(){
+				var tocLink = $('#article-toc a[href="#'+$(this).attr("id")+'"]');
+				var anchorTop = $(this).offset().top;
+				var windowTop = $(window).scrollTop();
+				if ( anchorTop <= windowTop+100 ) {
+					tocLink.addClass("read");
+				}
+				else {
+					tocLink.removeClass("read");
+				}
+			});
+		});	
+		
+		showArticleMenu();
+	}
 }
 
 function pjaxLoad(){
-	$(document).pjax('#tree a', '#content', {fragment:'#content', timeout:8000});
 	$(document).pjax('#menu a', '#content', {fragment:'#content', timeout:8000});
-	$(document).pjax('#index-list a', '#content', {fragment:'#content', timeout:8000});
+	$(document).pjax('#tree a', '#content', {fragment:'#content', timeout:8000});
+	$(document).pjax('#index a', '#content', {fragment:'#content', timeout:8000});
 	$(document).on({
 		"pjax:complete": function(e) {
 			$("pre code").each(function (i, block){
@@ -143,7 +150,7 @@ function pjaxLoad(){
 			// 添加 active
 			$("#tree .active").removeClass("active");
 			e.relatedTarget.parentNode.classList.add("active");
-
+			
 			showArticleIndex();
 		}
 	});
@@ -189,6 +196,8 @@ function serachTree() {
 function clickTreeDirectory() {
 	// 判断有 active 的话，就递归循环把它的父目录打开
 	var treeActive = $("#tree .active");
+	console.log("treeActive");
+	console.log(treeActive);
 	if ( treeActive.length ) {
 		showActiveTree(treeActive, true);
 	}
