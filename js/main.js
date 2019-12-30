@@ -55,34 +55,20 @@ function switchTreeOrIndex(){
 	}else{
 		scrollOff();
 	};
-	$("#site-menu").on("click", function(e){
-		showSiteMenu();
-	});
-	$("#article-menu").on("click", function(e){
-		showArticleMenu();
-	});
 }
 
-function showSiteMenu() {
-	$("#site-toc").show();
-	$("#site-menu").addClass('toc-active');
-	$("#article-toc").hide();
-	$("#article-menu").removeClass('toc-active');
-}
-
-function showArticleMenu() {
-	$("#article-toc").show();
-	$("#article-menu").addClass('toc-active');
-	$("#site-toc").hide();
-	$("#site-menu").removeClass('toc-active');
-}
 //生成文章目录
 function showArticleIndex() {
+	$(".article-toc").empty();
+	$(".article-toc").hide();	
+	$(".article-toc.active-toc").removeClass("active-toc");
+	$("#tree .active").next().addClass('active-toc');
+	
 	var labelList = $("#article-content").children();
-	console.log("labelList");
 	var content = "<ul>";
-	for ( var i=0; i < labelList.length; i++ ) {
-		var level = 0;
+	var max_level = 4;
+	for ( var i = 0; i < labelList.length; i++ ) {
+		var level = 5;
 		if ( $(labelList[i]).is("h1") ) {
 			level = 1;
 		}else if ( $(labelList[i]).is("h2") ) {
@@ -92,21 +78,34 @@ function showArticleIndex() {
 		}else if ( $(labelList[i]).is("h4") ) {
 			level = 4;
 		}
-		if(level!=0){
+		if(level < max_level){
+			max_level = level;
+		}
+	}
+	for ( var i = 0; i < labelList.length; i++ ) {
+		var level = 0;
+		if ( $(labelList[i]).is("h1") ) {
+			level = 1 - max_level + 1;
+		}else if ( $(labelList[i]).is("h2") ) {
+			level = 2 - max_level + 1;
+		}else if ( $(labelList[i]).is("h3") ) {
+			level = 3 - max_level + 1;
+		}else if ( $(labelList[i]).is("h4") ) {
+			level = 4 - max_level + 1;
+		}
+		if(level != 0){
 			$(labelList[i]).before('<span class="anchor" id="_label'+ i +'"></span>');
 			content += '<li class="level_'+level+'"><i class="fa fa-circle" aria-hidden="true"></i><a href="#_label'+ i +'"> '+ $(labelList[i]).text() +'</a></li>';
 		}
 	}
 	content += "</ul>"
 
-	// 最后组合成 div 方便 css 设计样式，添加到指定位置
-	$("#article-toc").empty();
-	$("#article-toc").append(content);
+	$(".article-toc.active-toc").append(content);
 	
-	if(null != $("#article-toc a") && 0 != $("#article-toc a").length){
+	if(null != $(".article-toc a") && 0 != $(".article-toc a").length){
 		
 		// 点击目录索引链接，动画跳转过去，不是默认闪现过去
-		$("#article-toc a").on("click", function(e){
+		$(".article-toc a").on("click", function(e){
 			e.preventDefault();
 			// 获取当前点击的 a 标签，并前触发滚动动画往对应的位置
 			var target = $(this.hash);
@@ -121,7 +120,7 @@ function showArticleIndex() {
 		$(window).on("scroll", function(e){
 			var anchorList = $(".anchor");
 			anchorList.each(function(){
-				var tocLink = $('#article-toc a[href="#'+$(this).attr("id")+'"]');
+				var tocLink = $('.article-toc a[href="#'+$(this).attr("id")+'"]');
 				var anchorTop = $(this).offset().top;
 				var windowTop = $(window).scrollTop();
 				if ( anchorTop <= windowTop+100 ) {
@@ -132,9 +131,9 @@ function showArticleIndex() {
 				}
 			});
 		});	
-		
-		showArticleMenu();
 	}
+	$(".article-toc.active-toc").show();
+	$(".article-toc.active-toc").children().show();
 }
 
 function pjaxLoad(){
@@ -148,9 +147,23 @@ function pjaxLoad(){
 			});
 			
 			// 添加 active
+			//$("#tree .active").removeClass("active");
+			//e.relatedTarget.parentNode.classList.add("active");
 			$("#tree .active").removeClass("active");
-			e.relatedTarget.parentNode.classList.add("active");
-			
+			var title = $("#article-title").text().trim();
+			var searchResult = $("#tree li.file").find("a:contains('" + title + "')");
+			if ( searchResult.length ) {
+				$(".fa-minus-square-o").removeClass("fa-minus-square-o").addClass("fa-plus-square-o");
+				$("#tree ul").css("display", "none");
+				if ( searchResult.length > 1 ) {
+					var categorie = $("#article-categories span:last a").html().trim();
+					if (typeof categorie != "undefined") {
+						searchResult = $("#tree li.directory a:contains('" + categorie + "')").siblings().find("a:contains('" + title + "')");
+					}
+				}
+				searchResult[0].parentNode.classList.add("active");
+				showActiveTree($("#tree .active"), true) 
+			}
 			showArticleIndex();
 		}
 	});
@@ -196,8 +209,6 @@ function serachTree() {
 function clickTreeDirectory() {
 	// 判断有 active 的话，就递归循环把它的父目录打开
 	var treeActive = $("#tree .active");
-	console.log("treeActive");
-	console.log(treeActive);
 	if ( treeActive.length ) {
 		showActiveTree(treeActive, true);
 	}

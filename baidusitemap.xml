@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://wujun234.github.io/2019/12/26/20%20%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87/03%20MySQL/</loc>
+    <lastmod>2019-12-28</lastmod>
+  </url>  <url>
+    <loc>https://wujun234.github.io/2019/12/26/20%20%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87/02%20JVM/</loc>
+    <lastmod>2019-12-28</lastmod>
+  </url>  <url>
     <loc>https://wujun234.github.io/2019/04/24/09%20%E5%88%86%E5%B8%83%E5%BC%8F/02%20%E5%88%86%E5%B8%83%E5%BC%8F%E8%AE%A1%E7%AE%97/3%20MapReduce/</loc>
     <lastmod>2019-12-26</lastmod>
   </url>  <url>
@@ -80,12 +86,6 @@
     <lastmod>2019-12-25</lastmod>
   </url>  <url>
     <loc>https://wujun234.github.io/2019/12/26/20%20%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87/04%20NoSQL/</loc>
-    <lastmod>2019-12-25</lastmod>
-  </url>  <url>
-    <loc>https://wujun234.github.io/2019/12/26/20%20%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87/03%20MySQL/</loc>
-    <lastmod>2019-12-25</lastmod>
-  </url>  <url>
-    <loc>https://wujun234.github.io/2019/12/26/20%20%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87/02%20JVM/</loc>
     <lastmod>2019-12-25</lastmod>
   </url>  <url>
     <loc>https://wujun234.github.io/2019/12/26/20%20%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87/01%20Java/</loc>
