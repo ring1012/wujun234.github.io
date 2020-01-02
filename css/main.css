@@ -153,11 +153,13 @@ a {
 }
 #sidebar ul li {
 	list-style: none;
+	white-space: nowrap;
 }
 #sidebar ul li a {
 	color: #999;
 	font-size: 14px;
 }
+
 #sidebar ul li a:hover{
 	color: #ccc;
 	border-bottom: 1px solid #ccc;
@@ -165,10 +167,6 @@ a {
 #sidebar .active a{
 	color: #9cc7b8;
 	border-bottom: 1px solid #9cc7b8;
-}
-.article-toc {
-	height: calc( 100% - 35px );
-	overflow: auto;
 }
 .article-toc ul li i {
 	color: #999;
@@ -269,7 +267,7 @@ a {
 	border-bottom: 2px solid #ddd;
 }
 #article-content {
-	margin: 10px 0;
+	padding: 10px 0;
 	border-bottom: 2px solid #ddd;
 }
 #article-content ol,
@@ -318,8 +316,20 @@ a {
 	font-size: 14px;
 	margin: 20px 0 15px;
 }
+#article-content blockquote{
+	padding: 0 1em;
+	color:#6a737d;
+	border-left: .25em solid #dfe2e5;
+}
 #article-content p {
 	line-height: 30px
+}
+#article-content ul code,
+#article-content ol code,
+#article-content p code {
+	margin: 0 5px;
+	background-color: rgba(27,31,35,.05);
+	border-radius: 3px;
 }
 table {
   margin: auto auto 15px;
@@ -330,18 +340,18 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
   text-align: left; 
+  border: 1px solid black;
 }
 table th {
 	font-weight: bold;
 	padding: 5px 10px;
-	border-bottom: 2px solid #909ba2; 
+	border: 1px solid black;
 }
 table td {
 	padding: 5px 10px; 
+	border: 1px solid black;
 }
-table tr:nth-child(2n) {
-	background: #f7f8f8; 
-}
+
 .post-guide{
 	display: -webkit-box;
 	display: -moz-box;

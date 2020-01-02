@@ -145,7 +145,6 @@ function pjaxLoad(){
 			$("pre code").each(function (i, block){
 				hljs.highlightBlock(block);
 			});
-			
 			// 添加 active
 			//$("#tree .active").removeClass("active");
 			//e.relatedTarget.parentNode.classList.add("active");
