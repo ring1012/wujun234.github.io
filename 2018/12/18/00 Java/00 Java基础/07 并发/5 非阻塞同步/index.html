@@ -9,14 +9,14 @@
 	
 	<title>
 	
-		3 同步 | 
+		5 非阻塞同步 | 
 	 
 	吴俊的博客
 	</title>
 	
 	<!-- keywords,description -->
 	
-		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun,java,技术,程序员" />
 	 
 		<meta name="description" content="吴俊,wujun234,wujun,wu jun" />
 	
@@ -34,10 +34,14 @@
 	<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/highlight.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/jquery-pjax@2.0.1/jquery.pjax.min.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/leancloud-storage/dist/av-min.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js"></script>
 	<script src="/js/main.js"></script>
-	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	
+		<script src="https://cdn.jsdelivr.net/npm/leancloud-storage/dist/av-min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js"></script>
+	
+	
+		<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	
 </head>
 
 <body>
@@ -493,9 +497,27 @@
 							</ul>
 			
 							<ul>
+								<li class="file">
+									<a href="/2020/01/07/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/07%20%E5%B9%B6%E5%8F%91/3%20%E9%94%81/">
+										3 锁
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2020/01/07/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/07%20%E5%B9%B6%E5%8F%91/4%20%E5%90%8C%E6%AD%A5%E5%99%A8/">
+										4 同步器
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
 								<li class="file active">
-									<a href="/2018/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/07%20%E5%B9%B6%E5%8F%91/3%20%E5%90%8C%E6%AD%A5/">
-										3 同步
+									<a href="/2018/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/07%20%E5%B9%B6%E5%8F%91/5%20%E9%9D%9E%E9%98%BB%E5%A1%9E%E5%90%8C%E6%AD%A5/">
+										5 非阻塞同步
 									</a>
 								</li>
 								<div class="article-toc" style="display: none;"></div>
@@ -1436,15 +1458,6 @@
 								<div class="article-toc" style="display: none;"></div>
 							</ul>
 			
-							<ul>
-								<li class="file">
-									<a href="/2019/01/05/00%20Java/01%20Java%E8%99%9A%E6%8B%9F%E6%9C%BA/12%20Java%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B/3%20Java%E4%B8%8E%E7%BA%BF%E7%A8%8B/">
-										3 Java与线程
-									</a>
-								</li>
-								<div class="article-toc" style="display: none;"></div>
-							</ul>
-			
 								</li>
 								
 							</ul>
@@ -1579,24 +1592,6 @@
 									
 							<ul>
 								<li class="file">
-									<a href="/2019/03/02/00%20Java/03%20Java%E5%B9%B6%E5%8F%91/1%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/1%20%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8%E6%80%A7/">
-										1 线程安全性
-									</a>
-								</li>
-								<div class="article-toc" style="display: none;"></div>
-							</ul>
-			
-							<ul>
-								<li class="file">
-									<a href="/2019/03/02/00%20Java/03%20Java%E5%B9%B6%E5%8F%91/1%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/2%20%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%85%B1%E4%BA%AB/">
-										2 对象的共享
-									</a>
-								</li>
-								<div class="article-toc" style="display: none;"></div>
-							</ul>
-			
-							<ul>
-								<li class="file">
 									<a href="/2019/03/02/00%20Java/03%20Java%E5%B9%B6%E5%8F%91/1%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/3%20%E5%AF%B9%E8%B1%A1%E7%9A%84%E7%BB%84%E5%90%88/">
 										3 对象的组合
 									</a>
@@ -1621,94 +1616,9 @@
 								<li class="directory">
 									<a href="#" class="directory">
 										<i class="fa fa-plus-square-o"></i>
-										2 结构化并发应用程序
-									</a>
-									
-							<ul>
-								<li class="file">
-									<a href="/2019/03/05/00%20Java/03%20Java%E5%B9%B6%E5%8F%91/2%20%E7%BB%93%E6%9E%84%E5%8C%96%E5%B9%B6%E5%8F%91%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F/1%20%E4%BB%BB%E5%8A%A1%E6%89%A7%E8%A1%8C/">
-										1 任务执行
-									</a>
-								</li>
-								<div class="article-toc" style="display: none;"></div>
-							</ul>
-			
-							<ul>
-								<li class="file">
-									<a href="/2019/03/05/00%20Java/03%20Java%E5%B9%B6%E5%8F%91/2%20%E7%BB%93%E6%9E%84%E5%8C%96%E5%B9%B6%E5%8F%91%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F/2%20%E5%8F%96%E6%B6%88%E4%B8%8E%E5%85%B3%E9%97%AD/">
-										2 取消与关闭
-									</a>
-								</li>
-								<div class="article-toc" style="display: none;"></div>
-							</ul>
-			
-							<ul>
-								<li class="file">
-									<a href="/2019/03/07/00%20Java/03%20Java%E5%B9%B6%E5%8F%91/2%20%E7%BB%93%E6%9E%84%E5%8C%96%E5%B9%B6%E5%8F%91%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F/3%20%E7%BA%BF%E7%A8%8B%E6%B1%A0%E7%9A%84%E4%BD%BF%E7%94%A8/">
-										3 线程池的使用
-									</a>
-								</li>
-								<div class="article-toc" style="display: none;"></div>
-							</ul>
-			
-								</li>
-								
-							</ul>
-			
-							<ul>
-								<li class="directory">
-									<a href="#" class="directory">
-										<i class="fa fa-plus-square-o"></i>
-										3 活跃性、性能与测试
-									</a>
-									
-							<ul>
-								<li class="file">
-									<a href="/2019/03/07/00%20Java/03%20Java%E5%B9%B6%E5%8F%91/3%20%E6%B4%BB%E8%B7%83%E6%80%A7%E3%80%81%E6%80%A7%E8%83%BD%E4%B8%8E%E6%B5%8B%E8%AF%95/1%20%E9%81%BF%E5%85%8D%E6%B4%BB%E8%B7%83%E6%80%A7%E5%8D%B1%E9%99%A9/">
-										1 避免活跃性危险
-									</a>
-								</li>
-								<div class="article-toc" style="display: none;"></div>
-							</ul>
-			
-							<ul>
-								<li class="file">
-									<a href="/2019/03/11/00%20Java/03%20Java%E5%B9%B6%E5%8F%91/3%20%E6%B4%BB%E8%B7%83%E6%80%A7%E3%80%81%E6%80%A7%E8%83%BD%E4%B8%8E%E6%B5%8B%E8%AF%95/2%20%E6%80%A7%E8%83%BD%E4%B8%8E%E5%8F%AF%E4%BC%B8%E7%BC%A9%E6%80%A7/">
-										2 性能与可伸缩性
-									</a>
-								</li>
-								<div class="article-toc" style="display: none;"></div>
-							</ul>
-			
-							<ul>
-								<li class="file">
-									<a href="/2019/03/15/00%20Java/03%20Java%E5%B9%B6%E5%8F%91/3%20%E6%B4%BB%E8%B7%83%E6%80%A7%E3%80%81%E6%80%A7%E8%83%BD%E4%B8%8E%E6%B5%8B%E8%AF%95/3%20%E5%B9%B6%E5%8F%91%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%B5%8B%E8%AF%95/">
-										3 并发程序的测试
-									</a>
-								</li>
-								<div class="article-toc" style="display: none;"></div>
-							</ul>
-			
-								</li>
-								
-							</ul>
-			
-							<ul>
-								<li class="directory">
-									<a href="#" class="directory">
-										<i class="fa fa-plus-square-o"></i>
 										4 高级主题
 									</a>
 									
-							<ul>
-								<li class="file">
-									<a href="/2019/03/15/00%20Java/03%20Java%E5%B9%B6%E5%8F%91/4%20%E9%AB%98%E7%BA%A7%E4%B8%BB%E9%A2%98/1%20%E6%98%BE%E5%BC%8F%E9%94%81/">
-										1 显式锁
-									</a>
-								</li>
-								<div class="article-toc" style="display: none;"></div>
-							</ul>
-			
 							<ul>
 								<li class="file">
 									<a href="/2019/03/15/00%20Java/03%20Java%E5%B9%B6%E5%8F%91/4%20%E9%AB%98%E7%BA%A7%E4%B8%BB%E9%A2%98/2%20%E6%9E%84%E5%BB%BA%E8%87%AA%E5%AE%9A%E4%B9%89%E7%9A%84%E5%90%8C%E6%AD%A5%E5%B7%A5%E5%85%B7/">
@@ -4537,6 +4447,26 @@
 								
 							</ul>
 			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										21 其他
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2020/01/08/21%20%E5%85%B6%E4%BB%96/2019%20%E5%B9%B4%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93/">
+										2019 年工作总结
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
 		</div>
 	</div>
 </div>
@@ -4545,12 +4475,14 @@
 	<div id="content">
 		<h1 id="article-title">
 
-	3 同步
+	5 非阻塞同步
 </h1>
 <div class="article-meta">
-	<span>
-		阅读量:<span id="/2018/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/07%20%E5%B9%B6%E5%8F%91/3%20%E5%90%8C%E6%AD%A5/" class="leancloud_visitors" data-flag-title=""></span>
-	</span>
+	
+		<span>
+			阅读量:<span id="/2018/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/07%20%E5%B9%B6%E5%8F%91/5%20%E9%9D%9E%E9%98%BB%E5%A1%9E%E5%90%8C%E6%AD%A5/" class="leancloud_visitors" data-flag-title=""></span>
+		</span>
+	
 	<span>Wu Jun</span>
 	<span>2018-12-18 21:52:58</span>
     
@@ -4582,319 +4514,121 @@
 </div>
 
 <div id="article-content">
-	<h2 id="1-锁"><a class="header-anchor" href="#1-锁"></a>1 锁</h2>
-<p>有两种机制防止代码块受并发访问的干扰。synchronized 关键字，ReentrantLock 类。</p>
-<h3 id="1-1-可重入锁（ReentrantLock）"><a class="header-anchor" href="#1-1-可重入锁（ReentrantLock）"></a>1.1 可重入锁（ReentrantLock）</h3>
-<p>可重入锁（ReentrantLock）锁是可重入的，因为线程可以重复地获得已经持有的锁。锁保持一个<code>持有计数</code>来跟踪对 lock 方法的嵌套调用。线程在每一次调用 lock 都要调用 unlock 来释放锁。由于这一特性，被一个锁保护的代码可以调用另一个使用相同的锁的方法。</p>
-<pre><code>Lock myLock = new Reentrantlock();
-myLock.lock(); // a Reentrantlock object
-try {
-    // critical section
-} finally {
-    myLock.unlock(); // make sure the lock is unlocked even if an exception is thrown
-}
-</code></pre>
+	<h3 id="1-内存可见性"><a class="header-anchor" href="#1-内存可见性"></a>1 内存可见性</h3>
+<p>在没有同步的情况下, 编译器, 处理器, 运行时等可能对操作的执行顺序进行一些意想不到的调整, 在缺乏足够同步的多线程程序中, 要想对内存操作的执行顺序进行判断, 几乎无法得出正确的结论.</p>
+<p>在缺乏同步的程序中可能产生错误结果的一种情况: 失效数据</p>
+<h4 id="1-1-非原子的-64-位操作"><a class="header-anchor" href="#1-1-非原子的-64-位操作"></a>1.1 非原子的 64 位操作</h4>
+<p>Java 内存模型要求, 变量的读取和写入操作都必须是原子操作, 但对于非 volatile 类型的 long 和 double 变量, JVM 允许将 64 位的读操作或写操作, 分解为两个 32 位的操作。</p>
+<p>当读取一个非 volatile 类型的 long 变量时, 如果对该变量的读操作和写操作在不同的线程中执行, 那么很可能会读取到每个值的高 32 位和另一个值的第 32 位, 这被称为字撕裂。</p>
+<p>通过 volatile 修饰或者用锁保护起来的 long 或 double 可以保证读写原子性。</p>
+<h4 id="1-2-加锁与可见性"><a class="header-anchor" href="#1-2-加锁与可见性"></a>1.2 加锁与可见性</h4>
 <ul>
-<li>ReentrantLock()：构建一个可以被用来保护临界区的可重入锁。</li>
-<li>ReentrantLock(boolean fair)：构建一个带有公平策略的锁。一个公平锁偏爱等待时间最长的线程，但是，这一公平的保证将大大降低性能。</li>
+<li>加锁可以用于确保某个线程以一种可预测的方式来查看另一个线程执行结果.</li>
+<li>加锁的含义不仅仅局限于互斥行为, 还包括内存可见性。为了确保所有线程都能看到共享变量的最新值, 所有执行读操作和写操作的线程都必须在同一个锁上进行同步。</li>
 </ul>
-<h3 id="1-2-条件对象（Condition）"><a class="header-anchor" href="#1-2-条件对象（Condition）"></a>1.2 条件对象（Condition）</h3>
-<p>一个锁对象可以有一个或多个相关的条件对象（Condition）。</p>
-<p>条件对象管理那些已经获得了一个锁但是却不能做有用工作的线程。</p>
-<h4 id="1）获取条件对象"><a class="header-anchor" href="#1）获取条件对象"></a>1）获取条件对象</h4>
-<p>newCondition 获得一个条件对象。</p>
-<pre><code>Condition condition = myLock.newCondition();
-</code></pre>
-<h4 id="2）阻塞"><a class="header-anchor" href="#2）阻塞"></a>2）阻塞</h4>
-<p>线程条件 await()，线程进入该条件的等待集，阻塞。</p>
-<pre><code>condition.await();
-</code></pre>
-<h4 id="3）恢复"><a class="header-anchor" href="#3）恢复"></a>3）恢复</h4>
-<p>直到某个其他线程调用同一条件上的 signalAll() 重新激活因为这一条件而等待的所有线程。</p>
-<pre><code>otherCondition.singalAll();
-</code></pre>
-<p>此时，线程应该再次测试该条件。</p>
-<pre><code>while (!okToProceed())
-    condition.await();   
-</code></pre>
-<p>另一个方法 signal()，则是随机解除等待集中某个线程的阻塞状态。</p>
-<p>如果没有其他线程再次调用 signal，那么系统就死锁了。</p>
-<h3 id="1-3-内置锁（synchronized）"><a class="header-anchor" href="#1-3-内置锁（synchronized）"></a>1.3 内置锁（synchronized）</h3>
-<p>总结一下有关锁和条件的关键之处：</p>
+<h4 id="1-3-volatile-变量"><a class="header-anchor" href="#1-3-volatile-变量"></a>1.3 volatile 变量</h4>
+<p>volatile 变量是一种比 synchronized 关键字更轻量级的同步机制。(在当前大多数处理器中, 读取 volatile 变量比读取非 volatile 变量的开销略高一些)</p>
 <ul>
-<li>锁用来保护代码片段，任何时刻只能有一个线程执行被保护的代码。</li>
-<li>锁可以管理试图进入被保护代码段的线程。</li>
-<li>锁可以拥有一个或多个相关的条件对象。</li>
-<li>每个条件对象管理那些已经进入被保护的代码段但还不能运行的线程。</li>
+<li>将域声明为 volatile 保证数据访问一致性，禁止指令重排序优化，但 volatile 变量不能提供原子性。</li>
+<li>编译器和运行时不会对 volatile 变量上的操作与其他内存操作一起重排序, volatile 变量也不会被缓存在寄存器或者对其它处理器不可见的地方, 读取 volatile 变量时总是返回最新写入的值.</li>
 </ul>
-<p>Lock 和 Condition 接口为程序设计人员提供了高度的锁定控制。然而， 大多数情况下，
-并不需要那样的控制。</p>
-<h4 id="1）对象内部锁"><a class="header-anchor" href="#1）对象内部锁"></a>1）对象内部锁</h4>
-<p><strong>从 1.0 版开始， Java中的每一个对象都有一个内部锁。如果一个方法用 synchronized 关键字声明，那么对象的锁将保护整个方法。</strong></p>
-<pre><code>public synchronized void method() {
-    // method body
-}
-</code></pre>
-<p>等价于</p>
-<pre><code>public void methoda() {
-    this.intrinsicLock.lock();
-    try {
-        // method body
-    } finally {
-        this.intrinsicLock.unlock();
-    }
-}
-</code></pre>
-<p>内部对象锁只有一个相关条件，其 wait 与 notifyAll ，等价于 Condition 的 await 与 signalAll</p>
-<blockquote>
-<p>在使用 wait/ notifyAll 之前， 应该考虑使用同步器。</p>
-</blockquote>
-<p>内部锁和条件存在一些局限。包括：</p>
-<ul>
-<li>不能中断一个正在试图获得锁的线程。</li>
-<li>试图获得锁时不能设定超时。</li>
-<li>每个锁仅有单一的条件，可能是不够的。</li>
-</ul>
-<h4 id="2）同步建议"><a class="header-anchor" href="#2）同步建议"></a>2）同步建议</h4>
-<p>Lock 和 Condition 对象还是同步方法？</p>
-<ul>
-<li>最好既不使用 Lock/Condition 也不使用 synchronized 关键字。可使用 java.util.concurrent 包中的一种机制，或并行流。</li>
-<li>如果 synchronized 关键字适合你的程序， 那么请尽量使用它，这样可以减少编写的代
-码数量，减少出错的几率。</li>
-<li>如果特别需要 Lock/Condition 结构提供的独有特性时，才使用 Lock/Condition。</li>
-</ul>
-<h4 id="3）同步阻塞"><a class="header-anchor" href="#3）同步阻塞"></a>3）同步阻塞</h4>
-<p>线程可通过获得对象的的内部锁，进入同步阻塞。</p>
-<p>lock 对象被创建仅仅是用来使用每个 Java 对象持有的锁。</p>
-<pre><code>private Object lock = new Object();
-synchronized (obj){
-    // critical section
-}
-</code></pre>
-<h4 id="4）客户端锁定"><a class="header-anchor" href="#4）客户端锁定"></a>4）客户端锁定</h4>
-<p>以下例子依赖于 Vector 类对自己的所有可修改方法都使用内部锁。</p>
-<pre><code>public void transfer(Vector&lt;Double&gt; accounts, int from, int to, int amount){
-    synchronized (accounts){
-        accounts.setCfron, accounts.get(from) - amount):
-        accounts.set(to, accounts.get(to) + amount);
-    }
-    System.out.println(. . .);
-}
-</code></pre>
-<p>客户端锁定是非常脆弱的，通常不推荐使用。</p>
-<h4 id="5）监视器概念"><a class="header-anchor" href="#5）监视器概念"></a>5）监视器概念</h4>
-<p>监视器可以在不需要程序员考虑如何加锁的情况下，就可以保证多线程的安全性。具有如下特性：</p>
-<ul>
-<li>监视器是只包含私有域的类。</li>
-<li>每个监视器类的对象有一个相关的锁。</li>
-<li>使用该锁对所有的方法进行加锁。</li>
-<li>该锁可以有任意多个相关条件。</li>
-</ul>
-<p>Java 以 synchronized 关键字不是很精确地采用了监视器概念，使得线程的安全性下降：</p>
-<ul>
-<li>域不要求必须是private。</li>
-<li>方法不要求必须是synchronized。</li>
-<li>内部锁对客户是可用的。</li>
-</ul>
-<h3 id="1-4-读写锁（ReentrantReadWriteLock）"><a class="header-anchor" href="#1-4-读写锁（ReentrantReadWriteLock）"></a>1.4 读写锁（ReentrantReadWriteLock）</h3>
-<p>ReentrantReadWriteLock 类，对读线程共享，写线程互斥。</p>
-<pre><code>//1) 构造一个ReentrantReadWriteLock对象
-private ReentrantReadWriteLockrwl = new ReentrantReadWriteLock();
-//2) 抽取读锁和写锁
-private Lock readLock = rwl.readLock();
-private Lock writeLocfc = rwl.writeLock();
-//3) 对所有的访问者加读锁
-public double getTotalBalance() {
-    readLock.lock();
-    try {
-    } finally {
-        readLock.unlock();
-    }
-}
-//4) 对所有的修改者加写锁
-public void transfer() {
-    writeLocfc.lock();
-    try {
-    } finally {
-        writeLocfc.unlock();
-    }
-}
-</code></pre>
-<h3 id="1-5-死锁"><a class="header-anchor" href="#1-5-死锁"></a>1.5 死锁</h3>
-<p>如果有一组进程或线程，其中每个都在等待一个只有其它进程或线程才可以执行的操作，那么就称它们被死锁了。</p>
-<h4 id="1）死锁的必要条件"><a class="header-anchor" href="#1）死锁的必要条件"></a>1）死锁的必要条件</h4>
-<ul>
-<li>互斥：一个资源每次只能被一个线程使用</li>
-<li>占有并等待：一个进程因请求资源而阻塞时， 对已获得的资源保持不放</li>
-<li>非抢占：线程已获得的资源, 在未使用完之前, 不能强行被剥夺</li>
-<li>循环等待：若干进程之间形成一种头尾相接的循环等待资源关系</li>
-</ul>
-<h4 id="2）避免死锁"><a class="header-anchor" href="#2）避免死锁"></a>2）避免死锁</h4>
-<p>要避免死锁，应该确保在获取多个锁时，在所有的线程中都以相同的顺序获取锁。</p>
-<ul>
-<li>以相同顺序获取锁</li>
-<li>使获取多个锁的集合尽量小</li>
-<li>尽可能地使用开放调用（在调用某个方法时不需要持有锁）</li>
-<li>使用定时锁（tryLock 方法）：试图申请一个锁，成功返回 true，否则立即返回 false，避免阻塞</li>
-</ul>
-<h3 id="1-6-锁优化"><a class="header-anchor" href="#1-6-锁优化"></a>1.6 锁优化</h3>
-<h4 id="1）自旋锁与自适应自旋"><a class="header-anchor" href="#1）自旋锁与自适应自旋"></a>1）自旋锁与自适应自旋</h4>
-<ul>
-<li>自旋锁：让后面请求锁的那个线程等待，执行一个忙循环</li>
-<li>在 JDK 1.6 已经默认开启自旋锁；如果锁被占用的时间很短自旋等待的效果就会非常好，反之则会白白消耗处理器资源；</li>
-<li>在 JDK 1.6 中引入了“自适应的自旋锁”，这意味着自旋的时间不再固定，而是由前一次在同一个锁上的自旋时间及锁的拥有者的状态来决定；</li>
-</ul>
-<h4 id="2）锁消除"><a class="header-anchor" href="#2）锁消除"></a>2）锁消除</h4>
-<ul>
-<li>消除是指虚拟机即时编译器在运行时，对一些代码上要求同步，但是被检测到不可能存在共享数据竞争的锁进行消除；</li>
-<li>锁消除的主要判断依据来源于逃逸分析的数据支持；</li>
-</ul>
-<h4 id="3）锁粗化"><a class="header-anchor" href="#3）锁粗化"></a>3）锁粗化</h4>
-<ul>
-<li>原则上总是推荐将同步块的作用范围限制得尽量小 – 只有在共享数据的实际作用域中才进行同步，这样是为了使得需要同步的操作数量尽可能变小，如果存在锁竞争，那等待锁的线程也能尽快拿到锁；</li>
-<li>但是如果一系列的连续操作都对同一个对象反复加锁和解锁，甚至加锁操作是出现在循环体中的，那即使没有线程竞争，频繁地进行互斥同步操作也会导致不必要的性能损耗；</li>
-</ul>
-<h4 id="4）轻量级锁"><a class="header-anchor" href="#4）轻量级锁"></a>4）轻量级锁</h4>
-<p>轻量级锁是 JDK 1.6 之中加入的新型锁机制，并不是用来代替重量级锁的，它的本意是在没有多线程竞争的前提下，下使用 CAS 操作去消除同步使用的互斥量，减少传统的重量级锁使用操作系统互斥量产生的性能消耗；</p>
-<p>在线程栈帧中 CAS 获取锁，如果有两条以上的线程争用同一个锁，那轻量级锁就不再有效，要膨胀为重量级锁</p>
-<h4 id="5）偏向锁"><a class="header-anchor" href="#5）偏向锁"></a>5）偏向锁</h4>
-<ul>
-<li>偏向锁也是 JDK 1.6 中引入的一项锁优化，它的目的是消除数据在无竞争情况下的同步原语，进一步提高程序的运行性能；偏向锁就是“在无竞争的情况下把整个同步都消除掉”，连 CAS 操作都不做了；</li>
-<li>偏向锁会偏向于第一个获得它的线程，如果在接下来的执行过程中，该锁没有被其他的线程获取，则持有偏向锁的线程将永远不需要再进行同步；</li>
-<li>当有另外一个线程去尝试获取这个锁时，偏向模式就宣告结束，根据锁对象目前是否被锁定的状态，撤销偏向后恢复到未锁定或轻量级锁定的状态，后续的同步操作就如上面介绍的轻量级锁那样执行；偏向锁、轻量级锁的状态转化以及对象 Mark Work 的关系如下图所示：</li>
-</ul>
-<p><img src="/images/1545648769450.jpg" alt="image"></p>
-<p>偏向锁可以提高带有同步但无竞争的程序性能，它同样是一个带有效益权衡性质的优化；</p>
-<h2 id="2-同步器"><a class="header-anchor" href="#2-同步器"></a>2 同步器</h2>
-<p>java.util.concurrent 包包含了几个能帮助人们管理相互合作的线程集的类。这些机制具有为线程之间的<strong>共用集结点模式</strong>提供的“预置功能”。如果有一个相互合作的线程集满足这些行为模式之一，那么应该直接重用合适的库类而不要试图提供手工的锁与条件的集合。</p>
-<table>
-<thead>
-<tr>
-<th>类</th>
-<th>它能做什么</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>CyclicBarrier</td>
-<td>允许线程集等待直至其中预定数目的线程到达一个公共障栅，然后可以选择执行一个处理障栅的工作</td>
-<td>当大量的线程需要在它们的结果可用之前完成时</td>
-</tr>
-<tr>
-<td>Phaser</td>
-<td>类似于循环障栅，不过有一个可变的计数</td>
-<td>Java SE 7 中引入</td>
-</tr>
-<tr>
-<td>CountDownLatch</td>
-<td>允许线程集等待直到计数器减为 0</td>
-<td>当一个或多个线程需要等待直到指定数目的事件发生</td>
-</tr>
-<tr>
-<td>Exchanger</td>
-<td>允许两个线程在要交换的对象准备好时交换对象</td>
-<td>当两个线程工作在同一个数据结构的两个实例上的时候，一个向实例添加数据而另一个从实例清除数据</td>
-</tr>
-<tr>
-<td>Semaphore</td>
-<td>允许线程集等待直到被允许继续运行为止</td>
-<td>限制访问资源的线程总数。如果许可数是 1，常常阻塞线程直到另一个线程给出许可为止</td>
-</tr>
-<tr>
-<td>SynchronousQueue</td>
-<td>允许一个线程把对象交给另一个线程</td>
-<td>在没有显式同步的情况下，当两个线程准备好将一个对象从一个线程传递到另一个时</td>
-</tr>
-</tbody>
-</table>
-<h3 id="2-1-信号量（Semaphore）"><a class="header-anchor" href="#2-1-信号量（Semaphore）"></a>2.1 信号量（Semaphore）</h3>
-<p>信号量（Semaphore）可以控同时访问的线程个数。</p>
-<ul>
-<li>acquire() ：获取一个许可，如果没有就阻塞等待</li>
-<li>release() ：释放一个许可。</li>
-<li>tryAcquire()：非阻塞</li>
-<li>availablePermits()：得到可用的许可数目</li>
-</ul>
-<pre><code>private Semaphore semaphore = new Semaphore(1);
-semaphore.acquire();
-Thread.currentThread().getName()
-semaphore.release();
-</code></pre>
-<h3 id="2-2-闭锁（CountDownLatch）"><a class="header-anchor" href="#2-2-闭锁（CountDownLatch）"></a>2.2 闭锁（CountDownLatch）</h3>
-<p>CountDownLatch 让一个线程集等待直到计数变为 0。倒计时门栓是一次性的。一旦计数为 0，就不能在重用了。</p>
-<ul>
-<li>await()：线程挂起，直到count值为0</li>
-<li>countDown()：将count值减1</li>
-</ul>
-<pre><code>final CountDownLatch latch = new CountDownLatch(2);
-latch.countDown();
-latch.await();
-</code></pre>
-<h3 id="2-3-栅栏（CyclicBarrier）"><a class="header-anchor" href="#2-3-栅栏（CyclicBarrier）"></a>2.3 栅栏（CyclicBarrier）</h3>
-<p>CyclicBarrier 类实现让一组线程等待至某个状态（barrier）之后再全部同时执行。当所有等待线程都被释放以后，CyclicBarrier可以被重用。</p>
-<ul>
-<li>await()：线程挂起，直至所有线程都到达 barrier 状态</li>
-</ul>
-<pre><code>//构造一个障栅，并给出参与的线程数  
-CyclicBarrier barrier = new CyclicBarrier(nthreads);
-//每一个线程做一些工作，完成后在障栅上调用 await
-public void run(){
-    doWork();
-    brrier.await();
-    ...
-}
-</code></pre>
-<p>如果任何一个在障栅上等待的线程离开了障栅，那么障栅就被破坏了。在这种情况下，所有其他线程的 await 方法抛出 BrokenBarrierException 异常。那些已经在等待的线程立即终止 await 的调用。</p>
-<h4 id="可选的障栅"><a class="header-anchor" href="#可选的障栅"></a>可选的障栅</h4>
-<p>可以提供一个可选的障栅（barrier action），当所有线程到达障栅的时候就会执行这一动作。</p>
-<pre><code>Runnable barrierAction = ...;
-CyclicBarrier barrier = new CyclicBarrier(nthreads, barrierAction);
-</code></pre>
-<p>该动作可以收集那些单个线程的运行结果。</p>
-<p>Phaser 类增加了更大的灵活性，允许改变不同阶段中参与线程的个数。</p>
-<h3 id="2-4-交换器（Exchanger）"><a class="header-anchor" href="#2-4-交换器（Exchanger）"></a>2.4 交换器（Exchanger）</h3>
-<p>当两个线程在同一数据缓冲区的两个实例上工作的时候，就可以使用交换器（Exchanger）。典型的情况是，一个线程向缓冲区填入数据，另一个线程消耗这些数据。当它们都完成以后，相互交换缓冲区。</p>
-<h3 id="2-5-同步队列（SynchronousQueue）"><a class="header-anchor" href="#2-5-同步队列（SynchronousQueue）"></a>2.5 同步队列（SynchronousQueue）</h3>
-<p>同步队列是一种将生产者与消费者线程配对的机制。当一个线程调用 SynchronousQueue 的 put 方法时，它会阻塞直到另一个线程调用 take 方法为止，反之亦然。与 Exchanger 的情况不同，数据仅仅沿一个方向传递，从生产者到消费者。</p>
-<p>即使 SynchronousQueue 类实现了 BlockingQueue 接口，概念上讲，它依然不是一个队列。它没有包含任何元素，它的 size 方法总是返回 0。
-对于许多线程问题，可以通过使用一个或多个队列以优雅且安全的方式将其形式化。</p>
-<h4 id="1）队列方法"><a class="header-anchor" href="#1）队列方法"></a>1）队列方法</h4>
-<ul>
-<li>add  添加一个元素，如果队列满则抛错</li>
-<li>element  返回队列的头元素，如果队列空则抛错</li>
-<li>offer  添加一个元素返回true，如果队列满则返回false</li>
-<li>peek  返回队列头元素，如果队列空，返回null</li>
-<li>poll  移出并返回队列头元素，如果队列空，返回null</li>
-<li>put  添加一个元素，如果队列满则阻塞</li>
-<li>remove  移出并返回队列头元素，如果空则抛错</li>
-<li>take  移出并返回队列头元素，如果空则阻塞</li>
-</ul>
-<h4 id="2）八种队列"><a class="header-anchor" href="#2）八种队列"></a>2）八种队列</h4>
-<ul>
-<li>ArrayBlockingQueue：一个由数组结构组成的有界阻塞队列。</li>
-<li>LinkedBlockingQueue：一个由链表结构组成的有界阻塞队列。</li>
-<li>PriorityBlockingQueue：一个支持优先级排序的无界阻塞队列。</li>
-<li>DelayQueue：一个使用优先级队列实现的无界阻塞队列。</li>
-<li>SynchronousQueue：一个不存储元素的阻塞队列。</li>
-<li>LinkedTransferQueue：一个由链表结构组成的无界阻塞队列。</li>
-<li>LinkedBlockingDeque：一个由链表结构组成的双向阻塞队列。</li>
-<li>LinkedTransferQueue：1.7 增加的，允许生产者线程等待，直到消费者准备就绪。</li>
-</ul>
-<h2 id="3-非阻塞同步"><a class="header-anchor" href="#3-非阻塞同步"></a>3 非阻塞同步</h2>
-<h3 id="3-1-volatile-域"><a class="header-anchor" href="#3-1-volatile-域"></a>3.1 volatile 域</h3>
-<p>将域声明为 volatile 保证数据访问一致性，禁止指令重排序优化，但 volatile 变量不能提供原子性。</p>
 <p>Volatile 如何保证内存可见性:</p>
 <ol>
 <li>当写一个 volatile 变量时，JMM 会把该线程对应的本地内存中的共享变量刷新到主内存。</li>
 <li>当读一个 volatile 变量时，JMM 会把该线程对应的本地内存置为无效。线程接下来将从主内存中读取共享变量。</li>
 </ol>
-<h3 id="3-2-final-变量"><a class="header-anchor" href="#3-2-final-变量"></a>3.2 final 变量</h3>
+<h3 id="2-发布与逸出"><a class="header-anchor" href="#2-发布与逸出"></a>2 发布与逸出</h3>
+<h4 id="2-1-发布"><a class="header-anchor" href="#2-1-发布"></a>2.1 发布</h4>
+<ul>
+<li>发布一个对象是指该对象能够在当前作用域之外的代码中使用</li>
+<li>当发布某个对象时, 如果在发布过程中确保线程安全性, 则可能需要使用同步</li>
+<li>发布内部状态可能会破坏封装性, 并使得程序难以维持不变性条件</li>
+</ul>
+<h4 id="2-2-逸出"><a class="header-anchor" href="#2-2-逸出"></a>2.2 逸出</h4>
+<ul>
+<li>当某个不应该被发布的对象被发布时, 这种情况被称为逸出</li>
+<li>发布某个对象时会间接发布其它对象</li>
+<li>不要再构造过程中使 this 引用逸出</li>
+</ul>
+<h4 id="2-3-安全发布"><a class="header-anchor" href="#2-3-安全发布"></a>2.3 安全发布</h4>
+<p>由于内存可见性的问题, 导致对象不安全发布.</p>
+<h5 id="1）不正确的发布-正确的对象被坏"><a class="header-anchor" href="#1）不正确的发布-正确的对象被坏"></a>1）不正确的发布: 正确的对象被坏</h5>
+<h5 id="2）不可变对象与初始化安全性"><a class="header-anchor" href="#2）不可变对象与初始化安全性"></a>2）不可变对象与初始化安全性</h5>
+<ul>
+<li>任何线程都可以在不需要同步的情况下安全地访问不可变对象, 即使发布对象时没有使用同步</li>
+<li>如果 final 类型的域指向的是可变对象, 那么在访问这些域指向的对象的状态时仍然需要同步</li>
+</ul>
+<h5 id="3）安全发布的常用模式"><a class="header-anchor" href="#3）安全发布的常用模式"></a>3）安全发布的常用模式</h5>
+<ul>
+<li>在静态初始化函数中初始化一个对象引用</li>
+<li>将对象的引用保存到 volatile 类型的域或者 AtomicReferance 对象中</li>
+<li>将对象的引用保存到某个被正确构造对象的 final 类型域中</li>
+<li>将对象的引用保存到一个由锁保护的域中</li>
+</ul>
+<h5 id="4）事实不可变对象"><a class="header-anchor" href="#4）事实不可变对象"></a>4）事实不可变对象</h5>
+<ul>
+<li>如果对象从技术上看是可变的, 但是状态在发布之后不会再改变, 这种对象称之为事实不可变对象</li>
+<li>在没有额外同步的情况下, 任何线程都可以安全地使用被安全发布的事实不可变对象</li>
+</ul>
+<h5 id="5）可变对象"><a class="header-anchor" href="#5）可变对象"></a>5）可变对象</h5>
+<p>对象的发布需求取决于它的可变性</p>
+<ul>
+<li>不可变对象可以通过任意方式来发布</li>
+<li>事实不可变对象必须通过安全发布的方式来发布</li>
+<li>可变对象必须通过安全发布的方式来发布, 并且必须是线程安全的类或者由某个锁保护起来</li>
+</ul>
+<h5 id="5）安全地共享对象"><a class="header-anchor" href="#5）安全地共享对象"></a>5）安全地共享对象</h5>
+<p>在并发程序中使用和共享对象时, 可以使用一些实用的策略</p>
+<ul>
+<li>线程封闭: 线程封闭的对象只能由一个线程访问</li>
+<li>只读共享: 不可变对象和事实不可变对象</li>
+<li>线程安全共享: 线程安全的对象内部实现同步机制, 如 ConcurrentHashMap</li>
+<li>保护对象: 通过持有特定的锁来访问</li>
+</ul>
+<h3 id="3-线程封闭"><a class="header-anchor" href="#3-线程封闭"></a>3 线程封闭</h3>
+<p>线程封闭：将对象封闭在一个线程中时，自动实现了线程安全性，免去了线程同步和协调的开销。</p>
+<p>常见应用：JDBC 的 Connection 对象。</p>
+<h4 id="3-1-Ad-hoc-线程封闭"><a class="header-anchor" href="#3-1-Ad-hoc-线程封闭"></a>3.1 Ad-hoc 线程封闭</h4>
+<ul>
+<li>Ad-hoc 线程封闭是指, 维护线程封闭性的职责完全由程序实现来承担.</li>
+<li>Ad-hoc 线程封闭程序较脆弱, 因此在程序中尽量少用, 在可能的情况下使用更强的线程封闭技术, 例如栈封闭或者 ThreadLocal 类。</li>
+</ul>
+<h4 id="3-2-栈封闭"><a class="header-anchor" href="#3-2-栈封闭"></a>3.2 栈封闭</h4>
+<ul>
+<li>栈封闭是将变量封闭在线程本地栈中, 其它线程无法访问这个栈.</li>
+<li>一种常用的栈封闭手段就是使用局部变量</li>
+</ul>
+<h4 id="3-3-ThreadLocl-类"><a class="header-anchor" href="#3-3-ThreadLocl-类"></a>3.3 ThreadLocl 类</h4>
+<ul>
+<li>ThreadLocal 空间换时间，为每个线程提供一个变量副本。变量在线程间隔离而在方法或类间共享的场景。</li>
+<li>ThreadLocal 通常用作全局变量, 降低代码可重用性, 在类之间引入隐含的耦合性, 使用时要注意。</li>
+</ul>
+<h5 id="1）原理"><a class="header-anchor" href="#1）原理"></a>1）原理</h5>
+<p>每个 Thread 维护一个 ThreadLocalMap 映射表，这个映射表的 key 是 ThreadLocal 实例本身， value 是真正需要存储的 Object 。</p>
+<p>ThreadLocal 本身并不存储值，它只是作为一个 key 来让线程从 ThreadLocalMap 获取 value 。</p>
+<p>ThreadLocalMap 中的key使用了弱引用</p>
+<h5 id="2）建议"><a class="header-anchor" href="#2）建议"></a>2）建议</h5>
+<ul>
+<li>在进行get之前，必须先set，否则会报空指针异常；或者可以重写initialValue()方法赋初值。</li>
+<li>避免内存泄漏：每次使用完 ThreadLocal ，都调用它的 remove() 方法，清除数据。</li>
+</ul>
+<h3 id="4-不变性"><a class="header-anchor" href="#4-不变性"></a>4 不变性</h3>
+<p>不可变的对象一定是线程安全的</p>
+<h4 id="4-1-final-域"><a class="header-anchor" href="#4-1-final-域"></a>4.1 final 域</h4>
 <p>共享域声明为 final 时，也可以安全地访问。</p>
-<h3 id="3-3-原子性"><a class="header-anchor" href="#3-3-原子性"></a>3.3 原子性</h3>
+<h4 id="4-2-volatile-对象"><a class="header-anchor" href="#4-2-volatile-对象"></a>4.2 volatile 对象</h4>
+<h4 id="4-3-无状态对象"><a class="header-anchor" href="#4-3-无状态对象"></a>4.3 无状态对象</h4>
+<p>不包含域，也不包含与其他类中域的引用。一定是线程安全的。</p>
+<h3 id="5-原子变量类"><a class="header-anchor" href="#5-原子变量类"></a>5 原子变量类</h3>
 <p>java.util.concurrent 包全完建立在 CAS（Compare and Swap，比较并交换）之上。</p>
 <p>在 java.util.concurrent.atomic 包中有许多基于CAS实现的原子包装器类。</p>
-<h4 id="1）乐观更新-CompareAndSet"><a class="header-anchor" href="#1）乐观更新-CompareAndSet"></a>1）乐观更新 CompareAndSet</h4>
+<h4 id="5-1-竞态条件"><a class="header-anchor" href="#5-1-竞态条件"></a>5.1 竞态条件</h4>
+<ul>
+<li>竞态条件: 由于不恰当的执行时序出现不正确的执行结果.</li>
+<li>复合操作：包含了一组必须以原子方式执行的操作以确保线程安全性</li>
+</ul>
+<p>最常见的竞态条件就是“先检查后执行”。如某个线程的操作插入到另一个线程的检查和执行操作之间。</p>
+<h4 id="5-2-乐观更新-CompareAndSet"><a class="header-anchor" href="#5-2-乐观更新-CompareAndSet"></a>5.2 乐观更新 CompareAndSet</h4>
 <p>应当在一个循环中计算新值和使用 compareAndSet</p>
 <p>有三个操作数：内存值V、旧的预期值A、要修改的值B，当且仅当预期值A和内存值V相同时，将内存值修改为B并返回true，否则什么都不做并返回false。继续循环去获取最新的value并进行compareAndSet，直至获取的value和内存中的value一致为止。</p>
 <pre><code>do {
@@ -4904,7 +4638,7 @@ CyclicBarrier barrier = new CyclicBarrier(nthreads, barrierAction);
 //lambda 表达式
 largest.updateAndGet(x -&gt; Math.max(x, observed)) ;
 </code></pre>
-<h4 id="2）Java-SE-8"><a class="header-anchor" href="#2）Java-SE-8"></a>2）Java SE 8</h4>
+<h4 id="5-3-Java-SE-8"><a class="header-anchor" href="#5-3-Java-SE-8"></a>5.3 Java SE 8</h4>
 <p>如果认为可能存在大量竞争， 只需要使用 LongAdder 而不是 AtomicLong。</p>
 <p>LongAdder 包括多个变量（加数），其总和为当前值。可以有多个线程更新不同的加数，线程个数增加时会自动提供新的加数。</p>
 <pre><code>final LongAdder adder = new LongAdder();
@@ -4924,17 +4658,6 @@ long total = adder.sum();
 adder.accumulate(value);
 </code></pre>
 <p>另外 DoubleAdder 和 DoubleAccumulator 也采用同样的方式，只不过处理的是 double 值。</p>
-<h3 id="3-4-ThreadLocal"><a class="header-anchor" href="#3-4-ThreadLocal"></a>3.4 ThreadLocal</h3>
-<p>ThreadLocal 空间换时间，为每个线程提供一个变量副本。变量在线程间隔离而在方法或类间共享的场景。</p>
-<h4 id="1）原理"><a class="header-anchor" href="#1）原理"></a>1）原理</h4>
-<p>每个 Thread 维护一个 ThreadLocalMap 映射表，这个映射表的 key 是 ThreadLocal 实例本身， value 是真正需要存储的 Object 。</p>
-<p>ThreadLocal 本身并不存储值，它只是作为一个 key 来让线程从 ThreadLocalMap 获取 value 。</p>
-<p>ThreadLocalMap 中的key使用了弱引用</p>
-<h4 id="2）建议"><a class="header-anchor" href="#2）建议"></a>2）建议</h4>
-<ul>
-<li>在进行get之前，必须先set，否则会报空指针异常；或者可以重写initialValue()方法赋初值。</li>
-<li>避免内存泄漏：每次使用完 ThreadLocal ，都调用它的 remove() 方法，清除数据。</li>
-</ul>
 
 </div>
 
@@ -4959,68 +4682,78 @@ adder.accumulate(value);
     </div>
 
 
-<div id="vcomments"></div>
+
+	<div id="vcomments"></div>
+
+
 <script>
-	// 评论
-	new Valine({
-		av: AV,
-		el: '#vcomments',
-        notify: false,
-        verify: false,
-        path: window.location.pathname,
-		appId: 'cbzi4mBFHIqKdH4wYkVHs44K-MdYXbMMI',
-		appKey: '4qY2BKiLCCOPgxVbsB5RkMc0',
-        placeholder: '请输入评论',
-        avatar: 'retro',
-        recordIP: false
-	})
+	
+		// 评论
+		new Valine({
+			av: AV,
+			el: '#vcomments',
+			notify: false,
+			verify: false,
+			path: window.location.pathname,
+			appId: 'cbzi4mBFHIqKdH4wYkVHs44K-MdYXbMMI',
+			appKey: '4qY2BKiLCCOPgxVbsB5RkMc0',
+			placeholder: '请输入评论',
+			avatar: 'retro',
+			recordIP: false
+		})
+	
+	
     // 显示次数
-    function showTime(Counter) {
-        var query = new AV.Query("Counter");
-        if($(".leancloud_visitors").length > 0){
-            var url = $(".leancloud_visitors").attr('id').trim();
-            // where field
-            query.equalTo("words", url);
-            // count
-            query.count().then(function (number) {
-                // There are number instances of MyClass where words equals url.
-                $(document.getElementById(url)).text(number?  number : '--');
-            }, function (error) {
-                // error is an instance of AVError.
-            });
-        }
-    }
-    // 追加pv
-    function addCount(Counter) {
-        var url = $(".leancloud_visitors").length > 0 ? $(".leancloud_visitors").attr('id').trim() : 'wujun234.github.io';
-        var Counter = AV.Object.extend("Counter");
-        var query = new Counter;
-        query.save({
-            words: url
-        }).then(function (object) {
-        })
-    }
-    $(function () {
-        var Counter = AV.Object.extend("Counter");
-        addCount(Counter);
-        showTime(Counter);
-    });
+		function showTime(Counter) {
+			var query = new AV.Query("Counter");
+			if($(".leancloud_visitors").length > 0){
+				var url = $(".leancloud_visitors").attr('id').trim();
+				// where field
+				query.equalTo("words", url);
+				// count
+				query.count().then(function (number) {
+					// There are number instances of MyClass where words equals url.
+					$(document.getElementById(url)).text(number?  number : '--');
+				}, function (error) {
+					// error is an instance of AVError.
+				});
+			}
+		}
+		// 追加pv
+		function addCount(Counter) {
+			var url = $(".leancloud_visitors").length > 0 ? $(".leancloud_visitors").attr('id').trim() : 'wujun234.github.io';
+			var Counter = AV.Object.extend("Counter");
+			var query = new Counter;
+			query.save({
+				words: url
+			}).then(function (object) {
+			})
+		}
+		$(function () {
+			var Counter = AV.Object.extend("Counter");
+			addCount(Counter);
+			showTime(Counter);
+		});
+	
 </script>
 	</div>
 	<div id="footer">
 	<p>
 	©2019-<span id="footerYear"></span> 
 	<a href="/">Wu Jun</a> 
-	|
-	<span id="busuanzi_container_site_pv">
-		pv
-		<span id="busuanzi_value_site_pv"></span>
-	</span>
-	|
-	<span id="busuanzi_container_site_uv"> 
-		uv
-		<span id="busuanzi_value_site_uv"></span>
-	</span>
+	
+	
+		|
+		<span id="busuanzi_container_site_pv">
+			pv
+			<span id="busuanzi_value_site_pv"></span>
+		</span>
+		|
+		<span id="busuanzi_container_site_uv"> 
+			uv
+			<span id="busuanzi_value_site_uv"></span>
+		</span>
+	
 	<br>
 	Theme <a href="//github.com/wujun234/hexo-theme-tree">Tree</a>
 	by <a href="//github.com/wujun234">WuJun</a>

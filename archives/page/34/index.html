@@ -14,7 +14,7 @@
 	
 	<!-- keywords,description -->
 	
-		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun,java,技术,程序员" />
 	 
 		<meta name="description" content="吴俊,wujun234,wujun,wu jun" />
 	
@@ -32,10 +32,14 @@
 	<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/highlight.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/jquery-pjax@2.0.1/jquery.pjax.min.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/leancloud-storage/dist/av-min.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js"></script>
 	<script src="/js/main.js"></script>
-	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	
+		<script src="https://cdn.jsdelivr.net/npm/leancloud-storage/dist/av-min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js"></script>
+	
+	
+		<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	
 </head>
 
 <body>
@@ -492,8 +496,26 @@
 			
 							<ul>
 								<li class="file">
-									<a href="/2018/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/07%20%E5%B9%B6%E5%8F%91/3%20%E5%90%8C%E6%AD%A5/">
-										3 同步
+									<a href="/2020/01/07/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/07%20%E5%B9%B6%E5%8F%91/3%20%E9%94%81/">
+										3 锁
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2020/01/07/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/07%20%E5%B9%B6%E5%8F%91/4%20%E5%90%8C%E6%AD%A5%E5%99%A8/">
+										4 同步器
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2018/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/07%20%E5%B9%B6%E5%8F%91/5%20%E9%9D%9E%E9%98%BB%E5%A1%9E%E5%90%8C%E6%AD%A5/">
+										5 非阻塞同步
 									</a>
 								</li>
 								<div class="article-toc" style="display: none;"></div>
@@ -1434,15 +1456,6 @@
 								<div class="article-toc" style="display: none;"></div>
 							</ul>
 			
-							<ul>
-								<li class="file">
-									<a href="/2019/01/05/00%20Java/01%20Java%E8%99%9A%E6%8B%9F%E6%9C%BA/12%20Java%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B/3%20Java%E4%B8%8E%E7%BA%BF%E7%A8%8B/">
-										3 Java与线程
-									</a>
-								</li>
-								<div class="article-toc" style="display: none;"></div>
-							</ul>
-			
 								</li>
 								
 							</ul>
@@ -1577,24 +1590,6 @@
 									
 							<ul>
 								<li class="file">
-									<a href="/2019/03/02/00%20Java/03%20Java%E5%B9%B6%E5%8F%91/1%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/1%20%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8%E6%80%A7/">
-										1 线程安全性
-									</a>
-								</li>
-								<div class="article-toc" style="display: none;"></div>
-							</ul>
-			
-							<ul>
-								<li class="file">
-									<a href="/2019/03/02/00%20Java/03%20Java%E5%B9%B6%E5%8F%91/1%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/2%20%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%85%B1%E4%BA%AB/">
-										2 对象的共享
-									</a>
-								</li>
-								<div class="article-toc" style="display: none;"></div>
-							</ul>
-			
-							<ul>
-								<li class="file">
 									<a href="/2019/03/02/00%20Java/03%20Java%E5%B9%B6%E5%8F%91/1%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/3%20%E5%AF%B9%E8%B1%A1%E7%9A%84%E7%BB%84%E5%90%88/">
 										3 对象的组合
 									</a>
@@ -1619,94 +1614,9 @@
 								<li class="directory">
 									<a href="#" class="directory">
 										<i class="fa fa-plus-square-o"></i>
-										2 结构化并发应用程序
-									</a>
-									
-							<ul>
-								<li class="file">
-									<a href="/2019/03/05/00%20Java/03%20Java%E5%B9%B6%E5%8F%91/2%20%E7%BB%93%E6%9E%84%E5%8C%96%E5%B9%B6%E5%8F%91%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F/1%20%E4%BB%BB%E5%8A%A1%E6%89%A7%E8%A1%8C/">
-										1 任务执行
-									</a>
-								</li>
-								<div class="article-toc" style="display: none;"></div>
-							</ul>
-			
-							<ul>
-								<li class="file">
-									<a href="/2019/03/05/00%20Java/03%20Java%E5%B9%B6%E5%8F%91/2%20%E7%BB%93%E6%9E%84%E5%8C%96%E5%B9%B6%E5%8F%91%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F/2%20%E5%8F%96%E6%B6%88%E4%B8%8E%E5%85%B3%E9%97%AD/">
-										2 取消与关闭
-									</a>
-								</li>
-								<div class="article-toc" style="display: none;"></div>
-							</ul>
-			
-							<ul>
-								<li class="file">
-									<a href="/2019/03/07/00%20Java/03%20Java%E5%B9%B6%E5%8F%91/2%20%E7%BB%93%E6%9E%84%E5%8C%96%E5%B9%B6%E5%8F%91%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F/3%20%E7%BA%BF%E7%A8%8B%E6%B1%A0%E7%9A%84%E4%BD%BF%E7%94%A8/">
-										3 线程池的使用
-									</a>
-								</li>
-								<div class="article-toc" style="display: none;"></div>
-							</ul>
-			
-								</li>
-								
-							</ul>
-			
-							<ul>
-								<li class="directory">
-									<a href="#" class="directory">
-										<i class="fa fa-plus-square-o"></i>
-										3 活跃性、性能与测试
-									</a>
-									
-							<ul>
-								<li class="file">
-									<a href="/2019/03/07/00%20Java/03%20Java%E5%B9%B6%E5%8F%91/3%20%E6%B4%BB%E8%B7%83%E6%80%A7%E3%80%81%E6%80%A7%E8%83%BD%E4%B8%8E%E6%B5%8B%E8%AF%95/1%20%E9%81%BF%E5%85%8D%E6%B4%BB%E8%B7%83%E6%80%A7%E5%8D%B1%E9%99%A9/">
-										1 避免活跃性危险
-									</a>
-								</li>
-								<div class="article-toc" style="display: none;"></div>
-							</ul>
-			
-							<ul>
-								<li class="file">
-									<a href="/2019/03/11/00%20Java/03%20Java%E5%B9%B6%E5%8F%91/3%20%E6%B4%BB%E8%B7%83%E6%80%A7%E3%80%81%E6%80%A7%E8%83%BD%E4%B8%8E%E6%B5%8B%E8%AF%95/2%20%E6%80%A7%E8%83%BD%E4%B8%8E%E5%8F%AF%E4%BC%B8%E7%BC%A9%E6%80%A7/">
-										2 性能与可伸缩性
-									</a>
-								</li>
-								<div class="article-toc" style="display: none;"></div>
-							</ul>
-			
-							<ul>
-								<li class="file">
-									<a href="/2019/03/15/00%20Java/03%20Java%E5%B9%B6%E5%8F%91/3%20%E6%B4%BB%E8%B7%83%E6%80%A7%E3%80%81%E6%80%A7%E8%83%BD%E4%B8%8E%E6%B5%8B%E8%AF%95/3%20%E5%B9%B6%E5%8F%91%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%B5%8B%E8%AF%95/">
-										3 并发程序的测试
-									</a>
-								</li>
-								<div class="article-toc" style="display: none;"></div>
-							</ul>
-			
-								</li>
-								
-							</ul>
-			
-							<ul>
-								<li class="directory">
-									<a href="#" class="directory">
-										<i class="fa fa-plus-square-o"></i>
 										4 高级主题
 									</a>
 									
-							<ul>
-								<li class="file">
-									<a href="/2019/03/15/00%20Java/03%20Java%E5%B9%B6%E5%8F%91/4%20%E9%AB%98%E7%BA%A7%E4%B8%BB%E9%A2%98/1%20%E6%98%BE%E5%BC%8F%E9%94%81/">
-										1 显式锁
-									</a>
-								</li>
-								<div class="article-toc" style="display: none;"></div>
-							</ul>
-			
 							<ul>
 								<li class="file">
 									<a href="/2019/03/15/00%20Java/03%20Java%E5%B9%B6%E5%8F%91/4%20%E9%AB%98%E7%BA%A7%E4%B8%BB%E9%A2%98/2%20%E6%9E%84%E5%BB%BA%E8%87%AA%E5%AE%9A%E4%B9%89%E7%9A%84%E5%90%8C%E6%AD%A5%E5%B7%A5%E5%85%B7/">
@@ -4535,6 +4445,26 @@
 								
 							</ul>
 			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										21 其他
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2020/01/08/21%20%E5%85%B6%E4%BB%96/2019%20%E5%B9%B4%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93/">
+										2019 年工作总结
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
 		</div>
 	</div>
 </div>
@@ -4542,323 +4472,6 @@
 	<!-- 引入正文 -->
 	<div id="content">
 		<div id="index">
-	
-		<div class="index-li">
-			<a href="/2018/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/02%20%E5%AF%B9%E8%B1%A1%E4%B8%8E%E7%B1%BB/4%20%E5%8F%8D%E5%B0%84/">
-				<h2 class="index-title">
-					4 反射
-				</h2>
-				<div class="index-brief">
-					反射 (Reflection) 是 Java 的特征之一，它允许运行中的 Java 程序获取自身的信息，并且可以操作类或对象的内部属性。
-反射的核心是 JVM 在运行时才动态加载类或调用方法/访问属性，它不需要事先知道运行对象是谁。
-反射机制可以用来：
-
-在运行时判断任意一个对象所属的类；
-在运行时
-					...
-				</div>
-			</a>
-                <div class="article-meta">
-				    <span>2018-12-18</span>
-                    
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/00-Java/">00 Java</a>
-                                    </span>
-                                
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/00-Java/00-Java基础/">00 Java基础</a>
-                                    </span>
-                                
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/00-Java/00-Java基础/02-对象与类/">02 对象与类</a>
-                                    </span>
-                                
-                            
-                    
-                </div>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/2018/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/02%20%E5%AF%B9%E8%B1%A1%E4%B8%8E%E7%B1%BB/3%20%E7%B1%BB/">
-				<h2 class="index-title">
-					3 类
-				</h2>
-				<div class="index-brief">
-					1 类
-类是构造对象的模板。
-由类构造对象的过程称为创建类的实例。
-一个源文件中，只能有一个公共类，类名必须与文件名相同。
-1.1 类之间的关系
-最常见的关系有：
-
-依赖（uses-a）：一个类的方法需要操纵另一个类的对象
-聚合（has-a）：类 A 的对象包含着类 B 的对象
-继承（is-a）：继
-					...
-				</div>
-			</a>
-                <div class="article-meta">
-				    <span>2018-12-18</span>
-                    
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/00-Java/">00 Java</a>
-                                    </span>
-                                
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/00-Java/00-Java基础/">00 Java基础</a>
-                                    </span>
-                                
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/00-Java/00-Java基础/02-对象与类/">02 对象与类</a>
-                                    </span>
-                                
-                            
-                    
-                </div>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/2018/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/02%20%E5%AF%B9%E8%B1%A1%E4%B8%8E%E7%B1%BB/2%20%E4%BF%AE%E9%A5%B0%E7%AC%A6/">
-				<h2 class="index-title">
-					2 修饰符
-				</h2>
-				<div class="index-brief">
-					1 访问修饰符
-
-private：仅对本类可见
-public：对所有类可见
-接口里方法默认public
-protected：对本包和所有子类可见
-default：对本包可见
-
-一个方法可以访问所属类的所有对象的私有对象
-2 非访问修饰符
-2.1 final
-
-final 域
-
-final域必须显式指
-					...
-				</div>
-			</a>
-                <div class="article-meta">
-				    <span>2018-12-18</span>
-                    
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/00-Java/">00 Java</a>
-                                    </span>
-                                
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/00-Java/00-Java基础/">00 Java基础</a>
-                                    </span>
-                                
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/00-Java/00-Java基础/02-对象与类/">02 对象与类</a>
-                                    </span>
-                                
-                            
-                    
-                </div>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/2018/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/06%20%E9%9B%86%E5%90%88/4%20%E8%A7%86%E5%9B%BE%E4%B8%8E%E5%8C%85%E8%A3%85%E5%99%A8/">
-				<h2 class="index-title">
-					4 视图与包装器
-				</h2>
-				<div class="index-brief">
-					视图：保持对原集合的控制。只用来展示集合中的元素。
-视图是不可修改的，任何改变视图 size 的操作都会影响到原集合。抛出异常。
-1 轻量级集包装器
-1.1 Arrays.asList 方法
-Arrays.asList 方法返回一个包装了普通 Java 数组的 List 包装器，一个视图对象。
-1.
-					...
-				</div>
-			</a>
-                <div class="article-meta">
-				    <span>2018-12-18</span>
-                    
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/00-Java/">00 Java</a>
-                                    </span>
-                                
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/00-Java/00-Java基础/">00 Java基础</a>
-                                    </span>
-                                
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/00-Java/00-Java基础/06-集合/">06 集合</a>
-                                    </span>
-                                
-                            
-                    
-                </div>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/2018/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/06%20%E9%9B%86%E5%90%88/3%20%E6%98%A0%E5%B0%84/">
-				<h2 class="index-title">
-					3 映射
-				</h2>
-				<div class="index-brief">
-					映射(map) 用来存放键 / 值对。如果提供了键， 就能够查找到值。
-1 基本映射操作
-Java 类库为映射提供了两个通用的实现： HashMap 和 TreeMap 。这两个类都实现了 Map 接口。
-散列映射对键进行散列， 树映射用键的整体顺序对元素进行排序， 并将其组织成搜索树。
-键必须是唯
-					...
-				</div>
-			</a>
-                <div class="article-meta">
-				    <span>2018-12-18</span>
-                    
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/00-Java/">00 Java</a>
-                                    </span>
-                                
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/00-Java/00-Java基础/">00 Java基础</a>
-                                    </span>
-                                
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/00-Java/00-Java基础/06-集合/">06 集合</a>
-                                    </span>
-                                
-                            
-                    
-                </div>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/2018/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/06%20%E9%9B%86%E5%90%88/2.6%20LinkedHashMap%E3%80%81LinkedHashSet/">
-				<h2 class="index-title">
-					2.6 LinkedHashMap、LinkedHashSet
-				</h2>
-				<div class="index-brief">
-					LinkedHashSet 仅对 LinkedHashMap做了一层包装，实现相同。LinkedHashSet 里面有一个LinkedHashMap（适配器模式）。
-1 总体介绍
-LinkedHashMap 有序，非同步，允许null键null值，是由linkedList增强的HashMap。
-继承
-					...
-				</div>
-			</a>
-                <div class="article-meta">
-				    <span>2018-12-18</span>
-                    
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/00-Java/">00 Java</a>
-                                    </span>
-                                
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/00-Java/00-Java基础/">00 Java基础</a>
-                                    </span>
-                                
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/00-Java/00-Java基础/06-集合/">06 集合</a>
-                                    </span>
-                                
-                            
-                    
-                </div>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/2018/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/06%20%E9%9B%86%E5%90%88/2.5%20HashMap%E3%80%81HashSet%E3%80%81Hashtable/">
-				<h2 class="index-title">
-					2.5 HashMap、HashSet、Hashtable
-				</h2>
-				<div class="index-brief">
-					HashSet仅对HashMap做了一层包装，实现相同。HashSet里面有一个HashMap（适配器模式）。
-Hashtable与HashMap大致相同，但Hashtable是同步的，并且不允许使用 null 。
-1 HashMap
-1.1 总体介绍
-基于哈希表，实现了Map接口。允许null值n
-					...
-				</div>
-			</a>
-                <div class="article-meta">
-				    <span>2018-12-18</span>
-                    
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/00-Java/">00 Java</a>
-                                    </span>
-                                
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/00-Java/00-Java基础/">00 Java基础</a>
-                                    </span>
-                                
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/00-Java/00-Java基础/06-集合/">06 集合</a>
-                                    </span>
-                                
-                            
-                    
-                </div>
-		</div>	
 	
 		<div class="index-li">
 			<a href="/2018/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/09%20IO/1%20%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E6%B5%81/">
@@ -4993,6 +4606,299 @@ XSLT = XSL 转换，是一种用于将 XML 文档转换为 XHTML 文档或其他
                 </div>
 		</div>	
 	
+		<div class="index-li">
+			<a href="/2018/12/18/01%20Spring/05%20Data/7%20Dynamic%20DataSource/">
+				<h2 class="index-title">
+					7 Dynamic DataSource
+				</h2>
+				<div class="index-brief">
+					AOP实现多数据源，可读写分离
+配置文件
+dynamic-db.master.driver-class-name = com.mysql.jdbc.Driver
+dynamic-db.master.jdbc-url = jdbc:mysql://somehost:3306/sometable?cha
+					...
+				</div>
+			</a>
+                <div class="article-meta">
+				    <span>2018-12-18</span>
+                    
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/01-Spring/">01 Spring</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/01-Spring/05-Data/">05 Data</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2018/12/18/01%20Spring/06%20Security/1%20Spring%20Security/">
+				<h2 class="index-title">
+					1 Spring Security
+				</h2>
+				<div class="index-brief">
+					1 保护Web
+配置Spring Security，在扩展WebSecurityConfigurerAdapter的bean上，添加@EnableWebSecurity注解，启用Web安全功能，并在类中重写configure的3个方法。
+@EnableWebSecurity
+public class
+					...
+				</div>
+			</a>
+                <div class="article-meta">
+				    <span>2018-12-18</span>
+                    
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/01-Spring/">01 Spring</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/01-Spring/06-Security/">06 Security</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2018/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/15%20%E8%84%9A%E6%9C%AC%E3%80%81%E7%BC%96%E8%AF%91%E3%80%81%E6%B3%A8%E8%A7%A3/6%20%E6%BA%90%E7%A0%81%E7%BA%A7%E6%B3%A8%E8%A7%A3%E5%A4%84%E7%90%86/">
+				<h2 class="index-title">
+					6 源码级注解处理
+				</h2>
+				<div class="index-brief">
+					1 注解处理
+编译器会定位源文件中的注解。每个注解处理器会依次执行。如果某个注解处理器产生了新的源文件，则重复处理。没有新文件产生后，就编译所有源文件。
+注解处理器通常扩展 AbstractProcessor 类实现 Processor 接口。
+@SupportedAnnotationTypes(&
+					...
+				</div>
+			</a>
+                <div class="article-meta">
+				    <span>2018-12-18</span>
+                    
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/">00 Java</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/00-Java基础/">00 Java基础</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/00-Java基础/15-脚本、编译、注解/">15 脚本、编译、注解</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2018/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/15%20%E8%84%9A%E6%9C%AC%E3%80%81%E7%BC%96%E8%AF%91%E3%80%81%E6%B3%A8%E8%A7%A3/5%20%E6%A0%87%E5%87%86%E6%B3%A8%E8%A7%A3/">
+				<h2 class="index-title">
+					5 标准注解
+				</h2>
+				<div class="index-brief">
+					Java SE 在 java.lang、java.lang.annotation 和 javax.annotation 包中定义了大量注解接口
+1 用于编译的注解
+
+@Deprecated：不再鼓励使用
+@SuppressWarnings：阻止特定警告
+@Override：覆盖超类方法
+@Gener
+					...
+				</div>
+			</a>
+                <div class="article-meta">
+				    <span>2018-12-18</span>
+                    
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/">00 Java</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/00-Java基础/">00 Java基础</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/00-Java基础/15-脚本、编译、注解/">15 脚本、编译、注解</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2018/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/14%20%E5%9B%BD%E9%99%85%E5%8C%96/1%20Locale%20%E5%AF%B9%E8%B1%A1/">
+				<h2 class="index-title">
+					1 Locale 对象
+				</h2>
+				<div class="index-brief">
+					java.util.Locale 是表示语言和国家/地区信息的本地化类，它是创建国际化应用的基础。
+1 组成
+Locale 由 5 个元素组成，语言必选，其他可选：
+
+语言
+2 到 3 个小写字母。例如 en、zh
+字符脚本
+首字母大写的四个字母。例如 Hant 繁体中文字符。
+国家/地区
+2 个大
+					...
+				</div>
+			</a>
+                <div class="article-meta">
+				    <span>2018-12-18</span>
+                    
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/">00 Java</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/00-Java基础/">00 Java基础</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/00-Java基础/14-国际化/">14 国际化</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2018/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/15%20%E8%84%9A%E6%9C%AC%E3%80%81%E7%BC%96%E8%AF%91%E3%80%81%E6%B3%A8%E8%A7%A3/7%20%E5%AD%97%E8%8A%82%E7%A0%81%E5%B7%A5%E7%A8%8B/">
+				<h2 class="index-title">
+					7 字节码工程
+				</h2>
+				<div class="index-brief">
+					1 修改类文件
+2 在加载时修改字节码
+
+					...
+				</div>
+			</a>
+                <div class="article-meta">
+				    <span>2018-12-18</span>
+                    
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/">00 Java</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/00-Java基础/">00 Java基础</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/00-Java基础/15-脚本、编译、注解/">15 脚本、编译、注解</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2018/12/18/02%20%E6%95%B0%E6%8D%AE%E5%BA%93/01%20MySQL/07%20SQL/">
+				<h2 class="index-title">
+					07 SQL
+				</h2>
+				<div class="index-brief">
+					1 数据库
+
+CREATE DATABASECREATE DATABASE 数据库名;
+USE 数据库名;
+
+
+
+2 表
+
+CREATE TABLECREATE TABLE 表名 (
+  列名 列类型 列属性,
+  ...);
+
+
+CREATE TABLE … AS
+将一个表的内容插入到一个新表CR
+					...
+				</div>
+			</a>
+                <div class="article-meta">
+				    <span>2018-12-18</span>
+                    
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/02-数据库/">02 数据库</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/02-数据库/01-MySQL/">01 MySQL</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
+		</div>	
+	
 	
 	<div id="index-paginator">
 		
@@ -5006,16 +4912,19 @@ XSLT = XSL 转换，是一种用于将 XML 文档转换为 XHTML 文档或其他
 	<p>
 	©2019-<span id="footerYear"></span> 
 	<a href="/">Wu Jun</a> 
-	|
-	<span id="busuanzi_container_site_pv">
-		pv
-		<span id="busuanzi_value_site_pv"></span>
-	</span>
-	|
-	<span id="busuanzi_container_site_uv"> 
-		uv
-		<span id="busuanzi_value_site_uv"></span>
-	</span>
+	
+	
+		|
+		<span id="busuanzi_container_site_pv">
+			pv
+			<span id="busuanzi_value_site_pv"></span>
+		</span>
+		|
+		<span id="busuanzi_container_site_uv"> 
+			uv
+			<span id="busuanzi_value_site_uv"></span>
+		</span>
+	
 	<br>
 	Theme <a href="//github.com/wujun234/hexo-theme-tree">Tree</a>
 	by <a href="//github.com/wujun234">WuJun</a>

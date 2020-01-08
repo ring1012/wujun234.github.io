@@ -16,7 +16,7 @@
 	
 	<!-- keywords,description -->
 	
-		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun,java,技术,程序员" />
 	 
 		<meta name="description" content="吴俊,wujun234,wujun,wu jun" />
 	
@@ -34,10 +34,14 @@
 	<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/highlight.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/jquery-pjax@2.0.1/jquery.pjax.min.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/leancloud-storage/dist/av-min.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js"></script>
 	<script src="/js/main.js"></script>
-	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	
+		<script src="https://cdn.jsdelivr.net/npm/leancloud-storage/dist/av-min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js"></script>
+	
+	
+		<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	
 </head>
 
 <body>
@@ -494,8 +498,26 @@
 			
 							<ul>
 								<li class="file">
-									<a href="/2018/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/07%20%E5%B9%B6%E5%8F%91/3%20%E5%90%8C%E6%AD%A5/">
-										3 同步
+									<a href="/2020/01/07/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/07%20%E5%B9%B6%E5%8F%91/3%20%E9%94%81/">
+										3 锁
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2020/01/07/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/07%20%E5%B9%B6%E5%8F%91/4%20%E5%90%8C%E6%AD%A5%E5%99%A8/">
+										4 同步器
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2018/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/07%20%E5%B9%B6%E5%8F%91/5%20%E9%9D%9E%E9%98%BB%E5%A1%9E%E5%90%8C%E6%AD%A5/">
+										5 非阻塞同步
 									</a>
 								</li>
 								<div class="article-toc" style="display: none;"></div>
@@ -1436,15 +1458,6 @@
 								<div class="article-toc" style="display: none;"></div>
 							</ul>
 			
-							<ul>
-								<li class="file">
-									<a href="/2019/01/05/00%20Java/01%20Java%E8%99%9A%E6%8B%9F%E6%9C%BA/12%20Java%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B/3%20Java%E4%B8%8E%E7%BA%BF%E7%A8%8B/">
-										3 Java与线程
-									</a>
-								</li>
-								<div class="article-toc" style="display: none;"></div>
-							</ul>
-			
 								</li>
 								
 							</ul>
@@ -1579,24 +1592,6 @@
 									
 							<ul>
 								<li class="file">
-									<a href="/2019/03/02/00%20Java/03%20Java%E5%B9%B6%E5%8F%91/1%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/1%20%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8%E6%80%A7/">
-										1 线程安全性
-									</a>
-								</li>
-								<div class="article-toc" style="display: none;"></div>
-							</ul>
-			
-							<ul>
-								<li class="file">
-									<a href="/2019/03/02/00%20Java/03%20Java%E5%B9%B6%E5%8F%91/1%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/2%20%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%85%B1%E4%BA%AB/">
-										2 对象的共享
-									</a>
-								</li>
-								<div class="article-toc" style="display: none;"></div>
-							</ul>
-			
-							<ul>
-								<li class="file">
 									<a href="/2019/03/02/00%20Java/03%20Java%E5%B9%B6%E5%8F%91/1%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/3%20%E5%AF%B9%E8%B1%A1%E7%9A%84%E7%BB%84%E5%90%88/">
 										3 对象的组合
 									</a>
@@ -1621,94 +1616,9 @@
 								<li class="directory">
 									<a href="#" class="directory">
 										<i class="fa fa-plus-square-o"></i>
-										2 结构化并发应用程序
-									</a>
-									
-							<ul>
-								<li class="file">
-									<a href="/2019/03/05/00%20Java/03%20Java%E5%B9%B6%E5%8F%91/2%20%E7%BB%93%E6%9E%84%E5%8C%96%E5%B9%B6%E5%8F%91%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F/1%20%E4%BB%BB%E5%8A%A1%E6%89%A7%E8%A1%8C/">
-										1 任务执行
-									</a>
-								</li>
-								<div class="article-toc" style="display: none;"></div>
-							</ul>
-			
-							<ul>
-								<li class="file">
-									<a href="/2019/03/05/00%20Java/03%20Java%E5%B9%B6%E5%8F%91/2%20%E7%BB%93%E6%9E%84%E5%8C%96%E5%B9%B6%E5%8F%91%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F/2%20%E5%8F%96%E6%B6%88%E4%B8%8E%E5%85%B3%E9%97%AD/">
-										2 取消与关闭
-									</a>
-								</li>
-								<div class="article-toc" style="display: none;"></div>
-							</ul>
-			
-							<ul>
-								<li class="file">
-									<a href="/2019/03/07/00%20Java/03%20Java%E5%B9%B6%E5%8F%91/2%20%E7%BB%93%E6%9E%84%E5%8C%96%E5%B9%B6%E5%8F%91%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F/3%20%E7%BA%BF%E7%A8%8B%E6%B1%A0%E7%9A%84%E4%BD%BF%E7%94%A8/">
-										3 线程池的使用
-									</a>
-								</li>
-								<div class="article-toc" style="display: none;"></div>
-							</ul>
-			
-								</li>
-								
-							</ul>
-			
-							<ul>
-								<li class="directory">
-									<a href="#" class="directory">
-										<i class="fa fa-plus-square-o"></i>
-										3 活跃性、性能与测试
-									</a>
-									
-							<ul>
-								<li class="file">
-									<a href="/2019/03/07/00%20Java/03%20Java%E5%B9%B6%E5%8F%91/3%20%E6%B4%BB%E8%B7%83%E6%80%A7%E3%80%81%E6%80%A7%E8%83%BD%E4%B8%8E%E6%B5%8B%E8%AF%95/1%20%E9%81%BF%E5%85%8D%E6%B4%BB%E8%B7%83%E6%80%A7%E5%8D%B1%E9%99%A9/">
-										1 避免活跃性危险
-									</a>
-								</li>
-								<div class="article-toc" style="display: none;"></div>
-							</ul>
-			
-							<ul>
-								<li class="file">
-									<a href="/2019/03/11/00%20Java/03%20Java%E5%B9%B6%E5%8F%91/3%20%E6%B4%BB%E8%B7%83%E6%80%A7%E3%80%81%E6%80%A7%E8%83%BD%E4%B8%8E%E6%B5%8B%E8%AF%95/2%20%E6%80%A7%E8%83%BD%E4%B8%8E%E5%8F%AF%E4%BC%B8%E7%BC%A9%E6%80%A7/">
-										2 性能与可伸缩性
-									</a>
-								</li>
-								<div class="article-toc" style="display: none;"></div>
-							</ul>
-			
-							<ul>
-								<li class="file">
-									<a href="/2019/03/15/00%20Java/03%20Java%E5%B9%B6%E5%8F%91/3%20%E6%B4%BB%E8%B7%83%E6%80%A7%E3%80%81%E6%80%A7%E8%83%BD%E4%B8%8E%E6%B5%8B%E8%AF%95/3%20%E5%B9%B6%E5%8F%91%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%B5%8B%E8%AF%95/">
-										3 并发程序的测试
-									</a>
-								</li>
-								<div class="article-toc" style="display: none;"></div>
-							</ul>
-			
-								</li>
-								
-							</ul>
-			
-							<ul>
-								<li class="directory">
-									<a href="#" class="directory">
-										<i class="fa fa-plus-square-o"></i>
 										4 高级主题
 									</a>
 									
-							<ul>
-								<li class="file">
-									<a href="/2019/03/15/00%20Java/03%20Java%E5%B9%B6%E5%8F%91/4%20%E9%AB%98%E7%BA%A7%E4%B8%BB%E9%A2%98/1%20%E6%98%BE%E5%BC%8F%E9%94%81/">
-										1 显式锁
-									</a>
-								</li>
-								<div class="article-toc" style="display: none;"></div>
-							</ul>
-			
 							<ul>
 								<li class="file">
 									<a href="/2019/03/15/00%20Java/03%20Java%E5%B9%B6%E5%8F%91/4%20%E9%AB%98%E7%BA%A7%E4%B8%BB%E9%A2%98/2%20%E6%9E%84%E5%BB%BA%E8%87%AA%E5%AE%9A%E4%B9%89%E7%9A%84%E5%90%8C%E6%AD%A5%E5%B7%A5%E5%85%B7/">
@@ -4537,6 +4447,26 @@
 								
 							</ul>
 			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										21 其他
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2020/01/08/21%20%E5%85%B6%E4%BB%96/2019%20%E5%B9%B4%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93/">
+										2019 年工作总结
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
 		</div>
 	</div>
 </div>
@@ -4548,9 +4478,11 @@
 	2 线程池
 </h1>
 <div class="article-meta">
-	<span>
-		阅读量:<span id="/2018/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/07%20%E5%B9%B6%E5%8F%91/2%20%E7%BA%BF%E7%A8%8B%E6%B1%A0/" class="leancloud_visitors" data-flag-title=""></span>
-	</span>
+	
+		<span>
+			阅读量:<span id="/2018/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/07%20%E5%B9%B6%E5%8F%91/2%20%E7%BA%BF%E7%A8%8B%E6%B1%A0/" class="leancloud_visitors" data-flag-title=""></span>
+		</span>
+	
 	<span>Wu Jun</span>
 	<span>2018-12-18 21:52:58</span>
     
@@ -4582,7 +4514,23 @@
 </div>
 
 <div id="article-content">
-	<p>执行器（Executor）类有许多静态工厂方法用来构建线程池。</p>
+	<p>线程池，指管理一组同构工作线程的资源池。线程池与工作队列密切相关，其中工作队列保存了所有等待执行的线程。工作者线程从工作队列中获取一个线程，执行任务，然后返回线程池并等待下一个任务。</p>
+<h3 id="1-创建线程池"><a class="header-anchor" href="#1-创建线程池"></a>1 创建线程池</h3>
+<p>一般一个简单线程池至少包含下列组成部分。</p>
+<ol>
+<li>线程池管理器（ThreadPoolManager）：创建线程池，销毁线程池，添加新任务</li>
+<li>工作线程（WorkThread）：线程池中线程</li>
+<li>任务接口（Task）：每个任务必须实现的接口，以供工作线程调度任务的执行。</li>
+<li>任务队列：用于存放没有处理的任务。提供一种缓冲机制。</li>
+</ol>
+<p>ExecutorService 包含运行/关闭/已终止三种状态</p>
+<ul>
+<li>初始创建时处于运行状态</li>
+<li>调用 shutdown、shutdownnow、awaitTermination 关闭，关闭后提交的任务由&quot;拒绝执行处理器&quot;处理，会抛弃任务，或使得 execute 方法抛出一个未受检查的 RejectedExecutionException</li>
+<li>等所有任务都完成后，进入终止状态</li>
+</ul>
+<h4 id="1-1-Executor-类静态工厂方法"><a class="header-anchor" href="#1-1-Executor-类静态工厂方法"></a>1.1 Executor 类静态工厂方法</h4>
+<p>执行器（Executor）类有许多静态工厂方法用来构建线程池。</p>
 <table>
 <thead>
 <tr>
@@ -4613,48 +4561,93 @@
 </tr>
 </tbody>
 </table>
-<h3 id="1-线程池"><a class="header-anchor" href="#1-线程池"></a>1 线程池</h3>
-<h4 id="1-1-submit"><a class="header-anchor" href="#1-1-submit"></a>1.1 submit</h4>
-<p>调用 submit 将一个 Runnable 对象或 Callable 对象提交给 ExecutorService，会得到一个 Future 对象，可用来査询该任务的状态。</p>
-<h4 id="1-2-shutdown"><a class="header-anchor" href="#1-2-shutdown"></a>1.2 shutdown</h4>
-<p>当用完一个线程池的时候，调用 shutdown。该方法启动该池的关闭序列。被关闭的执行器不再接受新的任务。当所有任务都完成以后，线程池中的线程死亡。</p>
-<h4 id="1-3-shutdownNow"><a class="header-anchor" href="#1-3-shutdownNow"></a>1.3 shutdownNow</h4>
-<p>该池取消尚未开始的所有任务并试图中断正在运行的线程。</p>
-<h4 id="1-4-使用连接池"><a class="header-anchor" href="#1-4-使用连接池"></a>1.4 使用连接池</h4>
-<ol>
-<li>调用 Executor 类中静态的方法 newCachedThreadPool 或 newFixedThreadPool。</li>
-<li>调用 submit 提交 Runnable 或 Callable 对象。</li>
-<li>如果想要取消一个任务，或如果提交 Callable 对象，那就要保存好返回的 Future 对象。</li>
-<li>当不再提交任何任务时，调用 shutdown。</li>
-</ol>
-<h4 id="1-5-线程池的简单实现"><a class="header-anchor" href="#1-5-线程池的简单实现"></a>1.5 线程池的简单实现</h4>
-<p>一般一个简单线程池至少包含下列组成部分。</p>
-<ol>
-<li>线程池管理器（ThreadPoolManager）：用于创建并管理线程池</li>
-<li>工作线程（WorkThread）：线程池中线程</li>
-<li>任务接口（Task）：每个任务必须实现的接口，以供工作线程调度任务的执行。</li>
-<li>任务队列：用于存放没有处理的任务。提供一种缓冲机制。</li>
-</ol>
-<p>线程池管理器至少有下列功能：创建线程池，销毁线程池，添加新任务</p>
-<pre><code>ExecutorService newCachedThreadPool()
-//返回一个带缓存的线程池，该池在必要的时候创建线程，在线程空闲 60 秒之后终止线程。
-
-ExecutorService newFixedThreadPool(int threads)
-//返回一个线程池，该池中的线程数由参数指定。
-
-ExecutorService newSingleThreadExecutor()
-//返回一个执行器，它在一个单个的线程中依次执行各个任务。
+<h4 id="1-2-ThreadPoolExecutor-构造函数"><a class="header-anchor" href="#1-2-ThreadPoolExecutor-构造函数"></a>1.2 ThreadPoolExecutor 构造函数</h4>
+<p>ThreadPoolExecutor 为一些 Executor 提供了基本的实现，还可以通过 ThreadPoolExecutor 的构造函数来实例化一个对象，并根据自己的需求来定制。</p>
+<pre><code>public ThreadPoolExecutor(int corePoolSize,
+                          int maximumPoolSize,
+                          long keepAliveTime,
+                          TimeUnit unit,
+                          BlockingQueue&lt;Runnable&gt; workQueue,
+                          ThreadFactory threadFactory) {
+}
 </code></pre>
-<h3 id="2-预定执行"><a class="header-anchor" href="#2-预定执行"></a>2 预定执行</h3>
-<p>ScheduledExecutorService 接口具有为预定执行（Scheduled Execution）或重复执行任务而设计的方法。它是一种允许使用线程池机制的 java.util.Timer 的泛化。</p>
-<p>可以预定 Runnable 或 Callable 在初始的延迟之后只运行依次。也可以预定一个 Runnable 对象周期性地运行。</p>
-<pre><code>ScheduledExecutorService newScheduledThreadPool(int threads)
-//返回一个线程池，它使用给定的线程数来调度任务。
-
-ScheduledExecutorService newSingleThreadScheduledExecutor()
-//返回一个执行器，它在一个单独线程中调度任务。
+<h3 id="2-配置-ThreadPoolExecutor"><a class="header-anchor" href="#2-配置-ThreadPoolExecutor"></a>2 配置 ThreadPoolExecutor</h3>
+<h4 id="2-1-线程池因素"><a class="header-anchor" href="#2-1-线程池因素"></a>2.1 线程池因素</h4>
+<ul>
+<li>基本大小（Core Pool Size）：没有任务执行时线程池的大小，工作队列满了才能创建更多线程</li>
+<li>最大大小（Maximum Pool Size）：可同时活动的线程数量的上限</li>
+<li>存活时间（keep Alive Time）：空闲时间超过了存活时间的线程可被回收，在线程池超过了基本大小时此线程被终止。</li>
+</ul>
+<h4 id="2-2-任务队列"><a class="header-anchor" href="#2-2-任务队列"></a>2.2 任务队列</h4>
+<p>ThreadPoolExecutor 允许提供一个 BlockingQueue 来保存等待执行的任务。</p>
+<p>基本的任务排队方法有3种：</p>
+<ul>
+<li><strong>无界队列</strong><br>
+newFixedThreadPool和newSingIeThreadExecutor默认将使用一个无界的 LinkedBlockingQueue。</li>
+<li><strong>有界队列</strong><br>
+使用有界队列更稳妥，但需选择饱和策略。如ArrayBlockingQueue、有界的 LinkedBlockingQueue、PriorityBlockingQueue。</li>
+<li><strong>同步移交</strong><br>
+对于非常大的或者无界的线程池，可以通过使用SynchronousQueue。任务不排队，直接从生产者移交给工作者线程。（newCachedThreadPool）</li>
+</ul>
+<h4 id="2-3-饱和策略"><a class="header-anchor" href="#2-3-饱和策略"></a>2.3 饱和策略</h4>
+<p>ThreadPoolExecutor 的饱和策略通过调用 setRejectedExecutionHandler 来修改。</p>
+<ul>
+<li>Abort（中止）： 默认的饱和策略，抛出未检查的 RejectedExecutionException。调用者可以捕获处理</li>
+<li>Discard（抛弃）： 悄悄抛弃任务</li>
+<li>DiscardOldest（抛弃最旧的）： 抛弃下一个将被执行的任务，然后尝试重新提交新的任务。（不要和优先级队列放在一起使用）</li>
+<li>CallerRuns（调用者运行）： 将任务回退到调用者，在调用者线程执行</li>
+</ul>
+<pre><code>executor.setRejectedExecutionHandler(new ThreadPoolExecutor.CallerRunsPolicy()) ;
 </code></pre>
-<h3 id="3-控制任务组"><a class="header-anchor" href="#3-控制任务组"></a>3 控制任务组</h3>
+<h4 id="2-4-线程工厂"><a class="header-anchor" href="#2-4-线程工厂"></a>2.4 线程工厂</h4>
+<p>如在应用程序中需要利用安全策略来控制访问权限，可用 Executor 中的 privilegedThreadFactory 工厂来定制自己的线程工厂。</p>
+<pre><code>public interface ThreadFactory {
+    Thread newThread(Runnable r);
+}
+</code></pre>
+<h4 id="2-5-扩展-ThreadPoolExecutor"><a class="header-anchor" href="#2-5-扩展-ThreadPoolExecutor"></a>2.5 扩展 ThreadPoolExecutor</h4>
+<p>ThreadPoolExecutor 是可扩展的，提供了几个可以在子类化中改写的方法：beforeExecute、 afterExecute 和 terminated。可以添加日志、计时
+监视、通知等功能</p>
+<pre><code>private class SaveOlderCategoryTask implements Callable&lt;String&gt; {
+    DcdCategory category;
+
+    SaveOlderCategoryTask(DcdCategory category) {
+        this.category = category;
+    }
+
+    @Override
+    public String call() {
+        Long oldMinBehotTime = getMinBehotTime(category.getId());
+        saveCategory(category, oldMinBehotTime, 0L);
+        return &quot;complete&quot;;
+    }
+}
+</code></pre>
+<pre><code>public static void doExecutor(Collection&lt;FutureTask&gt; list) {
+    ThreadFactory namedThreadFactory = new ThreadFactoryBuilder()
+            .setNameFormat(&quot;dcd-pool-%d&quot;).build();
+
+    //Common Thread Pool
+    ExecutorService pool = new ThreadPoolExecutor(5, list.size(),
+            0L, TimeUnit.MILLISECONDS,
+            new LinkedBlockingQueue&lt;Runnable&gt;(1024), namedThreadFactory, new ThreadPoolExecutor.AbortPolicy());
+
+    list.forEach(pool::submit);
+    list.forEach(e -&gt; {
+        try {
+            log.info((String) e.get());
+        } catch (InterruptedException | ExecutionException e1) {
+            e1.printStackTrace();
+        }
+    });
+    pool.shutdown();
+}
+</code></pre>
+<h3 id="3-提交任务"><a class="header-anchor" href="#3-提交任务"></a>3 提交任务</h3>
+<ul>
+<li>submit()：将一个 Runnable 对象或 Callable 对象提交给 ExecutorService，会得到一个 Future 对象，可用来査询该任务的状态。</li>
+</ul>
+<h4 id="3-1-控制任务组"><a class="header-anchor" href="#3-1-控制任务组"></a>3.1 控制任务组</h4>
 <p>使用执行器有更有意义的原因，控制一组相关任务。</p>
 <ul>
 <li>shutdownNow 方法：取消所有的任务。</li>
@@ -4675,49 +4668,78 @@ for (int i = 0; i &lt; tasks.size(); i++) {
     processFurther(service.take().get());
 }
 </code></pre>
-<h3 id="4-Fork-Join-框架"><a class="header-anchor" href="#4-Fork-Join-框架"></a>4 Fork-Join 框架</h3>
-<p>有些应用使用了大量线程， 但其中大多数都是空闲的。另外一些应用可能对每个处理器内核分别使用一个线程，来完成计算密集型任务。</p>
-<p>Java SE 7 中引入 fork-join 框架，专门用来支持后一类应用。</p>
-<p>Fork 就是把一个大任务切分为若干子任务并行的执行，Join 就是合并这些子任务的执行结果，最后得到这个大任务的结果。</p>
-<p>要完成这种递归计算，需要扩展 RecursiveTask<T> 的类或者提供一个扩展 RecursiveAction 的类，再覆盖 compute 方法来生成并调用子任务，然后合并其结果。</p>
-<pre><code>class Conter extends RecursiveTask&lt;integer&gt; {
-    // ...
-    protected Integer compute() {
-        if (to - from &lt; THRESHOLD) {
-            // solve problem directly
-        } else {
-            int mid = (from + to) / 2;
-            Counter first = new Counter(values, form, mid, filter);
-            Counter second = new Counter(values, mid, to, filter);
-            invokeAll(first, second);
-            return first.join() + second.join();
-        }
-    }
-}
-</code></pre>
-<p>invokeAll 方法接收到很多任务并阻塞，直到所有这些任务都已经完成。join 方法将生成结果。对每个子任务应用了 join，并返回其总和。</p>
-<h5 id="工作窃取"><a class="header-anchor" href="#工作窃取"></a>工作窃取</h5>
-<p>工作窃取（work-stealing）算法是指某个线程从其他队列里窃取任务来执行。使用双端队列减少线程竞争，被窃取任务的线程从头部拿任务，窃取任务的线程从尾部拿。</p>
-<p>一个工作线程空闲时，它会从一个双端队列的尾部“窃取”一个任务。</p>
-<pre><code>public static void main(String[] args) {
-    // ...
-    Counter counter = new Counter(numbers, 0, numbers.length, x -&gt; x &gt; 0.5);
-    ForkJoinPool pool = new ForkJoinPool();
-    pool.invoke(counter);
-    long end = System.currentTimeMillis();
-    System.out.printf(&quot;count: %d, time: %d\n&quot;, counter.join(), end - mid);
-}
-</code></pre>
-<h3 id="5-CompletableFuture"><a class="header-anchor" href="#5-CompletableFuture"></a>5 CompletableFuture</h3>
-<p>Future 调用 get() 获取值会阻塞住调用线程，为了解决这个问题，1.8加入了 CompletableFuture 类。与事件处理器不同，CompletableFuture 可以“组合”（composed）。</p>
+<h4 id="3-2-CompletionService"><a class="header-anchor" href="#3-2-CompletionService"></a>3.2 CompletionService</h4>
+<h5 id="1）CompletableFuture"><a class="header-anchor" href="#1）CompletableFuture"></a>1）CompletableFuture</h5>
 <pre><code>CompletableFuture&lt;String&gt; contents = readPage(url);
 CompletableFuture&lt;List&lt;URL&gt;&gt; links = contents.thenApply(Parse::getLinks);
 </code></pre>
 <p>thenApply 方法不会阻塞。它会返回一个 future。第一个 future 完成时，其结果会提供给 getLinks 方法，这个方法的返回值是最终的结果。</p>
 <p>从概念上讲，CompletableFuture 是一个简单 API，不过有很多不同方法来组合可完成 future。</p>
-<h3 id="6-批量获取多条线程的执行结果"><a class="header-anchor" href="#6-批量获取多条线程的执行结果"></a>6 批量获取多条线程的执行结果</h3>
+<h5 id="2）CompletionService"><a class="header-anchor" href="#2）CompletionService"></a>2）CompletionService</h5>
+<ul>
+<li>CompletionService 将 Executor 和 BlockingQueue 的功能融合，执行 Callable 任务，使用类似队列的 take 和 poll 等方法获得封装为 Future已完成的结果。</li>
+<li>ExecutorCompletionService 实现了 CompletionService 并将计算部分委托给 Executor。
+<ul>
+<li>实现：</li>
+<li>在构造函数中创建一个 BockingQueue 保存计算完成结果，计算完成时调用 Future-Task 的 done 方法。</li>
+<li>当提交任务时，首先将任务包装为一个QueueingFuture，FutureTask的子类，然后改写子类的 done 方法将结果放入 BlockingQueue</li>
+<li>take 和 poll 方法委托给了 BlockingQueue，在给出结果之阻塞</li>
+</ul>
+</li>
+</ul>
+<p>Future 调用 get() 获取值会阻塞住调用线程，为了解决这个问题，1.8加入了 CompletableFuture 类。与事件处理器不同，CompletableFuture 可以“组合”（composed）。</p>
+<h4 id="3-3-递归算法的并行化"><a class="header-anchor" href="#3-3-递归算法的并行化"></a>3.3 递归算法的并行化</h4>
+<p>当串行循环中的各个迭代操作之间彼此独立，并且每个迭代操作执行的工作量比管理一个新任务时带来的开销更多，那么这个串行循环就适合并行化；</p>
+<pre><code>void processSequntially(List&lt;Element&gt; elements){
+    for(Element e:elements){
+        process(e);
+    }
+}
+
+void processInParallel(Executor exec,List&lt;Element&gt; elements){
+    for(final Element e:elements){
+        exec.execute(new Runnable(){
+            public void run(){
+                process(e);
+            }
+        });
+    }
+}
+</code></pre>
+<p>在一些递归设计中同样可以采用循环并行化的方法进行优化；</p>
+<pre><code>public&lt;T&gt; void sequentialRecursive(List&lt;Node&gt; nodes,Collection&lt;T&gt; results){
+    for(Node&lt;T&gt; n:nodes){
+        results.add(n.compute());
+        sequentialRecursive(n.getChildren(),results);
+    }
+}
+
+public&lt;T&gt; void parrallelRecursive(final Executor exec,List&lt;Node&lt;T&gt;&gt; nodes,final Collection&lt;T&gt; results){
+    //遍历过程串行
+    for(final Node&lt;T&gt; n:nodes){
+        exec.execute(new Runnable(){
+            public void run(){
+                //compute并行计算
+                results.add(n.compute());
+            }
+        });
+        parrallelRecursive(exec,n.getChildren(),results);
+    }
+}
+</code></pre>
+<p>等待通过并行方式计算的结果</p>
+<pre><code>public&lt;T&gt; Collection&lt;T&gt; getParrallelResults(List&lt;Node&lt;T&gt;&gt; nodes) throws InterruptedException{
+    ExecutorService exec=Executors.newCachedThreadPool();
+    Queue&lt;T&gt; resultQueue=new ConcurrentLinkedQueue&lt;T&gt;();
+    parrallelRecursive(exec,nodes,resultQueue);
+    exec.shutdown();
+    exec.awaitTermination(Long.Max_VALUE,TimeUnit.SECONDS);
+    return resultQueue;
+}
+</code></pre>
+<h3 id="4-批量获取多条线程的执行结果"><a class="header-anchor" href="#4-批量获取多条线程的执行结果"></a>4 批量获取多条线程的执行结果</h3>
 <p>当向线程池提交 callable 任务后，我们可能需要一次性获取所有返回结果，有三种处理方法。</p>
-<h4 id="6-1-方法一：自己维护返回结果"><a class="header-anchor" href="#6-1-方法一：自己维护返回结果"></a>6.1 方法一：自己维护返回结果</h4>
+<h4 id="4-1-方法一：自己维护返回结果"><a class="header-anchor" href="#4-1-方法一：自己维护返回结果"></a>4.1 方法一：自己维护返回结果</h4>
 <pre><code>// 创建一个线程池
 ExecutorService executorService = Executors.newFixedThreadPool(10);
 
@@ -4751,7 +4773,7 @@ for ( int i=0; i&lt;10; i++ ) {
 <li>需要自己创建容器维护所有的返回结果，比较麻烦；</li>
 <li>从list中遍历的每个Future对象并不一定处于完成状态，这时调用get()方法就会被阻塞住，如果系统是设计成每个线程完成后就能根据其结果继续做后面的事，这样对于处于list后面的但是先完成的线程就会增加了额外的等待时间。</li>
 </ol>
-<h4 id="6-2-方法二：使用-ExecutorService-的-invokeAll-函数"><a class="header-anchor" href="#6-2-方法二：使用-ExecutorService-的-invokeAll-函数"></a>6.2 方法二：使用 ExecutorService 的 invokeAll 函数</h4>
+<h4 id="4-2-方法二：使用-ExecutorService-的-invokeAll-函数"><a class="header-anchor" href="#4-2-方法二：使用-ExecutorService-的-invokeAll-函数"></a>4.2 方法二：使用 ExecutorService 的 invokeAll 函数</h4>
 <p>本方法能解决第一个弊端，即并不需要自己去维护一个存储返回结果的容器。当我们需要获取线程池所有的返回结果时，只需调用invokeAll函数即可。 但是，这种方式需要你自己去维护一个用于存储任务的容器。</p>
 <pre><code>// 创建一个线程池
 ExecutorService executorService = Executors.newFixedThreadPool(10);
@@ -4785,7 +4807,7 @@ for ( int i=0; i&lt;10; i++ ) {
     System.out.println(result);
 }
 </code></pre>
-<h4 id="6-3-方法三：使用-CompletionService"><a class="header-anchor" href="#6-3-方法三：使用-CompletionService"></a>6.3 方法三：使用 CompletionService</h4>
+<h4 id="4-3-方法三：使用-CompletionService"><a class="header-anchor" href="#4-3-方法三：使用-CompletionService"></a>4.3 方法三：使用 CompletionService</h4>
 <p>CompletionService 内部维护了一个阻塞队列，只有执行完成的任务结果才会被放入该队列，这样就确保执行时间较短的任务率先被存入阻塞队列中。</p>
 <pre><code>ExecutorService exec = Executors.newFixedThreadPool(10);
 
@@ -4815,6 +4837,128 @@ for ( int i=0; i&lt;10; i++ ) {
     System.out.println(result);
 }
 </code></pre>
+<h3 id="5-中断服务"><a class="header-anchor" href="#5-中断服务"></a>5 中断服务</h3>
+<ul>
+<li>正确的封装原则：除非拥有某个线程，否则不能对该线程进行操作。</li>
+<li>线程的所有权：线程有一个相应的所有者，即创建该线程的类。</li>
+<li>线程的所有权是不可传递的，应用程序不能直接停止工作者线程，服务应该提供生命周期方法来关闭它自己以及它所拥有的线程。</li>
+<li>对于持有线程的服务，只要服务的存在时间大于创建线程的方法的存在时间，那么就应该提供生命周期方法。ExecutorService 中提供了 shutdown 和 shutdownNow 等方法。</li>
+</ul>
+<h4 id="5-1-关闭-ExecutorService"><a class="header-anchor" href="#5-1-关闭-ExecutorService"></a>5.1 关闭 ExecutorService</h4>
+<p>ExecutorService 提供了两种关闭方法：</p>
+<ul>
+<li>shutdown()：执行平缓关闭(执行完现有线程，不再接收新的线程)</li>
+<li>shutdownNow()：执行粗暴关闭（尝试取消运行中任务，不再启动队列中未开始的任务）</li>
+<li>awaitTermination()：等待终止</li>
+<li>isShutdown()</li>
+<li>isTerminated()</li>
+</ul>
+<h4 id="5-2-“毒丸”对象"><a class="header-anchor" href="#5-2-“毒丸”对象"></a>5.2 “毒丸”对象</h4>
+<p>“毒丸”：“当得到这个对象时，立即停止”。 在 FIFO 队列中使用</p>
+<h4 id="5-3-示例：只执行一次的服务"><a class="header-anchor" href="#5-3-示例：只执行一次的服务"></a>5.3 示例：只执行一次的服务</h4>
+<p>如果某个方法需要处理一批任务，并且当所有任务都处理完成后才返回，那么可以通过一个私有的 Executor 来简化服务的生命周期管理，其中该 Executor 的生命周期是由这个方法来控制的。（在这种情况下，invokeAll 和 invokeAny 等方法通常会起较大的作用。）</p>
+<pre><code>public class CheckForMail {
+      public boolean checkMail(Set&lt;String&gt; hosts,long timeout,TimeUnit unit)throws InterruptedException{
+          ExecutorService exec=Executors.newCachedThreadPool();
+          //之所以用AtomicBoolean代替volatile，是因为能从内部的Runnable中访问hasNewMail标志，因此它必须是final类型以免修改
+          final AtomicBoolean hasNewMail=new AtomicBoolean(false);//初始值为false
+          try{
+              for(final String host:hosts)
+                  exec.execute(new Runnable(){ //Executes the given command at some time in the future
+                      public void run(){
+                          if(checkMail(host))
+                              hasNewMail.set(true);
+                      }
+                  });
+          }finally {
+            exec.shutdown();
+            exec.awaitTermination(timeout, unit);
+        }
+          return hasNewMail.get();
+      }
+      private boolean checkMail(String host) {
+          //检查邮件
+          return false;
+      }
+}
+</code></pre>
+<h4 id="5-4-shutdownNow-的局限性"><a class="header-anchor" href="#5-4-shutdownNow-的局限性"></a>5.4 shutdownNow 的局限性</h4>
+<p>使用 shutdownNow 时，虽然他会返回已提交但尚未开始的任务，但我们无法在关闭中知道正在执行的任务的状态</p>
+<p>记录哪些任务是在关闭后取消的：</p>
+<pre><code>public class TrackingExecutor extends AbstractExecutorService{
+    private final ExecutorService exec;
+    private final Set&lt;Runnable&gt; tasksCancelledAtShutdown=
+            Collections.synchronizedSet(new HashSet&lt;Runnable&gt;());   //创建一个线程安全的Set来记录那些任务是关闭后取消的
+
+    public List&lt;Runnable&gt; getCancelledTasks(){	//客户端可以通过这个方法知道，哪些任务是在关闭后取消的
+        if(!exec.isShutdown())
+            throw new IllegalStateException();
+        return new ArrayList&lt;Runnable&gt;(tasksCancelledAtShutdown);
+    }
+
+    public void execute(final Runnable runnable){
+        exec.execute(new Runnable(){
+            public void run(){
+                try{
+                    runnable.run();
+                }finally{           //如果已经ExecutorService关闭了并且任务被中断（取消），添加到Set中
+                    if(isShutdown()&amp;&amp;Thread.currentThread().isInterrupted())
+                        tasksCancelledAtShutdown.add(runnable);
+                }
+            }
+        });
+    }
+    // 将ExecutorService的其他方法委托给exec
+}
+</code></pre>
+<h3 id="6-预定执行"><a class="header-anchor" href="#6-预定执行"></a>6 预定执行</h3>
+<p>ScheduledExecutorService 接口具有为预定执行（Scheduled Execution）或重复执行任务而设计的方法。它是一种允许使用线程池机制的 java.util.Timer 的泛化。</p>
+<p>可以预定 Runnable 或 Callable 在初始的延迟之后只运行依次。也可以预定一个 Runnable 对象周期性地运行。</p>
+<pre><code>ScheduledExecutorService newScheduledThreadPool(int threads)
+//返回一个线程池，它使用给定的线程数来调度任务。
+
+ScheduledExecutorService newSingleThreadScheduledExecutor()
+//返回一个执行器，它在一个单独线程中调度任务。
+</code></pre>
+<p>相比 Timer，ScheduledThreadPoolExcutor 更加完善:</p>
+<ul>
+<li>Timer 在执行所有定时任务时只会创建一个线程。若一个任务执行时间过长会影响其他任务的精确定时。</li>
+<li>Timer 线程并不捕获异常，因此在 TimerTask 抛出未受检查异常时定时线程将终止，未完成的任务不会再执行，出现&quot;线程泄露&quot;；</li>
+<li>实现自己的调度服务，可以利用 DelayQueue，它实现了 BlockingQueue，并为 ScheduledThreadPoolExecutor 提供调度功能。DelayQueue 管理着一组 Delay 对象，每个 Delay 对象都有一个相应的延迟时间，只有某个元素逾期后才能从 DelayQueue 中执行 take 操作。从 DelayQueue 中返回的对象将根据它们的延迟时间进行排序</li>
+</ul>
+<h3 id="7-Fork-Join-框架"><a class="header-anchor" href="#7-Fork-Join-框架"></a>7 Fork-Join 框架</h3>
+<p>有些应用使用了大量线程， 但其中大多数都是空闲的。另外一些应用可能对每个处理器内核分别使用一个线程，来完成计算密集型任务。</p>
+<p>Java SE 7 中引入 fork-join 框架，专门用来支持后一类应用。</p>
+<p>Fork 就是把一个大任务切分为若干子任务并行的执行，Join 就是合并这些子任务的执行结果，最后得到这个大任务的结果。</p>
+<p>要完成这种递归计算，需要扩展 RecursiveTask<T> 的类或者提供一个扩展 RecursiveAction 的类，再覆盖 compute 方法来生成并调用子任务，然后合并其结果。</p>
+<pre><code>class Conter extends RecursiveTask&lt;integer&gt; {
+    // ...
+    protected Integer compute() {
+        if (to - from &lt; THRESHOLD) {
+            // solve problem directly
+        } else {
+            int mid = (from + to) / 2;
+            Counter first = new Counter(values, form, mid, filter);
+            Counter second = new Counter(values, mid, to, filter);
+            invokeAll(first, second);
+            return first.join() + second.join();
+        }
+    }
+}
+</code></pre>
+<p>invokeAll 方法接收到很多任务并阻塞，直到所有这些任务都已经完成。join 方法将生成结果。对每个子任务应用了 join，并返回其总和。</p>
+<h4 id="7-1-工作窃取"><a class="header-anchor" href="#7-1-工作窃取"></a>7.1 工作窃取</h4>
+<p>工作窃取（work-stealing）算法是指某个线程从其他队列里窃取任务来执行。使用双端队列减少线程竞争，被窃取任务的线程从头部拿任务，窃取任务的线程从尾部拿。</p>
+<p>一个工作线程空闲时，它会从一个双端队列的尾部“窃取”一个任务。</p>
+<pre><code>public static void main(String[] args) {
+    // ...
+    Counter counter = new Counter(numbers, 0, numbers.length, x -&gt; x &gt; 0.5);
+    ForkJoinPool pool = new ForkJoinPool();
+    pool.invoke(counter);
+    long end = System.currentTimeMillis();
+    System.out.printf(&quot;count: %d, time: %d\n&quot;, counter.join(), end - mid);
+}
+</code></pre>
 
 </div>
 
@@ -4839,68 +4983,78 @@ for ( int i=0; i&lt;10; i++ ) {
     </div>
 
 
-<div id="vcomments"></div>
+
+	<div id="vcomments"></div>
+
+
 <script>
-	// 评论
-	new Valine({
-		av: AV,
-		el: '#vcomments',
-        notify: false,
-        verify: false,
-        path: window.location.pathname,
-		appId: 'cbzi4mBFHIqKdH4wYkVHs44K-MdYXbMMI',
-		appKey: '4qY2BKiLCCOPgxVbsB5RkMc0',
-        placeholder: '请输入评论',
-        avatar: 'retro',
-        recordIP: false
-	})
+	
+		// 评论
+		new Valine({
+			av: AV,
+			el: '#vcomments',
+			notify: false,
+			verify: false,
+			path: window.location.pathname,
+			appId: 'cbzi4mBFHIqKdH4wYkVHs44K-MdYXbMMI',
+			appKey: '4qY2BKiLCCOPgxVbsB5RkMc0',
+			placeholder: '请输入评论',
+			avatar: 'retro',
+			recordIP: false
+		})
+	
+	
     // 显示次数
-    function showTime(Counter) {
-        var query = new AV.Query("Counter");
-        if($(".leancloud_visitors").length > 0){
-            var url = $(".leancloud_visitors").attr('id').trim();
-            // where field
-            query.equalTo("words", url);
-            // count
-            query.count().then(function (number) {
-                // There are number instances of MyClass where words equals url.
-                $(document.getElementById(url)).text(number?  number : '--');
-            }, function (error) {
-                // error is an instance of AVError.
-            });
-        }
-    }
-    // 追加pv
-    function addCount(Counter) {
-        var url = $(".leancloud_visitors").length > 0 ? $(".leancloud_visitors").attr('id').trim() : 'wujun234.github.io';
-        var Counter = AV.Object.extend("Counter");
-        var query = new Counter;
-        query.save({
-            words: url
-        }).then(function (object) {
-        })
-    }
-    $(function () {
-        var Counter = AV.Object.extend("Counter");
-        addCount(Counter);
-        showTime(Counter);
-    });
+		function showTime(Counter) {
+			var query = new AV.Query("Counter");
+			if($(".leancloud_visitors").length > 0){
+				var url = $(".leancloud_visitors").attr('id').trim();
+				// where field
+				query.equalTo("words", url);
+				// count
+				query.count().then(function (number) {
+					// There are number instances of MyClass where words equals url.
+					$(document.getElementById(url)).text(number?  number : '--');
+				}, function (error) {
+					// error is an instance of AVError.
+				});
+			}
+		}
+		// 追加pv
+		function addCount(Counter) {
+			var url = $(".leancloud_visitors").length > 0 ? $(".leancloud_visitors").attr('id').trim() : 'wujun234.github.io';
+			var Counter = AV.Object.extend("Counter");
+			var query = new Counter;
+			query.save({
+				words: url
+			}).then(function (object) {
+			})
+		}
+		$(function () {
+			var Counter = AV.Object.extend("Counter");
+			addCount(Counter);
+			showTime(Counter);
+		});
+	
 </script>
 	</div>
 	<div id="footer">
 	<p>
 	©2019-<span id="footerYear"></span> 
 	<a href="/">Wu Jun</a> 
-	|
-	<span id="busuanzi_container_site_pv">
-		pv
-		<span id="busuanzi_value_site_pv"></span>
-	</span>
-	|
-	<span id="busuanzi_container_site_uv"> 
-		uv
-		<span id="busuanzi_value_site_uv"></span>
-	</span>
+	
+	
+		|
+		<span id="busuanzi_container_site_pv">
+			pv
+			<span id="busuanzi_value_site_pv"></span>
+		</span>
+		|
+		<span id="busuanzi_container_site_uv"> 
+			uv
+			<span id="busuanzi_value_site_uv"></span>
+		</span>
+	
 	<br>
 	Theme <a href="//github.com/wujun234/hexo-theme-tree">Tree</a>
 	by <a href="//github.com/wujun234">WuJun</a>

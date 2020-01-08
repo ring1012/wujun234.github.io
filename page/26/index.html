@@ -14,7 +14,7 @@
 	
 	<!-- keywords,description -->
 	
-		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun,java,技术,程序员" />
 	 
 		<meta name="description" content="吴俊,wujun234,wujun,wu jun" />
 	
@@ -32,10 +32,14 @@
 	<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/highlight.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/jquery-pjax@2.0.1/jquery.pjax.min.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/leancloud-storage/dist/av-min.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js"></script>
 	<script src="/js/main.js"></script>
-	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	
+		<script src="https://cdn.jsdelivr.net/npm/leancloud-storage/dist/av-min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js"></script>
+	
+	
+		<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	
 </head>
 
 <body>
@@ -492,8 +496,26 @@
 			
 							<ul>
 								<li class="file">
-									<a href="/2018/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/07%20%E5%B9%B6%E5%8F%91/3%20%E5%90%8C%E6%AD%A5/">
-										3 同步
+									<a href="/2020/01/07/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/07%20%E5%B9%B6%E5%8F%91/3%20%E9%94%81/">
+										3 锁
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2020/01/07/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/07%20%E5%B9%B6%E5%8F%91/4%20%E5%90%8C%E6%AD%A5%E5%99%A8/">
+										4 同步器
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2018/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/07%20%E5%B9%B6%E5%8F%91/5%20%E9%9D%9E%E9%98%BB%E5%A1%9E%E5%90%8C%E6%AD%A5/">
+										5 非阻塞同步
 									</a>
 								</li>
 								<div class="article-toc" style="display: none;"></div>
@@ -1434,15 +1456,6 @@
 								<div class="article-toc" style="display: none;"></div>
 							</ul>
 			
-							<ul>
-								<li class="file">
-									<a href="/2019/01/05/00%20Java/01%20Java%E8%99%9A%E6%8B%9F%E6%9C%BA/12%20Java%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B/3%20Java%E4%B8%8E%E7%BA%BF%E7%A8%8B/">
-										3 Java与线程
-									</a>
-								</li>
-								<div class="article-toc" style="display: none;"></div>
-							</ul>
-			
 								</li>
 								
 							</ul>
@@ -1577,24 +1590,6 @@
 									
 							<ul>
 								<li class="file">
-									<a href="/2019/03/02/00%20Java/03%20Java%E5%B9%B6%E5%8F%91/1%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/1%20%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8%E6%80%A7/">
-										1 线程安全性
-									</a>
-								</li>
-								<div class="article-toc" style="display: none;"></div>
-							</ul>
-			
-							<ul>
-								<li class="file">
-									<a href="/2019/03/02/00%20Java/03%20Java%E5%B9%B6%E5%8F%91/1%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/2%20%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%85%B1%E4%BA%AB/">
-										2 对象的共享
-									</a>
-								</li>
-								<div class="article-toc" style="display: none;"></div>
-							</ul>
-			
-							<ul>
-								<li class="file">
 									<a href="/2019/03/02/00%20Java/03%20Java%E5%B9%B6%E5%8F%91/1%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/3%20%E5%AF%B9%E8%B1%A1%E7%9A%84%E7%BB%84%E5%90%88/">
 										3 对象的组合
 									</a>
@@ -1619,94 +1614,9 @@
 								<li class="directory">
 									<a href="#" class="directory">
 										<i class="fa fa-plus-square-o"></i>
-										2 结构化并发应用程序
-									</a>
-									
-							<ul>
-								<li class="file">
-									<a href="/2019/03/05/00%20Java/03%20Java%E5%B9%B6%E5%8F%91/2%20%E7%BB%93%E6%9E%84%E5%8C%96%E5%B9%B6%E5%8F%91%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F/1%20%E4%BB%BB%E5%8A%A1%E6%89%A7%E8%A1%8C/">
-										1 任务执行
-									</a>
-								</li>
-								<div class="article-toc" style="display: none;"></div>
-							</ul>
-			
-							<ul>
-								<li class="file">
-									<a href="/2019/03/05/00%20Java/03%20Java%E5%B9%B6%E5%8F%91/2%20%E7%BB%93%E6%9E%84%E5%8C%96%E5%B9%B6%E5%8F%91%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F/2%20%E5%8F%96%E6%B6%88%E4%B8%8E%E5%85%B3%E9%97%AD/">
-										2 取消与关闭
-									</a>
-								</li>
-								<div class="article-toc" style="display: none;"></div>
-							</ul>
-			
-							<ul>
-								<li class="file">
-									<a href="/2019/03/07/00%20Java/03%20Java%E5%B9%B6%E5%8F%91/2%20%E7%BB%93%E6%9E%84%E5%8C%96%E5%B9%B6%E5%8F%91%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F/3%20%E7%BA%BF%E7%A8%8B%E6%B1%A0%E7%9A%84%E4%BD%BF%E7%94%A8/">
-										3 线程池的使用
-									</a>
-								</li>
-								<div class="article-toc" style="display: none;"></div>
-							</ul>
-			
-								</li>
-								
-							</ul>
-			
-							<ul>
-								<li class="directory">
-									<a href="#" class="directory">
-										<i class="fa fa-plus-square-o"></i>
-										3 活跃性、性能与测试
-									</a>
-									
-							<ul>
-								<li class="file">
-									<a href="/2019/03/07/00%20Java/03%20Java%E5%B9%B6%E5%8F%91/3%20%E6%B4%BB%E8%B7%83%E6%80%A7%E3%80%81%E6%80%A7%E8%83%BD%E4%B8%8E%E6%B5%8B%E8%AF%95/1%20%E9%81%BF%E5%85%8D%E6%B4%BB%E8%B7%83%E6%80%A7%E5%8D%B1%E9%99%A9/">
-										1 避免活跃性危险
-									</a>
-								</li>
-								<div class="article-toc" style="display: none;"></div>
-							</ul>
-			
-							<ul>
-								<li class="file">
-									<a href="/2019/03/11/00%20Java/03%20Java%E5%B9%B6%E5%8F%91/3%20%E6%B4%BB%E8%B7%83%E6%80%A7%E3%80%81%E6%80%A7%E8%83%BD%E4%B8%8E%E6%B5%8B%E8%AF%95/2%20%E6%80%A7%E8%83%BD%E4%B8%8E%E5%8F%AF%E4%BC%B8%E7%BC%A9%E6%80%A7/">
-										2 性能与可伸缩性
-									</a>
-								</li>
-								<div class="article-toc" style="display: none;"></div>
-							</ul>
-			
-							<ul>
-								<li class="file">
-									<a href="/2019/03/15/00%20Java/03%20Java%E5%B9%B6%E5%8F%91/3%20%E6%B4%BB%E8%B7%83%E6%80%A7%E3%80%81%E6%80%A7%E8%83%BD%E4%B8%8E%E6%B5%8B%E8%AF%95/3%20%E5%B9%B6%E5%8F%91%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%B5%8B%E8%AF%95/">
-										3 并发程序的测试
-									</a>
-								</li>
-								<div class="article-toc" style="display: none;"></div>
-							</ul>
-			
-								</li>
-								
-							</ul>
-			
-							<ul>
-								<li class="directory">
-									<a href="#" class="directory">
-										<i class="fa fa-plus-square-o"></i>
 										4 高级主题
 									</a>
 									
-							<ul>
-								<li class="file">
-									<a href="/2019/03/15/00%20Java/03%20Java%E5%B9%B6%E5%8F%91/4%20%E9%AB%98%E7%BA%A7%E4%B8%BB%E9%A2%98/1%20%E6%98%BE%E5%BC%8F%E9%94%81/">
-										1 显式锁
-									</a>
-								</li>
-								<div class="article-toc" style="display: none;"></div>
-							</ul>
-			
 							<ul>
 								<li class="file">
 									<a href="/2019/03/15/00%20Java/03%20Java%E5%B9%B6%E5%8F%91/4%20%E9%AB%98%E7%BA%A7%E4%B8%BB%E9%A2%98/2%20%E6%9E%84%E5%BB%BA%E8%87%AA%E5%AE%9A%E4%B9%89%E7%9A%84%E5%90%8C%E6%AD%A5%E5%B7%A5%E5%85%B7/">
@@ -4535,6 +4445,26 @@
 								
 							</ul>
 			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										21 其他
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2020/01/08/21%20%E5%85%B6%E4%BB%96/2019%20%E5%B9%B4%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93/">
+										2019 年工作总结
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
 		</div>
 	</div>
 </div>
@@ -4542,276 +4472,6 @@
 	<!-- 引入正文 -->
 	<div id="content">
 		<div id="index">
-	
-		<div class="index-li">
-			<a href="/2018/12/18/01%20Spring/07%20Async/1%20Scheduled/">
-				<h2 class="index-title">
-					1 Scheduled
-				</h2>
-				<div class="index-brief">
-					@Scheduled
-@EnableScheduling注解，启用定时任务的配置
-@SpringBootApplication
-@EnableScheduling
-public class Application {
-}
-
-创建定时任务实现类
-@Component
-public class Sche
-					...
-				</div>
-			</a>
-                <div class="article-meta">
-				    <span>2018-12-18</span>
-                    
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/01-Spring/">01 Spring</a>
-                                    </span>
-                                
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/01-Spring/07-Async/">07 Async</a>
-                                    </span>
-                                
-                            
-                    
-                </div>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/2018/12/18/01%20Spring/05%20Data/8%20Transaction/">
-				<h2 class="index-title">
-					8 Transaction
-				</h2>
-				<div class="index-brief">
-					Spring事务的本质是数据库对事务的支持。
-@EnableTransactionManagement 开启对事务注解的解析
-声明式事务
-@Transactional注解
-
-
-
-属性
-类型
-描述
-
-
-
-
-value
-String
-事务管理器
-
-
-propagation
-Propagation
-传播级
-					...
-				</div>
-			</a>
-                <div class="article-meta">
-				    <span>2018-12-18</span>
-                    
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/01-Spring/">01 Spring</a>
-                                    </span>
-                                
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/01-Spring/05-Data/">05 Data</a>
-                                    </span>
-                                
-                            
-                    
-                </div>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/2018/12/18/01%20Spring/05%20Data/1%20JdbcTemplate/">
-				<h2 class="index-title">
-					1 JdbcTemplate
-				</h2>
-				<div class="index-brief">
-					为了避免业务层模块强依赖于某种类型的数据库，Spring数据库访问层以接口形式对外提供服务。
-使用Spring JDBC的异常体系，描述能力强，且平台无关。
-1 数据访问模板化
-数据访问过程中的固定步骤和变量分为两类：
-
-模板（templates）：处理数据访问的固定部分——事务控制、 管理资源以及
-					...
-				</div>
-			</a>
-                <div class="article-meta">
-				    <span>2018-12-18</span>
-                    
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/01-Spring/">01 Spring</a>
-                                    </span>
-                                
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/01-Spring/05-Data/">05 Data</a>
-                                    </span>
-                                
-                            
-                    
-                </div>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/2018/12/18/01%20Spring/05%20Data/2%20Spring%20Data%20JPA/">
-				<h2 class="index-title">
-					2 Spring Data JPA
-				</h2>
-				<div class="index-brief">
-					Java持久化API（Java Persistence API， JPA）基于POJO的持久化机制，制定了规范，具体由厂商实现。
-只需按照约定好的【方法命名规则】编写Repository接口，不需要实现类，就可实现对数据库的访问和操作。
-hibernate实现了JPA规范，Spring Data J
-					...
-				</div>
-			</a>
-                <div class="article-meta">
-				    <span>2018-12-18</span>
-                    
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/01-Spring/">01 Spring</a>
-                                    </span>
-                                
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/01-Spring/05-Data/">05 Data</a>
-                                    </span>
-                                
-                            
-                    
-                </div>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/2018/12/18/01%20Spring/04%20Web/1%20Spring%20MVC/">
-				<h2 class="index-title">
-					1 Spring MVC
-				</h2>
-				<div class="index-brief">
-					5.1 Spring MVC概览
-5.1.1 Spring MVC 运行原理
-
-
-Spring MVC通过一个单独的前端控制器（DispatcherServlet）过滤分发请求。
-DispatcherServlet根据处理器映射（HandlerMapping）和请求携带的URL决定将请求发送给某个控
-					...
-				</div>
-			</a>
-                <div class="article-meta">
-				    <span>2018-12-18</span>
-                    
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/01-Spring/">01 Spring</a>
-                                    </span>
-                                
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/01-Spring/04-Web/">04 Web</a>
-                                    </span>
-                                
-                            
-                    
-                </div>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/2018/12/18/01%20Spring/04%20Web/2%20Spring%20MVC%E8%BF%9B%E9%98%B6/">
-				<h2 class="index-title">
-					2 Spring MVC进阶
-				</h2>
-				<div class="index-brief">
-					1 替代配置
-1.1 自定义DispatcherServlet
-除了三个必须重载的抽象方法，AbstractAnnotationConfigDispatcherServletInitializer还有很多方法可以重载，以实现额外配置。
-例如，通过对customizeRegistration()的重写
-					...
-				</div>
-			</a>
-                <div class="article-meta">
-				    <span>2018-12-18</span>
-                    
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/01-Spring/">01 Spring</a>
-                                    </span>
-                                
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/01-Spring/04-Web/">04 Web</a>
-                                    </span>
-                                
-                            
-                    
-                </div>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/2018/12/18/01%20Spring/04%20Web/3%20Spring%20RestTemplate/">
-				<h2 class="index-title">
-					3 Spring RestTemplate
-				</h2>
-				<div class="index-brief">
-					RestTemplate属于Spring-Web，是Spring的同步客户端HTTP访问的中心类。简化了与HTTP服务器的通信，并应用了RESTful原则。
-RestTemplate默认依赖JDK的HttpURLConnection来建立HTTP连接。 可切换到使用不同的HTTP库，例如Apache
-					...
-				</div>
-			</a>
-                <div class="article-meta">
-				    <span>2018-12-18</span>
-                    
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/01-Spring/">01 Spring</a>
-                                    </span>
-                                
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/01-Spring/04-Web/">04 Web</a>
-                                    </span>
-                                
-                            
-                    
-                </div>
-		</div>	
 	
 		<div class="index-li">
 			<a href="/2018/12/18/01%20Spring/03%20AOP/1%20AOP%E7%AE%80%E4%BB%8B/">
@@ -4927,6 +4587,282 @@ public class LogAspect {
                 </div>
 		</div>	
 	
+		<div class="index-li">
+			<a href="/2018/12/18/01%20Spring/02%20IoC/1%20%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5/">
+				<h2 class="index-title">
+					1 依赖注入
+				</h2>
+				<div class="index-brief">
+					IoC容器负责装配Bean，即创建应用对象之间协作关系，是依赖注入(Dependency injection)的本质。
+装配方式优先级：自动装配 &gt; Java配置文件 &gt; XML配置文件
+2.1 自动装配
+Spring从两个角度来实现自动装配：
+组件扫描
+Spring自动发现Applic
+					...
+				</div>
+			</a>
+                <div class="article-meta">
+				    <span>2018-12-18</span>
+                    
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/01-Spring/">01 Spring</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/01-Spring/02-IoC/">02 IoC</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2018/12/18/01%20Spring/02%20IoC/2%20%E9%AB%98%E7%BA%A7%E8%A3%85%E9%85%8D/">
+				<h2 class="index-title">
+					2 高级装配
+				</h2>
+				<div class="index-brief">
+					3.1 环境与profile
+配置profile
+
+@Profile注解
+指定某个bean属于哪一个profile，运行时做出环境决策。
+没有指定profile的bean始终都会被创建， 与激活哪个profile没有关系。
+
+@Profile(&quot;dev&quot;)
+@Profile(&q
+					...
+				</div>
+			</a>
+                <div class="article-meta">
+				    <span>2018-12-18</span>
+                    
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/01-Spring/">01 Spring</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/01-Spring/02-IoC/">02 IoC</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2018/12/18/01%20Spring/02%20IoC/3%20%E5%8A%A8%E6%80%81%E6%B3%A8%E5%86%8CBean/">
+				<h2 class="index-title">
+					3 动态注册Bean
+				</h2>
+				<div class="index-brief">
+					1 注册接口
+有两种接口可动态注册bean
+
+BeanDefinitionRegistry
+注册Bean定义，使用BeanDefinitionRegistry 接口 registerBeanDefinition() 方法，根据BeanDefinition实例化bean实例
+SingletonBean
+					...
+				</div>
+			</a>
+                <div class="article-meta">
+				    <span>2018-12-18</span>
+                    
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/01-Spring/">01 Spring</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/01-Spring/02-IoC/">02 IoC</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2018/12/18/01%20Spring/01%20Core/1%20%E5%9F%BA%E6%9C%AC%E7%90%86%E5%BF%B5/">
+				<h2 class="index-title">
+					1 基本理念
+				</h2>
+				<div class="index-brief">
+					Spring 基本理念：简化Java开发
+
+最小侵入：基于POJO的轻量级、最小侵入式开发；
+依赖注入：松耦合
+面向接口：松耦合
+面向切面：声明式编程，消除样板式代码
+使用模板：消除样板式代码
+
+spring基本原理
+
+启动项目后，按照配置找到要scan的包（自动装配）
+解析包里面的所有类，找到所有
+					...
+				</div>
+			</a>
+                <div class="article-meta">
+				    <span>2018-12-18</span>
+                    
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/01-Spring/">01 Spring</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/01-Spring/01-Core/">01 Core</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2018/12/18/01%20Spring/01%20Core/2%20%E6%A1%86%E6%9E%B6%E6%A0%B8%E5%BF%83/">
+				<h2 class="index-title">
+					2 框架核心
+				</h2>
+				<div class="index-brief">
+					1 容器
+容器（container）是Spring框架的核心，它管理着Spring应用中bean的创建、 配置和管理，负责对象的整个生命周期。
+IoC（Inversion of Control，控制反转 ）：因为具有依赖注入（DI）功能，控制权由应用代码中转到了外部容器，控制权的转移，所谓控制反转。
+					...
+				</div>
+			</a>
+                <div class="article-meta">
+				    <span>2018-12-18</span>
+                    
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/01-Spring/">01 Spring</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/01-Spring/01-Core/">01 Core</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2018/12/18/01%20Spring/01%20Core/3%20%E6%95%B4%E4%BD%93%E6%9E%B6%E6%9E%84/">
+				<h2 class="index-title">
+					3 整体架构
+				</h2>
+				<div class="index-brief">
+					1 Spring模块
+Spring 4.0有20个模块，这些模块依据其所属的功能可以划分为6类不同的功能
+
+
+Spring核心容器
+最核心的部分， 见上文。
+除了BeanFactory和ApplicationContext，还提供E-mail、 JNDI访问、 EJB集成和调度等服务。所有的Spri
+					...
+				</div>
+			</a>
+                <div class="article-meta">
+				    <span>2018-12-18</span>
+                    
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/01-Spring/">01 Spring</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/01-Spring/01-Core/">01 Core</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2018/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/17%20%E6%9C%AC%E5%9C%B0%E6%96%B9%E6%B3%95/1%20%E8%B0%83%E7%94%A8%20C%20%E5%87%BD%E6%95%B0/">
+				<h2 class="index-title">
+					1 调用 C 函数
+				</h2>
+				<div class="index-brief">
+					建议只在必需的时候才使用本地代码
+
+应用需要访问的系统特性和设备通过 Java 无法实现
+已有了大量的测试过和调试过的另一种语言的代码，并知道如何将其导出到所有平台
+经过基准测试，发现 Java 比其他语言的等价代码慢得多
+
+Java 本地接口（JNI）
+1 在 Java 声明本地方法
+Java 使
+					...
+				</div>
+			</a>
+                <div class="article-meta">
+				    <span>2018-12-18</span>
+                    
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/">00 Java</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/00-Java基础/">00 Java基础</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/00-Java基础/17-本地方法/">17 本地方法</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
+		</div>	
+	
 	
 	<div id="index-paginator">
 		
@@ -4940,16 +4876,19 @@ public class LogAspect {
 	<p>
 	©2019-<span id="footerYear"></span> 
 	<a href="/">Wu Jun</a> 
-	|
-	<span id="busuanzi_container_site_pv">
-		pv
-		<span id="busuanzi_value_site_pv"></span>
-	</span>
-	|
-	<span id="busuanzi_container_site_uv"> 
-		uv
-		<span id="busuanzi_value_site_uv"></span>
-	</span>
+	
+	
+		|
+		<span id="busuanzi_container_site_pv">
+			pv
+			<span id="busuanzi_value_site_pv"></span>
+		</span>
+		|
+		<span id="busuanzi_container_site_uv"> 
+			uv
+			<span id="busuanzi_value_site_uv"></span>
+		</span>
+	
 	<br>
 	Theme <a href="//github.com/wujun234/hexo-theme-tree">Tree</a>
 	by <a href="//github.com/wujun234">WuJun</a>

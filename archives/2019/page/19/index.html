@@ -14,7 +14,7 @@
 	
 	<!-- keywords,description -->
 	
-		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun,java,技术,程序员" />
 	 
 		<meta name="description" content="吴俊,wujun234,wujun,wu jun" />
 	
@@ -32,10 +32,14 @@
 	<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/highlight.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/jquery-pjax@2.0.1/jquery.pjax.min.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/leancloud-storage/dist/av-min.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js"></script>
 	<script src="/js/main.js"></script>
-	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	
+		<script src="https://cdn.jsdelivr.net/npm/leancloud-storage/dist/av-min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js"></script>
+	
+	
+		<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	
 </head>
 
 <body>
@@ -492,8 +496,26 @@
 			
 							<ul>
 								<li class="file">
-									<a href="/2018/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/07%20%E5%B9%B6%E5%8F%91/3%20%E5%90%8C%E6%AD%A5/">
-										3 同步
+									<a href="/2020/01/07/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/07%20%E5%B9%B6%E5%8F%91/3%20%E9%94%81/">
+										3 锁
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2020/01/07/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/07%20%E5%B9%B6%E5%8F%91/4%20%E5%90%8C%E6%AD%A5%E5%99%A8/">
+										4 同步器
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2018/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/07%20%E5%B9%B6%E5%8F%91/5%20%E9%9D%9E%E9%98%BB%E5%A1%9E%E5%90%8C%E6%AD%A5/">
+										5 非阻塞同步
 									</a>
 								</li>
 								<div class="article-toc" style="display: none;"></div>
@@ -1434,15 +1456,6 @@
 								<div class="article-toc" style="display: none;"></div>
 							</ul>
 			
-							<ul>
-								<li class="file">
-									<a href="/2019/01/05/00%20Java/01%20Java%E8%99%9A%E6%8B%9F%E6%9C%BA/12%20Java%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B/3%20Java%E4%B8%8E%E7%BA%BF%E7%A8%8B/">
-										3 Java与线程
-									</a>
-								</li>
-								<div class="article-toc" style="display: none;"></div>
-							</ul>
-			
 								</li>
 								
 							</ul>
@@ -1577,24 +1590,6 @@
 									
 							<ul>
 								<li class="file">
-									<a href="/2019/03/02/00%20Java/03%20Java%E5%B9%B6%E5%8F%91/1%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/1%20%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8%E6%80%A7/">
-										1 线程安全性
-									</a>
-								</li>
-								<div class="article-toc" style="display: none;"></div>
-							</ul>
-			
-							<ul>
-								<li class="file">
-									<a href="/2019/03/02/00%20Java/03%20Java%E5%B9%B6%E5%8F%91/1%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/2%20%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%85%B1%E4%BA%AB/">
-										2 对象的共享
-									</a>
-								</li>
-								<div class="article-toc" style="display: none;"></div>
-							</ul>
-			
-							<ul>
-								<li class="file">
 									<a href="/2019/03/02/00%20Java/03%20Java%E5%B9%B6%E5%8F%91/1%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/3%20%E5%AF%B9%E8%B1%A1%E7%9A%84%E7%BB%84%E5%90%88/">
 										3 对象的组合
 									</a>
@@ -1619,94 +1614,9 @@
 								<li class="directory">
 									<a href="#" class="directory">
 										<i class="fa fa-plus-square-o"></i>
-										2 结构化并发应用程序
-									</a>
-									
-							<ul>
-								<li class="file">
-									<a href="/2019/03/05/00%20Java/03%20Java%E5%B9%B6%E5%8F%91/2%20%E7%BB%93%E6%9E%84%E5%8C%96%E5%B9%B6%E5%8F%91%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F/1%20%E4%BB%BB%E5%8A%A1%E6%89%A7%E8%A1%8C/">
-										1 任务执行
-									</a>
-								</li>
-								<div class="article-toc" style="display: none;"></div>
-							</ul>
-			
-							<ul>
-								<li class="file">
-									<a href="/2019/03/05/00%20Java/03%20Java%E5%B9%B6%E5%8F%91/2%20%E7%BB%93%E6%9E%84%E5%8C%96%E5%B9%B6%E5%8F%91%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F/2%20%E5%8F%96%E6%B6%88%E4%B8%8E%E5%85%B3%E9%97%AD/">
-										2 取消与关闭
-									</a>
-								</li>
-								<div class="article-toc" style="display: none;"></div>
-							</ul>
-			
-							<ul>
-								<li class="file">
-									<a href="/2019/03/07/00%20Java/03%20Java%E5%B9%B6%E5%8F%91/2%20%E7%BB%93%E6%9E%84%E5%8C%96%E5%B9%B6%E5%8F%91%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F/3%20%E7%BA%BF%E7%A8%8B%E6%B1%A0%E7%9A%84%E4%BD%BF%E7%94%A8/">
-										3 线程池的使用
-									</a>
-								</li>
-								<div class="article-toc" style="display: none;"></div>
-							</ul>
-			
-								</li>
-								
-							</ul>
-			
-							<ul>
-								<li class="directory">
-									<a href="#" class="directory">
-										<i class="fa fa-plus-square-o"></i>
-										3 活跃性、性能与测试
-									</a>
-									
-							<ul>
-								<li class="file">
-									<a href="/2019/03/07/00%20Java/03%20Java%E5%B9%B6%E5%8F%91/3%20%E6%B4%BB%E8%B7%83%E6%80%A7%E3%80%81%E6%80%A7%E8%83%BD%E4%B8%8E%E6%B5%8B%E8%AF%95/1%20%E9%81%BF%E5%85%8D%E6%B4%BB%E8%B7%83%E6%80%A7%E5%8D%B1%E9%99%A9/">
-										1 避免活跃性危险
-									</a>
-								</li>
-								<div class="article-toc" style="display: none;"></div>
-							</ul>
-			
-							<ul>
-								<li class="file">
-									<a href="/2019/03/11/00%20Java/03%20Java%E5%B9%B6%E5%8F%91/3%20%E6%B4%BB%E8%B7%83%E6%80%A7%E3%80%81%E6%80%A7%E8%83%BD%E4%B8%8E%E6%B5%8B%E8%AF%95/2%20%E6%80%A7%E8%83%BD%E4%B8%8E%E5%8F%AF%E4%BC%B8%E7%BC%A9%E6%80%A7/">
-										2 性能与可伸缩性
-									</a>
-								</li>
-								<div class="article-toc" style="display: none;"></div>
-							</ul>
-			
-							<ul>
-								<li class="file">
-									<a href="/2019/03/15/00%20Java/03%20Java%E5%B9%B6%E5%8F%91/3%20%E6%B4%BB%E8%B7%83%E6%80%A7%E3%80%81%E6%80%A7%E8%83%BD%E4%B8%8E%E6%B5%8B%E8%AF%95/3%20%E5%B9%B6%E5%8F%91%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%B5%8B%E8%AF%95/">
-										3 并发程序的测试
-									</a>
-								</li>
-								<div class="article-toc" style="display: none;"></div>
-							</ul>
-			
-								</li>
-								
-							</ul>
-			
-							<ul>
-								<li class="directory">
-									<a href="#" class="directory">
-										<i class="fa fa-plus-square-o"></i>
 										4 高级主题
 									</a>
 									
-							<ul>
-								<li class="file">
-									<a href="/2019/03/15/00%20Java/03%20Java%E5%B9%B6%E5%8F%91/4%20%E9%AB%98%E7%BA%A7%E4%B8%BB%E9%A2%98/1%20%E6%98%BE%E5%BC%8F%E9%94%81/">
-										1 显式锁
-									</a>
-								</li>
-								<div class="article-toc" style="display: none;"></div>
-							</ul>
-			
 							<ul>
 								<li class="file">
 									<a href="/2019/03/15/00%20Java/03%20Java%E5%B9%B6%E5%8F%91/4%20%E9%AB%98%E7%BA%A7%E4%B8%BB%E9%A2%98/2%20%E6%9E%84%E5%BB%BA%E8%87%AA%E5%AE%9A%E4%B9%89%E7%9A%84%E5%90%8C%E6%AD%A5%E5%B7%A5%E5%85%B7/">
@@ -4535,6 +4445,26 @@
 								
 							</ul>
 			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										21 其他
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2020/01/08/21%20%E5%85%B6%E4%BB%96/2019%20%E5%B9%B4%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93/">
+										2019 年工作总结
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
 		</div>
 	</div>
 </div>
@@ -4542,371 +4472,6 @@
 	<!-- 引入正文 -->
 	<div id="content">
 		<div id="index">
-	
-		<div class="index-li">
-			<a href="/2019/01/05/02%20%E6%95%B0%E6%8D%AE%E5%BA%93/NoSQL/">
-				<h2 class="index-title">
-					NoSQL
-				</h2>
-				<div class="index-brief">
-					todo：hibernate、Hbase、Neo4J
-CAP定理
-CAP定理指出对于一个分布式计算系统来说，不可能同时满足以下三点:
-
-一致性(Consistency) (所有节点在同一时间具有相同的数据)
-可用性(Availability) (保证每个请求不管成功或者失败都有响应)
-分隔容忍(Pa
-					...
-				</div>
-			</a>
-                <div class="article-meta">
-				    <span>2019-01-05</span>
-                    
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/02-数据库/">02 数据库</a>
-                                    </span>
-                                
-                            
-                    
-                </div>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/2019/01/05/02%20%E6%95%B0%E6%8D%AE%E5%BA%93/05%20MongoDB/04%20Java%E4%B8%AD%E4%BD%BF%E7%94%A8/">
-				<h2 class="index-title">
-					04 Java中使用
-				</h2>
-				<div class="index-brief">
-					Maven 引入
-&lt;dependencies&gt;
-    &lt;dependency&gt;
-        &lt;groupId&gt;org.mongodb&lt;/groupId&gt;
-        &lt;artifactId&gt;mongodb-driver&lt;/a
-					...
-				</div>
-			</a>
-                <div class="article-meta">
-				    <span>2019-01-05</span>
-                    
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/02-数据库/">02 数据库</a>
-                                    </span>
-                                
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/02-数据库/05-MongoDB/">05 MongoDB</a>
-                                    </span>
-                                
-                            
-                    
-                </div>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/2019/01/05/02%20%E6%95%B0%E6%8D%AE%E5%BA%93/05%20MongoDB/03%20MongoDB%20%E7%AE%A1%E7%90%86/">
-				<h2 class="index-title">
-					03 MongoDB 管理
-				</h2>
-				<div class="index-brief">
-					1 复制（副本集）
-复制提供了数据的冗余备份，并在多个服务器上存储数据副本，提高了数据的可用性， 并可以保证数据的安全性。
-至少需要两个节点。主节点，负责处理客户端请求；从节点，负责复制主节点上的数据。
-主节点记录在其上的所有操作oplog，从节点定期轮询主节点获取这些操作，然后对自己的数据副本执行
-					...
-				</div>
-			</a>
-                <div class="article-meta">
-				    <span>2019-01-05</span>
-                    
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/02-数据库/">02 数据库</a>
-                                    </span>
-                                
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/02-数据库/05-MongoDB/">05 MongoDB</a>
-                                    </span>
-                                
-                            
-                    
-                </div>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/2019/01/05/09%20%E5%88%86%E5%B8%83%E5%BC%8F/08%20%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/01%20%E4%B8%80%E8%87%B4%E6%80%A7hash/">
-				<h2 class="index-title">
-					01 一致性hash
-				</h2>
-				<div class="index-brief">
-					一致性hash算法解决了分布式环境下机器增加或者减少时，简单的取模运算无法获取较高命中率的问题。通过虚拟节点的使用，一致性hash算法可以均匀分担机器的负载，使得这一算法更具现实的意义。
-一致性Hash(Consistent Hashing)原理剖析
-基本思想
-key 与 机器节点 都 hash 到
-					...
-				</div>
-			</a>
-                <div class="article-meta">
-				    <span>2019-01-05</span>
-                    
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/09-分布式/">09 分布式</a>
-                                    </span>
-                                
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/09-分布式/08-负载均衡/">08 负载均衡</a>
-                                    </span>
-                                
-                            
-                    
-                </div>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/2019/01/05/09%20%E5%88%86%E5%B8%83%E5%BC%8F/07%20%E5%88%86%E5%B8%83%E5%BC%8F%E7%BC%93%E5%AD%98/04%20Memcached/01%20Memcached%E7%AC%94%E8%AE%B0/">
-				<h2 class="index-title">
-					01 Memcached笔记
-				</h2>
-				<div class="index-brief">
-					Memcached是高性能，分布式内存对象key-value缓存系统。一般使用目的是，通过缓存数据库查询结果，减少数据库访问次数，以提高动态Web应用的速度、提高可扩展性。
-连接
-通过 telnet 命令并指定主机ip和端口来连接 Memcached 服务
-telnet HOST PORT
-
-存储命
-					...
-				</div>
-			</a>
-                <div class="article-meta">
-				    <span>2019-01-05</span>
-                    
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/09-分布式/">09 分布式</a>
-                                    </span>
-                                
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/09-分布式/07-分布式缓存/">07 分布式缓存</a>
-                                    </span>
-                                
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/09-分布式/07-分布式缓存/04-Memcached/">04 Memcached</a>
-                                    </span>
-                                
-                            
-                    
-                </div>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/2019/01/05/09%20%E5%88%86%E5%B8%83%E5%BC%8F/07%20%E5%88%86%E5%B8%83%E5%BC%8F%E7%BC%93%E5%AD%98/03%20Redis/4%20%E6%89%A7%E8%A1%8C%E8%84%9A%E6%9C%AC/">
-				<h2 class="index-title">
-					4 执行脚本
-				</h2>
-				<div class="index-brief">
-					1 配置
-@Configuration
-@EnableTransactionManagement
-public class RedisTemplateConfig {
-
-    @Bean(&quot;redisTemplate&quot;)
-    public RedisTemplate red
-					...
-				</div>
-			</a>
-                <div class="article-meta">
-				    <span>2019-01-05</span>
-                    
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/09-分布式/">09 分布式</a>
-                                    </span>
-                                
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/09-分布式/07-分布式缓存/">07 分布式缓存</a>
-                                    </span>
-                                
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/09-分布式/07-分布式缓存/03-Redis/">03 Redis</a>
-                                    </span>
-                                
-                            
-                    
-                </div>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/2019/01/05/09%20%E5%88%86%E5%B8%83%E5%BC%8F/07%20%E5%88%86%E5%B8%83%E5%BC%8F%E7%BC%93%E5%AD%98/03%20Redis/3%20%E8%87%AA%E5%AE%9A%E4%B9%89%E5%BA%8F%E5%88%97%E5%8C%96/">
-				<h2 class="index-title">
-					3 自定义序列化
-				</h2>
-				<div class="index-brief">
-					/**
- * @author wujun
- * @date 2018-10-30 16:25
- */
-@Configuration
-public class RedisConfig {
-    /**
-     * redisTemplate 自定义序列化类
-     *
-     * @param
-					...
-				</div>
-			</a>
-                <div class="article-meta">
-				    <span>2019-01-05</span>
-                    
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/09-分布式/">09 分布式</a>
-                                    </span>
-                                
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/09-分布式/07-分布式缓存/">07 分布式缓存</a>
-                                    </span>
-                                
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/09-分布式/07-分布式缓存/03-Redis/">03 Redis</a>
-                                    </span>
-                                
-                            
-                    
-                </div>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/2019/01/05/09%20%E5%88%86%E5%B8%83%E5%BC%8F/07%20%E5%88%86%E5%B8%83%E5%BC%8F%E7%BC%93%E5%AD%98/03%20Redis/2%20%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81/">
-				<h2 class="index-title">
-					2 分布式锁
-				</h2>
-				<div class="index-brief">
-					1 Redisson
-直接上官方推荐Redisson
-&lt;!-- https://mvnrepository.com/artifact/org.redisson/redisson --&gt;
-&lt;dependency&gt;
-    &lt;groupId&gt;org.redisson&
-					...
-				</div>
-			</a>
-                <div class="article-meta">
-				    <span>2019-01-05</span>
-                    
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/09-分布式/">09 分布式</a>
-                                    </span>
-                                
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/09-分布式/07-分布式缓存/">07 分布式缓存</a>
-                                    </span>
-                                
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/09-分布式/07-分布式缓存/03-Redis/">03 Redis</a>
-                                    </span>
-                                
-                            
-                    
-                </div>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/2019/01/05/09%20%E5%88%86%E5%B8%83%E5%BC%8F/07%20%E5%88%86%E5%B8%83%E5%BC%8F%E7%BC%93%E5%AD%98/03%20Redis/1%20Redis%20%E7%AE%80%E4%BB%8B/">
-				<h2 class="index-title">
-					1 Redis 简介
-				</h2>
-				<div class="index-brief">
-					1 Redis 简介
-高性能key-value数据库，支持数据的持久化、备份，数据类型丰富，支持事物、发布/订阅、通知、key过期等特性。
-2 Redis 安装
-2.1 单机安装
-
-Window
-下载zip，解压缩可用。修改redis.conf的daemonize为yes可后台启动
-Linux
-
-w
-					...
-				</div>
-			</a>
-                <div class="article-meta">
-				    <span>2019-01-05</span>
-                    
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/09-分布式/">09 分布式</a>
-                                    </span>
-                                
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/09-分布式/07-分布式缓存/">07 分布式缓存</a>
-                                    </span>
-                                
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/09-分布式/07-分布式缓存/03-Redis/">03 Redis</a>
-                                    </span>
-                                
-                            
-                    
-                </div>
-		</div>	
 	
 		<div class="index-li">
 			<a href="/2019/01/05/02%20%E6%95%B0%E6%8D%AE%E5%BA%93/02%20MyBatis/04%20%E6%B3%A8%E8%A7%A3%E4%BD%BF%E7%94%A8/">
@@ -4945,10 +4510,379 @@ public interf
                 </div>
 		</div>	
 	
+		<div class="index-li">
+			<a href="/2019/01/05/02%20%E6%95%B0%E6%8D%AE%E5%BA%93/02%20MyBatis/03%20CDDATA%E5%9D%97/">
+				<h2 class="index-title">
+					03 CDDATA块
+				</h2>
+				<div class="index-brief">
+					&quot;&quot;里才需要转换CDDATA块！
+
+
+
+符号
+转换
+
+
+
+
+&amp;
+&amp;amp;
+
+
+&lt;
+&amp;lt;
+
+
+&gt;
+&amp;gt;
+
+
+&quot;
+&amp;quot;
+
+
+'
+&amp;apos;
+
+
+
+
+
+
+-
+-
+-
+-
+
+
+
+
+小于等于
+a&lt
+					...
+				</div>
+			</a>
+                <div class="article-meta">
+				    <span>2019-01-05</span>
+                    
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/02-数据库/">02 数据库</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/02-数据库/02-MyBatis/">02 MyBatis</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2019/01/05/02%20%E6%95%B0%E6%8D%AE%E5%BA%93/02%20MyBatis/02%20MyBatis%20Generator/">
+				<h2 class="index-title">
+					02 MyBatis Generator
+				</h2>
+				<div class="index-brief">
+					MyBatis Generator
+
+一、在pom.xml中添加plugin
+      &lt;plugin&gt;
+        &lt;groupId&gt;org.mybatis.generator&lt;/groupId&gt;
+        &lt;artifactId&gt;myb
+					...
+				</div>
+			</a>
+                <div class="article-meta">
+				    <span>2019-01-05</span>
+                    
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/02-数据库/">02 数据库</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/02-数据库/02-MyBatis/">02 MyBatis</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2019/01/05/02%20%E6%95%B0%E6%8D%AE%E5%BA%93/02%20MyBatis/01%20MyBatis+Spring%20Boot/">
+				<h2 class="index-title">
+					01 MyBatis+Spring Boot
+				</h2>
+				<div class="index-brief">
+					简介
+
+
+MyBatis
+传统方法使用 MyBatis ，有  MyBatis 官网中文文档 。
+Generator
+传统方法比较繁琐，因而 MyBatis 推出了 MyBatis Generator 工具，可自动生成实体类、配置文件和dao层代码，以减轻一部分开发量。
+Spring Boot + 
+					...
+				</div>
+			</a>
+                <div class="article-meta">
+				    <span>2019-01-05</span>
+                    
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/02-数据库/">02 数据库</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/02-数据库/02-MyBatis/">02 MyBatis</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2019/01/05/02%20%E6%95%B0%E6%8D%AE%E5%BA%93/01%20MySQL/10%20%E6%B0%B4%E5%B9%B3%E5%9E%82%E7%9B%B4%E6%8B%86%E5%88%86/">
+				<h2 class="index-title">
+					10 水平垂直拆分
+				</h2>
+				<div class="index-brief">
+					当数据库量非常大的时候，DB 已经成为系统瓶颈时就可以考虑进行水平垂直拆分了。
+水平拆分
+将一张表中的记录拆分到多个结构相同的表中。
+可以将数据分布到集群的不同节点上，从而减缓单个数据库的压力。
+垂直拆分
+将一张表的字段拆分为主表以及扩展表，使用频次较高的字段在一张表，其余的在一张表。
+拆分策略
+
+
+					...
+				</div>
+			</a>
+                <div class="article-meta">
+				    <span>2019-01-05</span>
+                    
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/02-数据库/">02 数据库</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/02-数据库/01-MySQL/">01 MySQL</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2019/01/05/11%20%E6%B6%88%E6%81%AF%E9%80%9A%E4%BF%A1/1%20Apache%20Thrift/3%20Apache%20Thrift%20%E5%88%9D%E8%AF%86%20(3)%20-%20%E5%AE%9E%E6%88%98Demo/">
+				<h2 class="index-title">
+					3 Apache Thrift 初识 (3) - 实战Demo
+				</h2>
+				<div class="index-brief">
+					1 下载Thrift编译器
+
+从官网中下载对应的 Window 平台编译器（以 thrift-0.9.2.exe 为例）
+
+2  创建.thrift脚本
+使用 IDL 描述语言建立 query_media_service.thrift 脚本
+namespace java com.xxxx.auto.
+					...
+				</div>
+			</a>
+                <div class="article-meta">
+				    <span>2019-01-05</span>
+                    
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/11-消息通信/">11 消息通信</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/11-消息通信/1-Apache-Thrift/">1 Apache Thrift</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2019/01/05/11%20%E6%B6%88%E6%81%AF%E9%80%9A%E4%BF%A1/1%20Apache%20Thrift/2%20Apache%20Thrift%20%E5%88%9D%E8%AF%86%20(2)%20-%20%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E4%B8%8E%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/">
+				<h2 class="index-title">
+					2 Apache Thrift 初识 (2) - 数据类型与基本语法
+				</h2>
+				<div class="index-brief">
+					1 数据类型
+官方文档-数据类型
+基本类型（Base Types）、特殊类型（Special Types）、结构体（Structs）、容器（Containers）、异常（Exceptions）、服务（Services）
+枚举类型、常量类型。
+1.1 基本类型
+（括号内为对应的Java类型）
+bool
+					...
+				</div>
+			</a>
+                <div class="article-meta">
+				    <span>2019-01-05</span>
+                    
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/11-消息通信/">11 消息通信</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/11-消息通信/1-Apache-Thrift/">1 Apache Thrift</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2019/01/05/12%20%E6%95%B0%E6%8D%AE%E6%A0%BC%E5%BC%8F/2%20MapStruct%E5%AE%9E%E4%BD%93%E9%97%B4%E8%BD%AC%E6%8D%A2/">
+				<h2 class="index-title">
+					2 MapStruct实体间转换
+				</h2>
+				<div class="index-brief">
+					1 简介
+MapStruct是一个代码生成器的工具类，简化了不同的Java Bean之间映射的处理，所以映射指的就是从一个实体变化成一个实体。在实际项目中，我们经常会将PO转DTO、DTO转PO等一些实体间的转换。在转换时大部分属性都是相同的，只有少部分的不同，这时我们可以通过mapStruct的一
+					...
+				</div>
+			</a>
+                <div class="article-meta">
+				    <span>2019-01-05</span>
+                    
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/12-数据格式/">12 数据格式</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2019/01/05/12%20%E6%95%B0%E6%8D%AE%E6%A0%BC%E5%BC%8F/1%20Lombok%E6%B6%88%E9%99%A4Java%E5%86%97%E9%95%BF/">
+				<h2 class="index-title">
+					1 Lombok消除Java冗长
+				</h2>
+				<div class="index-brief">
+					官方网址、
+github地址
+简介
+Lombok采取注解声明方法，注解后经编译，会自动生成注解声明的方法，减少很多重复代码的书写。比如说getter/setter/toString等方法。
+安装
+添加依赖
+&lt;dependency&gt;
+    &lt;groupId&gt;org.proje
+					...
+				</div>
+			</a>
+                <div class="article-meta">
+				    <span>2019-01-05</span>
+                    
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/12-数据格式/">12 数据格式</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2019/01/05/00%20Java/01%20Java%E8%99%9A%E6%8B%9F%E6%9C%BA/05%20%E8%B0%83%E4%BC%98%E6%A1%88%E4%BE%8B/2%20%E5%AE%9E%E6%88%98%EF%BC%9AEclipse%E8%BF%90%E8%A1%8C%E9%80%9F%E5%BA%A6%E8%B0%83%E4%BC%98/">
+				<h2 class="index-title">
+					2 实战：Eclipse运行速度调优
+				</h2>
+				<div class="index-brief">
+					
+升级JDK；
+设置-XX:MaxPermSize=256M解决Eclipse判断虚拟机版本的bug；
+加入参数-Xverfify:none禁止字节码验证；
+虚拟机运行在client模式，采用C1轻量级编译器；
+把-Xms和-XX：PermSize参数设置为-Xmx和-XX:MaxPermSize一
+					...
+				</div>
+			</a>
+                <div class="article-meta">
+				    <span>2019-01-05</span>
+                    
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/">00 Java</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/01-Java虚拟机/">01 Java虚拟机</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/01-Java虚拟机/05-调优案例/">05 调优案例</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
+		</div>	
+	
 	
 	<div id="index-paginator">
 		
-			<a class="extend prev" rel="prev" href="/archives/2019/page/18/">&lt;</a><a class="page-number" href="/archives/2019/">1</a><span class="space">&hellip;</span><a class="page-number" href="/archives/2019/page/17/">17</a><a class="page-number" href="/archives/2019/page/18/">18</a><span class="page-number current">19</span><a class="page-number" href="/archives/2019/page/20/">20</a><a class="page-number" href="/archives/2019/page/21/">21</a><span class="space">&hellip;</span><a class="page-number" href="/archives/2019/page/25/">25</a><a class="extend next" rel="next" href="/archives/2019/page/20/">&gt;</a>
+			<a class="extend prev" rel="prev" href="/archives/2019/page/18/">&lt;</a><a class="page-number" href="/archives/2019/">1</a><span class="space">&hellip;</span><a class="page-number" href="/archives/2019/page/17/">17</a><a class="page-number" href="/archives/2019/page/18/">18</a><span class="page-number current">19</span><a class="page-number" href="/archives/2019/page/20/">20</a><a class="page-number" href="/archives/2019/page/21/">21</a><span class="space">&hellip;</span><a class="page-number" href="/archives/2019/page/24/">24</a><a class="extend next" rel="next" href="/archives/2019/page/20/">&gt;</a>
 		
 	</div>
 </div>
@@ -4958,16 +4892,19 @@ public interf
 	<p>
 	©2019-<span id="footerYear"></span> 
 	<a href="/">Wu Jun</a> 
-	|
-	<span id="busuanzi_container_site_pv">
-		pv
-		<span id="busuanzi_value_site_pv"></span>
-	</span>
-	|
-	<span id="busuanzi_container_site_uv"> 
-		uv
-		<span id="busuanzi_value_site_uv"></span>
-	</span>
+	
+	
+		|
+		<span id="busuanzi_container_site_pv">
+			pv
+			<span id="busuanzi_value_site_pv"></span>
+		</span>
+		|
+		<span id="busuanzi_container_site_uv"> 
+			uv
+			<span id="busuanzi_value_site_uv"></span>
+		</span>
+	
 	<br>
 	Theme <a href="//github.com/wujun234/hexo-theme-tree">Tree</a>
 	by <a href="//github.com/wujun234">WuJun</a>

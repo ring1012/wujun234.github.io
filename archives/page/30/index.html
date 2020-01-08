@@ -14,7 +14,7 @@
 	
 	<!-- keywords,description -->
 	
-		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun,java,技术,程序员" />
 	 
 		<meta name="description" content="吴俊,wujun234,wujun,wu jun" />
 	
@@ -32,10 +32,14 @@
 	<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/highlight.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/jquery-pjax@2.0.1/jquery.pjax.min.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/leancloud-storage/dist/av-min.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js"></script>
 	<script src="/js/main.js"></script>
-	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	
+		<script src="https://cdn.jsdelivr.net/npm/leancloud-storage/dist/av-min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js"></script>
+	
+	
+		<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	
 </head>
 
 <body>
@@ -492,8 +496,26 @@
 			
 							<ul>
 								<li class="file">
-									<a href="/2018/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/07%20%E5%B9%B6%E5%8F%91/3%20%E5%90%8C%E6%AD%A5/">
-										3 同步
+									<a href="/2020/01/07/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/07%20%E5%B9%B6%E5%8F%91/3%20%E9%94%81/">
+										3 锁
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2020/01/07/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/07%20%E5%B9%B6%E5%8F%91/4%20%E5%90%8C%E6%AD%A5%E5%99%A8/">
+										4 同步器
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2018/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/07%20%E5%B9%B6%E5%8F%91/5%20%E9%9D%9E%E9%98%BB%E5%A1%9E%E5%90%8C%E6%AD%A5/">
+										5 非阻塞同步
 									</a>
 								</li>
 								<div class="article-toc" style="display: none;"></div>
@@ -1434,15 +1456,6 @@
 								<div class="article-toc" style="display: none;"></div>
 							</ul>
 			
-							<ul>
-								<li class="file">
-									<a href="/2019/01/05/00%20Java/01%20Java%E8%99%9A%E6%8B%9F%E6%9C%BA/12%20Java%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B/3%20Java%E4%B8%8E%E7%BA%BF%E7%A8%8B/">
-										3 Java与线程
-									</a>
-								</li>
-								<div class="article-toc" style="display: none;"></div>
-							</ul>
-			
 								</li>
 								
 							</ul>
@@ -1577,24 +1590,6 @@
 									
 							<ul>
 								<li class="file">
-									<a href="/2019/03/02/00%20Java/03%20Java%E5%B9%B6%E5%8F%91/1%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/1%20%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8%E6%80%A7/">
-										1 线程安全性
-									</a>
-								</li>
-								<div class="article-toc" style="display: none;"></div>
-							</ul>
-			
-							<ul>
-								<li class="file">
-									<a href="/2019/03/02/00%20Java/03%20Java%E5%B9%B6%E5%8F%91/1%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/2%20%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%85%B1%E4%BA%AB/">
-										2 对象的共享
-									</a>
-								</li>
-								<div class="article-toc" style="display: none;"></div>
-							</ul>
-			
-							<ul>
-								<li class="file">
 									<a href="/2019/03/02/00%20Java/03%20Java%E5%B9%B6%E5%8F%91/1%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/3%20%E5%AF%B9%E8%B1%A1%E7%9A%84%E7%BB%84%E5%90%88/">
 										3 对象的组合
 									</a>
@@ -1619,94 +1614,9 @@
 								<li class="directory">
 									<a href="#" class="directory">
 										<i class="fa fa-plus-square-o"></i>
-										2 结构化并发应用程序
-									</a>
-									
-							<ul>
-								<li class="file">
-									<a href="/2019/03/05/00%20Java/03%20Java%E5%B9%B6%E5%8F%91/2%20%E7%BB%93%E6%9E%84%E5%8C%96%E5%B9%B6%E5%8F%91%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F/1%20%E4%BB%BB%E5%8A%A1%E6%89%A7%E8%A1%8C/">
-										1 任务执行
-									</a>
-								</li>
-								<div class="article-toc" style="display: none;"></div>
-							</ul>
-			
-							<ul>
-								<li class="file">
-									<a href="/2019/03/05/00%20Java/03%20Java%E5%B9%B6%E5%8F%91/2%20%E7%BB%93%E6%9E%84%E5%8C%96%E5%B9%B6%E5%8F%91%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F/2%20%E5%8F%96%E6%B6%88%E4%B8%8E%E5%85%B3%E9%97%AD/">
-										2 取消与关闭
-									</a>
-								</li>
-								<div class="article-toc" style="display: none;"></div>
-							</ul>
-			
-							<ul>
-								<li class="file">
-									<a href="/2019/03/07/00%20Java/03%20Java%E5%B9%B6%E5%8F%91/2%20%E7%BB%93%E6%9E%84%E5%8C%96%E5%B9%B6%E5%8F%91%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F/3%20%E7%BA%BF%E7%A8%8B%E6%B1%A0%E7%9A%84%E4%BD%BF%E7%94%A8/">
-										3 线程池的使用
-									</a>
-								</li>
-								<div class="article-toc" style="display: none;"></div>
-							</ul>
-			
-								</li>
-								
-							</ul>
-			
-							<ul>
-								<li class="directory">
-									<a href="#" class="directory">
-										<i class="fa fa-plus-square-o"></i>
-										3 活跃性、性能与测试
-									</a>
-									
-							<ul>
-								<li class="file">
-									<a href="/2019/03/07/00%20Java/03%20Java%E5%B9%B6%E5%8F%91/3%20%E6%B4%BB%E8%B7%83%E6%80%A7%E3%80%81%E6%80%A7%E8%83%BD%E4%B8%8E%E6%B5%8B%E8%AF%95/1%20%E9%81%BF%E5%85%8D%E6%B4%BB%E8%B7%83%E6%80%A7%E5%8D%B1%E9%99%A9/">
-										1 避免活跃性危险
-									</a>
-								</li>
-								<div class="article-toc" style="display: none;"></div>
-							</ul>
-			
-							<ul>
-								<li class="file">
-									<a href="/2019/03/11/00%20Java/03%20Java%E5%B9%B6%E5%8F%91/3%20%E6%B4%BB%E8%B7%83%E6%80%A7%E3%80%81%E6%80%A7%E8%83%BD%E4%B8%8E%E6%B5%8B%E8%AF%95/2%20%E6%80%A7%E8%83%BD%E4%B8%8E%E5%8F%AF%E4%BC%B8%E7%BC%A9%E6%80%A7/">
-										2 性能与可伸缩性
-									</a>
-								</li>
-								<div class="article-toc" style="display: none;"></div>
-							</ul>
-			
-							<ul>
-								<li class="file">
-									<a href="/2019/03/15/00%20Java/03%20Java%E5%B9%B6%E5%8F%91/3%20%E6%B4%BB%E8%B7%83%E6%80%A7%E3%80%81%E6%80%A7%E8%83%BD%E4%B8%8E%E6%B5%8B%E8%AF%95/3%20%E5%B9%B6%E5%8F%91%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%B5%8B%E8%AF%95/">
-										3 并发程序的测试
-									</a>
-								</li>
-								<div class="article-toc" style="display: none;"></div>
-							</ul>
-			
-								</li>
-								
-							</ul>
-			
-							<ul>
-								<li class="directory">
-									<a href="#" class="directory">
-										<i class="fa fa-plus-square-o"></i>
 										4 高级主题
 									</a>
 									
-							<ul>
-								<li class="file">
-									<a href="/2019/03/15/00%20Java/03%20Java%E5%B9%B6%E5%8F%91/4%20%E9%AB%98%E7%BA%A7%E4%B8%BB%E9%A2%98/1%20%E6%98%BE%E5%BC%8F%E9%94%81/">
-										1 显式锁
-									</a>
-								</li>
-								<div class="article-toc" style="display: none;"></div>
-							</ul>
-			
 							<ul>
 								<li class="file">
 									<a href="/2019/03/15/00%20Java/03%20Java%E5%B9%B6%E5%8F%91/4%20%E9%AB%98%E7%BA%A7%E4%B8%BB%E9%A2%98/2%20%E6%9E%84%E5%BB%BA%E8%87%AA%E5%AE%9A%E4%B9%89%E7%9A%84%E5%90%8C%E6%AD%A5%E5%B7%A5%E5%85%B7/">
@@ -4535,6 +4445,26 @@
 								
 							</ul>
 			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										21 其他
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2020/01/08/21%20%E5%85%B6%E4%BB%96/2019%20%E5%B9%B4%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93/">
+										2019 年工作总结
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
 		</div>
 	</div>
 </div>
@@ -4542,312 +4472,6 @@
 	<!-- 引入正文 -->
 	<div id="content">
 		<div id="index">
-	
-		<div class="index-li">
-			<a href="/2018/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/10%20XML/4%20%E7%94%9F%E6%88%90%20XML%20%E6%96%87%E6%A1%A3/">
-				<h2 class="index-title">
-					4 生成 XML 文档
-				</h2>
-				<div class="index-brief">
-					1 不带命名空间的文档
-创建空文档
-Document doc = builder.newDocument();
-
-构建元素
-Element rootElement = doc.createElement(rootName);
-Element childElement = doc.createElem
-					...
-				</div>
-			</a>
-                <div class="article-meta">
-				    <span>2018-12-18</span>
-                    
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/00-Java/">00 Java</a>
-                                    </span>
-                                
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/00-Java/00-Java基础/">00 Java基础</a>
-                                    </span>
-                                
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/00-Java/00-Java基础/10-XML/">10 XML</a>
-                                    </span>
-                                
-                            
-                    
-                </div>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/2018/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/09%20IO/2%20%E8%AF%BB%E5%86%99%E6%96%87%E6%9C%AC/">
-				<h2 class="index-title">
-					2 读写文本
-				</h2>
-				<div class="index-brief">
-					存储文本字符串时，需要考虑字符编码方式。
-
-OutputStreamWriter 类：将使用选定的字符编码方式，把 Unicode 码元的输出流转换为字节流。
-InputStreamReader 类：将包含字节的输入流转换为可以产生 Unicode 码元的读入器。
-
-1 文本输出
-文本输出使用 Pr
-					...
-				</div>
-			</a>
-                <div class="article-meta">
-				    <span>2018-12-18</span>
-                    
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/00-Java/">00 Java</a>
-                                    </span>
-                                
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/00-Java/00-Java基础/">00 Java基础</a>
-                                    </span>
-                                
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/00-Java/00-Java基础/09-IO/">09 IO</a>
-                                    </span>
-                                
-                            
-                    
-                </div>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/2018/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/09%20IO/3%20%E8%AF%BB%E5%86%99%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%95%B0%E6%8D%AE/">
-				<h2 class="index-title">
-					3 读写二进制数据
-				</h2>
-				<div class="index-brief">
-					1 DataInput 和 DataOutput 接口
-1.1 DataInput 接口
-DataInput接口 write* 方法写二进制格式数据
-DataInputStream 类实现了 DataInput 接口
-DataInputStream in = new DataInputStream(
-					...
-				</div>
-			</a>
-                <div class="article-meta">
-				    <span>2018-12-18</span>
-                    
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/00-Java/">00 Java</a>
-                                    </span>
-                                
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/00-Java/00-Java基础/">00 Java基础</a>
-                                    </span>
-                                
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/00-Java/00-Java基础/09-IO/">09 IO</a>
-                                    </span>
-                                
-                            
-                    
-                </div>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/2018/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/09%20IO/4%20%E5%BA%8F%E5%88%97%E5%8C%96/">
-				<h2 class="index-title">
-					4 序列化
-				</h2>
-				<div class="index-brief">
-					Java 提供了一种对象序列化的机制，该机制中，一个对象可以被表示为一个字节序列，写出到输出流中，并在之后将其读回。整个过程都是 Java 虚拟机独立的。
-1 保存和加载序列化对象
-一个类的对象要想序列化成功，必须满足两个条件：
-
-该类必须实现 java.io.Serializable 接口。
-该类
-					...
-				</div>
-			</a>
-                <div class="article-meta">
-				    <span>2018-12-18</span>
-                    
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/00-Java/">00 Java</a>
-                                    </span>
-                                
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/00-Java/00-Java基础/">00 Java基础</a>
-                                    </span>
-                                
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/00-Java/00-Java基础/09-IO/">09 IO</a>
-                                    </span>
-                                
-                            
-                    
-                </div>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/2018/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/09%20IO/5%20%E6%93%8D%E4%BD%9C%E6%96%87%E4%BB%B6/">
-				<h2 class="index-title">
-					5 操作文件
-				</h2>
-				<div class="index-brief">
-					Path 接口和 Files 类封装了在用户机器上处理文件系统所需的所有功能，他们是在 Java SE 7 中新添加进来的，比自 JDK1.0 以来一直使用的 File 类方便很多。
-1 Path
-Path 表示的是一个目录名序列，其后还可以跟着一个文件名。
-路径中的第一个部件可以是根部件，例如 /
-					...
-				</div>
-			</a>
-                <div class="article-meta">
-				    <span>2018-12-18</span>
-                    
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/00-Java/">00 Java</a>
-                                    </span>
-                                
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/00-Java/00-Java基础/">00 Java基础</a>
-                                    </span>
-                                
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/00-Java/00-Java基础/09-IO/">09 IO</a>
-                                    </span>
-                                
-                            
-                    
-                </div>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/2018/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/09%20IO/6%20NIO%EF%BC%88%E5%86%85%E5%AD%98%E6%98%A0%E5%B0%84%E6%96%87%E4%BB%B6%EF%BC%89/">
-				<h2 class="index-title">
-					6 NIO（内存映射文件）
-				</h2>
-				<div class="index-brief">
-					JDK 1.4 中引入 java.nio，全称 java non-blocking IO，为所有的原始类型（boolean 类型除外）提供缓存支持的数据容器，使用它可以提供非阻塞式的高伸缩性网络。
-原来的 I/O 以流的方式处理数据，而 NIO 以块的方式处理数据。
-1  核心概念
-1.1 通道
-通
-					...
-				</div>
-			</a>
-                <div class="article-meta">
-				    <span>2018-12-18</span>
-                    
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/00-Java/">00 Java</a>
-                                    </span>
-                                
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/00-Java/00-Java基础/">00 Java基础</a>
-                                    </span>
-                                
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/00-Java/00-Java基础/09-IO/">09 IO</a>
-                                    </span>
-                                
-                            
-                    
-                </div>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/2018/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/09%20IO/7%20%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">
-				<h2 class="index-title">
-					7 正则表达式
-				</h2>
-				<div class="index-brief">
-					1 语法
-在使用正则表达式的各种程序和类库之间，表达式语法并未完全标准化。
-1.1 字符
-
-字符类是一个括在括号中的可选择的字符集，例如，[Jj]、[0-9]、[A-Za-z]或 1。这里“-”表示是一个范围，而 ^ 表示补集。
-如果字符类中包含-，必须第一项或最后一项；如果包含[，必须第一项；包含
-					...
-				</div>
-			</a>
-                <div class="article-meta">
-				    <span>2018-12-18</span>
-                    
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/00-Java/">00 Java</a>
-                                    </span>
-                                
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/00-Java/00-Java基础/">00 Java基础</a>
-                                    </span>
-                                
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/00-Java/00-Java基础/09-IO/">09 IO</a>
-                                    </span>
-                                
-                            
-                    
-                </div>
-		</div>	
 	
 		<div class="index-li">
 			<a href="/2018/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/08%20Java%20SE%208%20%E7%9A%84%E6%B5%81%E5%BA%93/1%20Stream/">
@@ -4948,7 +4572,7 @@ Optional 实际上是个容器：它可以保存类型T的值，或者仅仅保�
 1.2 进程和线程的区别
 
 进程：每个进程都有独立的代码和数据空间（进程上下文），进程间的切换会有较大的开销，一个进程包含1–n个线程。
-线程：同一类线程共享代码和数据空间，每个线程有独立的运行栈和程序计数
+线程：线程是比进程更轻量级的调度执行单位，同一类线程共享代码和数据空
 					...
 				</div>
 			</a>
@@ -4981,6 +4605,348 @@ Optional 实际上是个容器：它可以保存类型T的值，或者仅仅保�
                 </div>
 		</div>	
 	
+		<div class="index-li">
+			<a href="/2018/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/06%20%E9%9B%86%E5%90%88/2.1%20ArrayList%E3%80%81Vector/">
+				<h2 class="index-title">
+					2.1 ArrayList、Vector
+				</h2>
+				<div class="index-brief">
+					ArrayList 除未实现同步外，跟 Vector 大致相同。同步效率低，在不需要同步的时候使用 ArrayList。
+1 ArrayList
+1.1 总体介绍
+ArrayList 实现了 List、RandomAccess 接口。是顺序容器，允许 null 元素，支持随机访问。
+ArrayLis
+					...
+				</div>
+			</a>
+                <div class="article-meta">
+				    <span>2018-12-18</span>
+                    
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/">00 Java</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/00-Java基础/">00 Java基础</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/00-Java基础/06-集合/">06 集合</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2018/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/07%20%E5%B9%B6%E5%8F%91/5%20%E9%9D%9E%E9%98%BB%E5%A1%9E%E5%90%8C%E6%AD%A5/">
+				<h2 class="index-title">
+					5 非阻塞同步
+				</h2>
+				<div class="index-brief">
+					1 内存可见性
+在没有同步的情况下, 编译器, 处理器, 运行时等可能对操作的执行顺序进行一些意想不到的调整, 在缺乏足够同步的多线程程序中, 要想对内存操作的执行顺序进行判断, 几乎无法得出正确的结论.
+在缺乏同步的程序中可能产生错误结果的一种情况: 失效数据
+1.1 非原子的 64 位操作
+Ja
+					...
+				</div>
+			</a>
+                <div class="article-meta">
+				    <span>2018-12-18</span>
+                    
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/">00 Java</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/00-Java基础/">00 Java基础</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/00-Java基础/07-并发/">07 并发</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2018/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/06%20%E9%9B%86%E5%90%88/7%20%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8%E7%9A%84%E9%9B%86%E5%90%88/">
+				<h2 class="index-title">
+					7 线程安全的集合
+				</h2>
+				<div class="index-brief">
+					1 同步容器类
+同步容器类实现线程安全的方式是： 将他们的状态封装起来,并对每个公有方法都进行同步，使得每次只有一个线程能访问容器的状态。
+1.1 同步容器类的问题
+
+同步容器类都是线程安全的，但在某些情况下可能需要额外的客户端加锁来保护复合操作。
+由于同步容器类要遵守同步策略(支持客户端加锁)，因
+					...
+				</div>
+			</a>
+                <div class="article-meta">
+				    <span>2018-12-18</span>
+                    
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/">00 Java</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/00-Java基础/">00 Java基础</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/00-Java基础/06-集合/">06 集合</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2018/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/07%20%E5%B9%B6%E5%8F%91/2%20%E7%BA%BF%E7%A8%8B%E6%B1%A0/">
+				<h2 class="index-title">
+					2 线程池
+				</h2>
+				<div class="index-brief">
+					线程池，指管理一组同构工作线程的资源池。线程池与工作队列密切相关，其中工作队列保存了所有等待执行的线程。工作者线程从工作队列中获取一个线程，执行任务，然后返回线程池并等待下一个任务。
+1 创建线程池
+一般一个简单线程池至少包含下列组成部分。
+
+线程池管理器（ThreadPoolManager）：创建
+					...
+				</div>
+			</a>
+                <div class="article-meta">
+				    <span>2018-12-18</span>
+                    
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/">00 Java</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/00-Java基础/">00 Java基础</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/00-Java基础/07-并发/">07 并发</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2018/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/06%20%E9%9B%86%E5%90%88/1%20%E9%9B%86%E5%90%88%E6%8E%A5%E5%8F%A3/">
+				<h2 class="index-title">
+					1 集合接口
+				</h2>
+				<div class="index-brief">
+					框架，是一个类的集。
+容器，是可以容纳其他 Java 对象的对象。
+JDK 1.2 开始，Java 集合框架（JCF）提供了通用的容器。
+JDK 1.5 开始，集合类是带有类型参数的泛型类。
+Java 容器里只能放对象，基本类型会自动装箱。
+集合中也是值传递。
+1 接口与实现
+1.1 接口
+为了规范
+					...
+				</div>
+			</a>
+                <div class="article-meta">
+				    <span>2018-12-18</span>
+                    
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/">00 Java</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/00-Java基础/">00 Java基础</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/00-Java基础/06-集合/">06 集合</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2018/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/06%20%E9%9B%86%E5%90%88/2.0%20%E5%85%B7%E4%BD%93%E7%9A%84%E9%9B%86%E5%90%88/">
+				<h2 class="index-title">
+					2.0 具体的集合
+				</h2>
+				<div class="index-brief">
+					
+
+
+集合类型
+同步
+可null
+有序
+描述
+
+
+
+
+ArrayList
+否
+是
+是
+动态增缩的索引序列
+
+
+Vector
+是
+是
+是
+过时，同步的ArrayList
+
+
+LinkedList
+否
+是
+是
+高效插删的有序序列
+
+
+ArrayDeque
+否
+否
+是
+循环数组实现的双端队列
+
+
+Prio
+					...
+				</div>
+			</a>
+                <div class="article-meta">
+				    <span>2018-12-18</span>
+                    
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/">00 Java</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/00-Java基础/">00 Java基础</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/00-Java基础/06-集合/">06 集合</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2018/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/06%20%E9%9B%86%E5%90%88/2.2%20LinkedList/">
+				<h2 class="index-title">
+					2.2 LinkedList
+				</h2>
+				<div class="index-brief">
+					现在栈或者队列的首选是ArrayDeque。
+1 总体介绍
+LinkedList同时实现了List接口和Deque接口，允许null元素。
+
+LinkedList底层通过双向链表实现。节点用内部类Node表示,通过 first 和 last 引用分别指向链表的第一个和最后一个元素。链表为空时 fir
+					...
+				</div>
+			</a>
+                <div class="article-meta">
+				    <span>2018-12-18</span>
+                    
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/">00 Java</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/00-Java基础/">00 Java基础</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/00-Java基础/06-集合/">06 集合</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
+		</div>	
+	
 	
 	<div id="index-paginator">
 		
@@ -4994,16 +4960,19 @@ Optional 实际上是个容器：它可以保存类型T的值，或者仅仅保�
 	<p>
 	©2019-<span id="footerYear"></span> 
 	<a href="/">Wu Jun</a> 
-	|
-	<span id="busuanzi_container_site_pv">
-		pv
-		<span id="busuanzi_value_site_pv"></span>
-	</span>
-	|
-	<span id="busuanzi_container_site_uv"> 
-		uv
-		<span id="busuanzi_value_site_uv"></span>
-	</span>
+	
+	
+		|
+		<span id="busuanzi_container_site_pv">
+			pv
+			<span id="busuanzi_value_site_pv"></span>
+		</span>
+		|
+		<span id="busuanzi_container_site_uv"> 
+			uv
+			<span id="busuanzi_value_site_uv"></span>
+		</span>
+	
 	<br>
 	Theme <a href="//github.com/wujun234/hexo-theme-tree">Tree</a>
 	by <a href="//github.com/wujun234">WuJun</a>

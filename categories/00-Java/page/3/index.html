@@ -14,7 +14,7 @@
 	
 	<!-- keywords,description -->
 	
-		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun,java,技术,程序员" />
 	 
 		<meta name="description" content="吴俊,wujun234,wujun,wu jun" />
 	
@@ -32,10 +32,14 @@
 	<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/highlight.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/jquery-pjax@2.0.1/jquery.pjax.min.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/leancloud-storage/dist/av-min.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js"></script>
 	<script src="/js/main.js"></script>
-	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	
+		<script src="https://cdn.jsdelivr.net/npm/leancloud-storage/dist/av-min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js"></script>
+	
+	
+		<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	
 </head>
 
 <body>
@@ -492,8 +496,26 @@
 			
 							<ul>
 								<li class="file">
-									<a href="/2018/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/07%20%E5%B9%B6%E5%8F%91/3%20%E5%90%8C%E6%AD%A5/">
-										3 同步
+									<a href="/2020/01/07/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/07%20%E5%B9%B6%E5%8F%91/3%20%E9%94%81/">
+										3 锁
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2020/01/07/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/07%20%E5%B9%B6%E5%8F%91/4%20%E5%90%8C%E6%AD%A5%E5%99%A8/">
+										4 同步器
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2018/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/07%20%E5%B9%B6%E5%8F%91/5%20%E9%9D%9E%E9%98%BB%E5%A1%9E%E5%90%8C%E6%AD%A5/">
+										5 非阻塞同步
 									</a>
 								</li>
 								<div class="article-toc" style="display: none;"></div>
@@ -1434,15 +1456,6 @@
 								<div class="article-toc" style="display: none;"></div>
 							</ul>
 			
-							<ul>
-								<li class="file">
-									<a href="/2019/01/05/00%20Java/01%20Java%E8%99%9A%E6%8B%9F%E6%9C%BA/12%20Java%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B/3%20Java%E4%B8%8E%E7%BA%BF%E7%A8%8B/">
-										3 Java与线程
-									</a>
-								</li>
-								<div class="article-toc" style="display: none;"></div>
-							</ul>
-			
 								</li>
 								
 							</ul>
@@ -1577,24 +1590,6 @@
 									
 							<ul>
 								<li class="file">
-									<a href="/2019/03/02/00%20Java/03%20Java%E5%B9%B6%E5%8F%91/1%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/1%20%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8%E6%80%A7/">
-										1 线程安全性
-									</a>
-								</li>
-								<div class="article-toc" style="display: none;"></div>
-							</ul>
-			
-							<ul>
-								<li class="file">
-									<a href="/2019/03/02/00%20Java/03%20Java%E5%B9%B6%E5%8F%91/1%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/2%20%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%85%B1%E4%BA%AB/">
-										2 对象的共享
-									</a>
-								</li>
-								<div class="article-toc" style="display: none;"></div>
-							</ul>
-			
-							<ul>
-								<li class="file">
 									<a href="/2019/03/02/00%20Java/03%20Java%E5%B9%B6%E5%8F%91/1%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/3%20%E5%AF%B9%E8%B1%A1%E7%9A%84%E7%BB%84%E5%90%88/">
 										3 对象的组合
 									</a>
@@ -1619,94 +1614,9 @@
 								<li class="directory">
 									<a href="#" class="directory">
 										<i class="fa fa-plus-square-o"></i>
-										2 结构化并发应用程序
-									</a>
-									
-							<ul>
-								<li class="file">
-									<a href="/2019/03/05/00%20Java/03%20Java%E5%B9%B6%E5%8F%91/2%20%E7%BB%93%E6%9E%84%E5%8C%96%E5%B9%B6%E5%8F%91%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F/1%20%E4%BB%BB%E5%8A%A1%E6%89%A7%E8%A1%8C/">
-										1 任务执行
-									</a>
-								</li>
-								<div class="article-toc" style="display: none;"></div>
-							</ul>
-			
-							<ul>
-								<li class="file">
-									<a href="/2019/03/05/00%20Java/03%20Java%E5%B9%B6%E5%8F%91/2%20%E7%BB%93%E6%9E%84%E5%8C%96%E5%B9%B6%E5%8F%91%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F/2%20%E5%8F%96%E6%B6%88%E4%B8%8E%E5%85%B3%E9%97%AD/">
-										2 取消与关闭
-									</a>
-								</li>
-								<div class="article-toc" style="display: none;"></div>
-							</ul>
-			
-							<ul>
-								<li class="file">
-									<a href="/2019/03/07/00%20Java/03%20Java%E5%B9%B6%E5%8F%91/2%20%E7%BB%93%E6%9E%84%E5%8C%96%E5%B9%B6%E5%8F%91%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F/3%20%E7%BA%BF%E7%A8%8B%E6%B1%A0%E7%9A%84%E4%BD%BF%E7%94%A8/">
-										3 线程池的使用
-									</a>
-								</li>
-								<div class="article-toc" style="display: none;"></div>
-							</ul>
-			
-								</li>
-								
-							</ul>
-			
-							<ul>
-								<li class="directory">
-									<a href="#" class="directory">
-										<i class="fa fa-plus-square-o"></i>
-										3 活跃性、性能与测试
-									</a>
-									
-							<ul>
-								<li class="file">
-									<a href="/2019/03/07/00%20Java/03%20Java%E5%B9%B6%E5%8F%91/3%20%E6%B4%BB%E8%B7%83%E6%80%A7%E3%80%81%E6%80%A7%E8%83%BD%E4%B8%8E%E6%B5%8B%E8%AF%95/1%20%E9%81%BF%E5%85%8D%E6%B4%BB%E8%B7%83%E6%80%A7%E5%8D%B1%E9%99%A9/">
-										1 避免活跃性危险
-									</a>
-								</li>
-								<div class="article-toc" style="display: none;"></div>
-							</ul>
-			
-							<ul>
-								<li class="file">
-									<a href="/2019/03/11/00%20Java/03%20Java%E5%B9%B6%E5%8F%91/3%20%E6%B4%BB%E8%B7%83%E6%80%A7%E3%80%81%E6%80%A7%E8%83%BD%E4%B8%8E%E6%B5%8B%E8%AF%95/2%20%E6%80%A7%E8%83%BD%E4%B8%8E%E5%8F%AF%E4%BC%B8%E7%BC%A9%E6%80%A7/">
-										2 性能与可伸缩性
-									</a>
-								</li>
-								<div class="article-toc" style="display: none;"></div>
-							</ul>
-			
-							<ul>
-								<li class="file">
-									<a href="/2019/03/15/00%20Java/03%20Java%E5%B9%B6%E5%8F%91/3%20%E6%B4%BB%E8%B7%83%E6%80%A7%E3%80%81%E6%80%A7%E8%83%BD%E4%B8%8E%E6%B5%8B%E8%AF%95/3%20%E5%B9%B6%E5%8F%91%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%B5%8B%E8%AF%95/">
-										3 并发程序的测试
-									</a>
-								</li>
-								<div class="article-toc" style="display: none;"></div>
-							</ul>
-			
-								</li>
-								
-							</ul>
-			
-							<ul>
-								<li class="directory">
-									<a href="#" class="directory">
-										<i class="fa fa-plus-square-o"></i>
 										4 高级主题
 									</a>
 									
-							<ul>
-								<li class="file">
-									<a href="/2019/03/15/00%20Java/03%20Java%E5%B9%B6%E5%8F%91/4%20%E9%AB%98%E7%BA%A7%E4%B8%BB%E9%A2%98/1%20%E6%98%BE%E5%BC%8F%E9%94%81/">
-										1 显式锁
-									</a>
-								</li>
-								<div class="article-toc" style="display: none;"></div>
-							</ul>
-			
 							<ul>
 								<li class="file">
 									<a href="/2019/03/15/00%20Java/03%20Java%E5%B9%B6%E5%8F%91/4%20%E9%AB%98%E7%BA%A7%E4%B8%BB%E9%A2%98/2%20%E6%9E%84%E5%BB%BA%E8%87%AA%E5%AE%9A%E4%B9%89%E7%9A%84%E5%90%8C%E6%AD%A5%E5%B7%A5%E5%85%B7/">
@@ -4535,6 +4445,26 @@
 								
 							</ul>
 			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										21 其他
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2020/01/08/21%20%E5%85%B6%E4%BB%96/2019%20%E5%B9%B4%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93/">
+										2019 年工作总结
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
 		</div>
 	</div>
 </div>
@@ -4542,270 +4472,6 @@
 	<!-- 引入正文 -->
 	<div id="content">
 		<div id="index">
-	
-		<div class="index-li">
-			<a href="/2019/01/17/00%20Java/02%20Effective%20Java/03%20%E7%B1%BB%E5%92%8C%E6%8E%A5%E5%8F%A3%EF%BC%8815-25%EF%BC%89/">
-				<h2 class="index-title">
-					03 类和接口（15-25）
-				</h2>
-				<div class="index-brief">
-					第 15 条：使类和成员的可访问性最小化
-公有静态 final 域暴露常量，要么包含基本类型值，要么包含指向不可变对象的引用
-第 16 条：在公有类中使用访问方法而非公有域
-
-公有类不应该暴露可变域，因为其客户端代码遍布各处，将来极难改变内部表示法
-公有类暴露不可变域危害较小，事实上也不应该
-包级私
-					...
-				</div>
-			</a>
-                <div class="article-meta">
-				    <span>2019-01-17</span>
-                    
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/00-Java/">00 Java</a>
-                                    </span>
-                                
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/00-Java/02-Effective-Java/">02 Effective Java</a>
-                                    </span>
-                                
-                            
-                    
-                </div>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/2019/01/10/00%20Java/02%20Effective%20Java/07%20%E6%96%B9%E6%B3%95%EF%BC%8849-56%EF%BC%89/">
-				<h2 class="index-title">
-					07 方法（49-56）
-				</h2>
-				<div class="index-brief">
-					第 49 条：检查参数的有效性
-不仅需要检查参数的有效性，还需要在函数的文档中给予明确的说明，如在参数非法的情况下，会抛出哪些异常，或导致函数返回哪些错误值等
-第 50 条：必要时进行保护性拷贝
-如果不能够容忍对象进入数据结构之后发生变，就必须对该对象进行保护性拷贝，并且让拷贝之后的对象而不是原始对
-					...
-				</div>
-			</a>
-                <div class="article-meta">
-				    <span>2019-01-10</span>
-                    
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/00-Java/">00 Java</a>
-                                    </span>
-                                
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/00-Java/02-Effective-Java/">02 Effective Java</a>
-                                    </span>
-                                
-                            
-                    
-                </div>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/2019/01/10/00%20Java/02%20Effective%20Java/08%20%E9%80%9A%E7%94%A8%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%EF%BC%8857-68%EF%BC%89/">
-				<h2 class="index-title">
-					08 通用程序设计（57-68）
-				</h2>
-				<div class="index-brief">
-					第 57 条：将局部变量的作用域最小化
-第 58 条：for-each 循环优先于传统的 for 循环
-第 59 条：了解和使用标准类库
-第 60 条：如果需要精确的答案，请避免使用 float 和 double
-
-float 和 double 类型尤其不适合用于货币计算
-可以使用 bigDecim
-					...
-				</div>
-			</a>
-                <div class="article-meta">
-				    <span>2019-01-10</span>
-                    
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/00-Java/">00 Java</a>
-                                    </span>
-                                
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/00-Java/02-Effective-Java/">02 Effective Java</a>
-                                    </span>
-                                
-                            
-                    
-                </div>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/2019/01/10/00%20Java/02%20Effective%20Java/09%20%E5%BC%82%E5%B8%B8%EF%BC%8869-77%EF%BC%89/">
-				<h2 class="index-title">
-					09 异常（69-77）
-				</h2>
-				<div class="index-brief">
-					第 69 条：只针对异常的情况才使用异常
-如果在 try、catch、finally 块中都抛出了异常，只是只有一个异常可被传播到外界。
-请不要在 try 块中发出对 return、break 或 continue 的调用，万一无法避免，一定要确保 finally 的存在不会改变函数的返回值（比如说
-					...
-				</div>
-			</a>
-                <div class="article-meta">
-				    <span>2019-01-10</span>
-                    
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/00-Java/">00 Java</a>
-                                    </span>
-                                
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/00-Java/02-Effective-Java/">02 Effective Java</a>
-                                    </span>
-                                
-                            
-                    
-                </div>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/2019/01/10/00%20Java/02%20Effective%20Java/11%20%E5%BA%8F%E5%88%97%E5%8C%96%EF%BC%8885-90%EF%BC%89/">
-				<h2 class="index-title">
-					11 序列化（85-90）
-				</h2>
-				<div class="index-brief">
-					第 85 条: 首选 Java 序列化的替代品
-序列化是危险的，反序列化有漏洞，应该避免。
-使用跨平台的结构化数据替代，例如 JSON 或 protobuf。
-或者不反序列化不受信任的数据。
-如果必须反序列化，使用对象反序列化过滤，并避免编写可序列化的类。
-第 86 条：谨慎地实现 Serializ
-					...
-				</div>
-			</a>
-                <div class="article-meta">
-				    <span>2019-01-10</span>
-                    
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/00-Java/">00 Java</a>
-                                    </span>
-                                
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/00-Java/02-Effective-Java/">02 Effective Java</a>
-                                    </span>
-                                
-                            
-                    
-                </div>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/2019/01/10/00%20Java/02%20Effective%20Java/10%20%E5%B9%B6%E5%8F%91%EF%BC%8878-84%EF%BC%89/">
-				<h2 class="index-title">
-					10 并发（78-84）
-				</h2>
-				<div class="index-brief">
-					第 78 条：同步访问共享的可变数据
-第 79 条：避免过度同步
-第 80 条：executor 和 task 优先于线程
-
-Executor.newCachedThreadPool：小程序，轻载的服务器
-Executor.newFixedThreadPool：大负载的服务器
-ThreadPoolE
-					...
-				</div>
-			</a>
-                <div class="article-meta">
-				    <span>2019-01-10</span>
-                    
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/00-Java/">00 Java</a>
-                                    </span>
-                                
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/00-Java/02-Effective-Java/">02 Effective Java</a>
-                                    </span>
-                                
-                            
-                    
-                </div>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/2019/01/05/00%20Java/01%20Java%E8%99%9A%E6%8B%9F%E6%9C%BA/05%20%E8%B0%83%E4%BC%98%E6%A1%88%E4%BE%8B/2%20%E5%AE%9E%E6%88%98%EF%BC%9AEclipse%E8%BF%90%E8%A1%8C%E9%80%9F%E5%BA%A6%E8%B0%83%E4%BC%98/">
-				<h2 class="index-title">
-					2 实战：Eclipse运行速度调优
-				</h2>
-				<div class="index-brief">
-					
-升级JDK；
-设置-XX:MaxPermSize=256M解决Eclipse判断虚拟机版本的bug；
-加入参数-Xverfify:none禁止字节码验证；
-虚拟机运行在client模式，采用C1轻量级编译器；
-把-Xms和-XX：PermSize参数设置为-Xmx和-XX:MaxPermSize一
-					...
-				</div>
-			</a>
-                <div class="article-meta">
-				    <span>2019-01-05</span>
-                    
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/00-Java/">00 Java</a>
-                                    </span>
-                                
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/00-Java/01-Java虚拟机/">01 Java虚拟机</a>
-                                    </span>
-                                
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/00-Java/01-Java虚拟机/05-调优案例/">05 调优案例</a>
-                                    </span>
-                                
-                            
-                    
-                </div>
-		</div>	
 	
 		<div class="index-li">
 			<a href="/2019/01/05/00%20Java/01%20Java%E8%99%9A%E6%8B%9F%E6%9C%BA/05%20%E8%B0%83%E4%BC%98%E6%A1%88%E4%BE%8B/1%20%E6%A1%88%E4%BE%8B%E5%88%86%E6%9E%90/">
@@ -4941,10 +4607,348 @@ Serial的多线程版本。
                 </div>
 		</div>	
 	
+		<div class="index-li">
+			<a href="/2019/01/05/00%20Java/01%20Java%E8%99%9A%E6%8B%9F%E6%9C%BA/03%20GC%E4%B8%8E%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D/3%20%E7%AE%97%E6%B3%95%E5%AE%9E%E7%8E%B0/">
+				<h2 class="index-title">
+					3 算法实现
+				</h2>
+				<div class="index-brief">
+					HotSpot的算法实现
+1 枚举根节点
+GC Roots 的节点主要是在全局性的引用（常量、类静态属性）与执行上下文（栈帧中的本地变量表）中，若逐个检查很耗时。
+GC 进行时必须停顿所有Java执行线程（Stop The World）。
+并不需要一个不漏地检查完所有引用位置，HotSpot 用 O
+					...
+				</div>
+			</a>
+                <div class="article-meta">
+				    <span>2019-01-05</span>
+                    
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/">00 Java</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/01-Java虚拟机/">01 Java虚拟机</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/01-Java虚拟机/03-GC与内存分配/">03 GC与内存分配</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2019/01/05/00%20Java/01%20Java%E8%99%9A%E6%8B%9F%E6%9C%BA/03%20GC%E4%B8%8E%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D/2%20GC%E7%AE%97%E6%B3%95/">
+				<h2 class="index-title">
+					2 GC算法
+				</h2>
+				<div class="index-brief">
+					回收算法
+
+标记－清除（基础）
+复制（新生代，效率高，90%，需担保）
+标记－整理（老年代，100%）
+
+分代收集
+
+新生代
+老年代
+
+1 标记－清除
+最基础的收集算法，其它算法都是对它不足的改进
+1.1 两个阶段
+
+标记（GC判定）
+清除
+
+1.2 两点不足
+
+效率不高
+空间问题
+产生大量不连续内
+					...
+				</div>
+			</a>
+                <div class="article-meta">
+				    <span>2019-01-05</span>
+                    
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/">00 Java</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/01-Java虚拟机/">01 Java虚拟机</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/01-Java虚拟机/03-GC与内存分配/">03 GC与内存分配</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2019/01/05/00%20Java/01%20Java%E8%99%9A%E6%8B%9F%E6%9C%BA/03%20GC%E4%B8%8E%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D/1%20GC%E5%88%A4%E5%AE%9A/">
+				<h2 class="index-title">
+					1 GC判定
+				</h2>
+				<div class="index-brief">
+					1 引用计数法
+对象内部维护有一个被其他对象引用的引用计数，当这个引用计数为0的时候，表示对象可以被回收。
+引用计数法存在一个问题——循环引用，加入a引用b，b同时也引用a，那么就存在ab的引用计数都不为0的情况。
+2 可达性分析算法
+一个对象的根节点，不是GC Roots的话，就可以被回收。
+
+J
+					...
+				</div>
+			</a>
+                <div class="article-meta">
+				    <span>2019-01-05</span>
+                    
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/">00 Java</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/01-Java虚拟机/">01 Java虚拟机</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/01-Java虚拟机/03-GC与内存分配/">03 GC与内存分配</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2019/01/05/00%20Java/01%20Java%E8%99%9A%E6%8B%9F%E6%9C%BA/02%20JVM%E5%86%85%E5%AD%98/3%20%E5%86%85%E5%AD%98%E6%BA%A2%E5%87%BA%E5%BC%82%E5%B8%B8/">
+				<h2 class="index-title">
+					3 内存溢出异常
+				</h2>
+				<div class="index-brief">
+					1 堆溢出
+1) 异常报错
+在JVM中如果98％的时间是用于GC且可用的Heap size 不足2％的时候将抛出此异常信息
+java.lang.OutOfMemoryError: Java heap space 
+
+2) 堆参数
+
+-Xms(初始空间)：推荐物理内存的1/64
+-Xmx(最大空间)：
+					...
+				</div>
+			</a>
+                <div class="article-meta">
+				    <span>2019-01-05</span>
+                    
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/">00 Java</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/01-Java虚拟机/">01 Java虚拟机</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/01-Java虚拟机/02-JVM内存/">02 JVM内存</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2019/01/05/00%20Java/01%20Java%E8%99%9A%E6%8B%9F%E6%9C%BA/02%20JVM%E5%86%85%E5%AD%98/2%20%E5%A0%86%E4%B8%AD%E5%AF%B9%E8%B1%A1/">
+				<h2 class="index-title">
+					2 堆中对象
+				</h2>
+				<div class="index-brief">
+					HotSpot虚拟机在Java堆中对象分配、布局和访问的全过程。
+1 对象的创建
+虚拟机new指令
+1.1 类加载
+先检查常量池看是否为常量，否则若类未加载则执行类加载；
+1.2 内存分配
+为新生对象分配内存。
+对象所需的内存大小在类加载完成后便完全确定，从Java堆中划分出对象空间。
+
+分配算法
+
+					...
+				</div>
+			</a>
+                <div class="article-meta">
+				    <span>2019-01-05</span>
+                    
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/">00 Java</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/01-Java虚拟机/">01 Java虚拟机</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/01-Java虚拟机/02-JVM内存/">02 JVM内存</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2019/01/05/00%20Java/01%20Java%E8%99%9A%E6%8B%9F%E6%9C%BA/02%20JVM%E5%86%85%E5%AD%98/1%20%E5%86%85%E5%AD%98%E5%88%86%E5%8C%BA/">
+				<h2 class="index-title">
+					1 内存分区
+				</h2>
+				<div class="index-brief">
+					JVM所管理的内存分为以下几个区域
+
+1 程序计数器
+
+线程私有，是当前线程所执行字节码的行号指示器。
+执行java方法，记录正在执行的虚拟机字节码指令的地址；执行native方法，计数器为空。
+JVM中唯一不存在OutOfMemoryError的区域。
+
+2 虚拟机栈
+
+线程私有，控制方法执行
+方
+					...
+				</div>
+			</a>
+                <div class="article-meta">
+				    <span>2019-01-05</span>
+                    
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/">00 Java</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/01-Java虚拟机/">01 Java虚拟机</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/01-Java虚拟机/02-JVM内存/">02 JVM内存</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2019/01/05/00%20Java/01%20Java%E8%99%9A%E6%8B%9F%E6%9C%BA/01%20%E8%B5%B0%E8%BF%9BJava/6%20%E5%AE%9E%E6%88%98%EF%BC%9A%E8%87%AA%E5%B7%B1%E7%BC%96%E8%AF%91JDK/">
+				<h2 class="index-title">
+					6 实战：自己编译JDK
+				</h2>
+				<div class="index-brief">
+					实战：自己编译JDK
+
+下载OpenJDK：https://jdk7.java.net/source.html
+系统需求：Ubuntu 64位、5GB的磁盘、1G内存；
+构建编译环境：需要Bootstrap JDK(JDK6以上)/Ant(1.7.1以上)/GCC。sudo apt-get inst
+					...
+				</div>
+			</a>
+                <div class="article-meta">
+				    <span>2019-01-05</span>
+                    
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/">00 Java</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/01-Java虚拟机/">01 Java虚拟机</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/00-Java/01-Java虚拟机/01-走进Java/">01 走进Java</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
+		</div>	
+	
 	
 	<div id="index-paginator">
 		
-			<a class="extend prev" rel="prev" href="/categories/00-Java/page/2/">&lt;</a><a class="page-number" href="/categories/00-Java/">1</a><a class="page-number" href="/categories/00-Java/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/categories/00-Java/page/4/">4</a><a class="page-number" href="/categories/00-Java/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/categories/00-Java/page/15/">15</a><a class="extend next" rel="next" href="/categories/00-Java/page/4/">&gt;</a>
+			<a class="extend prev" rel="prev" href="/categories/00-Java/page/2/">&lt;</a><a class="page-number" href="/categories/00-Java/">1</a><a class="page-number" href="/categories/00-Java/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/categories/00-Java/page/4/">4</a><a class="page-number" href="/categories/00-Java/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/categories/00-Java/page/14/">14</a><a class="extend next" rel="next" href="/categories/00-Java/page/4/">&gt;</a>
 		
 	</div>
 </div>
@@ -4954,16 +4958,19 @@ Serial的多线程版本。
 	<p>
 	©2019-<span id="footerYear"></span> 
 	<a href="/">Wu Jun</a> 
-	|
-	<span id="busuanzi_container_site_pv">
-		pv
-		<span id="busuanzi_value_site_pv"></span>
-	</span>
-	|
-	<span id="busuanzi_container_site_uv"> 
-		uv
-		<span id="busuanzi_value_site_uv"></span>
-	</span>
+	
+	
+		|
+		<span id="busuanzi_container_site_pv">
+			pv
+			<span id="busuanzi_value_site_pv"></span>
+		</span>
+		|
+		<span id="busuanzi_container_site_uv"> 
+			uv
+			<span id="busuanzi_value_site_uv"></span>
+		</span>
+	
 	<br>
 	Theme <a href="//github.com/wujun234/hexo-theme-tree">Tree</a>
 	by <a href="//github.com/wujun234">WuJun</a>

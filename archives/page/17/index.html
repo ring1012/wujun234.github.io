@@ -14,7 +14,7 @@
 	
 	<!-- keywords,description -->
 	
-		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun,java,技术,程序员" />
 	 
 		<meta name="description" content="吴俊,wujun234,wujun,wu jun" />
 	
@@ -32,10 +32,14 @@
 	<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/highlight.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/jquery-pjax@2.0.1/jquery.pjax.min.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/leancloud-storage/dist/av-min.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js"></script>
 	<script src="/js/main.js"></script>
-	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	
+		<script src="https://cdn.jsdelivr.net/npm/leancloud-storage/dist/av-min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js"></script>
+	
+	
+		<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	
 </head>
 
 <body>
@@ -492,8 +496,26 @@
 			
 							<ul>
 								<li class="file">
-									<a href="/2018/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/07%20%E5%B9%B6%E5%8F%91/3%20%E5%90%8C%E6%AD%A5/">
-										3 同步
+									<a href="/2020/01/07/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/07%20%E5%B9%B6%E5%8F%91/3%20%E9%94%81/">
+										3 锁
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2020/01/07/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/07%20%E5%B9%B6%E5%8F%91/4%20%E5%90%8C%E6%AD%A5%E5%99%A8/">
+										4 同步器
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2018/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/07%20%E5%B9%B6%E5%8F%91/5%20%E9%9D%9E%E9%98%BB%E5%A1%9E%E5%90%8C%E6%AD%A5/">
+										5 非阻塞同步
 									</a>
 								</li>
 								<div class="article-toc" style="display: none;"></div>
@@ -1434,15 +1456,6 @@
 								<div class="article-toc" style="display: none;"></div>
 							</ul>
 			
-							<ul>
-								<li class="file">
-									<a href="/2019/01/05/00%20Java/01%20Java%E8%99%9A%E6%8B%9F%E6%9C%BA/12%20Java%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B/3%20Java%E4%B8%8E%E7%BA%BF%E7%A8%8B/">
-										3 Java与线程
-									</a>
-								</li>
-								<div class="article-toc" style="display: none;"></div>
-							</ul>
-			
 								</li>
 								
 							</ul>
@@ -1577,24 +1590,6 @@
 									
 							<ul>
 								<li class="file">
-									<a href="/2019/03/02/00%20Java/03%20Java%E5%B9%B6%E5%8F%91/1%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/1%20%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8%E6%80%A7/">
-										1 线程安全性
-									</a>
-								</li>
-								<div class="article-toc" style="display: none;"></div>
-							</ul>
-			
-							<ul>
-								<li class="file">
-									<a href="/2019/03/02/00%20Java/03%20Java%E5%B9%B6%E5%8F%91/1%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/2%20%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%85%B1%E4%BA%AB/">
-										2 对象的共享
-									</a>
-								</li>
-								<div class="article-toc" style="display: none;"></div>
-							</ul>
-			
-							<ul>
-								<li class="file">
 									<a href="/2019/03/02/00%20Java/03%20Java%E5%B9%B6%E5%8F%91/1%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/3%20%E5%AF%B9%E8%B1%A1%E7%9A%84%E7%BB%84%E5%90%88/">
 										3 对象的组合
 									</a>
@@ -1619,94 +1614,9 @@
 								<li class="directory">
 									<a href="#" class="directory">
 										<i class="fa fa-plus-square-o"></i>
-										2 结构化并发应用程序
-									</a>
-									
-							<ul>
-								<li class="file">
-									<a href="/2019/03/05/00%20Java/03%20Java%E5%B9%B6%E5%8F%91/2%20%E7%BB%93%E6%9E%84%E5%8C%96%E5%B9%B6%E5%8F%91%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F/1%20%E4%BB%BB%E5%8A%A1%E6%89%A7%E8%A1%8C/">
-										1 任务执行
-									</a>
-								</li>
-								<div class="article-toc" style="display: none;"></div>
-							</ul>
-			
-							<ul>
-								<li class="file">
-									<a href="/2019/03/05/00%20Java/03%20Java%E5%B9%B6%E5%8F%91/2%20%E7%BB%93%E6%9E%84%E5%8C%96%E5%B9%B6%E5%8F%91%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F/2%20%E5%8F%96%E6%B6%88%E4%B8%8E%E5%85%B3%E9%97%AD/">
-										2 取消与关闭
-									</a>
-								</li>
-								<div class="article-toc" style="display: none;"></div>
-							</ul>
-			
-							<ul>
-								<li class="file">
-									<a href="/2019/03/07/00%20Java/03%20Java%E5%B9%B6%E5%8F%91/2%20%E7%BB%93%E6%9E%84%E5%8C%96%E5%B9%B6%E5%8F%91%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F/3%20%E7%BA%BF%E7%A8%8B%E6%B1%A0%E7%9A%84%E4%BD%BF%E7%94%A8/">
-										3 线程池的使用
-									</a>
-								</li>
-								<div class="article-toc" style="display: none;"></div>
-							</ul>
-			
-								</li>
-								
-							</ul>
-			
-							<ul>
-								<li class="directory">
-									<a href="#" class="directory">
-										<i class="fa fa-plus-square-o"></i>
-										3 活跃性、性能与测试
-									</a>
-									
-							<ul>
-								<li class="file">
-									<a href="/2019/03/07/00%20Java/03%20Java%E5%B9%B6%E5%8F%91/3%20%E6%B4%BB%E8%B7%83%E6%80%A7%E3%80%81%E6%80%A7%E8%83%BD%E4%B8%8E%E6%B5%8B%E8%AF%95/1%20%E9%81%BF%E5%85%8D%E6%B4%BB%E8%B7%83%E6%80%A7%E5%8D%B1%E9%99%A9/">
-										1 避免活跃性危险
-									</a>
-								</li>
-								<div class="article-toc" style="display: none;"></div>
-							</ul>
-			
-							<ul>
-								<li class="file">
-									<a href="/2019/03/11/00%20Java/03%20Java%E5%B9%B6%E5%8F%91/3%20%E6%B4%BB%E8%B7%83%E6%80%A7%E3%80%81%E6%80%A7%E8%83%BD%E4%B8%8E%E6%B5%8B%E8%AF%95/2%20%E6%80%A7%E8%83%BD%E4%B8%8E%E5%8F%AF%E4%BC%B8%E7%BC%A9%E6%80%A7/">
-										2 性能与可伸缩性
-									</a>
-								</li>
-								<div class="article-toc" style="display: none;"></div>
-							</ul>
-			
-							<ul>
-								<li class="file">
-									<a href="/2019/03/15/00%20Java/03%20Java%E5%B9%B6%E5%8F%91/3%20%E6%B4%BB%E8%B7%83%E6%80%A7%E3%80%81%E6%80%A7%E8%83%BD%E4%B8%8E%E6%B5%8B%E8%AF%95/3%20%E5%B9%B6%E5%8F%91%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%B5%8B%E8%AF%95/">
-										3 并发程序的测试
-									</a>
-								</li>
-								<div class="article-toc" style="display: none;"></div>
-							</ul>
-			
-								</li>
-								
-							</ul>
-			
-							<ul>
-								<li class="directory">
-									<a href="#" class="directory">
-										<i class="fa fa-plus-square-o"></i>
 										4 高级主题
 									</a>
 									
-							<ul>
-								<li class="file">
-									<a href="/2019/03/15/00%20Java/03%20Java%E5%B9%B6%E5%8F%91/4%20%E9%AB%98%E7%BA%A7%E4%B8%BB%E9%A2%98/1%20%E6%98%BE%E5%BC%8F%E9%94%81/">
-										1 显式锁
-									</a>
-								</li>
-								<div class="article-toc" style="display: none;"></div>
-							</ul>
-			
 							<ul>
 								<li class="file">
 									<a href="/2019/03/15/00%20Java/03%20Java%E5%B9%B6%E5%8F%91/4%20%E9%AB%98%E7%BA%A7%E4%B8%BB%E9%A2%98/2%20%E6%9E%84%E5%BB%BA%E8%87%AA%E5%AE%9A%E4%B9%89%E7%9A%84%E5%90%8C%E6%AD%A5%E5%B7%A5%E5%85%B7/">
@@ -4535,6 +4445,26 @@
 								
 							</ul>
 			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										21 其他
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2020/01/08/21%20%E5%85%B6%E4%BB%96/2019%20%E5%B9%B4%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93/">
+										2019 年工作总结
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
 		</div>
 	</div>
 </div>
@@ -4542,246 +4472,6 @@
 	<!-- 引入正文 -->
 	<div id="content">
 		<div id="index">
-	
-		<div class="index-li">
-			<a href="/2019/01/05/07%20%E5%B7%A5%E5%85%B7%E7%B1%BB/1%20Apache%20Commons/5%20Apache%20Commons%20Lang/">
-				<h2 class="index-title">
-					5 Apache Commons Lang
-				</h2>
-				<div class="index-brief">
-					 Lang 项目官网
-概览
-
-Lang 为 java.lang API 提供了大量辅助工具类，尤其是字符串操作方法，基本数值方法，对象反射，并发性，创建和序列化以及系统属性。 此外，它还包含对java.util.Date的基本增强功能以及一系列专用于帮助构建方法的工具集。
-顶层包包含各种Utils类
-					...
-				</div>
-			</a>
-                <div class="article-meta">
-				    <span>2019-01-05</span>
-                    
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/07-工具类/">07 工具类</a>
-                                    </span>
-                                
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/07-工具类/1-Apache-Commons/">1 Apache Commons</a>
-                                    </span>
-                                
-                            
-                    
-                </div>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/2019/01/05/07%20%E5%B7%A5%E5%85%B7%E7%B1%BB/1%20Apache%20Commons/4%20Apache%20Commons%20Collections/">
-				<h2 class="index-title">
-					4 Apache Commons Collections
-				</h2>
-				<div class="index-brief">
-					官网首页Commons Collections
-###概览
-Java集合框架是JDK 1.2添加的主要功能。它增加了许多强大的数据结构，加速了许多的重大Java应用的开发。从那时起就成为了Java中处理集合的公认标准。
-Commons-Collections试图通过提供新的接口，实现和工具来构建JD
-					...
-				</div>
-			</a>
-                <div class="article-meta">
-				    <span>2019-01-05</span>
-                    
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/07-工具类/">07 工具类</a>
-                                    </span>
-                                
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/07-工具类/1-Apache-Commons/">1 Apache Commons</a>
-                                    </span>
-                                
-                            
-                    
-                </div>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/2019/01/05/07%20%E5%B7%A5%E5%85%B7%E7%B1%BB/1%20Apache%20Commons/3%20Apache%20Commons%20Codec/">
-				<h2 class="index-title">
-					3 Apache Commons Codec
-				</h2>
-				<div class="index-brief">
-					Apache Commons Codec官网
-通用的编码解码算法（例如语音编码器、 Base64、URL）
-包结构
-
-
-
-
-Package
-Description
-
-
-
-
-org.apache.commons.codec
-由子包中各种实现使用的接口和类
-
-
-org.apache.commons.co
-					...
-				</div>
-			</a>
-                <div class="article-meta">
-				    <span>2019-01-05</span>
-                    
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/07-工具类/">07 工具类</a>
-                                    </span>
-                                
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/07-工具类/1-Apache-Commons/">1 Apache Commons</a>
-                                    </span>
-                                
-                            
-                    
-                </div>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/2019/01/05/07%20%E5%B7%A5%E5%85%B7%E7%B1%BB/1%20Apache%20Commons/2%20Apache%20Commons%20BeanUtils/">
-				<h2 class="index-title">
-					2 Apache Commons BeanUtils
-				</h2>
-				<div class="index-brief">
-					Commons BeanUtils官网
-包结构
-
-
-
-
-Package
-Description
-
-
-
-
-org.apache.commons.beanutils
-提供底层工具类，获取Bean属性值，动态定义和访问Bean属性。
-
-
-org.apache.commons.beanutils.conve
-					...
-				</div>
-			</a>
-                <div class="article-meta">
-				    <span>2019-01-05</span>
-                    
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/07-工具类/">07 工具类</a>
-                                    </span>
-                                
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/07-工具类/1-Apache-Commons/">1 Apache Commons</a>
-                                    </span>
-                                
-                            
-                    
-                </div>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/2019/01/05/07%20%E5%B7%A5%E5%85%B7%E7%B1%BB/1%20Apache%20Commons/1%20Apache%20Commons%20-%20%E6%80%BB%E8%A7%88/">
-				<h2 class="index-title">
-					1 Apache Commons - 总览
-				</h2>
-				<div class="index-brief">
-					Apache Commons是非常实用的开源框架，Apache Commons官网 在此。
-Apache Commons 项目由3部分组成:
-
-The Commons Proper - 可复用JAVA组件库
-The Commons Sandbox - Java组件开发工作区
-The Commons 
-					...
-				</div>
-			</a>
-                <div class="article-meta">
-				    <span>2019-01-05</span>
-                    
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/07-工具类/">07 工具类</a>
-                                    </span>
-                                
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/07-工具类/1-Apache-Commons/">1 Apache Commons</a>
-                                    </span>
-                                
-                            
-                    
-                </div>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/2019/01/05/07%20%E5%B7%A5%E5%85%B7%E7%B1%BB/3%20utils/3%20HttpUtil/">
-				<h2 class="index-title">
-					3 HttpUtil
-				</h2>
-				<div class="index-brief">
-					The static method collection for http request
-public class HttpUtil {
-  private static final String DEFAULT_CHARSET = &quot;UTF-8&quot;;
-  private sta
-					...
-				</div>
-			</a>
-                <div class="article-meta">
-				    <span>2019-01-05</span>
-                    
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/07-工具类/">07 工具类</a>
-                                    </span>
-                                
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/07-工具类/3-utils/">3 utils</a>
-                                    </span>
-                                
-                            
-                    
-                </div>
-		</div>	
 	
 		<div class="index-li">
 			<a href="/2019/01/05/07%20%E5%B7%A5%E5%85%B7%E7%B1%BB/3%20utils/2%20%E4%B8%80%E6%AC%A1%E6%80%A7%E8%AF%BB%E5%8F%96GZIP%E5%8E%8B%E7%BC%A9%E7%9A%84CSV%E6%96%87%E4%BB%B6/">
@@ -4942,6 +4632,217 @@ http_load是一款基于Linux平台的web服务器性能测试工具，以并行
                 </div>
 		</div>	
 	
+		<div class="index-li">
+			<a href="/2019/01/05/03%20%E5%BE%AE%E6%9C%8D%E5%8A%A1/4%20%E6%B6%88%E6%81%AF%E7%BB%84%E4%BB%B6/01%20Spring%20Cloud%20Bus/">
+				<h2 class="index-title">
+					01 Spring Cloud Bus
+				</h2>
+				<div class="index-brief">
+					消息总线是一种通信工具，可以在机器之间互相传输消息、文件等。消息总线扮演着一种消息路由的角色，拥有一套完备的路由机制来决定消息传输方向。发送段只需要向消息总线发出消息而不用管消息被如何转发。
+原理
+spring cloud bus整合 java的事件处理机制和消息中间件消息的发送和接受，主要由发送端
+					...
+				</div>
+			</a>
+                <div class="article-meta">
+				    <span>2019-01-05</span>
+                    
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/03-微服务/">03 微服务</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/03-微服务/4-消息组件/">4 消息组件</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2019/01/05/03%20%E5%BE%AE%E6%9C%8D%E5%8A%A1/3%20API%E7%BD%91%E5%85%B3/02%20Spring%20Cloud%20Gateway/">
+				<h2 class="index-title">
+					02 Spring Cloud Gateway
+				</h2>
+				<div class="index-brief">
+					【todo】
+
+					...
+				</div>
+			</a>
+                <div class="article-meta">
+				    <span>2019-01-05</span>
+                    
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/03-微服务/">03 微服务</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/03-微服务/3-API网关/">3 API网关</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2019/01/05/03%20%E5%BE%AE%E6%9C%8D%E5%8A%A1/3%20API%E7%BD%91%E5%85%B3/01%20Spring%20Cloud%20Zuul/">
+				<h2 class="index-title">
+					01 Spring Cloud Zuul
+				</h2>
+				<div class="index-brief">
+					Spring Cloud Zuul是提供负载均衡、反向代理、权限认证的一个API gateway。
+简单路由
+
+添加依赖
+引入 spring-cloud-starter-zuul 包
+
+&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework
+					...
+				</div>
+			</a>
+                <div class="article-meta">
+				    <span>2019-01-05</span>
+                    
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/03-微服务/">03 微服务</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/03-微服务/3-API网关/">3 API网关</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2019/01/05/03%20%E5%BE%AE%E6%9C%8D%E5%8A%A1/2%20%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83/02%20Apollo/">
+				<h2 class="index-title">
+					02 Apollo
+				</h2>
+				<div class="index-brief">
+					携程Apollo分布式配置中心，官方文档已经够成熟了：
+Wiki
+源码解析
+使用场景
+
+					...
+				</div>
+			</a>
+                <div class="article-meta">
+				    <span>2019-01-05</span>
+                    
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/03-微服务/">03 微服务</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/03-微服务/2-配置中心/">2 配置中心</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2019/01/05/03%20%E5%BE%AE%E6%9C%8D%E5%8A%A1/2%20%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83/01%20Spring%20Cloud%20Config/">
+				<h2 class="index-title">
+					01 Spring Cloud Config
+				</h2>
+				<div class="index-brief">
+					Spring Cloud Config老版采用git或svn存储配置文件，默认情况下使用git。从Edgware版本开始新增的一种配置方式：采用数据库存储配置信息。
+结构与原理
+Spring Cloud Config分服务端和客户端，服务端负责将git（svn）中存储的配置文件发布成REST接口，客
+					...
+				</div>
+			</a>
+                <div class="article-meta">
+				    <span>2019-01-05</span>
+                    
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/03-微服务/">03 微服务</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/03-微服务/2-配置中心/">2 配置中心</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2019/01/05/03%20%E5%BE%AE%E6%9C%8D%E5%8A%A1/1%20%E6%9C%8D%E5%8A%A1%E8%B0%83%E7%94%A8/04%20Resilience4j/">
+				<h2 class="index-title">
+					04 Resilience4j
+				</h2>
+				<div class="index-brief">
+					【todo】
+Hystrix官方已经停止开发了，Hystrix官方推荐使用新一代熔断器作为Resilience4j。作为新一代的熔断器，Resilience4j有很多优势，比如依赖少，模块化程度较好等优势。
+入门教程：Guide to Resilience4j
+
+					...
+				</div>
+			</a>
+                <div class="article-meta">
+				    <span>2019-01-05</span>
+                    
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/03-微服务/">03 微服务</a>
+                                    </span>
+                                
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/03-微服务/1-服务调用/">1 服务调用</a>
+                                    </span>
+                                
+                            
+                    
+                </div>
+		</div>	
+	
 	
 	<div id="index-paginator">
 		
@@ -4955,16 +4856,19 @@ http_load是一款基于Linux平台的web服务器性能测试工具，以并行
 	<p>
 	©2019-<span id="footerYear"></span> 
 	<a href="/">Wu Jun</a> 
-	|
-	<span id="busuanzi_container_site_pv">
-		pv
-		<span id="busuanzi_value_site_pv"></span>
-	</span>
-	|
-	<span id="busuanzi_container_site_uv"> 
-		uv
-		<span id="busuanzi_value_site_uv"></span>
-	</span>
+	
+	
+		|
+		<span id="busuanzi_container_site_pv">
+			pv
+			<span id="busuanzi_value_site_pv"></span>
+		</span>
+		|
+		<span id="busuanzi_container_site_uv"> 
+			uv
+			<span id="busuanzi_value_site_uv"></span>
+		</span>
+	
 	<br>
 	Theme <a href="//github.com/wujun234/hexo-theme-tree">Tree</a>
 	by <a href="//github.com/wujun234">WuJun</a>

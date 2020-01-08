@@ -9,14 +9,14 @@
 	
 	<title>
 	
-		3 并发程序的测试 | 
+		3 锁 | 
 	 
 	吴俊的博客
 	</title>
 	
 	<!-- keywords,description -->
 	
-		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun,java,技术,程序员" />
 	 
 		<meta name="description" content="吴俊,wujun234,wujun,wu jun" />
 	
@@ -34,10 +34,14 @@
 	<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/highlight.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/jquery-pjax@2.0.1/jquery.pjax.min.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/leancloud-storage/dist/av-min.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js"></script>
 	<script src="/js/main.js"></script>
-	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	
+		<script src="https://cdn.jsdelivr.net/npm/leancloud-storage/dist/av-min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js"></script>
+	
+	
+		<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	
 </head>
 
 <body>
@@ -493,9 +497,27 @@
 							</ul>
 			
 							<ul>
+								<li class="file active">
+									<a href="/2020/01/07/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/07%20%E5%B9%B6%E5%8F%91/3%20%E9%94%81/">
+										3 锁
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
 								<li class="file">
-									<a href="/2018/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/07%20%E5%B9%B6%E5%8F%91/3%20%E5%90%8C%E6%AD%A5/">
-										3 同步
+									<a href="/2020/01/07/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/07%20%E5%B9%B6%E5%8F%91/4%20%E5%90%8C%E6%AD%A5%E5%99%A8/">
+										4 同步器
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2018/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/07%20%E5%B9%B6%E5%8F%91/5%20%E9%9D%9E%E9%98%BB%E5%A1%9E%E5%90%8C%E6%AD%A5/">
+										5 非阻塞同步
 									</a>
 								</li>
 								<div class="article-toc" style="display: none;"></div>
@@ -1436,15 +1458,6 @@
 								<div class="article-toc" style="display: none;"></div>
 							</ul>
 			
-							<ul>
-								<li class="file">
-									<a href="/2019/01/05/00%20Java/01%20Java%E8%99%9A%E6%8B%9F%E6%9C%BA/12%20Java%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B/3%20Java%E4%B8%8E%E7%BA%BF%E7%A8%8B/">
-										3 Java与线程
-									</a>
-								</li>
-								<div class="article-toc" style="display: none;"></div>
-							</ul>
-			
 								</li>
 								
 							</ul>
@@ -1579,24 +1592,6 @@
 									
 							<ul>
 								<li class="file">
-									<a href="/2019/03/02/00%20Java/03%20Java%E5%B9%B6%E5%8F%91/1%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/1%20%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8%E6%80%A7/">
-										1 线程安全性
-									</a>
-								</li>
-								<div class="article-toc" style="display: none;"></div>
-							</ul>
-			
-							<ul>
-								<li class="file">
-									<a href="/2019/03/02/00%20Java/03%20Java%E5%B9%B6%E5%8F%91/1%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/2%20%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%85%B1%E4%BA%AB/">
-										2 对象的共享
-									</a>
-								</li>
-								<div class="article-toc" style="display: none;"></div>
-							</ul>
-			
-							<ul>
-								<li class="file">
 									<a href="/2019/03/02/00%20Java/03%20Java%E5%B9%B6%E5%8F%91/1%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/3%20%E5%AF%B9%E8%B1%A1%E7%9A%84%E7%BB%84%E5%90%88/">
 										3 对象的组合
 									</a>
@@ -1621,94 +1616,9 @@
 								<li class="directory">
 									<a href="#" class="directory">
 										<i class="fa fa-plus-square-o"></i>
-										2 结构化并发应用程序
-									</a>
-									
-							<ul>
-								<li class="file">
-									<a href="/2019/03/05/00%20Java/03%20Java%E5%B9%B6%E5%8F%91/2%20%E7%BB%93%E6%9E%84%E5%8C%96%E5%B9%B6%E5%8F%91%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F/1%20%E4%BB%BB%E5%8A%A1%E6%89%A7%E8%A1%8C/">
-										1 任务执行
-									</a>
-								</li>
-								<div class="article-toc" style="display: none;"></div>
-							</ul>
-			
-							<ul>
-								<li class="file">
-									<a href="/2019/03/05/00%20Java/03%20Java%E5%B9%B6%E5%8F%91/2%20%E7%BB%93%E6%9E%84%E5%8C%96%E5%B9%B6%E5%8F%91%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F/2%20%E5%8F%96%E6%B6%88%E4%B8%8E%E5%85%B3%E9%97%AD/">
-										2 取消与关闭
-									</a>
-								</li>
-								<div class="article-toc" style="display: none;"></div>
-							</ul>
-			
-							<ul>
-								<li class="file">
-									<a href="/2019/03/07/00%20Java/03%20Java%E5%B9%B6%E5%8F%91/2%20%E7%BB%93%E6%9E%84%E5%8C%96%E5%B9%B6%E5%8F%91%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F/3%20%E7%BA%BF%E7%A8%8B%E6%B1%A0%E7%9A%84%E4%BD%BF%E7%94%A8/">
-										3 线程池的使用
-									</a>
-								</li>
-								<div class="article-toc" style="display: none;"></div>
-							</ul>
-			
-								</li>
-								
-							</ul>
-			
-							<ul>
-								<li class="directory">
-									<a href="#" class="directory">
-										<i class="fa fa-plus-square-o"></i>
-										3 活跃性、性能与测试
-									</a>
-									
-							<ul>
-								<li class="file">
-									<a href="/2019/03/07/00%20Java/03%20Java%E5%B9%B6%E5%8F%91/3%20%E6%B4%BB%E8%B7%83%E6%80%A7%E3%80%81%E6%80%A7%E8%83%BD%E4%B8%8E%E6%B5%8B%E8%AF%95/1%20%E9%81%BF%E5%85%8D%E6%B4%BB%E8%B7%83%E6%80%A7%E5%8D%B1%E9%99%A9/">
-										1 避免活跃性危险
-									</a>
-								</li>
-								<div class="article-toc" style="display: none;"></div>
-							</ul>
-			
-							<ul>
-								<li class="file">
-									<a href="/2019/03/11/00%20Java/03%20Java%E5%B9%B6%E5%8F%91/3%20%E6%B4%BB%E8%B7%83%E6%80%A7%E3%80%81%E6%80%A7%E8%83%BD%E4%B8%8E%E6%B5%8B%E8%AF%95/2%20%E6%80%A7%E8%83%BD%E4%B8%8E%E5%8F%AF%E4%BC%B8%E7%BC%A9%E6%80%A7/">
-										2 性能与可伸缩性
-									</a>
-								</li>
-								<div class="article-toc" style="display: none;"></div>
-							</ul>
-			
-							<ul>
-								<li class="file active">
-									<a href="/2019/03/15/00%20Java/03%20Java%E5%B9%B6%E5%8F%91/3%20%E6%B4%BB%E8%B7%83%E6%80%A7%E3%80%81%E6%80%A7%E8%83%BD%E4%B8%8E%E6%B5%8B%E8%AF%95/3%20%E5%B9%B6%E5%8F%91%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%B5%8B%E8%AF%95/">
-										3 并发程序的测试
-									</a>
-								</li>
-								<div class="article-toc" style="display: none;"></div>
-							</ul>
-			
-								</li>
-								
-							</ul>
-			
-							<ul>
-								<li class="directory">
-									<a href="#" class="directory">
-										<i class="fa fa-plus-square-o"></i>
 										4 高级主题
 									</a>
 									
-							<ul>
-								<li class="file">
-									<a href="/2019/03/15/00%20Java/03%20Java%E5%B9%B6%E5%8F%91/4%20%E9%AB%98%E7%BA%A7%E4%B8%BB%E9%A2%98/1%20%E6%98%BE%E5%BC%8F%E9%94%81/">
-										1 显式锁
-									</a>
-								</li>
-								<div class="article-toc" style="display: none;"></div>
-							</ul>
-			
 							<ul>
 								<li class="file">
 									<a href="/2019/03/15/00%20Java/03%20Java%E5%B9%B6%E5%8F%91/4%20%E9%AB%98%E7%BA%A7%E4%B8%BB%E9%A2%98/2%20%E6%9E%84%E5%BB%BA%E8%87%AA%E5%AE%9A%E4%B9%89%E7%9A%84%E5%90%8C%E6%AD%A5%E5%B7%A5%E5%85%B7/">
@@ -4537,6 +4447,26 @@
 								
 							</ul>
 			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										21 其他
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2020/01/08/21%20%E5%85%B6%E4%BB%96/2019%20%E5%B9%B4%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93/">
+										2019 年工作总结
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
 		</div>
 	</div>
 </div>
@@ -4545,14 +4475,16 @@
 	<div id="content">
 		<h1 id="article-title">
 
-	3 并发程序的测试
+	3 锁
 </h1>
 <div class="article-meta">
-	<span>
-		阅读量:<span id="/2019/03/15/00%20Java/03%20Java%E5%B9%B6%E5%8F%91/3%20%E6%B4%BB%E8%B7%83%E6%80%A7%E3%80%81%E6%80%A7%E8%83%BD%E4%B8%8E%E6%B5%8B%E8%AF%95/3%20%E5%B9%B6%E5%8F%91%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%B5%8B%E8%AF%95/" class="leancloud_visitors" data-flag-title=""></span>
-	</span>
+	
+		<span>
+			阅读量:<span id="/2020/01/07/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/07%20%E5%B9%B6%E5%8F%91/3%20%E9%94%81/" class="leancloud_visitors" data-flag-title=""></span>
+		</span>
+	
 	<span>Wu Jun</span>
-	<span>2019-03-15 21:33:24</span>
+	<span>2020-01-07 00:15:01</span>
     
 		<div id="article-categories">
             
@@ -4566,14 +4498,14 @@
                 
                     <span>
                         <i class="fa fa-folder" aria-hidden="true"></i>
-                        <a href="/categories/00-Java/03-Java并发/">03 Java并发</a>
+                        <a href="/categories/00-Java/00-Java基础/">00 Java基础</a>
                     </span>
                 
             
                 
                     <span>
                         <i class="fa fa-folder" aria-hidden="true"></i>
-                        <a href="/categories/00-Java/03-Java并发/3-活跃性、性能与测试/">3 活跃性、性能与测试</a>
+                        <a href="/categories/00-Java/00-Java基础/07-并发/">07 并发</a>
                     </span>
                 
             
@@ -4582,48 +4514,284 @@
 </div>
 
 <div id="article-content">
-	<h3 id="1-正确性测试"><a class="header-anchor" href="#1-正确性测试"></a>1 正确性测试</h3>
-<h5 id="1-1-基本的单元测试"><a class="header-anchor" href="#1-1-基本的单元测试"></a>1.1 基本的单元测试</h5>
-<h5 id="1-2-对阻塞操作的测试"><a class="header-anchor" href="#1-2-对阻塞操作的测试"></a>1.2 对阻塞操作的测试</h5>
-<h5 id="1-3-安全性测试"><a class="header-anchor" href="#1-3-安全性测试"></a>1.3 安全性测试</h5>
-<p>在构建对并发程序的安全性测试中，需要解决的关键问题在于，要找出那些容易检查的属性，这些属性在发生错误的情况下极有可能失败，同时又不会使得错误检查代码人为地限制并发性。理想情况是，在测试属性中不需要任何同步机制。</p>
-<p>这些测试应该放在多处理器的系统上运行，从而进一步测试更多形式的交替运行。然而，CPU的数量越多并不一定会使测试越高效。要最大程度地检测出一些对执行时序敏感的数据竞争，那么测试中的线程数量应该多于CPU数量，这样在任意时刻都会有一些线程在运行，而另一些被交换出去，从而可以检查线程间交替行为的可预测性。</p>
-<h5 id="1-4-资源管理的测试"><a class="header-anchor" href="#1-4-资源管理的测试"></a>1.4 资源管理的测试</h5>
-<h5 id="1-5-使用回调"><a class="header-anchor" href="#1-5-使用回调"></a>1.5 使用回调</h5>
-<h5 id="1-6-产生更多的交替操作"><a class="header-anchor" href="#1-6-产生更多的交替操作"></a>1.6 产生更多的交替操作</h5>
-<p>使用 Thread.yield 来产生更多的交替操作。</p>
-<h3 id="2-性能测试"><a class="header-anchor" href="#2-性能测试"></a>2 性能测试</h3>
-<h5 id="2-2-多种算法的比较"><a class="header-anchor" href="#2-2-多种算法的比较"></a>2.2 多种算法的比较</h5>
-<p>java.util.concurrent中的算法已经进行了调优，其性能也已经达到我们已知的最佳状态</p>
-<p>LinkedBlockingQueue 的可伸缩性要高于 ArrayBlockingQueue。</p>
-<h5 id="2-3-响应性衡量"><a class="header-anchor" href="#2-3-响应性衡量"></a>2.3 响应性衡量</h5>
-<h3 id="3-避免性能测试的陷阱"><a class="header-anchor" href="#3-避免性能测试的陷阱"></a>3 避免性能测试的陷阱</h3>
-<h5 id="3-1-垃圾回收"><a class="header-anchor" href="#3-1-垃圾回收"></a>3.1 垃圾回收</h5>
-<h5 id="3-2-动态编译"><a class="header-anchor" href="#3-2-动态编译"></a>3.2 动态编译</h5>
-<h5 id="3-3-对代码路径的不真实采样"><a class="header-anchor" href="#3-3-对代码路径的不真实采样"></a>3.3 对代码路径的不真实采样</h5>
-<h5 id="3-4-不真实的竞争程度"><a class="header-anchor" href="#3-4-不真实的竞争程度"></a>3.4 不真实的竞争程度</h5>
-<h5 id="3-5-无用代码的消除"><a class="header-anchor" href="#3-5-无用代码的消除"></a>3.5 无用代码的消除</h5>
-<p>要编写有效的性能测试程序，就需要告诉优化器不要将基准测试当作无用代码而优化掉。这就要求在程序中对每个计算结果都要通过某种方式来使用，这种方式不需要同步或者大量的计算。</p>
-<h3 id="4-其他的测试方法"><a class="header-anchor" href="#4-其他的测试方法"></a>4 其他的测试方法</h3>
-<h5 id="4-1-代码审查"><a class="header-anchor" href="#4-1-代码审查"></a>4.1 代码审查</h5>
-<h5 id="4-2-静态分析工具"><a class="header-anchor" href="#4-2-静态分析工具"></a>4.2 静态分析工具</h5>
-<p>静态分析工具 FindBugs 包含的检查器中可以发现以下与并发相关的错误模式：</p>
+	<p>有两种机制防止代码块受并发访问的干扰。synchronized 关键字，ReentrantLock 类。</p>
+<h3 id="1-可重入锁（ReentrantLock）"><a class="header-anchor" href="#1-可重入锁（ReentrantLock）"></a>1 可重入锁（ReentrantLock）</h3>
+<p>可重入锁（ReentrantLock）并不是一种替代内置加锁的方法，而是当内置加锁机制不适用时，作为一种可选择的高级功能。</p>
+<h4 id="1-1-属性"><a class="header-anchor" href="#1-1-属性"></a>1.1 属性</h4>
 <ul>
-<li>不一致的同步；</li>
-<li>调用 Thread.run；</li>
-<li>未被释放的锁；</li>
-<li>空的同步块；</li>
-<li>双重检查加锁；</li>
-<li>在构造函数中启动一个线程；</li>
-<li>通知错误；</li>
-<li>条件等待中的错误；</li>
-<li>对 Lock 和 Condition 的误用；</li>
-<li>在休眠或者等待的同时持有一个锁；</li>
-<li>自旋循环。</li>
+<li>ReentrantLock 实现了 Lock 接口，并提供了与 synchronized 相同的互斥性、内存可见性和可重入的加锁语义。</li>
+<li>与 synchronized 相比，ReentrantLock 提供了更好的活跃性或性能。但也更“危险”，不会自动清除锁，必须在 finally 中释放锁。</li>
+<li>ReentrantLock 是可重入的，因为线程可以重复地获得已经持有的锁。锁保持一个<code>持有计数</code>来跟踪对 lock 方法的嵌套调用。线程在每一次调用 lock 都要调用 unlock 来释放锁。由于这一特性，被一个锁保护的代码可以调用另一个使用相同的锁的方法。</li>
 </ul>
-<h5 id="4-3-面向切面的测试技术。"><a class="header-anchor" href="#4-3-面向切面的测试技术。"></a>4.3 面向切面的测试技术。</h5>
-<h5 id="4-4-分析与监测工具"><a class="header-anchor" href="#4-4-分析与监测工具"></a>4.4 分析与监测工具</h5>
-<p>内置的 JMX 代理提供了一些有限的功能来监测线程的行为。ThreadInfo 类中包含了线程的当前状态。</p>
+<h4 id="1-2-实现方法"><a class="header-anchor" href="#1-2-实现方法"></a>1.2 实现方法</h4>
+<p>重入的一种实现方法：</p>
+<ol>
+<li>为锁关联一个“获取计数值”和锁当前的“持有者线程”, 当计数值为 0 时, 这个锁被认为没有被任何线程持有。</li>
+<li>当线程请求一个未被持有的锁时, JVM 将记录锁的持有者线程, 并将获取计数值置为 1</li>
+<li>如果同一个线程再次获取这个锁，计数值将递增，而当线程退出同步代码块时, 计数值会相应地递减</li>
+<li>当计数值为 0 时, 这个锁将释放, JVM 将取消记录锁的持有者线程。</li>
+</ol>
+<h4 id="1-3-构造方法"><a class="header-anchor" href="#1-3-构造方法"></a>1.3 构造方法</h4>
+<pre><code>Lock myLock = new Reentrantlock();
+myLock.lock(); // a Reentrantlock object
+try {
+    // critical section
+} finally {
+    myLock.unlock(); // make sure the lock is unlocked even if an exception is thrown
+}
+</code></pre>
+<ul>
+<li>ReentrantLock()：构建一个可以被用来保护临界区的可重入锁。</li>
+<li>ReentrantLock(boolean fair)：构建一个带有公平策略的锁。
+<ul>
+<li>公平锁：按照发出请求的顺序来获得锁。这一公平的保证将大大降低性能。</li>
+<li>非公平锁（默认）：允许插队</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-条件对象（Condition）"><a class="header-anchor" href="#2-条件对象（Condition）"></a>2 条件对象（Condition）</h3>
+<p>一个锁对象可以有一个或多个相关的条件对象（Condition）。</p>
+<p>条件对象管理那些已经获得了一个锁但是却不能做有用工作的线程。</p>
+<h4 id="2-1-获取条件对象"><a class="header-anchor" href="#2-1-获取条件对象"></a>2.1 获取条件对象</h4>
+<p>newCondition 获得一个条件对象。</p>
+<pre><code>Condition condition = myLock.newCondition();
+</code></pre>
+<h4 id="2-2-阻塞"><a class="header-anchor" href="#2-2-阻塞"></a>2.2 阻塞</h4>
+<p>线程条件 await()，线程进入该条件的等待集，阻塞。</p>
+<pre><code>condition.await();
+</code></pre>
+<h4 id="2-3-恢复"><a class="header-anchor" href="#2-3-恢复"></a>2.3 恢复</h4>
+<p>直到某个其他线程调用同一条件上的 signalAll() 重新激活因为这一条件而等待的所有线程。</p>
+<pre><code>otherCondition.singalAll();
+</code></pre>
+<p>此时，线程应该再次测试该条件。</p>
+<pre><code>while (!okToProceed())
+    condition.await();   
+</code></pre>
+<p>另一个方法 signal()，则是随机解除等待集中某个线程的阻塞状态。</p>
+<p>如果没有其他线程再次调用 signal，那么系统就死锁了。</p>
+<h3 id="3-内置锁（synchronized）"><a class="header-anchor" href="#3-内置锁（synchronized）"></a>3 内置锁（synchronized）</h3>
+<p>总结一下有关锁和条件的关键之处：</p>
+<ul>
+<li>锁用来保护代码片段，任何时刻只能有一个线程执行被保护的代码。</li>
+<li>锁可以管理试图进入被保护代码段的线程。</li>
+<li>锁可以拥有一个或多个相关的条件对象。</li>
+<li>每个条件对象管理那些已经进入被保护的代码段但还不能运行的线程。</li>
+</ul>
+<p>Lock 和 Condition 接口为程序设计人员提供了高度的锁定控制。然而， 大多数情况下，
+并不需要那样的控制。</p>
+<h4 id="3-1-对象内部锁"><a class="header-anchor" href="#3-1-对象内部锁"></a>3.1 对象内部锁</h4>
+<p>从 1.0 版开始， Java中的每一个对象都有一个内部锁。</p>
+<p>如果一个方法用 synchronized 关键字声明，那么对象的锁将保护整个方法。</p>
+<h5 id="1）synchronized-方法以方法所在对象为锁"><a class="header-anchor" href="#1）synchronized-方法以方法所在对象为锁"></a>1）synchronized 方法以方法所在对象为锁</h5>
+<pre><code>// 以下三种方法等效
+public synchronized void method() {
+    // method body
+}
+public void method() {
+	synchronizedd (this) {
+        // method body
+	}
+}
+public void methoda() {
+    this.intrinsicLock.lock();
+    try {
+        // method body
+    } finally {
+        this.intrinsicLock.unlock();
+    }
+}
+</code></pre>
+<h5 id="2）静态-synchronized-方法以-Class-对象为锁"><a class="header-anchor" href="#2）静态-synchronized-方法以-Class-对象为锁"></a>2）静态 synchronized 方法以 Class 对象为锁</h5>
+<pre><code>// 以下两种方法等效
+public static synchronizedd void method() {
+}
+public static void method() {
+	// 以当前对象的Class对象作为锁
+	synchronizedd (SyncObject.class) {
+	}
+}
+</code></pre>
+<p>每个 Java 对象都可以用做一个实现同步的锁, 这些锁被称为内置锁或监视器锁。</p>
+<h4 id="3-2-同步建议"><a class="header-anchor" href="#3-2-同步建议"></a>3.2 同步建议</h4>
+<p>内部对象锁只有一个相关条件，其 wait 与 notifyAll ，等价于 Condition 的 await 与 signalAll</p>
+<blockquote>
+<p>在使用 wait/ notifyAll 之前， 应该考虑使用同步器。</p>
+</blockquote>
+<p>内部锁和条件存在一些局限。包括：</p>
+<ul>
+<li>不能中断一个正在试图获得锁的线程。</li>
+<li>试图获得锁时不能设定超时。</li>
+<li>每个锁仅有单一的条件，可能是不够的。</li>
+</ul>
+<p>Lock 和 Condition 对象还是同步方法？</p>
+<ul>
+<li>最好既不使用 Lock/Condition 也不使用 synchronized 关键字。可使用 java.util.concurrent 包中的一种机制，或并行流。</li>
+<li>如果特别需要 Lock/Condition 结构提供的独有特性（可定时的、可轮询的与可中断的锁获取操作，公平队列，以及非块结、构的锁）时，才使用 Lock/Condition，否则，应该优先使用synchronized。</li>
+</ul>
+<h4 id="3-3-同步阻塞"><a class="header-anchor" href="#3-3-同步阻塞"></a>3.3 同步阻塞</h4>
+<p>线程可通过获得对象的的内部锁，进入同步阻塞。</p>
+<p>lock 对象被创建仅仅是用来使用每个 Java 对象持有的锁。</p>
+<pre><code>private Object lock = new Object();
+synchronized (obj){
+    // critical section
+}
+</code></pre>
+<h4 id="3-4-客户端锁定"><a class="header-anchor" href="#3-4-客户端锁定"></a>3.4 客户端锁定</h4>
+<p>以下例子依赖于 Vector 类对自己的所有可修改方法都使用内部锁。</p>
+<pre><code>public void transfer(Vector&lt;Double&gt; accounts, int from, int to, int amount){
+    synchronized (accounts){
+        accounts.setCfron, accounts.get(from) - amount):
+        accounts.set(to, accounts.get(to) + amount);
+    }
+    System.out.println(. . .);
+}
+</code></pre>
+<p>客户端锁定是非常脆弱的，通常不推荐使用。</p>
+<h4 id="3-5-监视器概念"><a class="header-anchor" href="#3-5-监视器概念"></a>3.5 监视器概念</h4>
+<p>监视器可以在不需要程序员考虑如何加锁的情况下，就可以保证多线程的安全性。具有如下特性：</p>
+<ul>
+<li>监视器是只包含私有域的类。</li>
+<li>每个监视器类的对象有一个相关的锁。</li>
+<li>使用该锁对所有的方法进行加锁。</li>
+<li>该锁可以有任意多个相关条件。</li>
+</ul>
+<p>Java 以 synchronized 关键字不是很精确地采用了监视器概念，使得线程的安全性下降：</p>
+<ul>
+<li>域不要求必须是 private。</li>
+<li>方法不要求必须是 synchronized。</li>
+<li>内部锁对客户是可用的。</li>
+</ul>
+<h3 id="4-读-写锁（ReadWriteLock）"><a class="header-anchor" href="#4-读-写锁（ReadWriteLock）"></a>4 读-写锁（ReadWriteLock）</h3>
+<p>一个资源可以被多个读操作访问，或者被一个写操作访问，但两者不能同时进行。在这种情况下就可以使用读-写锁。</p>
+<p>ReadWriteLock 中的读取锁和写入锁只是读-写锁对象的不同视图。</p>
+<ul>
+<li>ReentrantReadWriteLock 为读写锁提供了可重入的加锁语义</li>
+<li>ReentrantReadWriteLock 在构造时可以选择非公平锁或者公平锁</li>
+<li>写线程可以降为读线程，读线程不能升级为写线程</li>
+<li>如果由读线程持有锁，而另一个线程请求写入锁，其他线程都不能获取读取锁</li>
+</ul>
+<pre><code>//1) 构造一个ReentrantReadWriteLock对象
+private ReentrantReadWriteLockrwl = new ReentrantReadWriteLock();
+//2) 抽取读锁和写锁
+private Lock readLock = rwl.readLock();
+private Lock writeLocfc = rwl.writeLock();
+//3) 对所有的访问者加读锁
+public double getTotalBalance() {
+    readLock.lock();
+    try {
+    } finally {
+        readLock.unlock();
+    }
+}
+//4) 对所有的修改者加写锁
+public void transfer() {
+    writeLocfc.lock();
+    try {
+    } finally {
+        writeLocfc.unlock();
+    }
+}
+</code></pre>
+<h3 id="5-死锁"><a class="header-anchor" href="#5-死锁"></a>5 死锁</h3>
+<p>如果有一组进程或线程，其中每个都在等待一个只有其它进程或线程才可以执行的操作，那么就称它们被死锁了。</p>
+<h4 id="5-1-死锁的必要条件"><a class="header-anchor" href="#5-1-死锁的必要条件"></a>5.1 死锁的必要条件</h4>
+<ul>
+<li>互斥：一个资源每次只能被一个线程使用</li>
+<li>占有并等待：一个进程因请求资源而阻塞时， 对已获得的资源保持不放</li>
+<li>非抢占：线程已获得的资源, 在未使用完之前, 不能强行被剥夺</li>
+<li>循环等待：若干进程之间形成一种头尾相接的循环等待资源关系</li>
+</ul>
+<p>对于 Java 中的 synchronized 来说， 前三个条件是天然满足且无法打破的， 所以只要防止循环等待条件发生， 就可以避免 synchronized 造成的死锁</p>
+<h4 id="5-2-避免死锁"><a class="header-anchor" href="#5-2-避免死锁"></a>5.2 避免死锁</h4>
+<p>要避免死锁，应该确保在获取多个锁时，在所有的线程中都以相同的顺序获取锁。</p>
+<ul>
+<li>以相同顺序获取锁
+<ul>
+<li>可通过 System.identityHashCode 方法，获取参数的 hash 值，根据 hash 值来决定锁顺序。若 hash 相同则先获取加时锁来避免死锁</li>
+<li>如果对象内存在唯一的，不可变的， 并且具有可比性的键值， 可以通过比较键值来决定获取锁的顺序， 也避免了引入加时赛锁的复杂。</li>
+</ul>
+</li>
+<li>使获取多个锁的集合尽量小</li>
+<li>开放调用：尽可能地使用开放调用（在调用某个方法时不需要持有锁）</li>
+<li>定时锁：使用定时锁与轮询锁（Lock 类 tryLock 方法）。试图申请一个锁，成功返回 true，否则立即返回 false，避免阻塞</li>
+<li>使用可中断的锁获取操作：lockInterruptibly 方法或 tryLock 方法</li>
+</ul>
+<h4 id="5-3-其它活跃性危险"><a class="header-anchor" href="#5-3-其它活跃性危险"></a>5.3 其它活跃性危险</h4>
+<h5 id="1）饥饿"><a class="header-anchor" href="#1）饥饿"></a>1）饥饿</h5>
+<p>当线程无法访问它所需要的资源而不能继续执行时，就发生了饥饿。</p>
+<ul>
+<li>引发饥饿的最常见资源就是 CPU 时钟周期。
+<ul>
+<li>Java 应用程序中线程优先级使用不当</li>
+<li>在持有锁时执行一些无法结束的结构</li>
+</ul>
+</li>
+<li>避免使用线程优先级，这会增加平台依赖性，并可能导致活跃性问题。</li>
+</ul>
+<h5 id="2）丢失信号"><a class="header-anchor" href="#2）丢失信号"></a>2）丢失信号</h5>
+<p>不良的锁管理可能会导致糟糕的响应性。 如果某个线程长时间持有一个锁， 其它获取这个锁的线程就必须等待很长时间。</p>
+<h5 id="3）活锁"><a class="header-anchor" href="#3）活锁"></a>3）活锁</h5>
+<p>活锁：线程不断重复执行相同的操作， 而且总会失败。</p>
+<p>在重试机制中引入随机性可解决活锁问题。</p>
+<h3 id="6-锁优化代码"><a class="header-anchor" href="#6-锁优化代码"></a>6 锁优化代码</h3>
+<p>影响锁竞争的两个因素：锁的请求频率，持有锁的时间。</p>
+<h4 id="6-1-缩小锁的范围（“快进快出”）"><a class="header-anchor" href="#6-1-缩小锁的范围（“快进快出”）"></a>6.1 缩小锁的范围（“快进快出”）</h4>
+<p>尽可能缩短锁的持有时间，将与锁无关的代码移除同步代码块</p>
+<ul>
+<li>缩小同步代码块能提高可伸缩性</li>
+<li>需要采用原子方式执行的操作必须包含在一个同步块中</li>
+<li>当可以将一些“大量”的计算或阻塞操作从同步代码块中移出时，才应该考虑同步代码块的大小。</li>
+</ul>
+<h4 id="6-2-减小锁的粒度"><a class="header-anchor" href="#6-2-减小锁的粒度"></a>6.2 减小锁的粒度</h4>
+<p>降低线程请求锁的频率，从而减小发生竞争的可能性。</p>
+<p>通过锁分解和锁分段等技术，减小锁操作的粒度，能实现更高的可伸缩性，最终降低每个锁被请求的频率。</p>
+<p>然而，使用的锁越多，那么发生死锁的风险也就越高。</p>
+<p>Amdahl 定律：在增加计算资源的情况下，程序在理论上能够实现最高加速比，这个值取决于程序中并行组件与串行组件所占的比重。</p>
+<h5 id="1）锁分解"><a class="header-anchor" href="#1）锁分解"></a>1）锁分解</h5>
+<p>将一个锁分解为两个锁。将一个锁中的两个不相干对象拆分出来，使对两个对象的操作分别获取各自的锁</p>
+<h5 id="2）锁分段"><a class="header-anchor" href="#2）锁分段"></a>2）锁分段</h5>
+<p>将一个锁分解为多个锁。在某些情况下，可以将锁分解技术进一步扩展为对一组独立对象上的锁进行分解，这种情况被称为锁分段。例如，ConcurrentHashMap。</p>
+<p>锁分段的一个劣势在于：与采用单个锁来实现独占访问相比，要获取多个锁来实现独占访问将更加困难并且开销更高。</p>
+<h5 id="6-3-避免热点区域"><a class="header-anchor" href="#6-3-避免热点区域"></a>6.3 避免热点区域</h5>
+<p>当每个操作都请求多个变量时，锁的粒度将很难降低。这是在性能与可伸缩性之间相互制衡的另一个方面，一些常见的优化措施，例如将一些反复计算的结果缓存起来，都会引人一些 “热点域(Hot Field) ”，而这些热点域往往会限制可伸缩性。</p>
+<p>例如 HashMap 里的 size 使用了共享的计数器，每次增删操作都会更新计数器，这个热点域会限制可伸缩性。</p>
+<p>为了避免这个问题，ConcurrentHashMap 中的 size 将对每个分段进行枚举并将每个分段中的元素数量相加，而不是维护一个全局计数。为了避免枚举每个元素，每个分段都维护了一个独立的计数，并通过每个分段的锁来维护这个值。</p>
+<h4 id="6-4-替代独占锁"><a class="header-anchor" href="#6-4-替代独占锁"></a>6.4 替代独占锁</h4>
+<p>第三种降低竞争锁的影响的技术就是放弃使用独占锁，从而有助于使用一种友好并发的方式来管理共享状态。例如，使用并发容器、读-写锁、不可变对象以及原子变量。</p>
+<h4 id="6-5-监测-CPU-的利用率"><a class="header-anchor" href="#6-5-监测-CPU-的利用率"></a>6.5 监测 CPU 的利用率</h4>
+<p>如果 CPU 没有得到充分利用，通常有以下几种原因：</p>
+<p>负载不充足、I/O 密集、外部限制、锁竞争。</p>
+<h4 id="6-6-向对象池说“不"><a class="header-anchor" href="#6-6-向对象池说“不"></a>6.6 向对象池说“不&quot;</h4>
+<p>通常，对象分配操作的开销比同步的开销更低。</p>
+<h3 id="7-JDK-锁优化"><a class="header-anchor" href="#7-JDK-锁优化"></a>7 JDK 锁优化</h3>
+<h4 id="7-1-自旋锁与自适应自旋"><a class="header-anchor" href="#7-1-自旋锁与自适应自旋"></a>7.1 自旋锁与自适应自旋</h4>
+<ul>
+<li>自旋锁：让后面请求锁的那个线程等待，执行一个忙循环</li>
+<li>在 JDK 1.6 已经默认开启自旋锁；如果锁被占用的时间很短自旋等待的效果就会非常好，反之则会白白消耗处理器资源；</li>
+<li>在 JDK 1.6 中引入了“自适应的自旋锁”，这意味着自旋的时间不再固定，而是由前一次在同一个锁上的自旋时间及锁的拥有者的状态来决定；</li>
+</ul>
+<h4 id="7-2-锁消除"><a class="header-anchor" href="#7-2-锁消除"></a>7.2 锁消除</h4>
+<ul>
+<li>消除是指虚拟机即时编译器在运行时，对一些代码上要求同步，但是被检测到不可能存在共享数据竞争的锁进行消除；</li>
+<li>锁消除的主要判断依据来源于逃逸分析的数据支持；</li>
+</ul>
+<h4 id="7-3-锁粗化"><a class="header-anchor" href="#7-3-锁粗化"></a>7.3 锁粗化</h4>
+<ul>
+<li>原则上总是推荐将同步块的作用范围限制得尽量小 – 只有在共享数据的实际作用域中才进行同步，这样是为了使得需要同步的操作数量尽可能变小，如果存在锁竞争，那等待锁的线程也能尽快拿到锁；</li>
+<li>但是如果一系列的连续操作都对同一个对象反复加锁和解锁，甚至加锁操作是出现在循环体中的，那即使没有线程竞争，频繁地进行互斥同步操作也会导致不必要的性能损耗；</li>
+</ul>
+<h4 id="7-4-轻量级锁"><a class="header-anchor" href="#7-4-轻量级锁"></a>7.4 轻量级锁</h4>
+<p>轻量级锁是 JDK 1.6 之中加入的新型锁机制，并不是用来代替重量级锁的，它的本意是在没有多线程竞争的前提下，下使用 CAS 操作去消除同步使用的互斥量，减少传统的重量级锁使用操作系统互斥量产生的性能消耗；</p>
+<p>在线程栈帧中 CAS 获取锁，如果有两条以上的线程争用同一个锁，那轻量级锁就不再有效，要膨胀为重量级锁</p>
+<h4 id="7-5-偏向锁"><a class="header-anchor" href="#7-5-偏向锁"></a>7.5 偏向锁</h4>
+<ul>
+<li>偏向锁也是 JDK 1.6 中引入的一项锁优化，它的目的是消除数据在无竞争情况下的同步原语，进一步提高程序的运行性能；偏向锁就是“在无竞争的情况下把整个同步都消除掉”，连 CAS 操作都不做了；</li>
+<li>偏向锁会偏向于第一个获得它的线程，如果在接下来的执行过程中，该锁没有被其他的线程获取，则持有偏向锁的线程将永远不需要再进行同步；</li>
+<li>当有另外一个线程去尝试获取这个锁时，偏向模式就宣告结束，根据锁对象目前是否被锁定的状态，撤销偏向后恢复到未锁定或轻量级锁定的状态，后续的同步操作就如上面介绍的轻量级锁那样执行；偏向锁、轻量级锁的状态转化以及对象 Mark Work 的关系如下图所示：</li>
+</ul>
+<p><img src="/images/1545648769450.jpg" alt="image"></p>
+<p>偏向锁可以提高带有同步但无竞争的程序性能，它同样是一个带有效益权衡性质的优化；</p>
 
 </div>
 
@@ -4631,16 +4799,16 @@
     <div class="post-guide">
         <div class="item left">
             
-              <a href="/2019/03/15/00%20Java/03%20Java%E5%B9%B6%E5%8F%91/4%20%E9%AB%98%E7%BA%A7%E4%B8%BB%E9%A2%98/3%20%E5%8E%9F%E5%AD%90%E5%8F%98%E9%87%8F%E4%B8%8E%E9%9D%9E%E9%98%BB%E5%A1%9E%E5%90%8C%E6%AD%A5%E6%9C%BA%E5%88%B6/">
+              <a href="/2020/01/07/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/07%20%E5%B9%B6%E5%8F%91/4%20%E5%90%8C%E6%AD%A5%E5%99%A8/">
                   <i class="fa fa-angle-left" aria-hidden="true"></i>
-                  3 原子变量与非阻塞同步机制
+                  4 同步器
               </a>
             
         </div>
         <div class="item right">
             
-              <a href="/2019/03/15/00%20Java/03%20Java%E5%B9%B6%E5%8F%91/4%20%E9%AB%98%E7%BA%A7%E4%B8%BB%E9%A2%98/2%20%E6%9E%84%E5%BB%BA%E8%87%AA%E5%AE%9A%E4%B9%89%E7%9A%84%E5%90%8C%E6%AD%A5%E5%B7%A5%E5%85%B7/">
-                2 构建自定义的同步工具
+              <a href="/2020/01/02/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/15%20%E8%84%9A%E6%9C%AC%E3%80%81%E7%BC%96%E8%AF%91%E3%80%81%E6%B3%A8%E8%A7%A3/2%20%E7%BC%96%E8%AF%91%E5%99%A8%20API/">
+                2 编译器 API
                 <i class="fa fa-angle-right" aria-hidden="true"></i>
               </a>
             
@@ -4648,68 +4816,78 @@
     </div>
 
 
-<div id="vcomments"></div>
+
+	<div id="vcomments"></div>
+
+
 <script>
-	// 评论
-	new Valine({
-		av: AV,
-		el: '#vcomments',
-        notify: false,
-        verify: false,
-        path: window.location.pathname,
-		appId: 'cbzi4mBFHIqKdH4wYkVHs44K-MdYXbMMI',
-		appKey: '4qY2BKiLCCOPgxVbsB5RkMc0',
-        placeholder: '请输入评论',
-        avatar: 'retro',
-        recordIP: false
-	})
+	
+		// 评论
+		new Valine({
+			av: AV,
+			el: '#vcomments',
+			notify: false,
+			verify: false,
+			path: window.location.pathname,
+			appId: 'cbzi4mBFHIqKdH4wYkVHs44K-MdYXbMMI',
+			appKey: '4qY2BKiLCCOPgxVbsB5RkMc0',
+			placeholder: '请输入评论',
+			avatar: 'retro',
+			recordIP: false
+		})
+	
+	
     // 显示次数
-    function showTime(Counter) {
-        var query = new AV.Query("Counter");
-        if($(".leancloud_visitors").length > 0){
-            var url = $(".leancloud_visitors").attr('id').trim();
-            // where field
-            query.equalTo("words", url);
-            // count
-            query.count().then(function (number) {
-                // There are number instances of MyClass where words equals url.
-                $(document.getElementById(url)).text(number?  number : '--');
-            }, function (error) {
-                // error is an instance of AVError.
-            });
-        }
-    }
-    // 追加pv
-    function addCount(Counter) {
-        var url = $(".leancloud_visitors").length > 0 ? $(".leancloud_visitors").attr('id').trim() : 'wujun234.github.io';
-        var Counter = AV.Object.extend("Counter");
-        var query = new Counter;
-        query.save({
-            words: url
-        }).then(function (object) {
-        })
-    }
-    $(function () {
-        var Counter = AV.Object.extend("Counter");
-        addCount(Counter);
-        showTime(Counter);
-    });
+		function showTime(Counter) {
+			var query = new AV.Query("Counter");
+			if($(".leancloud_visitors").length > 0){
+				var url = $(".leancloud_visitors").attr('id').trim();
+				// where field
+				query.equalTo("words", url);
+				// count
+				query.count().then(function (number) {
+					// There are number instances of MyClass where words equals url.
+					$(document.getElementById(url)).text(number?  number : '--');
+				}, function (error) {
+					// error is an instance of AVError.
+				});
+			}
+		}
+		// 追加pv
+		function addCount(Counter) {
+			var url = $(".leancloud_visitors").length > 0 ? $(".leancloud_visitors").attr('id').trim() : 'wujun234.github.io';
+			var Counter = AV.Object.extend("Counter");
+			var query = new Counter;
+			query.save({
+				words: url
+			}).then(function (object) {
+			})
+		}
+		$(function () {
+			var Counter = AV.Object.extend("Counter");
+			addCount(Counter);
+			showTime(Counter);
+		});
+	
 </script>
 	</div>
 	<div id="footer">
 	<p>
 	©2019-<span id="footerYear"></span> 
 	<a href="/">Wu Jun</a> 
-	|
-	<span id="busuanzi_container_site_pv">
-		pv
-		<span id="busuanzi_value_site_pv"></span>
-	</span>
-	|
-	<span id="busuanzi_container_site_uv"> 
-		uv
-		<span id="busuanzi_value_site_uv"></span>
-	</span>
+	
+	
+		|
+		<span id="busuanzi_container_site_pv">
+			pv
+			<span id="busuanzi_value_site_pv"></span>
+		</span>
+		|
+		<span id="busuanzi_container_site_uv"> 
+			uv
+			<span id="busuanzi_value_site_uv"></span>
+		</span>
+	
 	<br>
 	Theme <a href="//github.com/wujun234/hexo-theme-tree">Tree</a>
 	by <a href="//github.com/wujun234">WuJun</a>

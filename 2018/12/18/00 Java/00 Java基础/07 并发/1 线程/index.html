@@ -16,7 +16,7 @@
 	
 	<!-- keywords,description -->
 	
-		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun,java,技术,程序员" />
 	 
 		<meta name="description" content="吴俊,wujun234,wujun,wu jun" />
 	
@@ -34,10 +34,14 @@
 	<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/highlight.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/jquery-pjax@2.0.1/jquery.pjax.min.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/leancloud-storage/dist/av-min.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js"></script>
 	<script src="/js/main.js"></script>
-	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	
+		<script src="https://cdn.jsdelivr.net/npm/leancloud-storage/dist/av-min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js"></script>
+	
+	
+		<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	
 </head>
 
 <body>
@@ -494,8 +498,26 @@
 			
 							<ul>
 								<li class="file">
-									<a href="/2018/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/07%20%E5%B9%B6%E5%8F%91/3%20%E5%90%8C%E6%AD%A5/">
-										3 同步
+									<a href="/2020/01/07/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/07%20%E5%B9%B6%E5%8F%91/3%20%E9%94%81/">
+										3 锁
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2020/01/07/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/07%20%E5%B9%B6%E5%8F%91/4%20%E5%90%8C%E6%AD%A5%E5%99%A8/">
+										4 同步器
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2018/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/07%20%E5%B9%B6%E5%8F%91/5%20%E9%9D%9E%E9%98%BB%E5%A1%9E%E5%90%8C%E6%AD%A5/">
+										5 非阻塞同步
 									</a>
 								</li>
 								<div class="article-toc" style="display: none;"></div>
@@ -1436,15 +1458,6 @@
 								<div class="article-toc" style="display: none;"></div>
 							</ul>
 			
-							<ul>
-								<li class="file">
-									<a href="/2019/01/05/00%20Java/01%20Java%E8%99%9A%E6%8B%9F%E6%9C%BA/12%20Java%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B/3%20Java%E4%B8%8E%E7%BA%BF%E7%A8%8B/">
-										3 Java与线程
-									</a>
-								</li>
-								<div class="article-toc" style="display: none;"></div>
-							</ul>
-			
 								</li>
 								
 							</ul>
@@ -1579,24 +1592,6 @@
 									
 							<ul>
 								<li class="file">
-									<a href="/2019/03/02/00%20Java/03%20Java%E5%B9%B6%E5%8F%91/1%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/1%20%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8%E6%80%A7/">
-										1 线程安全性
-									</a>
-								</li>
-								<div class="article-toc" style="display: none;"></div>
-							</ul>
-			
-							<ul>
-								<li class="file">
-									<a href="/2019/03/02/00%20Java/03%20Java%E5%B9%B6%E5%8F%91/1%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/2%20%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%85%B1%E4%BA%AB/">
-										2 对象的共享
-									</a>
-								</li>
-								<div class="article-toc" style="display: none;"></div>
-							</ul>
-			
-							<ul>
-								<li class="file">
 									<a href="/2019/03/02/00%20Java/03%20Java%E5%B9%B6%E5%8F%91/1%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/3%20%E5%AF%B9%E8%B1%A1%E7%9A%84%E7%BB%84%E5%90%88/">
 										3 对象的组合
 									</a>
@@ -1621,94 +1616,9 @@
 								<li class="directory">
 									<a href="#" class="directory">
 										<i class="fa fa-plus-square-o"></i>
-										2 结构化并发应用程序
-									</a>
-									
-							<ul>
-								<li class="file">
-									<a href="/2019/03/05/00%20Java/03%20Java%E5%B9%B6%E5%8F%91/2%20%E7%BB%93%E6%9E%84%E5%8C%96%E5%B9%B6%E5%8F%91%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F/1%20%E4%BB%BB%E5%8A%A1%E6%89%A7%E8%A1%8C/">
-										1 任务执行
-									</a>
-								</li>
-								<div class="article-toc" style="display: none;"></div>
-							</ul>
-			
-							<ul>
-								<li class="file">
-									<a href="/2019/03/05/00%20Java/03%20Java%E5%B9%B6%E5%8F%91/2%20%E7%BB%93%E6%9E%84%E5%8C%96%E5%B9%B6%E5%8F%91%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F/2%20%E5%8F%96%E6%B6%88%E4%B8%8E%E5%85%B3%E9%97%AD/">
-										2 取消与关闭
-									</a>
-								</li>
-								<div class="article-toc" style="display: none;"></div>
-							</ul>
-			
-							<ul>
-								<li class="file">
-									<a href="/2019/03/07/00%20Java/03%20Java%E5%B9%B6%E5%8F%91/2%20%E7%BB%93%E6%9E%84%E5%8C%96%E5%B9%B6%E5%8F%91%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F/3%20%E7%BA%BF%E7%A8%8B%E6%B1%A0%E7%9A%84%E4%BD%BF%E7%94%A8/">
-										3 线程池的使用
-									</a>
-								</li>
-								<div class="article-toc" style="display: none;"></div>
-							</ul>
-			
-								</li>
-								
-							</ul>
-			
-							<ul>
-								<li class="directory">
-									<a href="#" class="directory">
-										<i class="fa fa-plus-square-o"></i>
-										3 活跃性、性能与测试
-									</a>
-									
-							<ul>
-								<li class="file">
-									<a href="/2019/03/07/00%20Java/03%20Java%E5%B9%B6%E5%8F%91/3%20%E6%B4%BB%E8%B7%83%E6%80%A7%E3%80%81%E6%80%A7%E8%83%BD%E4%B8%8E%E6%B5%8B%E8%AF%95/1%20%E9%81%BF%E5%85%8D%E6%B4%BB%E8%B7%83%E6%80%A7%E5%8D%B1%E9%99%A9/">
-										1 避免活跃性危险
-									</a>
-								</li>
-								<div class="article-toc" style="display: none;"></div>
-							</ul>
-			
-							<ul>
-								<li class="file">
-									<a href="/2019/03/11/00%20Java/03%20Java%E5%B9%B6%E5%8F%91/3%20%E6%B4%BB%E8%B7%83%E6%80%A7%E3%80%81%E6%80%A7%E8%83%BD%E4%B8%8E%E6%B5%8B%E8%AF%95/2%20%E6%80%A7%E8%83%BD%E4%B8%8E%E5%8F%AF%E4%BC%B8%E7%BC%A9%E6%80%A7/">
-										2 性能与可伸缩性
-									</a>
-								</li>
-								<div class="article-toc" style="display: none;"></div>
-							</ul>
-			
-							<ul>
-								<li class="file">
-									<a href="/2019/03/15/00%20Java/03%20Java%E5%B9%B6%E5%8F%91/3%20%E6%B4%BB%E8%B7%83%E6%80%A7%E3%80%81%E6%80%A7%E8%83%BD%E4%B8%8E%E6%B5%8B%E8%AF%95/3%20%E5%B9%B6%E5%8F%91%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%B5%8B%E8%AF%95/">
-										3 并发程序的测试
-									</a>
-								</li>
-								<div class="article-toc" style="display: none;"></div>
-							</ul>
-			
-								</li>
-								
-							</ul>
-			
-							<ul>
-								<li class="directory">
-									<a href="#" class="directory">
-										<i class="fa fa-plus-square-o"></i>
 										4 高级主题
 									</a>
 									
-							<ul>
-								<li class="file">
-									<a href="/2019/03/15/00%20Java/03%20Java%E5%B9%B6%E5%8F%91/4%20%E9%AB%98%E7%BA%A7%E4%B8%BB%E9%A2%98/1%20%E6%98%BE%E5%BC%8F%E9%94%81/">
-										1 显式锁
-									</a>
-								</li>
-								<div class="article-toc" style="display: none;"></div>
-							</ul>
-			
 							<ul>
 								<li class="file">
 									<a href="/2019/03/15/00%20Java/03%20Java%E5%B9%B6%E5%8F%91/4%20%E9%AB%98%E7%BA%A7%E4%B8%BB%E9%A2%98/2%20%E6%9E%84%E5%BB%BA%E8%87%AA%E5%AE%9A%E4%B9%89%E7%9A%84%E5%90%8C%E6%AD%A5%E5%B7%A5%E5%85%B7/">
@@ -4537,6 +4447,26 @@
 								
 							</ul>
 			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										21 其他
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2020/01/08/21%20%E5%85%B6%E4%BB%96/2019%20%E5%B9%B4%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93/">
+										2019 年工作总结
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
 		</div>
 	</div>
 </div>
@@ -4548,9 +4478,11 @@
 	1 线程
 </h1>
 <div class="article-meta">
-	<span>
-		阅读量:<span id="/2018/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/07%20%E5%B9%B6%E5%8F%91/1%20%E7%BA%BF%E7%A8%8B/" class="leancloud_visitors" data-flag-title=""></span>
-	</span>
+	
+		<span>
+			阅读量:<span id="/2018/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/07%20%E5%B9%B6%E5%8F%91/1%20%E7%BA%BF%E7%A8%8B/" class="leancloud_visitors" data-flag-title=""></span>
+		</span>
+	
 	<span>Wu Jun</span>
 	<span>2018-12-18 21:52:59</span>
     
@@ -4591,7 +4523,7 @@
 <h4 id="1-2-进程和线程的区别"><a class="header-anchor" href="#1-2-进程和线程的区别"></a>1.2 进程和线程的区别</h4>
 <ul>
 <li>进程：每个进程都有独立的代码和数据空间（进程上下文），进程间的切换会有较大的开销，一个进程包含1–n个线程。</li>
-<li>线程：同一类线程共享代码和数据空间，每个线程有独立的运行栈和程序计数器（PC），线程切换开销小。</li>
+<li>线程：线程是比进程更轻量级的调度执行单位，同一类线程共享代码和数据空间，每个线程有独立的运行栈和程序计数器（PC），线程切换开销小。</li>
 <li>多进程：同一时刻运行多个程序的能力</li>
 <li>多线程：一个程序同时执行多个任务</li>
 </ul>
@@ -4602,6 +4534,8 @@
 </blockquote>
 <h4 id="2-1-继承-Thread-类"><a class="header-anchor" href="#2-1-继承-Thread-类"></a>2.1 继承 Thread 类</h4>
 <p>【不再被推荐，可以使用线程池】</p>
+<p>Thread 类与大部分的 Java API 有显著的差别，它的所有关键方法都是声明为 Native 的；</p>
+<p>对于 Sun JDK 来说，它的 Windows 版与 Linux 版的线程实现方式都是使用一对一的线程模型实现的，一条 Java 线程就映射到一条轻量级进程之中，因为 Windows 和 Linux 系统提供的线程模式就是一对一的；</p>
 <p>创建一个 Thread 类的子类定义一个线程，并调用实例的 start 方法。</p>
 <pre><code>class MyThread extends Thread{
 	public void run(){
@@ -4645,7 +4579,27 @@ Thread 类只支持 Runnable。Callable 可以使用 ExecutorService</p>
     boolean isDone();//任务是否已完成。
 }
 </code></pre>
+<p>可以通过多个方法获得 Future:</p>
+<ul>
+<li>ExecutorService 中的所有 submit() 方法会返回一个 Future，从而将一个 Runnabel 或 Callable 向 Executor 提交时，将得到一个相应的 Future</li>
+<li>显式的为某个 Runnable 或 Callable 实例化一个 FutureTask（其实现了 Runnable，可以提交给 Executor 执行，或直接调用其 run() 方法）</li>
+</ul>
+<p>Future 可以设定时间限制，当任务在指定时间没有完成时，get()将抛出TimeoutException，此时应利用Future取消任务</p>
 <h5 id="3）FutureTask"><a class="header-anchor" href="#3）FutureTask"></a>3）FutureTask</h5>
+<ul>
+<li><code>FutureTask</code>表示的计算是通过<code>Callable</code>来实现的，相当于一种可生成结果的<code>Runnable</code>
+<ul>
+<li>有以下三种状态： <code>等待运行(Waiting to Run</code>， <code>正在运行(Running)</code> 和 <code>运行完成(Completed)</code></li>
+</ul>
+</li>
+<li>通过提前启动计算，可以减少在等待结果时需要的时间</li>
+<li>在<code>get</code>方法抛出<code>ExecutionException</code>时，可能是以下三种情况之一:<br>
+<ul>
+<li><code>Callable</code>抛出的受检查异常，<code>RuntimeException</code>，以及<code>Error</code>
+(必须对每种情况进行单独处理)</li>
+</ul>
+</li>
+</ul>
 <p>FutureTask 包装器是一种非常便利的机制，可将 Callable 转换成 Future 和 Runnable，它同时实现二者的接口。</p>
 <pre><code>Callable&lt;Integer&gt; myComputation = ...;
 FutureTask&lt;Integer&gt; task = new FutureTask&lt;Integer&gt;(myComputation);
@@ -4658,16 +4612,36 @@ Integer result = task.get(); // It's a Future
 <p>FutureTask 是一种可取消的异步计算任务，通过 Callable 实现，等价于可以携带结果的 Runnable，并且有三个状态：等待、运行和完成。</p>
 <h3 id="3-中断线程"><a class="header-anchor" href="#3-中断线程"></a>3 中断线程</h3>
 <p>当线程的 run 方法执行方法体中最后一条语句并经由 return 返回时。或出现了在方法中没有捕获的异常时，线程终止。</p>
-<p>没有可以强制线程终止的方法，interrupt 方法可以用来请求终止线程。isInterrupted() 可以检测线程是否被中断。</p>
-<p>如果要安全有效地终止一个线程，应该采用以下这些方法：</p>
+<p>在 Java 中没有一种安全的抢占式方法来停止线程，只有一些协作式的机制，使请求取消的任务和代码都遵循一种协商好的协议。</p>
 <ul>
-<li>线程正常结束</li>
-<li>监视中断条件</li>
-<li>中断阻塞线程</li>
+<li>方法 1：volatile 类型的“已请求取消”状态标识。</li>
+<li>方法 2：中断。状态标识检查对于调用阻塞方法的任务是不合适的，所以需要通过中断来取消任务。</li>
 </ul>
-<p>使用 <strong>Thread.interrupt()</strong> 中断线程</p>
-<p>如果线程被 Object.wait, Thread.join 和 Thread.sleep 三种方法之一阻塞，那么，它将接收到一个中断异常（InterruptedException），从而提早地终结被阻塞状态。</p>
-<p>如果线程被上述几种方法阻塞，正确的停止线程方式是设置共享变量，并调用interrupt()。如果线程没有被阻塞，这时调用interrupt()将不起作用；否则，线程就将得到异常（该线程必须事先预备好处理此状况），接着逃离阻塞状态。在任何一种情况中，最后线程都将检查共享变量然后再停止。</p>
+<h4 id="3-1-线程阻塞"><a class="header-anchor" href="#3-1-线程阻塞"></a>3.1 线程阻塞</h4>
+<ul>
+<li>当线程阻塞时，它通常被挂起，并处于某种阻塞状态。<br>
+阻塞操作与执行时间长的差别在于，被阻塞的线程必须等待某个不受它控制的事件发生后才能继续执行</li>
+<li>当某方法抛出<code>InterruptedException</code>时，表示该方法是阻塞方法，如果这个方法被中断，那么它将提前结束阻塞状态</li>
+</ul>
+<h4 id="3-2-线程中断"><a class="header-anchor" href="#3-2-线程中断"></a>3.2 线程中断</h4>
+<p>没有可以强制线程终止的方法，interrupt 方法可以用来请求终止线程。isInterrupted() 可以检测线程是否被中断。</p>
+<ul>
+<li>每个线程都有一个 boolean 类型的中断状态。当调用 Thread.interrupt 方法时，该值被设置为 true，Thread.interruptted 可以恢复中断。</li>
+<li>阻塞库方法，如 Thread.sleep 和 Object.wait，join 等，都会检查线程何时中断，并且发现中断时提前返回。它们在响应中断时执行的操作包括：清除中断状态，抛出 InterruptedException，表示阻塞操作由于中断而提前结束。</li>
+<li>但是对于其他方法 interrupt 仅仅是传递了中断的请求消息，并不会使线程中断，需要由线程在下一个合适的时刻中断自己。</li>
+<li>通常，用中断是取消的最合理的实现方式。</li>
+</ul>
+<h5 id="1）中断策略"><a class="header-anchor" href="#1）中断策略"></a>1）中断策略</h5>
+<ul>
+<li>中断策略：在发现中断请求时应该做哪些工作</li>
+<li>最合理的中断策略：尽快退出执行流程，并把中断信息传递给调用者，从而使调用栈的上层代码采取进一步的操作。</li>
+<li>当检查到中断请求时，任务不需要放弃所有的操作——它可以推迟处理中断请求，并且到某个更合适的时刻，抛出 InterruptException 或者表示已收到中断请求。</li>
+</ul>
+<h5 id="2）响应中断"><a class="header-anchor" href="#2）响应中断"></a>2）响应中断</h5>
+<p>有两种实用策略可用于处理 InterruptedException：</p>
+<ul>
+<li>传递异常：从而使你的方法也称为可中断的阻塞方法。</li>
+</ul>
 <pre><code>Runnable r = () -&gt; {
     try{
         //...
@@ -4682,12 +4656,93 @@ Integer result = task.get(); // It's a Future
     }
 }
 </code></pre>
-<p>不捕获异常，抛给调用者。</p>
+<ul>
+<li>恢复中断状态：不捕获异常，抛给调用者，从而使调用栈上的上层代码能够对其进行处理。</li>
+</ul>
 <pre><code>void mySubTask() throws InterruptedException
 {
     // ...
     sleep(delay);
     // ...
+}
+</code></pre>
+<h4 id="3-3-通过-Future-来实现中断"><a class="header-anchor" href="#3-3-通过-Future-来实现中断"></a>3.3 通过 Future 来实现中断</h4>
+<pre><code>public class TimedRun {
+    private static final ExecutorService taskExec = Executors.newCachedThreadPool();
+
+    public static void timedRun(Runnable r, long timeout, TimeUnit unit) throws InterruptedException {
+        Future&lt;?&gt; task = taskExec.submit(r);
+        try {
+            task.get(timeout, unit);//在限时内取得结果，如果要等待则等待
+        } catch (TimeoutException e) {
+            // 接下来任务会被取消
+        } catch (ExecutionException e) {
+            // 如果在任务中抛出了异常，那么重新抛出该异常
+            throw launderThrowable(e.getCause());
+        } finally {
+            // 如果任务已经结束，那么执行取消操作也不会有任何影响
+            task.cancel(true); // 如果任务正在进行，那么将被中断
+        }
+    }
+}
+</code></pre>
+<h4 id="3-4-处理不可中断的阻塞"><a class="header-anchor" href="#3-4-处理不可中断的阻塞"></a>3.4 处理不可中断的阻塞</h4>
+<p>不是所有 Java 中的阻塞机制都会直接响应 InterruptException，如一个线程由于执行同步的 Socket I/O 或者等待获得内置锁而阻塞。但他们也有类似 InterruptException 的机制。</p>
+<p>可以通过重写 Thread.interrupt 方法，将非标准的取消操作封装在 Thread 中（如加入close Socket的逻辑）。</p>
+<h4 id="3-5-采用-newTaskFor-来封装非标准的取消"><a class="header-anchor" href="#3-5-采用-newTaskFor-来封装非标准的取消"></a>3.5 采用 newTaskFor 来封装非标准的取消</h4>
+<ul>
+<li>newTaskFor：ThreadPoolExecutor 中的一个工厂方法，它将创建 Future 来代表任务。newTaskFor 还能返回一个 RunnableFuture 接口，该接口扩展了 Future 和 Runnable（并由 FutureTask 实现）。</li>
+<li>CancellableTask 定义了一个 CancellableTask 接口，该接口扩展了 Callable，并增加了一个 cancel 方法和 newTask 方法来构造 RunnableFuture。</li>
+</ul>
+<pre><code>public interface CancellableTask&lt;T&gt; extends Callable&lt;T&gt; {
+       void cancel();
+       RunnableFuture&lt;T&gt; newTask();
+}
+</code></pre>
+<ul>
+<li>CancellingExecutor 继承了 THReadPoolExecutor，并通过改写 newTaskFor 使得 CancellableTask 可以创建自己的 Future</li>
+</ul>
+<pre><code>@ThreadSafe
+class CancellingExecutor extends ThreadPoolExecutor {
+	...
+    protected &lt;T&gt; RunnableFuture&lt;T&gt; newTaskFor(Callable&lt;T&gt; callable) {
+        if (callable instanceof CancellableTask)
+            return ((CancellableTask&lt;T&gt;) callable).newTask();
+        else
+            return super.newTaskFor(callable);
+    }
+}
+</code></pre>
+<ul>
+<li>SocketUsingTask 实现了 CancellableTask</li>
+</ul>
+<pre><code>public abstract class SocketUsingTask &lt;T&gt; implements CancellableTask&lt;T&gt; {
+     private Socket socket;
+
+    protected synchronized void setSocket(Socket s) {
+        socket = s;
+    }
+   //定义了Future.cancel来关闭套接字
+    public synchronized void cancel() {
+        try {
+            if (socket != null)
+                socket.close();
+        } catch (IOException ignored) {
+        }
+    }
+   //如果SocketUsingTask通过其自己的Future来取消，那么底层的套接字将被关闭并且线程将被中断
+    public RunnableFuture&lt;T&gt; newTask() {
+        return new FutureTask&lt;T&gt;(this) {  //Creates a FutureTask that will, upon running（正在运行）, execute the given Callable.
+            @SuppressWarnings(&quot;finally&quot;)
+            public boolean cancel(boolean mayInterruptIfRunning) {
+                try {
+                    SocketUsingTask.this.cancel();
+                } finally {  //调用super.cancel
+                    return super.cancel(mayInterruptIfRunning);
+                }
+            }
+        };
+    }
 }
 </code></pre>
 <h3 id="4-线程状态"><a class="header-anchor" href="#4-线程状态"></a>4 线程状态</h3>
@@ -4718,23 +4773,21 @@ Thread.join()//等待终止指定的线程
 </code></pre>
 <h4 id="4-2-状态转换"><a class="header-anchor" href="#4-2-状态转换"></a>4.2 状态转换</h4>
 <p><img src="/images/1545011843644.jpg" alt=""></p>
-<h3 id="5-线程属性"><a class="header-anchor" href="#5-线程属性"></a>5 线程属性</h3>
-<h4 id="5-1-线程优先级"><a class="header-anchor" href="#5-1-线程优先级"></a>5.1 线程优先级</h4>
+<h3 id="5-线程优先级"><a class="header-anchor" href="#5-线程优先级"></a>5 线程优先级</h3>
+<p>线程调度是指系统为线程分配处理器使用权的过程，主要调度方式有两种，分别是</p>
+<ul>
+<li>协同式线程调度（线程的执行时间由线程本身来控制）</li>
+<li>抢占式线程调度（线程由系统来分配执行时间，线程的切换不由线程本身来决定）；</li>
+</ul>
+<p>Java 语言一共设置了 10 个级别的线程优先级，不过线程优先级并不是太靠谱，原因就是操作系统的线程优先级不见得总是与 Java 线程的优先级一一对应，另外优先级还可能被系统自行改变；</p>
 <p>不要将程序构建为功能的正确性依赖于优先级。</p>
 <p>Linux 上线程不具有优先级。</p>
 <ul>
 <li>void setPriority(fnt newPriority)：设置线程的优先级。</li>
 <li>static void yield()：让步，不休眠，只暂停。让步于其他优先级不小于次线程的的可运行线程。</li>
 </ul>
-<h4 id="5-2-守护线程"><a class="header-anchor" href="#5-2-守护线程"></a>5.2 守护线程</h4>
-<p>守护线程的唯一用途是为其他线程提供服务。守护线程最典型的应用就是 GC (垃圾回收器)。</p>
-<p>当只剩下守护线程时，虚拟机就退出了。</p>
-<p>守护线程应该永远不去访问固有资源，如文件、数据库，因为它会在任何时候甚至在一个操作的中间发生中断。</p>
-<ul>
-<li>void setDaemon(boolean isDaemon)：标识该线程为守护线程或用户线程。这一方法必须在线程启动之前调用。</li>
-</ul>
-<h4 id="5-3-未捕获异常处理器"><a class="header-anchor" href="#5-3-未捕获异常处理器"></a>5.3 未捕获异常处理器</h4>
-<p>线程组中的某个线程由于抛出了未捕获的异常而退出时，会调用 ThreadGroup.uncaughtException() 方法。</p>
+<h3 id="6-未捕获异常处理器"><a class="header-anchor" href="#6-未捕获异常处理器"></a>6 未捕获异常处理器</h3>
+<p>线程组中的某个线程由于抛出了未捕获的异常（RuntimeException）而退出时，会调用 ThreadGroup.uncaughtException() 方法。</p>
 <p>使用 Unchecked Exception 处理器目的在于健壮线程异常退出的记录。可以用 setUncaughtExceptionHandler 方法为任何线程安装一个处理器。也可以用Thread类的静态方法 setDefaultUncaughtExceptionHandler 为所有线程安装一个默认的处理器。</p>
 <p>如果不安装默认的处理器，此时的处理器就是该线程的 ThreadGroup 对象。</p>
 <p>注释：线程组是一个可以统一管理的线程集合。不要在自己的程序中使用线程组。</p>
@@ -4745,6 +4798,81 @@ Thread.join()//等待终止指定的线程
 <li>否则，如果 Throwable 是 ThreadDeath 的一个实例，什么都不做。</li>
 <li>否则，线程的名字以及 Throwable 的栈踪迹被输出到 System.err 上。</li>
 </ol>
+<h3 id="7-JVM-关闭"><a class="header-anchor" href="#7-JVM-关闭"></a>7 JVM 关闭</h3>
+<p>JVM 既可以正常关闭，也可以强行关闭。</p>
+<h4 id="7-1-关闭钩子"><a class="header-anchor" href="#7-1-关闭钩子"></a>7.1 关闭钩子</h4>
+<p>在正常关闭中，JVM 首先调用所有已注册的关闭钩子（Shutdown Hook）。关闭钩子是指通过 Runtime.addShutdownHook 注册的但尚未开始的线程。</p>
+<ul>
+<li>JVM 并不能保证关闭钩子的调用顺序。在关闭应用程序线程时，如果有线程仍然在运行，那么这些线程接下来将与关闭进程并发执行。</li>
+<li>当所有的关闭钩子都执行结束时，如果 runFinalizersOnExit 为 true，那么 JVM 将运行终结器，然后再停止。</li>
+<li>JVM 并不会停止或中断任何在关闭时仍然运行的应用程序线程。当 JVM 最终结束时，这些线程将被强行结束。</li>
+<li>如果关闭钩子或终结器没有执行完成，那么正常关闭进程“挂起&quot;并且JVM必须被强行关闭。当被强行关闭时，只是关闭 JVM，而不会运行关闭钩子。</li>
+</ul>
+<p>关闭钩子应该是线程安全的，并且不应该对应用程序的状态或者JVM的关闭原因做出任何假设。关闭钩子必须尽快退出，因为它们会延迟JVM的结束时间，而用户可能希望 JVM 能尽快终止。</p>
+<p>关闭钩子可以用于实现服务或应用程序的清理工作，例如删除临时文件，或者清除无法由操作系统自动清除的资源。</p>
+<pre><code>public void start(){
+    Runtime.getRuntime().addShutdownHook(new Thread(){
+        public void run() {
+            try { Loggervice.this.stop(); }
+            catch (InterruptedException ignored) {}
+        }
+    });
+}
+</code></pre>
+<h4 id="7-2-守护线程"><a class="header-anchor" href="#7-2-守护线程"></a>7.2 守护线程</h4>
+<p>守护线程（Daemon Thread）的唯一用途是为其他线程提供服务。守护线程最典型的应用就是 GC (垃圾回收器)。</p>
+<p>当只剩下守护线程时，虚拟机就退出了，不阻碍 JVM 的关闭。</p>
+<p>在 JVM 启动时创建的所有线程中，除了主线程以外，其他的线程都是守护线程。新线程继承创建它的线程的守护状态，默认情况下，主线程创建的所有线程都是普通线程。</p>
+<p>普通线程与守护线程之间的差异仅在于当线程退出时发生的操作。当一个线程退出时，JVM 会检查其他正在运行的线程，如果这些线程都是守护线程，则 JVM 会正常退出。当 JVM 停止时，所有仍然存在的守护线程都将被抛弃——既不会执行 finally 代码块，也不会执行回卷栈，而 JVM 只是直接退出。</p>
+<p>守护线程应该永远不去访问固有资源，如文件、数据库，因为它会在任何时候甚至在一个操作的中间发生中断。应尽可能少地使用守护线程 —— 很少有操作能够在不进行清理的情况下被安全地抛弃。守护线程最好用于执行“内部&quot;任务，例如周期性地从内存的缓存中移除逾期的数据。</p>
+<p>此外，守护线程通常不能用来替代应用程序管理程序中各个服务的生命周期</p>
+<ul>
+<li>void setDaemon(boolean isDaemon)：标识该线程为守护线程或用户线程。这一方法必须在线程启动之前调用。</li>
+</ul>
+<h4 id="7-3-终结器"><a class="header-anchor" href="#7-3-终结器"></a>7.3 终结器</h4>
+<p>垃圾回收器对那些定义了 finalize 方法的对象会进行特殊处理：在回收器释放它们后，调用它们的 finalize 方法，从而保证一些持久化的资源被释放。</p>
+<p>除了管理本地方法获取的对象，尽量避免编写或使用包含终结器的类。finalize 方法性能开销大，编写困难。在大多数情况下，通过使用 finally 代码块和显式的 close 方法，能够比使用终结器更好地管理资源。</p>
+<h3 id="8-线程优化"><a class="header-anchor" href="#8-线程优化"></a>8 线程优化</h3>
+<p>引入多线程会增加开销： 线程之间协调、上下文切换、线程的创建和销毁、线程的调度。</p>
+<p>如果过度地使用线程，开销甚至会超过性能的提升。</p>
+<h4 id="8-1-对性能的思考"><a class="header-anchor" href="#8-1-对性能的思考"></a>8.1 对性能的思考</h4>
+<h5 id="1）性能和可伸缩性"><a class="header-anchor" href="#1）性能和可伸缩性"></a>1）性能和可伸缩性</h5>
+<p>可伸缩性：当增加计算资源时， 程序的吞吐量或者处理能力能相应地增加。</p>
+<p>性能的两类衡量指标——“运行速度”和“处理能力”，是完全独立的，有时候甚至是相互矛盾的。</p>
+<h5 id="2）评估各种性能权衡因素"><a class="header-anchor" href="#2）评估各种性能权衡因素"></a>2）评估各种性能权衡因素</h5>
+<p>避免不成熟的优化。首先使程序正确， 然后在提高运行速度——如果它还运行得不够快。</p>
+<p>在使某个方案比其他方案更快之前， 首先问自己一些问题：</p>
+<ul>
+<li>更快的含义是什么？</li>
+<li>该方法在什么条件下运行的更快？ 在低负载还是高负载的情况下？ 大数据集还是小数据集？ 能否通过测试结果来验证你的答案？</li>
+<li>这些条件在运行环境中的发生频率？ 能否通过测试结果来验证你的答案？</li>
+<li>在其它不同条件的环境中能否使用这些代码？</li>
+<li>在实现这种性能提升时需要付出哪些隐含的代价， 例如增加开发风险或维护开销？这种权衡是否合适？</li>
+</ul>
+<p>对性能的提升可能是并发错误的最大来源。</p>
+<p>以测试为基准，不要猜测。</p>
+<h4 id="8-2-线程引入的开销"><a class="header-anchor" href="#8-2-线程引入的开销"></a>8.2 线程引入的开销</h4>
+<p>对于提升性能而引入的线程来说， 并行带来的性能提升必须超过并发导致的开。</p>
+<h5 id="1）上下文切换"><a class="header-anchor" href="#1）上下文切换"></a>1）上下文切换</h5>
+<p>线程大于CPU，将导致上下文切换。保存当前线程的上下文, 并将新调度线程的上下文设置为当前上下文。</p>
+<p>上下文切换开销:</p>
+<ul>
+<li>分摊CPU资源： 线程上下文切换需要操作系统和JVM介入， 它们会分摊CPU资源。</li>
+<li>缓存缺失：新调度进来的线程需要的数据不在本地缓存中。</li>
+</ul>
+<p>线程阻塞（竞争锁，线程等待，IO阻塞）会导致上下文切换，无阻塞算法有助于线程上下文切换。</p>
+<h5 id="2）内存同步"><a class="header-anchor" href="#2）内存同步"></a>2）内存同步</h5>
+<p>应将重点放在锁竞争的地方。非竞争同步的开销，经优化后已微乎其微了。</p>
+<h5 id="3）阻塞"><a class="header-anchor" href="#3）阻塞"></a>3）阻塞</h5>
+<p>阻塞行为由JVM分析历史等待时间来选择：</p>
+<ul>
+<li>等待时间较短, 适合使用线程自旋等待方式</li>
+<li>等待时间较长, 适合使用线程挂起方式</li>
+</ul>
+<p>由于锁竞争而导致阻塞时， 线程在持有锁时将存在一定的开销，当它释放锁时，必须告诉操作系统恢复运行阻塞的线程。</p>
+<h4 id="8-3-减少上下文切换的开销"><a class="header-anchor" href="#8-3-减少上下文切换的开销"></a>8.3 减少上下文切换的开销</h4>
+<p>当任务在运行和阻塞这两个状态之间转换时，就相当于一次上下文切换。在服务器应用程序中，发生阻塞的原因之一就是在处理请求时产生各种日志消息。</p>
+<p>通过将I/O操作从处理请求的线程中分离出来，可以缩短处理请求的平均服务时间。</p>
 
 </div>
 
@@ -4769,68 +4897,78 @@ Thread.join()//等待终止指定的线程
     </div>
 
 
-<div id="vcomments"></div>
+
+	<div id="vcomments"></div>
+
+
 <script>
-	// 评论
-	new Valine({
-		av: AV,
-		el: '#vcomments',
-        notify: false,
-        verify: false,
-        path: window.location.pathname,
-		appId: 'cbzi4mBFHIqKdH4wYkVHs44K-MdYXbMMI',
-		appKey: '4qY2BKiLCCOPgxVbsB5RkMc0',
-        placeholder: '请输入评论',
-        avatar: 'retro',
-        recordIP: false
-	})
+	
+		// 评论
+		new Valine({
+			av: AV,
+			el: '#vcomments',
+			notify: false,
+			verify: false,
+			path: window.location.pathname,
+			appId: 'cbzi4mBFHIqKdH4wYkVHs44K-MdYXbMMI',
+			appKey: '4qY2BKiLCCOPgxVbsB5RkMc0',
+			placeholder: '请输入评论',
+			avatar: 'retro',
+			recordIP: false
+		})
+	
+	
     // 显示次数
-    function showTime(Counter) {
-        var query = new AV.Query("Counter");
-        if($(".leancloud_visitors").length > 0){
-            var url = $(".leancloud_visitors").attr('id').trim();
-            // where field
-            query.equalTo("words", url);
-            // count
-            query.count().then(function (number) {
-                // There are number instances of MyClass where words equals url.
-                $(document.getElementById(url)).text(number?  number : '--');
-            }, function (error) {
-                // error is an instance of AVError.
-            });
-        }
-    }
-    // 追加pv
-    function addCount(Counter) {
-        var url = $(".leancloud_visitors").length > 0 ? $(".leancloud_visitors").attr('id').trim() : 'wujun234.github.io';
-        var Counter = AV.Object.extend("Counter");
-        var query = new Counter;
-        query.save({
-            words: url
-        }).then(function (object) {
-        })
-    }
-    $(function () {
-        var Counter = AV.Object.extend("Counter");
-        addCount(Counter);
-        showTime(Counter);
-    });
+		function showTime(Counter) {
+			var query = new AV.Query("Counter");
+			if($(".leancloud_visitors").length > 0){
+				var url = $(".leancloud_visitors").attr('id').trim();
+				// where field
+				query.equalTo("words", url);
+				// count
+				query.count().then(function (number) {
+					// There are number instances of MyClass where words equals url.
+					$(document.getElementById(url)).text(number?  number : '--');
+				}, function (error) {
+					// error is an instance of AVError.
+				});
+			}
+		}
+		// 追加pv
+		function addCount(Counter) {
+			var url = $(".leancloud_visitors").length > 0 ? $(".leancloud_visitors").attr('id').trim() : 'wujun234.github.io';
+			var Counter = AV.Object.extend("Counter");
+			var query = new Counter;
+			query.save({
+				words: url
+			}).then(function (object) {
+			})
+		}
+		$(function () {
+			var Counter = AV.Object.extend("Counter");
+			addCount(Counter);
+			showTime(Counter);
+		});
+	
 </script>
 	</div>
 	<div id="footer">
 	<p>
 	©2019-<span id="footerYear"></span> 
 	<a href="/">Wu Jun</a> 
-	|
-	<span id="busuanzi_container_site_pv">
-		pv
-		<span id="busuanzi_value_site_pv"></span>
-	</span>
-	|
-	<span id="busuanzi_container_site_uv"> 
-		uv
-		<span id="busuanzi_value_site_uv"></span>
-	</span>
+	
+	
+		|
+		<span id="busuanzi_container_site_pv">
+			pv
+			<span id="busuanzi_value_site_pv"></span>
+		</span>
+		|
+		<span id="busuanzi_container_site_uv"> 
+			uv
+			<span id="busuanzi_value_site_uv"></span>
+		</span>
+	
 	<br>
 	Theme <a href="//github.com/wujun234/hexo-theme-tree">Tree</a>
 	by <a href="//github.com/wujun234">WuJun</a>

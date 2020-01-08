@@ -8,13 +8,15 @@
 	<!-- title -->
 	
 	<title>
+	
+		4 同步器 | 
 	 
 	吴俊的博客
 	</title>
 	
 	<!-- keywords,description -->
 	
-		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun" />
+		<meta name="keywords" content="吴俊,wujun234,wujun,wu jun,java,技术,程序员" />
 	 
 		<meta name="description" content="吴俊,wujun234,wujun,wu jun" />
 	
@@ -32,10 +34,14 @@
 	<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/highlight.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/jquery-pjax@2.0.1/jquery.pjax.min.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/leancloud-storage/dist/av-min.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js"></script>
 	<script src="/js/main.js"></script>
-	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	
+		<script src="https://cdn.jsdelivr.net/npm/leancloud-storage/dist/av-min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js"></script>
+	
+	
+		<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	
 </head>
 
 <body>
@@ -492,8 +498,26 @@
 			
 							<ul>
 								<li class="file">
-									<a href="/2018/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/07%20%E5%B9%B6%E5%8F%91/3%20%E5%90%8C%E6%AD%A5/">
-										3 同步
+									<a href="/2020/01/07/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/07%20%E5%B9%B6%E5%8F%91/3%20%E9%94%81/">
+										3 锁
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file active">
+									<a href="/2020/01/07/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/07%20%E5%B9%B6%E5%8F%91/4%20%E5%90%8C%E6%AD%A5%E5%99%A8/">
+										4 同步器
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2018/12/18/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/07%20%E5%B9%B6%E5%8F%91/5%20%E9%9D%9E%E9%98%BB%E5%A1%9E%E5%90%8C%E6%AD%A5/">
+										5 非阻塞同步
 									</a>
 								</li>
 								<div class="article-toc" style="display: none;"></div>
@@ -1434,15 +1458,6 @@
 								<div class="article-toc" style="display: none;"></div>
 							</ul>
 			
-							<ul>
-								<li class="file">
-									<a href="/2019/01/05/00%20Java/01%20Java%E8%99%9A%E6%8B%9F%E6%9C%BA/12%20Java%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B/3%20Java%E4%B8%8E%E7%BA%BF%E7%A8%8B/">
-										3 Java与线程
-									</a>
-								</li>
-								<div class="article-toc" style="display: none;"></div>
-							</ul>
-			
 								</li>
 								
 							</ul>
@@ -1577,24 +1592,6 @@
 									
 							<ul>
 								<li class="file">
-									<a href="/2019/03/02/00%20Java/03%20Java%E5%B9%B6%E5%8F%91/1%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/1%20%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8%E6%80%A7/">
-										1 线程安全性
-									</a>
-								</li>
-								<div class="article-toc" style="display: none;"></div>
-							</ul>
-			
-							<ul>
-								<li class="file">
-									<a href="/2019/03/02/00%20Java/03%20Java%E5%B9%B6%E5%8F%91/1%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/2%20%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%85%B1%E4%BA%AB/">
-										2 对象的共享
-									</a>
-								</li>
-								<div class="article-toc" style="display: none;"></div>
-							</ul>
-			
-							<ul>
-								<li class="file">
 									<a href="/2019/03/02/00%20Java/03%20Java%E5%B9%B6%E5%8F%91/1%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/3%20%E5%AF%B9%E8%B1%A1%E7%9A%84%E7%BB%84%E5%90%88/">
 										3 对象的组合
 									</a>
@@ -1619,94 +1616,9 @@
 								<li class="directory">
 									<a href="#" class="directory">
 										<i class="fa fa-plus-square-o"></i>
-										2 结构化并发应用程序
-									</a>
-									
-							<ul>
-								<li class="file">
-									<a href="/2019/03/05/00%20Java/03%20Java%E5%B9%B6%E5%8F%91/2%20%E7%BB%93%E6%9E%84%E5%8C%96%E5%B9%B6%E5%8F%91%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F/1%20%E4%BB%BB%E5%8A%A1%E6%89%A7%E8%A1%8C/">
-										1 任务执行
-									</a>
-								</li>
-								<div class="article-toc" style="display: none;"></div>
-							</ul>
-			
-							<ul>
-								<li class="file">
-									<a href="/2019/03/05/00%20Java/03%20Java%E5%B9%B6%E5%8F%91/2%20%E7%BB%93%E6%9E%84%E5%8C%96%E5%B9%B6%E5%8F%91%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F/2%20%E5%8F%96%E6%B6%88%E4%B8%8E%E5%85%B3%E9%97%AD/">
-										2 取消与关闭
-									</a>
-								</li>
-								<div class="article-toc" style="display: none;"></div>
-							</ul>
-			
-							<ul>
-								<li class="file">
-									<a href="/2019/03/07/00%20Java/03%20Java%E5%B9%B6%E5%8F%91/2%20%E7%BB%93%E6%9E%84%E5%8C%96%E5%B9%B6%E5%8F%91%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F/3%20%E7%BA%BF%E7%A8%8B%E6%B1%A0%E7%9A%84%E4%BD%BF%E7%94%A8/">
-										3 线程池的使用
-									</a>
-								</li>
-								<div class="article-toc" style="display: none;"></div>
-							</ul>
-			
-								</li>
-								
-							</ul>
-			
-							<ul>
-								<li class="directory">
-									<a href="#" class="directory">
-										<i class="fa fa-plus-square-o"></i>
-										3 活跃性、性能与测试
-									</a>
-									
-							<ul>
-								<li class="file">
-									<a href="/2019/03/07/00%20Java/03%20Java%E5%B9%B6%E5%8F%91/3%20%E6%B4%BB%E8%B7%83%E6%80%A7%E3%80%81%E6%80%A7%E8%83%BD%E4%B8%8E%E6%B5%8B%E8%AF%95/1%20%E9%81%BF%E5%85%8D%E6%B4%BB%E8%B7%83%E6%80%A7%E5%8D%B1%E9%99%A9/">
-										1 避免活跃性危险
-									</a>
-								</li>
-								<div class="article-toc" style="display: none;"></div>
-							</ul>
-			
-							<ul>
-								<li class="file">
-									<a href="/2019/03/11/00%20Java/03%20Java%E5%B9%B6%E5%8F%91/3%20%E6%B4%BB%E8%B7%83%E6%80%A7%E3%80%81%E6%80%A7%E8%83%BD%E4%B8%8E%E6%B5%8B%E8%AF%95/2%20%E6%80%A7%E8%83%BD%E4%B8%8E%E5%8F%AF%E4%BC%B8%E7%BC%A9%E6%80%A7/">
-										2 性能与可伸缩性
-									</a>
-								</li>
-								<div class="article-toc" style="display: none;"></div>
-							</ul>
-			
-							<ul>
-								<li class="file">
-									<a href="/2019/03/15/00%20Java/03%20Java%E5%B9%B6%E5%8F%91/3%20%E6%B4%BB%E8%B7%83%E6%80%A7%E3%80%81%E6%80%A7%E8%83%BD%E4%B8%8E%E6%B5%8B%E8%AF%95/3%20%E5%B9%B6%E5%8F%91%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%B5%8B%E8%AF%95/">
-										3 并发程序的测试
-									</a>
-								</li>
-								<div class="article-toc" style="display: none;"></div>
-							</ul>
-			
-								</li>
-								
-							</ul>
-			
-							<ul>
-								<li class="directory">
-									<a href="#" class="directory">
-										<i class="fa fa-plus-square-o"></i>
 										4 高级主题
 									</a>
 									
-							<ul>
-								<li class="file">
-									<a href="/2019/03/15/00%20Java/03%20Java%E5%B9%B6%E5%8F%91/4%20%E9%AB%98%E7%BA%A7%E4%B8%BB%E9%A2%98/1%20%E6%98%BE%E5%BC%8F%E9%94%81/">
-										1 显式锁
-									</a>
-								</li>
-								<div class="article-toc" style="display: none;"></div>
-							</ul>
-			
 							<ul>
 								<li class="file">
 									<a href="/2019/03/15/00%20Java/03%20Java%E5%B9%B6%E5%8F%91/4%20%E9%AB%98%E7%BA%A7%E4%B8%BB%E9%A2%98/2%20%E6%9E%84%E5%BB%BA%E8%87%AA%E5%AE%9A%E4%B9%89%E7%9A%84%E5%90%8C%E6%AD%A5%E5%B7%A5%E5%85%B7/">
@@ -4535,169 +4447,361 @@
 								
 							</ul>
 			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										21 其他
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2020/01/08/21%20%E5%85%B6%E4%BB%96/2019%20%E5%B9%B4%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93/">
+										2019 年工作总结
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
 		</div>
 	</div>
 </div>
 
 	<!-- 引入正文 -->
 	<div id="content">
-		<div id="index">
-	
-		<div class="index-li">
-			<a href="/2019/03/15/00%20Java/03%20Java%E5%B9%B6%E5%8F%91/3%20%E6%B4%BB%E8%B7%83%E6%80%A7%E3%80%81%E6%80%A7%E8%83%BD%E4%B8%8E%E6%B5%8B%E8%AF%95/3%20%E5%B9%B6%E5%8F%91%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%B5%8B%E8%AF%95/">
-				<h2 class="index-title">
-					3 并发程序的测试
-				</h2>
-				<div class="index-brief">
-					1 正确性测试
-1.1 基本的单元测试
-1.2 对阻塞操作的测试
-1.3 安全性测试
-在构建对并发程序的安全性测试中，需要解决的关键问题在于，要找出那些容易检查的属性，这些属性在发生错误的情况下极有可能失败，同时又不会使得错误检查代码人为地限制并发性。理想情况是，在测试属性中不需要任何同步机制。
-这
-					...
-				</div>
-			</a>
-                <div class="article-meta">
-				    <span>2019-03-15</span>
-                    
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/00-Java/">00 Java</a>
-                                    </span>
-                                
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/00-Java/03-Java并发/">03 Java并发</a>
-                                    </span>
-                                
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/00-Java/03-Java并发/3-活跃性、性能与测试/">3 活跃性、性能与测试</a>
-                                    </span>
-                                
-                            
-                    
-                </div>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/2019/03/11/00%20Java/03%20Java%E5%B9%B6%E5%8F%91/3%20%E6%B4%BB%E8%B7%83%E6%80%A7%E3%80%81%E6%80%A7%E8%83%BD%E4%B8%8E%E6%B5%8B%E8%AF%95/2%20%E6%80%A7%E8%83%BD%E4%B8%8E%E5%8F%AF%E4%BC%B8%E7%BC%A9%E6%80%A7/">
-				<h2 class="index-title">
-					2 性能与可伸缩性
-				</h2>
-				<div class="index-brief">
-					1 对性能的思考
-引入多线程会增加开销： 线程之间协调、上下文切换、线程的创建和销毁、线程的调度。
-如果过度地使用线程，开销甚至会超过性能的提升。
-1.1 性能和可伸缩性
-可伸缩性：当增加计算资源时， 程序的吞吐量或者处理能力能相应地增加。
-性能的两类衡量指标——“运行速度”和“处理能力”，是完全独
-					...
-				</div>
-			</a>
-                <div class="article-meta">
-				    <span>2019-03-11</span>
-                    
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/00-Java/">00 Java</a>
-                                    </span>
-                                
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/00-Java/03-Java并发/">03 Java并发</a>
-                                    </span>
-                                
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/00-Java/03-Java并发/3-活跃性、性能与测试/">3 活跃性、性能与测试</a>
-                                    </span>
-                                
-                            
-                    
-                </div>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/2019/03/07/00%20Java/03%20Java%E5%B9%B6%E5%8F%91/3%20%E6%B4%BB%E8%B7%83%E6%80%A7%E3%80%81%E6%80%A7%E8%83%BD%E4%B8%8E%E6%B5%8B%E8%AF%95/1%20%E9%81%BF%E5%85%8D%E6%B4%BB%E8%B7%83%E6%80%A7%E5%8D%B1%E9%99%A9/">
-				<h2 class="index-title">
-					1 避免活跃性危险
-				</h2>
-				<div class="index-brief">
-					在安全性和活跃性之间通常存在着某种制衡
-10.1 死锁
-死锁的四个必要条件:
+		<h1 id="article-title">
 
-互斥条件：一个资源每次只能被一个线程使用
-占有且等待：一个进程因请求资源而阻塞时， 对已获得的资源保持不放
-不可强行占有：线程已获得的资源, 在未使用完之前, 不能强行被剥夺
-循环等待条件： 若干进程之间形成一种头尾相接
-					...
-				</div>
-			</a>
-                <div class="article-meta">
-				    <span>2019-03-07</span>
-                    
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/00-Java/">00 Java</a>
-                                    </span>
-                                
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/00-Java/03-Java并发/">03 Java并发</a>
-                                    </span>
-                                
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/00-Java/03-Java并发/3-活跃性、性能与测试/">3 活跃性、性能与测试</a>
-                                    </span>
-                                
-                            
-                    
-                </div>
-		</div>	
+	4 同步器
+</h1>
+<div class="article-meta">
 	
+		<span>
+			阅读量:<span id="/2020/01/07/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/07%20%E5%B9%B6%E5%8F%91/4%20%E5%90%8C%E6%AD%A5%E5%99%A8/" class="leancloud_visitors" data-flag-title=""></span>
+		</span>
 	
-	<div id="index-paginator">
-		
-	</div>
+	<span>Wu Jun</span>
+	<span>2020-01-07 00:17:52</span>
+    
+		<div id="article-categories">
+            
+                
+                    <span>
+                        <i class="fa fa-folder" aria-hidden="true"></i>
+                        <a href="/categories/00-Java/">00 Java</a>
+                    </span>
+                
+            
+                
+                    <span>
+                        <i class="fa fa-folder" aria-hidden="true"></i>
+                        <a href="/categories/00-Java/00-Java基础/">00 Java基础</a>
+                    </span>
+                
+            
+                
+                    <span>
+                        <i class="fa fa-folder" aria-hidden="true"></i>
+                        <a href="/categories/00-Java/00-Java基础/07-并发/">07 并发</a>
+                    </span>
+                
+            
+		</div>
+    
 </div>
 
+<div id="article-content">
+	<p>java.util.concurrent 包包含了几个能帮助人们管理相互合作的线程集的类。这些机制具有为线程之间的<strong>共用集结点模式</strong>提供的“预置功能”。如果有一个相互合作的线程集满足这些行为模式之一，那么应该直接重用合适的库类而不要试图提供手工的锁与条件的集合。</p>
+<ul>
+<li>同步工具类可以是任何一个对象，只要它根据自身的状态来协调线程的控制流<br>
+<code>阻塞队列</code>可以作为同步工具类，其他类型的同步工具还有<code>信号量(Semaphore)</code>，<code>栅栏(Barrier)</code>以及<code>闭锁(Latch)</code></li>
+<li>所有同步工具类都包含一些特定的结构化属性:
+<ol>
+<li>封装了一些状态(决定线程是继续执行还是等待)</li>
+<li>提供一些方法对状态进行操作</li>
+<li>另一些方法用于高效地等待同步工具进入到预期状态</li>
+</ol>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>类</th>
+<th>它能做什么</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CyclicBarrier</td>
+<td>允许线程集等待直至其中预定数目的线程到达一个公共障栅，然后可以选择执行一个处理障栅的工作</td>
+<td>当大量的线程需要在它们的结果可用之前完成时</td>
+</tr>
+<tr>
+<td>Phaser</td>
+<td>类似于循环障栅，不过有一个可变的计数</td>
+<td>Java SE 7 中引入</td>
+</tr>
+<tr>
+<td>CountDownLatch</td>
+<td>允许线程集等待直到计数器减为 0</td>
+<td>当一个或多个线程需要等待直到指定数目的事件发生</td>
+</tr>
+<tr>
+<td>Exchanger</td>
+<td>允许两个线程在要交换的对象准备好时交换对象</td>
+<td>当两个线程工作在同一个数据结构的两个实例上的时候，一个向实例添加数据而另一个从实例清除数据</td>
+</tr>
+<tr>
+<td>Semaphore</td>
+<td>允许线程集等待直到被允许继续运行为止</td>
+<td>限制访问资源的线程总数。如果许可数是 1，常常阻塞线程直到另一个线程给出许可为止</td>
+</tr>
+<tr>
+<td>SynchronousQueue</td>
+<td>允许一个线程把对象交给另一个线程</td>
+<td>在没有显式同步的情况下，当两个线程准备好将一个对象从一个线程传递到另一个时</td>
+</tr>
+</tbody>
+</table>
+<h3 id="1-信号量（Semaphore）"><a class="header-anchor" href="#1-信号量（Semaphore）"></a>1 信号量（Semaphore）</h3>
+<p>信号量（Semaphore）可以控同时访问的线程个数。</p>
+<ul>
+<li><code>计数信号量(Counting Semaphore)</code>用来控制同时访问某个特点资源的操作数量，或者同时执行某个指定操作的数量</li>
+<li><code>Semaphore</code>中管理着一组虚拟的许可，许可的初始数量可通过构造函数来指定<br>
+在执行操作时可以先获得许可，并在使用后<code>release</code>释放许可给信号量<br>
+如果没有许可，那么<code>acquire</code>将阻塞直到有许可</li>
+<li><code>Sequence</code>可以用于实现资源池，也可以将任何一种容器变成有界阻塞容器</li>
+</ul>
+<h5 id="方法"><a class="header-anchor" href="#方法"></a>方法</h5>
+<ul>
+<li>acquire() ：获取一个许可，如果没有就阻塞等待</li>
+<li>release() ：释放一个许可。</li>
+<li>tryAcquire()：非阻塞</li>
+<li>availablePermits()：得到可用的许可数目</li>
+</ul>
+<pre><code>private Semaphore semaphore = new Semaphore(1);
+semaphore.acquire();
+Thread.currentThread().getName()
+semaphore.release();
+</code></pre>
+<h3 id="2-闭锁（CountDownLatch）"><a class="header-anchor" href="#2-闭锁（CountDownLatch）"></a>2 闭锁（CountDownLatch）</h3>
+<p>CountDownLatch 让一个线程集等待直到计数变为 0。倒计时门栓是一次性的。一旦计数为 0，就不能在重用了。</p>
+<ul>
+<li>闭锁相当于一扇门:
+<ul>
+<li>在闭锁到达结束状态之前，这扇门一直是关闭的，并且没有任何线程能通过，当到达结束状态时，这扇门就会打开并允许所有线程通过</li>
+<li>当闭锁到达结束状态后，将不会再改变状态，因此这扇门将永远保持打开状态</li>
+<li>闭锁可以用来确保某些活动直到其他活动都完成后才能执行</li>
+</ul>
+</li>
+<li>闭锁状态包括:
+<ul>
+<li>一个计数器，该计数器被初始化为一个正数，表示需要等待的事件数量</li>
+<li><code>countDown</code>方法递减计数器，表示有一个事件已经发生了</li>
+<li><code>await</code>方法等待计数器达到零，表示所有需要等待的事件都已经发生</li>
+<li>如果计数器的值非零(或者等待的线程中断/超时)，那么<code>await</code>会一直阻塞到计数器为零</li>
+</ul>
+</li>
+</ul>
+<h5 id="方法-v2"><a class="header-anchor" href="#方法-v2"></a>方法</h5>
+<ul>
+<li>await()：线程挂起，直到count值为0</li>
+<li>countDown()：将count值减1</li>
+</ul>
+<pre><code>final CountDownLatch latch = new CountDownLatch(2);
+latch.countDown();
+latch.await();
+</code></pre>
+<h3 id="3-栅栏（CyclicBarrier）"><a class="header-anchor" href="#3-栅栏（CyclicBarrier）"></a>3 栅栏（CyclicBarrier）</h3>
+<p>CyclicBarrier 类实现让一组线程等待至某个状态（barrier）之后再全部同时执行。当所有等待线程都被释放以后，CyclicBarrier可以被重用。</p>
+<ul>
+<li><code>栅栏</code>与<code>闭锁</code>的关键区别在于，所有线程必须都到达栅栏位置才能继续执行<br>
+<ul>
+<li><code>闭锁</code>用于等待事件，而<code>栅栏</code>用于等待其他线程</li>
+</ul>
+</li>
+<li>如果对<code>await</code>的调用超时，或者<code>await</code>阻塞的线程被中断，那么栅栏就被认为是打破了，所有阻塞的<code>await</code>调用都终止并抛出<code>BrokenBarrierException</code></li>
+<li>在模拟程序中通常需要使用栅栏(eg.等待所有玩家加载完毕开启游戏)</li>
+<li>另一种形式的栅栏是<code>Exchanger</code>，它是一种<code>两方(Two-Party)栅栏</code>，各方在栅栏位置上交换数据<br>
+当双方执行不对称时，<code>Exchanger</code>非常有用</li>
+</ul>
+<h5 id="方法-v3"><a class="header-anchor" href="#方法-v3"></a>方法</h5>
+<ul>
+<li>await()：线程挂起，直至所有线程都到达 barrier 状态</li>
+</ul>
+<pre><code>//构造一个障栅，并给出参与的线程数  
+CyclicBarrier barrier = new CyclicBarrier(nthreads);
+//每一个线程做一些工作，完成后在障栅上调用 await
+public void run(){
+    doWork();
+    brrier.await();
+    ...
+}
+</code></pre>
+<p>如果任何一个在障栅上等待的线程离开了障栅，那么障栅就被破坏了。在这种情况下，所有其他线程的 await 方法抛出 BrokenBarrierException 异常。那些已经在等待的线程立即终止 await 的调用。</p>
+<h4 id="3-1-可选的障栅"><a class="header-anchor" href="#3-1-可选的障栅"></a>3.1 可选的障栅</h4>
+<p>可以提供一个可选的障栅（barrier action），当所有线程到达障栅的时候就会执行这一动作。</p>
+<pre><code>Runnable barrierAction = ...;
+CyclicBarrier barrier = new CyclicBarrier(nthreads, barrierAction);
+</code></pre>
+<p>该动作可以收集那些单个线程的运行结果。</p>
+<p>Phaser 类增加了更大的灵活性，允许改变不同阶段中参与线程的个数。</p>
+<h3 id="4-交换器（Exchanger）"><a class="header-anchor" href="#4-交换器（Exchanger）"></a>4 交换器（Exchanger）</h3>
+<p>当两个线程在同一数据缓冲区的两个实例上工作的时候，就可以使用交换器（Exchanger）。典型的情况是，一个线程向缓冲区填入数据，另一个线程消耗这些数据。当它们都完成以后，相互交换缓冲区。</p>
+<h3 id="5-同步队列（SynchronousQueue）"><a class="header-anchor" href="#5-同步队列（SynchronousQueue）"></a>5 同步队列（SynchronousQueue）</h3>
+<p>同步队列是一种将生产者与消费者线程配对的机制。当一个线程调用 SynchronousQueue 的 put 方法时，它会阻塞直到另一个线程调用 take 方法为止，反之亦然。与 Exchanger 的情况不同，数据仅仅沿一个方向传递，从生产者到消费者。</p>
+<p>即使 SynchronousQueue 类实现了 BlockingQueue 接口，概念上讲，它依然不是一个队列。它没有包含任何元素，它的 size 方法总是返回 0。
+对于许多线程问题，可以通过使用一个或多个队列以优雅且安全的方式将其形式化。</p>
+<h4 id="5-1-队列方法"><a class="header-anchor" href="#5-1-队列方法"></a>5.1 队列方法</h4>
+<ul>
+<li>add  添加一个元素，如果队列满则抛错</li>
+<li>element  返回队列的头元素，如果队列空则抛错</li>
+<li>offer  添加一个元素返回true，如果队列满则返回false</li>
+<li>peek  返回队列头元素，如果队列空，返回null</li>
+<li>poll  移出并返回队列头元素，如果队列空，返回null</li>
+<li>put  添加一个元素，如果队列满则阻塞</li>
+<li>remove  移出并返回队列头元素，如果空则抛错</li>
+<li>take  移出并返回队列头元素，如果空则阻塞</li>
+</ul>
+<h4 id="5-2-八种队列"><a class="header-anchor" href="#5-2-八种队列"></a>5.2 八种队列</h4>
+<ul>
+<li>ArrayBlockingQueue：一个由数组结构组成的有界阻塞队列。</li>
+<li>LinkedBlockingQueue：一个由链表结构组成的有界阻塞队列。</li>
+<li>PriorityBlockingQueue：一个支持优先级排序的无界阻塞队列。</li>
+<li>DelayQueue：一个使用优先级队列实现的无界阻塞队列。</li>
+<li>SynchronousQueue：一个不存储元素的阻塞队列。</li>
+<li>LinkedTransferQueue：一个由链表结构组成的无界阻塞队列。</li>
+<li>LinkedBlockingDeque：一个由链表结构组成的双向阻塞队列。</li>
+<li>LinkedTransferQueue：1.7 增加的，允许生产者线程等待，直到消费者准备就绪。</li>
+</ul>
+<h4 id="5-3-阻塞队列"><a class="header-anchor" href="#5-3-阻塞队列"></a>5.3 阻塞队列</h4>
+<p>阻塞队列（BlockingQueue）提供了可阻塞的<code>put</code>和<code>take</code>方法，以及支持定时的<code>offer</code>和<code>poll</code>方法</p>
+<ul>
+<li>类库中包含了<code>BlockingQueue</code>的多种实现:
+<ul>
+<li><code>LinkedBlockingQueue</code>和<code>ArrayBlockingQueue</code>是FIFO队列，比同步List拥有更好的并发性能</li>
+<li><code>PriorityBlockingQueue</code>是按优先级排序的队列</li>
+<li><code>SynchronousQueue</code>不是一个真正的队列，不会为元素维护储存空间，它只维护一组等待着把元素加入或移出队列的线程
+<ul>
+<li>实现了“直接交付”，从而降低了从<code>生产者</code>移动到<code>消费者</code>的延迟，当交付被接受时，它就知道消费者已经得到了任务</li>
+<li>仅当有足够多的消费者，并且总有一个消费者准备好获取交付的工作时，才适合使用“同步队列”</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h5 id="1）串行线程封闭"><a class="header-anchor" href="#1）串行线程封闭"></a>1）串行线程封闭</h5>
+<ul>
+<li><code>可变对象</code>，<code>生产者——消费者</code>与<code>阻塞队列</code>一起，促进了串行线程封闭，将对象所有权从<code>生产者</code>交付给<code>消费者</code></li>
+<li><code>封闭对象</code>只能由单个线程拥有，但可以通过安全地发布对象来&quot;转移&quot;所有权，在转移后，另一个线程独占该对象访问权限</li>
+<li>例如线程池</li>
+</ul>
+<h5 id="2）双端队列与工作密取"><a class="header-anchor" href="#2）双端队列与工作密取"></a>2）双端队列与工作密取</h5>
+<ul>
+<li><code>Deque</code>是一个<code>双端队列</code>，实现了在队列头和队列尾的高效插入和移除。具体实现包括<code>ArrayDeque</code>和<code>LinkedBlockingDeque</code></li>
+<li>工作密取(Work Stealing)：每个<code>消费者</code>都有各自的<code>双端队列</code>。如果一个<code>消费者</code>完成了自己<code>双端队列</code>中的全部工作，那它就可以从其他<code>消费者</code>的<code>双端队列</code>末尾秘密地获取工作</li>
+<li>密取模式比传统的<code>生产者——消费者</code>模式具有更高的<code>可伸缩性</code>，因为工作者线程不会在单个共享的任务队列上发生竞争</li>
+</ul>
+
+</div>
+
+
+    <div class="post-guide">
+        <div class="item left">
+            
+              <a href="/2020/01/08/21%20%E5%85%B6%E4%BB%96/2019%20%E5%B9%B4%E5%B7%A5%E4%BD%9C%E6%80%BB%E7%BB%93/">
+                  <i class="fa fa-angle-left" aria-hidden="true"></i>
+                  
+              </a>
+            
+        </div>
+        <div class="item right">
+            
+              <a href="/2020/01/07/00%20Java/00%20Java%E5%9F%BA%E7%A1%80/07%20%E5%B9%B6%E5%8F%91/3%20%E9%94%81/">
+                3 锁
+                <i class="fa fa-angle-right" aria-hidden="true"></i>
+              </a>
+            
+        </div>
+    </div>
+
+
+
+	<div id="vcomments"></div>
+
+
+<script>
+	
+		// 评论
+		new Valine({
+			av: AV,
+			el: '#vcomments',
+			notify: false,
+			verify: false,
+			path: window.location.pathname,
+			appId: 'cbzi4mBFHIqKdH4wYkVHs44K-MdYXbMMI',
+			appKey: '4qY2BKiLCCOPgxVbsB5RkMc0',
+			placeholder: '请输入评论',
+			avatar: 'retro',
+			recordIP: false
+		})
+	
+	
+    // 显示次数
+		function showTime(Counter) {
+			var query = new AV.Query("Counter");
+			if($(".leancloud_visitors").length > 0){
+				var url = $(".leancloud_visitors").attr('id').trim();
+				// where field
+				query.equalTo("words", url);
+				// count
+				query.count().then(function (number) {
+					// There are number instances of MyClass where words equals url.
+					$(document.getElementById(url)).text(number?  number : '--');
+				}, function (error) {
+					// error is an instance of AVError.
+				});
+			}
+		}
+		// 追加pv
+		function addCount(Counter) {
+			var url = $(".leancloud_visitors").length > 0 ? $(".leancloud_visitors").attr('id').trim() : 'wujun234.github.io';
+			var Counter = AV.Object.extend("Counter");
+			var query = new Counter;
+			query.save({
+				words: url
+			}).then(function (object) {
+			})
+		}
+		$(function () {
+			var Counter = AV.Object.extend("Counter");
+			addCount(Counter);
+			showTime(Counter);
+		});
+	
+</script>
 	</div>
 	<div id="footer">
 	<p>
 	©2019-<span id="footerYear"></span> 
 	<a href="/">Wu Jun</a> 
-	|
-	<span id="busuanzi_container_site_pv">
-		pv
-		<span id="busuanzi_value_site_pv"></span>
-	</span>
-	|
-	<span id="busuanzi_container_site_uv"> 
-		uv
-		<span id="busuanzi_value_site_uv"></span>
-	</span>
+	
+	
+		|
+		<span id="busuanzi_container_site_pv">
+			pv
+			<span id="busuanzi_value_site_pv"></span>
+		</span>
+		|
+		<span id="busuanzi_container_site_uv"> 
+			uv
+			<span id="busuanzi_value_site_uv"></span>
+		</span>
+	
 	<br>
 	Theme <a href="//github.com/wujun234/hexo-theme-tree">Tree</a>
 	by <a href="//github.com/wujun234">WuJun</a>
