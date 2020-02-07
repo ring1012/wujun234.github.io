@@ -388,6 +388,26 @@ var _hmt = _hmt || [];
 								<li class="directory">
 									<a href="#" class="directory">
 										<i class="fa fa-plus-square-o"></i>
+										02 计算机组成原理
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2020/01/15/02%20%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/1%20%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%BF%B0/">
+										1 计算机系统概述
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
 										04 计算机网络
 									</a>
 									
@@ -2521,6 +2541,15 @@ var _hmt = _hmt || [];
 								<div class="article-toc" style="display: none;"></div>
 							</ul>
 			
+							<ul>
+								<li class="file">
+									<a href="/2020/02/07/08%20%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/1%20%E9%80%9A%E7%94%A8%E8%AE%BE%E8%AE%A1/06%20%E7%A7%92%E6%9D%80%E3%80%81%E7%BA%A2%E5%8C%85%E7%B3%BB%E7%BB%9F/">
+										06 秒杀、红包系统
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
 								</li>
 								
 							</ul>
@@ -3191,15 +3220,6 @@ var _hmt = _hmt || [];
 								<div class="article-toc" style="display: none;"></div>
 							</ul>
 			
-							<ul>
-								<li class="file">
-									<a href="/2019/01/05/10%20%E5%BE%AE%E6%9C%8D%E5%8A%A1/5%20%E9%93%BE%E8%B7%AF%E8%BF%BD%E8%B8%AA/02%20CAT/">
-										02 CAT
-									</a>
-								</li>
-								<div class="article-toc" style="display: none;"></div>
-							</ul>
-			
 								</li>
 								
 							</ul>
@@ -3545,12 +3565,12 @@ var _hmt = _hmt || [];
 								<li class="directory">
 									<a href="#" class="directory">
 										<i class="fa fa-plus-square-o"></i>
-										05 分布式事物
+										05 分布式事务
 									</a>
 									
 							<ul>
 								<li class="file">
-									<a href="/2020/01/21/11%20%E5%88%86%E5%B8%83%E5%BC%8F/05%20%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E7%89%A9/%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1/">
+									<a href="/2020/01/21/11%20%E5%88%86%E5%B8%83%E5%BC%8F/05%20%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1/%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1/">
 										分布式事务
 									</a>
 								</li>
@@ -3559,7 +3579,7 @@ var _hmt = _hmt || [];
 			
 							<ul>
 								<li class="file">
-									<a href="/2020/01/21/11%20%E5%88%86%E5%B8%83%E5%BC%8F/05%20%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E7%89%A9/%E5%88%86%E5%B8%83%E5%BC%8F%E4%BC%9A%E8%AF%9D/">
+									<a href="/2020/01/21/11%20%E5%88%86%E5%B8%83%E5%BC%8F/05%20%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1/%E5%88%86%E5%B8%83%E5%BC%8F%E4%BC%9A%E8%AF%9D/">
 										分布式会话
 									</a>
 								</li>
@@ -4227,7 +4247,7 @@ var _hmt = _hmt || [];
 <p>索引是在存储引擎中实现的，并不是所有的存储引擎都支持所有的索引类型。</p>
 <p>大部分数据库系统及文件系统都采用B-Tree或其变种B+Tree作为索引结构</p>
 <h4 id="1-1-B树-B-tree"><a class="header-anchor" href="#1-1-B树-B-tree"></a>1.1 B树(B-tree)</h4>
-<p>B树和平衡二叉树稍有不同的是B树属于多叉树</p>
+<p>B（balance）树和平衡二叉树稍有不同的是B树属于多叉树</p>
 <p>数据记录为[key, data]，key为记录的键值；data为数据记录除key外的数据。</p>
 <p>所有叶子节点均在同一层，叶子节点包含指向下一个叶子节点的指针，方便范围遍历。</p>
 <p>顺序存储，叶子页到根的距离相同，适合查找范围数据。</p>
@@ -4238,6 +4258,7 @@ var _hmt = _hmt || [];
 <p>B+ Tree 是基于 B Tree 和叶子节点顺序访问指针进行实现，它具有 B Tree 的平衡性，并且通过顺序访问指针来提高区间查询的性能。</p>
 <p>在 B+ Tree 中，一个节点中的 key 从左到右非递减排列，如果某个指针的左右相邻 key 分别是 key<sub>i</sub> 和 key<sub>i+1</sub>，且不为 null，则该指针指向节点的所有 key 大于等于 key<sub>i</sub> 且小于等于 key<sub>i+1</sub>。</p>
 <p><img src="/images/1545119138868.png" alt=""></p>
+<p>多列最左匹配，数据按索引列顺序排序</p>
 <h4 id="1-3-与红黑树的比较"><a class="header-anchor" href="#1-3-与红黑树的比较"></a>1.3 与红黑树的比较</h4>
 <p>红黑树等平衡树也可以用来实现索引，但是文件系统及数据库系统普遍采用 B+ Tree 作为索引结构，主要有以下两个原因：</p>
 <p>（一）更少的查找次数</p>
@@ -4269,6 +4290,7 @@ var _hmt = _hmt || [];
 <p>对于前缀长度的选取需要根据索引选择性来确定。</p>
 <h4 id="2-3-多列索引"><a class="header-anchor" href="#2-3-多列索引"></a>2.3 多列索引</h4>
 <p>在需要使用多个列作为条件进行查询时，使用多列索引比使用多个单列索引性能更好。</p>
+<p>最左匹配</p>
 <h4 id="2-4-索引列顺序"><a class="header-anchor" href="#2-4-索引列顺序"></a>2.4 索引列顺序</h4>
 <p>让选择性最高的索引列放在前面。</p>
 <h4 id="2-5-聚簇索引"><a class="header-anchor" href="#2-5-聚簇索引"></a>2.5 聚簇索引</h4>
