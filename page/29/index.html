@@ -4124,6 +4124,15 @@ var _hmt = _hmt || [];
 								<div class="article-toc" style="display: none;"></div>
 							</ul>
 			
+							<ul>
+								<li class="file">
+									<a href="/2020/02/12/16%20%E8%BE%85%E5%8A%A9%E5%B7%A5%E5%85%B7%E7%B1%BB/4%20%E6%95%B0%E6%8D%AE%E6%A0%BC%E5%BC%8F/3%20YAML%20%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/">
+										3 YAML 基础语法
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
 								</li>
 								
 							</ul>
@@ -4206,6 +4215,57 @@ var _hmt = _hmt || [];
 	<!-- 引入正文 -->
 	<div id="content">
 		<div id="index">
+	
+		<div class="index-li">
+			<a href="/2018/12/18/05%20Java/00%20Java%20%E5%9F%BA%E7%A1%80/06%20%E9%9B%86%E5%90%88/7%20%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8%E7%9A%84%E9%9B%86%E5%90%88/">
+				<h2 class="index-title">
+					7 线程安全的集合
+				</h2>
+				<div class="index-brief">
+					1 同步容器类
+同步容器类实现线程安全的方式是： 将他们的状态封装起来,并对每个公有方法都进行同步，使得每次只有一个线程能访问容器的状态。
+1.1 同步容器类的问题
+
+同步容器类都是线程安全的，但在某些情况下可能需要额外的客户端加锁来保护复合操作。
+由于同步容器类要遵守同步策略(支持客户端加锁)，因
+					...
+				</div>
+			</a>
+                <div class="article-meta">
+				    <span>2018-12-18</span>
+                    
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/05-Java/">05 Java</a>
+										
+											>
+										
+                                    </span>
+                                
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/05-Java/00-Java-基础/">00 Java 基础</a>
+										
+											>
+										
+                                    </span>
+                                
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/05-Java/00-Java-基础/06-集合/">06 集合</a>
+										
+                                    </span>
+                                
+                            
+                    
+                </div>
+		</div>	
 	
 		<div class="index-li">
 			<a href="/2018/12/18/05%20Java/00%20Java%20%E5%9F%BA%E7%A1%80/07%20%E5%B9%B6%E5%8F%91/2%20%E7%BA%BF%E7%A8%8B%E6%B1%A0/">
@@ -4664,58 +4724,6 @@ parentNo = (nodeNo-
 1.1 总体介绍
 ConcurrentHashMap采用了分段锁技术，效率较Hashtable高，不允许空值null。
 ConcurrentHashMap是 Segment 数组。Segment 继承于ReentrantL
-					...
-				</div>
-			</a>
-                <div class="article-meta">
-				    <span>2018-12-18</span>
-                    
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/05-Java/">05 Java</a>
-										
-											>
-										
-                                    </span>
-                                
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/05-Java/00-Java-基础/">00 Java 基础</a>
-										
-											>
-										
-                                    </span>
-                                
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/05-Java/00-Java-基础/06-集合/">06 集合</a>
-										
-                                    </span>
-                                
-                            
-                    
-                </div>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/2018/12/18/05%20Java/00%20Java%20%E5%9F%BA%E7%A1%80/06%20%E9%9B%86%E5%90%88/5%20%E7%AE%97%E6%B3%95/">
-				<h2 class="index-title">
-					5 算法
-				</h2>
-				<div class="index-brief">
-					泛型集合接口有一个很大的优点，即算法只需要实现一次。
-1 排序与混排
-1.1 排序
-Collections.sort()
-底层使用了数组的归并排序。即先转化集合为数组，排好序以后在复制回以前的集合。
-归并排序相较于快速排序，速度慢，但是稳定，它不需要交换相同的元素。
-排序传递的列表必须是可修改的，不
 					...
 				</div>
 			</a>
