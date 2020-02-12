@@ -2411,8 +2411,8 @@ var _hmt = _hmt || [];
 			
 							<ul>
 								<li class="file">
-									<a href="/2019/01/05/07%20%E6%95%B0%E6%8D%AE%E5%BA%93/01%20MySQL/10%20%E6%B0%B4%E5%B9%B3%E5%9E%82%E7%9B%B4%E6%8B%86%E5%88%86/">
-										10 水平垂直拆分
+									<a href="/2019/01/05/07%20%E6%95%B0%E6%8D%AE%E5%BA%93/01%20MySQL/10%20%E5%88%86%E5%BA%93%E5%88%86%E8%A1%A8/">
+										10 分库分表
 									</a>
 								</li>
 								<div class="article-toc" style="display: none;"></div>
@@ -4250,44 +4250,68 @@ var _hmt = _hmt || [];
 </div>
 
 <div id="article-content">
-	<p>事务指的是满足 ACID 特性的一组操作，用START TRANSACTION语句开始一个事务，通过 Commit 提交一个事务，使用 Rollback 进行回滚。</p>
-<h3 id="ACID"><a class="header-anchor" href="#ACID"></a>ACID</h3>
+	<p>事务指的是满足 ACID 特性的一组操作，用 START TRANSACTION 语句开始一个事务，通过 Commit 提交一个事务，使用 Rollback 进行回滚。</p>
+<h3 id="1-ACID"><a class="header-anchor" href="#1-ACID"></a>1 ACID</h3>
 <ul>
-<li><strong>原子性</strong>（Atomicity）<br>
-事务被视为不可分割的最小单元，事务的所有操作要么全部提交成功，要么全部失败回滚。<br>
-<em>回滚日志</em>(undo log)记录着事务所执行的修改操作，在回滚时反向执行这些修改操作即可。</li>
-<li><strong>一致性</strong>（Consistency）<br>
-数据库在事务执行前后都保持一致性状态。</li>
-<li><strong>隔离性</strong>（Isolation）<br>
-一个事务所做的修改在最终提交以前，对其它事务是不可见的。</li>
-<li><strong>持久性</strong>（Durability）<br>
-一旦事务提交，则其所做的修改将会永远保存到数据库中。分级别。<br>
-使用<em>重做日志</em>(redo log)来保证持久性。</li>
-</ul>
-<h3 id="隔离级别"><a class="header-anchor" href="#隔离级别"></a>隔离级别</h3>
+<li><strong>原子性</strong>（Atomicity）
 <ul>
-<li><strong>未提交读</strong>（READ UNCOMMITTED）<br>
-事务中的修改，即使没有提交，对其它事务也是可见的。<br>
-<em>脏读</em>：事务可以读取未提交的数据</li>
-<li><strong>提交读</strong>（READ COMMITTED）<br>
-一个事务只能读取已经提交的事务所做的修改。<br>
-<em>不可重复读</em>：两次执行同样的查询，可能会得到不一样的结果（update和delete）。</li>
-<li><strong>可重复读</strong>（REPEATABLE READ）<br>
-(默认级别)<br>
-保证在同一个事务中多次读取同样数据的结果是一样的。<br>
-<em>幻读</em>：读取某个<em>范围</em>记录时，其他事务插入了新记录，再读时，会产生幻行（insert）。<br>
-MVCC + 间隙锁 解决了幻读的问题。</li>
-<li><strong>可串行化</strong>（SERIALIZABLE）<br>
-强制事务串行执行。</li>
+<li>事务被视为不可分割的最小单元，事务的所有操作要么全部提交成功，要么全部失败回滚。</li>
+<li><em>回滚日志</em>(undo log)记录着事务所执行的修改操作，在回滚时反向执行这些修改操作即可。</li>
 </ul>
-<h3 id="MySQL中的事务"><a class="header-anchor" href="#MySQL中的事务"></a>MySQL中的事务</h3>
-<h5 id="AUTOCOMMIT"><a class="header-anchor" href="#AUTOCOMMIT"></a>AUTOCOMMIT</h5>
+</li>
+<li><strong>一致性</strong>（Consistency）
+<ul>
+<li>数据库在事务执行前后都保持一致性状态。</li>
+</ul>
+</li>
+<li><strong>隔离性</strong>（Isolation）
+<ul>
+<li>一个事务所做的修改在最终提交以前，对其它事务是不可见的。</li>
+</ul>
+</li>
+<li><strong>持久性</strong>（Durability）
+<ul>
+<li>一旦事务提交，则其所做的修改将会永远保存到数据库中。分级别。</li>
+<li>使用<em>重做日志</em>(redo log)来保证持久性。</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-隔离级别"><a class="header-anchor" href="#2-隔离级别"></a>2 隔离级别</h3>
+<ul>
+<li><strong>未提交读</strong>（READ UNCOMMITTED）
+<ul>
+<li>事务中的修改，即使没有提交，对其它事务也是可见的。</li>
+<li><em>脏读</em>：事务可以读取未提交的数据</li>
+</ul>
+</li>
+<li><strong>提交读</strong>（READ COMMITTED）
+<ul>
+<li>一个事务只能读取已经提交的事务所做的修改。</li>
+<li><em>不可重复读</em>：两次执行同样的查询，可能会得到不一样的结果（update 和 delete）。</li>
+</ul>
+</li>
+<li><strong>可重复读</strong>（REPEATABLE READ）
+<ul>
+<li>默认级别</li>
+<li>保证在同一个事务中多次读取同样数据的结果是一样的。</li>
+<li><em>幻读</em>：读取某个<em>范围</em>记录时，其他事务插入了新记录，再读时，会产生幻行（insert）。</li>
+<li>MVCC + 间隙锁 解决了幻读的问题。</li>
+</ul>
+</li>
+<li><strong>可串行化</strong>（SERIALIZABLE）
+<ul>
+<li>强制事务串行执行。</li>
+</ul>
+</li>
+</ul>
+<h3 id="3-MySQL中的事务"><a class="header-anchor" href="#3-MySQL中的事务"></a>3 MySQL中的事务</h3>
+<h4 id="3-1-AUTOCOMMIT"><a class="header-anchor" href="#3-1-AUTOCOMMIT"></a>3.1 AUTOCOMMIT</h4>
 <p>MySQL 默认采用自动提交模式。也就是说，如果不是显式地开始一个事务，那么每个查询都会被当做一个事务自动提交。</p>
-<p>1或者ON表示启用，0或者OFF表示禁用。</p>
+<p>1 或者 ON 表示启用，0 或者 OFF 表示禁用。</p>
 <pre><code>mysql&gt; SHOW VARIABLES LIKE 'AUTOCOMMIT';
 mysql&gt; SET AUTOCOMMIT = 1;
 </code></pre>
-<h5 id="设置隔离级别"><a class="header-anchor" href="#设置隔离级别"></a>设置隔离级别</h5>
+<h4 id="3-2-设置隔离级别"><a class="header-anchor" href="#3-2-设置隔离级别"></a>3.2 设置隔离级别</h4>
 <p>MySQL可以通过执行<code>SET TRANSACTION ISOLATION LEVEL</code>命令来设置隔离级别。</p>
 
 </div>

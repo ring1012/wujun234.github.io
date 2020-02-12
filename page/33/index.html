@@ -2409,8 +2409,8 @@ var _hmt = _hmt || [];
 			
 							<ul>
 								<li class="file">
-									<a href="/2019/01/05/07%20%E6%95%B0%E6%8D%AE%E5%BA%93/01%20MySQL/10%20%E6%B0%B4%E5%B9%B3%E5%9E%82%E7%9B%B4%E6%8B%86%E5%88%86/">
-										10 水平垂直拆分
+									<a href="/2019/01/05/07%20%E6%95%B0%E6%8D%AE%E5%BA%93/01%20MySQL/10%20%E5%88%86%E5%BA%93%E5%88%86%E8%A1%A8/">
+										10 分库分表
 									</a>
 								</li>
 								<div class="article-toc" style="display: none;"></div>
@@ -4426,22 +4426,21 @@ Locale 由 5 个元素组成，语言必选，其他可选：
 					07 SQL
 				</h2>
 				<div class="index-brief">
-					1 数据库
-
-CREATE DATABASECREATE DATABASE 数据库名;
+					1 CREATE
+1.1 创建数据库
+CREATE DATABASE
+CREATE DATABASE 数据库名;
 USE 数据库名;
 
-
-
-2 表
-
-CREATE TABLECREATE TABLE 表名 (
+1.2 创建表
+1）全新创建
+CREATE TABLE
+CREATE TABLE 表名 (
   列名 列类型 列属性,
   ...);
 
-
-CREATE TABLE … AS
-将一个表的内容插入到一个新表CR
+2）从已有表创建
+CREA
 					...
 				</div>
 			</a>
@@ -4477,11 +4476,21 @@ CREATE TABLE … AS
 					08 索引
 				</h2>
 				<div class="index-brief">
-					【todo】https://blog.csdn.net/bigtree_3721/article/details/51335479
-索引（Index）是帮助MySQL高效获取数据的数据结构。
-索引可包含多列，顺序相关，最左前缀列最高效。
-1 索引类型
-索引是在存储引擎中实现的，并不是所有的存储引擎都
+					1 索引类型
+索引是在存储引擎中实现的，并不是所有的存储引擎都支持所有的索引类型。
+大部分数据库系统及文件系统都采用 B-Tree 或其变种 B+Tree 作为索引结构
+1.1 存储引擎
+
+InnoDB
+
+聚簇索引
+
+聚簇(clustered)：数据行与叶子节点紧凑存储。
+
+
+辅助索引
+
+非聚簇索引
 					...
 				</div>
 			</a>
@@ -4517,12 +4526,12 @@ CREATE TABLE … AS
 					11 复制
 				</h2>
 				<div class="index-brief">
-					一、主从复制
+					1 主从复制
 在主库上记录二进制日志，在从库重放日志，实现异步的数据复制。非强一致性，由于时延、大语句执行等。
 主要涉及三个线程：BinLog 线程、I/O 线程和 SQL 线程。
 
-BinLog 线程 ：在主库上把“数据更改”（按事物提交顺序）记录到二进制日志（Binary Log）中。
-I/O 
+BinLog 线程：在主库上把“数据更改”（按事物提交顺序）记录到二进制日志（Binary Log）中。
+I/O 线
 					...
 				</div>
 			</a>

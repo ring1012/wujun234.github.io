@@ -2411,8 +2411,8 @@ var _hmt = _hmt || [];
 			
 							<ul>
 								<li class="file">
-									<a href="/2019/01/05/07%20%E6%95%B0%E6%8D%AE%E5%BA%93/01%20MySQL/10%20%E6%B0%B4%E5%B9%B3%E5%9E%82%E7%9B%B4%E6%8B%86%E5%88%86/">
-										10 水平垂直拆分
+									<a href="/2019/01/05/07%20%E6%95%B0%E6%8D%AE%E5%BA%93/01%20MySQL/10%20%E5%88%86%E5%BA%93%E5%88%86%E8%A1%A8/">
+										10 分库分表
 									</a>
 								</li>
 								<div class="article-toc" style="display: none;"></div>
@@ -4250,40 +4250,43 @@ var _hmt = _hmt || [];
 </div>
 
 <div id="article-content">
-	<h3 id="1-数据库"><a class="header-anchor" href="#1-数据库"></a>1 数据库</h3>
-<ul>
-<li>CREATE DATABASE<pre><code class="language-sql">CREATE DATABASE 数据库名;
+	<h3 id="1-CREATE"><a class="header-anchor" href="#1-CREATE"></a>1 CREATE</h3>
+<h4 id="1-1-创建数据库"><a class="header-anchor" href="#1-1-创建数据库"></a>1.1 创建数据库</h4>
+<p>CREATE DATABASE</p>
+<pre><code class="language-sql">CREATE DATABASE 数据库名;
 USE 数据库名;
 </code></pre>
-</li>
-</ul>
-<h3 id="2-表"><a class="header-anchor" href="#2-表"></a>2 表</h3>
-<ul>
-<li>CREATE TABLE<pre><code class="language-sql">CREATE TABLE 表名 (
+<h4 id="1-2-创建表"><a class="header-anchor" href="#1-2-创建表"></a>1.2 创建表</h4>
+<h5 id="1）全新创建"><a class="header-anchor" href="#1）全新创建"></a>1）全新创建</h5>
+<p>CREATE TABLE</p>
+<pre><code class="language-sql">CREATE TABLE 表名 (
   列名 列类型 列属性,
   ...);
 </code></pre>
-</li>
-<li>CREATE TABLE … AS<br>
-将一个表的内容插入到一个新表<pre><code class="language-sql">CREATE TABLE newtable AS
+<h5 id="2）从已有表创建"><a class="header-anchor" href="#2）从已有表创建"></a>2）从已有表创建</h5>
+<p>CREATE TABLE … AS</p>
+<pre><code class="language-sql">CREATE TABLE newtable AS
 SELECT * FROM mytable;
 </code></pre>
-</li>
-<li>DROP TABLE</li>
-<li>ALTER TABLE … ADD<pre><code class="language-sql">ALTER TABLE 表名 ADD 列名 列类型;
+<h3 id="2-DROP"><a class="header-anchor" href="#2-DROP"></a>2 DROP</h3>
+<h4 id="2-1-删除数据库"><a class="header-anchor" href="#2-1-删除数据库"></a>2.1 删除数据库</h4>
+<p>DROP DATABASE</p>
+<h4 id="2-2-删除表"><a class="header-anchor" href="#2-2-删除表"></a>2.2 删除表</h4>
+<p>DROP TABLE</p>
+<h3 id="3-ALTER"><a class="header-anchor" href="#3-ALTER"></a>3 ALTER</h3>
+<h4 id="3-1-添加列"><a class="header-anchor" href="#3-1-添加列"></a>3.1 添加列</h4>
+<p>ALTER TABLE … ADD</p>
+<pre><code class="language-sql">ALTER TABLE 表名 ADD 列名 列类型;
 </code></pre>
-</li>
-<li>ALTER TABLE … DROP COLUMN<pre><code class="language-sql">ALTER TABLE 表名 DROP COLUMN 列名;
+<h4 id="3-2-删除列"><a class="header-anchor" href="#3-2-删除列"></a>3.2 删除列</h4>
+<p>ALTER TABLE … DROP COLUMN</p>
+<pre><code class="language-sql">ALTER TABLE 表名 DROP COLUMN 列名;
 </code></pre>
-</li>
-</ul>
-<h3 id="3-列"><a class="header-anchor" href="#3-列"></a>3 列</h3>
-<h4 id="插入"><a class="header-anchor" href="#插入"></a>插入</h4>
-<ul>
-<li>普通插入<pre><code class="language-sql">INSERT INTO 表名(列名, 列名) VALUES(列值, 列值);
+<h3 id="4-INSERT"><a class="header-anchor" href="#4-INSERT"></a>4 INSERT</h3>
+<h4 id="4-1-普通插入"><a class="header-anchor" href="#4-1-普通插入"></a>4.1 普通插入</h4>
+<pre><code class="language-sql">INSERT INTO 表名(列名, 列名) VALUES(列值, 列值);
 </code></pre>
-</li>
-<li>插入检索出来的数据
+<h4 id="4-2-插入检索出来的数据"><a class="header-anchor" href="#4-2-插入检索出来的数据"></a>4.2 插入检索出来的数据</h4>
 <ul>
 <li>INSERT INTO SELECT</li>
 </ul>
@@ -4294,53 +4297,90 @@ SELECT * FROM mytable;
 </ul>
 <pre><code>SELECT vale1, value2 into Table2 from Table1
 </code></pre>
-</li>
-<li>避免重复插入
+<h4 id="4-3-避免重复插入"><a class="header-anchor" href="#4-3-避免重复插入"></a>4.3 避免重复插入</h4>
 <ul>
 <li>INSERT IGNORE<br>
 重复忽略</li>
 <li>REPLACE INTO<br>
 除旧迎新</li>
 <li>INSERT … ON DUPLICATE KEY UPDATE<br>
-重复更新<pre><code>INSERT INTO test VALUES (1, '2016-1-1', 10) ON DUPLICATE KEY UPDATE Time='2016-1-1',Data=10;
-</code></pre>
-</li>
+重复更新</li>
 </ul>
-</li>
-</ul>
-<h4 id="删除"><a class="header-anchor" href="#删除"></a>删除</h4>
-<ul>
-<li>DELETE FROM<pre><code class="language-sql">DELETE FROM 表名称 WHERE 列名称 = 值
+<h3 id="5-DELETE"><a class="header-anchor" href="#5-DELETE"></a>5 DELETE</h3>
+<h4 id="5-1-条件删除"><a class="header-anchor" href="#5-1-条件删除"></a>5.1 条件删除</h4>
+<p>DELETE FROM</p>
+<pre><code class="language-sql">DELETE FROM 表名称 WHERE 列名称 = 值
 </code></pre>
-</li>
-<li>TRUNCATE TABLE<br>
-清空表，删除所有行。<pre><code class="language-sql">TRUNCATE TABLE 表名称;
+<p>使用更新和删除操作时一定要用 WHERE 子句，不然会把整张表的数据都破坏。可以先用 SELECT 语句进行测试，防止错误删除。</p>
+<h4 id="5-2-清空表"><a class="header-anchor" href="#5-2-清空表"></a>5.2 清空表</h4>
+<p>TRUNCATE TABLE</p>
+<pre><code class="language-sql">TRUNCATE TABLE 表名称;
 </code></pre>
-</li>
-</ul>
-<h4 id="更新"><a class="header-anchor" href="#更新"></a>更新</h4>
+<h3 id="6-UPDATE"><a class="header-anchor" href="#6-UPDATE"></a>6 UPDATE</h3>
 <pre><code class="language-sql">UPDATE 表名称 SET 列名称 = 新值 WHERE 列名称 = 某值
 </code></pre>
-<h4 id="查询"><a class="header-anchor" href="#查询"></a>查询</h4>
+<h3 id="7-SELECT"><a class="header-anchor" href="#7-SELECT"></a>7 SELECT</h3>
+<h4 id="7-1-DISTINCT"><a class="header-anchor" href="#7-1-DISTINCT"></a>7.1 DISTINCT</h4>
+<p>相同值只会出现一次。所有列的值都相同才算相同。</p>
+<pre><code class="language-sql">SELECT DISTINCT …;
+</code></pre>
+<h3 id="8-FROM"><a class="header-anchor" href="#8-FROM"></a>8 FROM</h3>
+<h4 id="8-1-JOIN"><a class="header-anchor" href="#8-1-JOIN"></a>8.1 JOIN</h4>
 <ul>
-<li>DISTINCT<br>
-相同值只会出现一次。所有列的值都相同才算相同。<pre><code class="language-sql">SELECT DISTINCT …;
-</code></pre>
-</li>
-<li>LIMIT<br>
-限制返回的行数。可以有两个参数(起始行，返回行数)。<pre><code class="language-sql">LIMIT 5;
-LIMIT 0, 5;
-</code></pre>
-</li>
-<li>ORDER BY<br>
-ASC升序（默认），DESC降序<br>
-可多列排序，每列指定排序方式<pre><code class="language-sql">ORDER BY col1 DESC, col2 ASC;
-</code></pre>
-</li>
+<li>连接用于连接多个表，使用 JOIN 关键字，并且条件语句使用 ON 而不是 WHERE。</li>
+<li>连接可以替换子查询，并且比子查询的效率一般会更快。</li>
+<li>可以用 AS 给列名、计算字段和表名取别名，给表名取别名是为了简化 SQL 语句以及连接相同表。</li>
 </ul>
-<h3 id="4-WHERE"><a class="header-anchor" href="#4-WHERE"></a>4 WHERE</h3>
+<h5 id="1）INNER-JOIN"><a class="header-anchor" href="#1）INNER-JOIN"></a>1）INNER JOIN</h5>
 <ul>
-<li>操作符
+<li>内连接又称等值连接</li>
+<li>可以不明确使用 INNER JOIN，而使用普通查询并在 WHERE 中将两个表中要连接的列用等值方法连接起来。</li>
+</ul>
+<h5 id="2）NATURAL-JOIN"><a class="header-anchor" href="#2）NATURAL-JOIN"></a>2）NATURAL JOIN</h5>
+<ul>
+<li>自连接可以看成内连接的一种，只是连接的表是自身而已。</li>
+<li>自然连接是把同名列通过等值测试连接起来的，同名列可以有多个。</li>
+<li>内连接和自然连接的区别：内连接提供连接的列，而自然连接自动连接所有同名列。</li>
+</ul>
+<pre><code class="language-sql">-- 子查询版本
+SELECT name
+FROM employee
+WHERE department = (
+      SELECT department
+      FROM employee
+      WHERE name = &quot;Jim&quot;);
+
+-- 自连接版本
+SELECT e1.name
+FROM employee AS e1 NATURAL JOIN employee AS e2
+ON e1.department = e2.department
+      AND e2.name = &quot;Jim&quot;;
+</code></pre>
+<h5 id="3）OUTER-JOIN"><a class="header-anchor" href="#3）OUTER-JOIN"></a>3）OUTER JOIN</h5>
+<ul>
+<li>外连接保留了没有关联的那些行。</li>
+<li>分为左外连接，右外连接以及全外连接，左外连接就是保留左表没有关联的行。</li>
+</ul>
+<h4 id="8-2-UNION"><a class="header-anchor" href="#8-2-UNION"></a>8.2 UNION</h4>
+<p>使用 UNION 来组合两个查询，每个查询必须包含相同的列、表达式和聚集函数。</p>
+<h5 id="1）区别"><a class="header-anchor" href="#1）区别"></a>1）区别</h5>
+<ul>
+<li>UNION：会忽略重复数据</li>
+<li>UNION ALL：不会忽略重复数据</li>
+</ul>
+<h5 id="2）排序"><a class="header-anchor" href="#2）排序"></a>2）排序</h5>
+<p>只能包含一个 ORDER BY 子句，并且必须位于语句的最后。</p>
+<p>可使用子查询避开语法的问题</p>
+<pre><code>SELECT * from
+(SELECT name FROM student
+ORDER BY age limit 0, 1000) t1
+UNION (all)
+SELECT * from
+(SELECT grade FROM student
+ORDER BY age limit 0, 1000);
+</code></pre>
+<h3 id="9-WHERE"><a class="header-anchor" href="#9-WHERE"></a>9 WHERE</h3>
+<h4 id="9-1-操作符"><a class="header-anchor" href="#9-1-操作符"></a>9.1 操作符</h4>
 <table>
 <thead>
 <tr>
@@ -4395,17 +4435,67 @@ ASC升序（默认），DESC降序<br>
 </tr>
 </tbody>
 </table>
-</li>
-<li>Like<br>
-Like只能用于文本字段
+<h4 id="9-2-IN"><a class="header-anchor" href="#9-2-IN"></a>9.2 IN</h4>
+<ul>
+<li>IN 是把外表和内表作 hash 连接</li>
+<li>EXISTS 是对外表作 loop 循环，每次 loop 循环再对内表进行查询。</li>
+<li>如果查询的两个表大小相当，那么用 in 和 exists 差别不大；如果两个表中一个较小一个较大，则子查询表大的用 exists，子查询表小的用 in；</li>
+</ul>
+<pre><code class="language-sql">SELECT *
+FROM mytable1
+WHERE col1 IN (SELECT col2
+               FROM mytable2);
+</code></pre>
+<h4 id="9-3-LIKE"><a class="header-anchor" href="#9-3-LIKE"></a>9.3 LIKE</h4>
+<p>Like 只能用于文本字段</p>
 <ul>
 <li><strong>%</strong>：匹配 &gt;=0 个任意字符；</li>
 <li><strong>_</strong>：匹配 ==1 个任意字符；</li>
 <li><strong>[ ]</strong>：匹配集合内的字符， ^ 否定。</li>
 </ul>
-</li>
+<p>不要滥用通配符，通配符位于开头处匹配会非常慢。</p>
+<h4 id="9-4-ORDER-BY"><a class="header-anchor" href="#9-4-ORDER-BY"></a>9.4 ORDER BY</h4>
+<ul>
+<li>ASC 升序（默认），DESC 降序</li>
+<li>可多列排序，每列指定排序方式</li>
 </ul>
-<h3 id="5-计算"><a class="header-anchor" href="#5-计算"></a>5 计算</h3>
+<pre><code class="language-sql">ORDER BY col1 DESC, col2 ASC;
+</code></pre>
+<h4 id="9-5-LIMIT"><a class="header-anchor" href="#9-5-LIMIT"></a>9.5 LIMIT</h4>
+<p>限制返回的行数。可以有两个参数(起始行，返回行数)。</p>
+<pre><code class="language-sql">-- 返回前 5 行：
+LIMIT 5;
+-- 返回第 3 ~ 5 行：
+LIMIT 2, 3;
+</code></pre>
+<h3 id="10-GROUP-BY"><a class="header-anchor" href="#10-GROUP-BY"></a>10 GROUP BY</h3>
+<h4 id="10-1-GROUP-BY"><a class="header-anchor" href="#10-1-GROUP-BY"></a>10.1 GROUP BY</h4>
+<p>把具有相同的数据值的行放在同一组中。</p>
+<p>可以对同一分组数据使用汇总函数进行处理，例如求分组数据的平均值等。</p>
+<p>指定的分组字段除了能按该字段进行分组，也会自动按该字段进行排序。</p>
+<pre><code class="language-sql">SELECT col, COUNT(*) AS num
+FROM mytable
+GROUP BY col
+ORDER BY num;
+</code></pre>
+<h4 id="10-2-HAVING"><a class="header-anchor" href="#10-2-HAVING"></a>10.2 HAVING</h4>
+<p>WHERE 过滤行，HAVING 过滤分组，行过滤应当先于分组过滤。</p>
+<pre><code class="language-sql">SELECT col, COUNT(*) AS num
+FROM mytable
+WHERE col &gt; 2
+GROUP BY col
+HAVING num &gt;= 2;
+</code></pre>
+<h4 id="10-3-分组规定："><a class="header-anchor" href="#10-3-分组规定："></a>10.3 分组规定：</h4>
+<ul>
+<li>GROUP BY 子句出现在 WHERE 子句之后，ORDER BY 子句之前；</li>
+<li>除了汇总字段外，SELECT 语句中的每一字段都必须在 GROUP BY 子句中给出；</li>
+<li>NULL 的行会单独分为一组；</li>
+<li>大多数 SQL 实现不支持 GROUP BY 列具有可变长度的数据类型。</li>
+</ul>
+<h3 id="11-函数"><a class="header-anchor" href="#11-函数"></a>11 函数</h3>
+<h4 id="11-1-连接合并"><a class="header-anchor" href="#11-1-连接合并"></a>11.1 连接合并</h4>
+<p>在数据库服务器上完成数据的转换和格式化的工作往往比客户端上快得多，并且转换和格式化后的数据量更少的话可以减少网络通信量。</p>
 <ul>
 <li>AS 别名</li>
 <li>CONCAT() 连接两个字段，不支持&quot;+&quot;</li>
@@ -4415,9 +4505,7 @@ Like只能用于文本字段
 <pre><code class="language-sql">SELECT CONCAT(TRIM(col1), '(', TRIM(col2), ')') AS concat_col
 FROM mytable;
 </code></pre>
-<h3 id="6-函数"><a class="header-anchor" href="#6-函数"></a>6 函数</h3>
-<ul>
-<li>汇总
+<h4 id="11-2-汇总"><a class="header-anchor" href="#11-2-汇总"></a>11.2 汇总</h4>
 <table>
 <thead>
 <tr>
@@ -4448,8 +4536,9 @@ FROM mytable;
 </tr>
 </tbody>
 </table>
-</li>
-<li>文本处理
+<p>AVG() 会忽略 NULL 行。</p>
+<p>使用 DISTINCT 可以汇总不同的值。</p>
+<h4 id="11-3-文本处理"><a class="header-anchor" href="#11-3-文本处理"></a>11.3 文本处理</h4>
 <table>
 <thead>
 <tr>
@@ -4492,10 +4581,12 @@ FROM mytable;
 </tr>
 </tbody>
 </table>
-</li>
-<li>日期和时间处理<br>
-日期格式：YYYY-MM-DD<br>
-时间格式：HH:MM:SS
+<p>其中，<strong>SOUNDEX()</strong> 可以将一个字符串转换为描述其语音表示的字母数字模式。</p>
+<h4 id="11-4-日期和时间处理"><a class="header-anchor" href="#11-4-日期和时间处理"></a>11.4 日期和时间处理</h4>
+<ul>
+<li>日期格式：YYYY-MM-DD</li>
+<li>时间格式：HH:MM:SS</li>
+</ul>
 <table>
 <thead>
 <tr>
@@ -4586,8 +4677,7 @@ select date_add(@dt, interval ’01:15:30′ hour_second);
 
 SELECT date_format(NOW(),'%Y-%m-%d');
 </code></pre>
-</li>
-<li>数值处理
+<h4 id="11-5-数值处理"><a class="header-anchor" href="#11-5-数值处理"></a>11.5 数值处理</h4>
 <table>
 <thead>
 <tr>
@@ -4634,73 +4724,7 @@ SELECT date_format(NOW(),'%Y-%m-%d');
 </tr>
 </tbody>
 </table>
-</li>
-</ul>
-<h3 id="7-分组"><a class="header-anchor" href="#7-分组"></a>7 分组</h3>
-<ul>
-<li>GROUP BY<br>
-GROUP BY 自动按分组字段进行排序，ORDER BY 也可以按汇总字段来进行排序。<pre><code class="language-sql">SELECT col, COUNT(*) AS num
-FROM mytable
-GROUP BY col
-ORDER BY num;
-</code></pre>
-</li>
-<li>HAVING<br>
-WHERE 过滤行，HAVING 过滤分组，行过滤应当先于分组过滤。<pre><code class="language-sql">SELECT col, COUNT(*) AS num
-FROM mytable
-WHERE col &gt; 2
-GROUP BY col
-HAVING num &gt;= 2;
-</code></pre>
-</li>
-<li>分组规定：
-<ul>
-<li>GROUP BY 子句出现在 WHERE 子句之后，ORDER BY 子句之前；</li>
-<li>除了汇总字段外，SELECT 语句中的每一字段都必须在 GROUP BY 子句中给出；</li>
-<li>NULL 的行会单独分为一组；</li>
-<li>大多数 SQL 实现不支持 GROUP BY 列具有可变长度的数据类型。</li>
-</ul>
-</li>
-</ul>
-<h3 id="8-子查询"><a class="header-anchor" href="#8-子查询"></a>8 子查询</h3>
-<p>子查询中只能返回一个字段的数据。</p>
-<p>可以将子查询的结果作为 WHRER 语句的过滤条件</p>
-<pre><code class="language-sql">SELECT *
-FROM mytable1
-WHERE col1 IN (SELECT col2
-               FROM mytable2);
-</code></pre>
-<p>in是把外表和内表作hash连接，而exists是对外表作loop循环，每次loop循环再对内表进行查询。</p>
-<p>如果查询的两个表大小相当，那么用in和exists差别不大；如果两个表中一个较小一个较大，则子查询表大的用exists，子查询表小的用in；</p>
-<h3 id="9-JOIN"><a class="header-anchor" href="#9-JOIN"></a>9 JOIN</h3>
-<p>连接可以替换子查询，并且比子查询的效率一般会更快。</p>
-<ul>
-<li>INNER JOIN</li>
-</ul>
-<p>内连接又称等值连接</p>
-<p>可以不明确使用 INNER JOIN，而使用普通查询并在 WHERE 中将两个表中要连接的列用等值方法连接起来。</p>
-<ul>
-<li>NATURAL JOIN</li>
-</ul>
-<p>自然连接是把同名列通过等值测试连接起来的，同名列可以有多个。</p>
-<p>内连接和自然连接的区别：内连接提供连接的列，而自然连接自动连接所有同名列。</p>
-<ul>
-<li>OUTER JOIN</li>
-</ul>
-<p>外连接保留了没有关联的那些行。分为左外连接，右外连接以及全外连接，左外连接就是保留左表没有关联的行。</p>
-<h3 id="10-UNION"><a class="header-anchor" href="#10-UNION"></a>10 UNION</h3>
-<p>使用  <strong>UNION</strong>  来组合两个查询，union 和 union all的差别是前者会忽略重复数据，后者不会。</p>
-<p>每个查询必须包含相同的列、表达式和聚集函数。</p>
-<p>只能包含一个 ORDER BY 子句，并且必须位于语句的最后。可使用子查询避开语法的问题</p>
-<pre><code>SELECT * from
-(SELECT name FROM student
-ORDER BY age limit 0, 1000) t1
-UNION (all)
-SELECT * from
-(SELECT grade FROM student
-ORDER BY age limit 0, 1000);
-</code></pre>
-<h3 id="11-视图"><a class="header-anchor" href="#11-视图"></a>11 视图</h3>
+<h3 id="12-视图"><a class="header-anchor" href="#12-视图"></a>12 视图</h3>
 <p>视图是虚拟的表，本身不包含数据，也就不能对其进行索引操作。</p>
 <p>对视图的操作和对普通表的操作一样。</p>
 <p>视图具有如下好处：</p>
@@ -4715,8 +4739,15 @@ SELECT Concat(col1, col2) AS concat_col, col3*col4 AS compute_col
 FROM mytable
 WHERE col5 = val;
 </code></pre>
-<h3 id="12-存储过程"><a class="header-anchor" href="#12-存储过程"></a>12 存储过程</h3>
+<h3 id="13-存储过程"><a class="header-anchor" href="#13-存储过程"></a>13 存储过程</h3>
+<h4 id="13-1-PROCEDURE"><a class="header-anchor" href="#13-1-PROCEDURE"></a>13.1 PROCEDURE</h4>
 <p>存储过程可以看成是对一系列 SQL 操作的批处理。</p>
+<p>使用存储过程的好处：</p>
+<ul>
+<li>代码封装，保证了一定的安全性；</li>
+<li>代码复用；</li>
+<li>由于是预先编译，因此具有很高的性能。</li>
+</ul>
 <p>命令行中创建存储过程需要自定义分隔符，因为命令行是以 ; 为结束符，而存储过程中也包含了分号，因此会错误把这部分分号当成是结束符，造成语法错误。</p>
 <p>包含 in、out 和 inout 三种参数。</p>
 <p>给变量赋值都需要用 select into 语句。</p>
@@ -4737,7 +4768,7 @@ delimiter ;
 <pre><code class="language-sql">call myprocedure(@ret);
 select @ret;
 </code></pre>
-<h4 id="游标"><a class="header-anchor" href="#游标"></a>游标</h4>
+<h4 id="13-2-CURSOR"><a class="header-anchor" href="#13-2-CURSOR"></a>13.2 CURSOR</h4>
 <p>在存储过程中使用游标可以对一个结果集进行移动遍历。</p>
 <p>游标主要用于交互式应用，其中用户需要对数据集中的任意行进行浏览和修改。</p>
 <p>使用游标的四个步骤：</p>
@@ -4768,29 +4799,34 @@ create procedure myprocedure(out ret int)
     end //
  delimiter ;
 </code></pre>
-<h3 id="13-触发器"><a class="header-anchor" href="#13-触发器"></a>13 触发器</h3>
+<h3 id="14-触发器"><a class="header-anchor" href="#14-触发器"></a>14 触发器</h3>
 <p>触发器会在某个表执行以下语句时而自动执行：DELETE、INSERT、UPDATE。</p>
 <p>触发器必须指定在语句执行之前还是之后自动执行，之前执行使用 BEFORE 关键字，之后执行使用 AFTER 关键字。BEFORE 用于数据验证和净化，AFTER 用于审计跟踪，将修改记录到另外一张表中。</p>
 <ul>
 <li>INSERT<br>
-INSERT 触发器包含一个名为 NEW 的虚拟表。</li>
-</ul>
-<pre><code class="language-sql">CREATE TRIGGER mytrigger AFTER INSERT ON mytable
+INSERT 触发器包含一个名为 NEW 的虚拟表。<pre><code class="language-sql">CREATE TRIGGER mytrigger AFTER INSERT ON mytable
 FOR EACH ROW SELECT NEW.col into @result;
 
 SELECT @result; -- 获取结果
 </code></pre>
-<ul>
+</li>
 <li>DELETE<br>
 DELETE 触发器包含一个名为 OLD 的虚拟表，并且是只读的。</li>
 <li>UPDATE<br>
 UPDATE 触发器包含一个名为 NEW 和一个名为 OLD 的虚拟表，其中 NEW 是可以被修改的，而 OLD 是只读的。</li>
 </ul>
 <p>MySQL 不允许在触发器中使用 CALL 语句，也就是不能调用存储过程。</p>
-<h3 id="14-事务管理"><a class="header-anchor" href="#14-事务管理"></a>14 事务管理</h3>
-<p>不能回退 SELECT 、 CREATE 和 DROP 语句。</p>
+<h3 id="15-事务管理"><a class="header-anchor" href="#15-事务管理"></a>15 事务管理</h3>
+<p>基本术语：</p>
+<ul>
+<li>事务（transaction）指一组 SQL 语句；</li>
+<li>回退（rollback）指撤销指定 SQL 语句的过程；</li>
+<li>提交（commit）指将未存储的 SQL 语句结果写入数据库表；</li>
+<li>保留点（savepoint）指事务处理中设置的临时占位符（placeholder），你可以对它发布回退（与回退整个事务处理不同）。</li>
+</ul>
+<p>不能回退 SELECT 语句，回退 SELECT 语句也没意义；也不能回退 CREATE 和 DROP 语句。</p>
 <p>MySQL 的事务提交默认是隐式提交，每执行一条语句就把这条语句当成一个事务然后进行提交。当出现 START TRANSACTION 语句时，会关闭隐式提交；当 COMMIT 或 ROLLBACK 语句执行后，事务会自动关闭，重新恢复隐式提交。</p>
-<p>通过设置 autocommit 为 0 可以取消自动提交；autocommit 标记是针对每个连接而不是针对服务器的。</p>
+<p>设置 autocommit 为 0 可以取消自动提交；autocommit 标记是针对每个连接而不是针对服务器的。</p>
 <p>如果没有设置保留点，ROLLBACK 会回退到 START TRANSACTION 语句处；如果设置了保留点，并且在 ROLLBACK 中指定该保留点，则会回退到该保留点。</p>
 <pre><code class="language-sql">START TRANSACTION
 // ...
@@ -4800,8 +4836,13 @@ ROLLBACK TO delete1
 // ...
 COMMIT
 </code></pre>
-<h3 id="15-字符集"><a class="header-anchor" href="#15-字符集"></a>15 字符集</h3>
-<p>校对字符指定如何比较，主要用于排序和分组。</p>
+<h3 id="16-字符集"><a class="header-anchor" href="#16-字符集"></a>16 字符集</h3>
+<p>基本术语：</p>
+<ul>
+<li>字符集为字母和符号的集合；</li>
+<li>编码为某个字符集成员的内部表示；</li>
+<li>校对字符指定如何比较，主要用于排序和分组。</li>
+</ul>
 <p>除了给表指定字符集和校对外，也可以给列指定：</p>
 <pre><code class="language-sql">CREATE TABLE mytable
 (col VARCHAR(10) CHARACTER SET latin COLLATE latin1_general_ci )
@@ -4812,7 +4853,7 @@ DEFAULT CHARACTER SET hebrew COLLATE hebrew_general_ci;
 FROM mytable
 ORDER BY col COLLATE latin1_general_ci;
 </code></pre>
-<h3 id="16-权限管理"><a class="header-anchor" href="#16-权限管理"></a>16 权限管理</h3>
+<h3 id="17-权限管理"><a class="header-anchor" href="#17-权限管理"></a>17 权限管理</h3>
 <p>MySQL 的账户信息保存在 mysql 这个数据库中。</p>
 <pre><code class="language-sql">USE mysql;
 SELECT user FROM user;
@@ -4852,7 +4893,7 @@ GRANT 和 REVOKE 可在几个层次上控制访问权限：
 </code></pre>
 </li>
 </ul>
-<h3 id="17-条件选择"><a class="header-anchor" href="#17-条件选择"></a>17 条件选择</h3>
+<h3 id="18-条件选择"><a class="header-anchor" href="#18-条件选择"></a>18 条件选择</h3>
 <pre><code>case 
     when b.customer_type ='L' 
         then 
@@ -4861,7 +4902,6 @@ GRANT 和 REVOKE 可在几个层次上控制访问权限：
     else
 end
 </code></pre>
-<p><a href="https://github.com/CyC2018/CS-Notes/blob/master/notes/SQL.md" target="_blank" rel="noopener">修改自此Link</a></p>
 
 </div>
 

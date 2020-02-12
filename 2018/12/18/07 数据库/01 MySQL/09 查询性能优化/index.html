@@ -2411,8 +2411,8 @@ var _hmt = _hmt || [];
 			
 							<ul>
 								<li class="file">
-									<a href="/2019/01/05/07%20%E6%95%B0%E6%8D%AE%E5%BA%93/01%20MySQL/10%20%E6%B0%B4%E5%B9%B3%E5%9E%82%E7%9B%B4%E6%8B%86%E5%88%86/">
-										10 水平垂直拆分
+									<a href="/2019/01/05/07%20%E6%95%B0%E6%8D%AE%E5%BA%93/01%20MySQL/10%20%E5%88%86%E5%BA%93%E5%88%86%E8%A1%A8/">
+										10 分库分表
 									</a>
 								</li>
 								<div class="article-toc" style="display: none;"></div>
@@ -4259,18 +4259,18 @@ var _hmt = _hmt || [];
 <li>rows : 扫描的行数</li>
 </ul>
 <h3 id="2-优化数据访问"><a class="header-anchor" href="#2-优化数据访问"></a>2 优化数据访问</h3>
-<h5 id="2-1-减少请求的数据量"><a class="header-anchor" href="#2-1-减少请求的数据量"></a>2.1 减少请求的数据量</h5>
+<h4 id="2-1-减少请求的数据量"><a class="header-anchor" href="#2-1-减少请求的数据量"></a>2.1 减少请求的数据量</h4>
 <ul>
 <li>只返回必要的列：最好不要使用 SELECT * 语句。</li>
 <li>只返回必要的行：使用 LIMIT 语句来限制返回的数据。</li>
 <li>缓存重复查询的数据：使用缓存可以避免在数据库中进行查询，特别在要查询的数据经常被重复查询时，缓存带来的查询性能提升将会是非常明显的。</li>
 </ul>
-<h5 id="2-2-减少服务器端扫描的行数"><a class="header-anchor" href="#2-2-减少服务器端扫描的行数"></a>2.2 减少服务器端扫描的行数</h5>
+<h4 id="2-2-减少服务器端扫描的行数"><a class="header-anchor" href="#2-2-减少服务器端扫描的行数"></a>2.2 减少服务器端扫描的行数</h4>
 <p>最有效的方式是使用索引来覆盖查询。</p>
 <h3 id="3-重构查询方式"><a class="header-anchor" href="#3-重构查询方式"></a>3 重构查询方式</h3>
-<h5 id="3-1-切分复杂查询"><a class="header-anchor" href="#3-1-切分复杂查询"></a>3.1 切分复杂查询</h5>
+<h4 id="3-1-切分复杂查询"><a class="header-anchor" href="#3-1-切分复杂查询"></a>3.1 切分复杂查询</h4>
 <p>一个大查询如果一次性执行的话，可能一次锁住很多数据、占满整个事务日志、耗尽系统资源、阻塞很多小的但重要的查询。</p>
-<h5 id="3-2-分解关联查询"><a class="header-anchor" href="#3-2-分解关联查询"></a>3.2 分解关联查询</h5>
+<h4 id="3-2-分解关联查询"><a class="header-anchor" href="#3-2-分解关联查询"></a>3.2 分解关联查询</h4>
 <p>将一个大连接查询分解成对每一个表进行一次单表查询，然后在应用程序中进行关联，这样做的好处有：</p>
 <ul>
 <li>让缓存更高效。对于连接查询，如果其中一个表发生变化，那么整个查询缓存就无法使用。而分解后的多个查询，即使其中一个表发生变化，对其它表的查询缓存依然可以使用。</li>
@@ -4280,13 +4280,13 @@ var _hmt = _hmt || [];
 <li>查询本身效率也可能会有所提升。</li>
 </ul>
 <h3 id="4-SQL-优化"><a class="header-anchor" href="#4-SQL-优化"></a>4 SQL 优化</h3>
-<h5 id="负向查询不能使用索引"><a class="header-anchor" href="#负向查询不能使用索引"></a>负向查询不能使用索引</h5>
+<h4 id="4-1-负向查询不能使用索引"><a class="header-anchor" href="#4-1-负向查询不能使用索引"></a>4.1 负向查询不能使用索引</h4>
 <pre><code class="language-sql">select name from user where id not in (1,3,4);
 </code></pre>
 <p>应该修改为:</p>
 <pre><code>select name from user where id in (2,5,6);
 </code></pre>
-<h5 id="前导模糊查询不能使用索引"><a class="header-anchor" href="#前导模糊查询不能使用索引"></a>前导模糊查询不能使用索引</h5>
+<h4 id="4-2-前导模糊查询不能使用索引"><a class="header-anchor" href="#4-2-前导模糊查询不能使用索引"></a>4.2 前导模糊查询不能使用索引</h4>
 <p>如:</p>
 <pre><code class="language-sql">select name from user where name like '%zhangsan'
 </code></pre>
@@ -4294,18 +4294,18 @@ var _hmt = _hmt || [];
 <pre><code class="language-sql">select name from user where name like 'zhangsan%'
 </code></pre>
 <p>建议可以考虑使用 <code>Lucene</code> 等全文索引工具来代替频繁的模糊查询。</p>
-<h5 id="数据区分不明显的不建议创建索引"><a class="header-anchor" href="#数据区分不明显的不建议创建索引"></a>数据区分不明显的不建议创建索引</h5>
+<h4 id="4-3-数据区分不明显的不建议创建索引"><a class="header-anchor" href="#4-3-数据区分不明显的不建议创建索引"></a>4.3 数据区分不明显的不建议创建索引</h4>
 <p>如 user 表中的性别字段，可以明显区分的才建议创建索引，如身份证等字段。</p>
-<h5 id="字段的默认值不要为-null"><a class="header-anchor" href="#字段的默认值不要为-null"></a>字段的默认值不要为 null</h5>
+<h4 id="4-4-字段的默认值不要为-null"><a class="header-anchor" href="#4-4-字段的默认值不要为-null"></a>4.4 字段的默认值不要为 null</h4>
 <p>这样会带来和预期不一致的查询结果。</p>
-<h5 id="在字段上进行计算不能命中索引"><a class="header-anchor" href="#在字段上进行计算不能命中索引"></a>在字段上进行计算不能命中索引</h5>
+<h4 id="4-5-在字段上进行计算不能命中索引"><a class="header-anchor" href="#4-5-在字段上进行计算不能命中索引"></a>4.5 在字段上进行计算不能命中索引</h4>
 <pre><code class="language-sql">select name from user where FROM_UNIXTIME(create_time) &lt; CURDATE();
 </code></pre>
 <p>应该修改为:</p>
 <pre><code class="language-sql">select name from user where create_time &lt; FROM_UNIXTIME(CURDATE());
 </code></pre>
-<h5 id="最左前缀问题"><a class="header-anchor" href="#最左前缀问题"></a>最左前缀问题</h5>
-<p>如果给 user 表中的 username pwd 字段创建了复合索引那么使用以下SQL 都是可以命中索引:</p>
+<h4 id="4-6-最左前缀问题"><a class="header-anchor" href="#4-6-最左前缀问题"></a>4.6 最左前缀问题</h4>
+<p>如果给 user 表中的 username pwd 字段创建了复合索引那么使用以下 SQL 都是可以命中索引:</p>
 <pre><code class="language-sql">select username from user where username='zhangsan' and pwd ='axsedf1sd'
 
 select username from user where pwd ='axsedf1sd' and username='zhangsan'
@@ -4316,57 +4316,65 @@ select username from user where username='zhangsan'
 <pre><code class="language-sql">select username from user where pwd ='axsedf1sd'
 </code></pre>
 <p>是不能命中索引的。</p>
-<h5 id="如果明确知道只有一条记录返回"><a class="header-anchor" href="#如果明确知道只有一条记录返回"></a>如果明确知道只有一条记录返回</h5>
+<h4 id="4-7-如果明确知道只有一条记录返回"><a class="header-anchor" href="#4-7-如果明确知道只有一条记录返回"></a>4.7 如果明确知道只有一条记录返回</h4>
 <pre><code class="language-sql">select name from user where username='zhangsan' limit 1
 </code></pre>
 <p>可以提高效率，可以让数据库停止游标移动。</p>
-<h5 id="不要让数据库帮我们做强制类型转换"><a class="header-anchor" href="#不要让数据库帮我们做强制类型转换"></a>不要让数据库帮我们做强制类型转换</h5>
-<pre><code class="language-sql">select name from user where telno=18722222222
+<h4 id="4-8-不要让数据库帮我们做强制类型转换"><a class="header-anchor" href="#4-8-不要让数据库帮我们做强制类型转换"></a>4.8 不要让数据库帮我们做强制类型转换</h4>
+<pre><code class="language-sql">select name from user where telno = 18722222222
 </code></pre>
 <p>这样虽然可以查出数据，但是会导致全表扫描。</p>
 <p>需要修改为</p>
 <pre><code>select name from user where telno='18722222222'
 </code></pre>
-<h5 id="如果需要进行-join-的字段两表的字段类型要相同"><a class="header-anchor" href="#如果需要进行-join-的字段两表的字段类型要相同"></a>如果需要进行 join 的字段两表的字段类型要相同</h5>
+<h4 id="4-9-如果需要进行-join-的字段两表的字段类型要相同"><a class="header-anchor" href="#4-9-如果需要进行-join-的字段两表的字段类型要相同"></a>4.9 如果需要进行 join 的字段两表的字段类型要相同</h4>
 <p>不然也不会命中索引。</p>
 <h3 id="5-查询执行的基础"><a class="header-anchor" href="#5-查询执行的基础"></a>5 查询执行的基础</h3>
 <p><img src="/images/1545119138924.png" alt=""></p>
-<h4 id="5-1-Mysql客户端-服务器通信协议"><a class="header-anchor" href="#5-1-Mysql客户端-服务器通信协议"></a>5.1 Mysql客户端/服务器通信协议</h4>
+<h4 id="5-1-Mysql-客户端-服务器通信协议"><a class="header-anchor" href="#5-1-Mysql-客户端-服务器通信协议"></a>5.1 Mysql 客户端/服务器通信协议</h4>
 <p>半双工</p>
 <ul>
 <li>优点：简单快捷；</li>
 <li>缺点：无法进行流量控制，一旦一端开始发送消息，另一端要完整接收后才能响应它。
 <ul>
-<li>服务器端：<br>
-参数max_allowed_packet的作用：如果查询太大，服务端会拒绝接收更多的数据。</li>
-<li>客户端：<br>
-如果服务器发送的数据特别多，客户端必须完整地接收完整个结果。粗暴地断开连接不是个好主意，应该使用Limit进行限制。
-服务器端发送完全部数据，才会释放相应资源。</li>
+<li>服务器端：
+<ul>
+<li>参数 max_allowed_packet 的作用：如果查询太大，服务端会拒绝接收更多的数据。</li>
+</ul>
+</li>
+<li>客户端：
+<ul>
+<li>如果服务器发送的数据特别多，客户端必须完整地接收完整个结果。粗暴地断开连接不是个好主意，应该使用 limit 进行限制。</li>
+<li>服务器端发送完全部数据，才会释放相应资源。</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
 <h4 id="5-2-查询缓存"><a class="header-anchor" href="#5-2-查询缓存"></a>5.2 查询缓存</h4>
-<p>在解析一个查询语句前，如果查询缓存是打开的，那么MySQL会检查这个查询语句是否命中查询缓存中的数据。如果当前查询恰好命中查询缓存，在检查一次用户权限后直接返回缓存中的结果。这种情况下，查询不会被解析，也不会生成执行计划，更不会执行。</p>
+<p>在解析一个查询语句前，如果查询缓存是打开的，那么 MySQL 会检查这个查询语句是否命中查询缓存中的数据。如果当前查询恰好命中查询缓存，在检查一次用户权限后直接返回缓存中的结果。这种情况下，查询不会被解析，也不会生成执行计划，更不会执行。</p>
 <p>缓存匹配原理:</p>
 <ul>
-<li>Key: SQL的哈希值；</li>
+<li>Key: SQL 的哈希值；</li>
 <li>Value: 缓存(查询结果数据)。</li>
 </ul>
-<p>其中对于函数Hash(SQL)是大小写敏感的，因此即使轻微的改动，也无法利用缓存。（Perconan版本的Mysql能够忽略注释。）</p>
-<p>MySQL的查询缓存系统会跟踪查询中涉及的每个表，如果这些表（数据或结构）发生变化，那么和这张表相关的所有缓存数据都将失效。</p>
+<p>其中对于函数 Hash(SQL) 是大小写敏感的，因此即使轻微的改动，也无法利用缓存。（Perconan 版本的 Mysql 能够忽略注释。）</p>
+<p>MySQL 的查询缓存系统会跟踪查询中涉及的每个表，如果这些表（数据或结构）发生变化，那么和这张表相关的所有缓存数据都将失效。</p>
 <h3 id="6-优化器的局限性"><a class="header-anchor" href="#6-优化器的局限性"></a>6 优化器的局限性</h3>
-<h5 id="6-1-关联子查询"><a class="header-anchor" href="#6-1-关联子查询"></a>6.1 关联子查询</h5>
+<h4 id="6-1-关联子查询"><a class="header-anchor" href="#6-1-关联子查询"></a>6.1 关联子查询</h4>
 <p>使用较小的表作为驱动表</p>
-<h5 id="6-2-UNION的限制"><a class="header-anchor" href="#6-2-UNION的限制"></a>6.2 UNION的限制</h5>
-<p>外层的limit无法提前传入内层，可在内层先Limit一下，减少数据量。</p>
-<h5 id="6-5-Mysql无法并行执行"><a class="header-anchor" href="#6-5-Mysql无法并行执行"></a>6.5 Mysql无法并行执行</h5>
-<p>Mysql无法利用多核。</p>
-<h5 id="6-6-哈希关联"><a class="header-anchor" href="#6-6-哈希关联"></a>6.6 哈希关联</h5>
-<p>Mysql的关联都是嵌套关联，不支持哈希关联。<br>
-不过可以通过建立哈希索引来曲线实现哈希关联。<br>
-Memory存储的索引都是哈希索引。</p>
-<h5 id="6-7-松散索引扫描"><a class="header-anchor" href="#6-7-松散索引扫描"></a>6.7 松散索引扫描</h5>
-<p>当查询条件不是最左前缀索引时，无法利用索引，Mysql还不支持松散索引扫描。</p>
+<h4 id="6-2-UNION-的限制"><a class="header-anchor" href="#6-2-UNION-的限制"></a>6.2 UNION 的限制</h4>
+<p>外层的 limit 无法提前传入内层，可在内层先 limit 一下，减少数据量。</p>
+<h4 id="6-3-Mysql-无法并行执行"><a class="header-anchor" href="#6-3-Mysql-无法并行执行"></a>6.3 Mysql 无法并行执行</h4>
+<p>Mysql 无法利用多核。</p>
+<h4 id="6-4-哈希关联"><a class="header-anchor" href="#6-4-哈希关联"></a>6.4 哈希关联</h4>
+<ul>
+<li>Mysql的关联都是嵌套关联，不支持哈希关联。</li>
+<li>不过可以通过建立哈希索引来曲线实现哈希关联。</li>
+<li>Memory 存储的索引都是哈希索引。</li>
+</ul>
+<h4 id="6-5-松散索引扫描"><a class="header-anchor" href="#6-5-松散索引扫描"></a>6.5 松散索引扫描</h4>
+<p>当查询条件不是最左前缀索引时，无法利用索引，Mysql 还不支持松散索引扫描。</p>
 
 </div>
 
