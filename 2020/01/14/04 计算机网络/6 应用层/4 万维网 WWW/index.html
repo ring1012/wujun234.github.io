@@ -4416,9 +4416,7 @@ var _hmt = _hmt || [];
 <li>不支持有效的资源优先级，致使底层 TCP 连接的利用率低下。</li>
 </ul>
 <h4 id="3-2-HTTP-2-0"><a class="header-anchor" href="#3-2-HTTP-2-0"></a>3.2 HTTP/2.0</h4>
-<ul>
-<li>HTTP/2：2015年，[RFC 7540]</li>
-</ul>
+<p>HTTP/2：2015年，[RFC 7540]</p>
 <h5 id="1）二进制分帧"><a class="header-anchor" href="#1）二进制分帧"></a>1）二进制分帧</h5>
 <p>HTTP/2.0 将 HTTP 1.x 的文本格式报文分成二进制格式的 HEADERS 帧和 DATA 帧。</p>
 <ul>
@@ -4426,23 +4424,23 @@ var _hmt = _hmt || [];
 <li>流（Stream）：存在于连接中的一个虚拟通道。流可以承载双向消息，每个流都有一个唯一标识符和可选的优先级信息。</li>
 <li>消息（Message）：指 HTTP/2 中逻辑上的 HTTP 消息。是与逻辑请求或响应对应的完整的一系列帧。</li>
 </ul>
-<p><img src="/1581927190410.png" alt="image"></p>
+<p><img src="/images/1581927190410.png" alt="image"></p>
 <h5 id="2）多路复用"><a class="header-anchor" href="#2）多路复用"></a>2）多路复用</h5>
 <p>多路复用，代替原来的序列和阻塞机制。</p>
 <ul>
 <li>HTTP/2 中，同域名下所有通信都在单个 TCP 连接上完成，该连接可以承载任意数量的双向数据流。</li>
 <li>每个数据流都以消息的形式发送，而消息又由一个或多个帧组成。多个帧之间可以乱序发送，根据帧首部的流标识可以重新组装。</li>
 </ul>
-<p><img src="/1581927227971.png" alt="image"></p>
+<p><img src="/images/1581927227971.png" alt="image"></p>
 <h5 id="3）服务端推送"><a class="header-anchor" href="#3）服务端推送"></a>3）服务端推送</h5>
 <p>HTTP/2.0 在客户端请求一个资源时，会把相关的资源一起发送给客户端，客户端就不需要再次发起请求了。</p>
 <p>例如服务端可以主动把JS和CSS文件推送给客户端，而不需要客户端解析HTML时再发送这些请求。</p>
-<p><img src="/1581927382018.png" alt="image"></p>
+<p><img src="/images/1581927382018.png" alt="image"></p>
 <h5 id="4）首部压缩"><a class="header-anchor" href="#4）首部压缩"></a>4）首部压缩</h5>
 <p>HTTP/1.1 的首部带有大量信息，而且每次都要重复发送。</p>
 <p>HTTP/2.0 要求客户端和服务器同时维护和更新一个包含之前见过的首部字段表，从而避免了重复传输。</p>
 <p>不仅如此，HTTP/2.0 也使用 Huffman 编码对首部字段进行压缩。</p>
-<p><img src="/1581927435469.png" alt="image"></p>
+<p><img src="/images/1581927435469.png" alt="image"></p>
 <h4 id="3-3-通信数据转发"><a class="header-anchor" href="#3-3-通信数据转发"></a>3.3 通信数据转发</h4>
 <h5 id="1）代理服务器"><a class="header-anchor" href="#1）代理服务器"></a>1）代理服务器</h5>
 <p>代理服务器接受客户端的请求，并且转发给其它服务器。</p>
@@ -4460,7 +4458,7 @@ var _hmt = _hmt || [];
 <li>用户察觉得到正向代理的存在。</li>
 <li>而反向代理一般位于内部网络中，用户察觉不到。</li>
 </ul>
-<p><img src="/1581997514601.jpg" alt="image"></p>
+<p><img src="/images/1581997514601.jpg" alt="image"></p>
 <h5 id="2）网关"><a class="header-anchor" href="#2）网关"></a>2）网关</h5>
 <p>与代理服务器不同的是，网关服务器会将 HTTP 转化为其它协议进行通信，从而请求其它非 HTTP 服务器的服务。</p>
 <h5 id="3）隧道"><a class="header-anchor" href="#3）隧道"></a>3）隧道</h5>
@@ -4471,7 +4469,7 @@ var _hmt = _hmt || [];
 <li>请求报文：从客户向服务器发送请求报文</li>
 <li>响应报文：从服务器到客户的回答</li>
 </ul>
-<p><img src="/1581951751024.png" alt="image"></p>
+<p><img src="/images/1581951751024.png" alt="image"></p>
 <h5 id="2）HTTP-方法"><a class="header-anchor" href="#2）HTTP-方法"></a>2）HTTP 方法</h5>
 <p>请求报文第一行为请求行，包含了方法字段。</p>
 <table>
@@ -5041,7 +5039,7 @@ Content-Type: text/plain
 --AaB03x--
 </code></pre>
 <h4 id="3-8-Web-页面请求过程"><a class="header-anchor" href="#3-8-Web-页面请求过程"></a>3.8 Web 页面请求过程</h4>
-<p><img src="/1581923679809.jpg" alt="image"></p>
+<p><img src="/images/1581923679809.jpg" alt="image"></p>
 <ol>
 <li>DNS 解析</li>
 <li>TCP 连接</li>
