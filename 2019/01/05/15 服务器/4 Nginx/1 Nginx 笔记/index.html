@@ -4318,7 +4318,7 @@ var _hmt = _hmt || [];
 	<h1>一、nginx架构</h1>
 <p><img src="/images/1545712500935.png" alt="进程模型"></p>
 <h4 id="1-进程模型"><a class="header-anchor" href="#1-进程模型"></a>1. 进程模型</h4>
-<p>Nginx分一个master进程和多个worker进程。</p>
+<p>Nginx 分一个master进程和多个worker进程。</p>
 <ul>
 <li>master进程：读取和评估配置，并管理worker进程。接收来外界信号，向worker进程发送信号，监控worker进程运行状态，当worker进程异常退出后，会自动重新启动新的worker进程。</li>
 <li>worker进程：对请求进行实际处理。worker进程之间对等且互相独立，竞争客户端请求，一个请求只能在一个worker进程中处理。worker进程的数量可在配置文件中设置的，一般设置与机器CPU核数一致。</li>
@@ -4407,7 +4407,7 @@ make install
 <li>stream : TCP协议流量</li>
 </ul>
 <p>指令上下文之间可能互相包含。</p>
-<p>####示例配置</p>
+<h4 id="示例配置"><a class="header-anchor" href="#示例配置"></a>示例配置</h4>
 <pre><code>user  nobody;
 worker_processes  1;
 error_log  logs/error.log  info;
@@ -4457,25 +4457,25 @@ mail {
     }
 }
 </code></pre>
-<h1>四、nginx模块</h1>
+<h1>四、nginx 模块</h1>
 <p>nginx是由core和一系列的功能模块所组成。
 nginx core实现了底层的通讯协议，为其他模块和nginx进程构建了基本的运行时环境，并且构建了其他各模块的协作基础。</p>
 <ul>
 <li><strong>event module</strong>:
 事件处理模块。提供了各具体事件的处理。</li>
 <li><strong>phase handler</strong>:
-handler模块。主要负责处理客户端请求并产生待响应内容。</li>
+handler 模块。主要负责处理客户端请求并产生待响应内容。</li>
 <li><strong>output filter</strong>:
-filter模块。主要是负责对输出的内容进行处理，可以对输出进行修改。</li>
+filter 模块。主要是负责对输出的内容进行处理，可以对输出进行修改。</li>
 <li><strong>upstream</strong>:
-upstream模块。实现反向代理的功能，将真正的请求转发到后端服务器上，并从后端服务器上读取响应，发回客户端。upstream模块是一种特殊的handler。</li>
+upstream 模块。实现反向代理的功能，将真正的请求转发到后端服务器上，并从后端服务器上读取响应，发回客户端。upstream模块是一种特殊的handler。</li>
 <li><strong>load-balancer</strong>:
 负载均衡模块。实现特定的算法，在众多的后端服务器中，选择一个服务器出来作为某个请求的转发服务器。</li>
 </ul>
-<h1>五、nginx应用</h1>
+<h1>五、nginx 应用</h1>
 <ol>
 <li>代理服务器(反向、正向)</li>
-<li>HTTP服务器(包含动静分离)</li>
+<li>HTTP 服务器(包含动静分离)</li>
 <li>负载均衡</li>
 </ol>
 <h2 id="代理服务器"><a class="header-anchor" href="#代理服务器"></a>代理服务器</h2>
@@ -4484,11 +4484,11 @@ upstream模块。实现反向代理的功能，将真正的请求转发到后端
 <p>当NGINX代理请求时，它将请求发送到指定的代理服务器，获取响应，并将其发送回客户端。
 <strong>**_ pass指令</strong>：地址可指定为域名或IP地址(可包括端口)。也可以指向一组命名的服务器。如果URI与地址一起指定，将替换匹配请求的URI。</p>
 <ul>
-<li>proxy_pass 将请求传递给HTTP代理服务器</li>
-<li>fastcgi_pass 将请求传递给FastCGI服务器</li>
-<li>uwsgi_pass 将请求传递给uwsgi服务器</li>
-<li>scgi_pass 将请求传递给SCGI服务器</li>
-<li>memcached_pass 将请求传递给memcached服务器</li>
+<li>proxy_pass 将请求传递给 HTTP 代理服务器</li>
+<li>fastcgi_pass 将请求传递给 FastCGI 服务器</li>
+<li>uwsgi_pass 将请求传递给 uwsgi 服务器</li>
+<li>scgi_pass 将请求传递给 SCGI 服务器</li>
+<li>memcached_pass 将请求传递给 memcached 服务器</li>
 </ul>
 <pre><code>location /some/path/ {
     proxy_pass http://www.example.com/link/;
@@ -4498,13 +4498,13 @@ location ~ \.php {
 }
 </code></pre>
 <h5 id="2-传递请求标头"><a class="header-anchor" href="#2-传递请求标头"></a>2. 传递请求标头</h5>
-<p><strong>proxy_set_header</strong>:修改、设置header字段，可以在一个或多个location、server、http块中指定。</p>
+<p><strong>proxy_set_header</strong>:修改、设置 header 字段，可以在一个或多个 location、server、http 块中指定。</p>
 <pre><code>location /some/path/ {
     proxy_set_header Host $host;
 }
 </code></pre>
 <h5 id="3-配置缓冲区"><a class="header-anchor" href="#3-配置缓冲区"></a>3. 配置缓冲区</h5>
-<p>默认情况下，NGINX缓存来自代理服务器的响应，直到收到整个响应。
+<p>默认情况下，NGINX 缓存来自代理服务器的响应，直到收到整个响应。
 proxy_buffering：启用和禁用缓冲
 proxy_buffers ：请求缓冲区的大小和数量
 proxy_buffer_size ：响应缓冲区的大小</p>
@@ -4515,8 +4515,8 @@ proxy_buffer_size ：响应缓冲区的大小</p>
 }
 </code></pre>
 <h5 id="4-选择传出IP地址"><a class="header-anchor" href="#4-选择传出IP地址"></a>4. 选择传出IP地址</h5>
-<p>代理服务器配置为只接受特定IP的连接时。
-proxy_bind：指定IP</p>
+<p>代理服务器配置为只接受特定 IP 的连接时。
+proxy_bind：指定 IP</p>
 <pre><code>location /app1/ {
     proxy_bind 127.0.0.1;
     proxy_pass http://example.com/app1/;
@@ -4633,8 +4633,8 @@ http {
 <h5 id="动静分离"><a class="header-anchor" href="#动静分离"></a>动静分离</h5>
 <p>根据请求URI拆分动静资源，分开导流向不同的代理或提供不同的文件</p>
 <h2 id="负载均衡"><a class="header-anchor" href="#负载均衡"></a>负载均衡</h2>
-<p>根据规则随机的将请求分发到指定的服务器上处理，负载均衡配置一般都需要同时配置反向代理，通过反向代理跳转到负载均衡。
-Nginx目前支持自带3种负载均衡策略，还有2种常用的第三方策略。</p>
+<p>根据规则随机的将请求分发到指定的服务器上处理，负载均衡配置一般都需要同时配置反向代理，通过反向代理跳转到负载均衡。</p>
+<p>Nginx 目前支持自带 3 种负载均衡策略，还有 2 种常用的第三方策略。</p>
 <h5 id="1-RR-默认"><a class="header-anchor" href="#1-RR-默认"></a>1. RR(默认)</h5>
 <p>每个请求按时间顺序逐一分配到不同的后端服务器，如果后端服务器down掉，能自动剔除。</p>
 <pre><code>upstream test {
@@ -4650,14 +4650,14 @@ server {
 }
 </code></pre>
 <h5 id="2-权重"><a class="header-anchor" href="#2-权重"></a>2. 权重</h5>
-<p>指定轮询几率，weight和访问比率成正比，用于后端服务器性能不均的情况。</p>
+<p>指定轮询几率，weight 和访问比率成正比，用于后端服务器性能不均的情况。</p>
 <pre><code>upstream test {
     server localhost:8080 weight=9;
     server localhost:8081 weight=1;
 }
 </code></pre>
 <h5 id="3-ip-hash"><a class="header-anchor" href="#3-ip-hash"></a>3. ip_hash</h5>
-<p>ip_hash的每个请求按访问ip的hash结果分配，每个访客固定访问一个服务器，可解决程序状态问题。</p>
+<p>ip_hash 的每个请求按访问 ip 的 hash 结果分配，每个访客固定访问一个服务器，可解决程序状态问题。</p>
 <pre><code>upstream test {
     ip_hash;
     server localhost:8080;

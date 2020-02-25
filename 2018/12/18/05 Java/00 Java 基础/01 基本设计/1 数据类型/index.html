@@ -4327,7 +4327,7 @@ var _hmt = _hmt || [];
 <div id="article-content">
 	<p>数据类型分为基本类型和对象类型。</p>
 <h3 id="1-基本类型"><a class="header-anchor" href="#1-基本类型"></a>1. 基本类型</h3>
-<p>Java 中的基本类型有8种，其中有 4 种整型、2 种浮点型、char 和 boolean。还有 void 和 reference 类型</p>
+<p>Java 中的基本类型有 8 种，其中有 4 种整型、2 种浮点型、char 和 boolean。还有 void 和 reference 类型</p>
 <ol>
 <li>基本类型值存储在内存栈上。</li>
 <li>基本类型所占空间大小固定。</li>
@@ -4404,7 +4404,7 @@ var _hmt = _hmt || [];
 <td>double</td>
 <td>Double</td>
 <td>8 字节 64 bits</td>
-<td>大约±1.79E<sup>308</sup>（有效 15 位）</td>
+<td>大约-2<sup>1024</sup> ~ -2<sup>-1074</sup> —— 0 —— 2<sup>-1074</sup> ~ 2<sup>1024</sup>（有效 15 位）</td>
 <td>0.0d</td>
 <td>后缀 D 或 d，最常用。</td>
 </tr>
@@ -4412,7 +4412,7 @@ var _hmt = _hmt || [];
 <td>float</td>
 <td>Float</td>
 <td>4 字节 32 bits</td>
-<td>大约±3.4E<sup>38</sup>F（有效 6~7 位）</td>
+<td>大约-2<sup>128</sup> ~ -2<sup>-149</sup> —— 0 —— 2<sup>-149</sup> ~ 2<sup>128</sup>（有效 6~7 位）</td>
 <td>0.0f</td>
 <td>后缀 F 或 f，单精度库或大量数据</td>
 </tr>
@@ -4420,8 +4420,33 @@ var _hmt = _hmt || [];
 </table>
 <ol>
 <li>没有后缀F的浮点数默认是 double</li>
-<li>浮点数不能绝对精确，因为二进制种无法精确表示 1/10，不允许误差应使用 BigDecimal类。</li>
+<li>浮点数不能绝对精确，因为二进制种无法精确表示 1/10，不允许误差应使用 BigDecimal 类。</li>
 </ol>
+<p>浮点数的结构与整型不同，指数的底数为 2，尾数表示小数部分</p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>符号位（S）</th>
+<th>指数位（E）</th>
+<th>尾数位（M）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>float</td>
+<td>1 bit</td>
+<td>8 bits</td>
+<td>23 bits</td>
+</tr>
+<tr>
+<td>double</td>
+<td>1 bit</td>
+<td>11 bits</td>
+<td>52 bits</td>
+</tr>
+</tbody>
+</table>
 <h4 id="1-3-字符"><a class="header-anchor" href="#1-3-字符"></a>1.3 字符</h4>
 <table>
 <thead>
@@ -4465,7 +4490,7 @@ var _hmt = _hmt || [];
 <h5 id="强制类型转换"><a class="header-anchor" href="#强制类型转换"></a>强制类型转换</h5>
 <p>强制类型将较大的数据类型转化为较小的数据类型，可能导致精度损失。</p>
 <ul>
-<li>当使用+=、-=、*=、/=、%=运算符对基本类型进行运算时，运算符右边的数值将首先被强制转换成与运算符左边数值相同的类型，然后再执行运算，且运算结果与运算符左边数值类型相同。</li>
+<li>当使用 +=、-=、*=、/=、%= 运算符对基本类型进行运算时，运算符右边的数值将首先被强制转换成与运算符左边数值相同的类型，然后再执行运算，且运算结果与运算符左边数值类型相同。</li>
 </ul>
 <h3 id="2-对象类型"><a class="header-anchor" href="#2-对象类型"></a>2. 对象类型</h3>
 <ol>

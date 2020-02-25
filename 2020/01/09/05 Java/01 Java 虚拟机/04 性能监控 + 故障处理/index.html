@@ -4554,6 +4554,34 @@ var _hmt = _hmt || [];
 <li>使用 jvisualvm 首次启动时需要在线自动安装插件（也可手工安装）；</li>
 <li>特色功能：生成浏览堆转储快照（摘要、类、实例标签页、OQL控制台）、分析程序性能（Profiler 页签可以录制一段时间程序每个方法执行次数和耗时）、BTrace 动态日志跟踪（不停止目标程序运行的前提下通过 HotSwap 技术动态加入调试代码）；</li>
 </ul>
+<h3 id="3-CPU-异常排查"><a class="header-anchor" href="#3-CPU-异常排查"></a>3 CPU 异常排查</h3>
+<p>cpu高的原因？无阻塞操作、循环、正则表达式回溯或纯粹的计算、线程死锁，程序 hang 住</p>
+<ul>
+<li>定位高负载进程 pid
+<ul>
+<li>top 命令</li>
+</ul>
+</li>
+<li>定位具体的异常业务
+<ul>
+<li>pwdx 命令根据 pid 找到业务进程路径</li>
+</ul>
+</li>
+<li>定位异常线程及具体代码行
+<ul>
+<li>top oder by with P：1040 // 首先按进程负载排序找到  maxLoad(pid)</li>
+<li>top -Hp 进程 PID：1073    // 找到相关负载 线程 PID</li>
+<li>printf “0x%x\n”线程 PID： 0x431  // 将线程 PID转换为 16进制，为后面查找 jstack 日志做准备</li>
+<li>jstack  进程 PID | vim +/十六进制线程PID -        // 例如：jstack 1040|vim +/0x431 -</li>
+</ul>
+</li>
+</ul>
+<p><a href="https://juejin.im/entry/5b3f33ccf265da0f8f2019c4" target="_blank" rel="noopener">https://juejin.im/entry/5b3f33ccf265da0f8f2019c4</a></p>
+<h3 id="4-OOM-异常排查"><a class="header-anchor" href="#4-OOM-异常排查"></a>4 OOM 异常排查</h3>
+<p><a href="https://www.ctolib.com/topics-119701.html" target="_blank" rel="noopener">https://www.ctolib.com/topics-119701.html</a></p>
+<h3 id="5-频繁-FullGC-的排查"><a class="header-anchor" href="#5-频繁-FullGC-的排查"></a>5 频繁 FullGC 的排查</h3>
+<p><a href="https://juejin.im/post/5b4819fce51d45198c017d58" target="_blank" rel="noopener">https://juejin.im/post/5b4819fce51d45198c017d58</a></p>
+<p><a href="https://tech.meituan.com/2017/12/29/jvm-optimize.html" target="_blank" rel="noopener">https://tech.meituan.com/2017/12/29/jvm-optimize.html</a></p>
 
 </div>
 

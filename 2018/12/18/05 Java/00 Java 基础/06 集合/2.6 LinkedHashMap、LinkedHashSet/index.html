@@ -4482,8 +4482,8 @@ private void remove() {
     header.before = header.after = header;
 }
 </code></pre>
-<h3 id="3-LinkedHashMap-经典用法"><a class="header-anchor" href="#3-LinkedHashMap-经典用法"></a>3 LinkedHashMap 经典用法</h3>
-<p>LinkedHashMap 可以轻松实现一个采用了FIFO替换策略的缓存。</p>
+<h3 id="3-LinkedHashMap-经典用法-LRU"><a class="header-anchor" href="#3-LinkedHashMap-经典用法-LRU"></a>3 LinkedHashMap 经典用法 LRU</h3>
+<p>LinkedHashMap 可以轻松实现一个采用了 FIFO 替换策略的缓存 - LRU（Least Recently Used）。</p>
 <p>LinkedHashMap 有一个子类方法 boolean removeEldestEntry(Map.Entry&lt;K,V&gt; eldest) ，决定是否要删除“最老”的 Entry，如返回 true ，就删除。每次插入新元素的之后，都会询问 removeEldestEntry()。</p>
 <p>只需在子类中重载该方法，当元素个数超过一定数量时让 removeEldestEntry() 返回true，就能够实现一个固定大小的FIFO策略的缓存。</p>
 <p>示例代码如下：</p>

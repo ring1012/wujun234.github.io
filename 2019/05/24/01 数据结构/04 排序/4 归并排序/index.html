@@ -4400,6 +4400,56 @@ void MergePass(int SR[], int TR[], int s, int t)
       TR[j] = SR[j];
 }
 </code></pre>
+<h3 id="单链表的归并排序"><a class="header-anchor" href="#单链表的归并排序"></a>单链表的归并排序</h3>
+<pre><code class="language-java">class Solution{
+    //单链表的归并排序
+    public ListNode mergeSort(ListNode head) {
+        if (head == null || head.next == null) {
+            return head;
+        }
+        // 快慢指针，得到链表中间的数
+        ListNode slow = head;
+        // fast 从第二个结点起，避免只有两个节点的时候，无法分治
+        ListNode fast = head.next;
+        while ( f.next !=null &amp;&amp; f.next.next !=null ){
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        //拆分链表
+        ListNode middle = slow.next;
+        slow.next = null;
+        //递归调用
+        return merge(mergeSort(head), mergeSort(middle));
+    }
+
+    // 合并排好序的链表    
+    public ListNode merge(ListNode head1,ListNode head2){
+        
+        ListNode tempHead = new ListNode(-1);
+        ListNode resultHead = hn;
+        
+        while (head1 != null &amp;&amp; head2 != null ){
+            if (head1.val &lt;= head2.val){
+                tempHead.next = head1;
+                head1 = head1.next;
+            }else {
+                tempHead.next = head2;
+                head2 = head2.next;
+            }
+            tempHead = tempHead.next;
+        }
+        
+        if(head1 != null){
+            tempHead.next = head1;
+        }
+        if(head2 != null){
+            tempHead.next = head2;
+        }
+        
+        return resultHead.next;
+    }
+}
+</code></pre>
 
 </div>
 

@@ -4494,7 +4494,7 @@ CyclicBarrier barrier = new CyclicBarrier(nthreads, barrierAction);
 <ul>
 <li>类库中包含了<code>BlockingQueue</code>的多种实现:
 <ul>
-<li><code>LinkedBlockingQueue</code>和<code>ArrayBlockingQueue</code>是FIFO队列，比同步List拥有更好的并发性能</li>
+<li><code>LinkedBlockingQueue</code>和<code>ArrayBlockingQueue</code>是 FIFO 队列，比同步 List 拥有更好的并发性能</li>
 <li><code>PriorityBlockingQueue</code>是按优先级排序的队列</li>
 <li><code>SynchronousQueue</code>不是一个真正的队列，不会为元素维护储存空间，它只维护一组等待着把元素加入或移出队列的线程
 <ul>
@@ -4531,7 +4531,7 @@ CyclicBarrier barrier = new CyclicBarrier(nthreads, barrierAction);
 <p>将与条件队列相关联的条件谓词以及在这些条件谓词上等待的操作都写入文档。</p>
 <p>每一次 wait 调用都会隐式地与特定的条件谓词关联起来。当调用某个特定条件谓词的 wait 时，调用者必须已经持有与条件队列相关的锁，并且这个锁必须保护着构成条件为此的状态变量。</p>
 <h5 id="2）过早唤醒"><a class="header-anchor" href="#2）过早唤醒"></a>2）过早唤醒</h5>
-<p>每当线程从wait中唤醒时，都必须再次测试条件谓词，如果条件谓词不为真，那么就继续等待（或者失败）。</p>
+<p>每当线程从 wait 中唤醒时，都必须再次测试条件谓词，如果条件谓词不为真，那么就继续等待（或者失败）。</p>
 <p>当使用条件等待时（例如 Object.wait 或 Condition.await）：</p>
 <ul>
 <li>通常都有一个条件谓词——包括一些对象状态的测试，线程在执行前必须首先通过这些测试</li>
@@ -4570,13 +4570,13 @@ CyclicBarrier barrier = new CyclicBarrier(nthreads, barrierAction);
 <h5 id="3）选择"><a class="header-anchor" href="#3）选择"></a>3）选择</h5>
 <p>在使用显式的 Condition 和内置条件队列之间进行选择时，与在 ReentrantLock 和  synchronized 之间进行选择是一样的：如果需要一些高级功能，例如使用公平的队列操作或者 在每个锁上对应多个等待线程集，那么应该优先使用 Condition 而不是内置条件队列。</p>
 <h4 id="6-4-Synchronizer-剖析"><a class="header-anchor" href="#6-4-Synchronizer-剖析"></a>6.4 Synchronizer 剖析</h4>
-<p>AQS(AbstractQueuedSynchronizer)，是 JDK 下提供的一套用于实现基于 FIFO 等待队列的阻塞锁和相关的同步器的一个同步框架。这个抽象类被设计为作为一些可用原子 int 值来表示状态的同步器的基类。</p>
+<p>AQS（AbstractQueuedSynchronizer），是 JDK 下提供的一套用于实现基于 FIFO 等待队列的阻塞锁和相关的同步器的一个同步框架。这个抽象类被设计为作为一些可用原子 int 值来表示状态的同步器的基类。</p>
 <p>基于 AQS 构建的有 ReentrantLock 、Semaphore、 CountDownLatch、 ReentrantReadWriteLock、Synchronousueue 和 FutureTask。</p>
 <p>基于 AQS 来构建同步器能带来许多好处。它不仅能极大地减少实现工作，而且也不必处理在多个位置上发生的竞争问题。</p>
-<h4 id="6-5-AbstractQueuedSynchronizer"><a class="header-anchor" href="#6-5-AbstractQueuedSynchronizer"></a>6.5 AbstractQueuedSynchronizer</h4>
+<h4 id="6-5-AbstractQueuedSynchronizer（AQS）"><a class="header-anchor" href="#6-5-AbstractQueuedSynchronizer（AQS）"></a>6.5 AbstractQueuedSynchronizer（AQS）</h4>
 <p>大多数开发者都不会直接使用 AQS，标准同步器类的集合能够满足绝大多数情况的需求。但如果能了解标唯同步器类的实现方式，那么对于理解它们的工作原理是非常有帮助的。</p>
-<p>在基于AQS构建的同步器类中，最基本的操作包括各种形式的获取操作和释放操作。其次，就是更新同步器的状态。</p>
-<p>java.util.concurrent 中的所有同步器类都没有直接扩展AQS，而是都将它们的相应功能委托给私有的AQS子类来实现。</p>
+<p>在基于 AQS 构建的同步器类中，最基本的操作包括各种形式的获取操作和释放操作。其次，就是更新同步器的状态。</p>
+<p>java.util.concurrent 中的所有同步器类都没有直接扩展 AQS，而是都将它们的相应功能委托给私有的 AQS 子类来实现。</p>
 <h4 id="6-6-java-util-concurrent-同步器类中的-AQS"><a class="header-anchor" href="#6-6-java-util-concurrent-同步器类中的-AQS"></a>6.6 java.util.concurrent 同步器类中的 AQS</h4>
 <h5 id="1）ReentrantLock"><a class="header-anchor" href="#1）ReentrantLock"></a>1）ReentrantLock</h5>
 <p>ReentrantLock 将同步状态用于保存锁获取操作的次数，并且还维护一个 owner 变量来保存当前所有者线程的标识符。</p>

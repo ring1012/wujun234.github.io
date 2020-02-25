@@ -4499,7 +4499,7 @@ public class LinkedQueue&lt;E&gt; {
 }
 </code></pre>
 <h4 id="4-3-原子的域更新器"><a class="header-anchor" href="#4-3-原子的域更新器"></a>4.3 原子的域更新器</h4>
-<p>在 ConcurrentLinkedQueue 实际的实现中中没有使用原子引用来表示每个Node，而是使用普通的 volatile 类型引用，并通过基于反射的 AtomicReferenceFieldUpdater 来进行更新。</p>
+<p>在 ConcurrentLinkedQueue 实际的实现中中没有使用原子引用来表示每个 Node，而是使用普通的 volatile 类型引用，并通过基于反射的 AtomicReferenceFieldUpdater 来进行更新。</p>
 <pre><code>private static class Node&lt;E&gt; {
     private volatile E item;
     private volatile Node&lt;E&gt; next;

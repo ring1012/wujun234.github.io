@@ -4391,7 +4391,7 @@ var _hmt = _hmt || [];
 <p>将内存分为两块，每次都使用其中一块，当一块用完了，就将存活的对象复制到另一块，然后把使用过的一次清理掉。</p>
 <p>代价是内存缩小为原来一半。</p>
 <h5 id="2）实现"><a class="header-anchor" href="#2）实现"></a>2）实现</h5>
-<p>用来回收<strong>新生代</strong>。新生代98%对象“朝生夕死”，所以不是1：1划分内存。</p>
+<p>用来回收<strong>新生代</strong>。新生代 98% 对象“朝生夕死”，所以不是 1：1 划分内存。</p>
 <p>将内存分为一块较大的 Eden 空间和两块较小的 Survivor 空间，每次使用 Eden 和其中一块 Survivor。回收时将存活的对象一次性复制到另一块 Survivor，清剩下的。</p>
 <p>Hotspot 默认 Eden:Survivor:Survivor = 8:1:1，若回收时 Survivor 空间不够，通过老年代进行分配<strong>担保</strong>。</p>
 <p><img src="/images/1545389996488.jpg" alt="image"></p>

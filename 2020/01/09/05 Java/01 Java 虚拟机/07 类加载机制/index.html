@@ -4397,6 +4397,9 @@ var _hmt = _hmt || [];
 <li>为了解决 JNI 接口提供者（SPI）引入的线程上下文类加载器；</li>
 <li>为了程序动态性加强的 OSGI 的 Bundle 类加载器；</li>
 </ul>
+<h4 id="3-4-自定义类加载器"><a class="header-anchor" href="#3-4-自定义类加载器"></a>3.4 自定义类加载器</h4>
+<p>除了 <code>BootstrapClassLoader</code> 其他类加载器均由 Java 实现且全部继承自<code>java.lang.ClassLoader</code>。</p>
+<p>自定义自己的类加载器，需要继承 <code>ClassLoader</code>，然后重写 <code>loadClass()</code> 即可。</p>
 
 </div>
 
