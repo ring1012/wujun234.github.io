@@ -4345,10 +4345,65 @@ var _hmt = _hmt || [];
 <li>构造器不能被继承，因此不能被重写，但可以被重载。</li>
 <li>父类与子类的构造函数调用次序：若子类构造器没有显式调用父类构造器，不管子类构造器有无参数，都默认调用父类无参构造器。</li>
 </ol>
-<h4 id="1-3-finalize方法"><a class="header-anchor" href="#1-3-finalize方法"></a>1.3 finalize方法</h4>
+<h4 id="1-3-finalize-方法"><a class="header-anchor" href="#1-3-finalize-方法"></a>1.3 finalize 方法</h4>
 <p>可以为任何一个类添加 finalize 方法，将在垃圾回收器清除对象之前调用。不要依赖，不能保证被调用。</p>
 <h4 id="1-4-Object：所有类的超类"><a class="header-anchor" href="#1-4-Object：所有类的超类"></a>1.4 Object：所有类的超类</h4>
 <p>如果重新定义 equals 方法，就必须重新定义 hashCode 方法。eauals 与 hashCode 的定义必须一致：如果 x.eauals(y) 返回 true，那么 x.hashCode() 必须与 y.hashCode() 具有相同的值。</p>
+<h5 id="1）equals-方法"><a class="header-anchor" href="#1）equals-方法"></a>1）equals()方法</h5>
+<h6 id="等价关系"><a class="header-anchor" href="#等价关系"></a>等价关系</h6>
+<p>两个对象具有等价关系，需要满足以下五个条件：</p>
+<ul>
+<li>自反性<pre><code class="language-java">x.equals(x); // true
+</code></pre>
+</li>
+<li>对称性<pre><code class="language-java">x.equals(y) == y.equals(x); // true
+</code></pre>
+</li>
+<li>传递性<pre><code class="language-java">if (x.equals(y) &amp;&amp; y.equals(z))
+    x.equals(z); // true;
+</code></pre>
+</li>
+<li>一致性
+<ul>
+<li>多次调用 equals() 方法结果不变</li>
+</ul>
+<pre><code class="language-java">x.equals(y) == x.equals(y); // true
+</code></pre>
+</li>
+<li>与 null 的比较
+<ul>
+<li>对任何不是 null 的对象 x 调用 x.equals(null) 结果都为 false</li>
+</ul>
+<pre><code class="language-java">x.equals(null); // false;
+</code></pre>
+</li>
+</ul>
+<h6 id="等价与相等"><a class="header-anchor" href="#等价与相等"></a>等价与相等</h6>
+<ul>
+<li>对于基本类型，== 判断两个值是否相等，基本类型没有 equals() 方法。</li>
+<li>对于引用类型，== 判断两个变量是否引用同一个对象，而 equals() 判断引用的对象是否等价。</li>
+</ul>
+<h6 id="实现"><a class="header-anchor" href="#实现"></a>实现</h6>
+<ul>
+<li>检查是否为同一个对象的引用，如果是直接返回 true；</li>
+<li>检查是否是同一个类型，如果不是，直接返回 false；</li>
+<li>将 Object 对象进行转型；</li>
+<li>判断每个关键域是否相等。</li>
+</ul>
+<h5 id="2）hashCode"><a class="header-anchor" href="#2）hashCode"></a>2）hashCode()</h5>
+<p>hashCode() 返回哈希值，而 equals() 是用来判断两个对象是否等价。等价的两个对象散列值一定相同，但是散列值相同的两个对象不一定等价，这是因为计算哈希值具有随机性，两个值不同的对象可能计算出相同的哈希值。</p>
+<p>在覆盖 equals() 方法时应当总是覆盖 hashCode() 方法，保证等价的两个对象哈希值也相等。</p>
+<p>HashSet  和 HashMap 等集合类使用了 hashCode()  方法来计算对象应该存储的位置，因此要将对象添加到这些集合类中，需要让对应的类实现 hashCode()  方法。</p>
+<h5 id="3）toString"><a class="header-anchor" href="#3）toString"></a>3）toString()</h5>
+<p>默认返回 ClassName@4554617c 这种形式，其中 @ 后面的数值为散列码的无符号十六进制表示。</p>
+<h5 id="4）clone"><a class="header-anchor" href="#4）clone"></a>4）clone()</h5>
+<p>clone() 是 Object 的 protected 方法，它不是 public，一个类不显式去重写 clone()，其它类就不能直接去调用该类实例的 clone() 方法。</p>
+<p>clone() 方法并不是 Cloneable 接口的方法，Cloneable 接口只是规定，如果一个类没有实现 Cloneable 接口又调用了 clone() 方法，就会抛出 CloneNotSupportedException。</p>
+<p>使用 clone() 方法来拷贝一个对象即复杂又有风险，它会抛出异常，并且还需要类型转换。Effective Java 书上讲到，最好不要去使用 clone()，可以使用拷贝构造函数或者拷贝工厂来拷贝一个对象。</p>
+<ul>
+<li>浅拷贝：对基本数据类型进行值传递，对引用数据类型进行引用传递般的拷贝。</li>
+<li>深拷贝：对基本数据类型进行值传递，对引用数据类型，创建一个新的对象，并复制其内容。</li>
+</ul>
 <h4 id="1-5-枚举类"><a class="header-anchor" href="#1-5-枚举类"></a>1.5 枚举类</h4>
 <p>枚举类定义的是一个类，有着指定的几个实例。<br>
 比较两个枚举类型的值时，不需要调用 equals 方法，而直接使用&quot;==&quot;就可以了。</p>
@@ -4380,7 +4435,7 @@ var _hmt = _hmt || [];
 <p>隐式参数是出现在方法名前的类对象（this），显式参数位于方法名后面的括号中。</p>
 <p>使用 this 可以区分开隐式参数的类对象的实例域和局部变量</p>
 <h4 id="3-3-方法参数"><a class="header-anchor" href="#3-3-方法参数"></a>3.3 方法参数</h4>
-<p>Java 方法参数是值传递，不是引用传递。</p>
+<p>Java 方法参数是<strong>值传递</strong>，不是引用传递。</p>
 <p>方法在执行时，先定义了局部变量，这些局部变量指向，传入参数的指向。对局部变量重新指向时，完全不影响原本传入参数的那些指向。</p>
 <ul>
 <li>值传递：方法接收的是调用者提供的值。</li>

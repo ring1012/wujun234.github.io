@@ -4292,20 +4292,15 @@ var _hmt = _hmt || [];
 Throwable
 
 Error
-系统的内部错误和资源耗尽错误。应用程序不应该抛出此种类型的错误。
+
+表示 JVM 无法处理的错误，如 OutOfMemoryError, StackOverflowError。
+
+
 Exception
 
-RuntimeException
-程序错误导致的异常
-其它异常
-由于像 I/O 错误，程序本身没有问题导致的异常
+未检查异常（RuntimeException，运行时异常）
 
-
-
-
-
-
-未检查异常：Error 或 Runt
+程序出错导致的异常，例如 NullPointerE
 					...
 				</div>
 			</a>

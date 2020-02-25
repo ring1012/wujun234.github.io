@@ -4345,14 +4345,9 @@ Java 中的基本类型有 8 种，其中有 4 种整型、2 种浮点型、char
 					2 字符串
 				</h2>
 				<div class="index-brief">
-					1. String
-String 底层是由 char 数组实现的，是 final 类，值不可变，编辑器可让字符串共享在常量池。
-1.1 初始化
-1）使用字符串常量直接初始化
-String s = &quot;hello!&quot;;
-
-2）使用构造方法创建并初始化
-String s = new S
+					1 String 底层实现
+String 被声明为 final，因此它不可被继承。
+底层是 char 或 byte 类型的 value 数组，value 数组也被声明为 final，这意味着数组初始化之后就不能再引用其它数组。并且 String 内部没有改变 value 数组的方法，因此可以保证 S
 					...
 				</div>
 			</a>
@@ -4455,8 +4450,8 @@ int[] a = {1,2,3} ;
 					1 数学函数与常量
 
 Math.sqrt(x)：平方根
-Math.pow(x,y)：幂运算，x的y次幂
-Math.floorMod(x,y)：求余
+Math.pow(x, y)：幂运算，x 的 y 次幂
+Math.floorMod(x, y)：求余
 
 2 自增与自减运算符
 建议不要在表达式中使用 ++，容易带来疑惑和 bug
@@ -4465,8 +4460,7 @@ Math.floorMod(x,y)：求余
 ==
 !=
 &lt;
-&gt;
-&l
+&g
 					...
 				</div>
 			</a>
@@ -4515,8 +4509,8 @@ Math.floorMod(x,y)：求余
 					1 读取输入
 1.1 Scanner 类
 1)文件输入
-Scanner scan = new Scanner(Paths.get(&quot;myfile.txt&quot;)，&quot;UTF-8&quot;);
-// 如果是 win 系统，使用双反斜杠，&quot;c:\\mydirector
+// 如果是 win 系统，使用双反斜杠，&quot;c:\\mydirectory\\myfile.txt&quot; ，每个 \ 需要额外的一个 \。
+Scanner scan = new Scanner(Paths.get(&quot;m
 					...
 				</div>
 			</a>
@@ -4681,12 +4675,10 @@ javadoc 从下面几个特性中抽取信息：
 					4 反射
 				</h2>
 				<div class="index-brief">
-					反射 (Reflection) 是 Java 的特征之一，它允许运行中的 Java 程序获取自身的信息，并且可以操作类或对象的内部属性。
+					反射可以提供运行时的类信息，并且这个类可以在运行时才加载进来，甚至在编译时期该类的 .class 不存在也可以加载进来。
+反射允许运行中的 Java 程序获取自身的信息，并且可以操作类或对象的内部属性。
 反射的核心是 JVM 在运行时才动态加载类或调用方法/访问属性，它不需要事先知道运行对象是谁。
-反射机制可以用来：
 
-在运行时判断任意一个对象所属的类；
-在运行时
 					...
 				</div>
 			</a>
@@ -4791,7 +4783,10 @@ javadoc 从下面几个特性中抽取信息：
 
 private：仅对本类可见
 public：对所有类可见
-接口里方法默认public
+
+接口里方法默认 public
+
+
 protected：对本包和所有子类可见
 default：对本包可见
 
@@ -4799,9 +4794,9 @@ default：对本包可见
 2 非访问修饰符
 2.1 final
 
-final 域
+final 域（常量）
 
-final域必须显式指
+fin
 					...
 				</div>
 			</a>

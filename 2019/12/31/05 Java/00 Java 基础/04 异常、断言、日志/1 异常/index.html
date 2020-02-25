@@ -4329,26 +4329,33 @@ var _hmt = _hmt || [];
 <ul>
 <li>Throwable
 <ul>
-<li>Error<br>
-系统的内部错误和资源耗尽错误。应用程序不应该抛出此种类型的错误。</li>
+<li>Error
+<ul>
+<li>表示 JVM 无法处理的错误，如 OutOfMemoryError, StackOverflowError。</li>
+</ul>
+</li>
 <li>Exception
 <ul>
-<li>RuntimeException<br>
-程序错误导致的异常</li>
-<li>其它异常<br>
-由于像 I/O 错误，程序本身没有问题导致的异常</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
+<li>未检查异常（RuntimeException，运行时异常）
 <ul>
-<li>未检查异常：Error 或 RuntimeException</li>
-<li>已检查异常：所有其他异常。在编译期间检查，必须提供异常处理器。</li>
+<li>程序出错导致的异常，例如 NullPointerException，IllegalArgumentException，ArrayIndexOutOfBoundsException</li>
+</ul>
+</li>
+<li>已检查异常（非 RuntimeException，非运行时异常）
+<ul>
+<li>所有继承自 Exception，而不继承自 RuntimeException 类的异常</li>
+<li>外部错误，例如 IOException，FileNotFoundException</li>
+<li>在编译期间检查，必须提供异常处理器。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 <h3 id="2-声明异常"><a class="header-anchor" href="#2-声明异常"></a>2 声明异常</h3>
-<p><code>已检查异常</code>需要声明，如有多个需要在方法首部列出所有，逗号隔开。或被捕获。</p>
-<p><code>未检查异常</code>不需要声明。</p>
+<p><code>已检查异常</code>需要声明，或被捕获。如有多个需要在方法首部列出所有，逗号隔开。</p>
+<p>Errors 和 <code>未检查异常</code>不需要声明。因为这类错误本身就是 bug，应该被修复，出现此类错误时程序就应该立即停止执行。</p>
 <h3 id="3-抛出异常"><a class="header-anchor" href="#3-抛出异常"></a>3 抛出异常</h3>
 <pre><code>throw new Exception();
 </code></pre>
@@ -4402,7 +4409,7 @@ var _hmt = _hmt || [];
 <h5 id="3）获取原始异常"><a class="header-anchor" href="#3）获取原始异常"></a>3）获取原始异常</h5>
 <pre><code>Throwable e = se.getCause();
 </code></pre>
-<h4 id="3-finaly-子句"><a class="header-anchor" href="#3-finaly-子句"></a>3 finaly 子句</h4>
+<h4 id="5-3-finally-子句"><a class="header-anchor" href="#5-3-finally-子句"></a>5.3 finally 子句</h4>
 <h5 id="1）基本语法"><a class="header-anchor" href="#1）基本语法"></a>1）基本语法</h5>
 <pre><code>try{
 }catch(Exception e){
@@ -4427,7 +4434,7 @@ try{
 <li>注意：当 finally 和 catch 包含 return 语句，会执行 finally 的 return。</li>
 <li>注意：finally 也可能抛出异常，而导致本来要 catch 抛出的异常被覆盖</li>
 </ul>
-<h4 id="5-4-带资源的try-语句"><a class="header-anchor" href="#5-4-带资源的try-语句"></a>5.4 带资源的try 语句</h4>
+<h4 id="5-4-带资源的-try-语句"><a class="header-anchor" href="#5-4-带资源的-try-语句"></a>5.4 带资源的 try 语句</h4>
 <h5 id="1）基本语法-v2"><a class="header-anchor" href="#1）基本语法-v2"></a>1）基本语法</h5>
 <p>假如资源实现了 AutoCloseable/Closeable 接口。可以利用带资源的 try 语句，try 退出时，会自动调用 res.close()。</p>
 <pre><code>try(Resource res=...){

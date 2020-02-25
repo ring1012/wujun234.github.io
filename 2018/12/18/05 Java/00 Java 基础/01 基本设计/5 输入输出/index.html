@@ -4328,8 +4328,8 @@ var _hmt = _hmt || [];
 	<h3 id="1-读取输入"><a class="header-anchor" href="#1-读取输入"></a>1 读取输入</h3>
 <h4 id="1-1-Scanner-类"><a class="header-anchor" href="#1-1-Scanner-类"></a>1.1 Scanner 类</h4>
 <h5 id="1-文件输入"><a class="header-anchor" href="#1-文件输入"></a>1)文件输入</h5>
-<pre><code>Scanner scan = new Scanner(Paths.get(&quot;myfile.txt&quot;)，&quot;UTF-8&quot;);
-// 如果是 win 系统，使用双反斜杠，&quot;c:\\mydirectory\\myfile.txt&quot; ，每个 \ 需要额外的一个 \。
+<pre><code>// 如果是 win 系统，使用双反斜杠，&quot;c:\\mydirectory\\myfile.txt&quot; ，每个 \ 需要额外的一个 \。
+Scanner scan = new Scanner(Paths.get(&quot;myfile.txt&quot;)，&quot;UTF-8&quot;);
 </code></pre>
 <h5 id="2-标准输入"><a class="header-anchor" href="#2-标准输入"></a>2)标准输入</h5>
 <pre><code>Scanner in = new Scanner(System.in);
@@ -4341,7 +4341,7 @@ var _hmt = _hmt || [];
 <li>nextDouble()</li>
 </ul>
 <h4 id="1-2-Console-类"><a class="header-anchor" href="#1-2-Console-类"></a>1.2 Console 类</h4>
-<p>因为输入是可见的，所以 Scanner 类不适用于控制台读取密码，可以使用 Console 类，但每次只能读取一行,而且在 IDE 上无法使用：</p>
+<p>因为输入是可见的，所以 Scanner 类不适用于控制台读取密码，可以使用 Console 类，但每次只能读取一行，而且在 IDE 上无法使用：</p>
 <pre><code>Console cons = System.console();
 String username = cons.readLine(&quot;User name: &quot;);
 char[] passwd = cons.readPassword(&quot;Password: &quot;);
@@ -4349,7 +4349,8 @@ char[] passwd = cons.readPassword(&quot;Password: &quot;);
 <h3 id="2-格式化输出"><a class="header-anchor" href="#2-格式化输出"></a>2 格式化输出</h3>
 <h4 id="2-1-printf-方法"><a class="header-anchor" href="#2-1-printf-方法"></a>2.1 printf 方法</h4>
 <p>一种方法是 Java 沿用了 C 语言的 printf 方法</p>
-<pre><code>System.out.printf(&quot;%,.2f&quot;, 10000 / 3.0);//输出3,333.33
+<pre><code>//输出3,333.33
+System.out.printf(&quot;%,.2f&quot;, 10000 / 3.0);
 </code></pre>
 <h4 id="2-2-String-format"><a class="header-anchor" href="#2-2-String-format"></a>2.2 String.format</h4>
 <p>另一种方法可以用 String.format 方法创建一个不输出的格式化字符串。</p>
@@ -4361,10 +4362,143 @@ System.out.printf(message);
 </code></pre>
 <h4 id="2-3-文件输出"><a class="header-anchor" href="#2-3-文件输出"></a>2.3 文件输出</h4>
 <p>写入文件需要构造一个 PrintWriter 对象，此 PrintWriter 类与 System.out（是 PrintStream 类对象）在 print、println、printf 上用法相同。</p>
-<pre><code>PrintWriter out = new PrintWriter(&quot;myfile.txt&quot;,&quot;UTF-8&quot;);
-//在构造器中只需要提供文件名，没有的话会新建，如果之前已存在会覆盖
+<pre><code>//在构造器中只需要提供文件名，没有的话会新建，如果之前已存在会覆盖
+PrintWriter out = new PrintWriter(&quot;myfile.txt&quot;,&quot;UTF-8&quot;);
 </code></pre>
-<p>用相对路径时，文件位于java虚拟机启动路径的相对位置。可以调用 System.getProperty(“user.dir”) 找到。</p>
+<p>用相对路径时，文件位于 java 虚拟机启动路径的相对位置。可以调用 System.getProperty(“user.dir”) 找到。</p>
+<h4 id="2-4-printf-格式化符号"><a class="header-anchor" href="#2-4-printf-格式化符号"></a>2.4 printf 格式化符号</h4>
+<h5 id="1）类型字符"><a class="header-anchor" href="#1）类型字符"></a>1）类型字符</h5>
+<table>
+<thead>
+<tr>
+<th>符号</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>%a</td>
+<td>浮点数、十六进制数字和p-记数法（c99</td>
+</tr>
+<tr>
+<td>%A</td>
+<td>浮点数、十六进制数字和p-记法（c99）</td>
+</tr>
+<tr>
+<td>%c</td>
+<td>一个字符(char)</td>
+</tr>
+<tr>
+<td>%C</td>
+<td>一个ISO宽字符</td>
+</tr>
+<tr>
+<td>%d</td>
+<td>有符号十进制整数(int)</td>
+</tr>
+<tr>
+<td>%e</td>
+<td>浮点数、e-记数法</td>
+</tr>
+<tr>
+<td>%E</td>
+<td>浮点数、E-记数法</td>
+</tr>
+<tr>
+<td>%f</td>
+<td>单精度浮点数(默认float)、十进制记数法（%.nf  这里n表示精确到小数位后n位.十进制计数）</td>
+</tr>
+<tr>
+<td>%g</td>
+<td>根据数值不同自动选择%f或%e．</td>
+</tr>
+<tr>
+<td>%G</td>
+<td>根据数值不同自动选择%f或%e.</td>
+</tr>
+<tr>
+<td>%i</td>
+<td>有符号十进制数（与%d相同）</td>
+</tr>
+<tr>
+<td>%o</td>
+<td>无符号八进制整数</td>
+</tr>
+<tr>
+<td>%p</td>
+<td>指针</td>
+</tr>
+<tr>
+<td>%s</td>
+<td>对应字符串char*（%s = %hs = %hS 输出 窄字符）</td>
+</tr>
+<tr>
+<td>%S</td>
+<td>对应宽字符串WCAHR*（%ws = %S 输出宽字符串）</td>
+</tr>
+<tr>
+<td>%u</td>
+<td>无符号十进制整数(unsigned int)</td>
+</tr>
+<tr>
+<td>%x</td>
+<td>使用十六进制数字0xf的无符号十六进制整数</td>
+</tr>
+<tr>
+<td>%X</td>
+<td>使用十六进制数字0xf的无符号十六进制整数</td>
+</tr>
+<tr>
+<td>%%</td>
+<td>打印一个百分号</td>
+</tr>
+<tr>
+<td>%I64d</td>
+<td>用于INT64 或者 long long</td>
+</tr>
+<tr>
+<td>%I64u</td>
+<td>用于UINT64 或者 unsigned long long</td>
+</tr>
+<tr>
+<td>%I64x</td>
+<td>用于64位16进制数据</td>
+</tr>
+</tbody>
+</table>
+<h5 id="2）格式字符"><a class="header-anchor" href="#2）格式字符"></a>2）格式字符</h5>
+<p>格式字符用以指定输出项的数据类型和输出格式。</p>
+<ul>
+<li>d、o、x、u 格式：
+<ul>
+<li>hd：输出短整形</li>
+<li>ld、Ld：输出长整型数据(long)</li>
+<li>md：m 为指定的输出字段的宽度。如果数据的位数小于 m，则左端补以空格，若大于 m，则按实际位数输出</li>
+</ul>
+</li>
+<li>s 格式：
+<ul>
+<li>%ms：输出的字符串占 m 列，如果字符串本身长度大于 m，则突破获 m 的限制，将字符串全部输出。若串长小于 m，则左补空格。</li>
+<li>%-ms：如果串长小于 m，则在 m 列范围内，字符串向左靠，右补空格。</li>
+<li>%m.ns：输出占 m 列，但只取字符串中左端 n 个字符。这 n 个字符输出在 m 列的右侧，左补空格。</li>
+<li>%-m.ns：其中 m、n 含义同上，n 个字符输出在m列范围的左侧，右补空格。如果 n&gt;m，则自动取 n 值，即保证 n 个字符正常输出。</li>
+</ul>
+</li>
+<li>f 格式：
+<ul>
+<li>%f：不指定宽度，整数部分全部输出并输出 6 位小数。</li>
+<li>%<a href="http://m.nf" target="_blank" rel="noopener">m.nf</a>：输出共占 m 列，其中有 n 位小数，若数值宽度小于 m 左端补空格。</li>
+<li>%-m.nf：输出共占 m 列，其中有 n 位小数，若数值宽度小于 m 右端补空格。</li>
+</ul>
+</li>
+<li>e 格式：
+<ul>
+<li>%e：数字部分（又称尾数）输出6位小数，指数部分占5位或4位。</li>
+<li>%<a href="http://m.ne" target="_blank" rel="noopener">m.ne</a> 和 %-m.ne：m、n 和“-”字符含义与前相同。此处 n 指数据的数字部分的小数位数，m 表示整个输出数据所占的宽度。</li>
+</ul>
+</li>
+<li>g 格式：自动选 f 格式或 e 格式中较短的一种输出，且不输出无意义的零。</li>
+</ul>
 
 </div>
 

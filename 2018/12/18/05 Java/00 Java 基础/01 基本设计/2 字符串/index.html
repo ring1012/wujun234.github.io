@@ -4325,9 +4325,101 @@ var _hmt = _hmt || [];
 </div>
 
 <div id="article-content">
-	<h3 id="1-String"><a class="header-anchor" href="#1-String"></a>1. String</h3>
-<p>String 底层是由 char 数组实现的，是 final 类，值不可变，编辑器可让字符串共享在常量池。</p>
-<h4 id="1-1-初始化"><a class="header-anchor" href="#1-1-初始化"></a>1.1 初始化</h4>
+	<h3 id="1-String-底层实现"><a class="header-anchor" href="#1-String-底层实现"></a>1 String 底层实现</h3>
+<p>String 被声明为 final，因此它不可被继承。</p>
+<p>底层是 char 或 byte 类型的 value 数组，value 数组也被声明为 final，这意味着数组初始化之后就不能再引用其它数组。并且 String 内部没有改变 value 数组的方法，因此可以保证 String 不可变。</p>
+<p>编辑器可让字符串共享在常量池。</p>
+<h4 id="1-1-Java-8-char-数组"><a class="header-anchor" href="#1-1-Java-8-char-数组"></a>1.1 Java 8 - char 数组</h4>
+<p>在 Java 8 中，String 内部使用 char 数组存储数据。</p>
+<pre><code class="language-java">public final class String
+    implements java.io.Serializable, Comparable&lt;String&gt;, CharSequence {
+    /** The value is used for character storage. */
+    private final char value[];
+}
+</code></pre>
+<h4 id="1-2-Java-9-byte-数组"><a class="header-anchor" href="#1-2-Java-9-byte-数组"></a>1.2 Java 9 - byte 数组</h4>
+<p>在 Java 9 之后，String 类的实现改用 byte 数组存储字符串，同时使用 <code>coder</code> 来标识使用了哪种编码。</p>
+<pre><code class="language-java">public final class String
+    implements java.io.Serializable, Comparable&lt;String&gt;, CharSequence {
+    /** The value is used for character storage. */
+    private final byte[] value;
+
+    /** The identifier of the encoding used to encode the bytes in {@code value}. */
+    private final byte coder;
+}
+</code></pre>
+<h4 id="1-3-不可变的好处"><a class="header-anchor" href="#1-3-不可变的好处"></a>1.3 不可变的好处</h4>
+<ul>
+<li>可以缓存 hash 值
+<ul>
+<li>因为 String 的 hash 值经常被使用，例如 String 用做 HashMap 的 key。不可变的特性可以使得 hash 值也不可变，因此只需要进行一次计算。</li>
+</ul>
+</li>
+<li>String Pool 的需要
+<ul>
+<li>如果一个 String 对象已经被创建过了，那么就会从 String Pool 中取得引用。只有 String 是不可变的，才可能使用 String Pool。</li>
+</ul>
+</li>
+<li>安全性
+<ul>
+<li>String 经常作为参数，String 不可变性可以保证参数不可变。</li>
+<li>例如在作为网络连接参数的情况下如果 String 是可变的，那么在网络连接过程中，String 被改变，改变 String 的那一方以为现在连接的是其它主机，而实际情况却不一定是。</li>
+</ul>
+</li>
+<li>线程安全
+<ul>
+<li>String 不可变性天生具备线程安全，可以在多个线程中安全地使用。</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-StringBuilder-和-StringBuffer"><a class="header-anchor" href="#2-StringBuilder-和-StringBuffer"></a>2 StringBuilder 和 StringBuffer</h3>
+<h4 id="2-1-可变性与线程安全"><a class="header-anchor" href="#2-1-可变性与线程安全"></a>2.1 可变性与线程安全</h4>
+<ul>
+<li>String 不可变，因此是线程安全的</li>
+<li>StringBuilder 可变，不是线程安全的，效率比 StringBuffer 高</li>
+<li>StringBuffer 可变，是线程安全的，内部使用 synchronized 进行同步</li>
+</ul>
+<h4 id="2-2-底层实现"><a class="header-anchor" href="#2-2-底层实现"></a>2.2 底层实现</h4>
+<p>StringBuilder 和 StringBuffer 继承了 AbstractStringBuilder，AbstractStringBuilder 的 char 数组没有 final 关键字修饰，字符数组长度可变，所有 StringBuilder 和 StringBuffer 也是可变的</p>
+<p>AbstractStringBuilder</p>
+<pre><code>AbstractStringBuilder(int capacity) {
+    value = new char[capacity];
+}
+</code></pre>
+<p>StringBuilder</p>
+<pre><code>public StringBuilder() {
+    // StringBuilder 类继承 AbstractStringBuilder 抽象类
+    // 创建长度 16 的字符数组
+    super(16);
+}
+// 字符串拼接
+public StringBuilder(String str) {
+    super(str.length() + 16);
+    append(str);
+}
+</code></pre>
+<h3 id="3-String-Pool-与引用"><a class="header-anchor" href="#3-String-Pool-与引用"></a>3 String Pool 与引用</h3>
+<p>字符串常量池（String Pool）保存着所有字符串字面量（literal strings），这些字面量在编译时期就确定。</p>
+<p>在 Java 7 之前，String Pool 被放在运行时常量池中，它属于永久代。而在 Java 7，String Pool 被移到堆中。这是因为永久代的空间有限，在大量使用字符串的场景下会导致 OutOfMemoryError 错误。</p>
+<ul>
+<li>new String()：会在堆新建对象</li>
+<li>intern() 方法： String 对象的 intern 方法会得到字符串对象在常量池中对应的版本的引用，如果常量池中没有对应的字符串，则该字符串将被添加到常量池中，然后返回常量池中字符串的引用；</li>
+<li>&quot;&quot;字面量：使用字面量的形式创建字符串，会自动地将字符串放入 String Pool 中</li>
+</ul>
+<pre><code>String s1 = &quot;Programming&quot;;//先去常量池取，没有就新建对象放在常量池
+String s2 = new String(&quot;Programming&quot;);//两个字符串对象，一个是常量池的&quot;Programming&quot;，一个是用 new 创建在堆上的对象
+String s3 = &quot;Program&quot;;//常量池
+String s4 = &quot;ming&quot;;//常量池
+String s5 = &quot;Program&quot; + &quot;ming&quot;;//常量池
+String s6 = s3 + s4;//堆
+System.out.println(s1 == s2);//false
+System.out.println(s1 == s5);//true
+System.out.println(s1 == s6);//false
+System.out.println(s1 == s6.intern());//true
+System.out.println(s2 == s2.intern());//false
+</code></pre>
+<h3 id="4-String-常用方法"><a class="header-anchor" href="#4-String-常用方法"></a>4 String 常用方法</h3>
+<h4 id="4-1-初始化"><a class="header-anchor" href="#4-1-初始化"></a>4.1 初始化</h4>
 <h5 id="1）使用字符串常量直接初始化"><a class="header-anchor" href="#1）使用字符串常量直接初始化"></a>1）使用字符串常量直接初始化</h5>
 <pre><code>String s = &quot;hello!&quot;;
 </code></pre>
@@ -4341,7 +4433,7 @@ public String() {
     this.value = &quot;&quot;.value;
 }
 </code></pre>
-<h4 id="1-2-操作"><a class="header-anchor" href="#1-2-操作"></a>1.2 操作</h4>
+<h4 id="4-2-操作"><a class="header-anchor" href="#4-2-操作"></a>4.2 操作</h4>
 <h5 id="1）截取字符串"><a class="header-anchor" href="#1）截取字符串"></a>1）截取字符串</h5>
 <ul>
 <li>单点截取：subString(开始下标)</li>
@@ -4399,46 +4491,6 @@ public String() {
 </ul>
 </li>
 </ul>
-<h4 id="1-3-引用"><a class="header-anchor" href="#1-3-引用"></a>1.3 引用</h4>
-<pre><code>String s1 = &quot;Programming&quot;;//先去常量池取，没有就新建对象放在常量池
-String s2 = new String(&quot;Programming&quot;);//两个字符串对象，一个是常量池的&quot;Programming&quot;，一个是用 new 创建在堆上的对象
-String s3 = &quot;Program&quot;;//常量池
-String s4 = &quot;ming&quot;;//常量池
-String s5 = &quot;Program&quot; + &quot;ming&quot;;//常量池
-String s6 = s3 + s4;//堆
-System.out.println(s1 == s2);//false
-System.out.println(s1 == s5);//true
-System.out.println(s1 == s6);//false
-System.out.println(s1 == s6.intern());//true
-System.out.println(s2 == s2.intern());//false
-</code></pre>
-<p>String 对象的 intern 方法会得到字符串对象在常量池中对应的版本的引用，如果常量池中没有对应的字符串，则该字符串将被添加到常量池中，然后返回常量池中字符串的引用；</p>
-<h3 id="2-StringBuilder"><a class="header-anchor" href="#2-StringBuilder"></a>2 StringBuilder</h3>
-<ul>
-<li>单线程，没被 synchronized 修饰，效率比 StringBuffer 高。</li>
-<li>StringBuilder 继承了 AbstractStringBuilder，char 数组没有 final 关键字修饰，字符数组长度可变</li>
-</ul>
-<p>StringBuilder</p>
-<pre><code>public StringBuilder() {
-    // StringBuilder 类继承 AbstractStringBuilder 抽象类
-    // 创建长度 16 的字符数组
-    super(16);
-}
-// 字符串拼接
-public StringBuilder(String str) {
-    super(str.length() + 16);
-    append(str);
-}
-</code></pre>
-<p>AbstractStringBuilder</p>
-<pre><code>// 没有 final 关键字修饰，字符数组长度可变
-// 这也就是为什么 StringBuffer 与 StringBuilder 的数组可变的原因
-AbstractStringBuilder(int capacity) {
-    value = new char[capacity];
-}
-</code></pre>
-<h3 id="3-StringBuffer"><a class="header-anchor" href="#3-StringBuffer"></a>3 StringBuffer</h3>
-<p>多线程，被 synchronized 修饰</p>
 
 </div>
 

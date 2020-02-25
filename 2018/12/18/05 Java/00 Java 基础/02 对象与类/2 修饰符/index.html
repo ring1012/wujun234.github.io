@@ -4328,8 +4328,11 @@ var _hmt = _hmt || [];
 	<h3 id="1-访问修饰符"><a class="header-anchor" href="#1-访问修饰符"></a>1 访问修饰符</h3>
 <ul>
 <li>private：仅对本类可见</li>
-<li>public：对所有类可见<br>
-接口里方法默认public</li>
+<li>public：对所有类可见
+<ul>
+<li>接口里方法默认 public</li>
+</ul>
+</li>
 <li>protected：对本包和所有子类可见</li>
 <li>default：对本包可见</li>
 </ul>
@@ -4337,14 +4340,17 @@ var _hmt = _hmt || [];
 <h3 id="2-非访问修饰符"><a class="header-anchor" href="#2-非访问修饰符"></a>2 非访问修饰符</h3>
 <h4 id="2-1-final"><a class="header-anchor" href="#2-1-final"></a>2.1 final</h4>
 <ul>
-<li>final 域
+<li>final 域（常量）
 <ul>
-<li>final域必须显式指定初始值，赋值后，不能被重新赋值。</li>
+<li>final 域必须显式指定初始值，赋值后，不能被重新赋值。</li>
+<li>基本类型：final 使数值不变</li>
+<li>引用类型：final 使引用不变，但是被引用的对象本身是可以修改的</li>
 </ul>
 </li>
 <li>final 方法
 <ul>
 <li>final 方法可以被子类继承，但是不能被子类修改。</li>
+<li>private 方法隐式地被指定为 final，如果在子类中定义的方法和基类中的一个 private 方法签名相同，此时子类的方法不是重写基类方法，而是在子类中定义了一个新的方法。</li>
 </ul>
 </li>
 <li>final 类
@@ -4355,25 +4361,27 @@ var _hmt = _hmt || [];
 </ul>
 <h4 id="2-2-static"><a class="header-anchor" href="#2-2-static"></a>2.2 static</h4>
 <ul>
-<li>静态域
+<li>静态域（变量）
 <ul>
-<li>类域，多实例也只有一份拷贝</li>
+<li>类变量，多实例也只有一份拷贝</li>
 </ul>
 </li>
 <li>静态常量
 <ul>
-<li>多与final组成静态常量，一般大写</li>
+<li>多与 final 组成静态常量，一般大写</li>
 </ul>
 </li>
 <li>静态方法
 <ul>
-<li>类方法，独立于对象，没有隐式参数 this，可以访问静态域。</li>
-<li>不可从一个 static 方法内部发出对非 static 方法的调用。</li>
+<li>类方法，独立于对象，没有隐式参数 this 和 super，可以访问静态域</li>
+<li>不可从一个 static 方法内部发出对非 static 方法的调用</li>
+<li>必须有实现，不能是抽象方法</li>
 </ul>
 </li>
 <li>静态内部类
 <ul>
-<li>只有内部类能被声明为 static。详见“静态内部类”</li>
+<li>只有内部类能被声明为 static。</li>
+<li>静态内部类不能访问外部类的非静态的变量和方法。</li>
 </ul>
 </li>
 <li>静态代码块
@@ -4383,10 +4391,19 @@ var _hmt = _hmt || [];
 </li>
 <li>静态导包
 <ul>
-<li>JDK1.5，用 import static 代替 import 静态导入，可以直接使用类的静态方法和静态域，而不需要使用类名作为前缀。</li>
+<li>JDK 1.5，用 import static 代替 import 静态导入，可以直接使用类的静态方法和静态域，而不需要使用类名作为前缀。</li>
 </ul>
 </li>
 </ul>
+<p>存在继承的情况下，初始化顺序为：</p>
+<blockquote>
+<p>父类（静态变量、静态语句块）<br>
+子类（静态变量、静态语句块）<br>
+父类（实例变量、普通语句块）<br>
+父类（构造函数）<br>
+子类（实例变量、普通语句块）<br>
+子类（构造函数）</p>
+</blockquote>
 <h4 id="2-3-abstract"><a class="header-anchor" href="#2-3-abstract"></a>2.3 abstract</h4>
 <ul>
 <li>抽象类
@@ -4421,12 +4438,11 @@ var _hmt = _hmt || [];
 </li>
 </ul>
 <h4 id="2-6-volatile"><a class="header-anchor" href="#2-6-volatile"></a>2.6 volatile</h4>
+<p>volatile 同步变量</p>
 <ul>
-<li>volatile 变量
-<ul>
-<li>同步变量，保证此变量对所有线程的可见性，禁止指令重排序优化。</li>
-</ul>
-</li>
+<li>原子性：不保证</li>
+<li>可见性：保证，读写立刻与主内存交换</li>
+<li>有序性：保证，禁止指令重排序优化</li>
 </ul>
 
 </div>

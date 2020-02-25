@@ -4400,12 +4400,13 @@ Logger myLogge
 
 成员默认 public
 常量必须赋初值，内部类自动成为 static 类。
-不能含有实例域，不能实现方法。（JDK 8之后允许提供静态方法、默认方法）
+不能含有实例域，不能实现方法。（JDK 8 之后允许提供静态方法、默认方法）
 可以声明接口变量，不能使用 new 实例化一个接口。
 
 2 接口与抽象类
-与抽象类区别。没有实例域，可以实现多个。
-3 Java 
+2.1 接口与抽象类的区别
+
+从设计层面上看，抽象类提
 					...
 				</div>
 			</a>
@@ -4668,14 +4669,9 @@ Java 中的基本类型有 8 种，其中有 4 种整型、2 种浮点型、char
 					2 字符串
 				</h2>
 				<div class="index-brief">
-					1. String
-String 底层是由 char 数组实现的，是 final 类，值不可变，编辑器可让字符串共享在常量池。
-1.1 初始化
-1）使用字符串常量直接初始化
-String s = &quot;hello!&quot;;
-
-2）使用构造方法创建并初始化
-String s = new S
+					1 String 底层实现
+String 被声明为 final，因此它不可被继承。
+底层是 char 或 byte 类型的 value 数组，value 数组也被声明为 final，这意味着数组初始化之后就不能再引用其它数组。并且 String 内部没有改变 value 数组的方法，因此可以保证 S
 					...
 				</div>
 			</a>
@@ -4778,8 +4774,8 @@ int[] a = {1,2,3} ;
 					1 数学函数与常量
 
 Math.sqrt(x)：平方根
-Math.pow(x,y)：幂运算，x的y次幂
-Math.floorMod(x,y)：求余
+Math.pow(x, y)：幂运算，x 的 y 次幂
+Math.floorMod(x, y)：求余
 
 2 自增与自减运算符
 建议不要在表达式中使用 ++，容易带来疑惑和 bug
@@ -4788,8 +4784,7 @@ Math.floorMod(x,y)：求余
 ==
 !=
 &lt;
-&gt;
-&l
+&g
 					...
 				</div>
 			</a>

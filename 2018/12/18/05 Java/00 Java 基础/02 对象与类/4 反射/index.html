@@ -4325,8 +4325,10 @@ var _hmt = _hmt || [];
 </div>
 
 <div id="article-content">
-	<p>反射 (Reflection) 是 Java 的特征之一，它允许运行中的 Java 程序获取自身的信息，并且可以操作类或对象的内部属性。<br>
-反射的核心是 JVM 在运行时才动态加载类或调用方法/访问属性，它不需要事先知道运行对象是谁。</p>
+	<p>反射可以提供运行时的类信息，并且这个类可以在运行时才加载进来，甚至在编译时期该类的 .class 不存在也可以加载进来。</p>
+<p>反射允许运行中的 Java 程序获取自身的信息，并且可以操作类或对象的内部属性。</p>
+<p>反射的核心是 JVM 在运行时才动态加载类或调用方法/访问属性，它不需要事先知道运行对象是谁。</p>
+<h3 id="1-反射的作用"><a class="header-anchor" href="#1-反射的作用"></a>1 反射的作用</h3>
 <p>反射机制可以用来：</p>
 <ul>
 <li>在运行时判断任意一个对象所属的类；</li>
@@ -4334,14 +4336,29 @@ var _hmt = _hmt || [];
 <li>在运行时判断任意一个类所具有的成员变量和方法（通过反射甚至可以调用private方法）；</li>
 <li>在运行时调用任意一个对象的方法</li>
 </ul>
-<h3 id="1-不要过多地使用反射"><a class="header-anchor" href="#1-不要过多地使用反射"></a>1 不要过多地使用反射</h3>
+<h3 id="2-反射的优缺点"><a class="header-anchor" href="#2-反射的优缺点"></a>2 反射的优缺点</h3>
+<h4 id="2-1-反射的优点"><a class="header-anchor" href="#2-1-反射的优点"></a>2.1 反射的优点</h4>
+<ul>
+<li>可扩展性：应用程序可以利用全限定名创建可扩展对象的实例，来使用来自外部的用户自定义类。</li>
+<li>类浏览器和可视化开发环境：一个类浏览器需要可以枚举类的成员。可视化开发环境（如 IDE）可以从利用反射中可用的类型信息中受益，以帮助程序员编写正确的代码。</li>
+<li>调试器和测试工具：调试器需要能够检查一个类里的私有成员。测试工具可以利用反射来自动地调用类里定义的可被发现的 API 定义，以确保一组测试中有较高的代码覆盖率。</li>
+</ul>
+<h4 id="2-2-反射的缺点"><a class="header-anchor" href="#2-2-反射的缺点"></a>2.2 反射的缺点</h4>
 <p>反射机制对于编写系统程序来说极其实用，但是通常不适于编写应用程序。</p>
 <p>反射是很脆弱的，即编译器很难帮助人们发现程序中的错误。任何错误只能在运行时才被发现，并导致异常。</p>
-<p>由于反射会额外消耗一定的系统资源，因此如果不需要动态地创建一个对象，那么就不需要用反射。</p>
-<p>另外，反射调用方法时可以忽略权限检查，因此可能会破坏封装性而导致安全问题。</p>
-<h3 id="2-基本运用"><a class="header-anchor" href="#2-基本运用"></a>2 基本运用</h3>
-<p>反射相关的类一般都在 java.lang.relfect 包里</p>
-<h4 id="2-1-获得-Class-对象"><a class="header-anchor" href="#2-1-获得-Class-对象"></a>2.1 获得 Class 对象</h4>
+<ul>
+<li>性能开销：反射涉及了动态类型的解析，所以 JVM 无法对这些代码进行优化。因此，反射操作的效率要比那些非反射操作低得多。我们应该避免在经常被执行的代码或对性能要求很高的程序中使用反射。</li>
+<li>安全限制：使用反射技术要求程序必须在一个没有安全限制的环境中运行。如果一个程序必须在有安全限制的环境中运行，如 Applet，那么这就是个问题了。</li>
+<li>内部暴露：反射调用方法时可以忽略权限检查，因此可能会破坏封装性而导致安全问题。</li>
+</ul>
+<h3 id="3-基本运用"><a class="header-anchor" href="#3-基本运用"></a>3 基本运用</h3>
+<p>反射相关的类一般都在 java.lang.relfect 包里，java.lang.reflect 类库主要包含了以下三个类：</p>
+<ul>
+<li>Field：可以使用 get() 和 set() 方法读取和修改 Field 对象关联的字段；</li>
+<li>Method：可以使用 invoke() 方法调用与 Method 对象关联的方法；</li>
+<li>Constructor：可以用 Constructor 的 newInstance() 创建新的对象。</li>
+</ul>
+<h4 id="3-1-获得-Class-对象"><a class="header-anchor" href="#3-1-获得-Class-对象"></a>3.1 获得 Class 对象</h4>
 <p>获得类对象的方式有三种：</p>
 <ol>
 <li>类型.class<br>
@@ -4351,13 +4368,13 @@ var _hmt = _hmt || [];
 <li>Class.forName()<br>
 例如：Class&lt;?&gt; class = Class.forName(“java.lang.String”)</li>
 </ol>
-<p>虚拟机为每个类管理一个Class对象。因此，可以利用==运算符实现两个类对象比较的操作。</p>
-<h4 id="2-2-判断是否为某个类的实例"><a class="header-anchor" href="#2-2-判断是否为某个类的实例"></a>2.2 判断是否为某个类的实例</h4>
+<p>虚拟机为每个类管理一个 Class 对象。因此，可以利用 == 运算符实现两个类对象比较的操作。</p>
+<h4 id="3-2-判断是否为某个类的实例"><a class="header-anchor" href="#3-2-判断是否为某个类的实例"></a>3.2 判断是否为某个类的实例</h4>
 <ol>
 <li>一般用 instanceof 关键字来判断是否为某个类的实例。</li>
 <li>同时也可用反射中 Class 对象的 isInstance() 方法来判断：class.isInstance(obj);</li>
 </ol>
-<h4 id="2-3-创建实例"><a class="header-anchor" href="#2-3-创建实例"></a>2.3 创建实例</h4>
+<h4 id="3-3-创建实例"><a class="header-anchor" href="#3-3-创建实例"></a>3.3 创建实例</h4>
 <ol>
 <li>调用 Class 类的 newInstance()</li>
 </ol>
@@ -4375,7 +4392,7 @@ Constructor constructor = c.getConstructor(String.class);
 Object obj = constructor.newInstance(&quot;23333&quot;);
 System.out.println(obj);
 </code></pre>
-<h4 id="2-4-获取方法"><a class="header-anchor" href="#2-4-获取方法"></a>2.4 获取方法</h4>
+<h4 id="3-4-获取方法"><a class="header-anchor" href="#3-4-获取方法"></a>3.4 获取方法</h4>
 <p>获取某个 Class 对象的方法集合</p>
 <ul>
 <li>getDeclaredMethods<br>
@@ -4387,7 +4404,7 @@ System.out.println(obj);
 </ul>
 <pre><code>public Method getMethod(String name, Class&lt;?&gt;... parameterTypes)
 </code></pre>
-<h4 id="2-5-获取构造器信息"><a class="header-anchor" href="#2-5-获取构造器信息"></a>2.5 获取构造器信息</h4>
+<h4 id="3-5-获取构造器信息"><a class="header-anchor" href="#3-5-获取构造器信息"></a>3.5 获取构造器信息</h4>
 <p>获取某个 Class 对象的构造器集合,与获取方法用法相似</p>
 <ul>
 <li>getDeclaredConstructors</li>
@@ -4395,22 +4412,22 @@ System.out.println(obj);
 返回public构造器，包括超类的公有构造器</li>
 <li>getConstructor</li>
 </ul>
-<h4 id="2-6-获取类的域"><a class="header-anchor" href="#2-6-获取类的域"></a>2.6 获取类的域</h4>
+<h4 id="3-6-获取类的域"><a class="header-anchor" href="#3-6-获取类的域"></a>3.6 获取类的域</h4>
 <ul>
 <li>getFiled、getFileds<br>
 返回 public 域，包括超类的公有域</li>
 <li>getDeclaredField、getDeclaredFields<br>
 所有已声明的全部域，包括私有和受保护域，但不包括超类的域</li>
 </ul>
-<h4 id="2-7-调用方法"><a class="header-anchor" href="#2-7-调用方法"></a>2.7 调用方法</h4>
+<h4 id="3-7-调用方法"><a class="header-anchor" href="#3-7-调用方法"></a>3.7 调用方法</h4>
 <p>利用 Method 类中的 invoke 方法，调用任意方法。</p>
 <pre><code>public Object invoke(Object obj, Object... args)
         throws IllegalAccessException, IllegalArgumentException,
            InvocationTargetException
 </code></pre>
-<h4 id="2-8-获取修饰符"><a class="header-anchor" href="#2-8-获取修饰符"></a>2.8 获取修饰符</h4>
+<h4 id="3-8-获取修饰符"><a class="header-anchor" href="#3-8-获取修饰符"></a>3.8 获取修饰符</h4>
 <p>Modifier 类的静态方法分析 getModifiers 返回的整型数值，isPublish、isPrivate 或 isFinal 判断方法或构造器是否是 public、private 或 final。</p>
-<h4 id="2-9-利用反射创建数组"><a class="header-anchor" href="#2-9-利用反射创建数组"></a>2.9 利用反射创建数组</h4>
+<h4 id="3-9-利用反射创建数组"><a class="header-anchor" href="#3-9-利用反射创建数组"></a>3.9 利用反射创建数组</h4>
 <p>java.lang.reflect 包中的 Array 类允许动态地创建数组。</p>
 <pre><code>public static void testArray() throws ClassNotFoundException {
     Class&lt;?&gt; cls = Class.forName(&quot;java.lang.String&quot;);
