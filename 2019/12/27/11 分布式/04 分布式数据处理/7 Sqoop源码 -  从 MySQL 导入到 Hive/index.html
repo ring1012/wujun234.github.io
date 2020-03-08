@@ -2845,6 +2845,15 @@ var _hmt = _hmt || [];
 								<div class="article-toc" style="display: none;"></div>
 							</ul>
 			
+							<ul>
+								<li class="file">
+									<a href="/2020/03/06/08%20%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/1%20%E9%80%9A%E7%94%A8%E8%AE%BE%E8%AE%A1/08%20%E6%96%87%E7%AB%A0%E7%9B%B8%E4%BC%BC%E5%BA%A6%20-%20%20simhash%20%E8%AE%A1%E7%AE%97/">
+										08 文章相似度 -  simhash 计算
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
 								</li>
 								
 							</ul>
@@ -4623,9 +4632,9 @@ panther 上 Sqoop使用指南 ：<a href="https://docs.panther.sohurdc.com/bigda
 <p>runSqoop 方法先解析、隐藏子参数，然后调用 <code>ToolRunner.run</code>。</p>
 <p><img src="/images/1568966026424.jpg" alt="image"></p>
 <h3 id="1）隐藏子参数"><a class="header-anchor" href="#1）隐藏子参数"></a>1）隐藏子参数</h3>
-<p>以–开头子参数是供子程序，如mysqldump，使用的，而 ToolRunner 会剔除这些参数，所以这里先将子参数提取出来，存在 Sqoop.childPrgmArgs 变量中，之后再使用。</p>
+<p>以–开头子参数是供子程序，如 mysqldump，使用的，而 ToolRunner 会剔除这些参数，所以这里先将子参数提取出来，存在 Sqoop.childPrgmArgs 变量中，之后再使用。</p>
 <p><img src="/images/1568966026583.jpg" alt="image"></p>
-<h3 id="2）初始化hadoop调用上下文"><a class="header-anchor" href="#2）初始化hadoop调用上下文"></a>2）初始化hadoop调用上下文</h3>
+<h3 id="2）初始化-hadoop-调用上下文"><a class="header-anchor" href="#2）初始化-hadoop-调用上下文"></a>2）初始化 hadoop 调用上下文</h3>
 <p><code>ToolRunner</code>是 hadoop 的方法，里面先初始化了调用上下文，然后解析参数，最后调用了 入参 tool 的 run 方法。这里的 tool 是上一步调用传入的 Sqoop 类实例，Sqoop 类是 Tool 类的子类。</p>
 <p><img src="/images/1568966026725.jpg" alt="image"></p>
 <h3 id="3）准备-ImportTool"><a class="header-anchor" href="#3）准备-ImportTool"></a>3）准备 ImportTool</h3>
