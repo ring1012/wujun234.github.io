@@ -4563,7 +4563,8 @@ var _hmt = _hmt || [];
 </div>
 
 <div id="article-content">
-	<h3 id="1-Jsoup"><a class="header-anchor" href="#1-Jsoup"></a>1 Jsoup</h3>
+	<h2 id="一、数据采集"><a class="header-anchor" href="#一、数据采集"></a>一、数据采集</h2>
+<h3 id="1-Jsoup"><a class="header-anchor" href="#1-Jsoup"></a>1 Jsoup</h3>
 <p>Jsoup 可以请求和解析 HTML 页面。</p>
 <p>Maven 引包</p>
 <pre><code>&lt;!-- https://mvnrepository.com/artifact/org.jsoup/jsoup --&gt;
@@ -4740,6 +4741,127 @@ public class WebDriverUtils {
     }
 }
 </code></pre>
+<h2 id="二、应对反爬虫"><a class="header-anchor" href="#二、应对反爬虫"></a>二、应对反爬虫</h2>
+<h3 id="1-应对限制-header"><a class="header-anchor" href="#1-应对限制-header"></a>1 应对限制 header</h3>
+<p>最简单的反爬策略就是检测 http 请求的 header，例如 User-Agent、Referer 字段，可能限制同一个 User-Agent 的请求频率，或者检测 Referer 是否是来自自己允许的域名。</p>
+<p>应对这种情况，可以准备一组常见的 User-Agent，在请求的时候随机选用。Referer 字段也别忘记换成目标的真实 Referer。</p>
+<h3 id="2-应对限制用户"><a class="header-anchor" href="#2-应对限制用户"></a>2 应对限制用户</h3>
+<p>进一步的反爬可以是检测用户行为，限制 ip 或者账号。</p>
+<h4 id="2-1-限制-ip"><a class="header-anchor" href="#2-1-限制-ip"></a>2.1 限制 ip</h4>
+<p>同一个 ip 的请求频率过高，资源方可能会对 ip 进行限制，这时候就需要代理 ip 池了。</p>
+<p>逻辑简单的限制 ip 可以通过自己生成一些假 ip 来进行欺骗。逻辑严谨的就需要一个公网 ip 池了，这个有商业化 ip 池可以使用，也可以自己去网上收集。</p>
+<p>一般情况不会有封 ip 的情况发生，因为太容易误伤了，除非你爬得太狠了。</p>
+<h4 id="2-2-限制未登陆用户"><a class="header-anchor" href="#2-2-限制未登陆用户"></a>2.2 限制未登陆用户</h4>
+<p>有的网站允许未登录用户访问一定量的数据，超量之后就进行限制。可以利用这个特性，反复模拟新的未登录用户，来获取数据。</p>
+<p>例如今日头条，你每次建立一个新的 session，网站会给你分配一个 session_id 放在 cookie 里，之后的请求就带上这个 session_id。当使用这个 session_id 的请求被网站限制了之后，就另起一个 session 获取新的 session_id 进行数据抓取。</p>
+<h4 id="2-3-限制登陆用户"><a class="header-anchor" href="#2-3-限制登陆用户"></a>2.3 限制登陆用户</h4>
+<p>最严格的限制是只允许登陆后的用户请求数据，并且对用户的请求频率有所限制。这种情况要不就放弃了，直接去买会员或其它的网站的充值业务；要不就去尝试批量新建账号（一般也有限制）；或者去尝试登出再登陆，看看网站有没有逻辑漏洞。</p>
+<h3 id="3-应对二次请求"><a class="header-anchor" href="#3-应对二次请求"></a>3 应对二次请求</h3>
+<p>上面说的方法适用于直接请求接口就返回数据的情况，但现在很多网站是先通过请求返回 html 页面，再通过页面的加载，然后执行 ajax 二次请求数据，或者执行 js 代码生成的数据。</p>
+<p>对于这种动态的二次数据请求，如果从页面里分析出的 ajax 请求接口，是能够直接调用的，那是最简单的。可现实往往是原网站还会在客户端通过 js 代码对请求进行一定的计算、混淆、加密，即使你获得了接口也没办法直接请求。</p>
+<h4 id="3-1-运行-js-文件"><a class="header-anchor" href="#3-1-运行-js-文件"></a>3.1 运行 js 文件</h4>
+<p>可以尝试去破解原网站的加密，如果破解不了 js 文件的话，可以直接调用 js 文件里面的方法，无需破解，直接请求。</p>
+<h5 id="1）读取-js-文件"><a class="header-anchor" href="#1）读取-js-文件"></a>1）读取 js 文件</h5>
+<p>读取 js 文件，或者直接将 js 文件里的内容复制给一个 String 变量。</p>
+<pre><code class="language-java">private static String getStringFromJS() {
+    InputStream inputStream  = Application.class.getClassLoader().getResourceAsStream(&quot;js/xxx.js&quot;);
+    StringBuffer sb = new StringBuffer();
+    try (BufferedReader in = new BufferedReader(new InputStreamReader(inputStream, &quot;UTF-8&quot;))) {
+        String line;
+        while ((line = in.readLine()) != null) {
+            sb.append(line + &quot;\n&quot;);
+        }
+    } catch (Exception e) {
+
+    }
+    return sb.toString();
+}
+</code></pre>
+<h5 id="2）执行-js-脚本"><a class="header-anchor" href="#2）执行-js-脚本"></a>2）执行 js 脚本</h5>
+<p>Java 通过 ScriptEngine 执行 js 脚本</p>
+<pre><code class="language-java">public String getVl5x(String vjkl5) {
+    ScriptEngineManager manager = new ScriptEngineManager();
+    ScriptEngine vl5xEngine = manager.getEngineByName(&quot;nashorn&quot;);
+
+    // 运行 js 代码
+    try {
+        vl5xEngine.eval(getStringFromJS());
+    } catch (ScriptException e) {
+        e.printStackTrace();
+    }
+
+    Invocable vl5xInvocable = (Invocable) vl5xEngine;
+    Object result = null;
+    // 调用 js 方法
+    try {
+        result = vl5xInvocable.invokeFunction(&quot;getKey&quot;, vjkl5);
+    } catch (ScriptException | NoSuchMethodException e) {
+        e.printStackTrace();
+    }
+
+    String vl5x = (String) result;
+    return vl5x;
+}
+</code></pre>
+<h4 id="3-2-调用浏览器"><a class="header-anchor" href="#3-2-调用浏览器"></a>3.2 调用浏览器</h4>
+<p>如果你捋不清二次请求涉及到的 js 文件，或者其中的调用方法，还可以通过调用浏览器，即上面数据采集中的 Selenium 方法，让浏览器自己去执行来源网站的请求逻辑。</p>
+<p>缺点是效率比较低，而且还依赖了第三方浏览器，健壮性降低了。</p>
+<p>记住不要使用 PhantomJs 了，不止是因为新版本 Selenium 不支持，而且资源方很容易能够分析出 PhantomJs 的特征进行屏蔽，推荐 headless chrome。</p>
+<h3 id="4-应对字体替换"><a class="header-anchor" href="#4-应对字体替换"></a>4 应对字体替换</h3>
+<p>有些网站不给你返回正确内容，它将部分文字用自定义的字体文件替换了，使你爬取到的数据是乱码的。</p>
+<p>这种情况不用慌，因为能在页面上正确展现的内容，就能被正确爬取到。</p>
+<p>动态获取 .ttf 格式的字体文件，一般跟抓取内容在一个 html 页面中，正则得到 ttf 字体的 url，在线读取内容并解析替换。</p>
+<pre><code class="language-java">public String getRightContent(String ttfUrl, String content) {
+    // 根据 url 获取 ttf 文件
+    URL ttfHttpUrl = new URL(&quot;http:&quot;+ ttfUrl);
+    InputStream inStream = ttfHttpUrl.openStream();
+    ByteArrayOutputStream outStream = new ByteArrayOutputStream();
+    byte[] data = new byte[1024];
+    int count = -1;
+    long totalCount = 0;
+    while((count = inStream.read(data, 0, 1024)) != -1) {
+    outStream.write(data, 0, count);
+    totalCount += count;
+    if (totalCount &gt; 1024 * 1024 * 200)
+    {
+        throw new IOException(&quot;content length for current request exceeds max threshold 200M&quot;);
+    }
+    }
+    byte[] getData = outStream.toByteArray();
+    File ttfFile = new File(&quot;xxx.ttf&quot;);
+    FileOutputStream fos = new FileOutputStream(ttfFile);
+    fos.write(getData);
+    if(fos!=null){
+        fos.close();
+    }
+    
+    // 解析 ttf 文件
+    TrueTypeFont ttf1 = new TTFParser().parse(ttfFile);
+    
+    //转十进制字体 id
+    int fontId = (int)content.toCharArray()[0];
+    //根据字体 id 转换 ttf 表下标
+    int glyphId = ttf1.getCmap().getCmaps()[0].getGlyphId(fontId);
+    //根据下标读取字体, TTF_WORDLIST 是解析出来的字体文件数组
+    String word = TTF_WORDLIST[glyphId];
+    return word;
+}
+</code></pre>
+<h3 id="5-应对验证码"><a class="header-anchor" href="#5-应对验证码"></a>5 应对验证码</h3>
+<ul>
+<li>简单的图片验证码：可以尝试通过 opencv 的图片识别包进行破解。</li>
+<li>滑动式验证码：可以通过图片识别加上 js 调用破解</li>
+<li>要是验证码太难破解不了，或者验证码有超时设置，那就只能通过第三方打码平台来解决了</li>
+</ul>
+<h2 id="三、反爬虫总结"><a class="header-anchor" href="#三、反爬虫总结"></a>三、反爬虫总结</h2>
+<p>根据爬取数据遇到的反爬策略，总结一下大概有这些</p>
+<ul>
+<li>对 ip、session_id、账户 id、userAgent 的频率进行统计，限制、组合限制</li>
+<li>二次请求：页面加载之后，通过 eval 执行 js 代码，加密、混淆 ajax 参数。</li>
+<li>不确定代码：不定时修改接口地址、参数</li>
+<li>浏览器识别：针对 PhantomJs</li>
+<li>处理爬虫：直接拦截、返回空数据、返回脏数据、验证码</li>
+</ul>
 
 </div>
 
