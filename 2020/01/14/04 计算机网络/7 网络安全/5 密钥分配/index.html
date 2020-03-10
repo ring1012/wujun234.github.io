@@ -4584,12 +4584,12 @@ var _hmt = _hmt || [];
 <li>3）当 B 收到 A 转来的票据并使用自己的密钥 K<sub>B</sub> 解密后，就知道 A 要和他通信，同时也知道 KDC 为这次和 A 通信所分配的会话密钥 K<sub>AB</sub>。</li>
 </ul>
 <p>此后，A 和 B 就可使用会话密钥 K<sub>AB</sub> 进行这次通信了。</p>
-<p><img src="/1583855840762.png" alt="image"></p>
+<p><img src="/images/1583855840762.png" alt="image"></p>
 <p>KDC 还可在报文中加入时间戳，以防止报文的截取者利用以前己记录下的报文进行重放攻击。会话密钥 K<sub>AB</sub> 是一次性的，因此保密性较高。而 KDC 分配给用户的密钥 K<sub>B</sub> 和 K<sub>B</sub>，都应定期更换，以减少攻击者破译密钥的机会。</p>
 <h4 id="1-2-密钥分配协议-Kerberos"><a class="header-anchor" href="#1-2-密钥分配协议-Kerberos"></a>1.2 密钥分配协议 Kerberos</h4>
 <p>目前最出名的密钥分配协议是 Kerberos V5。Kerberos 既是鉴别协议，同时也是 KDC。使用 AES 进行加密。</p>
 <p>Kerberos 使用两个服务器：鉴别服务器 AS (Authentication server)、票据授予服务器 TGS (Ticket-Granting server)。Kerberos 只用于客户与服务器之间的鉴别，而不用于人对人的鉴别。</p>
-<p><img src="/1583856203904.png" alt="image"></p>
+<p><img src="/images/1583856203904.png" alt="image"></p>
 <ul>
 <li>1）A 用明文向鉴别服务器 AS 表明自己的身份。AS 就是 KDC，AS 对 A 的身份进行验证。只有验证结果正确，才允许 A 和票据授予服务器 TGS 进行联系。</li>
 <li>2）鉴别服务器 AS 向 A 发送用 A 的对称密钥 K<sub>A</sub> 加密的报文，这个报文包含 A 和 TGS 通信的会话密钥 K<sub>S</sub> 以及 AS 要发送给 TGS 的票据（这个票据是用 TGS 的对称密钥 K<sub>TG</sub> 加密的）。</li>
