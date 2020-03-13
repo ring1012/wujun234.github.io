@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta content="ie=edge" http-equiv="X-UA-Compatible" />
+    <title>验证结果</title>
+    <link href="https://sfgcare.csrcqsf.com/res_common/third/fontawesome/css/all.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://sfgcare.csrcqsf.com/res_common/third/bootstrap4.3.1/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://sfgcare.csrcqsf.com/res_common/third/flatpickr/flatpickr.min.css" rel="stylesheet" type="text/css" />
+    <style>
+        body{
+            padding-bottom: 0;
+            background-color: #ffffff;
+        }
+        .card-label{
+            width: 6em;
+            text-align: right;
+            margin-bottom: 0;
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            margin-top: -12px;
+        }
+        .card-text{
+            font-weight: bold;
+        }
+        .card-date{
+            font-size: 32px;
+            text-align: center;
+            padding: 10px 0;
+            font-weight: bold;
+        }
+        .card-date span{
+            color: red;
+        }
+        .card-image{
+            margin: 10px auto;
+            width: 256px;
+        }
+        .card-forbid{
+            margin-top: 20%;
+            width: 100%;
+            text-align: center;
+            font-size: 15vw;
+            color: red;
+        }
+        .list-group-item{
+            padding-left: 7em;
+        }
+        .card-allow{
+            width: 100%;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .card-logo{
+            position: fixed;
+            bottom: 10px;
+            width: 100%;
+            text-align: center;
+        }
+        #yes h3{
+            font-size: 15vw;
+            text-align: center;
+            color: green;
+        }
+        #no h3{
+            font-size: 15vw;
+            text-align: center;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+  <input id="idcard" type="hidden" value="37072419941101476X" />
+  <div class="container-fluid" style="padding:0; border-radius: 0;">
+
+    <h5 class="card-header" style="text-align: center;">验证结果</h5>
+    <div class="card-date" id="dailyDate">
+        <span id="card-date-month">03</span>月<span id="card-date-day">15</span>日
+    </div>
+    <div class="card-image" id="yes" style="display: block">
+        <img src="https://sfgcare.csrcqsf.com/images/pass.svg" width="100%" />
+        <h3>允许通行</h3>
+    </div>
+    <div class="card-image" id="no" style="display: none">
+      <img src="https://sfgcare.csrcqsf.com/images/reject.svg" width="100%" />
+        <h3>禁止通行</h3>
+    </div>
+    <!--<div class="card-allow">
+      准许入司
+    </div>-->
+  </div>
+  <div class="card-logo">
+    <img src="https://sfgcare.csrcqsf.com/images/logo.png" />
+  </div>
+
+
+<script src="https://sfgcare.csrcqsf.com/res_common/third/jquery/jquery-2.1.4.min.js"></script>
+<script src="https://sfgcare.csrcqsf.com/res_common/mobile-common.js?V=4.0"></script>
+
+<script>
+    $(function(){
+        var idcard = $("#idcard").val();
+
+        // 验证二维码
+        validateByIdcard(idcard);
+
+        // 获取电子通行证信息 系统时间
+        getEprBasicRegisterForCard(idcard)
+        /*var datemonth = new Date().format("MM");
+        var dateDay = new Date().format("dd");
+        $("#card-date-month").html(datemonth);
+        $("#card-date-day").html(dateDay);*/
+
+    })
+
+    Date.prototype.format = function(fmt) {
+        var o = {
+            "M+" : this.getMonth()+1,                 //月份
+            "d+" : this.getDate(),                    //日
+            "h+" : this.getHours(),                   //小时
+            "m+" : this.getMinutes(),                 //分
+            "s+" : this.getSeconds(),                 //秒
+            "q+" : Math.floor((this.getMonth()+3)/3), //季度
+            "S"  : this.getMilliseconds()             //毫秒
+        };
+        if(/(y+)/.test(fmt)) {
+            fmt=fmt.replace(RegExp.$1, (this.getFullYear()+"").substr(4 - RegExp.$1.length));
+        }
+        for(var k in o) {
+            if(new RegExp("("+ k +")").test(fmt)){
+                fmt = fmt.replace(RegExp.$1, (RegExp.$1.length==1) ? (o[k]) : (("00"+ o[k]).substr((""+ o[k]).length)));
+            }
+        }
+        return fmt;
+    }
+
+    function validateByIdcard(idcard) {
+        var data = {
+            "idcard":idcard
+        }
+        $.ajax({
+            url : "/jeecg-boot/epr/eprBasicRegister/testCard",
+            cache : false,
+            async : true,
+            type: "POST",
+            contentType:'application/json;charset=UTF-8',
+            data: JSON.stringify(data),
+            type : "POST",
+            success: function(res){
+                console.log(res)
+                var result = res.message
+                if(result!=null && result =="success"){
+                    $('#no').css('display','none');
+                    $('#yes').css('display','block');
+                } else{
+                    $('#no').css('display','block');
+                    $('#yes').css('display','yes');
+                }
+            }
+        });
+    }
+
+    function getEprBasicRegisterForCard(idcard) {
+        var data = {
+            "idcard":idcard
+        }
+        $.ajax({
+            url : "/jeecg-boot/epr/eprBasicRegister/getEprHealthDailyForCard",
+            cache : false,
+            async : true,
+            type: "POST",
+            contentType:'application/json;charset=UTF-8',
+            data: JSON.stringify(data),
+            type : "POST",
+            success: function(res){
+                console.log(res)
+                var date = new Date(res.result.dailyDate)
+
+                $("#card-date-month").html(date.format("MM"));
+                $("#card-date-day").html(date.format("dd"));
+            }
+        });
+    }
+</script></body></html>
