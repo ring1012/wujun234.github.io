@@ -1036,6 +1036,15 @@ var _hmt = _hmt || [];
 								<div class="article-toc" style="display: none;"></div>
 							</ul>
 			
+							<ul>
+								<li class="file">
+									<a href="/2020/01/14/04%20%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/7%20%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/6%20%E4%BA%92%E8%81%94%E7%BD%91%E4%BD%BF%E7%94%A8%E7%9A%84%E5%AE%89%E5%85%A8%E5%8D%8F%E8%AE%AE/">
+										6 互联网使用的安全协议
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
 								</li>
 								
 							</ul>
@@ -4610,7 +4619,7 @@ var _hmt = _hmt || [];
 <li>达到阈值, 将Memtable中的数据刷入到磁盘上的SSTables, 清空JVM Heap和CommitLog;</li>
 <li>达到阈值, 将SSTables压缩合并.</li>
 </ol>
-<p><img src="/1555919626953.png" alt=""></p>
+<p><img src="/images/1555919626953.png" alt=""></p>
 <h4 id="读操作"><a class="header-anchor" href="#读操作"></a>读操作</h4>
 <p>读取时，Cassandra 需要结合 memtable 和可能多个 SSTable 的结果。</p>
 <ol>
@@ -4655,7 +4664,7 @@ var _hmt = _hmt || [];
 </ul>
 <h3 id="4-客户端"><a class="header-anchor" href="#4-客户端"></a>4 客户端</h3>
 <p>客户端连接到某一节点发起读或写请求时，该节点充当客户端应用于拥有相当数据的节点数据的节点间的协调者，用以根据集群配置确定环（ring）中的哪个节点应当获取这个请求。</p>
-<p><img src="/1555919633778.png" alt=""></p>
+<p><img src="/images/1555919633778.png" alt=""></p>
 
 </div>
 
