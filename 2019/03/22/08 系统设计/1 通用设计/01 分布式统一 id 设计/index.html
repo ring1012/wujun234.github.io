@@ -556,6 +556,15 @@ var _hmt = _hmt || [];
 								<div class="article-toc" style="display: none;"></div>
 							</ul>
 			
+							<ul>
+								<li class="file">
+									<a href="/2020/01/15/02%20%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/2%20%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/">
+										2 数据的表示和运算
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
 								</li>
 								
 							</ul>
@@ -4592,14 +4601,14 @@ var _hmt = _hmt || [];
 <div id="article-content">
 	<h3 id="一、业界现状"><a class="header-anchor" href="#一、业界现状"></a>一、业界现状</h3>
 <h4 id="1-汽车之家"><a class="header-anchor" href="#1-汽车之家"></a>1 汽车之家</h4>
-<h5 id="1）id方案"><a class="header-anchor" href="#1）id方案"></a>1）id方案</h5>
-<p>自增id</p>
-<p>现有数据从4位到6位，目前最大320w+</p>
+<h5 id="1）id-方案"><a class="header-anchor" href="#1）id-方案"></a>1）id 方案</h5>
+<p>自增 id</p>
+<p>现有数据从 4 位到 6 位，目前最大 320w+</p>
 <h5 id="2）实例"><a class="header-anchor" href="#2）实例"></a>2）实例</h5>
 <table>
 <thead>
 <tr>
-<th>作品id</th>
+<th>作品 id</th>
 <th>URL</th>
 <th>类型</th>
 </tr>
@@ -4635,17 +4644,17 @@ var _hmt = _hmt || [];
 <h5 id="3）推断"><a class="header-anchor" href="#3）推断"></a>3）推断</h5>
 <p>汽车之家作品是同一张表，只是文章类型不同</p>
 <h4 id="2-今日头条"><a class="header-anchor" href="#2-今日头条"></a>2 今日头条</h4>
-<h5 id="1）id方案-v2"><a class="header-anchor" href="#1）id方案-v2"></a>1）id方案</h5>
-<p>类snowflake方案：</p>
+<h5 id="1）id-方案-v2"><a class="header-anchor" href="#1）id-方案-v2"></a>1）id 方案</h5>
+<p>类 snowflake 方案：</p>
 <ul>
-<li>文章（图集）、视频使用19位id，微头条使用16位id。</li>
-<li>id二进制前31是秒级时间戳，其余含义不详。</li>
+<li>文章（图集）、视频使用 19 位 id，微头条使用 16 位 id。</li>
+<li>id 二进制前 31 是秒级时间戳，其余含义不详。</li>
 </ul>
 <h5 id="2）实例-v2"><a class="header-anchor" href="#2）实例-v2"></a>2）实例</h5>
 <h6 id="文章"><a class="header-anchor" href="#文章"></a>文章</h6>
-<p>文章id长19位，换为2进制63位。<br>
-前31转为10进制，作为秒级时间戳换算出id时间，与页面上的发布时间基本相同。<br>
-后32位未知，10位+12位0+10位组成。</p>
+<p>文章 id 长 19 位，换为 2 进制 63 位。<br>
+前 31 转为 10 进制，作为秒级时间戳换算出id时间，与页面上的发布时间基本相同。<br>
+后 32 位未知，10 位 +12 位 0+10 位组成。</p>
 <table>
 <thead>
 <tr>
@@ -4709,16 +4718,16 @@ var _hmt = _hmt || [];
 </tbody>
 </table>
 <h6 id="微头条"><a class="header-anchor" href="#微头条"></a>微头条</h6>
-<p>微头条id长16位，换为2进制51位。<br>
-前31转为10进制，作为秒级时间戳换算出id时间，与页面上的发布时间基本相同。</p>
+<p>微头条 id 长 16 位，换为 2 进制 51 位。<br>
+前 31 转为 10 进制，作为秒级时间戳换算出 id 时间，与页面上的发布时间基本相同。</p>
 <table>
 <thead>
 <tr>
-<th>微头条id</th>
-<th>id时间戳</th>
-<th>id时间</th>
+<th>微头条 id</th>
+<th>id 时间戳</th>
+<th>id 时间</th>
 <th>发布时间</th>
-<th>id二进制后20位</th>
+<th>id 二进制后 20 位</th>
 </tr>
 </thead>
 <tbody>
@@ -4755,11 +4764,11 @@ var _hmt = _hmt || [];
 <h5 id="3）推断-v2"><a class="header-anchor" href="#3）推断-v2"></a>3）推断</h5>
 <ul>
 <li>头条的文章、视频，是一张表，类型字段不同；微头条是另一张表</li>
-<li>文章、视频、微头条的最终页前缀统一，因未发现标识位，可能是通过id长度区分</li>
-<li>id时间戳与发布时间存在差别，可能的原因：“保存后未立即发布”或“来自抓取”</li>
+<li>文章、视频、微头条的最终页前缀统一，因未发现标识位，可能是通过 id 长度区分</li>
+<li>id 时间戳与发布时间存在差别，可能的原因：“保存后未立即发布”或“来自抓取”</li>
 </ul>
 <h4 id="3-美团"><a class="header-anchor" href="#3-美团"></a>3 美团</h4>
-<p>由于美团有Leaf声称，在美团内部服务包含金融、支付交易、餐饮、外卖、酒店旅游、猫眼电影等众多业务线。查找了一下，但还未发现snowflake痕迹。</p>
+<p>美团 Leaf 声称在美团内部服务包含金融、支付交易、餐饮、外卖、酒店旅游、猫眼电影等众多业务线。查找了一下，对外暴露的数据中还未发现 snowflake 痕迹。</p>
 <h5 id="1）详情页"><a class="header-anchor" href="#1）详情页"></a>1）详情页</h5>
 <h6 id="猫眼电影——连续自增"><a class="header-anchor" href="#猫眼电影——连续自增"></a>猫眼电影——连续自增</h6>
 <ul>
@@ -4831,19 +4840,19 @@ var _hmt = _hmt || [];
 </tr>
 </tbody>
 </table>
-<h3 id="二、snowflake算法"><a class="header-anchor" href="#二、snowflake算法"></a>二、snowflake算法</h3>
+<h3 id="二、snowflake-算法"><a class="header-anchor" href="#二、snowflake-算法"></a>二、snowflake 算法</h3>
 <h4 id="1-简介"><a class="header-anchor" href="#1-简介"></a>1 简介</h4>
-<p>snowflake是twitter 开源的分布式ID生成算法，基于Thrift，发布于2010年。因与自身机器架构依赖过深，twitter已于2014年宣布弃用最初版本，下一版本还未开源。详见<a href="https://github.com/twitter-archive/snowflake" target="_blank" rel="noopener">github</a>。</p>
+<p>snowflake 是 twitter 开源的分布式 ID 生成算法，基于 Thrift，发布于 2010 年。因与自身机器架构依赖过深，twitter已于2014年宣布弃用最初版本，下一版本还未开源。详见 <a href="https://github.com/twitter-archive/snowflake" target="_blank" rel="noopener">github</a>。</p>
 <h4 id="2-核心思想"><a class="header-anchor" href="#2-核心思想"></a>2 核心思想</h4>
-<p>一个long型的ID有64bit，划分不同含义：</p>
+<p>一个 long 型的 ID 有 64 bit，划分不同含义：</p>
 <ul>
-<li>1bit符号位，始终为0</li>
-<li>41bit毫秒时间差</li>
-<li>10bit机器编号</li>
-<li>12bit毫秒内序列号</li>
+<li>1 bit 符号位，始终为 0</li>
+<li>41 bit 毫秒时间差</li>
+<li>10 bit 机器编号</li>
+<li>12 bit 毫秒内序列号</li>
 </ul>
-<h4 id="3-类snowflake算法"><a class="header-anchor" href="#3-类snowflake算法"></a>3 类snowflake算法</h4>
-<p>采用snowflake算法思想，类snowflake算法根据各自业务需要，做出了不同改动。比如改变了位数占比，添加了业务线等其他信息</p>
+<h4 id="3-类-snowflake-算法"><a class="header-anchor" href="#3-类-snowflake-算法"></a>3 类 snowflake 算法</h4>
+<p>采用 snowflake 算法思想，类 snowflake 算法根据各自业务需要，做出了不同改动。比如改变了位数占比，添加了业务线等其他信息</p>
 <table>
 <thead>
 <tr>
@@ -4858,25 +4867,25 @@ var _hmt = _hmt || [];
 <td><a href="https://tech.meituan.com/2017/04/21/mt-leaf.html" target="_blank" rel="noopener">美团Leaf</a></td>
 <td>64位</td>
 <td>1+41+10+12</td>
-<td>完全沿用snowflake方案的bit位设计</td>
+<td>完全沿用 snowflake 方案的 bit 位设计</td>
 </tr>
 <tr>
 <td><a href="https://github.com/baidu/uid-generator/blob/master/README.zh_cn.md" target="_blank" rel="noopener">百度UidGenerator</a></td>
 <td>64位</td>
 <td>1+28+22+13</td>
-<td>1符号位+28秒级时间差（最多可支持约8.7年）+22位机器号（最多可支持约420w次机器启动）+13位序列号</td>
+<td>1 符号位 + 28 秒级时间差（最多可支持约8.7年）+22位机器号（最多可支持约420w次机器启动）+13位序列号</td>
 </tr>
 <tr>
 <td>今日头条-文章</td>
 <td>64位</td>
 <td>1+31+32</td>
-<td>1符号位+31秒级时间戳+32位其他</td>
+<td>1 符号位 +31秒级时间戳 +32位其他</td>
 </tr>
 <tr>
 <td>今日头条-微头条</td>
 <td>52位</td>
 <td>1+31+20</td>
-<td>1符号位+31秒级时间戳+20位其他</td>
+<td>1 符号位 +31秒级时间戳 +20位其他</td>
 </tr>
 </tbody>
 </table>
@@ -4901,7 +4910,7 @@ var _hmt = _hmt || [];
       <td>19位</td>
    </tr>
 </table>
-<h3 id="三、id设计参考"><a class="header-anchor" href="#三、id设计参考"></a>三、id设计参考</h3>
+<h3 id="三、id-设计参考"><a class="header-anchor" href="#三、id-设计参考"></a>三、id 设计参考</h3>
 <h4 id="1-时间"><a class="header-anchor" href="#1-时间"></a>1 时间</h4>
 <h5 id="1）时间类型"><a class="header-anchor" href="#1）时间类型"></a>1）时间类型</h5>
 <ul>
@@ -5011,9 +5020,11 @@ var _hmt = _hmt || [];
 </ol>
 <h4 id="2-id里是否需要业务线？"><a class="header-anchor" href="#2-id里是否需要业务线？"></a>2 id里是否需要业务线？</h4>
 <ol>
-<li>美团Leaf声称在内部服务众多业务线，但id里没有业务线设计</li>
-<li>头条文章和微头条的最终页前缀相同，但id长度不同，可能是通过长度区分业务线的</li>
+<li>美团 Leaf 声称在内部服务众多业务线，但 id 里没有业务线设计</li>
+<li>头条文章和微头条的最终页前缀相同，但 id 长度不同，可能是通过长度区分业务线的</li>
 </ol>
+<h3 id="五、一个实现"><a class="header-anchor" href="#五、一个实现"></a>五、一个实现</h3>
+<p><a href="https://github.com/wujun234/uid-generator-spring-boot-starter" target="_blank" rel="noopener">uid-generator-spring-boot-starter</a></p>
 
 </div>
 

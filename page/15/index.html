@@ -554,6 +554,15 @@ var _hmt = _hmt || [];
 								<div class="article-toc" style="display: none;"></div>
 							</ul>
 			
+							<ul>
+								<li class="file">
+									<a href="/2020/01/15/02%20%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/2%20%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97/">
+										2 数据的表示和运算
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
 								</li>
 								
 							</ul>
@@ -4557,6 +4566,55 @@ var _hmt = _hmt || [];
 		<div id="index">
 	
 		<div class="index-li">
+			<a href="/2019/04/17/11%20%E5%88%86%E5%B8%83%E5%BC%8F/03%20%E5%88%86%E5%B8%83%E5%BC%8F%E5%AD%98%E5%82%A8/06%20Cassandra/3%20Cassandra%20%E6%95%B0%E6%8D%AE%E6%A8%A1%E5%9E%8B/">
+				<h2 class="index-title">
+					3 Cassandra 数据模型
+				</h2>
+				<div class="index-brief">
+					Cassandra 的数据模型是基于列族（Column Family）的四维或五维模型。它借鉴了 Amazon 的 Dynamo 和 Google’s BigTable 的数据结构和功能特点，采用 Memtable 和 SSTable 的方式进行存储。
+1 KeySpace（键空间）
+
+相当于dat
+					...
+				</div>
+			</a>
+                <div class="article-meta">
+				    <span>2019-04-17</span>
+                    
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/11-分布式/">11 分布式</a>
+										
+											>
+										
+                                    </span>
+                                
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/11-分布式/03-分布式存储/">03 分布式存储</a>
+										
+											>
+										
+                                    </span>
+                                
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/11-分布式/03-分布式存储/06-Cassandra/">06 Cassandra</a>
+										
+                                    </span>
+                                
+                            
+                    
+                </div>
+		</div>	
+	
+		<div class="index-li">
 			<a href="/2019/04/17/11%20%E5%88%86%E5%B8%83%E5%BC%8F/03%20%E5%88%86%E5%B8%83%E5%BC%8F%E5%AD%98%E5%82%A8/06%20Cassandra/2%20Cassandra%20%E6%9E%B6%E6%9E%84/">
 				<h2 class="index-title">
 					2 Cassandra 架构
@@ -4896,14 +4954,14 @@ todo：快速打出//Todo: 日期
 				<div class="index-brief">
 					一、业界现状
 1 汽车之家
-1）id方案
-自增id
-现有数据从4位到6位，目前最大320w+
+1）id 方案
+自增 id
+现有数据从 4 位到 6 位，目前最大 320w+
 2）实例
 
 
 
-作品id
+作品 id
 URL
 类型
 
@@ -4916,7 +4974,7 @@ https://chejiahao.autohome.com.cn/info/3200292
 
 
 3200293
-https://che
+htt
 					...
 				</div>
 			</a>
@@ -4966,56 +5024,6 @@ https://che
 
 代码块愈小，代码的功能就愈容易管理，代码的处理和移动也就愈轻松。
 任何不会被修改的变量都
-					...
-				</div>
-			</a>
-                <div class="article-meta">
-				    <span>2019-03-22</span>
-                    
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/13-重构/">13 重构</a>
-										
-											>
-										
-                                    </span>
-                                
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/13-重构/1-重构-改善既有代码的设计/">1 重构-改善既有代码的设计</a>
-										
-                                    </span>
-                                
-                            
-                    
-                </div>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/2019/03/22/13%20%E9%87%8D%E6%9E%84/1%20%E9%87%8D%E6%9E%84-%E6%94%B9%E5%96%84%E6%97%A2%E6%9C%89%E4%BB%A3%E7%A0%81%E7%9A%84%E8%AE%BE%E8%AE%A1/02%20%E9%87%8D%E6%9E%84%E7%9A%84%E5%8E%9F%E5%88%99/">
-				<h2 class="index-title">
-					02 重构的原则
-				</h2>
-				<div class="index-brief">
-					1 何为重构
-重构: 在不改变软件可观察行为的前提下改善其内部结构
-2 为何重构
-重构可以提高代码质量
-3 何时重构
-事不过三，三则重构。
-重构应该是在开发过程中实时的、渐进的演化过程：
-
-添加新功能时重构
-修补错误时重构
-复审代码时重构
-
-4 怎么对经理说
-为了质量 or 不要告诉
-5 重构的难题
 					...
 				</div>
 			</a>
