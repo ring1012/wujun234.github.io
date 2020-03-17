@@ -3475,8 +3475,17 @@ var _hmt = _hmt || [];
 			
 							<ul>
 								<li class="file">
-									<a href="/2019/01/05/10%20%E5%BE%AE%E6%9C%8D%E5%8A%A1/2%20%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83/02%20Apollo/">
-										02 Apollo
+									<a href="/2019/01/05/10%20%E5%BE%AE%E6%9C%8D%E5%8A%A1/2%20%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83/02%20Apollo%20%E9%A1%B9%E7%9B%AE%E8%A7%A3%E6%9E%90/">
+										02 Apollo 项目解析
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2020/03/17/10%20%E5%BE%AE%E6%9C%8D%E5%8A%A1/2%20%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83/%E5%BC%80%E6%BA%90%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83%E5%AF%B9%E6%AF%94%E9%80%89%E5%9E%8B/">
+										开源配置中心对比选型
 									</a>
 								</li>
 								<div class="article-toc" style="display: none;"></div>
@@ -4599,12 +4608,11 @@ var _hmt = _hmt || [];
 </div>
 
 <div id="article-content">
-	<p>Spring Cloud Config老版采用git或svn存储配置文件，默认情况下使用git。从Edgware版本开始新增的一种配置方式：采用数据库存储配置信息。</p>
-<h1>结构与原理</h1>
-<p>Spring Cloud Config分服务端和客户端，服务端负责将git（svn）中存储的配置文件发布成REST接口，客户端可以从服务端REST接口获取配置。</p>
+	<p>Spring Cloud Config 老版采用 git 或 svn 存储配置文件，默认情况下使用 git。从 Edgware 版本开始新增的一种配置方式：采用数据库存储配置信息。</p>
+<h3 id="1-结构与原理"><a class="header-anchor" href="#1-结构与原理"></a>1 结构与原理</h3>
+<p>Spring Cloud Config 分服务端和客户端，服务端负责将 git（svn）中存储的配置文件发布成 REST 接口，客户端可以从服务端 REST 接口获取配置。</p>
 <ul>
-<li>
-<p>Server</p>
+<li>Server
 <ul>
 <li>拉取配置时更新git仓库副本，保证是最新结果</li>
 <li>支持数据结构丰富，yml, json, properties 等</li>
@@ -4613,24 +4621,22 @@ var _hmt = _hmt || [];
 <li>简单可靠，有丰富的配套方案</li>
 </ul>
 </li>
-<li>
-<p>Client</p>
+<li>Client
 <ul>
-<li>Spring Boot项目不需要改动任何代码，加入一个启动配置文件指明使用ConfigServer上哪个配置文件即可
-<img src="/images/1545270180982.png" alt="原理"></li>
+<li>Spring Boot 项目不需要改动任何代码，加入一个启动配置文件指明使用 ConfigServer 上哪个配置文件即可</li>
 </ul>
 </li>
 </ul>
-<h1>Git示例</h1>
-<h3 id="准备git"><a class="header-anchor" href="#准备git"></a>准备git</h3>
-<p>准备git仓库，放置配置文件
-test-config-dev.properties：test=dev
-test-config-pro.properties：test=pro</p>
-<h3 id="构建配置中心"><a class="header-anchor" href="#构建配置中心"></a>构建配置中心</h3>
+<p><img src="/images/1545270180982.png" alt="原理"></p>
+<h3 id="2-Git-示例"><a class="header-anchor" href="#2-Git-示例"></a>2 Git 示例</h3>
+<h4 id="2-1-准备-git"><a class="header-anchor" href="#2-1-准备-git"></a>2.1 准备 git</h4>
+<p>准备 git 仓库，放置配置文件</p>
+<pre><code>test-config-dev.properties：test=dev
+test-config-pro.properties：test=pro
+</code></pre>
+<h4 id="2-2-构建配置中心"><a class="header-anchor" href="#2-2-构建配置中心"></a>2.2 构建配置中心</h4>
 <p>配置中心负责从配置仓库读取配置，并提供接口访问</p>
-<ol>
-<li>pom依赖</li>
-</ol>
+<h5 id="1）pom-依赖"><a class="header-anchor" href="#1）pom-依赖"></a>1）pom 依赖</h5>
 <pre><code>&lt;dependencies&gt;
 	&lt;dependency&gt;
 		&lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
@@ -4638,10 +4644,8 @@ test-config-pro.properties：test=pro</p>
 	&lt;/dependency&gt;
 &lt;/dependencies&gt;
 </code></pre>
-<ol start="2">
-<li>配置文件
-如果Git仓库需要权限，配置username、password，否则不用</li>
-</ol>
+<h5 id="2）配置文件"><a class="header-anchor" href="#2）配置文件"></a>2）配置文件</h5>
+<p>如果 Git 仓库需要权限，配置 username、password，否则不用</p>
 <pre><code>spring.application.name=config-server
 server.port=8001
 
@@ -4651,41 +4655,35 @@ spring.cloud.config.label=master # 配置仓库的分支
 spring.cloud.config.server.git.username=# git仓库的账号
 spring.cloud.config.server.git.password=# git仓库的密码
 </code></pre>
-<ol start="3">
-<li>启动类
-添加@EnableConfigServer注解，开启Spring Cloud Config的服务端功能。</li>
-</ol>
+<h5 id="3）启动类"><a class="header-anchor" href="#3）启动类"></a>3）启动类</h5>
+<p>添加 @EnableConfigServer 注解，开启 Spring Cloud Config 的服务端功能。</p>
 <pre><code>@EnableConfigServer
 @SpringBootApplication
 public class Application {
 </code></pre>
-<p>访问配置信息的URL与配置文件的映射关系如下：</p>
+<p>访问配置信息的 URL 与配置文件的映射关系如下：</p>
 <pre><code>/{application}/{profile}[/{label}]
 /{application}-{profile}.yml
 /{label}/{application}-{profile}.yml
 /{application}-{profile}.properties
 /{label}/{application}-{profile}.properties
 </code></pre>
-<p>上面的url会映射{application}-{profile}.properties对应的配置文件，其中{label}对应Git上不同的分支，默认为master。</p>
-<h3 id="构建客户端"><a class="header-anchor" href="#构建客户端"></a>构建客户端</h3>
-<ol>
-<li>pom依赖</li>
-</ol>
+<p>上面的 url 会映射 {application}-{profile}.properties 对应的配置文件，其中 {label} 对应 Git 上不同的分支，默认为 master。</p>
+<h4 id="2-3-构建客户端"><a class="header-anchor" href="#2-3-构建客户端"></a>2.3 构建客户端</h4>
+<h5 id="1）pom-依赖-v2"><a class="header-anchor" href="#1）pom-依赖-v2"></a>1）pom 依赖</h5>
 <pre><code>	&lt;dependency&gt;
 		&lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
 		&lt;artifactId&gt;spring-cloud-starter-config&lt;/artifactId&gt;
 	&lt;/dependency&gt;
 </code></pre>
-<ol start="2">
-<li>配置文件</li>
-</ol>
+<h5 id="2）配置文件-v2"><a class="header-anchor" href="#2）配置文件-v2"></a>2）配置文件</h5>
 <p>application.properties：</p>
 <pre><code>//对应{application}部分
 spring.application.name=config-client
 server.port=8002
 </code></pre>
-<p>bootstrap.properties：
-config相关属性必须配置在bootstrap.properties中，先于application.properties，才能被正确加载。</p>
+<p>bootstrap.properties：</p>
+<p>config 相关属性必须配置在 bootstrap.properties 中，先于 application.properties，才能被正确加载。</p>
 <pre><code>spring.cloud.config.name=neo-config
 spring.cloud.config.profile=dev
 spring.cloud.config.uri=http://localhost:8001/
@@ -4697,18 +4695,14 @@ spring.cloud.config.label=master
 <li>spring.cloud.config.label：对应{label}部分</li>
 <li>spring.cloud.config.uri：配置中心config-server的地址</li>
 </ul>
-<ol start="3">
-<li>启动类
-添加@EnableConfigServer，激活对配置中心的支持</li>
-</ol>
+<h5 id="3）启动类-v2"><a class="header-anchor" href="#3）启动类-v2"></a>3）启动类</h5>
+<p>添加 @EnableConfigServer，激活对配置中心的支持</p>
 <pre><code>@SpringBootApplication
 public class ConfigClientApplication {
 </code></pre>
-<ol start="4">
-<li>取值
-像使用本地配置文件一样，使用@Value注解来获取server端参数的值</li>
-</ol>
-<h3 id="高可用"><a class="header-anchor" href="#高可用"></a>高可用</h3>
+<h5 id="4）取值"><a class="header-anchor" href="#4）取值"></a>4）取值</h5>
+<p>像使用本地配置文件一样，使用 @Value 注解来获取 server 端参数的值</p>
+<h4 id="2-4-高可用"><a class="header-anchor" href="#2-4-高可用"></a>2.4 高可用</h4>
 <ul>
 <li>传统作法
 将Config Server扩展为高可用的集群。只需将所有的Config Server都指向同一个Git仓库，并配置Config Server外的均衡负载：</li>
@@ -4722,38 +4716,44 @@ eureka.client.serviceUrl.defaultZone=http://localhost:8000/eureka/
 spring.cloud.config.discovery.enabled=true
 spring.cloud.config.discovery.serviceId=config-server
 </code></pre>
-<h3 id="配置刷新"><a class="header-anchor" href="#配置刷新"></a>配置刷新</h3>
-<ul>
-<li>基础方法<br>
-同Git仓库的Web Hook功能进行关联，当有Git提交变化时，就给对应的配置主机发送/refresh请求来实现配置信息的实时更新。
+<h4 id="2-5-配置刷新"><a class="header-anchor" href="#2-5-配置刷新"></a>2.5 配置刷新</h4>
+<h5 id="1）基础方法"><a class="header-anchor" href="#1）基础方法"></a>1）基础方法</h5>
+<p>同 Git 仓库的 Web Hook 功能进行关联，当有 Git 提交变化时，就给对应的配置主机发送 /refresh 请求来实现配置信息的实时更新。</p>
 <ol>
-<li>添加依赖<br>
-pom添加<code>spring-boot-starter-actuator</code>模块，监控状态，包括 /refresh 功能</li>
-<li>开启更新机制<br>
-给加载变量的类上面加载 @RefreshScope ，在客户端执行 /refresh 的时候就会更新此类下面的变量值。</li>
-</ol>
+<li>
+<p>添加依赖<br>
+pom 添加<code>spring-boot-starter-actuator</code>模块，监控状态，包括 /refresh 功能</p>
 </li>
-<li>消息总线
+<li>
+<p>开启更新机制<br>
+给加载变量的类上面加载 @RefreshScope ，在客户端执行 /refresh 的时候就会更新此类下面的变量值。</p>
+</li>
+</ol>
+<h5 id="2）消息总线"><a class="header-anchor" href="#2）消息总线"></a>2）消息总线</h5>
 <ol>
-<li>原理<br>
-服务端和客户端都配置消息，配置后WebHook触发服务端，服务端通过Spring Cloud Bus广播 /refresh，客户端收到消息都去更新配置。</li>
-<li>配置<br>
-以RebbitMq为例，服务端和客户端都添加<code>spring-cloud-starter-bus-amqp</code>依赖，配置文件增加RebbitMq相关配置，订阅同一频道，关闭安全验证。<code>management.security.enabled=false</code>。</li>
-<li>步骤<br>
-3.1 提交代码WebHook触发post请求给bus/refresh<br>
-3.2 server端接收到请求并发送给Spring Cloud Bus<br>
-3.3 Spring Cloud bus接到消息并通知给其它客户端<br>
-3.4 其它客户端接收到通知，请求Server端获取最新配置<br>
-3.5 全部客户端均获取到最新的配置</li>
-</ol>
+<li>
+<p>原理<br>
+服务端和客户端都配置消息，配置后 WebHook 触发服务端，服务端通过 Spring Cloud Bus 广播 /refresh，客户端收到消息都去更新配置。</p>
 </li>
-</ul>
+<li>
+<p>配置<br>
+以 RabbitMq 为例，服务端和客户端都添加<code>spring-cloud-starter-bus-amqp</code>依赖，配置文件增加 RabbitMq 相关配置，订阅同一频道，关闭安全验证。<code>management.security.enabled=false</code>。</p>
+</li>
+<li>
+<p>步骤<br>
+3.1 提交代码 WebHook 触发 post 请求给 bus/refresh<br>
+3.2 server 端接收到请求并发送给 Spring Cloud Bus<br>
+3.3 Spring Cloud bus 接到消息并通知给其它客户端<br>
+3.4 其它客户端接收到通知，请求 Server 端获取最新配置<br>
+3.5 全部客户端均获取到最新的配置</p>
+</li>
+</ol>
 <p><img src="/images/1545270181138.png" alt=""></p>
-<h3 id="安全控制"><a class="header-anchor" href="#安全控制"></a>安全控制</h3>
-<h4 id="url连接加密"><a class="header-anchor" href="#url连接加密"></a>url连接加密</h4>
-<p>如果觉得直接访问config-server的url不安全，可以使用Spring Security进行安全控制 。<br>
-(1) config-server端配置<br>
-pom依赖</p>
+<h4 id="2-6-安全控制"><a class="header-anchor" href="#2-6-安全控制"></a>2.6 安全控制</h4>
+<h5 id="1）url-连接加密"><a class="header-anchor" href="#1）url-连接加密"></a>1）url 连接加密</h5>
+<p>如果觉得直接访问 config-server 的 url 不安全，可以使用 Spring Security 进行安全控制 。</p>
+<h6 id="1-config-server端配置"><a class="header-anchor" href="#1-config-server端配置"></a>(1) config-server端配置</h6>
+<p>pom 依赖</p>
 <pre><code>&lt;dependency&gt;
 &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
 &lt;artifactId&gt;spring-boot-starter-security&lt;/artifactId&gt;
@@ -4765,25 +4765,23 @@ pom依赖</p>
     password: 123456
     name: user
 </code></pre>
-<p>（2） config-client端配置<br>
-配置文件中添加验证信息</p>
+<h6 id="（2）config-client-端配置"><a class="header-anchor" href="#（2）config-client-端配置"></a>（2）config-client 端配置</h6>
+<p>配置文件中添加验证信息</p>
 <pre><code>spring.cloud.config.username=user
 spring.cloud.config.password=123456
 </code></pre>
-<h4 id="数据传输加密"><a class="header-anchor" href="#数据传输加密"></a>数据传输加密</h4>
-<p>Spring Cloud Config提供了对敏感信息进行加密解密的功能。<br>
+<h5 id="2）数据传输加密"><a class="header-anchor" href="#2）数据传输加密"></a>2）数据传输加密</h5>
+<p>Spring Cloud Config 提供了对敏感信息进行加密解密的功能。<br>
 在属性值前使用<code>{cipher}</code>前缀来标注该内容是一个加密值，当微服务客户端来加载配置时，配置中心会自动的为带有{cipher}前缀的值进行解密。</p>
 <ul>
 <li>使用前提<br>
-不限长度的JCE。JRE中自带有长度限制的JCE，需从Oracle的官方网站中下载local_policy.jar和US_export_policy.jar，复制到$JAVA_HOME/jre/lib/security，覆盖原来的默认内容。</li>
+不限长度的 JCE。JRE 中自带有长度限制的 JCE，需从 Oracle 的官方网站中下载 local_policy.jar 和 US_export_policy.jar，复制到 $JAVA_HOME/jre/lib/security，覆盖原来的默认内容。</li>
 <li>配置密钥<br>
 对称加密：在配置文件中直接指定密钥信息<code>encrypt.key</code>
 非对称加密：通过<code>keytool</code>工具来生成密钥对，配置文件<code>encrypt.key-store.location</code>指定<code>.keystore</code>文件位置</li>
 </ul>
-<h1>数据库示例</h1>
-<ol>
-<li>pom依赖</li>
-</ol>
+<h3 id="3-数据库示例"><a class="header-anchor" href="#3-数据库示例"></a>3 数据库示例</h3>
+<h4 id="3-1-pom-依赖"><a class="header-anchor" href="#3-1-pom-依赖"></a>3.1 pom 依赖</h4>
 <pre><code>&lt;parent&gt;
     &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
     &lt;artifactId&gt;spring-boot-starter-parent&lt;/artifactId&gt;
@@ -4824,10 +4822,8 @@ spring.cloud.config.password=123456
     &lt;/dependencies&gt;
 &lt;/dependencyManagement&gt;
 </code></pre>
-<ol start="2">
-<li>准备schema创建文件。<br>
-在resources下创建schema目录，并加入V1_Base_version.sql文件,该脚本会在程序运行时由flyway自动执行</li>
-</ol>
+<h4 id="3-2-准备-schema-创建文件。"><a class="header-anchor" href="#3-2-准备-schema-创建文件。"></a>3.2 准备 schema 创建文件。</h4>
+<p>在 resources 下创建 schema 目录，并加入 V1_Base_version.sql 文件,该脚本会在程序运行时由 flyway自动执行</p>
 <pre><code>CREATE TABLE `properties` (
   `id` int(11) NOT NULL,
   `key` varchar(50) NOT NULL,
@@ -4838,9 +4834,7 @@ spring.cloud.config.password=123456
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 </code></pre>
-<ol start="3">
-<li>创建应用主类</li>
-</ol>
+<h4 id="3-3-创建应用主类"><a class="header-anchor" href="#3-3-创建应用主类"></a>3.3 创建应用主类</h4>
 <pre><code>@EnableConfigServer
 @SpringBootApplication
 public class ConfigServerBootstrap {
@@ -4857,9 +4851,7 @@ public class ConfigServerBootstrap {
     }
 }
 </code></pre>
-<ol start="4">
-<li>配置application.properties</li>
-</ol>
+<h4 id="3-4-配置-application-properties"><a class="header-anchor" href="#3-4-配置-application-properties"></a>3.4 配置 application.properties</h4>
 <pre><code>spring.application.name=config-server-db
 server.port=10020
 //将配置中心的存储实现切换到jdbc的方式
@@ -4882,9 +4874,9 @@ flyway.locations=/schema
     <div class="post-guide">
         <div class="item left">
             
-              <a href="/2019/01/05/10%20%E5%BE%AE%E6%9C%8D%E5%8A%A1/2%20%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83/02%20Apollo/">
+              <a href="/2019/01/05/10%20%E5%BE%AE%E6%9C%8D%E5%8A%A1/2%20%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83/02%20Apollo%20%E9%A1%B9%E7%9B%AE%E8%A7%A3%E6%9E%90/">
                   <i class="fa fa-angle-left" aria-hidden="true"></i>
-                  02 Apollo
+                  02 Apollo 项目解析
               </a>
             
         </div>

@@ -3473,8 +3473,17 @@ var _hmt = _hmt || [];
 			
 							<ul>
 								<li class="file">
-									<a href="/2019/01/05/10%20%E5%BE%AE%E6%9C%8D%E5%8A%A1/2%20%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83/02%20Apollo/">
-										02 Apollo
+									<a href="/2019/01/05/10%20%E5%BE%AE%E6%9C%8D%E5%8A%A1/2%20%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83/02%20Apollo%20%E9%A1%B9%E7%9B%AE%E8%A7%A3%E6%9E%90/">
+										02 Apollo 项目解析
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
+									<a href="/2020/03/17/10%20%E5%BE%AE%E6%9C%8D%E5%8A%A1/2%20%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83/%E5%BC%80%E6%BA%90%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83%E5%AF%B9%E6%AF%94%E9%80%89%E5%9E%8B/">
+										开源配置中心对比选型
 									</a>
 								</li>
 								<div class="article-toc" style="display: none;"></div>
@@ -4566,6 +4575,53 @@ var _hmt = _hmt || [];
 		<div id="index">
 	
 		<div class="index-li">
+			<a href="/2019/05/23/01%20%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/01%20%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/3%20%E6%95%B0%E7%BB%84%E5%92%8C%E5%B9%BF%E4%B9%89%E8%A1%A8/">
+				<h2 class="index-title">
+					3 数组和广义表
+				</h2>
+				<div class="index-brief">
+					1 数组的概念、多维数组的实现
+1）数组的概念
+
+数组的特点：元素数目固定；下标有界。
+数组的操作：按照下标进行读写。
+
+2）多维数组的实现
+行优先顺序
+存储时先按行从小到大的顺序存储，在每一行中按列号从小到大存储。
+列优先顺序
+存储时先按列从小到大的顺序存储，在每一列中按行号从小到大存储。
+2 矩
+					...
+				</div>
+			</a>
+                <div class="article-meta">
+				    <span>2019-05-23</span>
+                    
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/01-数据结构/">01 数据结构</a>
+										
+											>
+										
+                                    </span>
+                                
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/01-数据结构/01-数据结构/">01 数据结构</a>
+										
+                                    </span>
+                                
+                            
+                    
+                </div>
+		</div>	
+	
+		<div class="index-li">
 			<a href="/2019/05/23/01%20%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/01%20%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/4%20%E4%B8%B2%EF%BC%88string%EF%BC%89/">
 				<h2 class="index-title">
 					4 串（string）
@@ -4919,49 +4975,6 @@ n = 0 时称为空树。
 折半查找：又称为二分查找。在有序顺序存储的线性表中，取中间记录作为比较对象，若相等,则成功；若给小于，则在左半区继续查找；若给大于，则在右半区继续查找。
 $mid = \frac{low+high}{2}= low+\frac{1}{2}(high-low)$
 适合有序，静
-					...
-				</div>
-			</a>
-                <div class="article-meta">
-				    <span>2019-05-23</span>
-                    
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/01-数据结构/">01 数据结构</a>
-										
-											>
-										
-                                    </span>
-                                
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/01-数据结构/03-查找/">03 查找</a>
-										
-                                    </span>
-                                
-                            
-                    
-                </div>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/2019/05/23/01%20%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/03%20%E6%9F%A5%E6%89%BE/3%20%E7%BA%BF%E6%80%A7%E7%B4%A2%E5%BC%95%E6%9F%A5%E6%89%BE/">
-				<h2 class="index-title">
-					3 线性索引查找
-				</h2>
-				<div class="index-brief">
-					
-索引：就是把一个关键字与它对应的记录相关联的过程。
-索引按照结构可以分为线性索引、树形索引和多级索引。
-线性索引：就是将索引项集合组织为线性结构，也称为索引表。
-
-1 稠密索引
-稠密索引：在线性索引中，将数据集中的每个记录对应一个索引项，索引项按照关键码有序排列。
-但数据量大时，可能由于内存有限，
 					...
 				</div>
 			</a>

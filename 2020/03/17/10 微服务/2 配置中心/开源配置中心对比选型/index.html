@@ -9,7 +9,7 @@
 	
 	<title>
 	
-		02 Apollo | 
+		开源配置中心对比选型 | 
 	 
 	吴俊笔记本
 	</title>
@@ -3474,9 +3474,18 @@ var _hmt = _hmt || [];
 							</ul>
 			
 							<ul>
+								<li class="file">
+									<a href="/2019/01/05/10%20%E5%BE%AE%E6%9C%8D%E5%8A%A1/2%20%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83/02%20Apollo%20%E9%A1%B9%E7%9B%AE%E8%A7%A3%E6%9E%90/">
+										02 Apollo 项目解析
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
 								<li class="file active">
-									<a href="/2019/01/05/10%20%E5%BE%AE%E6%9C%8D%E5%8A%A1/2%20%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83/02%20Apollo/">
-										02 Apollo
+									<a href="/2020/03/17/10%20%E5%BE%AE%E6%9C%8D%E5%8A%A1/2%20%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83/%E5%BC%80%E6%BA%90%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83%E5%AF%B9%E6%AF%94%E9%80%89%E5%9E%8B/">
+										开源配置中心对比选型
 									</a>
 								</li>
 								<div class="article-toc" style="display: none;"></div>
@@ -4567,12 +4576,12 @@ var _hmt = _hmt || [];
 	<div id="content">
 		<h1 id="article-title">
 
-	02 Apollo
+	开源配置中心对比选型
 </h1>
 <div class="article-meta">
 	
 	<span>Wu Jun</span>
-	<span>2019-01-05 17:03:31</span>
+	<span>2020-03-17 11:53:37</span>
     
 		<div id="article-categories">
             
@@ -4599,10 +4608,664 @@ var _hmt = _hmt || [];
 </div>
 
 <div id="article-content">
-	<p>携程Apollo分布式配置中心，官方文档已经够成熟了：</p>
-<p><a href="https://github.com/ctripcorp/apollo/wiki" target="_blank" rel="noopener">Wiki</a></p>
-<p><a href="http://www.iocoder.cn/categories/Apollo/" target="_blank" rel="noopener">源码解析</a></p>
-<p><a href="https://github.com/ctripcorp/apollo-use-cases" target="_blank" rel="noopener">使用场景</a></p>
+	<h3 id="1-开源配置中心对比矩阵"><a class="header-anchor" href="#1-开源配置中心对比矩阵"></a>1 开源配置中心对比矩阵</h3>
+<p>调研于 18 年 10 月</p>
+<table>
+ <tr style='background:#DFF0FF;'>
+  <td colspan=2>
+  </td>
+  <td width=39>
+  重要性
+  </td>
+  <td width=142>
+  spring-cloud-config
+  </td>
+  <td width=229>
+  ctrip apollo
+  </td>
+  <td width=177>
+  百度 disconf
+  </td>
+  <td width=137>
+  淘宝 diamond
+  </td>
+ </tr>
+ <tr style='background:#DFF0FF;'>
+  <td colspan=2>
+  概况
+  </td>
+  <td></td>
+  <td>
+      <a href="https://github.com/spring-cloud/spring-cloud-config" target="_blank" rel="noopener">Github 地址</a>
+      <br>
+      929star,688fork
+      <br>
+      始于 2014，最后更新 8 天前
+  </td>
+  <td>
+      <a href="https://github.com/ctripcorp/apollo" target="_blank" rel="noopener">Github地址</a>
+      <br>
+      6007star,2187fork
+      <br>
+      始于2016，最后更新 3天前
+      <br>
+      文档见 github wiki
+  </td>
+  <td>
+      <a href="https://github.com/knightliao/disconf" target="_blank" rel="noopener">Github 地址</a>
+      <br>
+      3935star,1880fork
+      <br>
+      <a href="http://disconf.readthedocs.io/zh_CN/latest/index.html" target="_blank" rel="noopener">文档地址</a>
+      <br>
+      始于 2014，作者去滴滴了，2016 停止维护
+  </td>
+  <td>
+      <a href="https://github.com/takeseem/diamond" target="_blank" rel="noopener">Github</a>
+      <br>
+      203star,247fork
+      <br>
+      <a href="http://code.taobao.org/p/diamond/wiki%20/index/" target="_blank" rel="noopener">官方开源地址</a>
+      <br>
+      <a href="http://jm.taobao.org/tags/diamond%E4%B8%93%E9%A2%98/" target="_blank" rel="noopener">团队博客</a>
+      <br>
+      始于 2012，2014 停止维护
+  </td>
+ </tr>
+ <tr style='background:#DFF0FF;'>
+  <td colspan=2>外部依赖</td>
+  <td></td>
+  <td>RabbitMQ 或 Kafka</td>
+  <td>MySQL</td>
+  <td>Mysql、zookeeeper、Redis</td>
+  <td></td>
+ </tr>
+ <tr style='background:#F0F0F0;'>
+  <td colspan=2>
+  功能特性
+  </td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+ </tr>
+ <tr>
+  <td></td>
+  <td style='background:#F0F0F0;'>
+  静态配置管理
+  </td>
+  <td>高</td>
+  <td style='background:#DDF9DE;'>
+  基于 file
+  </td>
+  <td style='background:#DDF9DE;'>
+  支持
+  </td>
+  <td style='background:#DDF9DE;'>
+  支持
+  </td>
+  <td></td>
+ </tr>
+ <tr>
+  <td></td>
+  <td style='background:#F0F0F0;'>
+  动态配置管理
+  </td>
+  <td>高</td>
+  <td style='background:#DDF9DE;'>
+  支持
+  </td>
+  <td style='background:#DDF9DE;'>
+  支持
+  </td>
+  <td style='background:#DDF9DE;'>
+  支持
+  </td>
+  <td>  </td>
+ </tr>
+ <tr>
+  <td></td>
+  <td style='background:#F0F0F0;'>
+  统一管理
+  </td>
+  <td >
+  高
+  </td>
+  <td style='background:#FFE6E6;'>
+  无，需要 github
+  </td>
+  <td style='background:#DDF9DE;'>
+  支持
+  </td>
+  <td style='background:#DDF9DE;'>
+  支持
+  </td>
+  <td></td>
+ </tr>
+ <tr>
+  <td></td>
+  <td style='background:#F0F0F0;'>
+  多维度管理
+  </td>
+  <td>
+  中
+  </td>
+  <td style='background:#FFE6E6;'>
+  无，需要github
+  </td>
+  <td style='background:#DDF9DE;'>
+  支持<br>
+  以项目为坐标，每项目下多环境
+  </td>
+  <td style='background:#DDF9DE;'>
+  支持<br>
+  以环境为坐标，一环境下多项目
+  </td>
+  <td></td>
+ </tr>
+ <tr>
+  <td></td>
+  <td style='background:#F0F0F0;'>
+  本地配置缓存
+  </td>
+  <td>
+  高
+  </td>
+  <td style='background:#FFE6E6;'>
+  无
+  </td>
+  <td style='background:#DDF9DE;'>
+  支持
+  </td>
+  <td style='background:#DDF9DE;'>
+  支持
+  </td>
+  <td>
+  </td>
+ </tr>
+ <tr>
+  <td>
+  </td>
+  <td style='background:#F0F0F0;'>
+  配置生效时间
+  </td>
+  <td>
+  高
+  </td>
+  <td style='background:#FFFFDD;'>
+  重启生效，或手动 refresh 生效。<br>
+  实时生效需要 git webhook + rabbitmq
+  </td>
+  <td style='background:#DDF9DE;'>
+  实时
+  </td>
+  <td style='background:#DDF9DE;'>
+  实时
+  </td>
+  <td>
+  </td>
+ </tr>
+ <tr>
+  <td>
+  </td>
+  <td style='background:#F0F0F0;'>
+  配置更新推送
+  </td>
+  <td>
+  高
+  </td>
+  <td style='background:#FFFFDD;'>
+  需要手工触发
+  </td>
+  <td style='background:#DDF9DE;'>
+  支持
+  </td>
+  <td style='background:#DDF9DE;'>
+  支持
+  </td>
+  <td>
+  </td>
+ </tr>
+ <tr>
+  <td>
+  </td>
+  <td style='background:#F0F0F0;'>
+  配置定时拉取
+  </td>
+  <td>
+  高
+  </td>
+  <td style='background:#FFE6E6;'>
+  无
+  </td>
+  <td style='background:#DDF9DE;'>
+  支持
+  </td>
+  <td style='background:#DDF9DE;'>
+  依赖事件驱动，client 重启或者 server 端推送操作
+  </td>
+  <td>
+  </td>
+ </tr>
+ <tr>
+  <td>
+  </td>
+  <td style='background:#F0F0F0;'>
+  用户权限管理
+  </td>
+  <td>
+  中
+  </td>
+  <td style='background:#FFE6E6;'>
+  无，需要 github
+  </td>
+  <td style='background:#DDF9DE;'>
+  支持
+  </td>
+  <td style='background:#DDF9DE;'>
+  支持
+  </td>
+  <td>
+  </td>
+ </tr>
+ <tr>
+  <td>
+  </td>
+  <td style='background:#F0F0F0;'>
+  授权、审核、审计
+  </td>
+  <td>
+  中
+  </td>
+  <td style='background:#FFE6E6;'>
+  无，需要 github
+  </td>
+  <td style='background:#DDF9DE;'>
+  支持
+  </td>
+  <td style='background:#FFCCCC;'>
+  无
+  </td>
+  <td>
+  </td>
+ </tr>
+ <tr>
+  <td>
+  </td>
+  <td style='background:#F0F0F0;'>
+  配置版本管理
+  </td>
+  <td >
+  高
+  </td>
+  <td style='background:#FFFFDD;'>
+  Git 做版本管理
+  </td>
+  <td style='background:#DDF9DE;'>
+  界面上直接提供发布历史和回滚按钮
+  </td>
+  <td style='background:#DDF9DE;'>
+  操作记录有落数据库，但无查询接口
+  </td>
+  <td>
+  </td>
+ </tr>
+ <tr>
+  <td>
+  </td>
+  <td style='background:#F0F0F0;'>
+  配置合规检测 
+  </td>
+  <td >
+  高
+  </td>
+  <td style='background:#FFE6E6;'>
+  不支持
+  </td>
+  <td style='background:#FFFFDD;'>
+  支持（但还需完善）
+  </td>
+  <td style='background:#FFFFDD;'>
+  </td>
+  <td>
+  </td>
+ </tr>
+ <tr>
+  <td>
+  </td>
+  <td style='background:#F0F0F0;'>
+  实例配置监控
+  </td>
+  <td>
+  高
+  </td>
+  <td style='background:#FFFFDD;'>
+  需要结合springadmin
+  </td>
+  <td style='background:#DDF9DE;'>
+  支持
+  </td>
+  <td style='background:#DDF9DE;'>
+  支持，可以查看每个配置在哪些机器上加载 
+  </td>
+  <td>
+  </td>
+ </tr>
+ <tr>
+  <td>
+  </td>
+  <td style='background:#F0F0F0;'>
+  灰度发布
+  </td>
+  <td>
+  中
+  </td>
+  <td style='background:#FFE6E6;'>
+  不支持
+  </td>
+  <td style='background:#DDF9DE;'>
+  支持
+  </td>
+  <td style='background:#FFCCCC;'>
+  不支持
+  </td>
+  <td>
+  </td>
+ </tr>
+ <tr>
+  <td>
+  </td>
+  <td style='background:#F0F0F0;'>
+  告警通知
+  </td>
+  <td>
+  中
+  </td>
+  <td style='background:#FFE6E6;'>
+  不支持
+  </td>
+  <td style='background:#DDF9DE;'>
+  支持，邮件方式告警
+  </td>
+  <td style='background:#DDF9DE;'>
+  支持，邮件方式告警
+  </td>
+  <td>
+  </td>
+ </tr>
+ <tr style='background:#F0F0F0;'>
+  <td colspan=2>
+  技术路线
+  </td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+ </tr>
+ <tr>
+  <td>
+  </td>
+  <td style='background:#F0F0F0;'>
+  支持SpringBoot
+  </td>
+  <td>
+  高
+  </td>
+  <td style='background:#DDF9DE;'>
+  原生支持
+  </td>
+  <td style='background:#DDF9DE;'>
+  支持
+  </td>
+  <td style='background:#DDF9DE;'>
+  与 spring boot 无相关
+  </td>
+  <td>
+  </td>
+ </tr>
+ <tr>
+  <td>
+  </td>
+  <td style='background:#F0F0F0;'>
+  支持 SpringCloud 
+  </td>
+  <td>
+  高
+  </td>
+  <td style='background:#DDF9DE;'>
+  原生支持
+  </td>
+  <td style='background:#DDF9DE;'>
+  支持
+  </td>
+  <td style='background:#DDF9DE;'>
+  与 spring cloud 无相关
+  </td>
+  <td>
+  </td>
+ </tr>
+ <tr>
+  <td>
+  </td>
+  <td style='background:#F0F0F0;'>
+  客户端支持
+  </td>
+  <td>
+  低
+  </td>
+  <td style='background:#DDF9DE;'>
+  Java
+  </td>
+  <td style='background:#DDF9DE;'>
+  Java、.Net
+  </td>
+  <td style='background:#DDF9DE;'>
+  java
+  </td>
+  <td>
+  </td>
+ </tr>
+ <tr>
+  <td>
+  </td>
+  <td style='background:#F0F0F0;'>
+  业务系统侵入性
+  </td>
+  <td>
+  高
+  </td>
+  <td style='background:#DDF9DE;'>
+  侵入性弱
+  </td>
+  <td style='background:#DDF9DE;'>
+  侵入性弱
+  </td>
+  <td style='background:#DDF9DE;'>
+  侵入性弱
+  </td>
+  <td>
+  </td>
+ </tr>
+ <tr>
+  <td>
+  </td>
+  <td style='background:#F0F0F0;'>
+  依赖组件
+  </td>
+  <td>
+  高
+  </td>
+  <td style='background:#DDF9DE;'>
+  Eureka
+  </td>
+  <td style='background:#DDF9DE;'>
+  Eureka
+  </td>
+  <td style='background:#DDF9DE;'>
+  zookeeper
+  </td>
+  <td>
+  </td>
+ </tr>
+ <tr style='background:#F0F0F0;'>
+  <td colspan=2>
+  可用性
+  </td>
+  <td>
+  </td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+ </tr>
+ <tr>
+  <td></td>
+  <td style='background:#F0F0F0;'>
+  单点故障（SPOF）
+  </td>
+  <td>
+  高
+  </td>
+  <td style='background:#DDF9DE;'>
+  支持 HA 部署
+  </td>
+  <td style='background:#DDF9DE;'>
+  支持 HA 部署
+  </td>
+  <td style='background:#DDF9DE;'>
+  支持 HA 部署，高可用由 zookeeper 保证
+  </td>
+  <td></td>
+ </tr>
+ <tr>
+  <td></td>
+  <td style='background:#F0F0F0;'>
+  多数据中心部署
+  </td>
+  <td>
+  高
+  </td>
+  <td style='background:#DDF9DE;'>
+  支持
+  </td>
+  <td style='background:#DDF9DE;'>
+  支持
+  </td>
+  <td style='background:#DDF9DE;'>
+  支持
+  </td>
+  <td>
+  </td>
+ </tr>
+ <tr>
+  <td>
+  </td>
+  <td style='background:#F0F0F0;'>
+  配置获取性能
+  </td>
+  <td>
+  高
+  </td>
+  <td>
+  unkown
+  </td>
+  <td>
+  unkown（官方说比spring快）
+  </td>
+  <td>
+  </td>
+  <td>
+  </td>
+ </tr>
+ <tr style='background:#F0F0F0;'>
+  <td colspan=2>
+  易用性
+  </td>
+  <td>
+  </td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+ </tr>
+ <tr>
+  <td>
+  </td>
+  <td style='background:#F0F0F0;'>
+  配置界面
+  </td>
+  <td>
+  中
+  </td>
+  <td style='background:#FFFFDD;'>
+  无，需要通过 git 操作
+  </td>
+  <td style='background:#DDF9DE;'>
+  统一界面（ng 编写）
+  </td>
+  <td style='background:#DDF9DE;'>
+  统一界面
+  </td>
+  <td>
+  </td>
+ </tr>
+ <tr>
+  <td>
+  </td>
+  <td style='background:#F0F0F0;'>
+  配置文档
+  </td>
+  <td>
+  中
+  </td>
+  <td style='background:#DDF9DE;'>
+  配置数据库、git地址、kafka
+  </td>
+  <td style='background:#DDF9DE;'>
+  配置数据库信息
+  </td>
+  <td style='background:#DDF9DE;'>
+  配置数据库、redis、zookeeper
+  </td>
+  <td>
+  </td>
+ </tr>
+ <tr>
+  <td colspan=2 style='background:#F0F0F0;'>
+  案例
+  </td>
+  <td>
+  </td>
+  <td>
+  </td>
+  <td>
+  <img border=0
+  width=227 height=155 src="/images/1584424393706.png">
+  </td>
+  <td>
+  <img border=0
+  width=138 height=156 src="/images/1584424404739.png">
+  </td>
+  <td>
+  </td>
+ </tr>
+</table>
+<h3 id="2-最终选择"><a class="header-anchor" href="#2-最终选择"></a>2 最终选择</h3>
+<p>根据上述对比，主要在 Spring Cloud Config 与 Ctrip Apollo 之间选择，最终选择了Apollo，主要原因是：</p>
+<ul>
+<li>Spring Cloud Config：部署少，依赖多，功能基础
+<ul>
+<li>部署 ConfigService，依赖 Git 和 Spring Cloud Bus（可选 kafka、rabbitmq 等实现）</li>
+</ul>
+</li>
+<li>Ctrip Apollo：部署多，依赖少，功能全面
+<ul>
+<li>部署 portal、adminService（每个环境一套）、configService（每个环境一套），依赖 mysql（每个环境一套）</li>
+</ul>
+</li>
+</ul>
 
 </div>
 
@@ -4610,16 +5273,11 @@ var _hmt = _hmt || [];
     <div class="post-guide">
         <div class="item left">
             
-              <a href="/2019/01/05/10%20%E5%BE%AE%E6%9C%8D%E5%8A%A1/3%20API%E7%BD%91%E5%85%B3/01%20Spring%20Cloud%20Zuul/">
-                  <i class="fa fa-angle-left" aria-hidden="true"></i>
-                  01 Spring Cloud Zuul
-              </a>
-            
         </div>
         <div class="item right">
             
-              <a href="/2019/01/05/10%20%E5%BE%AE%E6%9C%8D%E5%8A%A1/2%20%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83/01%20Spring%20Cloud%20Config/">
-                01 Spring Cloud Config
+              <a href="/2020/03/06/21%20%E5%85%B6%E4%BB%96/2020.2%20Java%20%E7%A4%BE%E6%8B%9B%E9%9D%A2%E8%AF%95%E6%95%B4%E7%90%86/">
+                
                 <i class="fa fa-angle-right" aria-hidden="true"></i>
               </a>
             
