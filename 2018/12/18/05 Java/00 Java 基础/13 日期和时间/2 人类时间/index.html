@@ -2502,6 +2502,15 @@ var _hmt = _hmt || [];
 			
 							<ul>
 								<li class="file">
+									<a href="/2020/04/15/06%20Spring/05%20Data.md/10%20Ehcache%203.8%20%E7%AE%80%E5%8D%95%E6%8C%81%E4%B9%85%E5%8C%96/">
+										10 Ehcache 3.8 简单持久化
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
 									<a href="/2018/12/18/06%20Spring/05%20Data.md/2%20Spring%20Data%20JPA/">
 										2 Spring Data JPA
 									</a>
@@ -4049,6 +4058,37 @@ var _hmt = _hmt || [];
 							</ul>
 			
 							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										09 消息队列
+									</a>
+									
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										3 Kafka
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2020/05/06/11%20%E5%88%86%E5%B8%83%E5%BC%8F/09%20%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/3%20Kafka/kafka/">
+										kafka
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
 								<li class="file">
 									<a href="/2019/04/24/11%20%E5%88%86%E5%B8%83%E5%BC%8F/1%20Hadoop/">
 										1 Hadoop
@@ -4500,6 +4540,26 @@ var _hmt = _hmt || [];
 									</a>
 									
 							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										1 Json
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2020/04/30/16%20%E8%BE%85%E5%8A%A9%E5%B7%A5%E5%85%B7%E7%B1%BB/4%20%E6%95%B0%E6%8D%AE%E6%A0%BC%E5%BC%8F/1%20Json/Jackson/">
+										Jackson
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
 								<li class="file">
 									<a href="/2019/01/05/16%20%E8%BE%85%E5%8A%A9%E5%B7%A5%E5%85%B7%E7%B1%BB/4%20%E6%95%B0%E6%8D%AE%E6%A0%BC%E5%BC%8F/1%20Lombok%E6%B6%88%E9%99%A4Java%E5%86%97%E9%95%BF/">
 										1 Lombok消除Java冗长
@@ -4662,8 +4722,8 @@ var _hmt = _hmt || [];
 <div id="article-content">
 	<p>Java API 中有两种人类时间，<strong>本地日期/时间</strong>和<strong>时区时间</strong>。本地日期/时间无时区，而时区常常造成困扰，除非确实想要表示绝对时间的实例，最好都使用本地日期/时间。</p>
 <h2 id="1-本地日期-时间"><a class="header-anchor" href="#1-本地日期-时间"></a>1 本地日期/时间</h2>
-<h3 id="1-1-LocaleDate"><a class="header-anchor" href="#1-1-LocaleDate"></a>1.1 LocaleDate</h3>
-<p>LocaleDate 是带有年、月、日的日期</p>
+<h3 id="1-1-LocalDate"><a class="header-anchor" href="#1-1-LocalDate"></a>1.1 LocalDate</h3>
+<p>LocalDate 是带有年、月、日的日期</p>
 <h4 id="1）构造"><a class="header-anchor" href="#1）构造"></a>1）构造</h4>
 <pre><code class="language-java">LocalDate today = LocalDate.now();
 LocalDate birthday = LocalDate.of(1994, 5, 21);
@@ -4758,8 +4818,8 @@ with（Hour，Minute，Second，Nano）
 <h4 id="4）判断-v2"><a class="header-anchor" href="#4）判断-v2"></a>4）判断</h4>
 <pre><code>isBefore、isAfter
 </code></pre>
-<h3 id="1-5-LocaleDateTime"><a class="header-anchor" href="#1-5-LocaleDateTime"></a>1.5 LocaleDateTime</h3>
-<p>LocaleDateTime 类表示日期与时间，适合存储固定时区的时间点。</p>
+<h3 id="1-5-LocalDateTime"><a class="header-anchor" href="#1-5-LocalDateTime"></a>1.5 LocalDateTime</h3>
+<p>LocalDateTime 类表示日期与时间，适合存储固定时区的时间点。</p>
 <h4 id="构造"><a class="header-anchor" href="#构造"></a>构造</h4>
 <pre><code>final LocalDateTime datetime = LocalDateTime.now();//2014-04-12T11:37:52.309
 final LocalDateTime datetimeFromClock =

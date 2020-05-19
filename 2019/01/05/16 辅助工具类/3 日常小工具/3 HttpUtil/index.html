@@ -2502,6 +2502,15 @@ var _hmt = _hmt || [];
 			
 							<ul>
 								<li class="file">
+									<a href="/2020/04/15/06%20Spring/05%20Data.md/10%20Ehcache%203.8%20%E7%AE%80%E5%8D%95%E6%8C%81%E4%B9%85%E5%8C%96/">
+										10 Ehcache 3.8 简单持久化
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
 									<a href="/2018/12/18/06%20Spring/05%20Data.md/2%20Spring%20Data%20JPA/">
 										2 Spring Data JPA
 									</a>
@@ -4049,6 +4058,37 @@ var _hmt = _hmt || [];
 							</ul>
 			
 							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										09 消息队列
+									</a>
+									
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										3 Kafka
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2020/05/06/11%20%E5%88%86%E5%B8%83%E5%BC%8F/09%20%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/3%20Kafka/kafka/">
+										kafka
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
 								<li class="file">
 									<a href="/2019/04/24/11%20%E5%88%86%E5%B8%83%E5%BC%8F/1%20Hadoop/">
 										1 Hadoop
@@ -4500,6 +4540,26 @@ var _hmt = _hmt || [];
 									</a>
 									
 							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										1 Json
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2020/04/30/16%20%E8%BE%85%E5%8A%A9%E5%B7%A5%E5%85%B7%E7%B1%BB/4%20%E6%95%B0%E6%8D%AE%E6%A0%BC%E5%BC%8F/1%20Json/Jackson/">
+										Jackson
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
 								<li class="file">
 									<a href="/2019/01/05/16%20%E8%BE%85%E5%8A%A9%E5%B7%A5%E5%85%B7%E7%B1%BB/4%20%E6%95%B0%E6%8D%AE%E6%A0%BC%E5%BC%8F/1%20Lombok%E6%B6%88%E9%99%A4Java%E5%86%97%E9%95%BF/">
 										1 Lombok消除Java冗长
@@ -4901,6 +4961,97 @@ var _hmt = _hmt || [];
   }
 }
 
+</code></pre>
+<p>HttpClient</p>
+<pre><code>
+public class HttpClient {
+    public static String get(String sUrl, HashMap&lt;String, String&gt; paramMap, int timeOut) {
+
+//		hainaids=9997&amp;act=0&amp;
+        String line = &quot;&quot;;
+        StringBuilder sb = new StringBuilder();
+        HttpURLConnection httpConn = null;
+        try {
+            if (paramMap.size() &gt; 0) {
+                sUrl += &quot;?temp=1&quot;;
+                for (String key : paramMap.keySet()) {
+                    sUrl += &quot;&amp;&quot; + key + &quot;=&quot; + paramMap.get(key);
+                }
+            }
+//			System.out.println(&quot;url:&quot;+sUrl);
+            URL url = new URL(sUrl);
+            Proxy proxy = new Proxy(Proxy.Type.HTTP, new InetSocketAddress(&quot;web-proxy.oa.com&quot;, 8080));
+            httpConn = (HttpURLConnection) url.openConnection(proxy);
+            httpConn.setRequestMethod(&quot;GET&quot;);
+            httpConn.setConnectTimeout(timeOut);
+            httpConn.setDoOutput(true);
+            BufferedReader in = null;
+            if (httpConn.getResponseCode() == 200) {
+                in = new BufferedReader(new InputStreamReader(httpConn.getInputStream(), &quot;UTF-8&quot;));
+                while ((line = in.readLine()) != null) {
+                    sb.append(line);
+                }
+            }
+            httpConn.disconnect();
+            return sb.toString();
+        } catch (Exception e) {
+            // 关闭连接
+            httpConn.disconnect();
+            e.printStackTrace();
+            return &quot;&quot;;
+        }
+    }
+
+    public static String post(String sUrl, String postData, int timeOut) {
+        HttpURLConnection httpUrlConn = null;
+        BufferedReader in = null;
+        InputStreamReader reader = null;
+        try {
+            String line = &quot;&quot;;
+            StringBuilder sb = new StringBuilder();
+            URL url = new URL(sUrl);
+            Proxy proxy = new Proxy(Proxy.Type.HTTP, new InetSocketAddress(&quot;web-proxy.oa.com&quot;, 8080));
+            httpUrlConn = (HttpURLConnection) url.openConnection(proxy);
+            httpUrlConn.setRequestMethod(&quot;POST&quot;);
+            httpUrlConn.setDoInput(true);
+            httpUrlConn.setDoOutput(true);
+            httpUrlConn.setConnectTimeout(timeOut);
+            httpUrlConn.setRequestProperty(&quot;Content-Type&quot;, &quot;application/json; charset=UTF-8&quot;);
+            httpUrlConn.setRequestProperty(&quot;Content-Length&quot;, Integer.toString(postData.length()));
+            OutputStream os = httpUrlConn.getOutputStream();
+            OutputStreamWriter osw = new OutputStreamWriter(os, &quot;utf-8&quot;);
+            osw.write(postData);
+            osw.flush();
+            osw.close();
+
+            if (httpUrlConn.getResponseCode() == 200) {
+                reader = new InputStreamReader(httpUrlConn.getInputStream(), &quot;UTF-8&quot;);
+                in = new BufferedReader(reader);
+                while ((line = in.readLine()) != null) {
+                    sb.append(line);
+                }
+//				 sb.append(&quot;OK&quot;);
+            }
+            return sb.toString();
+        } catch (Exception e) {
+            System.out.println(&quot;sendSoapToWebService error&quot; + e.getMessage());
+            return &quot;false:&quot; + e.getMessage();
+        } finally {
+            try {
+                if (in != null) {
+                    in.close();
+                }
+                if (reader != null) {
+                    reader.close();
+                }
+                if (httpUrlConn != null) {
+                    httpUrlConn.disconnect();
+                }
+            } catch (IOException e) {
+            }
+        }
+    }
+}
 </code></pre>
 
 </div>

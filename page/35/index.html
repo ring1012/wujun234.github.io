@@ -2500,6 +2500,15 @@ var _hmt = _hmt || [];
 			
 							<ul>
 								<li class="file">
+									<a href="/2020/04/15/06%20Spring/05%20Data.md/10%20Ehcache%203.8%20%E7%AE%80%E5%8D%95%E6%8C%81%E4%B9%85%E5%8C%96/">
+										10 Ehcache 3.8 简单持久化
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
 									<a href="/2018/12/18/06%20Spring/05%20Data.md/2%20Spring%20Data%20JPA/">
 										2 Spring Data JPA
 									</a>
@@ -4047,6 +4056,37 @@ var _hmt = _hmt || [];
 							</ul>
 			
 							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										09 消息队列
+									</a>
+									
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										3 Kafka
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2020/05/06/11%20%E5%88%86%E5%B8%83%E5%BC%8F/09%20%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/3%20Kafka/kafka/">
+										kafka
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
 								<li class="file">
 									<a href="/2019/04/24/11%20%E5%88%86%E5%B8%83%E5%BC%8F/1%20Hadoop/">
 										1 Hadoop
@@ -4498,6 +4538,26 @@ var _hmt = _hmt || [];
 									</a>
 									
 							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										1 Json
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2020/04/30/16%20%E8%BE%85%E5%8A%A9%E5%B7%A5%E5%85%B7%E7%B1%BB/4%20%E6%95%B0%E6%8D%AE%E6%A0%BC%E5%BC%8F/1%20Json/Jackson/">
+										Jackson
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
 								<li class="file">
 									<a href="/2019/01/05/16%20%E8%BE%85%E5%8A%A9%E5%B7%A5%E5%85%B7%E7%B1%BB/4%20%E6%95%B0%E6%8D%AE%E6%A0%BC%E5%BC%8F/1%20Lombok%E6%B6%88%E9%99%A4Java%E5%86%97%E9%95%BF/">
 										1 Lombok消除Java冗长
@@ -4615,6 +4675,167 @@ var _hmt = _hmt || [];
 	<!-- 引入正文 -->
 	<div id="content">
 		<div id="index">
+	
+		<div class="index-li">
+			<a href="/2018/12/18/05%20Java/02%20Effective%20Java/01%20%E5%88%9B%E5%BB%BA%E5%92%8C%E9%94%80%E6%AF%81%E5%AF%B9%E8%B1%A1%EF%BC%881-9%EF%BC%89/">
+				<h2 class="index-title">
+					01 创建和销毁对象（1-9）
+				</h2>
+				<div class="index-brief">
+					第 1 条：考虑用静态工厂方法代替构造器
+工厂方法优势：
+
+有名称，更易读
+可选，不必每次创建新对象
+可以返回子类型
+创建参数化类型实例时，更简洁
+可以返回非公有类
+
+工厂方法缺点：
+
+类如果不含有他的公有或者受保护的构造器，就不能被子类化。
+与其他静态方法没区别，不易识别
+
+常用的静态工厂名称：v
+					...
+				</div>
+			</a>
+                <div class="article-meta">
+				    <span>2018-12-18</span>
+                    
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/05-Java/">05 Java</a>
+										
+											>
+										
+                                    </span>
+                                
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/05-Java/02-Effective-Java/">02 Effective Java</a>
+										
+                                    </span>
+                                
+                            
+                    
+                </div>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2018/12/18/05%20Java/00%20Java%20%E5%9F%BA%E7%A1%80/02%20%E5%AF%B9%E8%B1%A1%E4%B8%8E%E7%B1%BB/5%20%E6%96%87%E6%A1%A3%E6%B3%A8%E9%87%8A/">
+				<h2 class="index-title">
+					5 文档注释
+				</h2>
+				<div class="index-brief">
+					1 注释方法
+三种注释方法，注释不会出现在可执行文件中
+
+//
+/*   */
+/**  */自动生成文档
+
+2 注释的插入
+javadoc 从下面几个特性中抽取信息：
+
+包
+公有类与接口
+公有的和受保护的构造器和方法
+公有的和受保护的域
+
+3 类注释
+类注释必须在 import 语句之后，在类定义
+					...
+				</div>
+			</a>
+                <div class="article-meta">
+				    <span>2018-12-18</span>
+                    
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/05-Java/">05 Java</a>
+										
+											>
+										
+                                    </span>
+                                
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/05-Java/00-Java-基础/">00 Java 基础</a>
+										
+											>
+										
+                                    </span>
+                                
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/05-Java/00-Java-基础/02-对象与类/">02 对象与类</a>
+										
+                                    </span>
+                                
+                            
+                    
+                </div>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2018/12/18/05%20Java/00%20Java%20%E5%9F%BA%E7%A1%80/02%20%E5%AF%B9%E8%B1%A1%E4%B8%8E%E7%B1%BB/4%20%E5%8F%8D%E5%B0%84/">
+				<h2 class="index-title">
+					4 反射
+				</h2>
+				<div class="index-brief">
+					反射可以提供运行时的类信息，并且这个类可以在运行时才加载进来，甚至在编译时期该类的 .class 不存在也可以加载进来。
+反射允许运行中的 Java 程序获取自身的信息，并且可以操作类或对象的内部属性。
+反射的核心是 JVM 在运行时才动态加载类或调用方法/访问属性，它不需要事先知道运行对象是谁。
+
+					...
+				</div>
+			</a>
+                <div class="article-meta">
+				    <span>2018-12-18</span>
+                    
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/05-Java/">05 Java</a>
+										
+											>
+										
+                                    </span>
+                                
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/05-Java/00-Java-基础/">00 Java 基础</a>
+										
+											>
+										
+                                    </span>
+                                
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/05-Java/00-Java-基础/02-对象与类/">02 对象与类</a>
+										
+                                    </span>
+                                
+                            
+                    
+                </div>
+		</div>	
 	
 		<div class="index-li">
 			<a href="/2018/12/18/05%20Java/00%20Java%20%E5%9F%BA%E7%A1%80/02%20%E5%AF%B9%E8%B1%A1%E4%B8%8E%E7%B1%BB/3%20%E7%B1%BB/">
@@ -4979,146 +5200,6 @@ Hashtable与HashMap大致相同，但Hashtable是同步的，并且不允许使�
                                     <span>
                                         <i class="fa fa-folder" aria-hidden="true"></i>
                                         <a href="/categories/05-Java/00-Java-基础/09-IO/">09 IO</a>
-										
-                                    </span>
-                                
-                            
-                    
-                </div>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/2018/12/18/05%20Java/00%20Java%20%E5%9F%BA%E7%A1%80/10%20XML/5%20XSL%20%E8%BD%AC%E6%8D%A2/">
-				<h2 class="index-title">
-					5 XSL 转换
-				</h2>
-				<div class="index-brief">
-					XSL 指扩展样式表语言（EXtensible Stylesheet Language），可描述如何来显示 XML 文档。
-XSL 包括三部分：XSLT、XPath、XSL-FO
-1 XSLT
-XSLT = XSL 转换，是一种用于将 XML 文档转换为 XHTML 文档或其他 XML 文档的语言。
-					...
-				</div>
-			</a>
-                <div class="article-meta">
-				    <span>2018-12-18</span>
-                    
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/05-Java/">05 Java</a>
-										
-											>
-										
-                                    </span>
-                                
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/05-Java/00-Java-基础/">00 Java 基础</a>
-										
-											>
-										
-                                    </span>
-                                
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/05-Java/00-Java-基础/10-XML/">10 XML</a>
-										
-                                    </span>
-                                
-                            
-                    
-                </div>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/2018/12/18/05%20Java/00%20Java%20%E5%9F%BA%E7%A1%80/10%20XML/3%20%E9%AA%8C%E8%AF%81%20XML%20%E6%96%87%E6%A1%A3/">
-				<h2 class="index-title">
-					3 验证 XML 文档
-				</h2>
-				<div class="index-brief">
-					如果要指定文档结构，可以提供一个文档类型定义（DTD）或一个 XML Schema 定义。
-1 DTD
-文档类型定义（DTD）可定义合法的 XML 文档构建模块。它使用一系列合法的元素来定义文档的结构。
-1.1 内部的 DOCTYPE 声明
-&lt;!DOCTYPE 根元素 [元素声明]&gt;
-
-
-					...
-				</div>
-			</a>
-                <div class="article-meta">
-				    <span>2018-12-18</span>
-                    
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/05-Java/">05 Java</a>
-										
-											>
-										
-                                    </span>
-                                
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/05-Java/00-Java-基础/">00 Java 基础</a>
-										
-											>
-										
-                                    </span>
-                                
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/05-Java/00-Java-基础/10-XML/">10 XML</a>
-										
-                                    </span>
-                                
-                            
-                    
-                </div>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/2018/12/18/06%20Spring/05%20Data.md/7%20Dynamic%20DataSource/">
-				<h2 class="index-title">
-					7 Dynamic DataSource
-				</h2>
-				<div class="index-brief">
-					AOP 实现多数据源，可读写分离
-1 配置文件
-dynamic-db.master.driver-class-name = com.mysql.jdbc.Driver
-dynamic-db.master.jdbc-url = jdbc:mysql://somehost:3306/sometable?
-					...
-				</div>
-			</a>
-                <div class="article-meta">
-				    <span>2018-12-18</span>
-                    
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/06-Spring/">06 Spring</a>
-										
-											>
-										
-                                    </span>
-                                
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/06-Spring/05-Data-md/">05 Data.md</a>
 										
                                     </span>
                                 

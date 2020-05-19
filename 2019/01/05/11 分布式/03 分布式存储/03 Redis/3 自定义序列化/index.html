@@ -2502,6 +2502,15 @@ var _hmt = _hmt || [];
 			
 							<ul>
 								<li class="file">
+									<a href="/2020/04/15/06%20Spring/05%20Data.md/10%20Ehcache%203.8%20%E7%AE%80%E5%8D%95%E6%8C%81%E4%B9%85%E5%8C%96/">
+										10 Ehcache 3.8 简单持久化
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
 									<a href="/2018/12/18/06%20Spring/05%20Data.md/2%20Spring%20Data%20JPA/">
 										2 Spring Data JPA
 									</a>
@@ -4049,6 +4058,37 @@ var _hmt = _hmt || [];
 							</ul>
 			
 							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										09 消息队列
+									</a>
+									
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										3 Kafka
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2020/05/06/11%20%E5%88%86%E5%B8%83%E5%BC%8F/09%20%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/3%20Kafka/kafka/">
+										kafka
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
 								<li class="file">
 									<a href="/2019/04/24/11%20%E5%88%86%E5%B8%83%E5%BC%8F/1%20Hadoop/">
 										1 Hadoop
@@ -4500,6 +4540,26 @@ var _hmt = _hmt || [];
 									</a>
 									
 							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										1 Json
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2020/04/30/16%20%E8%BE%85%E5%8A%A9%E5%B7%A5%E5%85%B7%E7%B1%BB/4%20%E6%95%B0%E6%8D%AE%E6%A0%BC%E5%BC%8F/1%20Json/Jackson/">
+										Jackson
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
 								<li class="file">
 									<a href="/2019/01/05/16%20%E8%BE%85%E5%8A%A9%E5%B7%A5%E5%85%B7%E7%B1%BB/4%20%E6%95%B0%E6%8D%AE%E6%A0%BC%E5%BC%8F/1%20Lombok%E6%B6%88%E9%99%A4Java%E5%86%97%E9%95%BF/">
 										1 Lombok消除Java冗长
@@ -4674,6 +4734,12 @@ public class RedisConfig {
      */
     @Bean
     public RedisTemplate&lt;Object, Object&gt; redisTemplate(RedisConnectionFactory redisConnectionFactory) {
+        Jackson2JsonRedisSerializer&lt;Object&gt; jackson2JsonRedisSerializer = new Jackson2JsonRedisSerializer&lt;&gt;(Object.class);
+        ObjectMapper om = new ObjectMapper();
+        om.setVisibility(PropertyAccessor.ALL, JsonAutoDetect.Visibility.ANY);
+        om.enableDefaultTyping(ObjectMapper.DefaultTyping.NON_FINAL);
+        jackson2JsonRedisSerializer.setObjectMapper(om);
+
         RedisTemplate&lt;Object, Object&gt; redisTemplate = new RedisTemplate&lt;&gt;();
         redisTemplate.setConnectionFactory(redisConnectionFactory);
         // 使用Jackson2JsonRedisSerialize 替换默认序列化
@@ -4689,6 +4755,26 @@ public class RedisConfig {
         return redisTemplate;
     }
 }
+</code></pre>
+<p>scan 获取 key</p>
+<pre><code>    public void getKeys() {
+        Set&lt;String&gt; keys = redisTemplate.execute((RedisCallback&lt;Set&lt;String&gt;&gt;) connection -&gt; {
+
+            Set&lt;String&gt; result = new HashSet&lt;&gt;();
+
+            //cursor 用完要 close
+            try (Cursor&lt;byte[]&gt; cursor = connection.scan(ScanOptions.scanOptions().match(ZSET_KEY_PREFIX + &quot;*&quot;).count(100).build())) {
+                while (cursor.hasNext()) {
+                    byte[] bytes = cursor.next();
+                    result.add(new String(bytes, StandardCharsets.UTF_8));
+                }
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+            return result;
+        });
+
+    }
 </code></pre>
 
 </div>

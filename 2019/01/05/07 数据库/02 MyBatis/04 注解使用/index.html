@@ -2502,6 +2502,15 @@ var _hmt = _hmt || [];
 			
 							<ul>
 								<li class="file">
+									<a href="/2020/04/15/06%20Spring/05%20Data.md/10%20Ehcache%203.8%20%E7%AE%80%E5%8D%95%E6%8C%81%E4%B9%85%E5%8C%96/">
+										10 Ehcache 3.8 简单持久化
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
 									<a href="/2018/12/18/06%20Spring/05%20Data.md/2%20Spring%20Data%20JPA/">
 										2 Spring Data JPA
 									</a>
@@ -4049,6 +4058,37 @@ var _hmt = _hmt || [];
 							</ul>
 			
 							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										09 消息队列
+									</a>
+									
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										3 Kafka
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2020/05/06/11%20%E5%88%86%E5%B8%83%E5%BC%8F/09%20%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/3%20Kafka/kafka/">
+										kafka
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
 								<li class="file">
 									<a href="/2019/04/24/11%20%E5%88%86%E5%B8%83%E5%BC%8F/1%20Hadoop/">
 										1 Hadoop
@@ -4500,6 +4540,26 @@ var _hmt = _hmt || [];
 									</a>
 									
 							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										1 Json
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2020/04/30/16%20%E8%BE%85%E5%8A%A9%E5%B7%A5%E5%85%B7%E7%B1%BB/4%20%E6%95%B0%E6%8D%AE%E6%A0%BC%E5%BC%8F/1%20Json/Jackson/">
+										Jackson
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
 								<li class="file">
 									<a href="/2019/01/05/16%20%E8%BE%85%E5%8A%A9%E5%B7%A5%E5%85%B7%E7%B1%BB/4%20%E6%95%B0%E6%8D%AE%E6%A0%BC%E5%BC%8F/1%20Lombok%E6%B6%88%E9%99%A4Java%E5%86%97%E9%95%BF/">
 										1 Lombok消除Java冗长
@@ -4670,6 +4730,8 @@ public interface InterMsgMapper {
 }
 </code></pre>
 <h3 id="2-循环"><a class="header-anchor" href="#2-循环"></a>2 循环</h3>
+<p><a href="https://mybatis.org/mybatis-3/zh/dynamic-sql.html" target="_blank" rel="noopener">https://mybatis.org/mybatis-3/zh/dynamic-sql.html</a></p>
+<p>foreach</p>
 <pre><code>@Update({&quot;&lt;script&gt;&quot;,
             &quot;update goods set status = #{status,jdbcType=TINYINT} where id in &quot;,
             &quot;&lt;foreach item='goodsId' index='index' collection='goodsIds' open='(' separator=',' close=')'&gt;&quot;,
@@ -4677,6 +4739,31 @@ public interface InterMsgMapper {
             &quot;&lt;/foreach&gt;&quot;,
             &quot;&lt;/script&gt;&quot;})
 int updateGoodsStatus(@Param(&quot;goodsIds&quot;) List&lt;Long&gt; goodsIds, @Param(&quot;status&quot;) Byte status);
+</code></pre>
+<p>if</p>
+<pre><code>    @Update({&quot;&lt;script&gt;&quot;,
+            &quot;update t_sync_time &quot;,
+            &quot; set updateTime = #{beginTime}&quot;,
+            &quot;&lt;if test='isAll == true'&gt;&quot;,
+            &quot;, allTime = #{beginTime}&quot;,
+            &quot;&lt;/if&gt;&quot;,
+            &quot;, manualAll = 0&quot;,
+            &quot; where id = #{id}&quot;,
+            &quot;&lt;/script&gt;&quot;})
+    int updateById(@Param(&quot;id&quot;) int id, @Param(&quot;isAll&quot;) boolean isAll, @Param(&quot;beginTime&quot;) String beginTime);
+</code></pre>
+<p>if + foreach</p>
+<pre><code>@Select({&quot;&lt;script&gt;&quot;,
+        &quot; select sku.innerId from t_cps_sku sku INNER JOIN t_ams_account account on sku.warehouseId = account.warehouseId &quot;,
+        &quot; where sku.updateTime &gt;= #{updateTime}&quot;,
+        &quot;&lt;if test='warehouseIds != null and warehouseIds.size() &gt; 0'&gt;&quot;,
+            &quot; or sku.warehouseId in &quot;,
+            &quot;&lt;foreach item='warehouseId' index='index' collection='warehouseIds' open='(' separator=',' close=')'&gt;&quot;,
+            &quot;#{warehouseId}&quot;,
+            &quot;&lt;/foreach&gt;&quot;,
+        &quot;&lt;/if&gt;&quot;,
+        &quot;&lt;/script&gt;&quot;})
+List&lt;Long&gt; getCpsSkuAccountByupdateTime(@Param(&quot;updateTime&quot;) Date updateTime, @Param(&quot;warehouseIds&quot;) List&lt;Integer&gt; warehouseIds);
 </code></pre>
 <h3 id="3-Options-注解"><a class="header-anchor" href="#3-Options-注解"></a>3 @Options 注解</h3>
 <h5 id="获取主键"><a class="header-anchor" href="#获取主键"></a>获取主键</h5>

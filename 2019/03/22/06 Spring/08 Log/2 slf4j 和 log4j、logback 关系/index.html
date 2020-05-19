@@ -2502,6 +2502,15 @@ var _hmt = _hmt || [];
 			
 							<ul>
 								<li class="file">
+									<a href="/2020/04/15/06%20Spring/05%20Data.md/10%20Ehcache%203.8%20%E7%AE%80%E5%8D%95%E6%8C%81%E4%B9%85%E5%8C%96/">
+										10 Ehcache 3.8 简单持久化
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
 									<a href="/2018/12/18/06%20Spring/05%20Data.md/2%20Spring%20Data%20JPA/">
 										2 Spring Data JPA
 									</a>
@@ -4049,6 +4058,37 @@ var _hmt = _hmt || [];
 							</ul>
 			
 							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										09 消息队列
+									</a>
+									
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										3 Kafka
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2020/05/06/11%20%E5%88%86%E5%B8%83%E5%BC%8F/09%20%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/3%20Kafka/kafka/">
+										kafka
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
 								<li class="file">
 									<a href="/2019/04/24/11%20%E5%88%86%E5%B8%83%E5%BC%8F/1%20Hadoop/">
 										1 Hadoop
@@ -4500,6 +4540,26 @@ var _hmt = _hmt || [];
 									</a>
 									
 							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										1 Json
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2020/04/30/16%20%E8%BE%85%E5%8A%A9%E5%B7%A5%E5%85%B7%E7%B1%BB/4%20%E6%95%B0%E6%8D%AE%E6%A0%BC%E5%BC%8F/1%20Json/Jackson/">
+										Jackson
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
 								<li class="file">
 									<a href="/2019/01/05/16%20%E8%BE%85%E5%8A%A9%E5%B7%A5%E5%85%B7%E7%B1%BB/4%20%E6%95%B0%E6%8D%AE%E6%A0%BC%E5%BC%8F/1%20Lombok%E6%B6%88%E9%99%A4Java%E5%86%97%E9%95%BF/">
 										1 Lombok消除Java冗长
@@ -4658,6 +4718,54 @@ var _hmt = _hmt || [];
 <p>log4j 和 logback 可以单独的使用，也可以绑定 slf4j 一起使用。不推荐单独使用。</p>
 <p><img src="/images/1553137417017.png" alt="image"></p>
 <p>SpringBoot 默认使用 Logback。</p>
+<p>logback.xml</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;configuration scan=&quot;true&quot; scanPeriod=&quot;60 seconds&quot; debug=&quot;false&quot;&gt;
+
+    &lt;property name=&quot;logback.logdir&quot; value=&quot;TXSR/SkuSync&quot;/&gt;
+    &lt;property name=&quot;logback.appname&quot; value=&quot;SkuSync&quot;/&gt;
+
+    &lt;!--输出到控制台 ConsoleAppender--&gt;
+    &lt;appender name=&quot;consoleLog&quot; class=&quot;ch.qos.logback.core.ConsoleAppender&quot;&gt;
+        &lt;!--展示格式 layout--&gt;
+        &lt;layout class=&quot;ch.qos.logback.classic.PatternLayout&quot;&gt;
+            &lt;pattern&gt;%d [%thread] %-5level %logger{36} %line - %msg%n&lt;/pattern&gt;
+        &lt;/layout&gt;
+    &lt;/appender&gt;
+
+    &lt;appender name=&quot;fileLog&quot; class=&quot;ch.qos.logback.core.rolling.RollingFileAppender&quot;&gt;
+        &lt;!--日志名称，如果没有File 属性，那么只会使用FileNamePattern的文件路径规则
+            如果同时有&lt;File&gt;和&lt;FileNamePattern&gt;，那么当天日志是&lt;File&gt;，明天会自动把今天
+            的日志改名为今天的日期。即，&lt;File&gt; 的日志都是当天的。
+        --&gt;
+        &lt;File&gt;${logback.logdir}/${logback.appname}.log&lt;/File&gt;
+        &lt;!--滚动策略，按照时间滚动 TimeBasedRollingPolicy--&gt;
+        &lt;rollingPolicy class=&quot;ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy&quot;&gt;
+            &lt;!--文件路径,定义了日志的切分方式——把每一天的日志归档到一个文件中,以防止日志填满整个磁盘空间--&gt;
+            &lt;FileNamePattern&gt;${logback.logdir}/${logback.appname}.%d{yyyy-MM-dd}.%i.log&lt;/FileNamePattern&gt;
+            &lt;maxFileSize&gt;500MB&lt;/maxFileSize&gt;
+            &lt;!--只保留最近7天的日志--&gt;
+            &lt;maxHistory&gt;7&lt;/maxHistory&gt;
+            &lt;!--用来指定日志文件的上限大小，那么到了这个值，就会删除旧的日志--&gt;
+&lt;!--            &lt;totalSizeCap&gt;1GB&lt;/totalSizeCap&gt;--&gt;
+        &lt;/rollingPolicy&gt;
+        &lt;!--日志输出编码格式化--&gt;
+        &lt;encoder&gt;
+            &lt;charset&gt;UTF-8&lt;/charset&gt;
+            &lt;pattern&gt;%d [%thread] %-5level %logger{36} %line - %msg%n&lt;/pattern&gt;
+        &lt;/encoder&gt;
+    &lt;/appender&gt;
+
+    &lt;!--指定最基础的日志输出级别--&gt;
+    &lt;root level=&quot;INFO&quot;&gt;
+        &lt;!--appender将会添加到这个loger--&gt;
+&lt;!--        &lt;appender-ref ref=&quot;consoleLog&quot;/&gt;--&gt;
+        &lt;appender-ref ref=&quot;fileLog&quot;/&gt;
+    &lt;/root&gt;
+
+&lt;/configuration&gt;
+
+</code></pre>
 
 </div>
 

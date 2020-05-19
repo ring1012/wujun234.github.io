@@ -2500,6 +2500,15 @@ var _hmt = _hmt || [];
 			
 							<ul>
 								<li class="file">
+									<a href="/2020/04/15/06%20Spring/05%20Data.md/10%20Ehcache%203.8%20%E7%AE%80%E5%8D%95%E6%8C%81%E4%B9%85%E5%8C%96/">
+										10 Ehcache 3.8 简单持久化
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
 									<a href="/2018/12/18/06%20Spring/05%20Data.md/2%20Spring%20Data%20JPA/">
 										2 Spring Data JPA
 									</a>
@@ -4047,6 +4056,37 @@ var _hmt = _hmt || [];
 							</ul>
 			
 							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										09 消息队列
+									</a>
+									
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										3 Kafka
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2020/05/06/11%20%E5%88%86%E5%B8%83%E5%BC%8F/09%20%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/3%20Kafka/kafka/">
+										kafka
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
 								<li class="file">
 									<a href="/2019/04/24/11%20%E5%88%86%E5%B8%83%E5%BC%8F/1%20Hadoop/">
 										1 Hadoop
@@ -4498,6 +4538,26 @@ var _hmt = _hmt || [];
 									</a>
 									
 							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										1 Json
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2020/04/30/16%20%E8%BE%85%E5%8A%A9%E5%B7%A5%E5%85%B7%E7%B1%BB/4%20%E6%95%B0%E6%8D%AE%E6%A0%BC%E5%BC%8F/1%20Json/Jackson/">
+										Jackson
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
 								<li class="file">
 									<a href="/2019/01/05/16%20%E8%BE%85%E5%8A%A9%E5%B7%A5%E5%85%B7%E7%B1%BB/4%20%E6%95%B0%E6%8D%AE%E6%A0%BC%E5%BC%8F/1%20Lombok%E6%B6%88%E9%99%A4Java%E5%86%97%E9%95%BF/">
 										1 Lombok消除Java冗长
@@ -4615,6 +4675,160 @@ var _hmt = _hmt || [];
 	<!-- 引入正文 -->
 	<div id="content">
 		<div id="index">
+	
+		<div class="index-li">
+			<a href="/2018/12/18/05%20Java/00%20Java%20%E5%9F%BA%E7%A1%80/08%20Java%20SE%208%20%E7%9A%84%E6%B5%81%E5%BA%93/2%20Optional/">
+				<h2 class="index-title">
+					2 Optional
+				</h2>
+				<div class="index-brief">
+					@since 1.8
+为了解决空指针异常，受到 Google Guava 的启发，Optional 类已经成为 Java 8 类库的一部分。
+Optional 实际上是个容器：它可以保存类型T的值，或者仅仅保存 null。Optional 提供很多有用的方法，这样就不用显式进行空值检测。
+1 初始化
+					...
+				</div>
+			</a>
+                <div class="article-meta">
+				    <span>2018-12-18</span>
+                    
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/05-Java/">05 Java</a>
+										
+											>
+										
+                                    </span>
+                                
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/05-Java/00-Java-基础/">00 Java 基础</a>
+										
+											>
+										
+                                    </span>
+                                
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/05-Java/00-Java-基础/08-Java-SE-8-的流库/">08 Java SE 8 的流库</a>
+										
+                                    </span>
+                                
+                            
+                    
+                </div>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2018/12/18/05%20Java/00%20Java%20%E5%9F%BA%E7%A1%80/07%20%E5%B9%B6%E5%8F%91/1%20%E7%BA%BF%E7%A8%8B/">
+				<h2 class="index-title">
+					1 线程
+				</h2>
+				<div class="index-brief">
+					1 基本概念
+1.1 并发和并行的区别
+
+并发：单核（交替）处理多个任务
+并行：多核（同时）处理多个任
+
+1.2 进程和线程的区别
+
+进程：每个进程都有独立的代码和数据空间（进程上下文），进程间的切换会有较大的开销，一个进程包含1–n个线程。
+线程：线程是比进程更轻量级的调度执行单位，同一类线程共享
+					...
+				</div>
+			</a>
+                <div class="article-meta">
+				    <span>2018-12-18</span>
+                    
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/05-Java/">05 Java</a>
+										
+											>
+										
+                                    </span>
+                                
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/05-Java/00-Java-基础/">00 Java 基础</a>
+										
+											>
+										
+                                    </span>
+                                
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/05-Java/00-Java-基础/07-并发/">07 并发</a>
+										
+                                    </span>
+                                
+                            
+                    
+                </div>
+		</div>	
+	
+		<div class="index-li">
+			<a href="/2018/12/18/05%20Java/00%20Java%20%E5%9F%BA%E7%A1%80/06%20%E9%9B%86%E5%90%88/2.1%20ArrayList%E3%80%81Vector/">
+				<h2 class="index-title">
+					2.1 ArrayList、Vector
+				</h2>
+				<div class="index-brief">
+					ArrayList 除未实现同步外，跟 Vector 大致相同。同步效率低，在不需要同步的时候使用 ArrayList。
+1 ArrayList
+1.1 总体介绍
+ArrayList 实现了 List、RandomAccess 接口。是顺序容器，允许 null 元素，支持随机访问。
+ArrayLis
+					...
+				</div>
+			</a>
+                <div class="article-meta">
+				    <span>2018-12-18</span>
+                    
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/05-Java/">05 Java</a>
+										
+											>
+										
+                                    </span>
+                                
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/05-Java/00-Java-基础/">00 Java 基础</a>
+										
+											>
+										
+                                    </span>
+                                
+                            
+                                
+                                    <span>
+                                        <i class="fa fa-folder" aria-hidden="true"></i>
+                                        <a href="/categories/05-Java/00-Java-基础/06-集合/">06 集合</a>
+										
+                                    </span>
+                                
+                            
+                    
+                </div>
+		</div>	
 	
 		<div class="index-li">
 			<a href="/2018/12/18/05%20Java/00%20Java%20%E5%9F%BA%E7%A1%80/07%20%E5%B9%B6%E5%8F%91/5%20%E9%9D%9E%E9%98%BB%E5%A1%9E%E5%90%8C%E6%AD%A5/">
@@ -4969,162 +5183,6 @@ LinkedList底层通过双向链表实现。节点用内部类Node表示,通过 f
 1.1 Deque 接口
 ArrayDeque实现了Deque接口，Deque继承Queue实现了Stack相关方法。
 Deque的含义是“double ended queue”，即双端队列。既可
-					...
-				</div>
-			</a>
-                <div class="article-meta">
-				    <span>2018-12-18</span>
-                    
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/05-Java/">05 Java</a>
-										
-											>
-										
-                                    </span>
-                                
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/05-Java/00-Java-基础/">00 Java 基础</a>
-										
-											>
-										
-                                    </span>
-                                
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/05-Java/00-Java-基础/06-集合/">06 集合</a>
-										
-                                    </span>
-                                
-                            
-                    
-                </div>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/2018/12/18/05%20Java/00%20Java%20%E5%9F%BA%E7%A1%80/06%20%E9%9B%86%E5%90%88/2.4%20TreeMap%E3%80%81TreeSet/">
-				<h2 class="index-title">
-					2.4 TreeMap、TreeSet
-				</h2>
-				<div class="index-brief">
-					TreeSet仅对TreeMap做了一层包装，实现相同。TreeSet里面有一个TreeMap（适配器模式）。
-TreeMap和TreeSet根据对象的 compareTo 方法判断对象是否是同一个对象，若自定义了排序 Comparator，以自定义为准，顺序相同的只能存在一个。
-1 TreeMap
-					...
-				</div>
-			</a>
-                <div class="article-meta">
-				    <span>2018-12-18</span>
-                    
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/05-Java/">05 Java</a>
-										
-											>
-										
-                                    </span>
-                                
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/05-Java/00-Java-基础/">00 Java 基础</a>
-										
-											>
-										
-                                    </span>
-                                
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/05-Java/00-Java-基础/06-集合/">06 集合</a>
-										
-                                    </span>
-                                
-                            
-                    
-                </div>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/2018/12/18/05%20Java/00%20Java%20%E5%9F%BA%E7%A1%80/03%20%E6%8E%A5%E5%8F%A3%E3%80%81lambda%E3%80%81%E5%86%85%E9%83%A8%E7%B1%BB%E3%80%81%E4%BB%A3%E7%90%86/3%20%E5%86%85%E9%83%A8%E7%B1%BB/">
-				<h2 class="index-title">
-					3 内部类
-				</h2>
-				<div class="index-brief">
-					内部类（ inner class）是定义在另一个类中的类。
-为什么需要使用内部类：
-
-内部类方法可以访问该类定义所在的作用域中的数据，包括私有数据
-内部类可以对同一个包中的其他类隐藏起来
-当想要定义一个回调函数而不想写大量代码时，使用匿名内部类比较便捷
-
-1 访问状态
-内部类的构造器具有外部类的隐式
-					...
-				</div>
-			</a>
-                <div class="article-meta">
-				    <span>2018-12-18</span>
-                    
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/05-Java/">05 Java</a>
-										
-											>
-										
-                                    </span>
-                                
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/05-Java/00-Java-基础/">00 Java 基础</a>
-										
-											>
-										
-                                    </span>
-                                
-                            
-                                
-                                    <span>
-                                        <i class="fa fa-folder" aria-hidden="true"></i>
-                                        <a href="/categories/05-Java/00-Java-基础/03-接口、lambda、内部类、代理/">03 接口、lambda、内部类、代理</a>
-										
-                                    </span>
-                                
-                            
-                    
-                </div>
-		</div>	
-	
-		<div class="index-li">
-			<a href="/2018/12/18/05%20Java/00%20Java%20%E5%9F%BA%E7%A1%80/06%20%E9%9B%86%E5%90%88/2.7%20PriorityQueue/">
-				<h2 class="index-title">
-					2.7 PriorityQueue
-				</h2>
-				<div class="index-brief">
-					1 总体介绍
-优先队列的作用是能保证每次取出的元素都是队列中权值最小的。
-实现了Queue接口，不允许null，通过数组实现的小顶堆。
-
-父子节点的编号之间有如下关系：
-
-leftNo = parentNo*2+1
-rightNo = parentNo*2+2
-parentNo = (nodeNo-
 					...
 				</div>
 			</a>

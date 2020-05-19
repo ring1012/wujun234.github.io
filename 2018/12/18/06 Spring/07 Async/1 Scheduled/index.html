@@ -2502,6 +2502,15 @@ var _hmt = _hmt || [];
 			
 							<ul>
 								<li class="file">
+									<a href="/2020/04/15/06%20Spring/05%20Data.md/10%20Ehcache%203.8%20%E7%AE%80%E5%8D%95%E6%8C%81%E4%B9%85%E5%8C%96/">
+										10 Ehcache 3.8 简单持久化
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file">
 									<a href="/2018/12/18/06%20Spring/05%20Data.md/2%20Spring%20Data%20JPA/">
 										2 Spring Data JPA
 									</a>
@@ -4049,6 +4058,37 @@ var _hmt = _hmt || [];
 							</ul>
 			
 							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										09 消息队列
+									</a>
+									
+							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										3 Kafka
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2020/05/06/11%20%E5%88%86%E5%B8%83%E5%BC%8F/09%20%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/3%20Kafka/kafka/">
+										kafka
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
 								<li class="file">
 									<a href="/2019/04/24/11%20%E5%88%86%E5%B8%83%E5%BC%8F/1%20Hadoop/">
 										1 Hadoop
@@ -4500,6 +4540,26 @@ var _hmt = _hmt || [];
 									</a>
 									
 							<ul>
+								<li class="directory">
+									<a href="#" class="directory">
+										<i class="fa fa-plus-square-o"></i>
+										1 Json
+									</a>
+									
+							<ul>
+								<li class="file">
+									<a href="/2020/04/30/16%20%E8%BE%85%E5%8A%A9%E5%B7%A5%E5%85%B7%E7%B1%BB/4%20%E6%95%B0%E6%8D%AE%E6%A0%BC%E5%BC%8F/1%20Json/Jackson/">
+										Jackson
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+								</li>
+								
+							</ul>
+			
+							<ul>
 								<li class="file">
 									<a href="/2019/01/05/16%20%E8%BE%85%E5%8A%A9%E5%B7%A5%E5%85%B7%E7%B1%BB/4%20%E6%95%B0%E6%8D%AE%E6%A0%BC%E5%BC%8F/1%20Lombok%E6%B6%88%E9%99%A4Java%E5%86%97%E9%95%BF/">
 										1 Lombok消除Java冗长
@@ -4664,14 +4724,23 @@ public class ScheduledTasks {
     public void xxx() {
         //...
     }
+
+    @Scheduled(cron = &quot;${jobs.cron}&quot;)
+    public void xxx() {
+        //...
+    }
 }
 </code></pre>
-<p>@Scheduled 详解</p>
+<p>@Scheduled 支持多种参数：</p>
 <ul>
-<li>@Scheduled(fixedRate = 5000) ：上一次开始执行时间点之后5秒再执行</li>
-<li>@Scheduled(fixedDelay = 5000) ：上一次执行完毕时间点之后5秒再执行</li>
-<li>@Scheduled(initialDelay=1000, fixedRate=5000) ：第一次延迟1秒后执行，之后按 fixedRate 的规则每5秒执行一次</li>
-<li>@Scheduled(cron=&quot;*/5 * * * * *&quot;) ：通过 cron 表达式定义规则</li>
+<li>cron：cron表达式，指定任务在特定时间执行；</li>
+<li>fixedDelay：表示上一次任务执行完成后多久再次执行，参数类型为long，单位ms；</li>
+<li>fixedDelayString：与fixedDelay含义一样，只是参数类型变为String；</li>
+<li>fixedRate：表示按一定的频率执行任务，参数类型为long，单位ms；</li>
+<li>fixedRateString: 与fixedRate的含义一样，只是将参数类型变为String；</li>
+<li>initialDelay：表示延迟多久再第一次执行任务，参数类型为long，单位ms；</li>
+<li>initialDelayString：与initialDelay的含义一样，只是将参数类型变为String；</li>
+<li>zone：时区，默认为当前时区，一般没有用到。</li>
 </ul>
 <h3 id="2-ScheduledExecutorService"><a class="header-anchor" href="#2-ScheduledExecutorService"></a>2 ScheduledExecutorService</h3>
 <p>通过 ScheduledExecutorService 周期性地运行</p>
@@ -4688,6 +4757,39 @@ private void schedulePeriodicRefresh() {
         1000,
         SECONDS
     );
+}
+</code></pre>
+<h3 id="3-多线程-Scheduled"><a class="header-anchor" href="#3-多线程-Scheduled"></a>3 多线程 Scheduled</h3>
+<pre><code>@Configuration
+@EnableScheduling
+@ConditionalOnProperty(prefix = &quot;scheduling&quot;, name = &quot;enabled&quot;, havingValue = &quot;true&quot;)
+public class ScheduleConfig implements SchedulingConfigurer {
+    @Override
+    public void configureTasks(ScheduledTaskRegistrar taskRegistrar) {
+        taskRegistrar.setScheduler(Executors.newScheduledThreadPool(5));
+    }
+}
+</code></pre>
+<p>或者</p>
+<pre><code>@Configuration
+@EnableScheduling
+@ConditionalOnProperty(prefix = &quot;scheduling&quot;, name = &quot;enabled&quot;, havingValue = &quot;true&quot;)
+public class ScheduleConfig {
+    @Bean(&quot;schedulePool&quot;)
+    public Executor jobPool() {
+        ThreadPoolTaskScheduler exec = new ThreadPoolTaskScheduler();
+        exec.setPoolSize(10);
+        exec.initialize();
+        return exec;
+    } 
+}
+public class ScheduleService {
+
+    @Async(&quot;schedulePool&quot;)
+    @Scheduled(fixedRate = 20000 )
+    public void readSecondComponent() {
+        // body
+    }
 }
 </code></pre>
 
